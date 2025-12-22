@@ -1,0 +1,13 @@
+service:
+  name: infra-grafana
+  vmid: 611
+  ip: 192.168.1.111/24
+
+resources:
+  cpu: 2
+  memory: 2048
+  disk_gb: 50
+
+tags:
+  - monitoring
+  - grafana

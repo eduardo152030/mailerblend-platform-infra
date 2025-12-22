@@ -13,6 +13,7 @@ services:
       - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./config/rules:/etc/prometheus/rules:ro
       - prom_data:/prometheus
+      - ./config/targets:/etc/prometheus/targets:ro
 
   alertmanager:
     image: prom/alertmanager:latest
