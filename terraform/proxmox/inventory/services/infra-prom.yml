@@ -1,0 +1,13 @@
+service:
+  name: infra-prom
+  vmid: 610
+  ip: 192.168.1.110/24
+
+resources:
+  cpu: 2
+  memory: 4096
+  disk_gb: 30
+
+tags:
+  - monitoring
+  - prometheus

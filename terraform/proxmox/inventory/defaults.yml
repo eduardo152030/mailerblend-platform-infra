@@ -1,0 +1,18 @@
+lxc:
+  template_vmid: 106
+  storage: local-lvm
+  bridge: vmbr0
+
+  # red
+  gateway: 192.168.1.254
+  dns:
+    - 192.168.1.254
+
+  # recursos por defecto
+  cpu: 2
+  memory: 2048
+  disk_gb: 20
+
+  # opcional
+  tags:
+    - infra

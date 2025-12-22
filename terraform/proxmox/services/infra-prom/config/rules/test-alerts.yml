@@ -1,0 +1,11 @@
+groups:
+  - name: test-alerts
+    rules:
+      - alert: PrometheusInstanceDown
+        expr: up{job="prometheus"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Prometheus is down"
+          description: "Prometheus target is not reachable for more than 1 minute."
