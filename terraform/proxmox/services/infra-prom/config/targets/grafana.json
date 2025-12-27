@@ -1,0 +1,12 @@
+[
+  {
+    "targets": [
+      "192.168.1.111:3010"
+    ],
+    "labels": {
+      "job": "grafana",
+      "source": "inventory",
+      "service": "infra-grafana"
+    }
+  }
+]

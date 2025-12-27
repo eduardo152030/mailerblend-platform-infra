@@ -10,9 +10,17 @@ resource "proxmox_virtual_environment_container" "svc" {
 
   node_name     = var.node_name
   vm_id         = each.value.vmid
-  description   = "Managed by Terraform (inventory-driven)"
+  description   = "Managed by Terraform - Service: ${each.value.name}"
   start_on_boot = true
   tags          = each.value.tags
+
+  # --- CONFIGURACIÓN CRÍTICA PARA DOCKER ---
+  unprivileged = false # <--- Obligatorio para Grafana/Docker sin errores de kernel
+
+  features {
+    nesting = true
+    keyctl  = true
+  }
 
   # Clone from CT template
   clone {
@@ -21,7 +29,6 @@ resource "proxmox_virtual_environment_container" "svc" {
     datastore_id = each.value.storage
   }
 
-  # Override basics after clone
   initialization {
     hostname = each.value.name
 
@@ -35,28 +42,24 @@ resource "proxmox_virtual_environment_container" "svc" {
         gateway = each.value.gateway
       }
     }
+
+    # Opcional: Si quieres pasar la clave SSH pública aquí
+    # user_account {
+    #   keys = [var.ssh_public_key]
+    # }
   }
 
-  # Optional: ensure NIC is on the right bridge (if your provider supports it)
-  # network_interface {
-  #   name   = "eth0"
-  #   bridge = each.value.bridge
-  # }
-
-  # Disk sizing: only enable if your provider resource supports resizing here.
-  # If you get a schema error, comment this block and we'll handle disk separately.
   disk {
     datastore_id = each.value.storage
-    size         = each.value.disk_gb
+    size         = each.value.disk_gb # Nuestro script de auto-resize se encargará del resto
   }
 
-  # Resources: only enable if supported by your provider schema.
-  # If you get errors, we adapt to the exact attribute names your version expects.
   cpu {
     cores = each.value.cpu
   }
 
   memory {
     dedicated = each.value.memory
+    swap      = 512
   }
 }

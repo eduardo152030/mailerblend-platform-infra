@@ -1,5 +1,5 @@
 lxc:
-  template_vmid: 106
+  template_vmid: 104
   storage: local-lvm
   bridge: vmbr0
 
@@ -10,8 +10,8 @@ lxc:
 
   # recursos por defecto
   cpu: 2
-  memory: 2048
-  disk_gb: 20
+  memory: 1048
+  disk_gb: 10
 
   # opcional
   tags:

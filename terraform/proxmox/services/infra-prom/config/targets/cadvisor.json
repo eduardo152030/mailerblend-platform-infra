@@ -11,12 +11,32 @@
   },
   {
     "targets": [
+      "192.168.1.113:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "infra-hola"
+    }
+  },
+  {
+    "targets": [
       "192.168.1.110:8085"
     ],
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
       "service": "infra-prom"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.112:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "svc01"
     }
   }
 ]

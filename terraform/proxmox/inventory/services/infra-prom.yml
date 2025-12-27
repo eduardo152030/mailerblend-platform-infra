@@ -5,8 +5,8 @@ service:
 
 resources:
   cpu: 2
-  memory: 4096
-  disk_gb: 30
+  memory: 2048
+  disk_gb: 25
 
 tags:
   - monitoring

@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: infra-svc01-nocodb-db
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  nocodb:
+    image: nocodb/nocodb:latest
+    container_name: infra-svc01-nocodb
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      NC_DB: ${NC_DB}
+      NC_AUTH_JWT_SECRET: ${NC_AUTH_JWT_SECRET}
+      TZ: ${TZ}
+    volumes:
+      - nocodb_data:/usr/app/data
+    ports:
+      - "18080:8080"
+
+volumes:
+  pg_data:
+  nocodb_data:

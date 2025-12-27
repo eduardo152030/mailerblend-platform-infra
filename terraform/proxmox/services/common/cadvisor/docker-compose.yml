@@ -8,8 +8,16 @@ services:
       - "8085:8080"
     devices:
       - /dev/kmsg
+    command:
+      - "--listen_ip=0.0.0.0"
+      - "--port=8080"
+      - "--housekeeping_interval=10s"
+      - "--global_housekeeping_interval=30s"
+      - "--docker_only=true"
+      - "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
       - /sys:/sys:ro
       - /var/lib/docker:/var/lib/docker:ro
+      - /dev/disk:/dev/disk:ro

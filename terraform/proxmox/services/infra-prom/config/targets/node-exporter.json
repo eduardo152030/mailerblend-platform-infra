@@ -4,9 +4,19 @@
       "192.168.1.111:9100"
     ],
     "labels": {
-      "job": "node",
+      "job": "node_exporter",
       "source": "inventory",
       "service": "infra-grafana"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.113:9100"
+    ],
+    "labels": {
+      "job": "node_exporter",
+      "source": "inventory",
+      "service": "infra-hola"
     }
   },
   {
@@ -14,9 +24,19 @@
       "192.168.1.110:9100"
     ],
     "labels": {
-      "job": "node",
+      "job": "node_exporter",
       "source": "inventory",
       "service": "infra-prom"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.112:9100"
+    ],
+    "labels": {
+      "job": "node_exporter",
+      "source": "inventory",
+      "service": "svc01"
     }
   }
 ]

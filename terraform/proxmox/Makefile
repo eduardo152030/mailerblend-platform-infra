@@ -14,7 +14,7 @@ plan:
 	terraform plan
 
 apply:
-	terraform apply
+	terraform apply -parallelism=1
 
 destroy-all:
 	terraform destroy
