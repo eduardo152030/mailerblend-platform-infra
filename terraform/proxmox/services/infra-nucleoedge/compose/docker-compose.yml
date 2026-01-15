@@ -1,0 +1,32 @@
+services:
+  sgtm_preview:
+    image: gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable
+    restart: unless-stopped
+    ports:
+      - "8092:8080"
+    environment:
+      - PORT=8080
+      - RUN_AS_PREVIEW_SERVER=true
+      - CONTAINER_CONFIG=aWQ9R1RNLVBUV00zSlpNJmVudj0xJmF1dGg9Z1ZUZVpNbzFRLXYwa3lieXAxZVJmdw==
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  sgtm:
+    image: gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable
+    restart: unless-stopped
+    ports:
+      - "8091:8080"
+    environment:
+      - PORT=8080
+      - CONTAINER_CONFIG=aWQ9R1RNLVBUV00zSlpNJmVudj0xJmF1dGg9Z1ZUZVpNbzFRLXYwa3lieXAxZVJmdw==
+      - PREVIEW_SERVER_URL=https://edge.nucleotecnologico.es/preview
+    depends_on:
+      - sgtm_preview
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 5s
+      retries: 5

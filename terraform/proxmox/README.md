@@ -197,6 +197,10 @@ make status
 ./scripts/deploy-common.sh cadvisor <IP>
 ./scripts/deploy-common.sh node-exporter <IP>
 
+❌ Si no aparece → Grafana no está levantado
+👉 solución:
+./scripts/deploy-service.sh infra-grafana 192.168.1.111
+
 ## 🔁 Ciclo típico para añadir un nuevo servicio
 
 1. Crear `inventory/services/infra-nuevo.yml`
