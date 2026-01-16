@@ -21,6 +21,26 @@
   },
   {
     "targets": [
+      "192.168.1.115:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "infra-mailerblend-edge"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.114:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "infra-nucleoedge"
+    }
+  },
+  {
+    "targets": [
       "192.168.1.110:8085"
     ],
     "labels": {

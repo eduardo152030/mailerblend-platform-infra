@@ -2,33 +2,31 @@ services:
   # 1) Preview server (DEBE ser 1 instancia)
   sgtm_preview:
     image: gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable
+    container_name: mailerblend-sgtm-preview
     restart: unless-stopped
     ports:
-      - "8093:8080"     # Host 8093 -> Contenedor 8080
+      - "18092:8080"     # Host(LAN) 18092 -> Contenedor 8080
     environment:
       - PORT=8080
       - CONTAINER_CONFIG=aWQ9R1RNLVRKNkRXOExCJmVudj0xJmF1dGg9RjlvZ19HTWsxNkN5Q3NZVzY1U2pIUQ==
       - RUN_AS_PREVIEW_SERVER=true
-      - HEALTH_CHECK_PATH=/healthy
-      - TZ=Europe/Madrid
     healthcheck:
       test: ["CMD", "curl", "-fsS", "http://localhost:8080/healthy"]
       interval: 30s
       timeout: 5s
       retries: 3
 
-  # 2) Serving / Cluster entrypoint (tu endpoint principal)
+  # 2) Serving / Cluster entrypoint (endpoint principal)
   sgtm:
     image: gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable
+    container_name: mailerblend-sgtm-serving
     restart: unless-stopped
     ports:
-      - "8094:8080"     # Host 8094 -> Contenedor 8080
+      - "18091:8080"     # Host(LAN) 18091 -> Contenedor 8080
     environment:
       - PORT=8080
       - CONTAINER_CONFIG=aWQ9R1RNLVRKNkRXOExCJmVudj0xJmF1dGg9RjlvZ19HTWsxNkN5Q3NZVzY1U2pIUQ==
       - PREVIEW_SERVER_URL=https://edge.mailerblend.com
-      - HEALTH_CHECK_PATH=/healthy
-      - TZ=Europe/Madrid
     depends_on:
       - sgtm_preview
     healthcheck:
