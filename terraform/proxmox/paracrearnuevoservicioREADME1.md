@@ -147,7 +147,7 @@ echo "$SERVICE_IP_ONLY"
 
 ---
 
-## 9️⃣ Verificación final (OBLIGATORIO)
+## 9️⃣ Verificación final (OBLIGATORIO)  este los devulve todos claritos
 
 ```bash
 curl -sS http://192.168.1.110:9090/api/v1/targets \

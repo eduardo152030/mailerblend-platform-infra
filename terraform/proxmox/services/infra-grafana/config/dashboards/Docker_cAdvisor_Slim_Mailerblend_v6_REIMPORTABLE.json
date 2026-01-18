@@ -1,19 +1,1817 @@
 {
-  "id": null,
-  "uid": null,
-  "title": "Docker / cAdvisor – Slim (Mailerblend Homelab) v6 (id-based + legends + services)",
-  "timezone": "browser",
-  "schemaVersion": 39,
-  "version": 6,
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 12,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "## Docker / cAdvisor – Slim (Homelab)\n\nThis dashboard shows **Docker containers running inside a Proxmox LXC**, using **cAdvisor cgroup metrics**.\n\n### Important notes\n- A \"container\" here is a **systemd cgroup** (`docker-<id>.scope`)\n- Container identity is based on the **`id` label**, not on `container` or `name`\n- Only Docker containers are shown (`id =~ .*docker-.*`)\n- Host / LXC metrics are **intentionally excluded**\n\n### How to interpret values\n- **Active containers** ≠ total seen containers\n- **Seen containers** includes recently stopped containers (Prometheus series)\n- Short time windows are used to approximate *real activity*\n\nDesigned to stay **lightweight, reproducible and SRE-friendly**.\n",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.3.1",
+      "title": "How to read this dashboard",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 13,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "### Containers overview\n\n- **Docker containers active (last 2m)**  \n  Containers that produced CPU activity in the last 2 minutes.  \n  Closest approximation to *containers running now*.\n\n- **Docker containers seen (series)**  \n  Number of container series currently stored in Prometheus.  \n  Includes recently stopped containers.\n\n- **Docker container churn (15m)**  \n  Containers that appeared or changed in the last 15 minutes.  \n  High values may indicate crash-loops or frequent redeployments.\n\n- **cAdvisor up**  \n  Health check for the cAdvisor exporter on this instance.\n",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.3.1",
+      "title": "Legend: Containers overview",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 18,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "## Services view (human-friendly)\n\nYour cAdvisor metrics include a `service` label (example: `service=\"infra-grafana\"`).  \nThis section aggregates metrics **by service** (instead of raw `id`), so you can quickly spot *which service* is heavy.\n\nUse the **Service** dropdown to filter, then drill down in the `id` panels below.\n",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.3.1",
+      "title": "Legend: Services view",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 14
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "count(count by (service) (container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}))",
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Services seen",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 14
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "count(count by (service) (container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}))",
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Services selected",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 14
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "sum(count by (service) (container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}))",
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Containers (cgroups) by service (selected)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 14
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "topk(1, sum by (service) (rate(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}[5m])))",
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Top service CPU (cores)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 20
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "topk(10, sum by (service) (rate(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}[5m])))",
+          "instant": false,
+          "legendFormat": "{{service}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU (cores) by service (Top 10)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 20
+      },
+      "id": 24,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "topk(10, sum by (service) (container_memory_working_set_bytes{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}))",
+          "instant": false,
+          "legendFormat": "{{service}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Memory working set by service (Top 10)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 28
+      },
+      "id": 25,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "topk(10, sum by (service) (rate(container_network_receive_bytes_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}[5m])))",
+          "instant": false,
+          "legendFormat": "{{service}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Network RX bytes/s by service (Top 10)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 28
+      },
+      "id": 26,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "topk(10, sum by (service) (rate(container_network_transmit_bytes_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}[5m])))",
+          "instant": false,
+          "legendFormat": "{{service}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Network TX bytes/s by service (Top 10)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 36
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "count(((sum by (id) (rate(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[2m])) ) > 0))",
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Docker containers active (last 2m)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 36
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "count(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"})",
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Docker containers seen (series)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 36
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "count(changes(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[15m]) > 0)",
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Docker container churn (changed in 15m)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 36
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "min(up{job=\"cadvisor\", instance=~\"$instance\"})",
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "cAdvisor up",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "footer": {
+              "reducers": []
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 27,
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "count by (service, id) (container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"})",
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Service → Docker cgroup ids (count series)",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 51
+      },
+      "id": 14,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "### CPU & throttling\n\n- **CPU (cores)**  \n  Real CPU usage per container, expressed in **CPU cores**.  \n  Values > 1 mean the container is using multiple cores.\n\n- **CPU throttling %**  \n  Percentage of time the container was throttled by the CPU scheduler.  \n  Sustained values > 20% usually indicate **CPU limits too low**.\n",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.3.1",
+      "title": "Legend: CPU & throttling",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 55
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "sum by (id) (rate(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\"$container\", id=~\".*docker-.*\"}[5m]))",
+          "instant": false,
+          "legendFormat": "{{id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU (cores) by Docker cgroup id",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 55
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "topk(10, 100 * sum by (id) (rate(container_cpu_cfs_throttled_periods_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[5m])) / sum by (id) (rate(container_cpu_cfs_periods_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[5m])))",
+          "instant": false,
+          "legendFormat": "{{id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU throttling % (Top 10 worst)",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 63
+      },
+      "id": 15,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "### Memory\n\n- **Memory working set**  \n  Memory actively used by the container (best signal for pressure).\n\n- **Memory % of limit**  \n  Working set divided by the configured memory limit.  \n  Values > 90% mean the container is close to OOM conditions.\n\nIf no memory limit is configured, percentages may be misleading.\n",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.3.1",
+      "title": "Legend: Memory",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 67
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "container_memory_working_set_bytes{job=\"cadvisor\", instance=~\"$instance\", id=~\"$container\", id=~\".*docker-.*\"}",
+          "instant": false,
+          "legendFormat": "{{id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Memory working set (bytes) by Docker cgroup id",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 67
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "100 * container_memory_working_set_bytes{job=\"cadvisor\", instance=~\"$instance\", id=~\"$container\", id=~\".*docker-.*\"} / container_spec_memory_limit_bytes{job=\"cadvisor\", instance=~\"$instance\", id=~\"$container\", id=~\".*docker-.*\"}",
+          "instant": false,
+          "legendFormat": "{{id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Memory % of limit (where limit exists)",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 75
+      },
+      "id": 16,
+      "options": {
+        "content": "### Network\n\n- **RX / TX bytes per second**  \n  Network throughput per container.\n\nTop values usually correspond to:\n- reverse proxies\n- APIs\n- databases\n- metrics/log pipelines\n",
+        "mode": "markdown"
+      },
+      "title": "Legend: Network",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 79
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "topk(10, sum by (id) (rate(container_network_receive_bytes_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[5m])))",
+          "instant": false,
+          "legendFormat": "{{id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Network RX bytes/s (Top 10)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 79
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "topk(10, sum by (id) (rate(container_network_transmit_bytes_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[5m])))",
+          "instant": false,
+          "legendFormat": "{{id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Network TX bytes/s (Top 10)",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 87
+      },
+      "id": 17,
+      "options": {
+        "content": "### Missing containers\n\nThis table shows containers that **stopped sending metrics**.\n\n- **seconds_since_last_seen**  \n  Time elapsed since the container last produced metrics.\n\nValues > 300 seconds usually mean:\n- the container stopped\n- the container was recreated\n- Docker / cAdvisor restarted\n",
+        "mode": "markdown"
+      },
+      "title": "Legend: Missing containers",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto"
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 91
+      },
+      "id": 11,
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "expr": "(time() - max by (instance, id) (timestamp(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"})))",
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Docker containers missing (seconds since last seen)",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true
+            },
+            "renameByName": {
+              "Value": "seconds_since_last_seen"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "preload": false,
   "refresh": "30s",
+  "schemaVersion": 42,
   "tags": [
     "mailerblend",
     "homelab",
     "cadvisor",
     "docker"
   ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "Prometheus",
+          "value": "PBFA97CFB590B2093"
+        },
+        "label": "Datasource",
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "type": "datasource"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "includeAll": true,
+        "label": "Instance",
+        "multi": true,
+        "name": "instance",
+        "options": [],
+        "query": {
+          "query": "label_values(container_cpu_usage_seconds_total{job=\"cadvisor\"}, instance)",
+          "refId": "PromQuery"
+        },
+        "refresh": 1,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "definition": "label_values(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\"},__name__)",
+        "includeAll": true,
+        "label": "Docker cgroup id",
+        "multi": true,
+        "name": "container",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\"},__name__)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "definition": "label_values(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\"},service)",
+        "includeAll": true,
+        "label": "Service",
+        "multi": true,
+        "name": "service",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\"},service)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
   "time": {
-    "from": "now-1h",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {
@@ -28,1069 +1826,8 @@
       "1h"
     ]
   },
-  "templating": {
-    "list": [
-      {
-        "type": "datasource",
-        "name": "datasource",
-        "label": "Datasource",
-        "query": "prometheus",
-        "current": {},
-        "options": []
-      },
-      {
-        "type": "query",
-        "name": "instance",
-        "label": "Instance",
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "query": {
-          "query": "label_values(container_cpu_usage_seconds_total{job=\"cadvisor\"}, instance)",
-          "refId": "PromQuery"
-        },
-        "refresh": 1,
-        "sort": 1,
-        "multi": true,
-        "includeAll": true,
-        "allValue": ".*",
-        "current": {}
-      },
-      {
-        "type": "query",
-        "name": "container",
-        "label": "Docker cgroup id",
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "query": {
-          "query": "label_values(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}, id)",
-          "refId": "PromQuery"
-        },
-        "refresh": 1,
-        "sort": 1,
-        "multi": true,
-        "includeAll": true,
-        "allValue": ".*",
-        "current": {}
-      },
-      {
-        "type": "query",
-        "name": "service",
-        "label": "Service",
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "query": {
-          "query": "label_values(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}, service)",
-          "refId": "PromQuery"
-        },
-        "refresh": 1,
-        "sort": 1,
-        "multi": true,
-        "includeAll": true,
-        "allValue": ".*",
-        "current": {}
-      }
-    ]
-  },
-  "annotations": {
-    "list": []
-  },
-  "links": [],
-  "panels": [
-    {
-      "id": 12,
-      "type": "text",
-      "title": "How to read this dashboard",
-      "gridPos": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 5
-      },
-      "options": {
-        "mode": "markdown",
-        "content": "## Docker / cAdvisor – Slim (Homelab)\n\nThis dashboard shows **Docker containers running inside a Proxmox LXC**, using **cAdvisor cgroup metrics**.\n\n### Important notes\n- A \"container\" here is a **systemd cgroup** (`docker-<id>.scope`)\n- Container identity is based on the **`id` label**, not on `container` or `name`\n- Only Docker containers are shown (`id =~ .*docker-.*`)\n- Host / LXC metrics are **intentionally excluded**\n\n### How to interpret values\n- **Active containers** ≠ total seen containers\n- **Seen containers** includes recently stopped containers (Prometheus series)\n- Short time windows are used to approximate *real activity*\n\nDesigned to stay **lightweight, reproducible and SRE-friendly**.\n"
-      },
-      "transparent": true
-    },
-    {
-      "id": 13,
-      "type": "text",
-      "title": "Legend: Containers overview",
-      "gridPos": {
-        "x": 0,
-        "y": 5,
-        "w": 24,
-        "h": 4
-      },
-      "options": {
-        "mode": "markdown",
-        "content": "### Containers overview\n\n- **Docker containers active (last 2m)**  \n  Containers that produced CPU activity in the last 2 minutes.  \n  Closest approximation to *containers running now*.\n\n- **Docker containers seen (series)**  \n  Number of container series currently stored in Prometheus.  \n  Includes recently stopped containers.\n\n- **Docker container churn (15m)**  \n  Containers that appeared or changed in the last 15 minutes.  \n  High values may indicate crash-loops or frequent redeployments.\n\n- **cAdvisor up**  \n  Health check for the cAdvisor exporter on this instance.\n"
-      },
-      "transparent": true
-    },
-    {
-      "id": 18,
-      "type": "text",
-      "title": "Legend: Services view",
-      "gridPos": {
-        "x": 0,
-        "y": 9,
-        "w": 24,
-        "h": 5
-      },
-      "options": {
-        "mode": "markdown",
-        "content": "## Services view (human-friendly)\n\nYour cAdvisor metrics include a `service` label (example: `service=\"infra-grafana\"`).  \nThis section aggregates metrics **by service** (instead of raw `id`), so you can quickly spot *which service* is heavy.\n\nUse the **Service** dropdown to filter, then drill down in the `id` panels below.\n"
-      },
-      "transparent": true
-    },
-    {
-      "id": 19,
-      "type": "stat",
-      "title": "Services seen",
-      "gridPos": {
-        "x": 0,
-        "y": 14,
-        "w": 6,
-        "h": 6
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "count(count by (service) (container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}))",
-          "refId": "A",
-          "instant": false,
-          "range": true
-        }
-      ],
-      "options": {
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "orientation": "auto",
-        "textMode": "auto",
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 20,
-      "type": "stat",
-      "title": "Services selected",
-      "gridPos": {
-        "x": 6,
-        "y": 14,
-        "w": 6,
-        "h": 6
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "count(count by (service) (container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}))",
-          "refId": "A",
-          "instant": false,
-          "range": true
-        }
-      ],
-      "options": {
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "orientation": "auto",
-        "textMode": "auto",
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 21,
-      "type": "stat",
-      "title": "Containers (cgroups) by service (selected)",
-      "gridPos": {
-        "x": 12,
-        "y": 14,
-        "w": 6,
-        "h": 6
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "sum(count by (service) (container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}))",
-          "refId": "A",
-          "instant": false,
-          "range": true
-        }
-      ],
-      "options": {
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "orientation": "auto",
-        "textMode": "auto",
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 22,
-      "type": "stat",
-      "title": "Top service CPU (cores)",
-      "gridPos": {
-        "x": 18,
-        "y": 14,
-        "w": 6,
-        "h": 6
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "topk(1, sum by (service) (rate(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}[5m])))",
-          "refId": "A",
-          "instant": false,
-          "range": true
-        }
-      ],
-      "options": {
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "orientation": "auto",
-        "textMode": "auto",
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 23,
-      "type": "timeseries",
-      "title": "CPU (cores) by service (Top 10)",
-      "gridPos": {
-        "x": 0,
-        "y": 20,
-        "w": 12,
-        "h": 8
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "topk(10, sum by (service) (rate(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}[5m])))",
-          "refId": "A",
-          "instant": false,
-          "range": true,
-          "legendFormat": "{{service}}"
-        }
-      ],
-      "options": {
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 24,
-      "type": "timeseries",
-      "title": "Memory working set by service (Top 10)",
-      "gridPos": {
-        "x": 12,
-        "y": 20,
-        "w": 12,
-        "h": 8
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "topk(10, sum by (service) (container_memory_working_set_bytes{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}))",
-          "refId": "A",
-          "instant": false,
-          "range": true,
-          "legendFormat": "{{service}}"
-        }
-      ],
-      "options": {
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "bytes"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 25,
-      "type": "timeseries",
-      "title": "Network RX bytes/s by service (Top 10)",
-      "gridPos": {
-        "x": 0,
-        "y": 28,
-        "w": 12,
-        "h": 8
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "topk(10, sum by (service) (rate(container_network_receive_bytes_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}[5m])))",
-          "refId": "A",
-          "instant": false,
-          "range": true,
-          "legendFormat": "{{service}}"
-        }
-      ],
-      "options": {
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "Bps"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 26,
-      "type": "timeseries",
-      "title": "Network TX bytes/s by service (Top 10)",
-      "gridPos": {
-        "x": 12,
-        "y": 28,
-        "w": 12,
-        "h": 8
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "topk(10, sum by (service) (rate(container_network_transmit_bytes_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"}[5m])))",
-          "refId": "A",
-          "instant": false,
-          "range": true,
-          "legendFormat": "{{service}}"
-        }
-      ],
-      "options": {
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "Bps"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 1,
-      "type": "stat",
-      "title": "Docker containers active (last 2m)",
-      "gridPos": {
-        "x": 0,
-        "y": 31,
-        "w": 6,
-        "h": 6
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "count(((sum by (id) (rate(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[2m])) ) > 0))",
-          "refId": "A",
-          "instant": false,
-          "range": true
-        }
-      ],
-      "options": {
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "orientation": "auto",
-        "textMode": "auto",
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 2,
-      "type": "stat",
-      "title": "Docker containers seen (series)",
-      "gridPos": {
-        "x": 6,
-        "y": 31,
-        "w": 6,
-        "h": 6
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "count(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"})",
-          "refId": "A",
-          "instant": false,
-          "range": true
-        }
-      ],
-      "options": {
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "orientation": "auto",
-        "textMode": "auto",
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 3,
-      "type": "stat",
-      "title": "Docker container churn (changed in 15m)",
-      "gridPos": {
-        "x": 12,
-        "y": 31,
-        "w": 6,
-        "h": 6
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "count(changes(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[15m]) > 0)",
-          "refId": "A",
-          "instant": false,
-          "range": true
-        }
-      ],
-      "options": {
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "orientation": "auto",
-        "textMode": "auto",
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 4,
-      "type": "stat",
-      "title": "cAdvisor up",
-      "gridPos": {
-        "x": 18,
-        "y": 31,
-        "w": 6,
-        "h": 6
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "min(up{job=\"cadvisor\", instance=~\"$instance\"})",
-          "refId": "A",
-          "instant": false,
-          "range": true
-        }
-      ],
-      "options": {
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "orientation": "auto",
-        "textMode": "auto",
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 27,
-      "type": "table",
-      "title": "Service → Docker cgroup ids (count series)",
-      "gridPos": {
-        "x": 0,
-        "y": 36,
-        "w": 24,
-        "h": 9
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "count by (service, id) (container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\", service=~\"$service\"})",
-          "refId": "A",
-          "instant": false,
-          "range": true
-        }
-      ],
-      "options": {
-        "showHeader": true,
-        "cellHeight": "sm"
-      },
-      "transformations": [
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {
-              "Time": true
-            }
-          }
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": "auto"
-          }
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 14,
-      "type": "text",
-      "title": "Legend: CPU & throttling",
-      "gridPos": {
-        "x": 0,
-        "y": 37,
-        "w": 24,
-        "h": 4
-      },
-      "options": {
-        "mode": "markdown",
-        "content": "### CPU & throttling\n\n- **CPU (cores)**  \n  Real CPU usage per container, expressed in **CPU cores**.  \n  Values > 1 mean the container is using multiple cores.\n\n- **CPU throttling %**  \n  Percentage of time the container was throttled by the CPU scheduler.  \n  Sustained values > 20% usually indicate **CPU limits too low**.\n"
-      },
-      "transparent": true
-    },
-    {
-      "id": 5,
-      "type": "timeseries",
-      "title": "CPU (cores) by Docker cgroup id",
-      "gridPos": {
-        "x": 0,
-        "y": 41,
-        "w": 12,
-        "h": 8
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "sum by (id) (rate(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\"$container\", id=~\".*docker-.*\"}[5m]))",
-          "refId": "A",
-          "instant": false,
-          "range": true,
-          "legendFormat": "{{id}}"
-        }
-      ],
-      "options": {
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 6,
-      "type": "timeseries",
-      "title": "CPU throttling % (Top 10 worst)",
-      "gridPos": {
-        "x": 12,
-        "y": 41,
-        "w": 12,
-        "h": 8
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "topk(10, 100 * sum by (id) (rate(container_cpu_cfs_throttled_periods_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[5m])) / sum by (id) (rate(container_cpu_cfs_periods_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[5m])))",
-          "refId": "A",
-          "instant": false,
-          "range": true,
-          "legendFormat": "{{id}}"
-        }
-      ],
-      "options": {
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "percent"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 15,
-      "type": "text",
-      "title": "Legend: Memory",
-      "gridPos": {
-        "x": 0,
-        "y": 49,
-        "w": 24,
-        "h": 4
-      },
-      "options": {
-        "mode": "markdown",
-        "content": "### Memory\n\n- **Memory working set**  \n  Memory actively used by the container (best signal for pressure).\n\n- **Memory % of limit**  \n  Working set divided by the configured memory limit.  \n  Values > 90% mean the container is close to OOM conditions.\n\nIf no memory limit is configured, percentages may be misleading.\n"
-      },
-      "transparent": true
-    },
-    {
-      "id": 7,
-      "type": "timeseries",
-      "title": "Memory working set (bytes) by Docker cgroup id",
-      "gridPos": {
-        "x": 0,
-        "y": 53,
-        "w": 12,
-        "h": 8
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "container_memory_working_set_bytes{job=\"cadvisor\", instance=~\"$instance\", id=~\"$container\", id=~\".*docker-.*\"}",
-          "refId": "A",
-          "instant": false,
-          "range": true,
-          "legendFormat": "{{id}}"
-        }
-      ],
-      "options": {
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "bytes"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 8,
-      "type": "timeseries",
-      "title": "Memory % of limit (where limit exists)",
-      "gridPos": {
-        "x": 12,
-        "y": 53,
-        "w": 12,
-        "h": 8
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "100 * container_memory_working_set_bytes{job=\"cadvisor\", instance=~\"$instance\", id=~\"$container\", id=~\".*docker-.*\"} / container_spec_memory_limit_bytes{job=\"cadvisor\", instance=~\"$instance\", id=~\"$container\", id=~\".*docker-.*\"}",
-          "refId": "A",
-          "instant": false,
-          "range": true,
-          "legendFormat": "{{id}}"
-        }
-      ],
-      "options": {
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "percent"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 16,
-      "type": "text",
-      "title": "Legend: Network",
-      "gridPos": {
-        "x": 0,
-        "y": 61,
-        "w": 24,
-        "h": 4
-      },
-      "options": {
-        "mode": "markdown",
-        "content": "### Network\n\n- **RX / TX bytes per second**  \n  Network throughput per container.\n\nTop values usually correspond to:\n- reverse proxies\n- APIs\n- databases\n- metrics/log pipelines\n"
-      },
-      "transparent": true
-    },
-    {
-      "id": 9,
-      "type": "timeseries",
-      "title": "Network RX bytes/s (Top 10)",
-      "gridPos": {
-        "x": 0,
-        "y": 65,
-        "w": 12,
-        "h": 8
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "topk(10, sum by (id) (rate(container_network_receive_bytes_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[5m])))",
-          "refId": "A",
-          "instant": false,
-          "range": true,
-          "legendFormat": "{{id}}"
-        }
-      ],
-      "options": {
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "Bps"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 10,
-      "type": "timeseries",
-      "title": "Network TX bytes/s (Top 10)",
-      "gridPos": {
-        "x": 12,
-        "y": 65,
-        "w": 12,
-        "h": 8
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "topk(10, sum by (id) (rate(container_network_transmit_bytes_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"}[5m])))",
-          "refId": "A",
-          "instant": false,
-          "range": true,
-          "legendFormat": "{{id}}"
-        }
-      ],
-      "options": {
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom"
-        }
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "Bps"
-        },
-        "overrides": []
-      }
-    },
-    {
-      "id": 17,
-      "type": "text",
-      "title": "Legend: Missing containers",
-      "gridPos": {
-        "x": 0,
-        "y": 73,
-        "w": 24,
-        "h": 4
-      },
-      "options": {
-        "mode": "markdown",
-        "content": "### Missing containers\n\nThis table shows containers that **stopped sending metrics**.\n\n- **seconds_since_last_seen**  \n  Time elapsed since the container last produced metrics.\n\nValues > 300 seconds usually mean:\n- the container stopped\n- the container was recreated\n- Docker / cAdvisor restarted\n"
-      },
-      "transparent": true
-    },
-    {
-      "id": 11,
-      "type": "table",
-      "title": "Docker containers missing (seconds since last seen)",
-      "gridPos": {
-        "x": 0,
-        "y": 77,
-        "w": 24,
-        "h": 10
-      },
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "expr": "(time() - max by (instance, id) (timestamp(container_cpu_usage_seconds_total{job=\"cadvisor\", instance=~\"$instance\", id=~\".*docker-.*\"})))",
-          "refId": "A",
-          "instant": false,
-          "range": true
-        }
-      ],
-      "options": {
-        "showHeader": true,
-        "cellHeight": "sm"
-      },
-      "transformations": [
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {
-              "Time": true
-            },
-            "renameByName": {
-              "Value": "seconds_since_last_seen"
-            }
-          }
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "unit": "s",
-          "custom": {
-            "align": "auto"
-          }
-        },
-        "overrides": []
-      }
-    }
-  ]
+  "timezone": "browser",
+  "title": "Docker / cAdvisor – Slim (Mailerblend Homelab) v6 (id-based + legends + services)",
+  "uid": "87e2edb4-2ddb-4719-912b-33c8e065ffb0",
+  "version": 1
 }

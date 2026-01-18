@@ -1,7 +1,19 @@
-global: {}
+global:
+  smtp_smarthost: 'authsmtp.securemail.pro:587'
+  smtp_from: 'team@nucleotecnologico.es'
+  smtp_auth_username: 'team@nucleotecnologico.es'
+  smtp_auth_password: '64qIP&Cd^2DhJDJLgY^%'
+  smtp_require_tls: true
 
 route:
-  receiver: "null"
+  receiver: email-default
+  group_by: ['alertname', 'job', 'instance']
+  group_wait: 10s
+  group_interval: 1m
+  repeat_interval: 1h
 
 receivers:
-  - name: "null"
+  - name: email-default
+    email_configs:
+      - to: 'eduardovl5@hotmail.com'
+        send_resolved: true

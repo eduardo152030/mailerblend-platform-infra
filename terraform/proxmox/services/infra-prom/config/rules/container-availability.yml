@@ -1,0 +1,12 @@
+groups:
+- name: container_availability
+  rules:
+  - alert: ContainerGone
+    expr: time() - container_last_seen{job="cadvisor",container!=""} > 60
+    for: 2m
+    labels:
+      severity: critical
+      source: prometheus
+    annotations:
+      summary: "Contenedor no visto ({{ $labels.instance }})"
+      description: "cAdvisor no ha visto el contenedor {{ $labels.container }} en >2m."

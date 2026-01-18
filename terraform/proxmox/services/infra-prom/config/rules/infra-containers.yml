@@ -1,0 +1,25 @@
+groups:
+- name: container_resources
+  rules:
+  # Contenedor usando mucha RAM (ej: >1GiB)
+  - alert: ContainerHighMemoryUsage
+    expr: |
+      container_memory_usage_bytes{job="cadvisor",container!=""} > 1073741824
+    for: 5m
+    labels:
+      severity: warning
+      source: prometheus
+    annotations:
+      summary: "Contenedor con RAM alta en {{ $labels.instance }}"
+      description: "RAM >1GiB. container={{ $labels.container }} value={{ printf \"%.0f\" $value }} bytes."
+
+  # CPU throttling (indica limitación por cgroup / cuota)
+  - alert: ContainerCpuThrottlingHigh
+    expr: |
+      rate(container_cpu_cfs_throttled_seconds_total{job="cadvisor",container!=""}[5m]) > 1
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "CPU throttling alto en {{ $labels.instance }}"
+      description: "container={{ $labels.container }} está siendo throttled >1s/s durante 5m."

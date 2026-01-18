@@ -25,7 +25,15 @@ rsync -av -e "ssh $SSH_OPTS" "${SRC_DIR}/compose/" "root@${TARGET_IP}:${REMOTE_D
 
 # Si existe carpeta config, copiarla
 if [[ -d "${SRC_DIR}/config" ]]; then
-    rsync -av -e "ssh $SSH_OPTS" "${SRC_DIR}/config/" "root@${TARGET_IP}:${REMOTE_DIR}/config/"
+  rsync -av -e "ssh $SSH_OPTS" "${SRC_DIR}/config/" "root@${TARGET_IP}:${REMOTE_DIR}/config/"
+fi
+
+# Si existe perm.env, copiarlo al remoto (necesario para Alertmanager SMTP)
+if [[ -f "${SRC_DIR}/perm.env" ]]; then
+  rsync -av -e "ssh $SSH_OPTS" "${SRC_DIR}/perm.env" "root@${TARGET_IP}:${REMOTE_DIR}/perm.env"
+  ssh $SSH_OPTS "root@${TARGET_IP}" "chmod 600 ${REMOTE_DIR}/perm.env"
+else
+  echo "WARN: ${SRC_DIR}/perm.env not found (skipping)."
 fi
 
 echo "==> Pulling and Starting containers..."

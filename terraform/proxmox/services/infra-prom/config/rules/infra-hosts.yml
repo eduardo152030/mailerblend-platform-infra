@@ -1,0 +1,61 @@
+groups:
+- name: host_availability
+  rules:
+  - alert: HostOutOfService
+    expr: up{job="node_exporter"} == 0
+    for: 2m
+    labels:
+      severity: critical
+      source: prometheus
+    annotations:
+      summary: "Host {{ $labels.instance }} fuera de servicio"
+      description: "node_exporter no responde desde hace más de 2 minutos."
+
+- name: host_resources
+  rules:
+  # Disco casi lleno (root) - filtra FS no reales
+  - alert: HostDiskFilling
+    expr: |
+      (
+        node_filesystem_avail_bytes{job="node_exporter",mountpoint="/",fstype!~"tmpfs|overlay|squashfs|aufs|ramfs"} /
+        node_filesystem_size_bytes{job="node_exporter",mountpoint="/",fstype!~"tmpfs|overlay|squashfs|aufs|ramfs"}
+      ) * 100 < 15
+    for: 10m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Disco casi lleno en {{ $labels.instance }}"
+      description: "Queda menos del 15% libre en /. Valor actual: {{ printf \"%.2f\" $value }}%."
+
+  # Memoria baja (disponible real)
+  - alert: HostLowMemory
+    expr: (node_memory_MemAvailable_bytes{job="node_exporter"} / node_memory_MemTotal_bytes{job="node_exporter"}) * 100 < 10
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Memoria crítica en {{ $labels.instance }}"
+      description: "RAM disponible <10%. Valor actual: {{ printf \"%.2f\" $value }}%."
+
+  # Predicción de RAM agotada (4h)
+  - alert: HostMemoryFillingFast
+    expr: predict_linear(node_memory_MemAvailable_bytes{job="node_exporter"}[1h], 4 * 3600) < 0
+    for: 15m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Predicción: RAM agotada en {{ $labels.instance }}"
+      description: "Basado en 1h de datos, la RAM se agotará en <4h."
+
+  # CPU alta sostenida
+  - alert: HostHighCpuUsage
+    expr: |
+      100 - (
+        avg without(cpu,mode) (rate(node_cpu_seconds_total{job="node_exporter",mode="idle"}[5m])) * 100
+      ) > 90
+    for: 10m
+    labels:
+      severity: warning
+    annotations:
+      summary: "CPU alta en {{ $labels.instance }}"
+      description: "Uso CPU >90% durante 10m. Valor actual: {{ printf \"%.2f\" $value }}%."
