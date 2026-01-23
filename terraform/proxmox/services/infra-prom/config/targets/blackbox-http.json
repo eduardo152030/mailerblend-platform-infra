@@ -1,0 +1,25 @@
+[
+  {
+    "targets": [
+      "https://www.google.com/generate_204"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx_strict",
+      "probe_type": "internet",
+      "name": "internet-outbound"
+    }
+  },
+  {
+    "targets": [
+      "https://infra-svc01.mailerblend.com",
+      "https://infra-doc.mailerblend.com/"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx",
+      "probe_type": "public_url",
+      "name": "mailerblend-public"
+    }
+  }
+]

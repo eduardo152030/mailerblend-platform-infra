@@ -25,3 +25,30 @@ scrape_configs:
     file_sd_configs:
       - files:
           - /etc/prometheus/targets/cadvisor.json
+
+  # ------------------------------------------------------------
+  # Blackbox Exporter (HTTP/TCP/ICMP probes via file_sd targets)
+  # ------------------------------------------------------------
+  - job_name: "blackbox"
+    metrics_path: /probe
+    params:
+      module: ["http_2xx"]
+    file_sd_configs:
+      - files:
+          - /etc/prometheus/targets/blackbox-*.json
+    relabel_configs:
+      # target viene del file_sd (URL final)
+      - source_labels: [__address__]
+        target_label: __param_target
+
+      # module viene en labels del JSON (si no, usa el default del params)
+      - source_labels: [module]
+        target_label: __param_module
+
+      # Prometheus scrapea al blackbox exporter
+      - target_label: __address__
+        replacement: 192.168.1.116:9115
+
+      # Guardamos la URL probada en instance
+      - source_labels: [__param_target]
+        target_label: instance

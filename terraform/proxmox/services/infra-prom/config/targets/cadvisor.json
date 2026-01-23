@@ -1,6 +1,16 @@
 [
   {
     "targets": [
+      "192.168.1.116:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "infra-blackbox"
+    }
+  },
+  {
+    "targets": [
       "192.168.1.111:8085"
     ],
     "labels": {

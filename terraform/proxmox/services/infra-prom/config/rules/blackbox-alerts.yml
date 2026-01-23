@@ -1,0 +1,63 @@
+groups:
+  - name: blackbox-alerts
+    rules:
+      - alert: NoInternetConnectivity
+        expr: probe_success{job="blackbox",probe_type="internet"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          category: connectivity
+        annotations:
+          summary: "No Internet connectivity detected"
+          description: |
+            Outbound Internet probe failed.
+            target={{ $labels.instance }}
+            Check WAN, DNS, routing/NAT, ISP.
+
+      - alert: PublicUrlDown
+        expr: probe_success{job="blackbox",probe_type="public_url"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          category: availability
+        annotations:
+          summary: "Public URL is DOWN"
+          description: |
+            HTTPS probe failed.
+            target={{ $labels.instance }}
+            Check DNS, reverse proxy, app, firewall.
+
+      - alert: CollectEndpointDown
+        expr: probe_success{job="blackbox",probe_type="collect"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          category: analytics
+        annotations:
+          summary: "Collect endpoint is DOWN"
+          description: |
+            /g/collect probe failed (HEAD expected 200/204).
+            target={{ $labels.instance }}
+            Check edge routing, upstream, TLS, firewall.
+
+      - alert: SSLCertExpiringSoon
+        expr: (probe_ssl_earliest_cert_expiry{job="blackbox"} - time()) < 14 * 24 * 3600
+        for: 30m
+        labels:
+          severity: warning
+          category: tls
+        annotations:
+          summary: "SSL certificate expiring soon (<14d)"
+          description: |
+            TLS cert for target={{ $labels.instance }} expires in less than 14 days.
+
+      - alert: SSLCertExpiringVerySoon
+        expr: (probe_ssl_earliest_cert_expiry{job="blackbox"} - time()) < 7 * 24 * 3600
+        for: 15m
+        labels:
+          severity: critical
+          category: tls
+        annotations:
+          summary: "SSL certificate expiring VERY soon (<7d)"
+          description: |
+            TLS cert for target={{ $labels.instance }} expires in less than 7 days.

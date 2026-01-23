@@ -1,0 +1,13 @@
+[
+  {
+    "targets": ["https://www.google.com/generate_204"],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx",
+      "probe_type": "internet",
+      "scope": "external",
+      "service": "internet",
+      "source": "inventory"
+    }
+  }
+]

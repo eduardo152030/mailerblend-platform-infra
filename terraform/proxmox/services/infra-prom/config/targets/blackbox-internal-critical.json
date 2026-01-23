@@ -1,0 +1,24 @@
+[
+  {
+    "targets": ["http://192.168.1.110:9090/-/healthy"],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx_strict",
+      "probe_type": "internal",
+      "scope": "internal",
+      "service": "infra-prometheus",
+      "source": "inventory"
+    }
+  },
+  {
+    "targets": ["http://192.168.1.110:9093/-/healthy"],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx_strict",
+      "probe_type": "internal",
+      "scope": "internal",
+      "service": "infra-alertmanager",
+      "source": "inventory"
+    }
+  }
+]

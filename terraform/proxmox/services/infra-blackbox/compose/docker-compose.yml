@@ -1,0 +1,16 @@
+services:
+  blackbox-exporter:
+    image: prom/blackbox-exporter:v0.25.0
+    container_name: infra-blackbox
+    restart: unless-stopped
+
+    command:
+      - --config.file=/etc/blackbox/blackbox.yml
+      - --web.listen-address=:9115
+      - --log.level=info
+
+    ports:
+      - "0.0.0.0:9115:9115"
+
+    volumes:
+      - ./config/blackbox.yml:/etc/blackbox/blackbox.yml:ro

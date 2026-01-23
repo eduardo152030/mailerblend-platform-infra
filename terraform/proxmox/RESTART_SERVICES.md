@@ -159,3 +159,8 @@ deploy-service.sh → correct
 docker compose on host → wrong
 
 manual fixes without Git → technical debt
+
+
+check if the container is running 
+
+ssh root@192.168.1.110 "docker ps --format 'table {{.Names}}\t{{.Status}}' | grep prometheus"

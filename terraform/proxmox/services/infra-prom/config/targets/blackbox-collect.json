@@ -1,0 +1,24 @@
+[
+  {
+    "targets": [
+      "https://edge.mailerblend.com/g/collect?v=2&tid=G-TEST123&cid=555&t=page_view&en=test_ping"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_collect_200",
+      "probe_type": "collect",
+      "name": "mailerblend-collect"
+    }
+  },
+  {
+    "targets": [
+      "https://edge.nucleotecnologico.es/g/collect?v=2&en=page_view&tid=G-SVDYWQXM1W&cid=local-cli-test&dl=https://nucleotecnologico.es"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_collect_200",
+      "probe_type": "collect",
+      "name": "nucleo-collect"
+    }
+  }
+]
