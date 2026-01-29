@@ -305,3 +305,4 @@ jainer@Jainer:~/work/mailerblend-platform-infra/terraform/proxmox$ curl -sS "htt
 
 Opción 4 — Ver si Prometheus ve todo UP (la más importante)
 
+ssss

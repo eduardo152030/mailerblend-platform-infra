@@ -126,7 +126,7 @@ echo "$SERVICE_IP_ONLY"
 ### Node Exporter (todos los CTs)
 
 ```bash
-./scripts/deploy-common.sh node-exporter <IP>
+./scripts/deploy-common.sh node-exporter "$SERVICE_IP_ONLY"
 ```
 
 
@@ -185,3 +185,11 @@ Debe verse:
 ## ESTADO FINAL
 
 Si todos los checks están en **UP**, el servicio está correctamente integrado y listo para ser expuesto por el Edge Router cuando corresponda.
+
+ regla es:
+
+NO “entrar” interactivo al host infra-<<Service>>
+
+Solo se permiten comandos remotos no-interactivos tipo:
+ssh root@IP "comando" para hacer comprobaciones
+queremos que esto sea  100% replicable, no basta con “ejecutar comandos sueltos” por SSH. Hay que dejarlo como artefacto IaC en el repo: scripts + carpeta
