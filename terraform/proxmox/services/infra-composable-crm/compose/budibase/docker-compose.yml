@@ -1,0 +1,78 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: budibase-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD:?set REDIS_PASSWORD}"]
+    volumes:
+      - budibase_redis_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a ${REDIS_PASSWORD} ping | grep -q PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    networks:
+      - nucleo_network
+
+  couchdb:
+    image: couchdb:3
+    container_name: budibase-couchdb
+    restart: unless-stopped
+    environment:
+      COUCHDB_USER: ${COUCHDB_USER:?set COUCHDB_USER}
+      COUCHDB_PASSWORD: ${COUCHDB_PASSWORD:?set COUCHDB_PASSWORD}
+    volumes:
+      - budibase_couchdb_data:/opt/couchdb/data
+    networks:
+      - nucleo_network
+
+  budibase-app:
+    image: budibase/budibase:latest
+    container_name: budibase-app
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+      couchdb:
+        condition: service_started
+    environment:
+      # IMPORTANT: do NOT embed creds in URL (avoids parsing issues in some Budibase builds)
+      COUCH_DB_URL: http://couchdb:5984
+      COUCHDB_USER: ${COUCHDB_USER:?set COUCHDB_USER}
+      COUCHDB_PASSWORD: ${COUCHDB_PASSWORD:?set COUCHDB_PASSWORD}
+
+      REDIS_URL: redis://:${REDIS_PASSWORD:?set REDIS_PASSWORD}@redis:6379
+      NODE_OPTIONS: --max-old-space-size=2048
+    ports:
+      - "192.168.1.118:8080:80"
+    networks:
+      - nucleo_network
+
+  budibase-worker:
+    image: budibase/budibase:latest
+    container_name: budibase-worker
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+      couchdb:
+        condition: service_started
+    environment:
+      COUCH_DB_URL: http://couchdb:5984
+      COUCHDB_USER: ${COUCHDB_USER:?set COUCHDB_USER}
+      COUCHDB_PASSWORD: ${COUCHDB_PASSWORD:?set COUCHDB_PASSWORD}
+
+      REDIS_URL: redis://:${REDIS_PASSWORD:?set REDIS_PASSWORD}@redis:6379
+      NODE_OPTIONS: --max-old-space-size=2048
+    networks:
+      - nucleo_network
+
+networks:
+  nucleo_network:
+    external: true
+
+volumes:
+  budibase_redis_data:
+    name: budibase_redis_data
+  budibase_couchdb_data:
+    name: budibase_couchdb_data

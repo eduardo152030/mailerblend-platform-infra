@@ -1,0 +1,14 @@
+service:
+  name: infra-composable-crm
+  vmid: 618
+  ip: 192.168.1.118/24
+
+resources:
+  cpu: 2
+  memory: 4096
+  disk_gb: 50
+
+tags:
+  - internal
+  - crm
+  - composable

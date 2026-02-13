@@ -1,0 +1,16 @@
+ssh root@192.168.1.118 << 'SSH'
+echo "📁 Contenido de /opt/infra-composable-crm/api/:"
+ls -la /opt/infra-composable-crm/api/
+
+echo ""
+echo "📄 Mostrando Dockerfile:"
+cat /opt/infra-composable-crm/api/Dockerfile
+
+echo ""
+echo "📄 Mostrando docker-compose.yml de crm-api:"
+cat /opt/infra-composable-crm/crm-api/docker-compose.yml
+
+echo ""
+echo "📄 Contenido actual de requirements.txt:"
+cat /opt/infra-composable-crm/api/requirements.txt
+SSH

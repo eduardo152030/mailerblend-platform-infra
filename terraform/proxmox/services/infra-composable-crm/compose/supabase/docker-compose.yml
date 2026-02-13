@@ -1,0 +1,53 @@
+services:
+  supabase-db:
+    image: postgres:16-alpine
+    container_name: supabase-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+      TZ: ${TZ:-Europe/Madrid}
+    command:
+      - "postgres"
+      - "-c"
+      - "shared_buffers=${PG_SHARED_BUFFERS:-512MB}"
+      - "-c"
+      - "work_mem=${PG_WORK_MEM:-16MB}"
+      - "-c"
+      - "maintenance_work_mem=${PG_MAINTENANCE_WORK_MEM:-128MB}"
+      - "-c"
+      - "effective_cache_size=${PG_EFFECTIVE_CACHE_SIZE:-1536MB}"
+      - "-c"
+      - "max_connections=${PG_MAX_CONNECTIONS:-300}"
+      - "-c"
+      - "wal_compression=on"
+      - "-c"
+      - "checkpoint_timeout=15min"
+      - "-c"
+      - "max_wal_size=2GB"
+      - "-c"
+      - "random_page_cost=1.1"
+      - "-c"
+      - "synchronous_commit=on"
+      - "-c"
+      - "jit=off"
+    ports:
+      - "192.168.1.118:5432:5432"
+    volumes:
+      - supabase_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB -h 127.0.0.1 -p 5432"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - nucleo_network
+
+networks:
+  nucleo_network:
+    external: true
+
+volumes:
+  supabase_postgres_data:
+    name: supabase_postgres_data

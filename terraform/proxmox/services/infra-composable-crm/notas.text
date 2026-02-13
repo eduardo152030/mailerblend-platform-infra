@@ -1,0 +1,324 @@
+Perfecto. Con todo lo que has pegado ya tenemos **material de runbook real** 👍
+Te dejo **un README en Markdown, listo para copiar/pegar**, pensado exactamente para lo que quieres:
+
+* Que otro chat “sepa dónde está”
+* Que tú mismo vuelvas dentro de 2 semanas y no sufras
+* Que quede clarísimo **qué es Budibase**, **qué es Postgres**, **qué es CouchDB**
+* Con **resolución de problemas** basada en lo que ya te ha pasado
+* Y con **API / source of truth = Postgres** bien explicitado
+
+---
+
+## 📘 `README.md` — Infra Composable CRM (Budibase + Supabase/Postgres)
+
+```md
+# Infra Composable CRM
+Budibase + Supabase (PostgreSQL) — Self-Hosted, Composable CRM
+
+Este stack implementa un **CRM operativo, autoalojado y composable**, donde:
+
+- **PostgreSQL (Supabase)** es el *source of truth*
+- **Budibase** es únicamente la capa de UI / workflows
+- **CouchDB** almacena metadata interna de Budibase (apps, screens, users)
+- **Redis** gestiona sesiones y caché
+- Sistemas externos (n8n, Lambda, lead-ingest, etc.) **escriben directamente en Postgres vía API**
+
+---
+
+## 🧠 Principios de Arquitectura
+
+- **Single Responsibility**
+  - Postgres → datos de negocio
+  - Budibase → UI + lógica visual
+  - CouchDB → metadata Budibase (NO datos de negocio)
+- **Composable**
+  - Budibase no “posee” los datos
+  - Se puede cambiar la UI sin tocar el modelo
+- **Infra first**
+  - Todo corre en Docker
+  - Acceso y debugging siempre host-level (no dentro de contenedores)
+
+---
+
+## 🧱 Stack y Servicios
+
+### Servicios activos
+
+| Servicio | Rol | Puerto |
+|--------|----|-------|
+| `supabase-db` | PostgreSQL (datos CRM) | `192.168.1.118:5432` |
+| `budibase-app` | UI Builder / Runtime | `192.168.1.118:10080` |
+| `budibase-worker` | Workers internos | interno |
+| `budibase-couchdb` | Metadata Budibase | interno |
+| `budibase-redis` | Cache / sesiones | interno |
+
+Red Docker compartida: `nucleo_network`
+
+---
+
+## 📁 Layout en el Host
+
+```
+
+jainer@Jainer:~/work/mailerblend-platform-infra/terraform/proxmox$ tree services/infra-composable-crm/
+services/infra-composable-crm/
+├── compose
+│   ├── budibase
+│   │   └── docker-compose.yml
+│   └── supabase
+│       └── docker-compose.yml
+├── notas.text
+├── scripts
+│   ├── status.sh
+│   ├── up-budibase.sh
+│   └── up-supabase.sh
+├── sql  note 2.txt 
+└── to-do
+
+4 directories, 8 files
+jainer@Jainer:~/work/mailerblend-platform-infra/terraform/proxmox$ 
+
+````
+---
+
+## 🔍 Verificación rápida (sin entrar a contenedores)
+
+```bash
+ssh root@192.168.1.118 \
+  'docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+```
+
+Estado esperado:
+
+```
+budibase-redis     Up (healthy)
+budibase-couchdb   Up (healthy)
+budibase-app       Up    127.0.0.1:10080->80/tcp
+budibase-worker    Up
+supabase-db        Up (healthy)
+```
+
+---
+
+## 🪵 Logs (host-level)
+
+```bash
+ssh root@192.168.1.118 \
+  'docker logs --tail=200 budibase-redis; echo "----"; docker logs --tail=200 budibase-couchdb'
+```
+
+---
+
+## 🔁 Forzar arranque de Budibase
+
+```bash
+ssh root@192.168.1.118 \
+  'cd /opt/infra-composable-crm/budibase && docker compose up -d --remove-orphans'
+```
+
+Ver estado:
+
+```bash
+ssh root@192.168.1.118 \
+  'cd /opt/infra-composable-crm/budibase && docker compose ps'
+```
+
+---
+
+## 🧨 Reset SOLO Budibase (estado “fresh install”)
+
+> ⚠️ **No borra Postgres / datos CRM**
+
+### 1. Apagar Budibase
+
+```bash
+ssh root@192.168.1.118 \
+  'cd /opt/infra-composable-crm/budibase && docker compose down'
+```
+
+### 2. Borrar volúmenes de Budibase
+
+```bash
+ssh root@192.168.1.118 \
+  'docker volume rm -f budibase_couchdb_data budibase_redis_data || true'
+```
+
+### 3. Arrancar de nuevo
+
+```bash
+ssh root@192.168.1.118 \
+  'cd /opt/infra-composable-crm/budibase && docker compose up -d'
+```
+
+👉 Esto devuelve la UI al estado:
+
+* Create admin user
+* Create workspace
+
+---
+
+## 🚨 Resolución de Problemas Comunes
+
+### Error:
+
+`Unable to search by SQL - CouchDB error: Not found: /_design/sqlite`
+
+**Causa**
+El app fue creado cuando Budibase pensaba que el datasource era SQLite.
+
+**Solución (recomendada)**
+
+* Eliminar el app
+* Crear uno nuevo
+* Conectar Postgres **antes** de añadir componentes
+
+---
+
+### Error:
+
+`POST /_session: login details rejected`
+
+**Causa**
+
+* CouchDB fue inicializado con otras credenciales
+* El volumen ya tenía una contraseña distinta
+
+**Solución**
+Reset SOLO Budibase (ver sección anterior).
+
+---
+
+### Budibase aparece `unhealthy` pero la UI responde
+
+Comprobar:
+
+```bash
+curl -I http://127.0.0.1:10080/builder
+```
+
+Si responde `200` o `301`, **funciona**.
+El healthcheck puede ir retrasado.
+
+---
+
+## 🗄️ Modelo de Datos (Source of Truth)
+
+👉 **Budibase NO crea tablas automáticamente**
+👉 **Postgres es el dueño del modelo**
+
+### Crear tablas en Postgres (ejemplo)
+
+```sql
+CREATE TABLE companies (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  name text NOT NULL,
+  website text,
+  created_at timestamptz DEFAULT now()
+);
+
+CREATE TABLE leads (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  company_id uuid REFERENCES companies(id),
+  email text NOT NULL,
+  source text,
+  created_at timestamptz DEFAULT now()
+);
+```
+
+Budibase **consume** estas tablas vía PostgreSQL datasource.
+
+---
+
+## 🔌 API / Ingestión Externa (n8n, Lambda, lead-ingest)
+
+Patrón recomendado:
+
+```
+[ Web / Ads / Forms ]
+          |
+          v
+[ API Gateway / n8n / Lambda ]
+          |
+          v
+[ PostgreSQL (Supabase) ]
+          |
+          v
+[ Budibase UI ]
+```
+
+### Ejemplo insert vía API (Postgres)
+
+```sql
+INSERT INTO leads (email, source)
+VALUES ('lead@example.com', 'landing_page');
+```
+
+Budibase refleja el dato automáticamente.
+
+---
+
+## ✅ Estado actual del sistema
+
+* Infra estable
+* Budibase funcional
+* Postgres conectado
+* Arquitectura validada
+* Lista para:
+
+  * CRM
+  * Automations
+  * Lead ingestion
+  * Human-in-the-loop workflows
+
+---
+
+
+Opción CORRECTA 1 — Redeploy solo Postgres (la que debes usar)
+🔹 Comando directo (host-level, sin contenedores)
+ssh root@192.168.1.118 \
+  'cd /opt/infra-composable-crm/supabase && docker compose up -d supabase-db'
+
+
+  Redeploy SOLO Budibase (paso a paso)
+1️⃣ Sincroniza solo Budibase al CT
+
+Desde tu repo local:
+
+rsync -av -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR" \
+  services/infra-composable-crm/compose/budibase/ \
+  root@192.168.1.118:/opt/infra-composable-crm/budibase/
+
+
+👉 Esto copia únicamente el docker-compose.yml de Budibase actualizado.
+
+Redeploy SOLO el stack de Budibase
+
+En el host:
+
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@192.168.1.118 \
+  'cd /opt/infra-composable-crm/budibase && docker compose up -d --force-recreate'
+
+
+  🧾 Estado final (resumen ejecutivo)
+
+✅ Postgres (Supabase DB)
+Accesible en LAN: 192.168.1.118:5432
+Source of truth
+Sin túneles
+
+✅ Budibase UI
+Acceso directo: http://192.168.1.118:8080
+Builder: /builder
+Sin ERR_UNSAFE_PORT
+Volúmenes y estado persistentes
+
+✅ Comunicación interna Docker
+nucleo_network
+Servicios desacoplados
+Nada roto por los redeploys quirúrgicos
+
+Lo importante que te llevas (y no se te va a olvidar)
+Docker bind IP ≠ IP del cliente
+UI y DB se redeployan por separado
+Postgres manda, Budibase consume
+Health ≠ accesibilidad real (saber comprobarlo)

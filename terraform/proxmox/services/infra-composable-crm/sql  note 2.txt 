@@ -1,0 +1,28 @@
+aun no tengo DATABASE_URL definido
+
+
+psql "postgresql://USER:PASSWORD@127.0.0.1:5432/DBNAME" -f schema/001_init.sql
+
+export DATABASE_URL="postgresql://pgadmin2026f:l1W3YyXJUyqfSrkhdJMe@127.0.0.1:5432/postgres"
+export DATABASE_URL="postgresql://pgadmin2026f:W3YyXJUyqfSrkhdJMe@127.0.0.1:15432/postgres"
+
+
+Accede desde tu máquina (sin túnel 🎉)
+
+En el navegador:
+
+Builder / Admin
+
+http://192.168.1.118:8080/builder
+
+
+App (cuando esté publicada)
+
+http://192.168.1.118:8080/
+
+
+Si ves el login / builder → ✅ todo correcto.
+
+
+export DATABASE_URL="postgresql://pgadmin2026f:l1W3YyXJUyqfSrkhdJMe@192.168.1.118:5432/postgres"
+

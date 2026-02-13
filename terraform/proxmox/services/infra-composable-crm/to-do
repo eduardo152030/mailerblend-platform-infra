@@ -1,0 +1,48 @@
+Reverse proxy en el edge-router:
+
+https://infra-svc01.mailerblend.com/d → http://192.168.1.118:8080
+
+TLS + dominio bonito
+
+Cero puertos en URLs
+
+cuando se diseñe la lo de formulario y lo demas 
+soporta idempotencia (para que n8n/webhooks no dupliquen)
+
+Auth: X-Ingest-Secret (como tu patrón actual, rápido y efectivo)
+Idempotencia: header Idempotency-Key (n8n/Lambda retries sin duplicar)
+Endpoint único al inicio: POST /v1/leads
+
+Cuando definamos el esquema real de CRM, probablemente:
+leads.company_id será nullable (lead sin company)
+y la relación no será 1:1 sino 1:N (company con muchos leads)
+
+
+Dev / Prod switcher  --> https://docs.budibase.com/docs/dev-prod-switcher
+
+🧩 Alternativas 100% OSS (sin pagar)
+Opción A — Botón “Actualizar” (la más limpia)
+
+Añades un botón arriba del grid
+
+Acción: Refresh data
+
+Simple, explícito, honesto.
+
+Opción B — Navegación como trigger
+
+Screen A → Screen B → Screen A
+
+Cada entrada reconsulta Postgres
+
+Muy usado en backoffices reales.
+
+Opción C — Time-based UX fuera de Budibase
+
+Si algún día quieres “near real-time”:
+
+WebSocket / SSE / polling lo hace tu API
+
+Budibase sigue siendo UI pasiva
+
+/app/my-workspace/ntcrmformentries

@@ -121,3 +121,29 @@ sudo apt-get install -y python3-certbot-nginx
 curl -sS http://192.168.1.112:18080/api/v1/version
 ```
 - SMTP funcionando (prueba invitación desde UI): ✅
+
+
+
+te pongo aquí el orden de los comando que ejecutare: 
+
+1)  cp -r ~/work/mailerblend-platform-infra/terraform/proxmox/services/infra-svc01/compose ~/work/mailerblend-platform-infra/terraform/proxmox/services/infra-svc01/compose_backup  
+2)  ssh root@192.168.1.112 'docker exec infra-svc01-nocodb-db pg_dump -U nocodb nocodb' > backup_antes_de_optimizar.sql 
+    ssh root@192.168.1.112 'docker exec infra-svc01-nocodb-db pg_dump -U nocodb nocodb' > backup_$(date +%F).sql
+
+actulizo el docker-compose file
+ aplico los cambios con 
+
+./scripts/deploy-service.sh infra-svc01 192.168.1.112
+
+# Ver que el contenedor subió bien
+ssh root@192.168.1.112 'docker ps -a'
+
+Paso 1: Limpieza de Metadatos Rotos
+
+Vamos a usar la potencia de la terminal para limpiar las tablas que están dando error. Entra en tu base de datos y ejecuta estos comandos para "resetear" el listado de tablas de NocoDB:
+ssh root@192.168.1.112 "docker exec -i infra-svc01-nocodb-db psql -U nocodb -d nocodb -c 'TRUNCATE TABLE nc_models_v2 CASCADE;'"
+Opción A (Recomendada en IaC): Destruye el container con Terraform y vuelve a crearlo. Esto eliminará cualquier residuo.
+Bash
+
+terraform destroy -target='proxmox_virtual_environment_container.svc["infra-svc01"]'
+terraform apply -target='proxmox_virtual_environment_container.svc["infra-svc01"]'

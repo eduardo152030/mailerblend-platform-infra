@@ -1,0 +1,48 @@
+1) Confirmar qué rutas existen (desde fuera)
+
+Primero mira el OpenAPI JSON real (no el Swagger UI):
+
+curl -s -H "X-API-Key: b852DfbkCdLQjsj0dVxw" \
+  https://infra-svc01.mailerblend.com/api/openapi.json | head
+
+
+  ----
+  1) Exportar credenciales desde el contenedor (sin hardcode)
+export CRM_DB_HOST="192.168.1.118"
+export CRM_DB_CONTAINER="supabase-db"
+
+export CRM_DB_NAME="$(ssh root@${CRM_DB_HOST} "docker inspect ${CRM_DB_CONTAINER} --format '{{range .Config.Env}}{{println .}}{{end}}' | awk -F= '/^POSTGRES_DB=/{print \$2}'")"
+export CRM_DB_USER="$(ssh root@${CRM_DB_HOST} "docker inspect ${CRM_DB_CONTAINER} --format '{{range .Config.Env}}{{println .}}{{end}}' | awk -F= '/^POSTGRES_USER=/{print \$2}'")"
+export CRM_DB_PASS="$(ssh root@${CRM_DB_HOST} "docker inspect ${CRM_DB_CONTAINER} --format '{{range .Config.Env}}{{println .}}{{end}}' | awk -F= '/^POSTGRES_PASSWORD=/{print \$2}'")"
+
+echo "DB_HOST=${CRM_DB_HOST}"
+echo "DB_CONTAINER=${CRM_DB_CONTAINER}"
+echo "DB_NAME=${CRM_DB_NAME}"
+echo "DB_USER=${CRM_DB_USER}"
+echo "DB_PASS=*** (hidden)"
+
+
+✅ Esto deja el secreto en variable de entorno local y no en el historial de comandos “visible”.
+
+
+jainer@Jainer:~/work/mailerblend-platform-infra/terraform/proxmox$ curl -sS https://infra-svc01.mailerblend.com/_svc/health
+{"status":"ok"}jainer@Jainer:~/work/mailerblend-platform-infra/terraform/proxmox$ curl -sS https://infra-svc01.mailerblend.com/_svc/ready
+{"db":"ok"}jainer@Jainer:~/work/mailerblend-platform-infra/terraform/proxmox$ curl -I  https://infra-svc01.mailerblend.com/_svc/docs
+HTTP/2 200 
+server: nginx/1.18.0 (Ubuntu)
+date: Sun, 08 Feb 2026 20:20:23 GMT
+content-type: text/html; charset=utf-8
+content-length: 950
+
+jainer@Jainer:~/work/mailerblend-platform-infra/terraform/proxmox$ 
+
+
+ssh root@192.168.1.118 'docker logs -f crm-api --tail=120'
+
+
+----
+cat services/infra-composable-crm/database-schemas/02_cleanup_seed_contacts.sql | ssh root@192.168.1.118 \
+  "docker exec -i supabase-db env PGPASSWORD='l1W3YyXJUyqfSrkhdJMe' \
+   psql -U 'pgadmin2026f' -d 'postgres' -v ON_ERROR_STOP=1"
+
+   

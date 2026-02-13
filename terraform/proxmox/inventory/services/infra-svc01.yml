@@ -4,9 +4,9 @@ service:
   ip: 192.168.1.112/24
 
 resources:
-  cpu: 2
-  memory: 2048
-  disk_gb: 16
+  cpu: 3
+  memory: 6656   # Aumentar de 2048 a 6656 MB
+  disk_gb: 40
 
 tags:
   - generic

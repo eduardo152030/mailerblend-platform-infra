@@ -1,0 +1,55 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: infra-svc01-nocodb-db
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  nocodb:
+    image: nocodb/nocodb:0.255.0
+    container_name: infra-svc01-nocodb
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      NC_DB: ${NC_DB}
+      NC_AUTH_JWT_SECRET: ${NC_AUTH_JWT_SECRET}
+      TZ: ${TZ}
+      # --- OPTIMIZACIONES DE RENDIMIENTO (ESTRATEGIA 80 TABLAS) ---
+      # Asigna 4GB fijos a Node.js para procesar esquemas complejos sin lag
+      - NODE_OPTIONS=--max-old-space-size=4096
+      # Permite manejar grandes volúmenes de datos e imágenes en el futuro
+      - NC_REQUEST_BODY_SIZE=100mb
+      # Mantiene conexiones abiertas para respuestas instantáneas de la API
+      - DB_POOL_MIN=10
+      - DB_POOL_MAX=100
+      # Elimina latencia por llamadas externas al arrancar o usar la UI
+      - NC_DISABLE_TELEMETRY=true
+      # Cache ligero para acelerar la carga de vistas sin perder realismo
+      - NC_CACHE_TTL=60
+    volumes:
+      - nocodb_data:/usr/app/data
+    ports:
+      - "18080:8080"
+    # Alineación con los límites de tu contenedor Proxmox
+    deploy:
+      resources:
+        limits:
+          memory: 5.5G
+
+volumes:
+  pg_data:
+  nocodb_data:
