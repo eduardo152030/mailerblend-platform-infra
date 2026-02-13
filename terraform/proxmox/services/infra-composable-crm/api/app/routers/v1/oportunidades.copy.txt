@@ -29,10 +29,6 @@ async def list_oportunidades(
     lead_tag: Optional[str] = Query(None, min_length=1, max_length=50),
     prioridad: Optional[str] = Query(None, min_length=1, max_length=50),
     pack: Optional[str] = Query(None, min_length=1, max_length=50),
-
-    # ✅ NUEVO: filtro opcional por urgencia
-    urgencia: Optional[str] = Query(None, min_length=1, max_length=50),
-
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -62,12 +58,6 @@ async def list_oportunidades(
         args.append(pack)
         i += 1
 
-    # ✅ filtro por urgencia (exact match)
-    if urgencia:
-        where.append(f"urgencia = ${i}")
-        args.append(urgencia)
-        i += 1
-
     # Búsqueda por texto
     q_like = None
     if q:
@@ -90,7 +80,6 @@ async def list_oportunidades(
             estado,
             lead_tag,
             prioridad,
-            urgencia,
             next_action,
             next_action_date,
             probabilidad,
@@ -220,7 +209,6 @@ async def patch_oportunidad(
         "estado",
         "lead_tag",
         "prioridad",
-        "urgencia",  # ✅ NUEVO (editable desde Budibase)
         "next_action",
         "next_action_date",
         "probabilidad",
@@ -263,7 +251,7 @@ async def patch_oportunidad(
 
     # Agregar updated_at automáticamente
     set_parts.append("updated_at = NOW()")
-
+    
     # Ejecutar actualización
     sql = f"UPDATE oportunidades SET {', '.join(set_parts)} WHERE id = ${idx} RETURNING *"
     args.append(oportunidad_id)
@@ -281,7 +269,7 @@ async def patch_oportunidad(
     if diff:
         contacto_id = after.get("contacto_id")
         import json
-
+        
         await conn.execute(
             """
             INSERT INTO historial (

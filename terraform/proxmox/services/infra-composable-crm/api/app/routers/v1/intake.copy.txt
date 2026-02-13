@@ -16,46 +16,6 @@ router = APIRouter(prefix="/v1/intake", tags=["intake"])
 
 
 # ----------------------------
-# Urgencia (Fecha de inicio)
-# ----------------------------
-URGENCIA_ALLOWED = {
-    "Lo antes posible",
-    "Durante este mes",
-    "En los próximos 2-3 meses",
-    "Aún no lo sé",
-}
-
-URGENCIA_SCORE = {
-    "Lo antes posible": 20,
-    "Durante este mes": 15,
-    "En los próximos 2-3 meses": 5,
-    "Aún no lo sé": 0,
-}
-
-
-def validate_urgencia_value(v: Optional[str]) -> Optional[str]:
-    """
-    Validación defensiva (sin depender de versión de Pydantic):
-    - None/"" -> None
-    - si viene valor, debe ser uno de los literales permitidos.
-    """
-    if v is None:
-        return None
-    if isinstance(v, str) and v.strip() == "":
-        return None
-    if v not in URGENCIA_ALLOWED:
-        raise HTTPException(
-            status_code=422,
-            detail={
-                "error": "invalid_urgencia",
-                "message": f"urgencia inválida: {v}",
-                "allowed": sorted(list(URGENCIA_ALLOWED)),
-            },
-        )
-    return v
-
-
-# ----------------------------
 # Security: Ingest Secret
 # ----------------------------
 def get_ingest_secret(
@@ -111,12 +71,6 @@ class WebForm(BaseModel):
     servicio_relacionado: str
     como_nos_conociste: Optional[str] = None
     mensaje: str
-
-    # ✅ NUEVO: urgencia (Fecha de inicio)
-    urgencia: Optional[str] = Field(
-        default=None,
-        description='Fecha de inicio (literal): "Lo antes posible" | "Durante este mes" | "En los próximos 2-3 meses" | "Aún no lo sé"',
-    )
 
     # Campos dinámicos (opcionales)
     tipo_solucion: Optional[str] = None
@@ -220,15 +174,7 @@ def compute_triage(payload: LeadIntakeRequest) -> Dict[str, Any]:
         breakdown["click_id_present"] = 10
         has_click_id = True
 
-    # ✅ Urgencia scoring (tal cual pediste)
-    urgencia = payload.form.urgencia
-    urg_points = 0
-    if urgencia:
-        urg_points = URGENCIA_SCORE.get(urgencia, 0)
-    score += urg_points
-    breakdown["urgencia"] = urg_points
-
-    # Clasificación simple (tu lógica actual)
+    # Clasificación simple
     if score >= 55:
         lead_tag = "Hot"
         prioridad = "Alta"
@@ -257,12 +203,6 @@ def compute_triage(payload: LeadIntakeRequest) -> Dict[str, Any]:
         next_action = "BOOK_MEETING"
         probabilidad = max(probabilidad, 75)
 
-    # ✅ Override ligero por urgencia alta (sin complicarte)
-    if urgencia in ("Lo antes posible", "Durante este mes") and lead_tag in ("Warm", "Hot", "Qualified"):
-        prioridad = "Alta"
-        next_action = "BOOK_MEETING"
-        probabilidad = min(max(probabilidad, 75), 90)
-
     return {
         "lead_tag": lead_tag,
         "prioridad": prioridad,
@@ -290,10 +230,6 @@ async def intake_webform(
       - oportunidades (si lead_tag in Cold/Warm/Hot/Qualified)
       - historial (EVENT::LEAD_CREATED + EVENT::LEAD_QUALIFIED)
     """
-
-    # ✅ Validación defensiva de urgencia (antes de compute_triage + DB)
-    req.form.urgencia = validate_urgencia_value(req.form.urgencia)
-
     triage = compute_triage(req)
 
     async with conn.transaction():
@@ -532,7 +468,6 @@ async def intake_webform(
               herramientas_conectar,
               tipo_soporte,
               mensaje,
-              urgencia,
               submitted_at,
               origen,
               ip_address,
@@ -540,8 +475,7 @@ async def intake_webform(
             )
             VALUES (
               $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,
-              $11,
-              now(), $12, $13, $14
+              now(), $11, $12, $13
             )
             RETURNING *
             """,
@@ -555,7 +489,6 @@ async def intake_webform(
             form.herramientas_conectar,
             form.tipo_soporte,
             form.mensaje,
-            form.urgencia,
             form.origen or "Formulario web",
             form.ip_address,
             form.user_agent,
@@ -576,7 +509,6 @@ async def intake_webform(
                   estado,
                   lead_tag,
                   prioridad,
-                  urgencia,
                   next_action,
                   probabilidad,
                   pack,
@@ -586,7 +518,7 @@ async def intake_webform(
                 VALUES (
                   $1,$2,$3,
                   'Nuevo',
-                  $4,$5,$6,$7,$8,
+                  $4,$5,$6,$7,
                   'NO_ASIGNADO',
                   now(), now()
                 )
@@ -597,7 +529,6 @@ async def intake_webform(
                 deal_name,
                 triage["lead_tag"],
                 triage["prioridad"],
-                form.urgencia,
                 triage["next_action"],
                 triage["probabilidad"],
             )
@@ -618,7 +549,6 @@ async def intake_webform(
             req.source,
         )
 
-        # Incluimos urgencia y breakdown (ya trae urgencia dentro)
         await conn.execute(
             """
             INSERT INTO historial (
@@ -635,10 +565,8 @@ async def intake_webform(
                 f"\"priority\":\"{triage['prioridad']}\","
                 f"\"next_action_key\":\"{triage['next_action']}\","
                 f"\"score\":{triage['score']},"
-                f"\"urgencia\":{('\"'+form.urgencia+'\"') if form.urgencia else 'null'},"
                 f"\"utm_id\":{('\"'+utm_id+'\"') if utm_id else 'null'},"
-                f"\"formulario_id\":{('\"'+str(formulario_id)+'\"') if formulario_id else 'null'},"
-                f"\"breakdown\":{triage['breakdown']}"
+                f"\"formulario_id\":{('\"'+str(formulario_id)+'\"') if formulario_id else 'null'}"
                 "}"
             ),
             req.source,

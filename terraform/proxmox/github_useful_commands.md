@@ -1,4 +1,4 @@
 git status 
 git add . 
-git commit -m "Mi mensaje" 
+git commit -m "update todo funciona" 
 git push origin main
