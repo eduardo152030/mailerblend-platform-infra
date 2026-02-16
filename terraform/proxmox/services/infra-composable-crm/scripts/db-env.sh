@@ -27,6 +27,7 @@ echo ""
 export CRM_DB_USER=$(grep "^POSTGRES_USER=" "$ENV_FILE" | cut -d '=' -f2)
 export CRM_DB_PASS=$(grep "^POSTGRES_PASSWORD=" "$ENV_FILE" | cut -d '=' -f2)
 export CRM_DB_NAME=$(grep "^POSTGRES_DB=" "$ENV_FILE" | cut -d '=' -f2)
+export CRM_DB_NAME=$(grep "^POSTGRES_DB=" "$ENV_FILE" | cut -d '=' -f2)
 
 # Verificar que se cargaron las variables
 if [ -z "$CRM_DB_USER" ] || [ -z "$CRM_DB_PASS" ] || [ -z "$CRM_DB_NAME" ]; then

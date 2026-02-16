@@ -1,0 +1,309 @@
+from __future__ import annotations
+
+from typing import Optional, Dict, Any, List
+from uuid import UUID
+
+from fastapi import APIRouter, Depends, Query, HTTPException, Body
+from asyncpg import Connection
+
+from app.db import get_db
+
+router = APIRouter(prefix="/v1/oportunidades", tags=["oportunidades"])
+
+
+def _clamp_limit(limit: int) -> int:
+    """Asegura que el límite esté entre 1 y 200"""
+    if limit < 1:
+        return 1
+    if limit > 200:
+        return 200
+    return limit
+
+
+@router.get("")
+async def list_oportunidades(
+    limit: int = Query(50, ge=1, le=200),
+    offset: int = Query(0, ge=0),
+    q: Optional[str] = Query(None, min_length=1, max_length=200),
+    estado: Optional[str] = Query(None, min_length=1, max_length=50),
+    lead_tag: Optional[str] = Query(None, min_length=1, max_length=50),
+    prioridad: Optional[str] = Query(None, min_length=1, max_length=50),
+    pack: Optional[str] = Query(None, min_length=1, max_length=50),
+
+    # ✅ NUEVO: filtro opcional por urgencia
+    urgencia: Optional[str] = Query(None, min_length=1, max_length=50),
+
+    conn: Connection = Depends(get_db),
+) -> Dict[str, Any]:
+    """
+    Lista oportunidades con filtros y paginación
+    """
+    limit = _clamp_limit(limit)
+
+    where: List[str] = []
+    args: List[Any] = []
+    i = 1
+
+    # Filtros exactos
+    if estado:
+        where.append(f"estado = ${i}")
+        args.append(estado)
+        i += 1
+    if lead_tag:
+        where.append(f"lead_tag = ${i}")
+        args.append(lead_tag)
+        i += 1
+    if prioridad:
+        where.append(f"prioridad = ${i}")
+        args.append(prioridad)
+        i += 1
+    if pack:
+        where.append(f"pack = ${i}")
+        args.append(pack)
+        i += 1
+
+    # ✅ filtro por urgencia (exact match)
+    if urgencia:
+        where.append(f"urgencia = ${i}")
+        args.append(urgencia)
+        i += 1
+
+    # Búsqueda por texto
+    q_like = None
+    if q:
+        q_like = f"%{q}%"
+        where.append(f"(deal_name ILIKE ${i} OR owner ILIKE ${i})")
+        args.append(q_like)
+        i += 1
+
+    where_sql = ("WHERE " + " AND ".join(where)) if where else ""
+
+    # Consulta de datos
+    rows = await conn.fetch(
+        f"""
+        SELECT
+            id,
+            contacto_id,
+            formulario_id,
+            linkedin_lead_id,
+            deal_name,
+            estado,
+            lead_tag,
+            prioridad,
+            urgencia,
+            next_action,
+            next_action_date,
+            probabilidad,
+            currency,
+            owner,
+            pack,
+            created_at,
+            updated_at
+        FROM oportunidades
+        {where_sql}
+        ORDER BY created_at DESC NULLS LAST, id DESC
+        LIMIT ${i} OFFSET ${i+1}
+        """,
+        *args,
+        limit,
+        offset,
+    )
+
+    # Contador total
+    total = await conn.fetchval(
+        f"SELECT count(*)::int FROM oportunidades {where_sql}",
+        *args,
+    )
+
+    items = [dict(r) for r in rows]
+    return {
+        "items": items,
+        "limit": limit,
+        "offset": offset,
+        "count": len(items),
+        "total": int(total or 0)
+    }
+
+
+@router.get("/{oportunidad_id}")
+async def get_oportunidad(
+    oportunidad_id: UUID,
+    conn: Connection = Depends(get_db),
+) -> Dict[str, Any]:
+    """
+    Obtiene una oportunidad específica por ID
+    """
+    row = await conn.fetchrow(
+        "SELECT * FROM oportunidades WHERE id = $1",
+        oportunidad_id
+    )
+    if not row:
+        raise HTTPException(status_code=404, detail="Oportunidad not found")
+    return dict(row)
+
+
+@router.get("/{oportunidad_id}/snapshot")
+async def oportunidad_snapshot(
+    oportunidad_id: UUID,
+    conn: Connection = Depends(get_db),
+) -> Dict[str, Any]:
+    """
+    Obtiene un snapshot completo de la oportunidad incluyendo contacto e historial
+    """
+    op = await conn.fetchrow(
+        "SELECT * FROM oportunidades WHERE id = $1",
+        oportunidad_id
+    )
+    if not op:
+        raise HTTPException(status_code=404, detail="Oportunidad not found")
+
+    contacto = None
+    if op.get("contacto_id"):
+        contacto = await conn.fetchrow(
+            """
+            SELECT
+                id,
+                nombre,
+                email,
+                telefono,
+                company_name,
+                cargo,
+                estado,
+                origen,
+                created_at,
+                updated_at
+            FROM contactos
+            WHERE id = $1
+            """,
+            op["contacto_id"],
+        )
+
+    historial = await conn.fetch(
+        """
+        SELECT *
+        FROM historial
+        WHERE oportunidad_id = $1
+        ORDER BY COALESCE(activity_date, created_at) DESC NULLS LAST, id DESC
+        LIMIT 200
+        """,
+        oportunidad_id,
+    )
+
+    return {
+        "oportunidad": dict(op),
+        "contacto": dict(contacto) if contacto else None,
+        "historial": [dict(r) for r in historial],
+    }
+
+
+@router.patch("/{oportunidad_id}")
+async def patch_oportunidad(
+    oportunidad_id: UUID,
+    payload: Dict[str, Any] = Body(...),
+    conn: Connection = Depends(get_db),
+) -> Dict[str, Any]:
+    """
+    Actualiza parcialmente una oportunidad
+    Auto-inserta historial: EVENT::STAGE_CHANGED con diff before/after
+    """
+    # Obtener estado actual
+    before = await conn.fetchrow(
+        "SELECT * FROM oportunidades WHERE id = $1",
+        oportunidad_id
+    )
+    if not before:
+        raise HTTPException(status_code=404, detail="Oportunidad not found")
+
+    # Campos editables desde Budibase
+    editable = {
+        # Pipeline
+        "estado",
+        "lead_tag",
+        "prioridad",
+        "urgencia",  # ✅ NUEVO (editable desde Budibase)
+        "next_action",
+        "next_action_date",
+        "probabilidad",
+
+        # Negocio
+        "deal_value",
+        "currency",
+        "owner",
+        "team",
+        "pack",
+        "deal_name",
+
+        # Cierre / pérdida
+        "expected_close_date",
+        "won_at",
+        "lost_at",
+        "lost_reason",
+        "lost_reason_notes",
+
+        # Notas internas
+        "notas_internas",
+
+        # Tags
+        "tags",
+    }
+
+    # Filtrar campos editables
+    updates = {k: v for k, v in payload.items() if k in editable}
+    if not updates:
+        return dict(before)
+
+    # Construir SET dinámico
+    set_parts = []
+    args = []
+    idx = 1
+    for k, v in updates.items():
+        set_parts.append(f"{k} = ${idx}")
+        args.append(v)
+        idx += 1
+
+    # Agregar updated_at automáticamente
+    set_parts.append("updated_at = NOW()")
+
+    # Ejecutar actualización
+    sql = f"UPDATE oportunidades SET {', '.join(set_parts)} WHERE id = ${idx} RETURNING *"
+    args.append(oportunidad_id)
+    after = await conn.fetchrow(sql, *args)
+
+    # Calcular diferencias
+    diff: Dict[str, Any] = {}
+    for k in updates.keys():
+        b = before.get(k)
+        a = after.get(k)
+        if b != a:
+            diff[k] = {"before": b, "after": a}
+
+    # Insertar en historial si hubo cambios
+    if diff:
+        contacto_id = after.get("contacto_id")
+        import json
+
+        await conn.execute(
+            """
+            INSERT INTO historial (
+                contacto_id,
+                oportunidad_id,
+                type,
+                subject,
+                notes,
+                activity_date,
+                created_by
+            ) VALUES (
+                $1, $2, 'NOTE', 'EVENT::STAGE_CHANGED', $3::text, NOW(), 'api'
+            )
+            """,
+            contacto_id,
+            oportunidad_id,
+            json.dumps({
+                "event": "EVENT::STAGE_CHANGED",
+                "diff": diff,
+                "oportunidad_id": str(oportunidad_id),
+                "contacto_id": str(contacto_id) if contacto_id else None,
+            }),
+        )
+
+    return dict(after)
