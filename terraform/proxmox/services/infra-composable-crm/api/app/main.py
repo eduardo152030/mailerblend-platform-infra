@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware  # 🔧 CORS para pruebas
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
 from app.db import get_pool, close_pool
@@ -11,10 +11,14 @@ from app.routers.v1.oportunidades import router as oportunidades_router
 from app.routers.v1.pendientes import router as pendientes_router
 
 from app.routers.v1 import timeline
-from app.routers.v1 import presupuestos  # 👈 NUEVO: módulo presupuestos
+from app.routers.v1 import presupuestos
 from app.routers.v1 import utm
 from app.routers.v1 import gastos, proveedores
 
+# 🆕 LINKEDIN SOURCING ROUTERS
+from app.routers.v1 import linkedin_leads
+from app.routers.v1 import linkedin_approvals
+from app.routers.v1 import linkedin_conversations_outcomes
 
 
 app = FastAPI(
@@ -29,8 +33,6 @@ app = FastAPI(
 # ============================================================
 # 🔧 CORS HABILITADO PARA PRUEBAS
 # ============================================================
-# ⚠️ ADVERTENCIA: Esto permite peticiones desde cualquier origen
-# Para eliminar CORS: comentar o borrar las siguientes 2 líneas
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -49,7 +51,6 @@ app.include_router(intake_router)
 app.include_router(oportunidades_router)
 app.include_router(pendientes_router)
 
-# 👇 NUEVO: registrar presupuestos
 app.include_router(presupuestos.router)
 app.include_router(utm.router)
 app.include_router(gastos.router)
@@ -60,12 +61,18 @@ app.include_router(proveedores.router)
 # -----------------------------
 app.include_router(timeline.router)
 
+# -----------------------------
+# 🆕 LINKEDIN SOURCING ROUTERS
+# -----------------------------
+app.include_router(linkedin_leads.router)
+app.include_router(linkedin_approvals.router)
+app.include_router(linkedin_conversations_outcomes.router)
+
 
 @app.on_event("startup")
 async def on_startup() -> None:
     """
     Inicializa el pool de conexiones a la base de datos al arrancar la aplicación.
-    Esto ayuda a detectar errores de conexión tempranamente durante el despliegue.
     """
     await get_pool()
 
