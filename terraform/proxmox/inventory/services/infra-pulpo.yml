@@ -1,0 +1,14 @@
+service:
+  name: infra-pulpo
+  vmid: 619
+  ip: 192.168.1.119/24
+
+resources:
+  cpu: 2
+  memory: 2048
+  disk_gb: 16
+
+tags:
+  - internal
+  - automation
+  - n8n server

@@ -1,0 +1,10 @@
+Ver qué contenedores están vivos y qué puertos exponen
+
+ssh root@"$IP" 'docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+Y también los parados/reiniciando:
+ssh root@"$IP" 'docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+
+ https://infra-pulpo.mailerblend.com
+
+email team@nucleotecnologico.es
+YF4Ed8hJSDpsoUa3zTKS

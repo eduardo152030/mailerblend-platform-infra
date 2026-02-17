@@ -184,3 +184,17 @@ Esperado:
 ## Estado
 
 Si todos los pasos están completos y los targets están **UP**, el servicio está **correctamente integrado**.
+
+
+aqui los datos que  usaremos apra este nuevo servicio 
+
+infra-pulpo
+  vmid: 619
+  ip: 192.168.1.119/24
+
+El servicio que vamos a crear es n8n serves
+
+donde estoy 
+jainer@Jainer:~/work/mailerblend-platform-infra/terraform/proxmox$ pwd
+/home/jainer/work/mailerblend-platform-infra/terraform/proxmox
+jainer@Jainer:~/work/mailerblend-platform-infra/terraform/proxmox$ 

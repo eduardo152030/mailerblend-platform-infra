@@ -1,0 +1,62 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: n8n
+      POSTGRES_USER: n8n
+      POSTGRES_PASSWORD: ${N8N_DB_PASSWORD}
+      TZ: Europe/Madrid
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U n8n -d n8n"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    stop_grace_period: 30s
+
+  n8n:
+    image: n8nio/n8n:latest
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    env_file:
+      - .env
+
+    environment:
+      # DB
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: postgres
+      DB_POSTGRESDB_PORT: "5432"
+      DB_POSTGRESDB_DATABASE: n8n
+      DB_POSTGRESDB_USER: n8n
+      DB_POSTGRESDB_PASSWORD: ${N8N_DB_PASSWORD}
+
+      # Seguridad / URLs
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY}
+      TZ: Europe/Madrid
+      N8N_HOST: ${DOMAIN_NAME}
+      N8N_PROTOCOL: https
+      WEBHOOK_URL: https://${DOMAIN_NAME}/
+      N8N_EDITOR_BASE_URL: https://${DOMAIN_NAME}/
+
+      # Rendimiento
+      NODE_OPTIONS: "--max-old-space-size=1536"
+
+      # Retención / disco
+      EXECUTIONS_DATA_SAVE_ON_SUCCESS: "none"
+      EXECUTIONS_DATA_SAVE_ON_ERROR: "none"
+      EXECUTIONS_DATA_PRUNE: "true"
+      EXECUTIONS_DATA_MAX_AGE: "72"
+
+    ports:
+      - "192.168.1.119:15678:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:
+  postgres_data:

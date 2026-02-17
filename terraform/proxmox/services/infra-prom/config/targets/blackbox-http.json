@@ -13,7 +13,9 @@
   {
     "targets": [
       "https://infra-svc01.mailerblend.com",
-      "https://infra-doc.mailerblend.com/"
+      "https://infra-doc.mailerblend.com/",
+      "https://infra-pulpo.mailerblend.com/",
+      "https://infra-svc01.mailerblend.com/"
     ],
     "labels": {
       "job": "blackbox",

@@ -11,6 +11,16 @@
   },
   {
     "targets": [
+      "192.168.1.118:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "infra-composable-crm"
+    }
+  },
+  {
+    "targets": [
       "192.168.1.111:8085"
     ],
     "labels": {
@@ -67,6 +77,16 @@
       "job": "cadvisor",
       "source": "inventory",
       "service": "infra-prom"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.119:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "infra-pulpo"
     }
   },
   {

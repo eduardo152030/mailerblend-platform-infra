@@ -83,7 +83,7 @@ alertmanager   Up
 
 Check Prometheus health
 curl http://192.168.1.110:9090/-/ready
-
+a
 
 Expected:
 
@@ -159,7 +159,7 @@ deploy-service.sh → correct
 docker compose on host → wrong
 
 manual fixes without Git → technical debt
-
+eed
 
 check if the container is running 
 
