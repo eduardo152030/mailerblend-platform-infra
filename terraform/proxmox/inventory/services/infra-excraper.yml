@@ -1,0 +1,16 @@
+service:
+  name: infra-excraper
+  vmid: 620
+  ip: 192.168.1.120/24
+
+resources:
+  cpu: 2
+  memory: 2048
+  disk_gb: 20
+
+tags:
+  - automation
+  - internal
+  - Parte_LinkedIn_Stealth_Sourcing
+  - linkedin-worker
+  - signals-worker 

@@ -1,0 +1,43 @@
+services:
+  linkedin-worker:
+    image: mcr.microsoft.com/playwright:v1.41.0-jammy
+    restart: unless-stopped
+    ipc: host
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./linkedin:/app 
+      - ./../../data/linkedin_sessions:/app/sessions
+      - ./../../data/screenshots:/app/screenshots
+    env_file: .env
+    command: >
+      sh -c "npm install && 
+             xvfb-run --auto-servernum --server-args='-screen 0 1280x1024x24' node linkedin-worker.js"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  signals-worker:
+    image: python:3.11-slim
+    restart: unless-stopped
+    working_dir: /app
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./signals:/app
+    env_file: .env
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt && 
+             python -u signals_worker.py"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5

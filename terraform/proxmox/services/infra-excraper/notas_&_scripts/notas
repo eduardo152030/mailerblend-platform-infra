@@ -1,0 +1,28 @@
+Ver qué contenedores están vivos y qué puertos exponen
+
+ssh root@"$IP" 'docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+Y también los parados/reiniciando:
+ssh root@"$IP" 'docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+
+# Ver el error de LinkedIn
+ssh root@"$IP" 'docker logs infra-excraper-linkedin-worker-1'
+
+# Ver el error de Signals
+ssh root@"$IP" 'docker logs infra-excraper-signals-worker-1'
+
+ verifiquemos qué llegó realmente al servidor:
+ ssh root@"$IP" 'ls -la /opt/infra-excraper/signals/'
+
+ # Probar el Worker de LinkedIn (Puerto 3000)
+ssh root@"$IP" 'curl -s -X POST http://localhost:3000/job/invite -d "{}" -H "Content-Type: application/json"'
+
+# Probar el Worker de Signals (Puerto 3001)
+ssh root@"$IP" 'curl -s -X POST http://localhost:3001/signals/enrich -d "{\"domain\":\"google.com\"}" -H "Content-Type: application/json"'
+
+Comprobar si se ha copiado el .env file 
+ ssh root@"$IP" 'ls -la /opt/infra-excraper/.env'
+-rw-r--r-- 1 1000 1000 205 Feb 18 10:59 /opt/infra-excraper/.env
+
+# Ver logs de cada worker en tiempo real
+ssh root@"$IP" 'docker logs infra-excraper-linkedin-worker-1 --tail 20'
+ssh root@"$IP" 'docker logs infra-excraper-signals-worker-1 --tail 20'

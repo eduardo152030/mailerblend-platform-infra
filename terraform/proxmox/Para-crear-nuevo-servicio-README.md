@@ -187,10 +187,12 @@ Si todos los pasos están completos y los targets están **UP**, el servicio est
 
 
 aqui los datos que  usaremos apra este nuevo servicio 
+    linkedin-worker → solo LinkedIn (browser automation)
+    signals-worker → Places + PageSpeed + Web scrape ligero
 
-infra-pulpo
-  vmid: 619
-  ip: 192.168.1.119/24
+infra-Excraper
+  vmid: 620
+  ip: 192.168.1.120/24
 
 El servicio que vamos a crear es n8n serves
 

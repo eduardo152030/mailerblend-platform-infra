@@ -19,6 +19,11 @@ from app.routers.v1 import gastos, proveedores
 from app.routers.v1 import linkedin_leads
 from app.routers.v1 import linkedin_approvals
 from app.routers.v1 import linkedin_conversations_outcomes
+from app.routers.v1.linkedin_knowledge_base import router as knowledge_base_router
+from app.routers.v1.linkedin_rate_limits import router as rate_limits_router
+from app.routers.v1.linkedin_activity_log import router as activity_log_router
+from app.routers.v1.linkedin_cooldowns import router as cooldowns_router
+from app.routers.v1.linkedin_invite_templates import router as invite_templates_router
 
 
 app = FastAPI(
@@ -67,7 +72,12 @@ app.include_router(timeline.router)
 app.include_router(linkedin_leads.router)
 app.include_router(linkedin_approvals.router)
 app.include_router(linkedin_conversations_outcomes.router)
-
+# ── Registrar routers (añadir después de los routers existentes) ──
+app.include_router(knowledge_base_router)
+app.include_router(rate_limits_router)
+app.include_router(activity_log_router)
+app.include_router(cooldowns_router)
+app.include_router(invite_templates_router)
 
 @app.on_event("startup")
 async def on_startup() -> None:
