@@ -1,0 +1,1 @@
+ssh root@192.168.1.118 'docker exec -i supabase-db env PGPASSWORD="l1W3YyXJUyqfSrkhdJMe" psql -U "pgadmin2026f" -d "postgres"' < services/infra-composable-crm/database-schemas/13.linkedin_queries_kb_tables.sql 

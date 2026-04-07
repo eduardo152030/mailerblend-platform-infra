@@ -1,0 +1,68 @@
+Since the root cause was a path mismatch between your Docker configuration and your manual troubleshooting, here is a professional runbook to resolve this "Read-only Database" error if it ever recurs.
+
+---
+
+## Runbook: Fixing Focalboard "Read-only Database" Error
+**Status:** Operational / Resolution Confirmed
+**Service:** Focalboard (Mattermost)
+**Environment:** Proxmox / Docker Compose
+
+### 1. Identify the Root Cause
+The error `originalError: attempt to write a readonly database` occurs when the container's internal user (UID 1000) does not have write permissions to the host folder mapped to `/opt/focalboard/data`.
+
+### 2. Verification Steps
+Before applying the fix, verify the **exact host path** Docker is using. A mismatch between the folder you are "fixing" and the folder Docker is "using" is the most common reason for persistent failures.
+
+```bash
+# Run this on the Proxmox host to find the 'Source' path
+docker inspect focalboard --format '{{ json .Mounts }}' | jq
+```
+
+### 3. Resolution Script
+Run the following commands on the Proxmox host. Replace `/opt/infra-project-gestion/data` with the **Source** path identified in Step 2.
+
+```bash
+# 1. Navigate to the compose directory
+cd /opt/infra-project-gestion/compose
+
+# 2. Stop the service to release file locks
+docker compose down
+
+# 3. Define the TARGET_DIR (from docker inspect)
+TARGET_DIR="/opt/infra-project-gestion/data"
+
+# 4. Remove potentially locked or corrupted SQLite temp files
+# WARNING: This deletes the database! Only do this for fresh installs.
+rm -f $TARGET_DIR/focalboard.db*
+
+# 5. Ensure the directory structure exists
+mkdir -p $TARGET_DIR/files
+
+# 6. Apply recursive permissions
+# Use 777 for troubleshooting or 'chown -R 1000:1000' for better security
+chmod -R 777 $TARGET_DIR
+
+# 7. Restart the service
+docker compose up -d
+```
+
+### 4. Validation
+Monitor the logs to ensure the migration engine finishes all steps (usually up to version 18 or higher).
+
+```bash
+docker logs focalboard -f
+```
+
+**Successful log indicators:**
+* `connectDatabase ... dbType=sqlite3`
+* `init: migrating`
+* `Ensuring migrations applied up to version [X] current_version=0`
+* `server.NewStore: server started`
+
+---
+
+### 5. Prevention (Best Practices)
+To prevent this in future deployments:
+* **Absolute Paths:** Use absolute paths in your `volumes` section of `docker-compose.yml` to avoid relative path confusion (e.g., `/opt/app/data:/opt/focalboard/data`).
+* **Pre-Provisioning:** Always create the data directory and set permissions *before* running `docker compose up` for the first time.
+* **Persistent User:** If using a specific user in Docker, ensure that user matches the host directory owner.

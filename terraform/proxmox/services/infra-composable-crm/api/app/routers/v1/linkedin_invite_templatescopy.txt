@@ -436,10 +436,6 @@ async def render_template(
     text = template["template_text"]
     required_vars = template["required_variables"]
     
-    # Parse required_vars si viene como string JSON desde la BD
-    if isinstance(required_vars, str):
-        required_vars = json.loads(required_vars)
-    
     # Verificar que tenemos todas las variables requeridas
     missing = [v for v in required_vars if v not in variables]
     if missing:

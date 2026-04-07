@@ -81,6 +81,16 @@
   },
   {
     "targets": [
+      "192.168.1.121:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "infra-project-gestion"
+    }
+  },
+  {
+    "targets": [
       "192.168.1.110:8085"
     ],
     "labels": {

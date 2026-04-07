@@ -1,0 +1,103 @@
+Ver qué contenedores están vivos y qué puertos exponen
+
+ssh root@"$IP" 'docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+Y también los parados/reiniciando:
+ssh root@"$IP" 'docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+
+# Ver el error de LinkedIn
+ssh root@"$IP" 'docker logs infra-excraper-linkedin-worker-1'
+
+# Ver el error de Signals
+ssh root@"$IP" 'docker logs infra-excraper-signals-worker-1'
+
+ verifiquemos qué llegó realmente al servidor:
+ ssh root@"$IP" 'ls -la /opt/infra-excraper/signals/'
+
+ # Probar el Worker de LinkedIn (Puerto 3000)
+ssh root@"$IP" 'curl -s -X POST http://localhost:3000/job/invite -d "{}" -H "Content-Type: application/json"'
+
+# Probar el Worker de Signals (Puerto 3001)
+ssh root@"$IP" 'curl -s -X POST http://localhost:3001/signals/enrich -d "{\"domain\":\"google.com\"}" -H "Content-Type: application/json"'
+
+Comprobar si se ha copiado el .env file 
+ ssh root@"$IP" 'ls -la /opt/infra-excraper/.env'
+-rw-r--r-- 1 1000 1000 205 Feb 18 10:59 /opt/infra-excraper/.env
+
+# Ver logs de cada worker en tiempo real
+ssh root@"$IP" 'docker logs infra-excraper-linkedin-worker-1 --tail 20'
+ssh root@"$IP" 'docker logs -f infra-excraper-linkedin-worker-1'
+
+ssh root@192.168.1.120 'docker logs -f infra-excraper-linkedin-worker-1'
+
+ssh root@"$IP" 'docker logs infra-excraper-signals-worker-1 --tail 20'
+
+linkedin
+
+ ssh root@"$IP" 'ls -la /opt/infra-excraper/linkedin/'
+Recreated 
+
+ssh root@192.168.1.120 "cd /opt/infra-excraper && docker compose up -d --force-recreate linkedin-worker"
+
+ssh root@"$IP" 'cd /opt/infra-excraper && docker-compose restart linkedin-worker'
+reiniciar
+ssh root@192.168.1.120 "docker restart  infra-excraper-linkedin-worker-1"
+
+# 1. Detener el contenedor (para que no siga reiniciándose)
+
+ssh root@192.168.1.120 "docker stop   infra-excraper-linkedin-worker-1"
+
+
+para revisar los errors 
+# Ver qué screenshots se generaron
+ssh root@192.168.1.120 'ls -lh /opt/infra-excraper/data/screenshots/'
+
+# Descargar el screenshot del error
+scp root@192.168.1.120:/opt/infra-excraper/data/screenshots/invite_sent_debug_001.png./
+
+# Si no existe login_error.png, buscar cualquier screenshot
+ssh root@192.168.1.120 'ls -lh /opt/infra-excraper/data/screenshots/*.png 2>/dev/null || echo "No hay screenshots PNG"'
+
+
+# Ver qué screenshots nuevos hay
+ssh root@192.168.1.120 'ls -lt /opt/infra-excraper/data/screenshots/*.png | head -3'
+
+
+# Ver si la sesión existe
+ssh root@192.168.1.120 'ls -lh /opt/infra-excraper/data/linkedin_sessions/'
+
+# Probar login (debería decir "Already logged in")
+curl -sS -X POST http://192.168.1.120:3000/login \
+  -H "Content-Type: application/json" | python3 -m json.tool
+
+Esperado:
+
+{
+  "ok": true,
+  "message": "Already logged in (persistent session)",
+  "url": "https://www.linkedin.com/feed/"
+}
+
+
+# Ver dónde están los screenshots realmente
+ssh root@192.168.1.120 'docker exec infra-excraper-linkedin-worker-1 ls -lth /app/screenshots/ | head -5'
+
+# Si están ahí, copiarlos al volumen
+ssh root@192.168.1.120 'docker exec infra-excraper-linkedin-worker-1 cp /app/screenshots/before_click_debug_001.png /app/screenshots/screenshot_copy.png'
+
+# Ver desde el host
+ssh root@192.168.1.120 'ls -lh /opt/infra-excraper/linkedin/screenshots/'
+
+
+
+-----------------------
+1)  ssh root@192.168.1.120 "docker stop   infra-excraper-linkedin-worker-1"
+2) scp services/infra-excraper/compose/linkedin/linkedin-worker.js root@192.168.1.120:/opt/infra-excraper/linkedin/linkedin-worker.js
+3)  ssh root@192.168.1.120 "docker restart  infra-excraper-linkedin-worker-1"
+
+Company Scraping
+        print(f"Company: {company.name}")
+        print(f"Industry: {company.industry}")
+        print(f"Size: {company.company_size}")
+
+
+scp services/infra-excraper/compose/linkedin/search-people-tester.js root@192.168.1.120:/opt/infra-excraper/linkedin/

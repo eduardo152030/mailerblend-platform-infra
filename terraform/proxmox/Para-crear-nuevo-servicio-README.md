@@ -5,7 +5,7 @@ Este documento describe **el flujo correcto y mínimo** para crear y desplegar u
 > Regla de oro:
 > - **Nunca** entrar manualmente al container.
 > -  el puerto 8080  ya esta usado por otro contenedor 
-> -  ips disponible desde las 168.168.1.118 (incluida)
+> -  ips disponible desde las 168.168.1.122 (incluida)
 > -  vmid 6** (**) los 2 ultimos numeros de la ip
 > - **Todo** se ejecuta desde el repo:
 >   `~/work/mailerblend-platform-infra/terraform/proxmox`

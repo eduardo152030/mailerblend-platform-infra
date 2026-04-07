@@ -1,0 +1,14 @@
+service:
+  name: infra-project-gestion
+  vmid: 621
+  ip: 192.168.1.121/24
+
+resources:
+  cpu: 2
+  memory: 2048
+  disk_gb: 12
+
+tags:
+  - internal
+  - apps
+  - project-gestion

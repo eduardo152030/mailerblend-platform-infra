@@ -32,7 +32,7 @@ Infraestructura **declarativa, reproducible y extensible** para Mailerblend, bas
 └──────┬────────┘
        │
 ┌──────▼────────┐      ┌─────────────────────────┐
-│   Terraform   │─────▶│  LXC per service        │
+│   Terraform   │─────▶│  LXC per service         │
 └──────┬────────┘      │  Docker Compose          │
        │               │  - app / infra           │
        │               │  - node_exporter         │
@@ -124,17 +124,17 @@ Terraform, Prometheus y los scripts **leen de aquí**.
 ---
 
 ### Deploy desde fuera (regla de oro)
- ./scripts/deploy-service.sh  infra-grafana 192.168.1.111
+
 ❌ No se entra manualmente al CT
 
 ✅ Todo se hace con scripts:
-- `his  ` → servicios (Prometheus, Grafana, apps)
+- `deploy-service.sh` → servicios (Prometheus, Grafana, apps)
 - `deploy-common.sh` → módulos comunes (node_exporter)
 
 Esto garantiza **reproducibilidad total**.
 
 ---
- ./scripts/deploy-common.sh node-exporter 192.168.1.110
+
 ## 📊 Observabilidad automática
 
 ### Node Exporter
@@ -194,13 +194,6 @@ make status
 
 ---
 
-./scripts/deploy-common.sh cadvisor <IP>
-./scripts/deploy-common.sh node-exporter <IP>
-
-❌ Si no aparece → Grafana no está levantado
-👉 solución:
-./scripts/deploy-service.sh infra-grafana 192.168.1.111
-
 ## 🔁 Ciclo típico para añadir un nuevo servicio
 
 1. Crear `inventory/services/infra-nuevo.yml`
@@ -228,81 +221,26 @@ make status
 - Backups Proxmox / offsite
 - Migración futura a cloud (sin romper decisiones)
 
+
+
+# Mailerblend Platform Infra (Proxmox / Terraform)
+
+## Monitoring stack (Phase 2)
+Services:
+- `infra-prom` (Prometheus + Alertmanager) -> `192.168.1.110`
+- `infra-grafana` (Grafana) -> `192.168.1.111`
+- `node-exporter` (per CT) -> port `9100`
+- `cadvisor` (per CT) -> port `8085`
+
+## Inventory-driven targets
+Prometheus discovers targets via file_sd generated from `inventory/services/*.yml`.
+
+Generate targets:
+```bash
+./scripts/gen-prom-targets.py
+
+
 ---
 
 **Autor:** Eduardo Velázquez
 **Proyecto:** Mailerblend Platform Infra
-
-PASO 1 — Ver exactamente qué va a destruir Terraform
-
-NUNCA destruyas a ciegas.
-
-terraform init
-terraform plan -destroy
-
-
-✔️ Esto te mostrará:
-
-Qué LXCs
-Qué VMs
-Qué volúmenes
-Qué network configs
-
-👉 Confirma que solo son recursos del homelab (no prod).
-
-💥 PASO 2 — Destruir todo (oficialmente)
-
-Cuando veas que es correcto:
-
-terraform destroy
-
-
-para iniciar la maquina 
-
-terraform fmt
-terraform plan  -parallelism=1
-terraform apply -parallelism=1
-
-
--------------------
-
-curl -sS http://192.168.1.110:9090/-/ready ; echo
-
-
-curl -sS "http://192.168.1.110:9090/api/v1/targets" | head -n 80
-
-./scripts/deploy-common.sh node-exporter 192.168.1.110
-
-
-Crear solo el inventario del servicio
-cat > inventory/services/infra-hola.yml <<'EOF'
-service:
-  name: infra-hola
-  vmid: 613
-  ip: 192.168.1.113/24
-
-resources:
-  cpu: 1
-  memory: 512
-  disk_gb: 8
-
-tags:
-  - demo
-  - hola
-EOF
-
-paso 2 3️⃣ Crear carpetas del servicio (solo estas)
-
-
-python3 scripts/gen-prom-targets.py
-./scripts/deploy-service.sh infra-prom 192.168.1.110
-
-
-jainer@Jainer:~/work/mailerblend-platform-infra/terraform/proxmox$ curl -sS "http://192.168.1.110:9090/api/v1/targets" \
-| jq -r '.data.activeTargets[] | "\(.labels.job)\t\(.labels.instance)\t\(.health)\t\(.lastError)"' \
-| sort
-
-
-Opción 4 — Ver si Prometheus ve todo UP (la más importante)
-
-ssss

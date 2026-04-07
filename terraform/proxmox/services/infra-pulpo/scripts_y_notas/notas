@@ -8,3 +8,5 @@ ssh root@"$IP" 'docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}
 
 email team@nucleotecnologico.es
 YF4Ed8hJSDpsoUa3zTKS
+
+ssh root@192.168.1.119 'docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
