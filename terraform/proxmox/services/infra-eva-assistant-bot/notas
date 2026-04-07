@@ -32,4 +32,4 @@ También te diría una cosa importante
 Como el problema real fue que el contenedor no estaba reconstruido, conviene dejar una nota operativa para este servicio:
 
 cuando cambies código de api/, si el script no fuerza build, ejecutar:
-ssh root@192.168.1.122 "cd /opt/infra-eva-assistant-bot && docker compose build --no-cache eva-api && docker 
+ssh root@192.168.1.122 "cd /opt/infra-eva-assistant-bot && docker compose build --no-cache eva-api eva-scheduler && docker compose up -d"
