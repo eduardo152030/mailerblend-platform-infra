@@ -21,6 +21,16 @@
   },
   {
     "targets": [
+      "192.168.1.122:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "infra-eva-assistant-bot"
+    }
+  },
+  {
+    "targets": [
       "192.168.1.120:8085"
     ],
     "labels": {

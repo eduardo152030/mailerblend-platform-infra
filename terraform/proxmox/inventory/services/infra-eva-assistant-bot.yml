@@ -1,0 +1,14 @@
+service:
+  name: infra-eva-assistant-bot
+  vmid: 622
+  ip: 192.168.1.122/24
+
+resources:
+  cpu: 2
+  memory: 2048
+  disk_gb: 12
+
+tags:
+  - internal
+  - ai
+  - telegram

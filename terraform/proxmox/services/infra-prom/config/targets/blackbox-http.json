@@ -15,7 +15,8 @@
       "https://infra-svc01.mailerblend.com",
       "https://infra-doc.mailerblend.com/",
       "https://infra-pulpo.mailerblend.com/",
-      "https://infra-svc01.mailerblend.com/"
+      "https://infra-svc01.mailerblend.com/",
+      "https://infra-eva.mailerblend.com/"
     ],
     "labels": {
       "job": "blackbox",

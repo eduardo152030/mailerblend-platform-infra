@@ -1,0 +1,35 @@
+Y comprobaciones remotas no interactivas:
+ssh root@${SERVICE_IP_ONLY} "docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
+ssh root@${SERVICE_IP_ONLY} "cd /opt/${SERVICE_NAME} && docker compose logs --no-color --tail=100"
+ssh root@${SERVICE_IP_ONLY} "curl -sS http://127.0.0.1:8001/health"
+ssh root@${SERVICE_IP_ONLY} "curl -sS http://127.0.0.1:8001/ready"
+
+
+Usa estos comandos desde ahora
+Logs del stack
+ssh root@${SERVICE_IP_ONLY} "cd /opt/${SERVICE_NAME} && docker compose logs --no-color --tail=100"
+Logs solo del API
+ssh root@${SERVICE_IP_ONLY} "cd /opt/${SERVICE_NAME} && docker compose logs --no-color --tail=100 eva-api"
+Logs solo de Postgres
+ssh root@${SERVICE_IP_ONLY} "cd /opt/${SERVICE_NAME} && docker compose logs --no-color --tail=100 postgres"
+
+Si te falla postgres como nombre de servicio, usa directo el contenedor:
+
+ssh root@${SERVICE_IP_ONLY} "docker logs --tail=100 eva-postgres"
+Ver el compose desplegado
+ssh root@${SERVICE_IP_ONLY} "sed -n '1,220p' /opt/${SERVICE_NAME}/docker-compose.yml"
+Ver el .env remoto
+ssh root@${SERVICE_IP_ONLY} "sed -n '1,220p' /opt/${SERVICE_NAME}/.env"
+Estado del compose desde la ruta correcta
+ssh root@${SERVICE_IP_ONLY} "cd /opt/${SERVICE_NAME} && docker compose ps"
+Reiniciar el servicio si hace falta
+ssh root@${SERVICE_IP_ONLY} "cd /opt/${SERVICE_NAME} && docker compose restart"
+
+--
+
+También te diría una cosa importante
+
+Como el problema real fue que el contenedor no estaba reconstruido, conviene dejar una nota operativa para este servicio:
+
+cuando cambies código de api/, si el script no fuerza build, ejecutar:
+ssh root@192.168.1.122 "cd /opt/infra-eva-assistant-bot && docker compose build --no-cache eva-api && docker 

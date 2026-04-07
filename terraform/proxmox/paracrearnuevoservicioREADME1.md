@@ -24,8 +24,8 @@ Antes de empezar, decide estos valores:
 
 ```bash
 SERVICE_NAME="infra-hola"
-SERVICE_VMID="620"
-SERVICE_IP="192.168.1.130/24"
+SERVICE_VMID="622"
+SERVICE_IP="192.168.1.122/24"
 ```
 
 ---
