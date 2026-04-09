@@ -1,17 +1,33 @@
 import os
+import re
+import traceback
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
+
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from sqlalchemy import select, text
+
 from db import engine, SessionLocal
 from models import User, Reminder, Message, Event
 from parser_service import parse_reminder
 from telegram_service import send_message
-from reminder_service import build_confirmation_text
+from scheduler import build_daily_digest, send_daily_digest_to_all
 from schemas import ParseCommandRequest, CancelReminderRequest, EventCreateRequest
 
 APP_NAME = os.getenv("APP_NAME", "eva-assistant-bot")
+DEFAULT_TIMEZONE = os.getenv("TIMEZONE", "Europe/Madrid")
+TZ = ZoneInfo(DEFAULT_TIMEZONE)
 
 app = FastAPI(title=APP_NAME)
+
+
+def to_local(dt: datetime | None) -> datetime | None:
+    if dt is None:
+        return None
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=TZ)
+    return dt.astimezone(TZ)
 
 
 def serialize_reminder(r: Reminder) -> dict:
@@ -28,12 +44,23 @@ def serialize_reminder(r: Reminder) -> dict:
         "remind_if_no_response": r.remind_if_no_response,
         "retry_delay_minutes": r.retry_delay_minutes,
         "cancel_on_event_type": r.cancel_on_event_type,
+        "is_persistent": getattr(r, "is_persistent", False),
+        "repeat_every_minutes": getattr(r, "repeat_every_minutes", None),
+        "stop_at": r.stop_at.isoformat() if getattr(r, "stop_at", None) else None,
+        "awaiting_ack": getattr(r, "awaiting_ack", False),
+        "retry_count": getattr(r, "retry_count", 0),
+        "max_retries": getattr(r, "max_retries", 0),
         "created_at": r.created_at.isoformat() if r.created_at else None,
         "sent_at": r.sent_at.isoformat() if r.sent_at else None,
         "last_sent_at": r.last_sent_at.isoformat() if r.last_sent_at else None,
         "acked_at": r.acked_at.isoformat() if r.acked_at else None,
+        "completed_at": r.completed_at.isoformat() if getattr(r, "completed_at", None) else None,
+        "expired_at": r.expired_at.isoformat() if getattr(r, "expired_at", None) else None,
+        "cancelled_at": r.cancelled_at.isoformat() if getattr(r, "cancelled_at", None) else None,
+        "ack_text": getattr(r, "ack_text", None),
         "error_message": r.error_message,
     }
+
 
 def serialize_event(e: Event) -> dict:
     return {
@@ -45,6 +72,514 @@ def serialize_event(e: Event) -> dict:
         "payload": e.payload,
         "created_at": e.created_at.isoformat() if e.created_at else None,
     }
+
+
+def normalize_text(text_in: str) -> str:
+    txt = text_in.lower().strip()
+    txt = re.sub(r"\s+", " ", txt)
+    return txt
+
+
+def is_list_command(lowered: str) -> bool:
+    candidates = {
+        "/reminders",
+        "eva, /reminders",
+        "eva reminders",
+        "eva, reminders",
+        "eva, lista mis recordatorios",
+        "eva lista mis recordatorios",
+        "lista mis recordatorios",
+        "mis recordatorios",
+        "recordatorios",
+        "lista recordatorios",
+        "eva, lista recordatorios",
+        "eva lista recordatorios",
+        "qué tengo pendiente",
+        "que tengo pendiente",
+        "eva, qué tengo pendiente",
+        "eva, que tengo pendiente",
+        "eva qué tengo pendiente",
+        "eva que tengo pendiente",
+    }
+    return lowered in candidates
+
+
+def is_ack_text(lowered: str) -> bool:
+    ack_values = {
+        "ok", "okay", "vale", "listo", "gracias", "hecho",
+        "ya está", "ya esta", "si", "sí", "ya", "perfecto",
+    }
+    if lowered in ack_values:
+        return True
+    # También captura frases de snooze para que pasen por handle_ack_command
+    if _parse_snooze(lowered) is not None:
+        return True
+    return False
+
+
+def _parse_snooze(lowered: str) -> timedelta | None:
+    """
+    Detecta intención de posponer. Devuelve timedelta o None.
+    Ejemplos: "en 10 minutos", "en 1 hora", "mañana", "luego", "después"
+    """
+    m = re.match(r'^(?:en\s+)?(\d+)\s+minutos?$', lowered)
+    if m:
+        return timedelta(minutes=int(m.group(1)))
+
+    m = re.match(r'^(?:en\s+)?(\d+)\s+hora?s?$', lowered)
+    if m:
+        return timedelta(hours=int(m.group(1)))
+
+    m = re.match(r'^(?:en\s+)?media\s+hora$', lowered)
+    if m:
+        return timedelta(minutes=30)
+
+    m = re.match(r'^en\s+un\s+rato$', lowered)
+    if m:
+        return timedelta(minutes=15)
+
+    if lowered in ("mañana", "manana"):
+        return timedelta(hours=24)
+
+    if lowered in ("luego", "después", "despues", "ahora no", "más tarde", "mas tarde"):
+        return timedelta(hours=1)
+
+    return None
+
+
+def extract_cancel_task(lowered: str) -> str | None:
+    patterns = [
+        r"^eva,\s*cancela el recordatorio$",
+        r"^eva\s+cancela el recordatorio$",
+        r"^cancela el recordatorio$",
+        r"^eva,\s*cancela el de\s+(.+)$",
+        r"^eva\s+cancela el de\s+(.+)$",
+        r"^cancela el de\s+(.+)$",
+        r"^eva,\s*cancela\s+(.+)$",
+        r"^eva\s+cancela\s+(.+)$",
+        r"^cancela\s+(.+)$",
+    ]
+
+    for pattern in patterns:
+        m = re.match(pattern, lowered, re.IGNORECASE)
+        if m:
+            if m.lastindex:
+                captured = m.group(1).strip()
+                # Si lo capturado es solo un número o "el N" → es cancelación por ID,
+                # dejar que handle_cancel_by_id lo gestione
+                if re.match(r'^(?:el\s+)?\d+$', captured):
+                    return None
+                return captured
+            return ""
+    return None
+
+
+def extract_edit_command(lowered: str) -> tuple[int, dict] | None:
+    """
+    Detecta comandos de edición por ID. Devuelve (reminder_id, updates) o None.
+    Ejemplos:
+      "cambia el 28 a las 11:00"
+      "eva, mueve el 5 a mañana a las 9:30"
+      "edita el 12, nueva tarea: llamar al médico"
+      "renombra el 7 a revisar correos"
+    """
+    edit_keywords = ("cambia", "cambiar", "mueve", "mover", "edita", "editar", "actualiza", "actualizar", "renombra", "renombrar", "modifica", "modificar")
+    if not any(w in lowered for w in edit_keywords):
+        return None
+
+    id_match = re.search(r'\b(\d{1,6})\b', lowered)
+    if not id_match:
+        return None
+
+    reminder_id = int(id_match.group(1))
+    updates: dict = {}
+
+    time_match = re.search(r'a\s+las?\s+(\d{1,2}):(\d{2})', lowered)
+    if time_match:
+        updates["hour"] = int(time_match.group(1))
+        updates["minute"] = int(time_match.group(2))
+
+    if "mañana" in lowered or "manana" in lowered:
+        updates["tomorrow"] = True
+
+    task_match = re.search(r'(?:nueva\s+tarea|tarea|texto|nombre)\s*[:]\s*(.+)', lowered)
+    if task_match:
+        updates["task_text"] = task_match.group(1).strip()
+
+    rename_match = re.match(r'.*(?:renombra|renombrar)\s+el\s+\d+\s+a\s+(.+)', lowered)
+    if rename_match:
+        updates["task_text"] = rename_match.group(1).strip()
+
+    if not updates:
+        return None
+
+    return reminder_id, updates
+
+
+def build_list_reply(active: list[Reminder], awaiting: list[Reminder]) -> str:
+    if not active and not awaiting:
+        return "📋 No tienes recordatorios activos."
+
+    lines = []
+
+    if active:
+        lines.append(f"📋 *Próximos recordatorios ({len(active)}):*")
+        for r in active:
+            local_dt = to_local(r.remind_at)
+            dt_str = local_dt.strftime("%d/%m %H:%M") if local_dt else "sin hora"
+            recurrence = ""
+            if r.recurrence_type == "weekly":
+                recurrence = " ↻ semanal"
+            elif r.recurrence_type == "weekdays":
+                recurrence = " ↻ lab."
+            elif r.is_persistent and r.repeat_every_minutes:
+                recurrence = f" ↻ cada {r.repeat_every_minutes}min"
+            lines.append(f"  • [{r.id}] {r.task_text} — {dt_str}{recurrence}")
+
+    if awaiting:
+        if active:
+            lines.append("")
+        lines.append(f"⏳ *Pendientes de confirmación ({len(awaiting)}):*")
+        for r in awaiting:
+            local_dt = to_local(r.last_sent_at or r.remind_at)
+            dt_str = local_dt.strftime("%d/%m %H:%M") if local_dt else "sin hora"
+            lines.append(f"  • [{r.id}] {r.task_text} — enviado {dt_str}")
+        lines.append("  Responde *listo* para confirmar el más reciente.")
+
+    return "\n".join(lines)
+
+
+def build_help_text() -> str:
+    return (
+        "No te entendí del todo. Prueba con:\n"
+        "- eva, recuérdame en 2 minutos probar sistema\n"
+        "- eva, cada 5 minutos recuérdame tomar agua\n"
+        "- eva, recuérdame cada 10 minutos revisar el horno hasta las 22:00\n"
+        "- eva, recuérdame 2 minutos antes de las 22:00\n"
+        "- eva, recuérdame 2 minutos antes de que sean las 22:00\n"
+        "- mañana recuérdame fichar a las 08:00\n"
+        "- cada lunes recuérdame revisión semanal a las 09:00\n"
+        "- eva, recuérdame fichar a las 08:00, solo días laborables\n"
+        "- eva, recuérdame fichar a las 08:00, si ya fiché, cancela el recordatorio\n"
+        "- eva, recuérdame fichar a las 22:40 y sigue avisándome hasta las 22:50\n"
+        "- eva, lista mis recordatorios\n"
+        "- eva, cancela el 28\n"
+        "- eva, cambia el 28 a las 11:00\n"
+        "- listo / ok / ya está / en 10 minutos / luego"
+    )
+
+
+def build_confirmation_text_from_parsed(source_text: str, parsed: dict) -> str:
+    remind_at_local = to_local(parsed["remind_at"])
+    remind_at_str = remind_at_local.strftime("%Y-%m-%d %H:%M")
+    remind_time_str = remind_at_local.strftime("%H:%M")
+    task_text = parsed["task_text"]
+
+    if parsed.get("mode") == "before_time":
+        minutes_before = parsed.get("minutes_before")
+        target_time_text = parsed.get("target_time_text")
+        if minutes_before is not None and target_time_text:
+            base = f"🧠 EVA: Te avisaré a las {remind_time_str} ({minutes_before} minutos antes de las {target_time_text})."
+        else:
+            base = f'🧠 EVA: Te recordaré "{task_text}" el {remind_at_str}.'
+    elif parsed.get("mode") == "interval_minutes":
+        interval = parsed.get("repeat_every_minutes", 0)
+        stop_at = parsed.get("stop_at")
+        if stop_at:
+            stop_at_local = to_local(stop_at)
+            return (
+                f'🧠 EVA: Te recordaré "{task_text}" cada {interval} minutos '
+                f'hasta las {stop_at_local.strftime("%H:%M")}. Responde "listo" para parar.'
+            )
+        return (
+            f'🧠 EVA: Te recordaré "{task_text}" cada {interval} minutos '
+            f'hasta que me respondas "listo".'
+        )
+    elif parsed.get("mode") == "tomorrow_at_time":
+        base = f'🧠 EVA: Te recordaré "{task_text}" mañana a las {remind_time_str}.'
+    elif parsed.get("mode") == "weekly_day":
+        recurrence_value = parsed.get("recurrence_value") or "ese día"
+        base = f'🧠 EVA: Te recordaré "{task_text}" cada {recurrence_value} a las {remind_time_str}.'
+    elif parsed.get("mode") == "weekdays":
+        base = f'🧠 EVA: Te recordaré "{task_text}" en días laborables a las {remind_time_str}.'
+    else:
+        base = f'🧠 EVA: Te recordaré "{task_text}" el {remind_at_str}.'
+
+    if parsed.get("is_persistent"):
+        repeat_every_minutes = parsed.get("repeat_every_minutes") or 2
+        stop_at = parsed.get("stop_at")
+        if stop_at:
+            stop_at_local = to_local(stop_at)
+            return (
+                f"{base}\n"
+                f"🔁 Seguiré avisándote cada {repeat_every_minutes} minutos "
+                f"hasta las {stop_at_local.strftime('%H:%M')} o hasta que me respondas \"listo\"."
+            )
+        return (
+            f"{base}\n"
+            f"🔁 Si no respondes, seguiré avisándote cada {repeat_every_minutes} minutos "
+            f"hasta que me respondas \"listo\"."
+        )
+
+    return base
+
+
+def _get_recent_context(db, user_id: int, limit: int = 5) -> list[dict]:
+    """Devuelve los últimos N mensajes del usuario para contexto conversacional."""
+    rows = db.execute(
+        select(Message)
+        .where(Message.user_id == user_id)
+        .order_by(Message.id.desc())
+        .limit(limit)
+    ).scalars().all()
+    return [
+        {"direction": m.direction, "text": m.message_text}
+        for m in reversed(rows)
+    ]
+
+
+async def send_and_log(db, user_id: int, chat_id: int, text_out: str, message_type: str) -> None:
+    await send_message(chat_id, text_out)
+    db.add(
+        Message(
+            user_id=user_id,
+            direction="outbound",
+            message_text=text_out,
+            message_type=message_type,
+        )
+    )
+    db.commit()
+
+
+async def handle_list_command(db, user: User, chat_id: int):
+    # Próximos: scheduled/pending — aún no disparados
+    active = db.execute(
+        select(Reminder)
+        .where(Reminder.user_id == user.id)
+        .where(Reminder.status.in_(["pending", "scheduled"]))
+        .order_by(Reminder.remind_at.asc())
+    ).scalars().all()
+
+    # Pendientes de confirmación: sent + awaiting_ack
+    awaiting = db.execute(
+        select(Reminder)
+        .where(Reminder.user_id == user.id)
+        .where(Reminder.status == "sent")
+        .where(Reminder.awaiting_ack.is_(True))
+        .order_by(Reminder.last_sent_at.desc().nullslast())
+    ).scalars().all()
+
+    reply = build_list_reply(active, awaiting)
+    await send_and_log(db, user.id, chat_id, reply, "reminders_list")
+    return {"status": "ok", "action": "reminders_list_sent"}
+
+
+async def handle_ack_command(db, user: User, chat_id: int, lowered: str):
+    reminder = db.execute(
+        select(Reminder)
+        .where(Reminder.user_id == user.id)
+        .where(
+            (Reminder.awaiting_ack.is_(True)) |
+            (Reminder.status == "sent")
+        )
+        .order_by(Reminder.last_sent_at.desc().nullslast(), Reminder.id.desc())
+        .limit(1)
+    ).scalars().first()
+
+    if not reminder:
+        reply = "👌 No tengo ningún recordatorio pendiente de confirmación ahora mismo."
+        await send_and_log(db, user.id, chat_id, reply, "ack_no_pending")
+        return {"status": "ok", "action": "ack_no_pending"}
+
+    # =========================
+    # SNOOZE (antes del ACK)
+    # =========================
+    snooze_delta = _parse_snooze(lowered)
+    if snooze_delta is not None:
+        now = datetime.now(TZ)
+        new_remind_at = now + snooze_delta
+        reminder.remind_at = new_remind_at
+        reminder.status = "scheduled"
+        reminder.awaiting_ack = False
+
+        db.add(Event(
+            user_id=user.id,
+            event_type="reminder_snoozed",
+            event_value=str(reminder.id),
+            source="telegram",
+            payload={"snooze_text": lowered, "new_remind_at": new_remind_at.isoformat()},
+        ))
+        db.commit()
+
+        dt_str = to_local(new_remind_at).strftime("%H:%M")
+        reply = f'⏱️ Vale, te recuerdo "{reminder.task_text}" a las {dt_str}.'
+        await send_and_log(db, user.id, chat_id, reply, "snooze_confirmation")
+        return {"status": "ok", "action": "reminder_snoozed", "reminder_id": reminder.id}
+
+    now = datetime.now(TZ)
+    reminder.acked_at = now
+    reminder.completed_at = now
+    reminder.awaiting_ack = False
+    reminder.ack_text = lowered
+    reminder.status = "completed"
+
+    db.add(
+        Event(
+            user_id=user.id,
+            event_type="reminder_completed",
+            event_value=str(reminder.id),
+            source="telegram",
+            payload={"text": lowered},
+        )
+    )
+    db.commit()
+
+    reply = f'✅ Entendido. Marco como completado: "{reminder.task_text}".'
+    await send_and_log(db, user.id, chat_id, reply, "ack_confirmation")
+    return {"status": "ok", "action": "reminder_acknowledged", "reminder_id": reminder.id}
+
+
+async def handle_cancel_command(db, user: User, chat_id: int, cancel_task: str):
+    stmt = (
+        select(Reminder)
+        .where(Reminder.user_id == user.id)
+        .where(Reminder.status.in_(["pending", "scheduled", "sent"]))
+    )
+
+    rows = db.execute(stmt.order_by(Reminder.remind_at.asc(), Reminder.id.desc())).scalars().all()
+
+    if not rows:
+        reply = "📋 No tienes recordatorios activos para cancelar."
+        await send_and_log(db, user.id, chat_id, reply, "cancel_none")
+        return {"status": "ok", "action": "cancel_no_active"}
+
+    target = None
+
+    if cancel_task == "":
+        target = rows[0]
+    else:
+        cancel_task_norm = cancel_task.strip().lower()
+        for row in rows:
+            if cancel_task_norm in (row.task_text or "").lower():
+                target = row
+                break
+
+    if not target:
+        reply = "No encontré un recordatorio activo que coincida con ese texto."
+        await send_and_log(db, user.id, chat_id, reply, "cancel_not_found")
+        return {"status": "ok", "action": "cancel_not_found"}
+
+    now = datetime.now(TZ)
+    target.status = "cancelled"
+    target.awaiting_ack = False
+    target.cancelled_at = now
+    target.error_message = "cancelled_by_user"
+
+    db.add(
+        Event(
+            user_id=user.id,
+            event_type="reminder_cancelled",
+            event_value=str(target.id),
+            source="telegram",
+            payload={"task_match": cancel_task},
+        )
+    )
+    db.commit()
+
+    reply = f'🛑 He cancelado el recordatorio: "{target.task_text}".'
+    await send_and_log(db, user.id, chat_id, reply, "cancel_confirmation")
+    return {"status": "ok", "action": "reminder_cancelled", "reminder_id": target.id}
+
+
+async def handle_cancel_by_id(db, user: User, chat_id: int, reminder_id: int):
+    reminder = db.execute(
+        select(Reminder).where(Reminder.id == reminder_id)
+    ).scalar_one_or_none()
+
+    if not reminder:
+        reply = f"❌ No encontré ningún recordatorio con id {reminder_id}."
+        await send_and_log(db, user.id, chat_id, reply, "cancel_by_id_not_found")
+        return {"status": "ok", "action": "cancel_by_id_not_found"}
+
+    if reminder.status in ("cancelled", "completed"):
+        reply = f"ℹ️ El recordatorio [{reminder_id}] ya estaba {reminder.status}."
+        await send_and_log(db, user.id, chat_id, reply, "cancel_by_id_already_done")
+        return {"status": "ok", "action": "cancel_by_id_already_done"}
+
+    now = datetime.now(TZ)
+    reminder.status = "cancelled"
+    reminder.awaiting_ack = False
+    reminder.cancelled_at = now
+    reminder.error_message = "cancelled_by_user_command"
+
+    db.add(Event(
+        user_id=user.id,
+        event_type="reminder_cancelled",
+        event_value=str(reminder.id),
+        source="telegram",
+        payload={"cancel_method": "by_id", "reminder_id": reminder_id},
+    ))
+    db.commit()
+
+    reply = f'🛑 He cancelado [{reminder_id}]: "{reminder.task_text}".'
+    await send_and_log(db, user.id, chat_id, reply, "cancel_by_id_confirmation")
+    return {"status": "ok", "action": "reminder_cancelled", "reminder_id": reminder_id}
+
+
+async def handle_edit_reminder(db, user: User, chat_id: int, reminder_id: int, updates: dict):
+    reminder = db.execute(
+        select(Reminder).where(Reminder.id == reminder_id)
+    ).scalar_one_or_none()
+
+    if not reminder:
+        reply = f"❌ No encontré ningún recordatorio con id {reminder_id}."
+        await send_and_log(db, user.id, chat_id, reply, "edit_not_found")
+        return {"status": "ok", "action": "edit_not_found"}
+
+    if reminder.status in ("cancelled", "completed"):
+        reply = f"ℹ️ El recordatorio {reminder_id} ya está {reminder.status}, no se puede editar."
+        await send_and_log(db, user.id, chat_id, reply, "edit_invalid_status")
+        return {"status": "ok", "action": "edit_invalid_status"}
+
+    now = datetime.now(TZ)
+    base_dt = to_local(reminder.remind_at) or now
+
+    if updates.get("tomorrow"):
+        base_dt = base_dt + timedelta(days=1)
+
+    if "hour" in updates:
+        base_dt = base_dt.replace(hour=updates["hour"], minute=updates.get("minute", 0), second=0, microsecond=0)
+        if base_dt <= now and not updates.get("tomorrow"):
+            base_dt = base_dt + timedelta(days=1)
+        reminder.remind_at = base_dt
+        reminder.status = "scheduled"
+
+    if "task_text" in updates:
+        reminder.task_text = updates["task_text"]
+
+    db.add(Event(
+        user_id=user.id,
+        event_type="reminder_edited",
+        event_value=str(reminder.id),
+        source="telegram",
+        payload={"updates": {k: str(v) for k, v in updates.items()}},
+    ))
+    db.commit()
+
+    local_dt = to_local(reminder.remind_at)
+    dt_str = local_dt.strftime("%Y-%m-%d %H:%M") if local_dt else "—"
+    reply = f'✏️ Recordatorio [{reminder_id}] actualizado: "{reminder.task_text}" → {dt_str}.'
+    await send_and_log(db, user.id, chat_id, reply, "edit_confirmation")
+    return {"status": "ok", "action": "reminder_edited", "reminder_id": reminder_id}
+
+
+def _extract_telegram_message(payload: dict) -> dict | None:
+    return (
+        payload.get("message")
+        or payload.get("edited_message")
+        or payload.get("channel_post")
+        or payload.get("edited_channel_post")
+    )
 
 
 @app.get("/")
@@ -75,13 +610,13 @@ async def commands_parse(body: ParseCommandRequest):
     parsed = parse_reminder(body.text)
     if not parsed:
         return {"status": "unrecognized", "parsed": None}
-    return {
-        "status": "ok",
-        "parsed": {
-            **parsed,
-            "remind_at": parsed["remind_at"].isoformat(),
-        },
-    }
+
+    response = dict(parsed)
+    response["remind_at"] = parsed["remind_at"].isoformat()
+    if parsed.get("stop_at"):
+        response["stop_at"] = parsed["stop_at"].isoformat()
+
+    return {"status": "ok", "parsed": response}
 
 
 @app.get("/reminders")
@@ -103,7 +638,7 @@ async def list_tasks():
     try:
         rows = db.execute(
             select(Reminder)
-            .where(Reminder.status.in_(["pending", "scheduled"]))
+            .where(Reminder.status.in_(["pending", "scheduled", "sent"]))
             .order_by(Reminder.remind_at.asc())
         ).scalars().all()
         return {"items": [serialize_reminder(r) for r in rows]}
@@ -135,16 +670,21 @@ async def cancel_reminder(reminder_id: int, body: CancelReminderRequest):
         if not reminder:
             return JSONResponse(status_code=404, content={"status": "error", "reason": "reminder_not_found"})
 
+        now = datetime.now(TZ)
         reminder.status = "cancelled"
+        reminder.awaiting_ack = False
+        reminder.cancelled_at = now
         reminder.error_message = body.reason
 
-        db.add(Event(
-            user_id=reminder.user_id,
-            event_type="reminder_cancelled",
-            event_value=str(reminder.id),
-            source="api",
-            payload={"reason": body.reason} if body.reason else {},
-        ))
+        db.add(
+            Event(
+                user_id=reminder.user_id,
+                event_type="reminder_cancelled",
+                event_value=str(reminder.id),
+                source="api",
+                payload={"reason": body.reason} if body.reason else {},
+            )
+        )
         db.commit()
 
         return {"status": "ok", "item": serialize_reminder(reminder)}
@@ -189,9 +729,12 @@ async def list_events(user_id: int | None = None, event_type: str | None = None)
 @app.post("/telegram/webhook")
 async def telegram_webhook(request: Request):
     payload = await request.json()
-    message = payload.get("message") or {}
-    text_in = message.get("text")
+    message = _extract_telegram_message(payload)
 
+    if not message:
+        return {"status": "ignored", "reason": "unsupported_update_type"}
+
+    text_in = message.get("text")
     if not text_in:
         return {"status": "ignored", "reason": "no_text_message"}
 
@@ -199,6 +742,9 @@ async def telegram_webhook(request: Request):
     from_user = message.get("from") or {}
 
     chat_id = chat.get("id")
+    if chat_id is None:
+        return {"status": "ignored", "reason": "missing_chat_id"}
+
     telegram_username = from_user.get("username")
     display_name = " ".join(
         x for x in [from_user.get("first_name"), from_user.get("last_name")] if x
@@ -215,7 +761,7 @@ async def telegram_webhook(request: Request):
                 telegram_chat_id=chat_id,
                 telegram_username=telegram_username,
                 display_name=display_name,
-                timezone="Europe/Madrid",
+                timezone=DEFAULT_TIMEZONE,
             )
             db.add(user)
             db.flush()
@@ -223,36 +769,41 @@ async def telegram_webhook(request: Request):
             user.telegram_username = telegram_username
             user.display_name = display_name
 
-        db.add(Message(
-            user_id=user.id,
-            direction="inbound",
-            message_text=text_in,
-            message_type="chat",
-        ))
+        db.add(
+            Message(
+                user_id=user.id,
+                direction="inbound",
+                message_text=text_in,
+                message_type="chat",
+            )
+        )
+        db.commit()
 
-        lowered = text_in.lower().strip()
-        if lowered in ["/reminders", "eva, /reminders", "eva reminders", "eva, reminders"]:
-            rows = db.execute(
-                select(Reminder)
-                .where(Reminder.user_id == user.id)
-                .where(Reminder.status.in_(["pending", "scheduled"]))
-                .order_by(Reminder.remind_at.asc())
-            ).scalars().all()
+        lowered = normalize_text(text_in)
 
-            if rows:
-                reply = "📋 Recordatorios activos:\n" + "\n".join(
-                    f'- [{r.id}] {r.task_text} @ {r.remind_at.strftime("%Y-%m-%d %H:%M")}'
-                    for r in rows
-                )
-            else:
-                reply = "📋 No tienes recordatorios activos."
+        if is_list_command(lowered):
+            return await handle_list_command(db, user, chat_id)
 
-            db.commit()
-            await send_message(chat_id, reply)
-            return {"status": "ok", "action": "reminders_list_sent"}
+        # Cancelación por ID — va ANTES que extract_cancel_task para que
+        # "cancela el 28" no se interprete como búsqueda de texto "el 28"
+        _cancel_keywords = ("cancela", "cancelar", "elimina", "eliminar", "borra", "borrar")
+        _id_match = re.search(r'\b(\d{1,6})\b', lowered)
+        if any(w in lowered for w in _cancel_keywords) and _id_match:
+            return await handle_cancel_by_id(db, user, chat_id, int(_id_match.group(1)))
 
-        parsed = parse_reminder(text_in)
+        cancel_task = extract_cancel_task(lowered)
+        if cancel_task is not None:
+            return await handle_cancel_command(db, user, chat_id, cancel_task)
 
+        edit_result = extract_edit_command(lowered)
+        if edit_result is not None:
+            reminder_id, updates = edit_result
+            return await handle_edit_reminder(db, user, chat_id, reminder_id, updates)
+
+        if is_ack_text(lowered):
+            return await handle_ack_command(db, user, chat_id, lowered)
+
+        parsed = parse_reminder(text_in, context=_get_recent_context(db, user.id))
         if parsed:
             reminder = Reminder(
                 user_id=user.id,
@@ -266,51 +817,145 @@ async def telegram_webhook(request: Request):
                 remind_if_no_response=parsed["remind_if_no_response"],
                 retry_delay_minutes=parsed["retry_delay_minutes"],
                 cancel_on_event_type=parsed["cancel_on_event_type"],
+                is_persistent=parsed.get("is_persistent", False),
+                repeat_every_minutes=parsed.get("repeat_every_minutes"),
+                stop_at=parsed.get("stop_at"),
+                awaiting_ack=parsed.get("awaiting_ack", False),
             )
             db.add(reminder)
             db.commit()
             db.refresh(reminder)
 
-            reply_text = build_confirmation_text(reminder)
+            db.add(
+                Event(
+                    user_id=user.id,
+                    event_type="reminder_created",
+                    event_value=str(reminder.id),
+                    source="telegram",
+                    payload={
+                        "source_text": text_in,
+                        "task_text": reminder.task_text,
+                        "mode": parsed.get("mode"),
+                        "is_persistent": parsed.get("is_persistent", False),
+                    },
+                )
+            )
+            db.commit()
+
+            reply_text = build_confirmation_text_from_parsed(text_in, parsed)
             await send_message(chat_id, reply_text)
 
-            db.add(Message(
-                user_id=user.id,
-                direction="outbound",
-                message_text=reply_text,
-                message_type="reminder_confirmation",
-            ))
+            db.add(
+                Message(
+                    user_id=user.id,
+                    direction="outbound",
+                    message_text=reply_text,
+                    message_type="reminder_confirmation",
+                )
+            )
             db.commit()
 
             return {"status": "ok", "action": "reminder_created", "reminder_id": reminder.id}
 
-        db.commit()
-
-        help_text = (
-            "No te entendí del todo. Prueba con:\n"
-            "- eva, recuérdame en 2 minutos probar sistema\n"
-            "- mañana recuérdame fichar a las 08:00\n"
-            "- cada lunes recuérdame revisión semanal a las 09:00\n"
-            "- eva, recuérdame fichar a las 08:00, solo días laborables\n"
-            "- eva, recuérdame fichar a las 08:00, si ya fiché, cancela el recordatorio"
-        )
+        help_text = build_help_text()
         await send_message(chat_id, help_text)
 
-        db.add(Message(
-            user_id=user.id,
-            direction="outbound",
-            message_text=help_text,
-            message_type="help",
-        ))
+        db.add(
+            Message(
+                user_id=user.id,
+                direction="outbound",
+                message_text=help_text,
+                message_type="help",
+            )
+        )
         db.commit()
 
         return {"status": "ok", "action": "help_sent"}
 
     except Exception as exc:
         db.rollback()
+        print("=== TELEGRAM WEBHOOK ERROR ===")
+        try:
+            print("PAYLOAD:", payload)
+        except Exception:
+            print("PAYLOAD: <unavailable>")
+        print("ERROR:", repr(exc))
+        traceback.print_exc()
+
         return JSONResponse(
             status_code=500,
             content={"status": "error", "reason": str(exc)}
         )
+    finally:
+        db.close()
+
+# =========================
+# RESUMEN DIARIO — ENDPOINTS
+# =========================
+
+@app.post("/digest/send")
+async def trigger_daily_digest(user_id: int | None = None):
+    """
+    Dispara el resumen diario manualmente.
+    - Sin parámetros: envía a todos los usuarios.
+    - Con user_id: envía solo a ese usuario.
+    Útil para: cron externo, pruebas, o botón en panel de admin.
+
+    Cron diario a las 08:00 (ejemplo con curl):
+        0 8 * * * curl -s -X POST http://localhost:8000/digest/send
+    """
+    db = SessionLocal()
+    try:
+        async def _send(chat_id: int, text_out: str, parse_mode: str = "MarkdownV2"):
+            await send_message(chat_id, text_out, parse_mode=parse_mode)
+
+        if user_id is not None:
+            user = db.execute(
+                select(User).where(User.id == user_id)
+            ).scalar_one_or_none()
+            if not user:
+                return JSONResponse(status_code=404, content={"status": "error", "reason": "user_not_found"})
+            digest = build_daily_digest(db, user)
+            if not digest:
+                return {"status": "ok", "sent": 0, "reason": "nothing_to_send"}
+            await _send(user.telegram_chat_id, digest)
+            db.add(Message(
+                user_id=user.id,
+                direction="outbound",
+                message_text=digest,
+                message_type="daily_digest",
+            ))
+            db.add(Event(
+                user_id=user.id,
+                event_type="daily_digest_sent",
+                event_value=str(datetime.now(TZ).date()),
+                source="api",
+                payload={"triggered_by": "manual"},
+            ))
+            db.commit()
+            return {"status": "ok", "sent": 1}
+
+        sent = await send_daily_digest_to_all(db, _send)
+        return {"status": "ok", "sent": sent}
+
+    finally:
+        db.close()
+
+
+@app.get("/digest/preview/{user_id}")
+async def preview_daily_digest(user_id: int):
+    """
+    Devuelve el texto del resumen sin enviarlo. Útil para depurar.
+    GET /digest/preview/1
+    """
+    db = SessionLocal()
+    try:
+        user = db.execute(
+            select(User).where(User.id == user_id)
+        ).scalar_one_or_none()
+        if not user:
+            return JSONResponse(status_code=404, content={"status": "error", "reason": "user_not_found"})
+        digest = build_daily_digest(db, user)
+        return {"status": "ok", "digest": digest or "", "has_content": digest is not None}
     finally:
         db.close()

@@ -33,3 +33,31 @@ Como el problema real fue que el contenedor no estaba reconstruido, conviene dej
 
 cuando cambies código de api/, si el script no fuerza build, ejecutar:
 ssh root@192.168.1.122 "cd /opt/infra-eva-assistant-bot && docker compose build --no-cache eva-api eva-scheduler && docker compose up -d"
+
+5. Verifica inserts
+
+ssh root@192.168.1.122 "docker exec -i eva-postgres psql -U eva -d eva -c 'select id, telegram_chat_id, telegram_username, display_name from users order by id desc limit 5;'"
+ssh root@192.168.1.122 "docker exec -i eva-postgres psql -U eva -d eva -c \"select id, task_text, status, remind_at from reminders order by id desc limit 5;\""
+ssh root@192.168.1.122 "docker exec -i eva-postgres psql -U eva -d eva -c \"select id, direction, message_type, message_text from messages order by id desc limit 10;\""
+
+ scp services/infra-eva-assistant-bot/compose/api/parser_service.py root@192.168.1.122:/opt/infra-eva-assistant-bot/api/parser_service.py
+parser_service.py                                                       
+
+scp services/infra-eva-assistant-bot/compose/api/main.py root@192.168.1.122:/opt/infra-eva-assistant-bot/api/main.py
+
+ ssh root@192.168.1.122 "docker ps -a"
+
+ ssh root@192.168.1.122 "docker logs -f eva-api"
+
+ ssh root@192.168.1.122 "docker logs -f eva-scheduler"
+
+ Crea un recordatorio en 2 minutos desde Telegram y monitorea los logs del scheduler en tiempo real:
+
+ ssh root@192.168.1.122 "docker logs -f eva-scheduler"
+
+ ssh root@192.168.1.122 "ls /opt/infra-eva-assistant-bot/api/"
+
+ rsync -av services/infra-eva-assistant-bot/compose/api/main.py \
+  root@192.168.1.122:/opt/infra-eva-assistant-bot/api/main.py
+
+  ssh root@192.168.1.122 "docker restart eva-api"

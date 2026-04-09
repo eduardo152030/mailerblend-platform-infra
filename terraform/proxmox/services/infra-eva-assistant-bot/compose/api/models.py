@@ -33,8 +33,20 @@ class Reminder(Base):
     retry_delay_minutes: Mapped[int | None] = mapped_column(Integer, nullable=True)
     cancel_on_event_type: Mapped[str | None] = mapped_column(Text, nullable=True)
 
+    is_persistent: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    repeat_every_minutes: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    stop_at: Mapped[str | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    awaiting_ack: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+
+    retry_count: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    max_retries: Mapped[int] = mapped_column(Integer, nullable=False, default=3)
+
     last_sent_at: Mapped[str | None] = mapped_column(DateTime(timezone=True), nullable=True)
     acked_at: Mapped[str | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    completed_at: Mapped[str | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    expired_at: Mapped[str | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    cancelled_at: Mapped[str | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    ack_text: Mapped[str | None] = mapped_column(Text, nullable=True)
     error_message: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     created_at: Mapped[str] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)

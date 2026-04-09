@@ -1,0 +1,118 @@
+# Comandos de EVA — Guía de referencia
+
+## Crear recordatorios
+
+```
+eva, recuérdame en 5 minutos llamar al médico
+eva, recuérdame fichar a las 08:00
+eva, recuérdame revisar el correo a las 15:30
+mañana recuérdame la reunión a las 10:00
+```
+
+## Recordatorios recurrentes
+
+```
+cada lunes recuérdame revisión semanal a las 09:00
+cada viernes recuérdame enviar informe a las 17:00
+eva, recuérdame fichar a las 08:00, solo días laborables
+```
+
+## Recordatorios con intervalo continuo
+
+```
+cada 3 minutos recuérdame tomar agua
+eva, cada 5 minutos recuérdame revisar el horno
+recuérdame cada 10 minutos hacer ejercicio
+avísame cada 2 minutos tomar pastilla
+cada 3 minutos recuérdame tomar agua hasta las 22:00
+```
+
+## Recordatorios persistentes (repite hasta que digas listo)
+
+```
+eva, recuérdame fichar a las 08:00, sigue avisándome hasta las 08:30
+eva, recuérdame fichar a las 08:00 y sigue avisándome cada 5 minutos
+eva, recuérdame tomar pastilla a las 21:00, no pares hasta que te diga listo
+eva, recuérdame fichar a las 08:00, si no respondo vuelve a avisarme
+eva, recuérdame fichar la salidad a las 17:40 solo días laborables y sigue avisándome cada 5 minutos
+```
+
+## Recordatorios con condición de cancelación
+
+```
+eva, recuérdame fichar a las 08:00, si ya fiché cancela el recordatorio
+```
+
+## Recordatorios con aviso previo
+
+```
+eva, recuérdame 15 minutos antes de las 10:00
+eva, recuérdame salir 30 minutos antes de las 09:00
+eva, recuérdame preparar presentación 2 minutos antes de las 16:00
+```
+
+## Confirmar / completar un recordatorio
+
+```
+listo
+ok
+vale
+hecho
+ya está
+sí
+perfecto
+gracias
+```
+
+## Snooze — posponer un aviso activo
+
+```
+en 10 minutos
+en 1 hora
+media hora
+luego
+más tarde
+mañana
+ahora no
+```
+
+## Listar recordatorios activos
+
+```
+eva, lista mis recordatorios
+mis recordatorios
+recordatorios
+eva, qué tengo pendiente
+/reminders
+```
+
+## Cancelar recordatorios
+
+```
+cancela el 28
+elimina el 28
+borra el 28
+eva, cancela el de fichar
+cancela el recordatorio
+```
+
+## Editar recordatorios
+
+```
+cambia el 28 a las 11:00
+mueve el 5 a mañana a las 09:30
+renombra el 7 a revisar pull requests
+edita el 12, nueva tarea: llamar al médico
+```
+
+## Resumen diario
+
+- Se envía automáticamente cada día a las **08:00** con todos los recordatorios del día y los atrasados.
+- Para dispararlo manualmente (desde servidor):
+```bash
+curl -X POST http://192.168.1.122:8001/digest/send
+```
+
+---
+
+> **Tip:** el prefijo `eva,` o `eva ` es opcional en la mayoría de comandos. EVA entiende tanto `eva, recuérdame...` como directamente `recuérdame...`
