@@ -104,6 +104,54 @@ def is_list_command(lowered: str) -> bool:
     return lowered in candidates
 
 
+def extract_pending_task(lowered: str) -> str | None:
+    """
+    Detecta tareas sin fecha — intención de hacer algo sin especificar cuándo.
+    Devuelve el texto de la tarea o None si no aplica.
+
+    Ejemplos:
+      "tengo que revisar el router"
+      "hay que actualizar el certificado"
+      "pendiente: revisar route53"
+      "quiero hacer X"
+      "no olvidar llamar al médico"
+      "eva, apunta: revisar backups"
+      "tarea: migrar la BD"
+    """
+    # Primero descartar si tiene hora — eso es un recordatorio normal
+    if re.search(r'\ba las\s+\d{1,2}[:\s]', lowered):
+        return None
+    if re.search(r'\ben\s+\d+\s+minutos?\b', lowered):
+        return None
+    if re.search(r'\bmañana\b', lowered):
+        return None
+
+    patterns = [
+        r'^(?:eva[,\s]+)?tengo que\s+(.+)$',
+        r'^(?:eva[,\s]+)?hay que\s+(.+)$',
+        r'^(?:eva[,\s]+)?tengo pendiente[:\s]+(.+)$',
+        r'^(?:eva[,\s]+)?pendiente[:\s]+(.+)$',
+        r'^(?:eva[,\s]+)?quiero hacer\s+(.+)$',
+        r'^(?:eva[,\s]+)?no olvidar[:\s]+(.+)$',
+        r'^(?:eva[,\s]+)?no olvidarme de\s+(.+)$',
+        r'^(?:eva[,\s]+)?apunta[:\s]+(.+)$',
+        r'^(?:eva[,\s]+)?apúntame[:\s]+(.+)$',
+        r'^(?:eva[,\s]+)?tarea[:\s]+(.+)$',
+        r'^(?:eva[,\s]+)?necesito\s+(.+)$',
+        r'^(?:eva[,\s]+)?recuerda que tengo que\s+(.+)$',
+        r'^(?:eva[,\s]+)?debo\s+(.+)$',
+    ]
+
+    for pattern in patterns:
+        m = re.match(pattern, lowered, re.IGNORECASE)
+        if m:
+            task = m.group(1).strip()
+            # Descartar si es muy corto o parece un comando
+            if len(task) >= 4:
+                return task
+    return None
+
+
 def is_ack_text(lowered: str) -> bool:
     ack_values = {
         "ok", "okay", "vale", "listo", "gracias", "hecho",
@@ -269,41 +317,60 @@ def build_help_text() -> str:
     )
 
 
-def build_confirmation_text_from_parsed(source_text: str, parsed: dict) -> str:
+def build_confirmation_text_from_parsed(source_text: str, parsed: dict, reminder_id: int | None = None) -> str:
     remind_at_local = to_local(parsed["remind_at"])
-    remind_at_str = remind_at_local.strftime("%Y-%m-%d %H:%M")
+    # Formato más humano: "mañana a las 10:00" en lugar de "2026-04-10 10:00"
+    now_local = datetime.now(TZ)
+    if remind_at_local.date() == now_local.date():
+        date_str = f"hoy a las {remind_at_local.strftime('%H:%M')}"
+    elif remind_at_local.date() == (now_local + timedelta(days=1)).date():
+        date_str = f"mañana a las {remind_at_local.strftime('%H:%M')}"
+    else:
+        DIAS = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+        date_str = f"el {DIAS[remind_at_local.weekday()]} {remind_at_local.strftime('%d/%m')} a las {remind_at_local.strftime('%H:%M')}"
+
     remind_time_str = remind_at_local.strftime("%H:%M")
     task_text = parsed["task_text"]
+    id_hint = f" [{reminder_id}]" if reminder_id else ""
 
     if parsed.get("mode") == "before_time":
         minutes_before = parsed.get("minutes_before")
         target_time_text = parsed.get("target_time_text")
         if minutes_before is not None and target_time_text:
-            base = f"🧠 EVA: Te avisaré a las {remind_time_str} ({minutes_before} minutos antes de las {target_time_text})."
+            base = f"✅ Anotado{id_hint}: te aviso a las {remind_time_str} ({minutes_before} min antes de las {target_time_text})."
         else:
-            base = f'🧠 EVA: Te recordaré "{task_text}" el {remind_at_str}.'
+            base = f'✅ "{task_text}" — {date_str}.{id_hint}'
     elif parsed.get("mode") == "interval_minutes":
         interval = parsed.get("repeat_every_minutes", 0)
         stop_at = parsed.get("stop_at")
         if stop_at:
             stop_at_local = to_local(stop_at)
             return (
-                f'🧠 EVA: Te recordaré "{task_text}" cada {interval} minutos '
-                f'hasta las {stop_at_local.strftime("%H:%M")}. Responde "listo" para parar.'
+                f'✅ Anotado{id_hint}: "{task_text}" cada {interval} min '
+                f'hasta las {stop_at_local.strftime("%H:%M")}.\n'
+                f'Responde "listo" para parar.'
             )
         return (
-            f'🧠 EVA: Te recordaré "{task_text}" cada {interval} minutos '
-            f'hasta que me respondas "listo".'
+            f'✅ Anotado{id_hint}: "{task_text}" cada {interval} min '
+            f'hasta que respondas "listo".'
         )
     elif parsed.get("mode") == "tomorrow_at_time":
-        base = f'🧠 EVA: Te recordaré "{task_text}" mañana a las {remind_time_str}.'
+        base = f'✅ Anotado{id_hint}: "{task_text}" — mañana a las {remind_time_str}.'
+    elif parsed.get("mode") == "next_weekday":
+        DIAS = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+        dia = DIAS[remind_at_local.weekday()]
+        base = f'✅ Anotado{id_hint}: "{task_text}" — el próximo {dia} a las {remind_time_str}.'
+    elif parsed.get("mode") == "absolute_date":
+        base = f'✅ Anotado{id_hint}: "{task_text}" — el {remind_at_local.strftime("%d/%m/%Y")} a las {remind_time_str}.'
     elif parsed.get("mode") == "weekly_day":
         recurrence_value = parsed.get("recurrence_value") or "ese día"
-        base = f'🧠 EVA: Te recordaré "{task_text}" cada {recurrence_value} a las {remind_time_str}.'
+        base = f'✅ Anotado{id_hint}: "{task_text}" — cada {recurrence_value} a las {remind_time_str}.'
     elif parsed.get("mode") == "weekdays":
-        base = f'🧠 EVA: Te recordaré "{task_text}" en días laborables a las {remind_time_str}.'
+        base = f'✅ Anotado{id_hint}: "{task_text}" — días laborables a las {remind_time_str}.'
     else:
-        base = f'🧠 EVA: Te recordaré "{task_text}" el {remind_at_str}.'
+        base = f'✅ "{task_text}" — {date_str}.{id_hint}'
+
+    correction_hint = f'\n_Si la hora es incorrecta responde "no, a las HH:MM"_'
 
     if parsed.get("is_persistent"):
         repeat_every_minutes = parsed.get("repeat_every_minutes") or 2
@@ -312,16 +379,16 @@ def build_confirmation_text_from_parsed(source_text: str, parsed: dict) -> str:
             stop_at_local = to_local(stop_at)
             return (
                 f"{base}\n"
-                f"🔁 Seguiré avisándote cada {repeat_every_minutes} minutos "
-                f"hasta las {stop_at_local.strftime('%H:%M')} o hasta que me respondas \"listo\"."
+                f"🔁 Repetiré cada {repeat_every_minutes} min "
+                f"hasta las {stop_at_local.strftime('%H:%M')} o hasta \"listo\"."
             )
         return (
             f"{base}\n"
-            f"🔁 Si no respondes, seguiré avisándote cada {repeat_every_minutes} minutos "
-            f"hasta que me respondas \"listo\"."
+            f"🔁 Repetiré cada {repeat_every_minutes} min hasta \"listo\"."
         )
 
-    return base
+    return f"{base}{correction_hint}"
+
 
 
 def _get_recent_context(db, user_id: int, limit: int = 5) -> list[dict]:
@@ -524,6 +591,85 @@ async def handle_cancel_by_id(db, user: User, chat_id: int, reminder_id: int):
     reply = f'🛑 He cancelado [{reminder_id}]: "{reminder.task_text}".'
     await send_and_log(db, user.id, chat_id, reply, "cancel_by_id_confirmation")
     return {"status": "ok", "action": "reminder_cancelled", "reminder_id": reminder_id}
+
+
+async def handle_pending_task(db, user: User, chat_id: int, task_text: str):
+    """
+    Crea una tarea sin fecha directamente en Focalboard (columna Pendiente).
+    No crea un Reminder — es una tarjeta libre para gestionar desde la UI.
+    """
+    import time
+    import uuid
+    import httpx
+
+    FOCALBOARD_URL   = os.getenv("FOCALBOARD_URL", "")
+    FOCALBOARD_TOKEN = os.getenv("FOCALBOARD_TOKEN", "")
+    FOCALBOARD_BOARD_ID = os.getenv("FOCALBOARD_BOARD_ID", "")
+
+    if not FOCALBOARD_TOKEN or not FOCALBOARD_BOARD_ID:
+        reply = f'📌 Apuntado: "{task_text}"\n⚠️ Focalboard no configurado — guárdalo manualmente.'
+        await send_and_log(db, user.id, chat_id, reply, "pending_task_no_fb")
+        return {"status": "ok", "action": "pending_task_no_focalboard"}
+
+    now_ms  = int(time.time() * 1000)
+    card_id = uuid.uuid4().hex[:26]
+
+    block = {
+        "id": card_id,
+        "type": "card",
+        "schema": 1,
+        "boardId": FOCALBOARD_BOARD_ID,
+        "parentId": FOCALBOARD_BOARD_ID,
+        "title": task_text,
+        "createAt": now_ms,
+        "updateAt": now_ms,
+        "deleteAt": 0,
+        "fields": {
+            "isTemplate": False,
+            "contentOrder": [],
+            "properties": {
+                "aevastatus00000000000000001": "aoptpendiente00000000000001",
+            },
+        },
+    }
+
+    headers = {
+        "Authorization": f"Bearer {FOCALBOARD_TOKEN}",
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+    }
+
+    try:
+        async with httpx.AsyncClient(timeout=10) as client:
+            r = await client.post(
+                f"{FOCALBOARD_URL}/api/v2/boards/{FOCALBOARD_BOARD_ID}/blocks",
+                headers=headers,
+                json=[block],
+            )
+            if r.status_code in (200, 201):
+                data = r.json()
+                fb_id = data[0]["id"] if isinstance(data, list) else data.get("id", card_id)
+                db.add(Event(
+                    user_id=user.id,
+                    event_type="pending_task_created",
+                    event_value=fb_id,
+                    source="telegram",
+                    payload={"task_text": task_text, "card_id": fb_id},
+                ))
+                db.commit()
+                reply = (
+                    f'📌 Apuntado en Focalboard: "{task_text}"\n'
+                    f'Cuando tengas un momento, asígnale fecha desde la UI.'
+                )
+                await send_and_log(db, user.id, chat_id, reply, "pending_task_created")
+                return {"status": "ok", "action": "pending_task_created", "card_id": fb_id}
+            else:
+                raise Exception(f"Focalboard {r.status_code}: {r.text[:200]}")
+    except Exception as exc:
+        print(f"[pending_task] error: {exc}")
+        reply = f'📌 Apuntado: "{task_text}"\n⚠️ No pude crear la tarjeta en Focalboard ahora mismo.'
+        await send_and_log(db, user.id, chat_id, reply, "pending_task_fb_error")
+        return {"status": "ok", "action": "pending_task_fb_error"}
 
 
 async def handle_edit_reminder(db, user: User, chat_id: int, reminder_id: int, updates: dict):
@@ -803,6 +949,52 @@ async def telegram_webhook(request: Request):
         if is_ack_text(lowered):
             return await handle_ack_command(db, user, chat_id, lowered)
 
+        # C) Corrección rápida: "no, a las 11" / "no, era a las 11:00"
+        # Corrige la hora del último recordatorio creado
+        _correction = re.match(
+            r'^no[,.]?\s+(?:era\s+)?a las?\s+(\d{1,2})(?::(\d{2}))?$',
+            lowered, re.IGNORECASE
+        )
+        if _correction:
+            new_hour   = int(_correction.group(1))
+            new_minute = int(_correction.group(2)) if _correction.group(2) else 0
+            # Buscar el último reminder creado por este usuario
+            last_r = db.execute(
+                select(Reminder)
+                .where(Reminder.user_id == user.id)
+                .where(Reminder.status.in_(["scheduled", "pending"]))
+                .order_by(Reminder.id.desc())
+                .limit(1)
+            ).scalars().first()
+            if last_r:
+                now_tz = datetime.now(TZ)
+                new_dt = to_local(last_r.remind_at).replace(
+                    hour=new_hour, minute=new_minute, second=0, microsecond=0
+                )
+                if new_dt <= now_tz:
+                    new_dt = new_dt + timedelta(days=1)
+                last_r.remind_at = new_dt
+                last_r.status = "scheduled"
+                db.add(Event(
+                    user_id=user.id,
+                    event_type="reminder_corrected",
+                    event_value=str(last_r.id),
+                    source="telegram",
+                    payload={"new_time": f"{new_hour:02d}:{new_minute:02d}"},
+                ))
+                db.commit()
+                reply = (
+                    f'✅ Corregido `[{last_r.id}]`: "{last_r.task_text}" — '
+                    f'ahora a las {new_dt.strftime("%H:%M")}.'
+                )
+                await send_and_log(db, user.id, chat_id, reply, "reminder_corrected")
+                return {"status": "ok", "action": "reminder_corrected", "reminder_id": last_r.id}
+
+        # Tarea sin fecha — va antes del parser de recordatorios
+        pending_task = extract_pending_task(lowered)
+        if pending_task is not None:
+            return await handle_pending_task(db, user, chat_id, pending_task)
+
         parsed = parse_reminder(text_in, context=_get_recent_context(db, user.id))
         if parsed:
             reminder = Reminder(
@@ -842,7 +1034,7 @@ async def telegram_webhook(request: Request):
             )
             db.commit()
 
-            reply_text = build_confirmation_text_from_parsed(text_in, parsed)
+            reply_text = build_confirmation_text_from_parsed(text_in, parsed, reminder.id)
             await send_message(chat_id, reply_text)
 
             db.add(

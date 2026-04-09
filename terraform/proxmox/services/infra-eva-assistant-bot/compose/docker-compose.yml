@@ -1,4 +1,8 @@
 services:
+
+  # ─────────────────────────────────────────
+  # INFRAESTRUCTURA BASE
+  # ─────────────────────────────────────────
   postgres:
     image: postgres:16-alpine
     container_name: eva-postgres
@@ -21,14 +25,22 @@ services:
       timeout: 3s
       retries: 5
 
+  # ─────────────────────────────────────────
+  # EVA — API + SCHEDULER + SYNC + DIGEST
+  # ─────────────────────────────────────────
   eva-api:
-    build: 
+    build:
       context: ./api
       dockerfile: Dockerfile
     image: eva-backend:latest
     container_name: eva-api
     restart: unless-stopped
     env_file: [.env]
+    environment:
+      FOCALBOARD_URL: http://focalboard:8000
+      FOCALBOARD_TOKEN: ${FOCALBOARD_TOKEN}
+      FOCALBOARD_TEAM_ID: ${FOCALBOARD_TEAM_ID}
+      FOCALBOARD_BOARD_ID: ${FOCALBOARD_BOARD_ID}
     depends_on:
       postgres:
         condition: service_healthy
@@ -45,11 +57,14 @@ services:
 
   eva-scheduler:
     image: eva-backend:latest
-    build: 
-      context: ./api
     container_name: eva-scheduler
     restart: unless-stopped
     env_file: [.env]
+    environment:
+      FOCALBOARD_URL: http://focalboard:8000
+      FOCALBOARD_TOKEN: ${FOCALBOARD_TOKEN}
+      FOCALBOARD_TEAM_ID: ${FOCALBOARD_TEAM_ID}
+      FOCALBOARD_BOARD_ID: ${FOCALBOARD_BOARD_ID}
     depends_on:
       postgres:
         condition: service_healthy
@@ -63,7 +78,31 @@ services:
           memory: 512M
           cpus: '0.50'
 
-  # Nuevo servicio para el Cron del Resumen Diario
+  eva-sync:
+    image: eva-backend:latest
+    container_name: eva-sync
+    restart: unless-stopped
+    env_file: [.env]
+    environment:
+      FOCALBOARD_URL: http://focalboard:8000
+      FOCALBOARD_TOKEN: ${FOCALBOARD_TOKEN}
+      FOCALBOARD_TEAM_ID: ${FOCALBOARD_TEAM_ID}
+      FOCALBOARD_BOARD_ID: ${FOCALBOARD_BOARD_ID}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      focalboard:
+        condition: service_healthy
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    entrypoint: ["python", "sync_service.py"]
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.25'
+
   eva-cron-digest:
     image: alpine:latest
     container_name: eva-cron-digest
@@ -74,13 +113,37 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
-    # Instalamos curl y configuramos el crontab para que se ejecute a las 08:00
     entrypoint: >
       /bin/sh -c "
       apk add --no-cache curl &&
       echo '0 8 * * * curl -s -X POST http://eva-api:8000/digest/send' > /etc/periodic/daily/send-digest &&
       chmod +x /etc/periodic/daily/send-digest &&
       crond -f -l 2"
+
+  # ─────────────────────────────────────────
+  # FOCALBOARD — UI de proyectos y tareas
+  # ─────────────────────────────────────────
+  focalboard:
+    image: mattermost/focalboard:latest
+    container_name: focalboard
+    restart: unless-stopped
+    env_file: [.env]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8002:8000"
+    volumes:
+      - ./focalboard/config.json:/opt/focalboard/config.json:ro
+      - ./focalboard/data:/opt/focalboard/data
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/ping"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
 networks:
   default:

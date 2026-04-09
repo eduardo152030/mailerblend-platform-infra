@@ -116,3 +116,20 @@ curl -X POST http://192.168.1.122:8001/digest/send
 ---
 
 > **Tip:** el prefijo `eva,` o `eva ` es opcional en la mayoría de comandos. EVA entiende tanto `eva, recuérdame...` como directamente `recuérdame...`
+
+recuerdame llevar a ian a logopeda hoy a las 5     → 17:00 ✅
+recuérdame salir esta tarde a las 6                → 18:00 ✅
+recuérdame la cena esta noche a las 9              → 21:00 ✅
+eva, recuérdame la reunión a las 9                 → 09:00 ✅  (si aún no pasó)
+recuérdame fichar a las 8                          → 08:00 ✅
+
+Frases que EVA ya entiende para tareas sin fecha:
+
+tengo que revisar X
+hay que actualizar X  
+pendiente: X
+quiero hacer X
+no olvidar X
+eva, apunta: X
+tarea: X
+debo revisar X

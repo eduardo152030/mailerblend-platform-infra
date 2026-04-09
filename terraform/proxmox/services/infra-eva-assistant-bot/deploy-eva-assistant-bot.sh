@@ -1,24 +1,16 @@
 #!/bin/bash
-# deploy-eva-assistant-bot.sh - Despliega Eva Assistant Bot al servidor
-# Uso: ./deploy-eva-assistant-bot.sh
-#      ./services/infra-eva-assistant-bot/scripts/deploy-eva-assistant-bot.sh
-#
-# Debug útil:
-#   ssh root@192.168.1.122 'docker ps --filter name=eva'
-#   ssh root@192.168.1.122 'docker logs --tail 50 eva-api'
-#   ssh root@192.168.1.122 'docker logs --tail 50 eva-scheduler'
-#   ssh root@192.168.1.122 'docker exec eva-api env | grep EVA'
+# deploy-eva-assistant-bot.sh
+# Despliegue IaC-friendly de EVA Assistant Bot
 
-set -e  # Exit on error
+set -euo pipefail
 
 EVA_HOST="${EVA_HOST:-192.168.1.122}"
 SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
 
-LOCAL_API_PATH="services/infra-eva-assistant-bot/compose/api"
-LOCAL_COMPOSE_DIR="services/infra-eva-assistant-bot/compose"
+LOCAL_SERVICE_DIR="services/infra-eva-assistant-bot"
+LOCAL_COMPOSE_DIR="${LOCAL_SERVICE_DIR}/compose"
 
-REMOTE_API_PATH="/opt/infra-eva-assistant-bot/api"
-REMOTE_COMPOSE_DIR="/opt/infra-eva-assistant-bot"
+REMOTE_BASE_DIR="/opt/infra-eva-assistant-bot"
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "  🤖 Desplegando Eva Assistant Bot"
@@ -26,17 +18,22 @@ echo "  📍 Host: ${EVA_HOST}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-# 0. Validar que .env existe y tiene las variables requeridas
-echo "🔍 0/4 Validando .env..."
 ENV_FILE="${LOCAL_COMPOSE_DIR}/.env"
 
+echo "🔍 0/6 Validando .env..."
 if [ ! -f "$ENV_FILE" ]; then
   echo "❌ Error: No se encontró ${ENV_FILE}"
-  echo "   Copia .env.example → .env y rellena los valores"
   exit 1
 fi
 
-REQUIRED_VARS=("TELEGRAM_BOT_TOKEN" "DATABASE_URL")
+REQUIRED_VARS=(
+  "TELEGRAM_BOT_TOKEN"
+  "DATABASE_URL"
+  "POSTGRES_DB"
+  "POSTGRES_USER"
+  "POSTGRES_PASSWORD"
+)
+
 MISSING=()
 for VAR in "${REQUIRED_VARS[@]}"; do
   if ! grep -q "^${VAR}=" "$ENV_FILE" && ! grep -q "^${VAR}=\"" "$ENV_FILE"; then
@@ -45,72 +42,95 @@ for VAR in "${REQUIRED_VARS[@]}"; do
 done
 
 if [ ${#MISSING[@]} -gt 0 ]; then
-  echo "❌ Error: Faltan variables en ${ENV_FILE}:"
-  for VAR in "${MISSING[@]}"; do
-    echo "   - $VAR"
-  done
+  echo "❌ Error: faltan variables en ${ENV_FILE}:"
+  printf ' - %s\n' "${MISSING[@]}"
   exit 1
 fi
-echo "   ✅ .env válido (${#REQUIRED_VARS[@]} variables OK)"
+echo "   ✅ .env válido"
 echo ""
 
-# 1. Sync configuración al servidor (.env + docker-compose.yml)
-echo "📦 1/4 Sincronizando configuración..."
+echo "📁 1/6 Preparando directorios remotos..."
+ssh ${SSH_OPTS} root@${EVA_HOST} <<'ENDSSH'
+set -euo pipefail
 
-# .env
-rsync -av \
-  -e "ssh ${SSH_OPTS}" \
-  ${LOCAL_COMPOSE_DIR}/.env \
-  root@${EVA_HOST}:${REMOTE_COMPOSE_DIR}/.env
-
-# docker-compose.yml
-rsync -av \
-  -e "ssh ${SSH_OPTS}" \
-  ${LOCAL_COMPOSE_DIR}/docker-compose.yml \
-  root@${EVA_HOST}:${REMOTE_COMPOSE_DIR}/docker-compose.yml
-
+mkdir -p /opt/infra-eva-assistant-bot
+mkdir -p /opt/infra-eva-assistant-bot/api
+mkdir -p /opt/infra-eva-assistant-bot/focalboard
+mkdir -p /opt/infra-eva-assistant-bot/focalboard/data/files
+mkdir -p /opt/infra-eva-assistant-bot/postgres/init
+mkdir -p /opt/infra-eva-assistant-bot/postgres/migrations
+ENDSSH
 echo ""
 
-# 2. Sync código API
-echo "📦 2/4 Sincronizando código API..."
-rsync -av --delete \
-  -e "ssh ${SSH_OPTS}" \
-  ${LOCAL_API_PATH}/ \
-  root@${EVA_HOST}:${REMOTE_API_PATH}/
+echo "📦 2/6 Sincronizando archivos declarativos..."
+rsync -av -e "ssh ${SSH_OPTS}" \
+  "${LOCAL_COMPOSE_DIR}/.env" \
+  root@${EVA_HOST}:${REMOTE_BASE_DIR}/.env
 
+rsync -av -e "ssh ${SSH_OPTS}" \
+  "${LOCAL_COMPOSE_DIR}/docker-compose.yml" \
+  root@${EVA_HOST}:${REMOTE_BASE_DIR}/docker-compose.yml
+
+rsync -av --delete -e "ssh ${SSH_OPTS}" \
+  "${LOCAL_COMPOSE_DIR}/api/" \
+  root@${EVA_HOST}:${REMOTE_BASE_DIR}/api/
+
+rsync -av --delete -e "ssh ${SSH_OPTS}" \
+  --exclude 'data/' \
+  "${LOCAL_COMPOSE_DIR}/focalboard/" \
+  root@${EVA_HOST}:${REMOTE_BASE_DIR}/focalboard/
+
+rsync -av --delete -e "ssh ${SSH_OPTS}" \
+  "${LOCAL_COMPOSE_DIR}/postgres/init/" \
+  root@${EVA_HOST}:${REMOTE_BASE_DIR}/postgres/init/
+
+rsync -av --delete -e "ssh ${SSH_OPTS}" \
+  "${LOCAL_COMPOSE_DIR}/postgres/migrations/" \
+  root@${EVA_HOST}:${REMOTE_BASE_DIR}/postgres/migrations/
 echo ""
 
-# 3. Build + Deploy
-echo "🔨 3/4 Construyendo y desplegando..."
-ssh ${SSH_OPTS} root@${EVA_HOST} << 'ENDSSH'
+echo "🔐 3/6 Ajustando permisos runtime de Focalboard..."
+ssh ${SSH_OPTS} root@${EVA_HOST} <<'ENDSSH'
+set -euo pipefail
+
+mkdir -p /opt/infra-eva-assistant-bot/focalboard/data/files
+chmod -R 777 /opt/infra-eva-assistant-bot/focalboard/data
+ENDSSH
+echo ""
+
+echo "🔨 4/6 Build + Deploy..."
+ssh ${SSH_OPTS} root@${EVA_HOST} <<'ENDSSH'
+set -euo pipefail
 cd /opt/infra-eva-assistant-bot
-docker compose build --no-cache eva-api eva-scheduler
+
+docker compose build --no-cache eva-api eva-scheduler eva-sync
 docker compose up -d
 ENDSSH
-
 echo ""
 
-# 4. Verificar estado
-echo "⏳ 4/4 Verificando despliegue..."
-sleep 5
+echo "🧪 5/6 Verificando servicios..."
+sleep 8
+ssh ${SSH_OPTS} root@${EVA_HOST} <<'ENDSSH'
+set -euo pipefail
+cd /opt/infra-eva-assistant-bot
 
-ssh ${SSH_OPTS} root@${EVA_HOST} << 'ENDSSH'
-echo "📊 Estado de los contenedores:"
-docker ps --filter name=eva --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
-
-echo ""
-echo "📜 Logs recientes eva-api:"
-docker logs --tail 30 eva-api
+echo "📊 Estado:"
+docker compose ps
 
 echo ""
-echo "📜 Logs recientes eva-scheduler:"
-docker logs --tail 30 eva-scheduler
+echo "📜 Logs eva-api:"
+docker logs --tail 20 eva-api || true
+
+echo ""
+echo "📜 Logs eva-scheduler:"
+docker logs --tail 20 eva-scheduler || true
+
+echo ""
+echo "📜 Logs focalboard:"
+docker logs --tail 20 focalboard || true
 ENDSSH
+echo ""
 
-echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  ✅ Despliegue completado"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo ""
+echo "✅ 6/6 Despliegue completado"
 
 #./services/infra-eva-assistant-bot/deploy-eva-assistant-bot.sh

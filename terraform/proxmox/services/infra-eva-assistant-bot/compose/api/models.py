@@ -49,6 +49,9 @@ class Reminder(Base):
     ack_text: Mapped[str | None] = mapped_column(Text, nullable=True)
     error_message: Mapped[str | None] = mapped_column(Text, nullable=True)
 
+    focalboard_card_id: Mapped[str | None] = mapped_column(Text, nullable=True, default=None)
+    focalboard_synced_at: Mapped[str | None] = mapped_column(DateTime(timezone=True), nullable=True, default=None)
+
     created_at: Mapped[str] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     sent_at: Mapped[str | None] = mapped_column(DateTime(timezone=True), nullable=True)
 

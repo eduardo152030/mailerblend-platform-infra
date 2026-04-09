@@ -2,4 +2,5 @@ services/infra-orbit/compose/secrets/
 services/infra-orbit/compose/gcp/.env
 services/*/compose/.env
 services/infra-eva-assistant-bot/compose/.env
-services/infra-eva-assistant-bot/compose/.env.example 
+services/infra-eva-assistant-bot/compose/.env.example
+services/infra-eva-assistant-bot/compose/focalboard/data/

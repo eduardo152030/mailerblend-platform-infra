@@ -60,4 +60,8 @@ scp services/infra-eva-assistant-bot/compose/api/main.py root@192.168.1.122:/opt
  rsync -av services/infra-eva-assistant-bot/compose/api/main.py \
   root@192.168.1.122:/opt/infra-eva-assistant-bot/api/main.py
 
+
   ssh root@192.168.1.122 "docker restart eva-api"
+
+  # 4. Levantar focalboard
+ssh root@192.168.1.122 "cd /opt/infra-eva-assistant-bot && docker compose up -d focalboard && sleep 5 && docker logs focalboard --tail 30"
