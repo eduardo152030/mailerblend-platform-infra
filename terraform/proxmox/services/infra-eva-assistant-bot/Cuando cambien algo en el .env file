@@ -1,0 +1,21 @@
+ scp services/infra-eva-assistant-bot/compose/.env root@192.168.1.122:/opt/infra-eva-assistant-bot/api/.env
+parser_service.py   
+
+
+ scp services/infra-eva-assistant-bot/compose/.env root@192.168.1.122:/opt/infra-eva-assistant-bot/api/.env
+
+ ssh root@192.168.1.122 "
+  cd /opt/infra-eva-assistant-bot && \
+  docker rmi eva-backend:latest --force && \
+  docker compose build --no-cache eva-api && \
+  docker compose up -d && \
+  sleep 5 && docker logs eva-api --tail 5
+"
+
+ssh root@192.168.1.122 "
+  docker start eva-sync && \
+  sleep 5 && \
+  docker logs eva-sync --tail 10
+
+  ssh root@192.168.1.122 "docker exec eva-api env | grep ANTHROPIC"
+  ssh root@192.168.1.122 "docker exec eva-api env | grep ANTHROPIC"

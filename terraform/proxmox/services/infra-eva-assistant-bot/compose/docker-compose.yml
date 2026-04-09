@@ -92,7 +92,7 @@ services:
       postgres:
         condition: service_healthy
       focalboard:
-        condition: service_healthy
+        condition: service_started   # ← era service_healthy, focalboard nunca es healthy en v7.8.9
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
@@ -139,7 +139,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/ping"]
+      # Focalboard v7.8.9 no tiene /ping — usamos /api/v2/teams que sí responde
+      test: ["CMD", "curl", "-sf", "http://localhost:8000/api/v2/teams", "-H", "X-Requested-With: XMLHttpRequest"]
       interval: 15s
       timeout: 5s
       retries: 5

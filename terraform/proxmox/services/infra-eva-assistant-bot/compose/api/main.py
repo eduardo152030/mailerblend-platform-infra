@@ -11,6 +11,7 @@ from sqlalchemy import select, text
 from db import engine, SessionLocal
 from models import User, Reminder, Message, Event
 from parser_service import parse_reminder
+from ai_parser import parse_reminder_ai
 from telegram_service import send_message
 from scheduler import build_daily_digest, send_daily_digest_to_all
 from schemas import ParseCommandRequest, CancelReminderRequest, EventCreateRequest
@@ -315,6 +316,70 @@ def build_help_text() -> str:
         "- eva, cambia el 28 a las 11:00\n"
         "- listo / ok / ya está / en 10 minutos / luego"
     )
+
+
+async def build_confirmation_ai(source_text: str, parsed: dict, reminder_id: int | None = None) -> str | None:
+    """
+    Genera una respuesta natural con Claude para confirmar el recordatorio.
+    Devuelve None si no hay API key o falla — main.py usa el fallback síncrono.
+    """
+    from ai_parser import ANTHROPIC_API_KEY, MODEL
+    if not ANTHROPIC_API_KEY:
+        return None
+
+    local_dt = to_local(parsed["remind_at"])
+    day_names = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+    now_local = datetime.now(TZ)
+
+    if local_dt.date() == now_local.date():
+        fecha = f"hoy a las {local_dt.strftime('%H:%M')}"
+    elif local_dt.date() == (now_local + timedelta(days=1)).date():
+        fecha = f"mañana a las {local_dt.strftime('%H:%M')}"
+    else:
+        fecha = f"el {day_names[local_dt.weekday()]} {local_dt.strftime('%d/%m')} a las {local_dt.strftime('%H:%M')}"
+
+    recurrence_info = ""
+    if parsed.get("recurrence_type") == "weekly":
+        recurrence_info = f" (se repite cada {parsed.get('recurrence_value', 'semana')})"
+    elif parsed.get("recurrence_type") == "weekdays":
+        recurrence_info = " (días laborables)"
+    elif parsed.get("is_persistent"):
+        mins = parsed.get("repeat_every_minutes", 2)
+        recurrence_info = f" (repetiré cada {mins} min hasta que digas listo)"
+
+    id_suffix = f" [{reminder_id}]" if reminder_id else ""
+
+    prompt = (
+        f"El usuario dijo: '{source_text}'\n"
+        f"He creado el recordatorio: '{parsed['task_text']}' para {fecha}{recurrence_info}.{id_suffix}\n\n"
+        f"Confirma esto en 1 frase corta y natural en español, sin emojis de cerebro, "
+        f"sin 'EVA:' al principio. Incluye el ID {id_suffix} al final si existe. "
+        f"Añade 'Di \"no, a las HH:MM\" si la hora es incorrecta.' en una segunda línea breve."
+    )
+
+    try:
+        import httpx as _httpx
+        async with _httpx.AsyncClient(timeout=8) as client:
+            r = await client.post(
+                "https://api.anthropic.com/v1/messages",
+                headers={
+                    "x-api-key": ANTHROPIC_API_KEY,
+                    "anthropic-version": "2023-06-01",
+                    "content-type": "application/json",
+                },
+                json={
+                    "model": MODEL,
+                    "max_tokens": 120,
+                    "messages": [{"role": "user", "content": prompt}],
+                },
+            )
+            r.raise_for_status()
+            data = r.json()
+            text_out = data["content"][0]["text"].strip()
+            return text_out
+    except Exception as exc:
+        print(f"[ai_reply] error: {exc}")
+        return None
 
 
 def build_confirmation_text_from_parsed(source_text: str, parsed: dict, reminder_id: int | None = None) -> str:
@@ -995,7 +1060,9 @@ async def telegram_webhook(request: Request):
         if pending_task is not None:
             return await handle_pending_task(db, user, chat_id, pending_task)
 
-        parsed = parse_reminder(text_in, context=_get_recent_context(db, user.id))
+        parsed = await parse_reminder_ai(text_in, context=_get_recent_context(db, user.id))
+        if parsed is None:
+            parsed = parse_reminder(text_in, context=_get_recent_context(db, user.id))
         if parsed:
             reminder = Reminder(
                 user_id=user.id,
@@ -1034,7 +1101,9 @@ async def telegram_webhook(request: Request):
             )
             db.commit()
 
-            reply_text = build_confirmation_text_from_parsed(text_in, parsed, reminder.id)
+            reply_text = await build_confirmation_ai(text_in, parsed, reminder.id)
+            if reply_text is None:
+                reply_text = build_confirmation_text_from_parsed(text_in, parsed, reminder.id)
             await send_message(chat_id, reply_text)
 
             db.add(
