@@ -41,6 +41,7 @@ services:
       FOCALBOARD_TOKEN: ${FOCALBOARD_TOKEN}
       FOCALBOARD_TEAM_ID: ${FOCALBOARD_TEAM_ID}
       FOCALBOARD_BOARD_ID: ${FOCALBOARD_BOARD_ID}
+      PERSONA_DIR: /app/persona
     depends_on:
       postgres:
         condition: service_healthy
@@ -49,6 +50,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
+      - /opt/infra-eva-assistant-bot/persona:/app/persona:ro
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s

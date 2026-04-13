@@ -1,23 +1,12 @@
 """
-ai_parser.py — Parser de lenguaje natural para EVA usando Claude Haiku.
-
-Estrategia:
-  1. Intenta parsear con Claude (function calling) → JSON estructurado
-  2. Si falla (sin API key, error de red, respuesta inválida) → fallback a regex
-
-Variables de entorno:
-  ANTHROPIC_API_KEY   — clave de la API de Anthropic (requerida para LLM)
-  EVA_AI_PARSER       — "1" para activar, "0" para forzar regex (default: "1")
-  TIMEZONE            — zona horaria (default: Europe/Madrid)
+ai_parser.py v2 — Motor de IA central de EVA.
 """
-
 import json
 import os
 import re
 import traceback
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
-
 import httpx
 
 TZ = ZoneInfo(os.getenv("TIMEZONE", "Europe/Madrid"))
@@ -25,229 +14,347 @@ ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 AI_PARSER_ENABLED = os.getenv("EVA_AI_PARSER", "1") == "1"
 MODEL = "claude-haiku-4-5-20251001"
 
-# ══════════════════════════════════════════
-# TOOL DEFINITION — lo que Claude debe extraer
-# ══════════════════════════════════════════
+def _now(): return datetime.now(TZ)
+
+def _day_context(now):
+    days = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+    return (f"Ahora: {now.strftime('%Y-%m-%d %H:%M')} ({days[now.weekday()]}, Europa/Madrid)\n"
+            f"Mañana: {(now+timedelta(days=1)).strftime('%Y-%m-%d')}\n"
+            f"Pasado mañana: {(now+timedelta(days=2)).strftime('%Y-%m-%d')}")
+
+async def _claude(system, user, max_tokens=512, messages=None, tools=None, tool_choice=None):
+    if not ANTHROPIC_API_KEY: return None
+    msgs = messages or [{"role":"user","content":user}]
+    payload = {"model":MODEL,"max_tokens":max_tokens,"system":system,"messages":msgs}
+    if tools: payload["tools"] = tools
+    if tool_choice: payload["tool_choice"] = tool_choice
+    try:
+        async with httpx.AsyncClient(timeout=10) as c:
+            r = await c.post("https://api.anthropic.com/v1/messages",
+                headers={"x-api-key":ANTHROPIC_API_KEY,"anthropic-version":"2023-06-01","content-type":"application/json"},
+                json=payload)
+            if r.status_code != 200:
+                print(f"[ai] API {r.status_code}: {r.text[:200]}"); return None
+            return r.json()
+    except Exception as exc:
+        print(f"[ai] error: {exc}"); return None
+
+# ══════════ 1. DETECCIÓN DE INTENCIÓN ══════════
+
+INTENT_SYSTEM = """Eres el clasificador de intenciones de EVA, asistente personal en español.
+Clasifica el mensaje en UNA intención:
+- create_reminder: crear recordatorio o aviso futuro
+- cancel_reminder: cancelar/borrar un recordatorio específico (por ID, descripción o fecha: "cancela el 28", "borra el de mañana", "elimina lo que tengo el viernes")
+- cancel_all_date: cancelar TODOS los recordatorios de una fecha o en general ("cancela todo lo de mañana", "borra lo que tengo el viernes", "puedes eliminarlos/cancelarlos" refiriéndose a un grupo)
+- edit_reminder: cambiar hora/fecha/texto de un recordatorio
+- ack_reminder: confirmar que ya hizo algo (listo, ok, vale, hecho, ya está)
+- snooze_reminder: posponer aviso (en 10 minutos, luego, más tarde)
+- list_reminders: ver lista de recordatorios pendientes
+- pending_task: tarea SIN fecha (tengo que, pendiente, hay que, debo) — NO usar para preguntas ni cancelaciones
+- question: pregunta sobre sus recordatorios (qué tengo mañana, cuándo es X, cuántos tengo)
+- correction: corregir hora del último recordatorio (no, a las 11)
+- admin_cleanup: limpiar duplicados, borrar recordatorios de prueba/test, limpiar Focalboard
+- add_note: añadir nota/texto/contexto a la última tarea o recordatorio mencionado ("agrégale una nota", "añade que", "agrega esto")
+- chat: conversación general, saludo, o mensaje no relacionado
+
+Responde SOLO con JSON sin markdown: {"intent":"string","confidence":0.0-1.0,"hint":"razón breve","date_hint":"fecha mencionada en ISO si aplica o null"}"""
+
+async def detect_intent(text, memory_context=""):
+    system = INTENT_SYSTEM
+    if memory_context:
+        system += f"\n\nContexto del usuario:{memory_context}"
+    now = _now()
+    prompt = f"{_day_context(now)}\n\nMensaje: '{text}'"
+    data = await _claude(system, prompt, max_tokens=120)
+    if not data: return {"intent":"unknown","confidence":0.0}
+    try:
+        raw = data["content"][0]["text"].strip()
+        # Extract first valid JSON object — ignore any trailing text or markdown
+        # Find the first { and last } to extract clean JSON
+        start = raw.find("{")
+        end = raw.rfind("}") + 1
+        if start >= 0 and end > start:
+            raw = raw[start:end]
+        result = json.loads(raw)
+        intent = result.get("intent","unknown")
+        conf = float(result.get("confidence",0.8))
+        hint = result.get("hint","")
+        print(f"[intent] '{text[:40]}' → {intent} ({conf:.2f}) — {hint}")
+        return {"intent":intent,"confidence":conf,"hint":hint}
+    except Exception as e:
+        print(f"[intent] parse error: {e}, raw: {data['content'][0]['text'][:100]}")
+        return {"intent":"unknown","confidence":0.0}
+
+# ══════════ 2. PARSER DE RECORDATORIOS ══════════
 
 PARSE_TOOL = {
-    "name": "create_reminder",
-    "description": (
-        "Extrae la información de un recordatorio o tarea del mensaje del usuario. "
-        "Úsala SIEMPRE que el usuario quiera recordar algo, programar una tarea, "
-        "o recibir un aviso en el futuro."
-    ),
-    "input_schema": {
-        "type": "object",
-        "properties": {
-            "task_text": {
-                "type": "string",
-                "description": "Descripción concisa de la tarea o recordatorio. Sin prefijos como 'que tengo que' o 'que'. Ejemplos: 'fichar', 'llevar a Ian a logopeda', 'revisar route53', 'cita médico'."
-            },
-            "remind_at": {
-                "type": "string",
-                "description": "Fecha y hora en formato ISO 8601: YYYY-MM-DDTHH:MM:00. Debe ser en el futuro."
-            },
-            "recurrence_type": {
-                "type": "string",
-                "enum": ["none", "weekly", "weekdays", "interval"],
-                "description": "'none' para recordatorio único, 'weekly' para semanal, 'weekdays' para días laborables, 'interval' para repetir cada X minutos."
-            },
-            "recurrence_value": {
-                "type": "string",
-                "description": "Para weekly: nombre del día (lunes, martes...). Para interval: número de minutos como string. Para otros: null."
-            },
-            "is_persistent": {
-                "type": "boolean",
-                "description": "true si debe repetirse hasta que el usuario diga 'listo'."
-            },
-            "repeat_every_minutes": {
-                "type": "integer",
-                "description": "Minutos entre repeticiones si is_persistent=true o recurrence_type=interval. null si no aplica."
-            },
-            "stop_at": {
-                "type": "string",
-                "description": "ISO 8601 de cuándo dejar de repetir. null si no hay límite."
-            },
-            "weekdays_only": {
-                "type": "boolean",
-                "description": "true si solo aplica en días laborables (lunes-viernes)."
-            },
-            "mode": {
-                "type": "string",
-                "description": "Modo de parsing: relative_minutes, today_or_tomorrow_at_time, tomorrow_at_time, weekly_day, weekdays, before_time, interval_minutes, absolute_date, next_weekday."
-            }
+    "name":"create_reminder",
+    "description":"Extrae información estructurada de un recordatorio.",
+    "input_schema":{
+        "type":"object",
+        "properties":{
+            "task_text":{"type":"string","description":"Descripción concisa sin prefijos innecesarios."},
+            "remind_at":{"type":"string","description":"ISO 8601: YYYY-MM-DDTHH:MM:00. Debe ser futuro."},
+            "recurrence_type":{"type":"string","enum":["none","weekly","weekdays","interval"]},
+            "recurrence_value":{"type":"string","description":"Día para weekly, minutos para interval, null para otros."},
+            "is_persistent":{"type":"boolean"},
+            "repeat_every_minutes":{"type":"integer"},
+            "stop_at":{"type":"string","description":"ISO 8601 o null."},
+            "weekdays_only":{"type":"boolean"},
+            "mode":{"type":"string","description":"relative_minutes|today_or_tomorrow_at_time|tomorrow_at_time|weekly_day|weekdays|before_time|interval_minutes|absolute_date|next_weekday"}
         },
-        "required": ["task_text", "remind_at", "recurrence_type", "is_persistent", "weekdays_only", "mode"]
+        "required":["task_text","remind_at","recurrence_type","is_persistent","weekdays_only","mode"]
     }
 }
 
+async def parse_reminder_ai(text, context=None, memory_context=""):
+    if not AI_PARSER_ENABLED or not ANTHROPIC_API_KEY: return None
+    now = _now()
+    days = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+    system = (f"{_day_context(now)}\n"
+              f"Pasado mañana: {(now+timedelta(days=2)).strftime('%Y-%m-%d')}\n\n"
+              f"Eres el parser de recordatorios de EVA. Extrae usando create_reminder.\n"
+              f"Reglas: remind_at debe ser futuro. 'esta tarde'→PM. 'próximo X'→siempre siguiente semana. "
+              f"task_text sin prefijos. Contexto tras coma va en task_text.\n"
+              f"{memory_context}"
+              f"\nSi NO es un recordatorio, no uses la tool.")
+    messages = []
+    if context:
+        for msg in context[-6:]:
+            role = "user" if msg.get("direction")=="inbound" else "assistant"
+            messages.append({"role":role,"content":msg.get("text","")})
+    messages.append({"role":"user","content":text})
+    data = await _claude(system, text, max_tokens=1024, messages=messages,
+                          tools=[PARSE_TOOL], tool_choice={"type":"auto"})
+    if not data: return None
+    for block in data.get("content",[]):
+        if block.get("type")=="tool_use" and block.get("name")=="create_reminder":
+            return _args_to_parsed(block.get("input",{}), now)
+    return None
 
-# ══════════════════════════════════════════
-# SYSTEM PROMPT
-# ══════════════════════════════════════════
+def _args_to_parsed(args, now):
+    try:
+        remind_at = datetime.fromisoformat(args["remind_at"]).replace(tzinfo=TZ)
+        if remind_at <= now: remind_at += timedelta(days=1)
+        rec_type = args.get("recurrence_type","none")
+        if rec_type == "none": rec_type = None
+        stop_at = None
+        if args.get("stop_at"):
+            try: stop_at = datetime.fromisoformat(args["stop_at"]).replace(tzinfo=TZ)
+            except: pass
+        repeat = args.get("repeat_every_minutes")
+        if isinstance(repeat,str):
+            try: repeat = int(repeat)
+            except: repeat = None
+        rec_val = args.get("recurrence_value")
+        if rec_val in ("null","none","",None): rec_val = None
+        result = {
+            "task_text": args.get("task_text","").strip(),
+            "remind_at": remind_at, "status":"scheduled",
+            "recurrence_type":rec_type, "recurrence_value":rec_val,
+            "weekdays_only":bool(args.get("weekdays_only",False)),
+            "remind_if_no_response":False, "retry_delay_minutes":None,
+            "cancel_on_event_type":None,
+            "mode":args.get("mode","today_or_tomorrow_at_time"),
+            "is_persistent":bool(args.get("is_persistent",False)),
+            "repeat_every_minutes":repeat, "stop_at":stop_at,
+            "awaiting_ack":False, "target_time_text":None, "minutes_before":None,
+        }
+        if result["task_text"]:
+            print(f"[parse] ✅ '{result['task_text']}' → {remind_at.strftime('%Y-%m-%d %H:%M')} mode={result['mode']}")
+            return result
+        return None
+    except Exception as exc:
+        print(f"[parse] error: {exc}"); return None
 
-def _build_system_prompt(now: datetime) -> str:
-    day_names = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
-    weekday = day_names[now.weekday()]
-    return f"""Eres el parser de recordatorios de EVA, un asistente personal en español.
+# ══════════ 3. RESPONDER PREGUNTAS ══════════
 
-Fecha y hora actual: {now.strftime('%Y-%m-%d %H:%M')} ({weekday}, zona horaria Europa/Madrid)
+async def answer_question_ai(question, reminders_summary, memory_context=""):
+    if not ANTHROPIC_API_KEY: return None
+    now = _now()
+    days = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+    system = (f"Eres EVA, asistente personal. Responde preguntas sobre recordatorios "
+              f"de forma concisa y natural en español. "
+              f"Hoy es {days[now.weekday()]} {now.strftime('%d/%m/%Y')} a las {now.strftime('%H:%M')}.\n"
+              f"{memory_context}\n"
+              f"Recordatorios activos:\n{reminders_summary or 'No hay recordatorios activos.'}\n"
+              f"Responde en 1-3 líneas.")
+    data = await _claude(system, question, max_tokens=250)
+    return data["content"][0]["text"].strip() if data else None
 
-Tu única función es extraer la información de recordatorios del mensaje del usuario usando la tool create_reminder.
+# ══════════ 4. CONFIRMACIÓN NATURAL ══════════
 
-Reglas importantes:
-- SIEMPRE usa la tool create_reminder si el mensaje contiene intención de recordatorio
-- La fecha remind_at DEBE ser en el futuro respecto a ahora
-- "mañana" = {(now + timedelta(days=1)).strftime('%Y-%m-%d')}
-- "pasado mañana" = {(now + timedelta(days=2)).strftime('%Y-%m-%d')}
-- "esta tarde" / "tarde" → hora en PM (después de las 13:00)
-- "esta noche" → después de las 20:00
-- "a las 8" sin contexto de tarde → 08:00 si no ha pasado, si pasó → 20:00
-- "en X minutos/horas" → ahora + X
-- "el próximo lunes" → próximo lunes aunque hoy sea lunes
-- task_text debe ser conciso y sin prefijos innecesarios ("que tengo que", "que")
-- Si hay contexto extra después de la hora (ej: "a las 5, tengo lo de Ian"), inclúyelo en task_text
-- Para recordatorios recurrentes diarios laborables: recurrence_type="weekdays", weekdays_only=true
-- Para "sigue avisándome": is_persistent=true, repeat_every_minutes=2 (o el valor indicado)
+async def build_reply_ai(source_text, parsed, reminder_id=None, memory_context=""):
+    if not ANTHROPIC_API_KEY: return None
+    now = _now()
+    local_dt = parsed["remind_at"]
+    days = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+    if local_dt.date() == now.date():
+        fecha = f"hoy a las {local_dt.strftime('%H:%M')}"
+    elif local_dt.date() == (now+timedelta(days=1)).date():
+        fecha = f"mañana a las {local_dt.strftime('%H:%M')}"
+    else:
+        fecha = f"el {days[local_dt.weekday()]} {local_dt.strftime('%d/%m')} a las {local_dt.strftime('%H:%M')}"
+    extras = []
+    if parsed.get("recurrence_type")=="weekly": extras.append(f"cada {parsed.get('recurrence_value','semana')}")
+    elif parsed.get("recurrence_type")=="weekdays": extras.append("días laborables")
+    elif parsed.get("is_persistent"): extras.append(f"repito cada {parsed.get('repeat_every_minutes',2)} min hasta 'listo'")
+    extra_str = f" ({', '.join(extras)})" if extras else ""
+    id_str = f" [{reminder_id}]" if reminder_id else ""
+    system = ("Eres EVA, asistente personal. Confirma el recordatorio de forma breve y natural "
+              "en español, como una persona. Sin emojis extraños, sin 'EVA:' al inicio. Máximo 2 líneas. "
+              "Última línea siempre: 'Si la hora no es correcta, di \"no, a las HH:MM\".'")
+    prompt = (f"Usuario dijo: '{source_text}'\n"
+              f"Recordatorio: '{parsed['task_text']}' — {fecha}{extra_str}.{id_str}")
+    data = await _claude(system, prompt, max_tokens=150)
+    return data["content"][0]["text"].strip() if data else None
 
-Si el mensaje NO es un recordatorio (es una cancelación, consulta, saludo, etc.), NO uses la tool."""
+# ══════════ 5. CHAT GENERAL ══════════
 
+async def chat_reply_ai(text, memory_context=""):
+    if not ANTHROPIC_API_KEY: return None
+    system = ("Eres EVA, asistente personal en español. Eres concisa, amable y directa. "
+              "Si no entiendes el mensaje como recordatorio, orienta al usuario con 1-2 ejemplos "
+              "concretos de lo que puedes hacer. Nunca más de 3 líneas."
+              f"{memory_context}")
+    data = await _claude(system, text, max_tokens=150)
+    return data["content"][0]["text"].strip() if data else None
 
-# ══════════════════════════════════════════
-# LLAMADA A CLAUDE
-# ══════════════════════════════════════════
+# ══════════ 6. RESUMEN DIARIO CON IA ══════════
 
-async def _call_claude(text: str, context: list[dict] | None, now: datetime) -> dict | None:
+async def build_briefing_ai(reminders_today: list[dict],
+                              recent_events: list[dict],
+                              user_facts: list[dict],
+                              persona: dict) -> str | None:
     """
-    Llama a Claude Haiku con function calling.
-    Devuelve el dict de argumentos de create_reminder o None si no hay tool use.
+    Genera el resumen diario matutino con Claude.
+    
+    reminders_today: lista de {id, task_text, remind_at, status}
+    recent_events: últimos events relevantes de ayer (postponed, cancelled, created)
+    user_facts: memoria del usuario
+    persona: config de personalidad
     """
     if not ANTHROPIC_API_KEY:
         return None
 
-    messages = []
+    now = _now()
+    days = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+    day_str = f"{days[now.weekday()]} {now.strftime('%d/%m/%Y')}"
 
-    # Añadir contexto conversacional si existe
-    if context:
-        for msg in context[-6:]:  # últimos 6 mensajes
-            role = "user" if msg["direction"] == "inbound" else "assistant"
-            messages.append({"role": role, "content": msg["text"]})
+    name = persona.get("name", "Eva")
+    user_name = persona.get("user_name", "")
+    tone = persona.get("tone", "informal")
+    language = persona.get("language", "es")
+    use_emoji = persona.get("emoji", True)
+    notes = persona.get("personality_notes", "")
 
-    messages.append({"role": "user", "content": text})
-
-    payload = {
-        "model": MODEL,
-        "max_tokens": 1024,
-        "system": _build_system_prompt(now),
-        "tools": [PARSE_TOOL],
-        "tool_choice": {"type": "auto"},
-        "messages": messages,
-    }
-
-    async with httpx.AsyncClient(timeout=10) as client:
-        r = await client.post(
-            "https://api.anthropic.com/v1/messages",
-            headers={
-                "x-api-key": ANTHROPIC_API_KEY,
-                "anthropic-version": "2023-06-01",
-                "content-type": "application/json",
-            },
-            json=payload,
+    # Construir sección de recordatorios de hoy
+    if reminders_today:
+        reminders_str = "\n".join(
+            f"- [{r['id']}] {r['task_text']} a las {r['remind_at']}" 
+            for r in reminders_today
         )
-        r.raise_for_status()
-        data = r.json()
+    else:
+        reminders_str = "(ninguno)"
 
-    # Extraer tool use
-    for block in data.get("content", []):
-        if block.get("type") == "tool_use" and block.get("name") == "create_reminder":
-            return block.get("input", {})
+    # Construir contexto de eventos recientes relevantes
+    events_str = ""
+    if recent_events:
+        event_lines = []
+        for e in recent_events[:8]:
+            if e["type"] == "reminder_rescheduled":
+                event_lines.append(f"- Ayer pospusiste: {e['value']}")
+            elif e["type"] == "reminder_cancelled":
+                event_lines.append(f"- Ayer cancelaste: {e['value']}")
+            elif e["type"] == "reminder_corrected":
+                event_lines.append(f"- Ayer corregiste la hora de: {e['value']}")
+        if event_lines:
+            events_str = "Contexto de ayer:\n" + "\n".join(event_lines)
 
-    return None  # No tool use — mensaje no es un recordatorio
+    # Memoria relevante
+    facts_str = ""
+    if user_facts:
+        facts_str = "Lo que sé del usuario:\n" + "\n".join(
+            f"- {f['key'].replace('_',' ')}: {f['value']}" for f in user_facts[:10]
+        )
 
+    emoji_instruction = "Usa emojis con moderación." if use_emoji else "No uses emojis."
 
-# ══════════════════════════════════════════
-# CONVERSIÓN DE RESULTADO A FORMATO EVA
-# ══════════════════════════════════════════
+    tone_map = {
+        "informal": "informal y cercano",
+        "formal": "formal y profesional",
+        "profesional": "profesional pero accesible",
+    }
+    tone_desc = tone_map.get(tone, "natural")
 
-def _ai_result_to_parsed(args: dict, now: datetime) -> dict | None:
-    """Convierte los argumentos de Claude al formato que espera main.py."""
-    try:
-        remind_at_str = args.get("remind_at", "")
-        # Parsear ISO 8601
-        remind_at = datetime.fromisoformat(remind_at_str).replace(tzinfo=TZ)
+    lang_map = {
+        "es-ve": "español venezolano natural (pana, chamo, epale, chévere cuando fluya)",
+        "es-es": "español de España natural",
+        "es": "español neutro",
+    }
+    lang_desc = lang_map.get(language, "español")
 
-        # Si la fecha ya pasó, ajustar al día siguiente
-        if remind_at <= now:
-            remind_at = remind_at + timedelta(days=1)
+    system = (
+        f"Eres {name}, asistente personal{f' de {user_name}' if user_name else ''}. "
+        f"Genera el resumen diario matutino de hoy {day_str}.\n\n"
+        f"Tono: {tone_desc}. Idioma: {lang_desc}. {emoji_instruction}\n"
+        f"{notes}\n\n"
+        f"Reglas del briefing:\n"
+        f"- Empieza con un saludo breve y la fecha\n"
+        f"- Si hay recordatorios, menciónalos de forma natural y conversacional, no como lista\n"
+        f"- Usa el contexto de ayer para dar relevancia ('ayer lo pospusiste', 'es la segunda vez esta semana')\n"
+        f"- Si no hay nada, dilo con optimismo en 1 línea\n"
+        f"- Máximo 5-6 líneas en total\n"
+        f"- No inventes información que no esté en los datos\n\n"
+        f"{facts_str}\n{events_str}"
+    )
 
-        recurrence_type = args.get("recurrence_type", "none")
-        if recurrence_type == "none":
-            recurrence_type = None
+    prompt = f"Recordatorios de hoy:\n{reminders_str}"
 
-        stop_at = None
-        if args.get("stop_at"):
-            try:
-                stop_at = datetime.fromisoformat(args["stop_at"]).replace(tzinfo=TZ)
-            except Exception:
-                pass
+    data = await _claude(system, prompt, max_tokens=300)
+    if data:
+        return data["content"][0]["text"].strip()
+    return None
 
-        repeat_every_minutes = args.get("repeat_every_minutes")
-        if isinstance(repeat_every_minutes, str):
-            try:
-                repeat_every_minutes = int(repeat_every_minutes)
-            except Exception:
-                repeat_every_minutes = None
+# ══════════ 7. INFERIR PRIORIDAD ══════════
 
-        recurrence_value = args.get("recurrence_value")
-        if recurrence_value in ("null", "none", ""):
-            recurrence_value = None
+PRIORITY_SYSTEM = """Eres el clasificador de prioridad de EVA. 
+Dado el texto de una tarea o recordatorio, asigna una prioridad P0-P4:
 
-        return {
-            "task_text": args.get("task_text", "").strip(),
-            "remind_at": remind_at,
-            "status": "scheduled",
-            "recurrence_type": recurrence_type,
-            "recurrence_value": recurrence_value,
-            "weekdays_only": bool(args.get("weekdays_only", False)),
-            "remind_if_no_response": False,
-            "retry_delay_minutes": None,
-            "cancel_on_event_type": None,
-            "mode": args.get("mode", "today_or_tomorrow_at_time"),
-            "is_persistent": bool(args.get("is_persistent", False)),
-            "repeat_every_minutes": repeat_every_minutes,
-            "stop_at": stop_at,
-            "awaiting_ack": False,
-            "target_time_text": None,
-            "minutes_before": None,
-        }
-    except Exception as exc:
-        print(f"[ai_parser] conversion error: {exc}")
-        return None
+P0 — Critical: sistema caído, producción afectada, emergencia real
+P1 — High: urgente, bloquea trabajo, debe hacerse hoy
+P2 — Moderate: importante, esta semana, afecta a otros
+P3 — Low: rutina, cuando pueda, no urgente (DEFAULT para la mayoría)
+P4 — Negligible: algún día, backlog, sin impacto si espera
 
+Señales de alta prioridad: "urgente", "crítico", "producción", "error", "caído", "ahora", "hoy", "importante"
+Señales de baja prioridad: "cuando pueda", "algún día", "sin prisa", "pendiente", "backlog"
 
-# ══════════════════════════════════════════
-# ENTRY POINT — llamado desde main.py
-# ══════════════════════════════════════════
+Responde SOLO con JSON: {"priority": "P0"|"P1"|"P2"|"P3"|"P4", "reason": "breve razón"}"""
 
-async def parse_reminder_ai(text: str, context: list[dict] | None = None) -> dict | None:
+async def infer_priority(task_text: str) -> str:
     """
-    Intenta parsear con Claude. Si falla, devuelve None para que
-    main.py llame al parser de regex como fallback.
+    Infiere la prioridad P0-P4 de una tarea usando Claude Haiku.
+    Devuelve "P3" (Low) como fallback.
     """
-    if not AI_PARSER_ENABLED or not ANTHROPIC_API_KEY:
-        return None
-
-    now = datetime.now(TZ)
+    if not ANTHROPIC_API_KEY:
+        return "P3"
+    
+    data = await _claude(PRIORITY_SYSTEM, f"Tarea: '{task_text}'", max_tokens=80)
+    if not data:
+        return "P3"
+    
     try:
-        args = await _call_claude(text, context, now)
-        if args is None:
-            return None  # Claude dice que no es un recordatorio
-        result = _ai_result_to_parsed(args, now)
-        if result and result["task_text"]:
-            print(f"[ai_parser] ✅ '{result['task_text']}' → {result['remind_at'].strftime('%Y-%m-%d %H:%M')} mode={result['mode']}")
-            return result
-        return None
+        raw = data["content"][0]["text"].strip()
+        s = raw.find("{"); e = raw.rfind("}") + 1
+        if s >= 0 and e > s:
+            raw = raw[s:e]
+        result = json.loads(raw)
+        priority = result.get("priority", "P3")
+        reason = result.get("reason", "")
+        if priority in ("P0","P1","P2","P3","P4"):
+            print(f"[priority] '{task_text[:30]}' → {priority} — {reason}")
+            return priority
     except Exception as exc:
-        print(f"[ai_parser] error, falling back to regex: {exc}")
-        traceback.print_exc()
-        return None
+        print(f"[priority] error: {exc}")
+    return "P3"

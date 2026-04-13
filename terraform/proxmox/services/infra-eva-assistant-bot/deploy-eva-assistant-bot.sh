@@ -67,7 +67,7 @@ echo ""
 echo "📁 1/6 Preparando directorios remotos..."
 ssh ${SSH_OPTS} root@${EVA_HOST} << 'ENDSSH'
 set -euo pipefail
-mkdir -p /opt/infra-eva-assistant-bot/{api,focalboard/data/files,postgres/{init,migrations}}
+mkdir -p /opt/infra-eva-assistant-bot/{api,focalboard/data/files,postgres/{init,migrations},persona}
 ENDSSH
 echo ""
 
@@ -87,6 +87,14 @@ rsync -av -e "ssh ${SSH_OPTS}" \
 rsync -av --delete -e "ssh ${SSH_OPTS}" \
   "${LOCAL_COMPOSE_DIR}/api/" \
   root@${EVA_HOST}:${REMOTE_BASE_DIR}/api/
+
+# Persona configs (ficheros JSON de personalidad por usuario)
+if [ -d "${LOCAL_COMPOSE_DIR}/persona" ]; then
+  rsync -av -e "ssh ${SSH_OPTS}" \
+    "${LOCAL_COMPOSE_DIR}/persona/" \
+    root@${EVA_HOST}:${REMOTE_BASE_DIR}/persona/
+  echo "   ✅ persona configs sincronizados"
+fi
 
 # Focalboard config (excluir data/)
 rsync -av --delete -e "ssh ${SSH_OPTS}" \

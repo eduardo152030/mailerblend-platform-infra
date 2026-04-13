@@ -11,10 +11,24 @@ from sqlalchemy import select, text
 from db import engine, SessionLocal
 from models import User, Reminder, Message, Event
 from parser_service import parse_reminder
-from ai_parser import parse_reminder_ai
+from ai_parser import (parse_reminder_ai, detect_intent, answer_question_ai,
+                        build_reply_ai, chat_reply_ai, infer_priority)
+from memory_service import get_user_facts, build_memory_context, process_message_for_memory
+from persona_service import load_persona, build_system_prompt, get_phrase
 from telegram_service import send_message
 from scheduler import build_daily_digest, send_daily_digest_to_all
-from schemas import ParseCommandRequest, CancelReminderRequest, EventCreateRequest
+# Schemas inline (evita dependencia de schemas.py)
+from pydantic import BaseModel as _BaseModel
+class ParseCommandRequest(_BaseModel):
+    text: str
+class CancelReminderRequest(_BaseModel):
+    reason: str | None = None
+class EventCreateRequest(_BaseModel):
+    user_id: int | None = None
+    event_type: str
+    event_value: str | None = None
+    source: str = "api"
+    payload: dict = {}
 
 APP_NAME = os.getenv("APP_NAME", "eva-assistant-bot")
 DEFAULT_TIMEZONE = os.getenv("TIMEZONE", "Europe/Madrid")
@@ -160,38 +174,92 @@ def is_ack_text(lowered: str) -> bool:
     }
     if lowered in ack_values:
         return True
-    # También captura frases de snooze para que pasen por handle_ack_command
-    if _parse_snooze(lowered) is not None:
+    # Solo captura snooze simples SIN hora concreta — los que tienen hora
+    # los maneja el bloque SNOOZE CONTEXTUAL para evitar doble respuesta
+    simple_snooze = {"luego", "después", "despues", "ahora no", "más tarde",
+                     "mas tarde", "mañana", "manana", "en un rato", "media hora"}
+    if lowered in simple_snooze:
+        return True
+    # "en X minutos" / "en X horas" simples
+    if re.match(r'^en\s+\d+\s+(?:minutos?|horas?)$', lowered):
         return True
     return False
+
+
+def _extract_snooze_note(text: str) -> tuple[str, str | None]:
+    """
+    Separa la expresión de tiempo del contexto adicional.
+    "a las 13:00, tengo que confirmar con Luis" → ("a las 13:00", "tengo que confirmar con Luis")
+    "en 10 minutos" → ("en 10 minutos", None)
+    """
+    # Buscar coma + contexto después de la expresión de tiempo
+    m = re.search(r',\s*(.+)$', text)
+    if m:
+        context = m.group(1).strip()
+        time_part = text[:m.start()].strip()
+        # Solo extraer nota si el contexto es sustancial (> 3 palabras)
+        if len(context.split()) >= 2:
+            return time_part, context
+    return text, None
 
 
 def _parse_snooze(lowered: str) -> timedelta | None:
     """
     Detecta intención de posponer. Devuelve timedelta o None.
-    Ejemplos: "en 10 minutos", "en 1 hora", "mañana", "luego", "después"
+    Cubre: "en 10 minutos", "en 1 hora", "mañana", "luego",
+           "a las 13:00", "para hoy a la 1:00", "para mañana a las 9"
+    Ignora el contexto después de la coma (manejado por _extract_snooze_note).
     """
-    m = re.match(r'^(?:en\s+)?(\d+)\s+minutos?$', lowered)
-    if m:
-        return timedelta(minutes=int(m.group(1)))
+    import unicodedata as _ud
+    norm = _ud.normalize("NFD", lowered).encode("ascii","ignore").decode()
+    now = datetime.now(TZ)
 
-    m = re.match(r'^(?:en\s+)?(\d+)\s+hora?s?$', lowered)
-    if m:
-        return timedelta(hours=int(m.group(1)))
+    # "en X minutos"
+    m = re.match(r'^(?:en\s+)?(\d+)\s+minutos?$', norm)
+    if m: return timedelta(minutes=int(m.group(1)))
 
-    m = re.match(r'^(?:en\s+)?media\s+hora$', lowered)
-    if m:
+    # "en X horas"
+    m = re.match(r'^(?:en\s+)?(\d+)\s+horas?$', norm)
+    if m: return timedelta(hours=int(m.group(1)))
+
+    # "media hora" / "en media hora"
+    if re.match(r'^(?:en\s+)?media\s+hora$', norm):
         return timedelta(minutes=30)
 
-    m = re.match(r'^en\s+un\s+rato$', lowered)
-    if m:
+    # "en un rato" / "en un momento"
+    if re.match(r'^en\s+un\s+(?:rato|momento)$', norm):
         return timedelta(minutes=15)
 
-    if lowered in ("mañana", "manana"):
+    # "mañana" solo
+    if norm in ("manana", "tomorrow"):
         return timedelta(hours=24)
 
-    if lowered in ("luego", "después", "despues", "ahora no", "más tarde", "mas tarde"):
+    # "luego", "más tarde", "ahora no", "después"
+    if norm in ("luego", "despues", "ahora no", "mas tarde", "mas tarde", "ahorita no"):
         return timedelta(hours=1)
+
+    # "a las HH:MM" / "a la HH:MM" → hora concreta hoy o mañana
+    m = re.match(r'^(?:.+\s+)?a\s+las?\s+(\d{1,2})(?::(\d{2}))?$', norm)
+    if m:
+        h = int(m.group(1))
+        mins = int(m.group(2)) if m.group(2) else 0
+        target = now.replace(hour=h, minute=mins, second=0, microsecond=0)
+        if target <= now:
+            target = target + timedelta(days=1)
+        return target - now
+
+    # "para hoy a las HH" / "para mañana a las HH"
+    m = re.match(r'^(?:para\s+)?(?:hoy|manana|mañana)?\s*(?:a\s+las?\s+)?(\d{1,2})(?::(\d{2}))?\s*(?:en\s+punto)?$', norm)
+    if m and m.group(1):
+        h = int(m.group(1))
+        mins = int(m.group(2)) if m.group(2) else 0
+        manana = "manana" in norm or "mañana" in lowered
+        target = now.replace(hour=h, minute=mins, second=0, microsecond=0)
+        if manana:
+            target = target + timedelta(days=1)
+        elif target <= now:
+            target = target + timedelta(days=1)
+        return target - now
 
     return None
 
@@ -526,25 +594,34 @@ async def handle_ack_command(db, user: User, chat_id: int, lowered: str):
     # =========================
     # SNOOZE (antes del ACK)
     # =========================
-    snooze_delta = _parse_snooze(lowered)
+    # Separar expresión de tiempo del contexto opcional: "a las 13:00, confirmar con Luis"
+    time_part, snooze_note = _extract_snooze_note(lowered)
+    snooze_delta = _parse_snooze(time_part)
     if snooze_delta is not None:
         now = datetime.now(TZ)
         new_remind_at = now + snooze_delta
         reminder.remind_at = new_remind_at
         reminder.status = "scheduled"
         reminder.awaiting_ack = False
+        # Guardar nota si existe
+        if snooze_note and hasattr(reminder, 'notes'):
+            reminder.notes = snooze_note
 
         db.add(Event(
             user_id=user.id,
             event_type="reminder_snoozed",
             event_value=str(reminder.id),
             source="telegram",
-            payload={"snooze_text": lowered, "new_remind_at": new_remind_at.isoformat()},
+            payload={"snooze_text": lowered, "new_remind_at": new_remind_at.isoformat(),
+                     "note": snooze_note},
         ))
         db.commit()
 
         dt_str = to_local(new_remind_at).strftime("%H:%M")
-        reply = f'⏱️ Vale, te recuerdo "{reminder.task_text}" a las {dt_str}.'
+        if snooze_note:
+            reply = f'Movido a las {dt_str}. Apuntado: "{snooze_note}"'
+        else:
+            reply = f'Movido a las {dt_str}.'
         await send_and_log(db, user.id, chat_id, reply, "snooze_confirmation")
         return {"status": "ok", "action": "reminder_snoozed", "reminder_id": reminder.id}
 
@@ -658,10 +735,237 @@ async def handle_cancel_by_id(db, user: User, chat_id: int, reminder_id: int):
     return {"status": "ok", "action": "reminder_cancelled", "reminder_id": reminder_id}
 
 
-async def handle_pending_task(db, user: User, chat_id: int, task_text: str):
+async def handle_cancel_all_date(db, user: User, chat_id: int, date_hint: str | None, original_text: str):
     """
-    Crea una tarea sin fecha directamente en Focalboard (columna Pendiente).
-    No crea un Reminder — es una tarjeta libre para gestionar desde la UI.
+    Cancela todos los recordatorios de una fecha específica.
+    date_hint: fecha en ISO (YYYY-MM-DD) extraída por el LLM, o None.
+    """
+    from datetime import date as date_type
+    now = datetime.now(TZ)
+
+    # Resolver la fecha objetivo
+    target_date = None
+    if date_hint:
+        try:
+            target_date = datetime.fromisoformat(date_hint).date()
+        except Exception:
+            pass
+
+    # Si no hay fecha del LLM, inferir de palabras clave
+    if not target_date:
+        lowered = original_text.lower()
+        if "mañana" in lowered:
+            target_date = (now + timedelta(days=1)).date()
+        elif "hoy" in lowered:
+            target_date = now.date()
+        elif "pasado mañana" in lowered:
+            target_date = (now + timedelta(days=2)).date()
+
+    if not target_date:
+        reply = "No entendí qué fecha quieres limpiar. Di por ejemplo: 'cancela todo lo de mañana'."
+        await send_and_log(db, user.id, chat_id, reply, "cancel_all_date_no_date")
+        return {"status": "ok", "action": "cancel_all_date_no_date"}
+
+    # Buscar recordatorios activos en esa fecha
+    rows = db.execute(
+        select(Reminder)
+        .where(Reminder.user_id == user.id)
+        .where(Reminder.status.in_(["scheduled", "pending", "sent"]))
+    ).scalars().all()
+
+    to_cancel = [r for r in rows if to_local(r.remind_at) and to_local(r.remind_at).date() == target_date]
+
+    if not to_cancel:
+        days = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+        day_name = days[target_date.weekday()]
+        reply = f"No hay recordatorios activos el {day_name} {target_date.strftime('%d/%m')}."
+        await send_and_log(db, user.id, chat_id, reply, "cancel_all_date_empty")
+        return {"status": "ok", "action": "cancel_all_date_empty"}
+
+    cancelled_texts = []
+    for r in to_cancel:
+        r.status = "cancelled"
+        r.awaiting_ack = False
+        r.cancelled_at = now
+        r.error_message = "cancelled_by_user_all_date"
+        cancelled_texts.append(f'"{r.task_text}"')
+
+    db.add(Event(user_id=user.id, event_type="cancel_all_date", source="telegram",
+                 payload={"date": str(target_date), "count": len(to_cancel)}))
+    db.commit()
+
+    days = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+    day_name = days[target_date.weekday()]
+    reply = (f"Cancelados {len(to_cancel)} recordatorios del {day_name} {target_date.strftime('%d/%m')}:\n"
+             + "\n".join(f"  • {t}" for t in cancelled_texts))
+    await send_and_log(db, user.id, chat_id, reply, "cancel_all_date_done")
+    return {"status": "ok", "action": "cancel_all_date_done", "count": len(to_cancel)}
+
+
+async def handle_admin_cleanup(db, user: User, chat_id: int):
+    """
+    Limpia recordatorios de prueba (status=sent/cancelled con task_text de test)
+    y elimina tarjetas duplicadas o de prueba en Focalboard.
+    """
+    import httpx as _httpx
+    import time
+
+    FOCALBOARD_URL   = os.getenv("FOCALBOARD_URL", "")
+    FOCALBOARD_TOKEN = os.getenv("FOCALBOARD_TOKEN", "")
+    FOCALBOARD_BOARD_ID = os.getenv("FOCALBOARD_BOARD_ID", "")
+
+    await send_and_log(db, user.id, chat_id, "Limpiando... un momento.", "admin_cleanup_start")
+
+    # 1. Cancelar en BD todos los reminders de test/prueba
+    test_keywords = ["probar", "prueba", "test", "sistema", "focalboard", "integración"]
+    rows = db.execute(
+        select(Reminder)
+        .where(Reminder.user_id == user.id)
+        .where(Reminder.status.in_(["sent", "cancelled", "scheduled", "pending"]))
+    ).scalars().all()
+
+    cleaned_db = 0
+    for r in rows:
+        task_lower = r.task_text.lower()
+        if any(kw in task_lower for kw in test_keywords):
+            r.status = "cancelled"
+            r.error_message = "cleaned_by_admin"
+            cleaned_db += 1
+
+    if cleaned_db:
+        db.commit()
+
+    # 2. Limpiar tarjetas de Focalboard — borrar duplicados y de test
+    cleaned_fb = 0
+    if FOCALBOARD_TOKEN and FOCALBOARD_BOARD_ID:
+        try:
+            # Renovar token
+            headers = {"Authorization": f"Bearer {FOCALBOARD_TOKEN}",
+                       "X-Requested-With": "XMLHttpRequest"}
+            async with _httpx.AsyncClient(timeout=15) as client:
+                r = await client.get(
+                    f"{FOCALBOARD_URL}/api/v2/boards/{FOCALBOARD_BOARD_ID}/blocks?type=card",
+                    headers=headers)
+                if r.status_code == 200:
+                    cards = r.json()
+                    # Identificar tarjetas a borrar: test/prueba/duplicadas
+                    test_words = ["probar", "prueba", "test", "sistema", "focalboard",
+                                  "integración", "aviso previo", "card con fecha", "createat"]
+                    # También detectar duplicados por título
+                    from collections import defaultdict
+                    by_title = defaultdict(list)
+                    for card in cards:
+                        by_title[card["title"].lower()].append(card)
+
+                    to_delete = set()
+                    for card in cards:
+                        if any(kw in card["title"].lower() for kw in test_words):
+                            to_delete.add(card["id"])
+                    # Duplicados: mantener solo el más reciente
+                    for title, dupes in by_title.items():
+                        if len(dupes) > 1:
+                            dupes_sorted = sorted(dupes, key=lambda x: x.get("createAt", 0), reverse=True)
+                            for dup in dupes_sorted[1:]:  # borrar todos menos el más reciente
+                                to_delete.add(dup["id"])
+
+                    for card_id in to_delete:
+                        del_r = await client.delete(
+                            f"{FOCALBOARD_URL}/api/v2/boards/{FOCALBOARD_BOARD_ID}/blocks/{card_id}",
+                            headers=headers)
+                        if del_r.status_code in (200, 204):
+                            cleaned_fb += 1
+        except Exception as exc:
+            print(f"[admin_cleanup] Focalboard error: {exc}")
+
+    reply = (f"Limpieza completada:\n"
+             f"  • BD: {cleaned_db} recordatorios de prueba cancelados\n"
+             f"  • Focalboard: {cleaned_fb} tarjetas eliminadas")
+    await send_and_log(db, user.id, chat_id, reply, "admin_cleanup_done")
+    return {"status": "ok", "action": "admin_cleanup_done",
+            "cleaned_db": cleaned_db, "cleaned_fb": cleaned_fb}
+
+
+async def handle_add_note(db, user: User, chat_id: int, note_text: str, ref_id: int | None = None):
+    """
+    Añade una nota/texto a la última tarjeta/reminder mencionado o al indicado por ID.
+    Actualiza campo 'notes' en la BD y la propiedad Texto en Focalboard.
+    """
+    import httpx as _httpx
+
+    # Resolver el reminder objetivo
+    if ref_id:
+        target = db.execute(
+            select(Reminder).where(Reminder.id == ref_id).where(Reminder.user_id == user.id)
+        ).scalar_one_or_none()
+        if not target:
+            reply = f"No encontré la tarea [{ref_id}]."
+            await send_and_log(db, user.id, chat_id, reply, "add_note_not_found")
+            return {"status": "ok", "action": "add_note_not_found"}
+    else:
+        # Buscar la última tarea mencionada en el último mensaje saliente de EVA
+        last_out = db.execute(
+            select(Message).where(Message.user_id == user.id)
+            .where(Message.direction == "outbound")
+            .order_by(Message.id.desc()).limit(1)
+        ).scalars().first()
+
+        target = None
+        if last_out:
+            id_match = re.search(r'\[(\d+)\]', last_out.message_text)
+            if id_match:
+                rid = int(id_match.group(1))
+                target = db.execute(
+                    select(Reminder).where(Reminder.id == rid).where(Reminder.user_id == user.id)
+                ).scalar_one_or_none()
+
+        if not target:
+            # Fallback: el reminder activo más reciente con focalboard_card_id
+            target = db.execute(
+                select(Reminder).where(Reminder.user_id == user.id)
+                .where(Reminder.focalboard_card_id.isnot(None))
+                .order_by(Reminder.id.desc()).limit(1)
+            ).scalars().first()
+
+        if not target:
+            reply = "No sé a qué tarea te refieres. Dime el ID, por ejemplo: '52 agrégale una nota: texto'"
+            await send_and_log(db, user.id, chat_id, reply, "add_note_no_target")
+            return {"status": "ok", "action": "add_note_no_target"}
+
+    # Actualizar notes en BD
+    target.notes = note_text
+    db.commit()
+
+    # Actualizar propiedad Texto en Focalboard
+    FOCALBOARD_URL   = os.getenv("FOCALBOARD_URL", "")
+    FOCALBOARD_TOKEN = os.getenv("FOCALBOARD_TOKEN", "")
+    FOCALBOARD_BOARD_ID = os.getenv("FOCALBOARD_BOARD_ID", "")
+
+    if target.focalboard_card_id and FOCALBOARD_TOKEN:
+        try:
+            async with _httpx.AsyncClient(timeout=8) as client:
+                await client.patch(
+                    f"{FOCALBOARD_URL}/api/v2/boards/{FOCALBOARD_BOARD_ID}/blocks/{target.focalboard_card_id}",
+                    headers={"Authorization": f"Bearer {FOCALBOARD_TOKEN}",
+                             "X-Requested-With": "XMLHttpRequest",
+                             "Content-Type": "application/json"},
+                    json={"updatedFields": {"properties": {
+                        "a6bxuk4rgxp7wn6bashiadwaiiy": note_text
+                    }}}
+                )
+        except Exception as exc:
+            print(f"[add_note] Focalboard error: {exc}")
+
+    reply = f'✅ Nota añadida a "{target.task_text}" [{target.id}]: "{note_text}"'
+    await send_and_log(db, user.id, chat_id, reply, "add_note_done")
+    return {"status": "ok", "action": "add_note_done", "reminder_id": target.id}
+
+
+async def handle_pending_task(db, user: User, chat_id: int, task_text: str,
+                              url: str | None = None):
+    """
+    Crea una tarea sin fecha en Focalboard Y en la tabla reminders (remind_at=NULL).
+    Así el sync bidireccional puede detectar cambios desde Focalboard.
+    url: URL opcional, se guarda en propiedad URL de Focalboard y en notes.
     """
     import time
     import uuid
@@ -693,7 +997,8 @@ async def handle_pending_task(db, user: User, chat_id: int, task_text: str):
             "isTemplate": False,
             "contentOrder": [],
             "properties": {
-                "aevastatus00000000000000001": "aoptpendiente00000000000001",
+                **{"aevastatus00000000000000001": "aoptpendiente00000000000001"},
+                **({"asztuket5mjeeongrzooyx5utbo": url} if url else {}),
             },
         },
     }
@@ -722,9 +1027,42 @@ async def handle_pending_task(db, user: User, chat_id: int, task_text: str):
                     payload={"task_text": task_text, "card_id": fb_id},
                 ))
                 db.commit()
+                # Inferir prioridad para la tarea pendiente
+                try:
+                    _task_priority = await infer_priority(task_text)
+                except Exception:
+                    _task_priority = "P3"
+
+                # Guardar también en reminders para que el sync bidireccional funcione
+                try:
+                    pending_reminder = Reminder(
+                        user_id=user.id,
+                        source_text=task_text,
+                        task_text=task_text,
+                        remind_at=datetime.now(TZ).replace(year=2099),
+                        status="pending",
+                        notes=url if url else None,
+                        priority=_task_priority,
+                        focalboard_card_id=fb_id,
+                        focalboard_synced_at=datetime.now(TZ),
+                    )
+                    db.add(pending_reminder)
+                    db.add(Event(
+                        user_id=user.id,
+                        event_type="pending_task_created",
+                        event_value=fb_id,
+                        source="telegram",
+                        payload={"task_text": task_text, "card_id": fb_id, "url": url},
+                    ))
+                    db.commit()
+                except Exception as exc:
+                    print(f"[pending_task] reminder save error: {exc}")
+                    db.rollback()
+
                 reply = (
-                    f'📌 Apuntado en Focalboard: "{task_text}"\n'
-                    f'Cuando tengas un momento, asígnale fecha desde la UI.'
+                    f'📌 Apuntado en Focalboard: "{task_text}"'
+                    + (f'\n🔗 {url}' if url else '')
+                    + '\nCuando tengas un momento, asígnale fecha desde la UI.'
                 )
                 await send_and_log(db, user.id, chat_id, reply, "pending_task_created")
                 return {"status": "ok", "action": "pending_task_created", "card_id": fb_id}
@@ -992,77 +1330,527 @@ async def telegram_webhook(request: Request):
 
         lowered = normalize_text(text_in)
 
+        # ── Extraer URL del mensaje si existe ───────────────────────────────
+        _url_in_msg = re.search(r'https?://\S+', text_in)
+        _extracted_url = _url_in_msg.group(0) if _url_in_msg else None
+        # Texto sin la URL para analizar la intención
+        _text_no_url = text_in.replace(_extracted_url, "").strip() if _extracted_url else text_in
+
+        # ── Mensaje que ES solo una URL → tarea sin fecha con URL ────────────
+        if _extracted_url and len(_text_no_url.strip()) < 5:
+            # Solo URL, sin texto descriptivo → apuntar con dominio como título
+            import urllib.parse as _up
+            _domain = _up.urlparse(_extracted_url).netloc.replace("www.", "")
+            task_title = f"Revisar {_domain}"
+            return await handle_pending_task(db, user, chat_id, task_title, url=_extracted_url)
+
+        # ── Gestión de notas/recordatorios por ID: "52 eliminala", "la tarea 52 marcala como hecha" ──
+        _id_op = re.match(
+            r'^(?:(?:la|el)\s+)?(?:tarea|nota|recordatorio)?\s*(\d+)\s+(.+)$',
+            lowered.strip(), re.IGNORECASE
+        )
+        if _id_op:
+            _ref_id = int(_id_op.group(1))
+            _op_text = _id_op.group(2).strip()
+            # Cancelar/eliminar
+            if re.match(r'^(?:cancela(?:la|lo)?|elimina(?:la|lo)?|borra(?:la|lo)?|quita(?:la|lo)?)[\s.!?]*$', _op_text):
+                return await handle_cancel_by_id(db, user, chat_id, _ref_id)
+            # Completar
+            if re.match(r'^(?:marca(?:la|lo)?\s+(?:como\s+)?(?:hecha?|completad[ao]|lista?)|completa(?:la|lo)?)[\s.!?]*$', _op_text):
+                _ref_r = db.execute(
+                    select(Reminder).where(Reminder.id == _ref_id).where(Reminder.user_id == user.id)
+                ).scalar_one_or_none()
+                if _ref_r:
+                    _ref_r.status = "completed"
+                    _ref_r.completed_at = datetime.now(TZ)
+                    db.commit()
+                    reply = f'Completado [{_ref_id}]: "{_ref_r.task_text}".'
+                    await send_and_log(db, user.id, chat_id, reply, "completed_by_id_ref")
+                    return {"status": "ok", "action": "completed_by_id_ref"}
+            # Añadir nota
+            _note_match = re.match(r'^(?:agr[eé]ga(?:le)?(?:\s+una?)?\s+nota[:\s]+|a[ñn]ade(?:le)?(?:\s+una?)?\s+nota[:\s]+)(.+)$', _op_text, re.IGNORECASE)
+            if _note_match:
+                return await handle_add_note(db, user, chat_id, _note_match.group(1).strip(), ref_id=_ref_id)
+
+            # Posponer/snooze por ID: "71 posponlo 30 minutos" / "71 muévelo al lunes"
+            _move_by_id = re.match(
+                r'^(?:pospon(?:lo|la)?|mueve(?:lo|la)?|pasa(?:lo|la)?|aplaza(?:lo|la)?)(?:\s+(?:para|en|al?|a))?\s+(.+)$',
+                _op_text, re.IGNORECASE
+            )
+            if _move_by_id:
+                _new_time_text = _move_by_id.group(1).strip()
+                _target_r = db.execute(
+                    select(Reminder).where(Reminder.id == _ref_id).where(Reminder.user_id == user.id)
+                ).scalar_one_or_none()
+                if _target_r:
+                    from parser_service import parse_reminder as _parse_regex
+                    _synthetic = f"recuérdame {_target_r.task_text} {_new_time_text}"
+                    _new_parsed = await parse_reminder_ai(_synthetic, memory_context=system_prompt)
+                    if _new_parsed is None:
+                        _new_parsed = _parse_regex(_synthetic)
+                    if _new_parsed:
+                        _target_r.remind_at = _new_parsed["remind_at"]
+                        _target_r.status = "scheduled"
+                        _target_r.awaiting_ack = False
+                        db.commit()
+                        new_dt = to_local(_target_r.remind_at)
+                        days_es = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+                        now_tz = datetime.now(TZ)
+                        if new_dt.date() == now_tz.date(): day_str = "hoy"
+                        elif new_dt.date() == (now_tz+timedelta(days=1)).date(): day_str = "mañana"
+                        else: day_str = f"el {days_es[new_dt.weekday()]} {new_dt.strftime('%d/%m')}"
+                        reply = f'Movido [{_ref_id}]: "{_target_r.task_text}" → {day_str} a las {new_dt.strftime("%H:%M")}.'
+                        await send_and_log(db, user.id, chat_id, reply, "move_by_id")
+                        return {"status": "ok", "action": "move_by_id"}
+                    else:
+                        reply = f'No entendí la nueva fecha. Di por ejemplo: "{_ref_id} posponlo para el lunes a las 10".'
+                        await send_and_log(db, user.id, chat_id, reply, "move_by_id_fail")
+                        return {"status": "ok", "action": "move_by_id_fail"}
+            # Cambiar nombre: "53 cámbiala a nuevo nombre"
+            _rename_match = re.match(r'^(?:cambia(?:la|lo)?\s+(?:a|el\s+nombre\s+a)[:\s]+)(.+)$', _op_text, re.IGNORECASE)
+            if _rename_match:
+                _ref_r = db.execute(
+                    select(Reminder).where(Reminder.id == _ref_id).where(Reminder.user_id == user.id)
+                ).scalar_one_or_none()
+                if _ref_r:
+                    _ref_r.task_text = _rename_match.group(1).strip()
+                    db.commit()
+                    reply = f'Renombrado [{_ref_id}]: ahora es "{_ref_r.task_text}".'
+                    await send_and_log(db, user.id, chat_id, reply, "renamed_by_id_ref")
+                    return {"status": "ok", "action": "renamed_by_id_ref"}
+
+
+        user_facts = get_user_facts(db, user.id)
+        memory_ctx = build_memory_context(user_facts)
+        persona = load_persona(telegram_username)
+        system_prompt = build_system_prompt(persona, memory_context=memory_ctx)
+
+        # ── Extraer memoria del mensaje en background (sesión propia) ────────
+        async def _extract_memory_bg(user_id: int, text: str):
+            _db = SessionLocal()
+            try:
+                await process_message_for_memory(_db, user_id, text)
+            finally:
+                _db.close()
+
+        import asyncio
+        asyncio.ensure_future(_extract_memory_bg(user.id, text_in))
+
+        # ── Detección de intención: regex rápidos primero, LLM para el resto ─
+
+        # Comandos deterministas que no necesitan LLM
         if is_list_command(lowered):
             return await handle_list_command(db, user, chat_id)
 
-        # Cancelación por ID — va ANTES que extract_cancel_task para que
-        # "cancela el 28" no se interprete como búsqueda de texto "el 28"
         _cancel_keywords = ("cancela", "cancelar", "elimina", "eliminar", "borra", "borrar")
         _id_match = re.search(r'\b(\d{1,6})\b', lowered)
         if any(w in lowered for w in _cancel_keywords) and _id_match:
             return await handle_cancel_by_id(db, user, chat_id, int(_id_match.group(1)))
 
-        cancel_task = extract_cancel_task(lowered)
-        if cancel_task is not None:
-            return await handle_cancel_command(db, user, chat_id, cancel_task)
-
-        edit_result = extract_edit_command(lowered)
-        if edit_result is not None:
-            reminder_id, updates = edit_result
-            return await handle_edit_reminder(db, user, chat_id, reminder_id, updates)
-
         if is_ack_text(lowered):
             return await handle_ack_command(db, user, chat_id, lowered)
 
-        # C) Corrección rápida: "no, a las 11" / "no, era a las 11:00"
-        # Corrige la hora del último recordatorio creado
-        _correction = re.match(
-            r'^no[,.]?\s+(?:era\s+)?a las?\s+(\d{1,2})(?::(\d{2}))?$',
-            lowered, re.IGNORECASE
+        # "recuérdame en X minutos/horas" cuando hay aviso activo → snooze
+        # No crear nuevo recordatorio si hay uno esperando ACK
+        _snooze_when_active = re.match(
+            r'^(?:recu[eé]rdame\s+)?(?:en\s+)?(\d+)\s+(minutos?|horas?)[\s.!?]*$',
+            lowered.strip(), re.IGNORECASE
         )
-        if _correction:
-            new_hour   = int(_correction.group(1))
-            new_minute = int(_correction.group(2)) if _correction.group(2) else 0
-            # Buscar el último reminder creado por este usuario
-            last_r = db.execute(
+        if _snooze_when_active:
+            _active_now = db.execute(
                 select(Reminder)
                 .where(Reminder.user_id == user.id)
-                .where(Reminder.status.in_(["scheduled", "pending"]))
-                .order_by(Reminder.id.desc())
+                .where(
+                    (Reminder.awaiting_ack.is_(True)) |
+                    (Reminder.status == "sent")
+                )
                 .limit(1)
+            ).scalars().first()
+            if _active_now:
+                return await handle_ack_command(db, user, chat_id, lowered)
+
+        # Corrección rápida: "no, a las 11"
+        _correction = re.match(r'^no[,.]?\s+(?:era\s+)?a las?\s+(\d{1,2})(?::(\d{2}))?$', lowered, re.IGNORECASE)
+        if _correction:
+            new_hour = int(_correction.group(1))
+            new_minute = int(_correction.group(2)) if _correction.group(2) else 0
+            last_r = db.execute(
+                select(Reminder).where(Reminder.user_id == user.id)
+                .where(Reminder.status.in_(["scheduled", "pending"]))
+                .order_by(Reminder.id.desc()).limit(1)
             ).scalars().first()
             if last_r:
                 now_tz = datetime.now(TZ)
-                new_dt = to_local(last_r.remind_at).replace(
-                    hour=new_hour, minute=new_minute, second=0, microsecond=0
-                )
+                new_dt = to_local(last_r.remind_at).replace(hour=new_hour, minute=new_minute, second=0, microsecond=0)
                 if new_dt <= now_tz:
                     new_dt = new_dt + timedelta(days=1)
                 last_r.remind_at = new_dt
                 last_r.status = "scheduled"
-                db.add(Event(
-                    user_id=user.id,
-                    event_type="reminder_corrected",
-                    event_value=str(last_r.id),
-                    source="telegram",
-                    payload={"new_time": f"{new_hour:02d}:{new_minute:02d}"},
-                ))
+                db.add(Event(user_id=user.id, event_type="reminder_corrected",
+                             event_value=str(last_r.id), source="telegram",
+                             payload={"new_time": f"{new_hour:02d}:{new_minute:02d}"}))
                 db.commit()
-                reply = (
-                    f'✅ Corregido `[{last_r.id}]`: "{last_r.task_text}" — '
-                    f'ahora a las {new_dt.strftime("%H:%M")}.'
-                )
+                reply = f'Corregido [{last_r.id}]: "{last_r.task_text}" — ahora a las {new_dt.strftime("%H:%M")}.'
                 await send_and_log(db, user.id, chat_id, reply, "reminder_corrected")
                 return {"status": "ok", "action": "reminder_corrected", "reminder_id": last_r.id}
 
-        # Tarea sin fecha — va antes del parser de recordatorios
-        pending_task = extract_pending_task(lowered)
-        if pending_task is not None:
-            return await handle_pending_task(db, user, chat_id, pending_task)
+        # ── Plural pronoun cancel: "cancelarlos", "eliminarlos" ───────────────
+        # "puedes cancelarlos" → cancela todos los del contexto activo
+        _plural_cancel = re.match(
+            r'^(?:puedes\s+)?(?:cancela(?:r)?los|elimina(?:r)?los|borra(?:r)?los|quita(?:r)?los)[\s.!?]*$',
+            lowered.strip(), re.IGNORECASE
+        )
+        if _plural_cancel:
+            # Buscar fecha en los últimos mensajes de EVA
+            last_msgs = db.execute(
+                select(Message).where(Message.user_id == user.id)
+                .where(Message.direction == "outbound")
+                .order_by(Message.id.desc()).limit(3)
+            ).scalars().all()
+            date_hint = None
+            now_tz = datetime.now(TZ)
+            for msg in last_msgs:
+                txt = msg.message_text.lower()
+                if "mañana" in txt:
+                    date_hint = (now_tz + timedelta(days=1)).strftime("%Y-%m-%d")
+                    break
+                elif "hoy" in txt:
+                    date_hint = now_tz.strftime("%Y-%m-%d")
+                    break
+                elif "viernes" in txt or "lunes" in txt or "martes" in txt:
+                    # Buscar fecha explícita en el texto
+                    import re as _re2
+                    m = _re2.search(r'(\d{1,2}/\d{2})', txt)
+                    if m:
+                        try:
+                            d, mo = m.group(1).split("/")
+                            date_hint = f"{now_tz.year}-{mo}-{d.zfill(2)}"
+                        except Exception:
+                            pass
+                    break
+            return await handle_cancel_all_date(db, user, chat_id, date_hint, text_in)
 
-        parsed = await parse_reminder_ai(text_in, context=_get_recent_context(db, user.id))
-        if parsed is None:
-            parsed = parse_reminder(text_in, context=_get_recent_context(db, user.id))
+        # ── Resolución de pronombres ──────────────────────────────────────────
+        # "cancelalo", "posponlo para el lunes", "cambialo a las 11", etc.
+        # Opera sobre el próximo reminder activo (el que EVA acaba de mencionar)
+
+        def _get_next_reminder():
+            """
+            Devuelve el reminder más relevante para operar con pronombres.
+            Orden de prioridad:
+              1. Reminder con awaiting_ack=True (está esperando confirmación AHORA)
+              2. Reminder mencionado por ID en el último mensaje de EVA
+              3. Reminder mencionado por texto en el último mensaje de EVA
+              4. Próximo reminder activo por fecha
+            """
+            # 1. Prioridad máxima: reminder esperando ACK ahora mismo
+            ack_r = db.execute(
+                select(Reminder)
+                .where(Reminder.user_id == user.id)
+                .where(Reminder.awaiting_ack.is_(True))
+                .order_by(Reminder.last_sent_at.desc().nullslast())
+                .limit(1)
+            ).scalars().first()
+            if ack_r:
+                return ack_r
+
+            # 2. Buscar ID en el último mensaje saliente de EVA
+            last_out = db.execute(
+                select(Message)
+                .where(Message.user_id == user.id)
+                .where(Message.direction == "outbound")
+                .order_by(Message.id.desc())
+                .limit(1)
+            ).scalars().first()
+
+            if last_out:
+                id_match = re.search(r'\[(\d+)\]', last_out.message_text)
+                if id_match:
+                    rid = int(id_match.group(1))
+                    r = db.execute(
+                        select(Reminder)
+                        .where(Reminder.id == rid)
+                        .where(Reminder.user_id == user.id)
+                        .where(Reminder.status.in_(["scheduled", "pending", "sent"]))
+                    ).scalar_one_or_none()
+                    if r:
+                        return r
+
+                # 3. Buscar por task_text entre comillas en el último mensaje
+                text_match = re.search(r'"([^"]+)"', last_out.message_text)
+                if text_match:
+                    mentioned = text_match.group(1).lower()
+                    rows = db.execute(
+                        select(Reminder)
+                        .where(Reminder.user_id == user.id)
+                        .where(Reminder.status.in_(["scheduled", "pending", "sent"]))
+                    ).scalars().all()
+                    for r in rows:
+                        if mentioned in r.task_text.lower() or r.task_text.lower() in mentioned:
+                            return r
+
+            # 4. Fallback: el próximo por fecha
+            return db.execute(
+                select(Reminder)
+                .where(Reminder.user_id == user.id)
+                .where(Reminder.status.in_(["scheduled", "pending", "sent"]))
+                .order_by(Reminder.remind_at.asc())
+                .limit(1)
+            ).scalars().first()
+
+        # Normalizar sin acentos para matching robusto
+        import unicodedata as _ud
+        def _norm(s): return _ud.normalize("NFD", s.lower()).encode("ascii","ignore").decode()
+        lowered_norm = _norm(lowered)
+
+        # Cancelar con pronombre: "cancelalo", "cancélalo", "eliminalo", "bórralo", "quítalo"
+        _pronoun_cancel = re.match(
+            r'^(?:cancela(?:lo|la)?|elimina(?:lo|la)?|borra(?:lo|la)?|quita(?:lo|la)?)[\s.!?]*$',
+            lowered_norm.strip()
+        )
+        if _pronoun_cancel:
+            last_r = _get_next_reminder()
+            if last_r:
+                return await handle_cancel_by_id(db, user, chat_id, last_r.id)
+
+        # Posponer/mover con pronombre:
+        # "posponlo para el lunes", "muévelo al martes", "pásalo a mañana",
+        # "posponlo para el próximo lunes a las 10", "muévelo al 15/05"
+        _pronoun_move = re.match(
+            r'^(?:pospon(?:lo|la)?|mueve(?:lo|la)?|pasa(?:lo|la)?'
+            r'|retrasa(?:lo|la)?|aplaza(?:lo|la)?|deja(?:lo|la)?(?:\s+para))'
+            r'(?:\s+(?:para|al?|hasta|a))?\s+(.+)$',
+            lowered_norm.strip()
+        )
+        if _pronoun_move:
+            last_r = _get_next_reminder()
+            if last_r:
+                new_time_text = _pronoun_move.group(1).strip()
+                # Parsear la nueva fecha/hora
+                from parser_service import parse_reminder as _parse_regex
+                _synthetic = f"recuérdame {last_r.task_text} {new_time_text}"
+                _parsed_new = await parse_reminder_ai(_synthetic, memory_context=memory_ctx)
+                if _parsed_new is None:
+                    _parsed_new = _parse_regex(_synthetic)
+                if _parsed_new:
+                    last_r.remind_at = _parsed_new["remind_at"]
+                    last_r.status = "scheduled"
+                    last_r.awaiting_ack = False
+                    db.add(Event(user_id=user.id, event_type="reminder_rescheduled",
+                                 event_value=str(last_r.id), source="telegram",
+                                 payload={"new_time": str(_parsed_new["remind_at"]), "via": "pronoun"}))
+                    db.commit()
+                    now_l = datetime.now(TZ)
+                    new_dt = to_local(last_r.remind_at)
+                    days_es = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+                    if new_dt.date() == now_l.date(): day_str = "hoy"
+                    elif new_dt.date() == (now_l + timedelta(days=1)).date(): day_str = "mañana"
+                    else: day_str = f"el {days_es[new_dt.weekday()]} {new_dt.strftime('%d/%m')}"
+                    reply = f'Movido [{last_r.id}]: "{last_r.task_text}" → {day_str} a las {new_dt.strftime("%H:%M")}.'
+                    await send_and_log(db, user.id, chat_id, reply, "reminder_rescheduled_pronoun")
+                    return {"status": "ok", "action": "reminder_rescheduled", "reminder_id": last_r.id}
+                else:
+                    reply = f'No entendí la nueva fecha. Di por ejemplo: "posponlo para el lunes a las 10".'
+                    await send_and_log(db, user.id, chat_id, reply, "pronoun_move_parse_fail")
+                    return {"status": "ok", "action": "pronoun_move_parse_fail"}
+
+        # Editar hora con pronombre: "cambialo a las 11", "ponlo a las 3", "muévelo a las 15:00"
+        _pronoun_edit_time = re.match(
+            r'^(?:cambia(?:lo|la)?|pon(?:lo|la)?|mueve(?:lo|la)?|edita(?:lo|la)?)'
+            r'(?:\s+(?:al?|a))?\s+(?:las?\s+)?(\d{1,2})(?::(\d{2}))?[\s.!?]*$',
+            lowered_norm.strip()
+        )
+        if _pronoun_edit_time:
+            last_r = _get_next_reminder()
+            if last_r:
+                new_hour   = int(_pronoun_edit_time.group(1))
+                new_minute = int(_pronoun_edit_time.group(2)) if _pronoun_edit_time.group(2) else 0
+                now_tz = datetime.now(TZ)
+                new_dt = to_local(last_r.remind_at).replace(hour=new_hour, minute=new_minute, second=0, microsecond=0)
+                if new_dt <= now_tz:
+                    new_dt = new_dt + timedelta(days=1)
+                last_r.remind_at = new_dt
+                last_r.status = "scheduled"
+                db.add(Event(user_id=user.id, event_type="reminder_edited_pronoun",
+                             event_value=str(last_r.id), source="telegram",
+                             payload={"new_time": f"{new_hour:02d}:{new_minute:02d}"}))
+                db.commit()
+                reply = f'Cambiado [{last_r.id}]: "{last_r.task_text}" → ahora a las {new_dt.strftime("%H:%M")}.'
+                await send_and_log(db, user.id, chat_id, reply, "reminder_edited_pronoun")
+                return {"status": "ok", "action": "reminder_edited_pronoun", "reminder_id": last_r.id}
+
+        # ── Detección unificada con LLM ──────────────────────────────────────
+        intent_result = await detect_intent(text_in, memory_context=system_prompt)
+        intent = intent_result.get("intent", "unknown")
+        confidence = intent_result.get("confidence", 0.0)
+
+        # ── SNOOZE CONTEXTUAL: si hay aviso activo + intent de mover → snooze ─
+        if intent in ("snooze_reminder", "edit_reminder") and confidence >= 0.6:
+            active_ack = db.execute(
+                select(Reminder)
+                .where(Reminder.user_id == user.id)
+                .where(
+                    (Reminder.awaiting_ack.is_(True)) |
+                    (Reminder.status == "sent")
+                )
+                .order_by(Reminder.last_sent_at.desc().nullslast(), Reminder.id.desc())
+                .limit(1)
+            ).scalars().first()
+            if active_ack:
+                # Separar tiempo de nota opcional: "a las 13:00, confirmar con Luis"
+                time_part, snooze_note = _extract_snooze_note(lowered)
+                snooze_delta = _parse_snooze(time_part)
+                if snooze_delta is not None:
+                    # Procesar snooze directamente aquí — NO delegar a handle_ack_command
+                    # para evitar doble respuesta
+                    now_tz = datetime.now(TZ)
+                    new_remind_at = now_tz + snooze_delta
+                    active_ack.remind_at = new_remind_at
+                    active_ack.status = "scheduled"
+                    active_ack.awaiting_ack = False
+                    if snooze_note and hasattr(active_ack, "notes"):
+                        active_ack.notes = snooze_note
+                    db.add(Event(user_id=user.id, event_type="reminder_snoozed",
+                                 event_value=str(active_ack.id), source="telegram",
+                                 payload={"snooze_text": lowered, "note": snooze_note,
+                                          "new_remind_at": new_remind_at.isoformat()}))
+                    db.commit()
+                    dt_str = to_local(new_remind_at).strftime("%H:%M")
+                    # Generar respuesta con AI incluyendo la nota si existe
+                    _note_ctx = f" Nota guardada: '{snooze_note}'." if snooze_note else ""
+                    _ai_reply = await build_reply_ai(
+                        text_in,
+                        {"task_text": active_ack.task_text, "remind_at": new_remind_at,
+                         "mode": "today_or_tomorrow_at_time", "is_persistent": False,
+                         "recurrence_type": None, "repeat_every_minutes": None},
+                        memory_context=system_prompt + f"\nContexto adicional: el usuario pospuso '{active_ack.task_text}' a las {dt_str}.{_note_ctx}"
+                    )
+                    reply = _ai_reply or (
+                        f'Movido a las {dt_str}.'
+                        + (f' Apuntado: "{snooze_note}"' if snooze_note else "")
+                    )
+                    await send_and_log(db, user.id, chat_id, reply, "snooze_contextual")
+                    return {"status": "ok", "action": "reminder_snoozed", "reminder_id": active_ack.id}
+
+                # Sin delta concreto → AI parser para obtener la nueva hora
+                _snooze_parsed = await parse_reminder_ai(
+                    f"recuérdame {active_ack.task_text} {text_in}",
+                    memory_context=system_prompt
+                )
+                if _snooze_parsed:
+                    now_tz = datetime.now(TZ)
+                    active_ack.remind_at = _snooze_parsed["remind_at"]
+                    active_ack.status = "scheduled"
+                    active_ack.awaiting_ack = False
+                    if snooze_note and hasattr(active_ack, "notes"):
+                        active_ack.notes = snooze_note
+                    db.add(Event(user_id=user.id, event_type="reminder_snoozed",
+                                 event_value=str(active_ack.id), source="telegram",
+                                 payload={"via": "ai_snooze", "text": text_in, "note": snooze_note}))
+                    db.commit()
+                    new_dt = to_local(active_ack.remind_at)
+                    days_es = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+                    if new_dt.date() == now_tz.date(): day_str = "hoy"
+                    elif new_dt.date() == (now_tz + timedelta(days=1)).date(): day_str = "mañana"
+                    else: day_str = f"el {days_es[new_dt.weekday()]} {new_dt.strftime('%d/%m')}"
+                    reply = (f'Movido: "{active_ack.task_text}" → {day_str} a las {new_dt.strftime("%H:%M")}.'
+                             + (f' Apuntado: "{snooze_note}"' if snooze_note else ""))
+                    await send_and_log(db, user.id, chat_id, reply, "snooze_ai_contextual")
+                    return {"status": "ok", "action": "reminder_snoozed_ai"}
+
+        # ── QUESTION: EVA responde preguntas sobre recordatorios ─────────────
+        if intent == "question" and confidence >= 0.7:
+            active = db.execute(
+                select(Reminder)
+                .where(Reminder.user_id == user.id)
+                .where(Reminder.status.in_(["scheduled", "pending", "sent"]))
+                .order_by(Reminder.remind_at.asc())
+                .limit(20)
+            ).scalars().all()
+            now_local = datetime.now(TZ)
+            days = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+            summary_lines = []
+            for r in active:
+                dt = to_local(r.remind_at)
+                if dt:
+                    if dt.date() == now_local.date(): day_str = "hoy"
+                    elif dt.date() == (now_local + timedelta(days=1)).date(): day_str = "mañana"
+                    else: day_str = f"{days[dt.weekday()]} {dt.strftime('%d/%m')}"
+                    summary_lines.append(f"- [{r.id}] {r.task_text} — {day_str} a las {dt.strftime('%H:%M')} ({r.status})")
+                else:
+                    summary_lines.append(f"- [{r.id}] {r.task_text} (sin fecha)")
+            summary = "\n".join(summary_lines)
+            answer = await answer_question_ai(text_in, summary, memory_context=system_prompt)
+            if answer:
+                await send_and_log(db, user.id, chat_id, answer, "question_answer")
+                return {"status": "ok", "action": "question_answered"}
+
+        # ── CANCEL sin ID — busca por texto ─────────────────────────────────
+        if intent == "cancel_reminder" and confidence >= 0.7:
+            cancel_task = extract_cancel_task(lowered)
+            if cancel_task:
+                return await handle_cancel_command(db, user, chat_id, cancel_task)
+
+        # ── CANCEL ALL DATE — cancela todos los de una fecha ─────────────────
+        if intent == "cancel_all_date" and confidence >= 0.7:
+            date_hint = intent_result.get("date_hint")
+            return await handle_cancel_all_date(db, user, chat_id, date_hint, text_in)
+
+        # ── ADD NOTE — añadir nota a la última tarea/reminder ────────────────
+        if intent == "add_note" and confidence >= 0.7:
+            # Extraer el texto de la nota del mensaje
+            _note_text = re.sub(
+                r'^(?:agr[eé]ga(?:le)?(?:\s+una?)?\s+nota[:\s]+|'
+                r'a[ñn]ade(?:le)?(?:\s+una?)?\s+nota[:\s]+|'
+                r'agrega\s+(?:esto|que)[:\s]+|'
+                r'apunta\s+(?:que|esto)[:\s]+)',
+                '', lowered, flags=re.IGNORECASE
+            ).strip()
+            if not _note_text:
+                _note_text = text_in  # usar texto completo si no se pudo extraer
+            return await handle_add_note(db, user, chat_id, _note_text)
+
+        # ── ADMIN CLEANUP ─────────────────────────────────────────────────────
+        if intent == "admin_cleanup" and confidence >= 0.7:
+            return await handle_admin_cleanup(db, user, chat_id)
+
+        # ── EDIT ─────────────────────────────────────────────────────────────
+        if intent == "edit_reminder" and confidence >= 0.7:
+            edit_result = extract_edit_command(lowered)
+            if edit_result:
+                reminder_id, updates = edit_result
+                return await handle_edit_reminder(db, user, chat_id, reminder_id, updates)
+
+        # ── PENDING TASK ─────────────────────────────────────────────────────
+        # Detección directa: "recuérdame que tengo que X" sin hora → tarea sin fecha
+        _no_time = not re.search(r'\ba las\s+\d|\ben\s+\d+\s+min|\bmañana\b', lowered)
+        _pending_direct = re.match(
+            r'^(?:eva[,\s]+)?recu[eé]rdame\s+que\s+(?:tengo\s+que|hay\s+que|debo|necesito)\s+(.+)$',
+            lowered, re.IGNORECASE
+        )
+        if _pending_direct and _no_time:
+            task = _pending_direct.group(1).strip()
+            if len(task) >= 4:
+                return await handle_pending_task(db, user, chat_id, task, url=_extracted_url)
+
+        if intent == "pending_task" and confidence >= 0.7:
+            pending_task = extract_pending_task(lowered)
+            if pending_task:
+                return await handle_pending_task(db, user, chat_id, pending_task, url=_extracted_url)
+            await handle_pending_task(db, user, chat_id, text_in, url=_extracted_url)
+            return {"status": "ok", "action": "pending_task_created"}
+
+        # ── CREATE REMINDER ──────────────────────────────────────────────────
+        if intent in ("create_reminder", "unknown") or confidence < 0.7:
+            parsed = await parse_reminder_ai(text_in,
+                                              context=_get_recent_context(db, user.id),
+                                              memory_context=system_prompt)
+            if parsed is None:
+                parsed = parse_reminder(text_in, context=_get_recent_context(db, user.id))
+        else:
+            parsed = None
+
+
         if parsed:
             reminder = Reminder(
                 user_id=user.id,
@@ -1081,6 +1869,13 @@ async def telegram_webhook(request: Request):
                 stop_at=parsed.get("stop_at"),
                 awaiting_ack=parsed.get("awaiting_ack", False),
             )
+            # Inferir prioridad con IA en background
+            try:
+                _priority = await infer_priority(reminder.task_text)
+                reminder.priority = _priority
+            except Exception:
+                reminder.priority = "P3"
+
             db.add(reminder)
             db.commit()
             db.refresh(reminder)
@@ -1101,7 +1896,7 @@ async def telegram_webhook(request: Request):
             )
             db.commit()
 
-            reply_text = await build_confirmation_ai(text_in, parsed, reminder.id)
+            reply_text = await build_reply_ai(text_in, parsed, reminder.id, memory_context=system_prompt)
             if reply_text is None:
                 reply_text = build_confirmation_text_from_parsed(text_in, parsed, reminder.id)
             await send_message(chat_id, reply_text)
@@ -1117,6 +1912,13 @@ async def telegram_webhook(request: Request):
             db.commit()
 
             return {"status": "ok", "action": "reminder_created", "reminder_id": reminder.id}
+
+        # ── CHAT o mensaje no reconocido ─────────────────────────────────────
+        if intent == "chat" and confidence >= 0.7:
+            chat_reply = await chat_reply_ai(text_in, memory_context=system_prompt)
+            if chat_reply:
+                await send_and_log(db, user.id, chat_id, chat_reply, "chat_reply")
+                return {"status": "ok", "action": "chat_reply"}
 
         help_text = build_help_text()
         await send_message(chat_id, help_text)
@@ -1157,47 +1959,114 @@ async def telegram_webhook(request: Request):
 @app.post("/digest/send")
 async def trigger_daily_digest(user_id: int | None = None):
     """
-    Dispara el resumen diario manualmente.
+    Dispara el resumen diario con IA.
     - Sin parámetros: envía a todos los usuarios.
     - Con user_id: envía solo a ese usuario.
-    Útil para: cron externo, pruebas, o botón en panel de admin.
-
-    Cron diario a las 08:00 (ejemplo con curl):
-        0 8 * * * curl -s -X POST http://localhost:8000/digest/send
     """
+    from ai_parser import build_briefing_ai
+    from memory_service import get_user_facts
+    from persona_service import load_persona
+    from sqlalchemy import text as sql_text
+
     db = SessionLocal()
     try:
-        async def _send(chat_id: int, text_out: str, parse_mode: str = "MarkdownV2"):
+        async def _send(chat_id: int, text_out: str, parse_mode: str = "Markdown"):
             await send_message(chat_id, text_out, parse_mode=parse_mode)
 
+        async def _send_briefing_to_user(user: User) -> bool:
+            now = datetime.now(TZ)
+            today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+            today_end   = now.replace(hour=23, minute=59, second=59, microsecond=0)
+
+            # Recordatorios de hoy
+            today_reminders = db.execute(
+                select(Reminder)
+                .where(Reminder.user_id == user.id)
+                .where(Reminder.status.in_(["scheduled", "pending"]))
+                .where(Reminder.remind_at >= today_start)
+                .where(Reminder.remind_at <= today_end)
+                .order_by(Reminder.remind_at.asc())
+            ).scalars().all()
+
+            reminders_data = [
+                {
+                    "id": r.id,
+                    "task_text": r.task_text,
+                    "remind_at": to_local(r.remind_at).strftime("%H:%M") if to_local(r.remind_at) else "?",
+                    "status": r.status,
+                }
+                for r in today_reminders
+            ]
+
+            # Eventos relevantes de ayer
+            yesterday_start = (now - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+            recent_events_raw = db.execute(
+                select(Event)
+                .where(Event.user_id == user.id)
+                .where(Event.event_type.in_([
+                    "reminder_rescheduled", "reminder_cancelled",
+                    "reminder_corrected", "reminder_created"
+                ]))
+                .where(Event.created_at >= yesterday_start)
+                .order_by(Event.created_at.desc())
+                .limit(10)
+            ).scalars().all()
+
+            events_data = [
+                {"type": e.event_type, "value": e.event_value or "", "payload": e.payload}
+                for e in recent_events_raw
+            ]
+
+            # Enriquecer eventos con task_text del payload
+            for ev in events_data:
+                if "task_text" in (ev["payload"] or {}):
+                    ev["value"] = ev["payload"]["task_text"]
+
+            # Memoria y persona
+            user_facts = get_user_facts(db, user.id)
+            persona = load_persona(user.telegram_username)
+
+            # Generar briefing con IA
+            briefing = await build_briefing_ai(
+                reminders_today=reminders_data,
+                recent_events=events_data,
+                user_facts=user_facts,
+                persona=persona,
+            )
+
+            # Fallback al briefing clásico si IA falla
+            if not briefing:
+                briefing = build_daily_digest(db, user)
+
+            if not briefing:
+                return False
+
+            await _send(user.telegram_chat_id, briefing, parse_mode="Markdown")
+            db.add(Message(user_id=user.id, direction="outbound",
+                           message_text=briefing, message_type="daily_digest"))
+            db.add(Event(user_id=user.id, event_type="daily_digest_sent",
+                         event_value=str(now.date()), source="api",
+                         payload={"triggered_by": "manual", "ai": True}))
+            db.commit()
+            return True
+
         if user_id is not None:
-            user = db.execute(
-                select(User).where(User.id == user_id)
-            ).scalar_one_or_none()
+            user = db.execute(select(User).where(User.id == user_id)).scalar_one_or_none()
             if not user:
                 return JSONResponse(status_code=404, content={"status": "error", "reason": "user_not_found"})
-            digest = build_daily_digest(db, user)
-            if not digest:
-                return {"status": "ok", "sent": 0, "reason": "nothing_to_send"}
-            await _send(user.telegram_chat_id, digest)
-            db.add(Message(
-                user_id=user.id,
-                direction="outbound",
-                message_text=digest,
-                message_type="daily_digest",
-            ))
-            db.add(Event(
-                user_id=user.id,
-                event_type="daily_digest_sent",
-                event_value=str(datetime.now(TZ).date()),
-                source="api",
-                payload={"triggered_by": "manual"},
-            ))
-            db.commit()
-            return {"status": "ok", "sent": 1}
+            sent = await _send_briefing_to_user(user)
+            return {"status": "ok", "sent": 1 if sent else 0}
 
-        sent = await send_daily_digest_to_all(db, _send)
-        return {"status": "ok", "sent": sent}
+        # Enviar a todos
+        users = db.execute(select(User)).scalars().all()
+        count = 0
+        for u in users:
+            try:
+                if await _send_briefing_to_user(u):
+                    count += 1
+            except Exception as exc:
+                print(f"[digest] error user {u.id}: {exc}")
+        return {"status": "ok", "sent": count}
 
     finally:
         db.close()

@@ -18,6 +18,7 @@ from sqlalchemy import select, text
 
 from db import SessionLocal
 from models import Reminder, User, Event
+from telegram_service import send_message
 from scheduler import to_local
 
 TZ = ZoneInfo(os.getenv("TIMEZONE", "Europe/Madrid"))
@@ -29,6 +30,17 @@ FOCALBOARD_BOARD_ID = os.getenv("FOCALBOARD_BOARD_ID", "")
 # IDs fijos de la propiedad "Status EVA" creada en el board
 STATUS_PROP_ID = "aevastatus00000000000000001"
 DATE_PROP_ID   = "a14y4uzprb1maieayt1ouhca47o"
+TEXT_PROP_ID   = "a6bxuk4rgxp7wn6bashiadwaiiy"  # propiedad "Texto" para notas
+URL_PROP_ID    = "asztuket5mjeeongrzooyx5utbo"   # propiedad "URL"
+PRIORITY_PROP_ID = "ann9q8kbmc67mb7p4d8xrmma6rr"  # propiedad "Prioridad"
+PRIORITY_OPTIONS = {
+    "P0": "akgjwzzkom6j5hnqkw5nxaq4pmo",  # Critical
+    "P1": "a44z9q4cj9jamiqip5gih6okzco",  # High
+    "P2": "aqtsqbngmejgxwswgciahqubfoo",  # Moderate
+    "P3": "argk36ea34napsf8dq78d4pg8go",  # Low
+    "P4": "auoqqox58bui398gu1itti85d9a",  # Negligible
+}
+PRIORITY_DEFAULT = "P3"  # Por defecto: Low
 STATUS_OPTIONS = {
     "scheduled": "aoptpendiente00000000000001",
     "pending":   "aoptpendiente00000000000001",
@@ -82,11 +94,27 @@ async def fb_create_card(reminder: Reminder, user: User) -> str | None:
         title += f" — {due_str}"
 
     # Focalboard date format: stringified JSON — {"from": epoch_ms}
-    # El valor debe ser un STRING no un objeto para que la UI lo renderice
     properties = {STATUS_PROP_ID: opt_id}
     if local_dt:
         import json as _json
         properties[DATE_PROP_ID] = _json.dumps({"from": int(local_dt.timestamp() * 1000)})
+    # Notas opcionales del usuario → propiedad "Texto"
+    notes = getattr(reminder, "notes", None)
+    if notes:
+        import re as _re
+        _url_match = _re.search(r'https?://\S+', notes)
+        if _url_match:
+            properties[URL_PROP_ID] = _url_match.group(0)
+            _remaining = notes.replace(_url_match.group(0), "").strip().strip(",").strip()
+            if _remaining:
+                properties[TEXT_PROP_ID] = _remaining
+        else:
+            properties[TEXT_PROP_ID] = notes
+
+    # Prioridad — inferida por IA o guardada en el reminder
+    priority_key = getattr(reminder, "priority", None) or PRIORITY_DEFAULT
+    if priority_key in PRIORITY_OPTIONS:
+        properties[PRIORITY_PROP_ID] = PRIORITY_OPTIONS[priority_key]
 
     block = {
         "id": card_id,
@@ -117,7 +145,7 @@ async def fb_create_card(reminder: Reminder, user: User) -> str | None:
         return None
 
 
-async def fb_update_card_status(card_id: str, status: str, remind_at=None) -> bool:
+async def fb_update_card_status(card_id: str, status: str, remind_at=None, notes: str | None = None) -> bool:
     opt_id = STATUS_OPTIONS.get(status, "opt_pendiente")
     props = {STATUS_PROP_ID: opt_id}
     if remind_at:
@@ -125,6 +153,8 @@ async def fb_update_card_status(card_id: str, status: str, remind_at=None) -> bo
         if local_dt:
             import json as _json
             props[DATE_PROP_ID] = _json.dumps({"from": int(local_dt.timestamp() * 1000)})
+    if notes:
+        props[TEXT_PROP_ID] = notes
     url = f"{FOCALBOARD_URL}/api/v2/boards/{FOCALBOARD_BOARD_ID}/blocks/{card_id}"
     async with httpx.AsyncClient(timeout=10) as c:
         r = await c.patch(url, headers=_h(), json={
@@ -211,7 +241,7 @@ async def sync_status_changes() -> int:
 
         for r in rows:
             try:
-                ok = await fb_update_card_status(r.focalboard_card_id, r.status, r.remind_at)
+                ok = await fb_update_card_status(r.focalboard_card_id, r.status, r.remind_at, getattr(r, "notes", None))
                 if ok:
                     r.focalboard_synced_at = datetime.now(TZ)
                     _log(db, "reminder", r.id, "eva_to_fb", "update", r.focalboard_card_id)
@@ -226,6 +256,14 @@ async def sync_status_changes() -> int:
 
 
 async def sync_from_focalboard() -> int:
+    """
+    Sincroniza cambios de Focalboard → EVA.
+    Detecta:
+      - Status cambiado (Completado/Cancelado/Pendiente) → actualiza reminder + notifica Telegram
+      - Fecha cambiada → actualiza remind_at del reminder
+      - Texto cambiado → actualiza notes del reminder
+      - Título cambiado → actualiza task_text del reminder
+    """
     global _last_poll
     if not FOCALBOARD_TOKEN or not FOCALBOARD_BOARD_ID:
         return 0
@@ -245,6 +283,7 @@ async def sync_from_focalboard() -> int:
     db = SessionLocal()
     synced = 0
     try:
+        db.rollback()
         for card in cards:
             cid = card.get("id")
             if not cid:
@@ -253,41 +292,180 @@ async def sync_from_focalboard() -> int:
             reminder = db.execute(
                 select(Reminder).where(Reminder.focalboard_card_id == cid)
             ).scalar_one_or_none()
+
+            # Tarjeta sin reminder asociado — adoptarla si tiene status relevante
             if not reminder:
-                continue
+                props_check = card.get("fields", {}).get("properties", {})
+                opt_check = props_check.get(STATUS_PROP_ID)
+                status_check = OPTION_TO_STATUS.get(opt_check)
+                if status_check in ("completed", "cancelled"):
+                    # Buscar el usuario por defecto (el único o el primero)
+                    from models import User as _User
+                    default_user = db.execute(select(_User).limit(1)).scalars().first()
+                    if default_user:
+                        # Crear reminder para poder rastrear este cambio
+                        fb_title = card.get("title", "Tarea de Focalboard")
+                        import re as _re
+                        fb_title_clean = _re.sub(r"\s+[↻—–-]\s+.*$", "", fb_title).strip()
+                        reminder = Reminder(
+                            user_id=default_user.id,
+                            source_text=fb_title_clean,
+                            task_text=fb_title_clean,
+                            remind_at=datetime.now(TZ).replace(year=2099),
+                            status="pending",
+                            focalboard_card_id=cid,
+                            focalboard_synced_at=now,
+                        )
+                        db.add(reminder)
+                        db.flush()  # get the ID
+                        print(f"[sync] adopted orphan card {cid} → reminder {reminder.id}")
+                    else:
+                        continue
+                else:
+                    continue
 
             props = card.get("fields", {}).get("properties", {})
+            now = datetime.now(TZ)
+            changed = False
+            notify_msg = None
+
+            # ── 1. STATUS ──────────────────────────────────────────────────
             opt_id = props.get(STATUS_PROP_ID)
             new_status = OPTION_TO_STATUS.get(opt_id)
 
-            if not new_status or new_status == reminder.status:
-                continue
+            if new_status and new_status != reminder.status:
+                old_status = reminder.status
 
-            now = datetime.now(TZ)
-            if new_status == "completed" and reminder.status != "completed":
-                reminder.status = "completed"
-                reminder.completed_at = now
+                # Aplicar el nuevo status — TODOS los cambios se sincronizan
+                reminder.status = new_status
                 reminder.awaiting_ack = False
-                db.add(Event(user_id=reminder.user_id, event_type="reminder_completed",
-                    event_value=str(reminder.id), source="focalboard",
-                    payload={"card_id": cid}))
-                print(f"[sync] ✅ reminder {reminder.id} completed via Focalboard")
+
+                # Acciones específicas según el nuevo status
+                if new_status == "completed":
+                    reminder.completed_at = now
+                    reminder.acked_at = now
+                    db.add(Event(user_id=reminder.user_id, event_type="reminder_completed",
+                                 event_value=str(reminder.id), source="focalboard",
+                                 payload={"card_id": cid, "from": old_status}))
+                    notify_msg = f'✅ "{reminder.task_text}" completado desde Focalboard [{reminder.id}]'
+
+                elif new_status == "cancelled":
+                    reminder.cancelled_at = now
+                    reminder.error_message = "cancelled_via_focalboard"
+                    db.add(Event(user_id=reminder.user_id, event_type="reminder_cancelled",
+                                 event_value=str(reminder.id), source="focalboard",
+                                 payload={"card_id": cid, "from": old_status}))
+                    notify_msg = f'🗑️ "{reminder.task_text}" cancelado desde Focalboard [{reminder.id}]'
+
+                elif new_status == "scheduled":
+                    # Reactivación o movimiento a Pendiente
+                    reminder.completed_at = None
+                    reminder.cancelled_at = None
+                    db.add(Event(user_id=reminder.user_id, event_type="reminder_reactivated",
+                                 event_value=str(reminder.id), source="focalboard",
+                                 payload={"card_id": cid, "from": old_status}))
+                    if old_status in ("completed", "cancelled"):
+                        notify_msg = f'🔄 "{reminder.task_text}" reactivado desde Focalboard [{reminder.id}]'
+                    else:
+                        notify_msg = f'📋 "{reminder.task_text}" movido a Pendiente [{reminder.id}]'
+
+                elif new_status == "sent":
+                    # Marcado como Enviado manualmente desde Focalboard
+                    db.add(Event(user_id=reminder.user_id, event_type="reminder_sent_manual",
+                                 event_value=str(reminder.id), source="focalboard",
+                                 payload={"card_id": cid, "from": old_status}))
+                    notify_msg = f'📨 "{reminder.task_text}" marcado como Enviado desde Focalboard [{reminder.id}]'
+
+                else:
+                    # Cualquier otro cambio de status
+                    db.add(Event(user_id=reminder.user_id, event_type="reminder_status_changed",
+                                 event_value=str(reminder.id), source="focalboard",
+                                 payload={"card_id": cid, "from": old_status, "to": new_status}))
+                    notify_msg = f'🔀 "{reminder.task_text}" → {new_status} [{reminder.id}]'
+
+                # Asegurar que el task_text no esté vacío en el mensaje
+                task_display = reminder.task_text or card.get("title", "")[:40]
+                import re as _re2
+                task_display = _re2.sub(r"\s+[↻—–-]\s+.*$", "", task_display).strip()
+                if notify_msg:
+                    notify_msg = notify_msg.replace(f'"{reminder.task_text}"', f'"{task_display}"')
+                print(f"[sync] ✅ reminder {reminder.id} {old_status}→{new_status} via Focalboard: {task_display}")
+                changed = True
+
+            # ── 2. FECHA — sincronizar remind_at si cambió en Focalboard ──
+            import json as _json
+            fecha_raw = props.get(DATE_PROP_ID)
+            if fecha_raw:
+                try:
+                    if isinstance(fecha_raw, str):
+                        fecha_obj = _json.loads(fecha_raw)
+                    else:
+                        fecha_obj = fecha_raw
+                    fb_ts_ms = fecha_obj.get("from", 0)
+                    if fb_ts_ms:
+                        fb_dt = datetime.fromtimestamp(fb_ts_ms / 1000, tz=TZ)
+                        current_dt = to_local(reminder.remind_at) if reminder.remind_at else None
+                        # Solo actualizar si la diferencia es > 2 minutos (evitar loops)
+                        if not current_dt or abs((fb_dt - current_dt).total_seconds()) > 120:
+                            old_dt = current_dt
+                            reminder.remind_at = fb_dt
+                            if reminder.status in ("completed", "cancelled"):
+                                reminder.status = "scheduled"
+                            changed = True
+                            if not notify_msg:
+                                days = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+                                day_str = f"{days[fb_dt.weekday()]} {fb_dt.strftime('%d/%m')}"
+                                notify_msg = (f'📅 Fecha actualizada desde Focalboard: "{reminder.task_text}" [{reminder.id}]\n'
+                                              f'Nueva fecha: {day_str} a las {fb_dt.strftime("%H:%M")}')
+                            db.add(Event(user_id=reminder.user_id, event_type="reminder_rescheduled",
+                                         event_value=str(reminder.id), source="focalboard",
+                                         payload={"card_id": cid, "new_dt": fb_dt.isoformat()}))
+                            print(f"[sync] ✅ reminder {reminder.id} rescheduled to {fb_dt} via Focalboard")
+                except Exception as exc:
+                    print(f"[sync] fecha parse error for card {cid}: {exc}")
+
+            # ── 3. TEXTO — sincronizar notes si cambió en Focalboard ──────
+            fb_texto = props.get(TEXT_PROP_ID)
+            if fb_texto and fb_texto != getattr(reminder, "notes", None):
+                reminder.notes = fb_texto
+                changed = True
+                print(f"[sync] ✅ reminder {reminder.id} notes updated via Focalboard")
+
+            # ── 4. TÍTULO — sincronizar task_text si cambió en Focalboard ─
+            fb_title = card.get("title", "").strip()
+            # Limpiar el título de Focalboard (puede tener " — DD/MM HH:MM" al final)
+            import re as _re
+            fb_title_clean = _re.sub(r'\s+[↻—–-]\s+.*$', '', fb_title).strip()
+            if (fb_title_clean and len(fb_title_clean) >= 3
+                    and fb_title_clean.lower() != reminder.task_text.lower()
+                    and len(fb_title_clean) < 200):
+                # Solo actualizar si el cambio es sustancial (no solo espacios)
+                old_task = reminder.task_text
+                reminder.task_text = fb_title_clean
+                changed = True
+                print(f"[sync] ✅ reminder {reminder.id} task_text updated: '{old_task}' → '{fb_title_clean}'")
+
+            if changed:
+                reminder.focalboard_synced_at = now
+                _log(db, "reminder", reminder.id, "fb_to_eva", "update", cid)
+                db.commit()
                 synced += 1
 
-            elif new_status == "cancelled" and reminder.status not in ("cancelled", "completed"):
-                reminder.status = "cancelled"
-                reminder.cancelled_at = now
-                reminder.awaiting_ack = False
-                reminder.error_message = "cancelled_via_focalboard"
-                db.add(Event(user_id=reminder.user_id, event_type="reminder_cancelled",
-                    event_value=str(reminder.id), source="focalboard",
-                    payload={"card_id": cid}))
-                print(f"[sync] ✅ reminder {reminder.id} cancelled via Focalboard")
-                synced += 1
+                # Notificar al usuario por Telegram si hay mensaje
+                if notify_msg:
+                    try:
+                        user = db.execute(
+                            select(User).where(User.id == reminder.user_id)
+                        ).scalar_one_or_none()
+                        if user and user.telegram_chat_id:
+                            await send_message(user.telegram_chat_id, notify_msg)
+                    except Exception as exc:
+                        print(f"[sync] telegram notify error: {exc}")
 
-            _log(db, "reminder", reminder.id, "fb_to_eva", "update", cid)
-
-        db.commit()
+    except Exception as exc:
+        db.rollback()
+        print(f"[sync] sync_from_focalboard error: {exc}")
+        traceback.print_exc()
     finally:
         db.close()
     return synced

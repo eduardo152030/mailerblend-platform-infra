@@ -1,135 +1,174 @@
-# Comandos de EVA — Guía de referencia
+Comandos de EVA — Guía de referencia
+Versión 2.0 — Con IA conversacional, memoria, personalidad y gestión completa
 
-## Crear recordatorios
-
-```
-eva, recuérdame en 5 minutos llamar al médico
-eva, recuérdame fichar a las 08:00
-eva, recuérdame revisar el correo a las 15:30
+Crear recordatorios
+EVA entiende lenguaje natural. No necesitas fórmulas exactas.
+recuérdame en 5 minutos llamar al médico
+recuérdame fichar a las 08:00
 mañana recuérdame la reunión a las 10:00
-```
+recuérdame pasado mañana después de comer llamar al banco
+recuérdame que tengo cita en el médico el próximo jueves
+recuérdame el cumpleaños de Juan que es el 20-10-2026
+recuérdame salir esta tarde a las 3:50, tengo lo de Ian
+recuérdame que tengo que instalar Tmux en el wsl windows
 
-## Recordatorios recurrentes
+El prefijo eva, es opcional en todos los comandos.
 
-```
+
+Recordatorios recurrentes
 cada lunes recuérdame revisión semanal a las 09:00
 cada viernes recuérdame enviar informe a las 17:00
-eva, recuérdame fichar a las 08:00, solo días laborables
-```
+recuérdame fichar a las 08:00, solo días laborables
 
-## Recordatorios con intervalo continuo
-
-```
+Recordatorios con intervalo continuo
 cada 3 minutos recuérdame tomar agua
-eva, cada 5 minutos recuérdame revisar el horno
-recuérdame cada 10 minutos hacer ejercicio
-avísame cada 2 minutos tomar pastilla
-cada 3 minutos recuérdame tomar agua hasta las 22:00
-```
+cada 5 minutos recuérdame revisar el horno
+cada 10 minutos recuérdame hacer ejercicio hasta las 22:00
 
-## Recordatorios persistentes (repite hasta que digas listo)
+Recordatorios persistentes (repite hasta que digas listo)
+recuérdame fichar a las 08:00, sigue avisándome hasta las 08:30
+recuérdame tomar pastilla a las 21:00, no pares hasta que te diga listo
+recuérdame fichar a las 17:40 solo días laborables y sigue avisándome cada 5 minutos
 
-```
-eva, recuérdame fichar a las 08:00, sigue avisándome hasta las 08:30
-eva, recuérdame fichar a las 08:00 y sigue avisándome cada 5 minutos
-eva, recuérdame tomar pastilla a las 21:00, no pares hasta que te diga listo
-eva, recuérdame fichar a las 08:00, si no respondo vuelve a avisarme
-eva, recuérdame fichar la salidad a las 17:40 solo días laborables y sigue avisándome cada 5 minutos
-```
+Recordatorios con aviso previo
+recuérdame 15 minutos antes de las 10:00
+recuérdame salir 30 minutos antes de las 09:00
 
-## Recordatorios con condición de cancelación
+Tareas sin fecha → Focalboard (columna Pendiente)
+Para cosas que quieres apuntar pero no sabes cuándo las harás:
+tengo que revisar la config de route53 en edge-router
+hay que actualizar el certificado SSL
+pendiente: migrar la BD a Postgres 17
+quiero hacer ejercicio
+no olvidar llamar al médico
+eva, apunta: revisar los backups
+tarea: actualizar dependencias
+debo revisar los logs del scheduler
+recuérdame que tengo que instalar Tmux en el wsl windows
 
-```
-eva, recuérdame fichar a las 08:00, si ya fiché cancela el recordatorio
-```
+Guardar URLs
+Manda solo la URL — EVA crea la tarjeta automáticamente:
+https://quantyouredge.com/
+→ EVA crea "Revisar quantyouredge.com" en Focalboard con la URL en la propiedad URL.
+Luego puedes añadir contexto en el siguiente mensaje:
+agrégale una nota: quiero ver si tienen algo parecido a X
 
-## Recordatorios con aviso previo
+Confirmar / completar un recordatorio
+listo / ok / vale / hecho / ya está / sí / perfecto / gracias
 
-```
-eva, recuérdame 15 minutos antes de las 10:00
-eva, recuérdame salir 30 minutos antes de las 09:00
-eva, recuérdame preparar presentación 2 minutos antes de las 16:00
-```
-
-## Confirmar / completar un recordatorio
-
-```
-listo
-ok
-vale
-hecho
-ya está
-sí
-perfecto
-gracias
-```
-
-## Snooze — posponer un aviso activo
-
-```
+Snooze — posponer un aviso activo
+Cuando EVA te avisa, puedes responder:
 en 10 minutos
-en 1 hora
-media hora
-luego
-más tarde
-mañana
-ahora no
-```
+en 1 hora / media hora / en un rato
+luego / más tarde / ahora no / mañana
+a las 13:00
+para hoy a la 1:00
+para mañana a las 9
+puedes moverlo para hoy a la 13:00
+Snooze con contexto opcional
+Añade una nota después de la coma — EVA la guarda y te la recuerda en el próximo aviso:
+muévelo para las 13:00, tengo que confirmar con Luis primero
+en 10 minutos, estoy en una llamada
+para mañana a las 9, revisar primero el correo
 
-## Listar recordatorios activos
+Operar sobre el último recordatorio mencionado
+Después de que EVA mencione un recordatorio, puedes referirte a él sin ID:
+# Cancelar
+cancelalo / cancélalo / eliminalo / bórralo / quitalo
 
-```
-eva, lista mis recordatorios
-mis recordatorios
-recordatorios
-eva, qué tengo pendiente
-/reminders
-```
+# Mover a otra fecha/hora
+posponlo para el próximo lunes
+muévelo al martes a las 10
+pásalo a mañana
+aplázalo para el viernes
+déjalo para el lunes
 
-## Cancelar recordatorios
+# Cambiar solo la hora
+cambialo a las 11
+ponlo a las 15:30
 
-```
-cancela el 28
-elimina el 28
-borra el 28
-eva, cancela el de fichar
-cancela el recordatorio
-```
+# Añadir nota
+agrégale una nota: confirmar con el médico antes
 
-## Editar recordatorios
+Gestión por ID
+Puedes referirte a cualquier tarea o recordatorio por su ID:
+# Cancelar
+52 eliminala
+la tarea 52 eliminala
+cancela el 52
 
-```
+# Completar
+53 marcala como hecha
+53 completala
+
+# Añadir nota
+54 agrégale una nota: revisar primero con el equipo
+
+# Renombrar
+55 cámbiala a revisar configuración nginx
+
+# Cambiar hora
 cambia el 28 a las 11:00
 mueve el 5 a mañana a las 09:30
-renombra el 7 a revisar pull requests
-edita el 12, nueva tarea: llamar al médico
-```
 
-## Resumen diario
+Cancelar por fecha
+cancela todo lo que tengo para mañana
+cancela todo lo del viernes
 
-- Se envía automáticamente cada día a las **08:00** con todos los recordatorios del día y los atrasados.
-- Para dispararlo manualmente (desde servidor):
-```bash
-curl -X POST http://192.168.1.122:8001/digest/send
-```
+Corrección rápida del último recordatorio creado
+no, a las 11
+no, era a las 3
 
----
+Preguntas sobre tus recordatorios
+¿qué tengo mañana?
+¿qué tengo el sábado?
+¿cuándo es lo de Ian?
+¿tengo algo esta semana?
+que tengo mañana?
 
-> **Tip:** el prefijo `eva,` o `eva ` es opcional en la mayoría de comandos. EVA entiende tanto `eva, recuérdame...` como directamente `recuérdame...`
+Listar recordatorios activos
+eva, lista mis recordatorios
+mis recordatorios / recordatorios
+eva, qué tengo pendiente
+/reminders
 
-recuerdame llevar a ian a logopeda hoy a las 5     → 17:00 ✅
-recuérdame salir esta tarde a las 6                → 18:00 ✅
-recuérdame la cena esta noche a las 9              → 21:00 ✅
-eva, recuérdame la reunión a las 9                 → 09:00 ✅  (si aún no pasó)
-recuérdame fichar a las 8                          → 08:00 ✅
+Administración y limpieza
+eva, limpia los recordatorios de prueba y los duplicados de focalboard
 
-Frases que EVA ya entiende para tareas sin fecha:
+Conversación general
+hola eva
+¿qué puedes hacer?
 
-tengo que revisar X
-hay que actualizar X  
-pendiente: X
-quiero hacer X
-no olvidar X
-eva, apunta: X
-tarea: X
-debo revisar X
+Resumen diario con IA
+
+Se envía automáticamente a las 08:00 con un briefing generado por Claude.
+Incluye contexto de ayer: "ayer lo pospusiste", "es la segunda vez esta semana".
+Para dispararlo manualmente:
+
+bashcurl -X POST http://192.168.1.122:8001/digest/send?user_id=21
+curl http://192.168.1.122:8001/digest/preview/21
+
+Focalboard — propiedades de cada tarjeta
+PropiedadTipoContenidoStatusselectPendiente / Enviado / Completado / CanceladoFechadateremind_at del recordatorioTextotextNotas del usuario (contexto del snooze, etc.)URLurlLink extraído del mensaje
+Vistas disponibles: Board · Calendar · List
+URL: https://infra-focalboard.mailerblend.com
+
+Personalidad de EVA
+Edita compose/persona/Blazer1x.json y ejecuta el deploy:
+CampoValoresEfectotoneinformal / formal / profesionalRegistro del lenguajelanguagees-ve / es-es / esVariante del españolemojitrue / falseUsa emojis o nobriefing_hour0-23Hora del resumen diariouser_namestringCómo EVA te llamapersonality_notesstring libreInstrucciones extra
+
+Referencia de horas
+FraseHora interpretadaa las 808:00 (si no ha pasado)esta tarde a las 517:00esta noche a las 921:00después de comer14:00mañana a las 10mañana 10:00pasado mañanaen 2 díasel próximo luneslunes de la semana siguienteel 15/05/202615 mayo 2026 09:00el 20-10-202620 octubre 2026 09:00
+
+EVA usa Claude Haiku para entender lenguaje natural. Si algo no funciona, intenta reformularlo o añade más contexto.
+
+
+La coma es la clave — todo lo que va después se guarda como nota en la tarjeta de Focalboard y EVA te lo recuerda cuando dispare el aviso:
+
+Ahora todas estas frases van a Focalboard sin fecha:
+recuérdame que tengo que instalar Tmux en el wsl windows  ✅
+recuérdame que hay que actualizar el certificado          ✅
+recuérdame que debo llamar al médico                      ✅
+Y estas siguen funcionando como recordatorios con fecha:
+recuérdame que tengo que fichar mañana a las 8   → recordatorio normal ✅
+recuérdame que tengo cita a las 10               → recordatorio normal ✅

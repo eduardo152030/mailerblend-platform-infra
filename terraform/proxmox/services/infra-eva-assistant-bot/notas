@@ -47,13 +47,15 @@ scp services/infra-eva-assistant-bot/compose/api/main.py root@192.168.1.122:/opt
 
  ssh root@192.168.1.122 "docker ps -a"
  
- ssh root@192.168.1.122 "docker logs -f eva-api"
- ssh root@192.168.1.122 "docker logs -f eva-sync"
+ ssh root@192.168.1.122 "docker logs -f eva-api" (eva-api)
+ ssh root@192.168.1.122 "docker logs -f eva-sync" (eva-sync-logs)
  ssh root@192.168.1.122 "docker logs -f eva-scheduler"
 
  Crea un recordatorio en 2 minutos desde Telegram y monitorea los logs del scheduler en tiempo real:
 
  ssh root@192.168.1.122 "docker logs -f eva-scheduler"
+
+ ssh root@192.168.1.122 "docker logs -f eva-sync"
 
  ssh root@192.168.1.122 "ls /opt/infra-eva-assistant-bot/api/"
 
@@ -82,3 +84,8 @@ ssh root@192.168.1.122 "
   sleep 5 && \
   docker exec eva-api env | grep ANTHROPIC
 "
+
+Verifica que arranque:
+
+ssh root@192.168.1.122 "cd /opt/infra-eva-assistant-bot && docker compose logs --no-color --tail=10 eva-api"
+

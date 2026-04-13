@@ -52,9 +52,11 @@ def build_confirmation_text(reminder: Reminder) -> str:
 
 
 def build_due_text(reminder: Reminder) -> str:
+    notes = getattr(reminder, "notes", None)
+    note_str = f"\n📝 {notes}" if notes else ""
     if getattr(reminder, "awaiting_ack", False):
-        return f'⏰ EVA: Sigo pendiente de "{reminder.task_text}". Respóndeme "listo" cuando lo hayas hecho.'
-    return f'⏰ EVA: Es hora de {reminder.task_text}. Respóndeme "listo" cuando lo hayas hecho.'
+        return f'⏰ EVA: Sigo pendiente de "{reminder.task_text}" [{reminder.id}]. Respóndeme "listo" cuando lo hayas hecho.{note_str}'
+    return f'⏰ EVA: Es hora de {reminder.task_text} [{reminder.id}]. Respóndeme "listo" cuando lo hayas hecho.{note_str}'
 
 
 def build_expired_text(reminder: Reminder) -> str:
