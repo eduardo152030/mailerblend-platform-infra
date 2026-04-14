@@ -41,20 +41,22 @@ PRIORITY_OPTIONS = {
     "P4": "auoqqox58bui398gu1itti85d9a",  # Negligible
 }
 PRIORITY_DEFAULT = "P3"  # Por defecto: Low
-STATUS_OPTIONS = {
-    "scheduled": "aoptpendiente00000000000001",
-    "pending":   "aoptpendiente00000000000001",
-    "sent":      "aoptenviado000000000000001",
-    "completed": "aoptcompletado0000000000001",
-    "cancelled": "aoptcancelado00000000000001",
-    "expired":   "aoptcancelado00000000000001",
-}
 # Inverso: option_id → status EVA
 OPTION_TO_STATUS = {
     "aoptpendiente00000000000001":  "scheduled",
     "aoptenviado000000000000001":   "sent",
     "aoptcompletado0000000000001":  "completed",
     "aoptcancelado00000000000001":  "cancelled",
+    "atknam74n43b9rezq13w9tz8dsc":  "in_progress",
+}
+STATUS_OPTIONS = {
+    "scheduled":   "aoptpendiente00000000000001",
+    "pending":     "aoptpendiente00000000000001",
+    "sent":        "aoptenviado000000000000001",
+    "completed":   "aoptcompletado0000000000001",
+    "cancelled":   "aoptcancelado00000000000001",
+    "expired":     "aoptcancelado00000000000001",
+    "in_progress": "atknam74n43b9rezq13w9tz8dsc",
 }
 
 
@@ -145,24 +147,34 @@ async def fb_create_card(reminder: Reminder, user: User) -> str | None:
         return None
 
 
-async def fb_update_card_status(card_id: str, status: str, remind_at=None, notes: str | None = None) -> bool:
-    opt_id = STATUS_OPTIONS.get(status, "opt_pendiente")
-    props = {STATUS_PROP_ID: opt_id}
+async def fb_update_card_status(card_id: str, status: str, remind_at=None,
+                               notes: str | None = None, url: str | None = None,
+                               priority: str | None = None) -> bool:
+    """
+    Siempre envía todas las properties conocidas para evitar que Focalboard
+    borre las que no se incluyen (no hace merge, reemplaza el objeto completo).
+    """
+    props = {}
+    props[STATUS_PROP_ID] = STATUS_OPTIONS.get(status, "aoptpendiente00000000000001")
     if remind_at:
         local_dt = to_local(remind_at)
-        if local_dt:
+        if local_dt and local_dt.year < 2099:
             import json as _json
             props[DATE_PROP_ID] = _json.dumps({"from": int(local_dt.timestamp() * 1000)})
-    if notes:
+    if notes is not None:
         props[TEXT_PROP_ID] = notes
-    url = f"{FOCALBOARD_URL}/api/v2/boards/{FOCALBOARD_BOARD_ID}/blocks/{card_id}"
+    if url is not None:
+        props[URL_PROP_ID] = url
+    if priority is not None and priority in PRIORITY_OPTIONS:
+        props[PRIORITY_PROP_ID] = PRIORITY_OPTIONS[priority]
+    fb_url = f"{FOCALBOARD_URL}/api/v2/boards/{FOCALBOARD_BOARD_ID}/blocks/{card_id}"
     async with httpx.AsyncClient(timeout=10) as c:
-        r = await c.patch(url, headers=_h(), json={
-            "updatedFields": {"properties": props}
-        })
+        r = await c.patch(fb_url, headers=_h(), json={"updatedFields": {"properties": props}})
         ok = r.status_code in (200, 204)
         if ok:
             print(f"[sync] ✅ card {card_id} → {status}")
+        else:
+            print(f"[sync] ❌ card {card_id} update failed {r.status_code}: {r.text[:100]}")
         return ok
 
 
@@ -196,12 +208,14 @@ async def sync_new_reminders() -> int:
     try:
         db.rollback()
         # Doble check: solo reminders SIN card_id Y que no estén ya en Focalboard
+        from datetime import timedelta as _td
+        _cutoff = datetime.now(TZ) - _td(seconds=10)
         rows = db.execute(
             select(Reminder)
             .where(Reminder.focalboard_card_id.is_(None))
             .where(Reminder.status.in_(["scheduled", "pending", "sent"]))
+            .where(Reminder.created_at < _cutoff)
         ).scalars().all()
-        # Limitar a 10 por ciclo para evitar crear muchos duplicados en caso de error
         rows = rows[:10]
 
         for r in rows:
@@ -237,11 +251,19 @@ async def sync_status_changes() -> int:
             select(Reminder)
             .where(Reminder.focalboard_card_id.isnot(None))
             .where(Reminder.status.in_(["sent", "completed", "cancelled", "expired"]))
+            # NOTE: "in_progress" is excluded — it's managed from Focalboard UI
+            # "scheduled" and "pending" are excluded — they are the default state
         ).scalars().all()
 
         for r in rows:
             try:
-                ok = await fb_update_card_status(r.focalboard_card_id, r.status, r.remind_at, getattr(r, "notes", None))
+                # Skip if reminder was recently synced FROM Focalboard (avoid overwrite loop)
+                if r.focalboard_synced_at:
+                    from datetime import timedelta as _td2
+                    _age = (datetime.now(TZ) - r.focalboard_synced_at.replace(tzinfo=TZ) if r.focalboard_synced_at.tzinfo is None else datetime.now(TZ) - r.focalboard_synced_at).total_seconds()
+                    if _age < 120:  # skip if synced from FB in last 2 minutes
+                        continue
+                ok = await fb_update_card_status(r.focalboard_card_id, r.status, r.remind_at, getattr(r, "notes", None), getattr(r, "url", None), getattr(r, "priority", None))
                 if ok:
                     r.focalboard_synced_at = datetime.now(TZ)
                     _log(db, "reminder", r.id, "eva_to_fb", "update", r.focalboard_card_id)
@@ -369,6 +391,12 @@ async def sync_from_focalboard() -> int:
                     else:
                         notify_msg = f'📋 "{reminder.task_text}" movido a Pendiente [{reminder.id}]'
 
+                elif new_status == "in_progress":
+                    db.add(Event(user_id=reminder.user_id, event_type="reminder_in_progress",
+                                 event_value=str(reminder.id), source="focalboard",
+                                 payload={"card_id": cid, "from": old_status}))
+                    notify_msg = f'🔵 "{reminder.task_text}" en progreso [{reminder.id}]'
+
                 elif new_status == "sent":
                     # Marcado como Enviado manualmente desde Focalboard
                     db.add(Event(user_id=reminder.user_id, event_type="reminder_sent_manual",
@@ -430,6 +458,13 @@ async def sync_from_focalboard() -> int:
                 reminder.notes = fb_texto
                 changed = True
                 print(f"[sync] ✅ reminder {reminder.id} notes updated via Focalboard")
+
+            # ── 3b. URL — sincronizar url si cambió en Focalboard ────────────
+            fb_url_val = props.get(URL_PROP_ID)
+            if fb_url_val and fb_url_val != getattr(reminder, "url", None):
+                reminder.url = fb_url_val
+                changed = True
+                print(f"[sync] ✅ reminder {reminder.id} url updated via Focalboard")
 
             # ── 4. TÍTULO — sincronizar task_text si cambió en Focalboard ─
             fb_title = card.get("title", "").strip()

@@ -4,8 +4,10 @@ import traceback
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, Request, UploadFile, File, Form
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.middleware.cors import CORSMiddleware
+import shutil, mimetypes
 from sqlalchemy import select, text
 
 from db import engine, SessionLocal
@@ -35,6 +37,14 @@ DEFAULT_TIMEZONE = os.getenv("TIMEZONE", "Europe/Madrid")
 TZ = ZoneInfo(DEFAULT_TIMEZONE)
 
 app = FastAPI(title=APP_NAME)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 def to_local(dt: datetime | None) -> datetime | None:
@@ -155,6 +165,9 @@ def extract_pending_task(lowered: str) -> str | None:
         r'^(?:eva[,\s]+)?necesito\s+(.+)$',
         r'^(?:eva[,\s]+)?recuerda que tengo que\s+(.+)$',
         r'^(?:eva[,\s]+)?debo\s+(.+)$',
+        r'^(?:eva[,\s]+)?crear?\s+(?:un\s+)?(?:recordatorio|tarea|nota)\s+(?:para\s+|de\s+|sobre\s+)?(.+)$',
+        r'^(?:eva[,\s]+)?crea\s+(?:un\s+)?(?:recordatorio|tarea|nota)\s+(?:para\s+|de\s+)?(.+)$',
+        r'^(?:eva[,\s]+)?guarda\s+(?:esto|una?\s+nota)[:\s]+(.+)$',
     ]
 
     for pattern in patterns:
@@ -942,16 +955,48 @@ async def handle_add_note(db, user: User, chat_id: int, note_text: str, ref_id: 
 
     if target.focalboard_card_id and FOCALBOARD_TOKEN:
         try:
+            # Construir properties completas desde la BD — evita GET a Focalboard
+            # que falla en v7.8.9 para bloques individuales
+            from sync_service import (STATUS_OPTIONS, STATUS_PROP_ID, TEXT_PROP_ID,
+                                       URL_PROP_ID, DATE_PROP_ID, PRIORITY_PROP_ID,
+                                       PRIORITY_OPTIONS)
+            import json as _json
+
+            _merged = {}
+
+            # Status
+            _status_opt = STATUS_OPTIONS.get(target.status, "aoptpendiente00000000000001")
+            _merged[STATUS_PROP_ID] = _status_opt
+
+            # Fecha (solo si tiene fecha real, no año 2099)
+            if target.remind_at:
+                from scheduler import to_local as _to_local
+                _local_dt = _to_local(target.remind_at)
+                if _local_dt and _local_dt.year < 2099:
+                    _merged[DATE_PROP_ID] = _json.dumps({"from": int(_local_dt.timestamp() * 1000)})
+
+            # URL
+            _url_val = getattr(target, "url", None)
+            if _url_val:
+                _merged[URL_PROP_ID] = _url_val
+
+            # Prioridad
+            _prio_key = getattr(target, "priority", "P3") or "P3"
+            if _prio_key in PRIORITY_OPTIONS:
+                _merged[PRIORITY_PROP_ID] = PRIORITY_OPTIONS[_prio_key]
+
+            # Nota — el campo que estamos actualizando
+            _merged[TEXT_PROP_ID] = note_text
+
             async with _httpx.AsyncClient(timeout=8) as client:
                 await client.patch(
                     f"{FOCALBOARD_URL}/api/v2/boards/{FOCALBOARD_BOARD_ID}/blocks/{target.focalboard_card_id}",
                     headers={"Authorization": f"Bearer {FOCALBOARD_TOKEN}",
                              "X-Requested-With": "XMLHttpRequest",
                              "Content-Type": "application/json"},
-                    json={"updatedFields": {"properties": {
-                        "a6bxuk4rgxp7wn6bashiadwaiiy": note_text
-                    }}}
+                    json={"updatedFields": {"properties": _merged}}
                 )
+                print(f"[add_note] ✅ Focalboard updated card {target.focalboard_card_id}")
         except Exception as exc:
             print(f"[add_note] Focalboard error: {exc}")
 
@@ -960,12 +1005,77 @@ async def handle_add_note(db, user: User, chat_id: int, note_text: str, ref_id: 
     return {"status": "ok", "action": "add_note_done", "reminder_id": target.id}
 
 
+async def handle_bulk_cleanup(db, user: User, chat_id: int, statuses: list[str]):
+    """
+    Elimina (marca como cancelados) todos los reminders con los estados indicados.
+    También elimina las tarjetas correspondientes en Focalboard.
+    """
+    import httpx as _httpx
+
+    rows = db.execute(
+        select(Reminder)
+        .where(Reminder.user_id == user.id)
+        .where(Reminder.status.in_(statuses))
+    ).scalars().all()
+
+    if not rows:
+        status_names = " y ".join(
+            "completados" if s == "completed" else "cancelados" for s in statuses
+        )
+        reply = f"No tienes recordatorios {status_names} ahora mismo."
+        await send_and_log(db, user.id, chat_id, reply, "bulk_cleanup_empty")
+        return {"status": "ok", "action": "bulk_cleanup_empty"}
+
+    FOCALBOARD_URL_ENV   = os.getenv("FOCALBOARD_URL", "")
+    FOCALBOARD_TOKEN_ENV = os.getenv("FOCALBOARD_TOKEN", "")
+    FOCALBOARD_BOARD_ID_ENV = os.getenv("FOCALBOARD_BOARD_ID", "")
+
+    deleted_fb = 0
+    for r in rows:
+        # Eliminar tarjeta de Focalboard
+        if r.focalboard_card_id and FOCALBOARD_TOKEN_ENV:
+            try:
+                async with _httpx.AsyncClient(timeout=8) as client:
+                    resp = await client.delete(
+                        f"{FOCALBOARD_URL_ENV}/api/v2/boards/{FOCALBOARD_BOARD_ID_ENV}/blocks/{r.focalboard_card_id}",
+                        headers={"Authorization": f"Bearer {FOCALBOARD_TOKEN_ENV}",
+                                 "X-Requested-With": "XMLHttpRequest"},
+                    )
+                    if resp.status_code in (200, 204):
+                        deleted_fb += 1
+            except Exception as exc:
+                print(f"[bulk_cleanup] FB delete error {r.focalboard_card_id}: {exc}")
+
+    # Eliminar de la BD
+    now_tz = datetime.now(TZ)
+    count = len(rows)
+    for r in rows:
+        db.delete(r)
+
+    db.add(Event(
+        user_id=user.id,
+        event_type="bulk_cleanup",
+        event_value=str(count),
+        source="telegram",
+        payload={"statuses": statuses, "deleted_fb": deleted_fb},
+    ))
+    db.commit()
+
+    status_names = " y ".join(
+        "completadas" if s == "completed" else "canceladas" for s in statuses
+    )
+    fb_note = " También eliminadas de Focalboard." if deleted_fb > 0 else ""
+    reply = f"🗑️ Eliminadas {count} tareas {status_names}.{fb_note}"
+    await send_and_log(db, user.id, chat_id, reply, "bulk_cleanup_done")
+    return {"status": "ok", "action": "bulk_cleanup_done", "count": count}
+
+
 async def handle_pending_task(db, user: User, chat_id: int, task_text: str,
-                              url: str | None = None):
+                              url: str | None = None, notes: str | None = None):
     """
     Crea una tarea sin fecha en Focalboard Y en la tabla reminders (remind_at=NULL).
-    Así el sync bidireccional puede detectar cambios desde Focalboard.
-    url: URL opcional, se guarda en propiedad URL de Focalboard y en notes.
+    url: URL opcional, se guarda en propiedad URL de Focalboard.
+    notes: Contexto adicional, se guarda en propiedad Texto de Focalboard.
     """
     import time
     import uuid
@@ -983,6 +1093,33 @@ async def handle_pending_task(db, user: User, chat_id: int, task_text: str,
     now_ms  = int(time.time() * 1000)
     card_id = uuid.uuid4().hex[:26]
 
+    # Inferir prioridad ANTES de construir el bloque
+    try:
+        _task_priority = await infer_priority(task_text)
+    except Exception:
+        _task_priority = "P3"
+
+    # Importar PRIORITY_OPTIONS desde sync_service si está disponible
+    try:
+        from sync_service import PRIORITY_OPTIONS as _PRIO_OPTS
+    except Exception:
+        _PRIO_OPTS = {
+            "P0": "akgjwzzkom6j5hnqkw5nxaq4pmo",
+            "P1": "a44z9q4cj9jamiqip5gih6okzco",
+            "P2": "aqtsqbngmejgxwswgciahqubfoo",
+            "P3": "argk36ea34napsf8dq78d4pg8go",
+            "P4": "auoqqox58bui398gu1itti85d9a",
+        }
+
+    _fb_props = {
+        "aevastatus00000000000000001": "aoptpendiente00000000000001",
+        "ann9q8kbmc67mb7p4d8xrmma6rr": _PRIO_OPTS.get(_task_priority, _PRIO_OPTS["P3"]),
+    }
+    if url:
+        _fb_props["asztuket5mjeeongrzooyx5utbo"] = url
+    if notes:
+        _fb_props["a6bxuk4rgxp7wn6bashiadwaiiy"] = notes
+
     block = {
         "id": card_id,
         "type": "card",
@@ -996,10 +1133,7 @@ async def handle_pending_task(db, user: User, chat_id: int, task_text: str,
         "fields": {
             "isTemplate": False,
             "contentOrder": [],
-            "properties": {
-                **{"aevastatus00000000000000001": "aoptpendiente00000000000001"},
-                **({"asztuket5mjeeongrzooyx5utbo": url} if url else {}),
-            },
+            "properties": _fb_props,
         },
     }
 
@@ -1027,12 +1161,6 @@ async def handle_pending_task(db, user: User, chat_id: int, task_text: str,
                     payload={"task_text": task_text, "card_id": fb_id},
                 ))
                 db.commit()
-                # Inferir prioridad para la tarea pendiente
-                try:
-                    _task_priority = await infer_priority(task_text)
-                except Exception:
-                    _task_priority = "P3"
-
                 # Guardar también en reminders para que el sync bidireccional funcione
                 try:
                     pending_reminder = Reminder(
@@ -1041,7 +1169,8 @@ async def handle_pending_task(db, user: User, chat_id: int, task_text: str,
                         task_text=task_text,
                         remind_at=datetime.now(TZ).replace(year=2099),
                         status="pending",
-                        notes=url if url else None,
+                        notes=notes,
+                        url=url if url else None,
                         priority=_task_priority,
                         focalboard_card_id=fb_id,
                         focalboard_synced_at=datetime.now(TZ),
@@ -1335,14 +1464,54 @@ async def telegram_webhook(request: Request):
         _extracted_url = _url_in_msg.group(0) if _url_in_msg else None
         # Texto sin la URL para analizar la intención
         _text_no_url = text_in.replace(_extracted_url, "").strip() if _extracted_url else text_in
+        # Si hay texto adicional junto a la URL → guardar como nota
+        _url_context = _text_no_url.strip() if _extracted_url and len(_text_no_url.strip()) >= 3 else None
 
         # ── Mensaje que ES solo una URL → tarea sin fecha con URL ────────────
         if _extracted_url and len(_text_no_url.strip()) < 5:
-            # Solo URL, sin texto descriptivo → apuntar con dominio como título
             import urllib.parse as _up
             _domain = _up.urlparse(_extracted_url).netloc.replace("www.", "")
             task_title = f"Revisar {_domain}"
-            return await handle_pending_task(db, user, chat_id, task_title, url=_extracted_url)
+            return await handle_pending_task(db, user, chat_id, task_title,
+                                             url=_extracted_url, notes=_url_context)
+
+        # ── Contexto post-creación: si EVA acaba de crear una tarea, añadir nota ──
+        # Si el último mensaje saliente de EVA fue "📌 Apuntado" → añadir el texto como nota
+        _last_eva_msg = db.execute(
+            select(Message).where(Message.user_id == user.id)
+            .where(Message.direction == "outbound")
+            .order_by(Message.id.desc()).limit(1)
+        ).scalars().first()
+
+        _is_post_creation = (
+            _last_eva_msg and
+            (
+                "📌 Apuntado" in _last_eva_msg.message_text or
+                "Apuntado en Focalboard" in _last_eva_msg.message_text or
+                "✅ Nota añadida" in _last_eva_msg.message_text or
+                "Nota añadida a" in _last_eva_msg.message_text
+            ) and
+            len(lowered.strip()) >= 3 and
+            not re.match(r'^(?:cancela|elimina|borra|lista|mis recordatorios|recuérdame|recuerdame|eva[,\s]|/)', lowered.strip()) and
+            not re.match(r'^(?:crear?\s+un?|crea\s+un?|quiero\s+(?:crear|hacer|un)|tengo\s+que|hay\s+que|pendiente[:\s])', lowered.strip(), re.IGNORECASE) and
+            not re.search(r'a las\s+\d|en\s+\d+\s+min|mañana\s|el\s+\d+\s|para\s+el\s+(?:lunes|martes|miércoles|jueves|viernes|sábado|domingo|\d)|cada\s+\d|todos\s+los', lowered)
+        )
+
+        if _is_post_creation:
+            # Extraer ID de la tarea del último mensaje de EVA
+            _id_match = re.search(r'\[(\d+)\]', _last_eva_msg.message_text)
+            if _id_match:
+                _ref_id = int(_id_match.group(1))
+                return await handle_add_note(db, user, chat_id, text_in, ref_id=_ref_id)
+            else:
+                # Sin ID — buscar la tarea más reciente con focalboard_card_id
+                _last_task = db.execute(
+                    select(Reminder).where(Reminder.user_id == user.id)
+                    .where(Reminder.focalboard_card_id.isnot(None))
+                    .order_by(Reminder.id.desc()).limit(1)
+                ).scalars().first()
+                if _last_task:
+                    return await handle_add_note(db, user, chat_id, text_in, ref_id=_last_task.id)
 
         # ── Gestión de notas/recordatorios por ID: "52 eliminala", "la tarea 52 marcala como hecha" ──
         _id_op = re.match(
@@ -1355,6 +1524,18 @@ async def telegram_webhook(request: Request):
             # Cancelar/eliminar
             if re.match(r'^(?:cancela(?:la|lo)?|elimina(?:la|lo)?|borra(?:la|lo)?|quita(?:la|lo)?)[\s.!?]*$', _op_text):
                 return await handle_cancel_by_id(db, user, chat_id, _ref_id)
+            # En Progreso
+            if re.match(r'^(?:(?:marca(?:la|lo)?\s+(?:como\s+)?|ponla\s+(?:como\s+)?|esta\s+)?en\s+progreso|empez(?:ar|ando|é)\s+(?:con\s+)?(?:esta?|la?))[\s.!?]*$', _op_text, re.IGNORECASE):
+                _ref_r = db.execute(
+                    select(Reminder).where(Reminder.id == _ref_id).where(Reminder.user_id == user.id)
+                ).scalar_one_or_none()
+                if _ref_r:
+                    _ref_r.status = "in_progress"
+                    db.commit()
+                    reply = f'🔵 En progreso [{_ref_id}]: "{_ref_r.task_text}".'
+                    await send_and_log(db, user.id, chat_id, reply, "in_progress_by_id")
+                    return {"status": "ok", "action": "in_progress_by_id"}
+
             # Completar
             if re.match(r'^(?:marca(?:la|lo)?\s+(?:como\s+)?(?:hecha?|completad[ao]|lista?)|completa(?:la|lo)?)[\s.!?]*$', _op_text):
                 _ref_r = db.execute(
@@ -1810,6 +1991,24 @@ async def telegram_webhook(request: Request):
                 _note_text = text_in  # usar texto completo si no se pudo extraer
             return await handle_add_note(db, user, chat_id, _note_text)
 
+        # ── BULK CLEANUP: "elimina todas las completadas/canceladas" ─────────
+        _bulk_clean = re.match(
+            r'^(?:eva[,\s]+)?(?:elimina|borra|cancela|limpia)\s+(?:todas?\s+(?:las?\s+)?)?'
+            r'(?:tarjetas?\s+(?:en\s+estado\s+(?:de\s+)?)?|(?:las?\s+))?'
+            r'(completadas?|canceladas?|completadas?\s+y\s+canceladas?|canceladas?\s+y\s+completadas?)[\s.!?]*$',
+            lowered.strip(), re.IGNORECASE
+        )
+        if _bulk_clean:
+            _clean_term = _bulk_clean.group(1).lower()
+            _statuses = []
+            if "completad" in _clean_term:
+                _statuses.append("completed")
+            if "cancelad" in _clean_term:
+                _statuses.append("cancelled")
+            if not _statuses:
+                _statuses = ["completed", "cancelled"]
+            return await handle_bulk_cleanup(db, user, chat_id, _statuses)
+
         # ── ADMIN CLEANUP ─────────────────────────────────────────────────────
         if intent == "admin_cleanup" and confidence >= 0.7:
             return await handle_admin_cleanup(db, user, chat_id)
@@ -1822,16 +2021,25 @@ async def telegram_webhook(request: Request):
                 return await handle_edit_reminder(db, user, chat_id, reminder_id, updates)
 
         # ── PENDING TASK ─────────────────────────────────────────────────────
-        # Detección directa: "recuérdame que tengo que X" sin hora → tarea sin fecha
+        # Detección directa por regex ANTES del LLM — evita que se clasifique
+        # como create_reminder cuando no hay hora
         _no_time = not re.search(r'\ba las\s+\d|\ben\s+\d+\s+min|\bmañana\b', lowered)
-        _pending_direct = re.match(
-            r'^(?:eva[,\s]+)?recu[eé]rdame\s+que\s+(?:tengo\s+que|hay\s+que|debo|necesito)\s+(.+)$',
-            lowered, re.IGNORECASE
-        )
-        if _pending_direct and _no_time:
-            task = _pending_direct.group(1).strip()
-            if len(task) >= 4:
-                return await handle_pending_task(db, user, chat_id, task, url=_extracted_url)
+        if _no_time:
+            # "recuérdame que tengo que X"
+            _pending_direct = re.match(
+                r'^(?:eva[,\s]+)?recu[eé]rdame\s+que\s+(?:tengo\s+que|hay\s+que|debo|necesito)\s+(.+)$',
+                lowered, re.IGNORECASE
+            )
+            if _pending_direct and len(_pending_direct.group(1).strip()) >= 4:
+                return await handle_pending_task(db, user, chat_id,
+                                                  _pending_direct.group(1).strip(),
+                                                  url=_extracted_url)
+
+            # Todas las frases de extract_pending_task — directo sin pasar por LLM
+            _direct_task = extract_pending_task(lowered)
+            if _direct_task:
+                return await handle_pending_task(db, user, chat_id, _direct_task,
+                                                  url=_extracted_url, notes=_url_context)
 
         if intent == "pending_task" and confidence >= 0.7:
             pending_task = extract_pending_task(lowered)
@@ -2087,5 +2295,282 @@ async def preview_daily_digest(user_id: int):
             return JSONResponse(status_code=404, content={"status": "error", "reason": "user_not_found"})
         digest = build_daily_digest(db, user)
         return {"status": "ok", "digest": digest or "", "has_content": digest is not None}
+    finally:
+        db.close()
+
+# ══════════════════════════════════════════════════════════════
+# TASK RICH CONTENT — Descripción WYSIWYG + Adjuntos
+# ══════════════════════════════════════════════════════════════
+
+UPLOADS_DIR = os.getenv("UPLOADS_DIR", "/app/uploads")
+os.makedirs(UPLOADS_DIR, exist_ok=True)
+
+ALLOWED_MIME_TYPES = {
+    "image/jpeg", "image/png", "image/gif", "image/webp",
+    "application/pdf",
+    "text/plain",
+}
+MAX_FILE_SIZE = 20 * 1024 * 1024  # 20MB
+
+
+@app.post("/tasks/link-card")
+async def link_card_to_task(request: Request):
+    """
+    Crea o actualiza un reminder vinculado a una tarjeta de Focalboard.
+    Llamado desde la UI cuando se crea una tarjeta nueva.
+    """
+    db = SessionLocal()
+    try:
+        body = await request.json()
+        card_id = body.get("focalboard_card_id", "").strip()
+        task_text = body.get("task_text", "Tarea sin título").strip()
+        status = body.get("status", "pending")
+        priority = body.get("priority", "P3")
+
+        if not card_id:
+            return JSONResponse(status_code=400, content={"error": "focalboard_card_id required"})
+
+        # Verificar si ya existe
+        existing = db.execute(
+            select(Reminder).where(Reminder.focalboard_card_id == card_id)
+        ).scalar_one_or_none()
+
+        if existing:
+            return {"id": existing.id, "focalboard_card_id": card_id,
+                    "task_text": existing.task_text, "status": existing.status, "created": False}
+
+        # Buscar el primer usuario (herramienta personal — un solo usuario)
+        user = db.execute(select(User).limit(1)).scalars().first()
+        if not user:
+            return JSONResponse(status_code=500, content={"error": "no_user_found"})
+
+        # Crear reminder vinculado
+        reminder = Reminder(
+            user_id=user.id,
+            source_text=f"created_from_ui:{card_id}",
+            task_text=task_text,
+            remind_at=datetime.now(TZ).replace(year=2099),
+            status=status,
+            priority=priority,
+            focalboard_card_id=card_id,
+            focalboard_synced_at=datetime.now(TZ),
+        )
+        db.add(reminder)
+        db.commit()
+        db.refresh(reminder)
+
+        return {"id": reminder.id, "focalboard_card_id": card_id,
+                "task_text": task_text, "status": status, "created": True}
+    finally:
+        db.close()
+
+
+@app.get("/tasks/by-card/{card_id}")
+async def get_task_by_card(card_id: str):
+    """Busca una tarea por su focalboard_card_id."""
+    db = SessionLocal()
+    try:
+        reminder = db.execute(
+            select(Reminder).where(Reminder.focalboard_card_id == card_id)
+        ).scalar_one_or_none()
+        if not reminder:
+            return JSONResponse(status_code=404, content={"error": "task_not_found"})
+        return {"id": reminder.id, "focalboard_card_id": card_id,
+                "task_text": reminder.task_text, "status": reminder.status}
+    finally:
+        db.close()
+
+
+@app.get("/tasks/{task_id}")
+async def get_task(task_id: int):
+    """Devuelve una tarea con su descripción y adjuntos."""
+    db = SessionLocal()
+    try:
+        reminder = db.execute(
+            select(Reminder).where(Reminder.id == task_id)
+        ).scalar_one_or_none()
+        if not reminder:
+            return JSONResponse(status_code=404, content={"error": "task_not_found"})
+
+        attachments = db.execute(
+            text("SELECT id, filename, original_name, mime_type, size_bytes, created_at FROM task_attachments WHERE reminder_id = :rid ORDER BY id"),
+            {"rid": task_id}
+        ).fetchall()
+
+        return {
+            "id": reminder.id,
+            "task_text": reminder.task_text,
+            "status": reminder.status,
+            "priority": getattr(reminder, "priority", "P3"),
+            "notes": reminder.notes,
+            "url": getattr(reminder, "url", None),
+            "description": getattr(reminder, "description", None),
+            "remind_at": reminder.remind_at.isoformat() if reminder.remind_at else None,
+            "focalboard_card_id": getattr(reminder, "focalboard_card_id", None),
+            "attachments": [
+                {
+                    "id": a[0],
+                    "filename": a[1],
+                    "original_name": a[2],
+                    "mime_type": a[3],
+                    "size_bytes": a[4],
+                    "created_at": a[5].isoformat() if a[5] else None,
+                    "url": f"/tasks/{task_id}/attachments/{a[0]}/file",
+                }
+                for a in attachments
+            ],
+        }
+    finally:
+        db.close()
+
+
+@app.patch("/tasks/{task_id}/description")
+async def update_task_description(task_id: int, request: Request):
+    """Actualiza la descripción WYSIWYG (HTML) de una tarea."""
+    db = SessionLocal()
+    try:
+        body = await request.json()
+        html = body.get("description", "")
+
+        reminder = db.execute(
+            select(Reminder).where(Reminder.id == task_id)
+        ).scalar_one_or_none()
+        if not reminder:
+            return JSONResponse(status_code=404, content={"error": "task_not_found"})
+
+        db.execute(
+            text("UPDATE reminders SET description = :desc WHERE id = :id"),
+            {"desc": html, "id": task_id}
+        )
+        db.commit()
+        return {"status": "ok", "task_id": task_id}
+    finally:
+        db.close()
+
+
+@app.post("/tasks/{task_id}/attachments")
+async def upload_attachment(task_id: int, file: UploadFile = File(...)):
+    """Sube un adjunto (imagen o PDF) a una tarea."""
+    db = SessionLocal()
+    try:
+        # Verificar tarea existe
+        reminder = db.execute(
+            select(Reminder).where(Reminder.id == task_id)
+        ).scalar_one_or_none()
+        if not reminder:
+            return JSONResponse(status_code=404, content={"error": "task_not_found"})
+
+        # Validar tipo MIME
+        mime = file.content_type or mimetypes.guess_type(file.filename or "")[0] or ""
+        if mime not in ALLOWED_MIME_TYPES:
+            return JSONResponse(status_code=400, content={"error": "file_type_not_allowed", "mime": mime})
+
+        # Leer y validar tamaño
+        content_bytes = await file.read()
+        if len(content_bytes) > MAX_FILE_SIZE:
+            return JSONResponse(status_code=400, content={"error": "file_too_large"})
+
+        # Guardar en disco
+        import uuid as _uuid
+        ext = os.path.splitext(file.filename or "file")[1].lower()
+        stored_name = f"{task_id}_{_uuid.uuid4().hex}{ext}"
+        dest = os.path.join(UPLOADS_DIR, stored_name)
+        with open(dest, "wb") as f:
+            f.write(content_bytes)
+
+        # Guardar en BD
+        result = db.execute(
+            text("""INSERT INTO task_attachments (reminder_id, filename, original_name, mime_type, size_bytes)
+                    VALUES (:rid, :fn, :on, :mt, :sz) RETURNING id, created_at"""),
+            {"rid": task_id, "fn": stored_name, "on": file.filename, "mt": mime, "sz": len(content_bytes)}
+        ).fetchone()
+        db.commit()
+
+        return {
+            "status": "ok",
+            "id": result[0],
+            "filename": stored_name,
+            "original_name": file.filename,
+            "mime_type": mime,
+            "size_bytes": len(content_bytes),
+            "created_at": result[1].isoformat(),
+            "url": f"/tasks/{task_id}/attachments/{result[0]}/file",
+        }
+    finally:
+        db.close()
+
+
+@app.get("/tasks/{task_id}/attachments/{attachment_id}/file")
+async def download_attachment(task_id: int, attachment_id: int):
+    """Descarga/sirve un adjunto."""
+    db = SessionLocal()
+    try:
+        row = db.execute(
+            text("SELECT filename, original_name, mime_type FROM task_attachments WHERE id = :id AND reminder_id = :rid"),
+            {"id": attachment_id, "rid": task_id}
+        ).fetchone()
+        if not row:
+            return JSONResponse(status_code=404, content={"error": "attachment_not_found"})
+
+        filepath = os.path.join(UPLOADS_DIR, row[0])
+        if not os.path.exists(filepath):
+            return JSONResponse(status_code=404, content={"error": "file_not_found_on_disk"})
+
+        return FileResponse(filepath, media_type=row[2], filename=row[1])
+    finally:
+        db.close()
+
+
+@app.delete("/tasks/{task_id}/attachments/{attachment_id}")
+async def delete_attachment(task_id: int, attachment_id: int):
+    """Elimina un adjunto."""
+    db = SessionLocal()
+    try:
+        row = db.execute(
+            text("SELECT filename FROM task_attachments WHERE id = :id AND reminder_id = :rid"),
+            {"id": attachment_id, "rid": task_id}
+        ).fetchone()
+        if not row:
+            return JSONResponse(status_code=404, content={"error": "attachment_not_found"})
+
+        # Eliminar fichero
+        filepath = os.path.join(UPLOADS_DIR, row[0])
+        if os.path.exists(filepath):
+            os.remove(filepath)
+
+        db.execute(
+            text("DELETE FROM task_attachments WHERE id = :id"),
+            {"id": attachment_id}
+        )
+        db.commit()
+        return {"status": "ok", "deleted": attachment_id}
+    finally:
+        db.close()
+
+
+@app.get("/tasks/{task_id}/attachments")
+async def list_attachments(task_id: int):
+    """Lista todos los adjuntos de una tarea."""
+    db = SessionLocal()
+    try:
+        rows = db.execute(
+            text("SELECT id, filename, original_name, mime_type, size_bytes, created_at FROM task_attachments WHERE reminder_id = :rid ORDER BY id"),
+            {"rid": task_id}
+        ).fetchall()
+        return {
+            "task_id": task_id,
+            "attachments": [
+                {
+                    "id": r[0],
+                    "filename": r[1],
+                    "original_name": r[2],
+                    "mime_type": r[3],
+                    "size_bytes": r[4],
+                    "created_at": r[5].isoformat() if r[5] else None,
+                    "url": f"/tasks/{task_id}/attachments/{r[0]}/file",
+                }
+                for r in rows
+            ]
+        }
     finally:
         db.close()

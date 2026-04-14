@@ -42,6 +42,8 @@ services:
       FOCALBOARD_TEAM_ID: ${FOCALBOARD_TEAM_ID}
       FOCALBOARD_BOARD_ID: ${FOCALBOARD_BOARD_ID}
       PERSONA_DIR: /app/persona
+      UPLOADS_DIR: /app/uploads
+      CORS_ORIGINS: "*"
     depends_on:
       postgres:
         condition: service_healthy
@@ -51,6 +53,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
       - /opt/infra-eva-assistant-bot/persona:/app/persona:ro
+      - /opt/infra-eva-assistant-bot/uploads:/app/uploads
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
