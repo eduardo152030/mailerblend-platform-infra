@@ -144,7 +144,7 @@ def extract_pending_task(lowered: str) -> str | None:
       "tarea: migrar la BD"
     """
     # Primero descartar si tiene hora — eso es un recordatorio normal
-    if re.search(r'\ba las\s+\d{1,2}[:\s]', lowered):
+    if re.search(r'\ba las?\s+\d{1,2}([:\s]|$)', lowered):
         return None
     if re.search(r'\ben\s+\d+\s+minutos?\b', lowered):
         return None
@@ -168,6 +168,7 @@ def extract_pending_task(lowered: str) -> str | None:
         r'^(?:eva[,\s]+)?crear?\s+(?:un\s+)?(?:recordatorio|tarea|nota)\s+(?:para\s+|de\s+|sobre\s+)?(.+)$',
         r'^(?:eva[,\s]+)?crea\s+(?:un\s+)?(?:recordatorio|tarea|nota)\s+(?:para\s+|de\s+)?(.+)$',
         r'^(?:eva[,\s]+)?guarda\s+(?:esto|una?\s+nota)[:\s]+(.+)$',
+        r'^(?:eva[,\s]+)?recu[eé]rdame[,\s]+(?:que\s+)?(.+)$',
     ]
 
     for pattern in patterns:
@@ -1404,6 +1405,168 @@ async def list_events(user_id: int | None = None, event_type: str | None = None)
         db.close()
 
 
+async def _handle_photo_message(message: dict) -> dict:
+    """
+    Maneja mensajes con foto de Telegram.
+    1. Descarga la imagen más grande
+    2. Crea una tarea pendiente en Focalboard
+    3. Sube la imagen como adjunto via EVA API
+    """
+    import httpx as _hx
+    import re as _re_ph
+
+    chat = message.get("chat") or {}
+    from_user = message.get("from") or {}
+    chat_id = chat.get("id")
+    if not chat_id:
+        return {"status": "ignored", "reason": "missing_chat_id"}
+
+    caption = message.get("caption", "") or ""
+
+    # Extraer hashtags del caption
+    tags_list = _re_ph.findall(r'#[a-zA-Z]\w*', caption)
+    tags_str = " ".join(tags_list) if tags_list else None
+    caption_clean = _re_ph.sub(r'\s*#[a-zA-Z]\w*', '', caption).strip()
+
+    # Título de la tarea
+    task_title = caption_clean if caption_clean else "Revisar screenshot"
+
+    TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+    FOCALBOARD_URL_ENV = os.getenv("FOCALBOARD_URL", "")
+    FOCALBOARD_TOKEN_ENV = os.getenv("FOCALBOARD_TOKEN", "")
+    FOCALBOARD_BOARD_ID_ENV = os.getenv("FOCALBOARD_BOARD_ID", "")
+    SELF_API_URL = os.getenv("SELF_API_URL", "http://localhost:8000")
+
+    db = SessionLocal()
+    try:
+        # Buscar/crear usuario
+        user = db.execute(
+            select(User).where(User.telegram_chat_id == chat_id)
+        ).scalar_one_or_none()
+        if not user:
+            return {"status": "ignored", "reason": "user_not_found"}
+
+        # Obtener file_id de la foto más grande
+        photos = message.get("photo", [])
+        best_photo = max(photos, key=lambda p: p.get("file_size", 0))
+        file_id = best_photo.get("file_id")
+
+        # Obtener file_path de Telegram
+        async with _hx.AsyncClient(timeout=15) as client:
+            r = await client.get(
+                f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getFile",
+                params={"file_id": file_id}
+            )
+            file_path = r.json().get("result", {}).get("file_path", "")
+
+            # Descargar la imagen
+            img_r = await client.get(
+                f"https://api.telegram.org/file/bot{TELEGRAM_TOKEN}/{file_path}"
+            )
+            img_bytes = img_r.content
+            img_ext = file_path.split(".")[-1] if "." in file_path else "jpg"
+            img_name = f"screenshot_{file_id[:8]}.{img_ext}"
+
+        # Inferir prioridad
+        try:
+            _photo_priority = await infer_priority(task_title)
+        except Exception:
+            _photo_priority = "P3"
+
+        # Crear tarjeta en Focalboard
+        import time as _time
+        import uuid as _uuid
+        from sync_service import STATUS_OPTIONS, PRIORITY_OPTIONS, STATUS_PROP_ID, PRIORITY_PROP_ID
+
+        card_id = _uuid.uuid4().hex[:26]
+        now_ms = int(_time.time() * 1000)
+        fb_props = {
+            STATUS_PROP_ID: STATUS_OPTIONS.get("pending", "aoptpendiente00000000000001"),
+        }
+        if _photo_priority in PRIORITY_OPTIONS:
+            fb_props[PRIORITY_PROP_ID] = PRIORITY_OPTIONS[_photo_priority]
+        if tags_str:
+            fb_props["a6bxuk4rgxp7wn6bashiadwaiiy"] = tags_str
+
+        block = {
+            "id": card_id, "type": "card", "schema": 1,
+            "boardId": FOCALBOARD_BOARD_ID_ENV, "parentId": FOCALBOARD_BOARD_ID_ENV,
+            "title": task_title, "createAt": now_ms, "updateAt": now_ms, "deleteAt": 0,
+            "fields": {"isTemplate": False, "contentOrder": [], "properties": fb_props},
+        }
+
+        fb_id = card_id
+        async with _hx.AsyncClient(timeout=10) as client:
+            r = await client.post(
+                f"{FOCALBOARD_URL_ENV}/api/v2/boards/{FOCALBOARD_BOARD_ID_ENV}/blocks",
+                headers={"Authorization": f"Bearer {FOCALBOARD_TOKEN_ENV}",
+                         "Content-Type": "application/json",
+                         "X-Requested-With": "XMLHttpRequest"},
+                json=[block]
+            )
+            if r.status_code in (200, 201):
+                data = r.json()
+                fb_id = data[0]["id"] if isinstance(data, list) else card_id
+
+        # Crear reminder en BD
+        import re as _re_ph2
+        pending_reminder = Reminder(
+            user_id=user.id,
+            source_text=f"photo:{file_id[:16]}",
+            task_text=task_title,
+            remind_at=datetime.now(TZ).replace(year=2099),
+            status="pending",
+            notes=None,
+            tags=tags_str,
+            priority=_photo_priority,
+            focalboard_card_id=fb_id,
+            focalboard_synced_at=datetime.now(TZ),
+        )
+        db.add(pending_reminder)
+        db.commit()
+        db.refresh(pending_reminder)
+
+        # Subir imagen como adjunto
+        import mimetypes as _mt
+        mime = _mt.guess_type(img_name)[0] or "image/jpeg"
+        async with _hx.AsyncClient(timeout=30) as client:
+            att_r = await client.post(
+                f"{SELF_API_URL}/tasks/{pending_reminder.id}/attachments",
+                files={"file": (img_name, img_bytes, mime)}
+            )
+            att_ok = att_r.status_code == 200
+
+        # Responder al usuario
+        tags_display = f"\n🏷️ {tags_str}" if tags_str else ""
+        reply = (
+            f'📌 Guardado para revisar más tarde [{pending_reminder.id}]: "{task_title}"\n'
+            f'🖼️ Screenshot adjunto{"." if att_ok else " (no se pudo adjuntar)."}'
+            f'{tags_display}'
+        )
+        await send_message(chat_id, reply)
+
+        db.add(Message(
+            user_id=user.id, direction="outbound",
+            message_text=reply, message_type="photo_task"
+        ))
+        db.commit()
+
+        return {"status": "ok", "action": "photo_task_created",
+                "reminder_id": pending_reminder.id, "attachment_ok": att_ok}
+
+    except Exception as exc:
+        import traceback
+        print(f"[photo] error: {exc}")
+        traceback.print_exc()
+        try:
+            await send_message(chat_id, "❌ No pude guardar la imagen. Prueba de nuevo.")
+        except Exception:
+            pass
+        return {"status": "error", "reason": str(exc)}
+    finally:
+        db.close()
+
+
 @app.post("/telegram/webhook")
 async def telegram_webhook(request: Request):
     payload = await request.json()
@@ -1411,6 +1574,11 @@ async def telegram_webhook(request: Request):
 
     if not message:
         return {"status": "ignored", "reason": "unsupported_update_type"}
+
+    # ── Detectar mensaje con foto ─────────────────────────────────────────
+    photos = message.get("photo")
+    if photos:
+        return await _handle_photo_message(message)
 
     text_in = message.get("text")
     if not text_in:

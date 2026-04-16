@@ -452,12 +452,24 @@ async def sync_from_focalboard() -> int:
                 except Exception as exc:
                     print(f"[sync] fecha parse error for card {cid}: {exc}")
 
-            # ── 3. TEXTO — sincronizar notes si cambió en Focalboard ──────
+            # ── 3. TEXTO — sincronizar notes/tags si cambió en Focalboard ──
             fb_texto = props.get(TEXT_PROP_ID)
-            if fb_texto and fb_texto != getattr(reminder, "notes", None):
-                reminder.notes = fb_texto
-                changed = True
-                print(f"[sync] ✅ reminder {reminder.id} notes updated via Focalboard")
+            if fb_texto:
+                import re as _re_t
+                # Separar hashtags del texto libre
+                _fb_tags_list = _re_t.findall(r'#[a-zA-Z]\w*', fb_texto)
+                _fb_tags = " ".join(_fb_tags_list) if _fb_tags_list else None
+                _fb_notes = _re_t.sub(r'\s*#[a-zA-Z]\w*', '', fb_texto).strip().strip("|").strip() or None
+
+                if _fb_tags != getattr(reminder, "tags", None):
+                    reminder.tags = _fb_tags
+                    changed = True
+                    print(f"[sync] ✅ reminder {reminder.id} tags updated: {_fb_tags}")
+
+                if _fb_notes != getattr(reminder, "notes", None):
+                    reminder.notes = _fb_notes
+                    changed = True
+                    print(f"[sync] ✅ reminder {reminder.id} notes updated: {_fb_notes}")
 
             # ── 3b. URL — sincronizar url si cambió en Focalboard ────────────
             fb_url_val = props.get(URL_PROP_ID)

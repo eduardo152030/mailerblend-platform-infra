@@ -49,9 +49,10 @@ class Reminder(Base):
     ack_text: Mapped[str | None] = mapped_column(Text, nullable=True)
     error_message: Mapped[str | None] = mapped_column(Text, nullable=True)
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)  # contexto adicional del usuario
-    url: Mapped[str | None] = mapped_column(Text, nullable=True)  # URL asociada a la tarea
     priority: Mapped[str | None] = mapped_column(Text, nullable=True, default="P3")  # P0-P4
+    tags: Mapped[str | None] = mapped_column(Text, nullable=True)  # hashtags: #NT #personal #sage
     description: Mapped[str | None] = mapped_column(Text, nullable=True)  # descripción WYSIWYG HTML
+    url: Mapped[str | None] = mapped_column(Text, nullable=True)  # URL asociada a la tarea
     focalboard_card_id: Mapped[str | None] = mapped_column(Text, nullable=True, default=None)
     focalboard_synced_at: Mapped[str | None] = mapped_column(DateTime(timezone=True), nullable=True, default=None)
 

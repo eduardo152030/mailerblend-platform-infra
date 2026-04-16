@@ -42,6 +42,7 @@ services:
       FOCALBOARD_TEAM_ID: ${FOCALBOARD_TEAM_ID}
       FOCALBOARD_BOARD_ID: ${FOCALBOARD_BOARD_ID}
       PERSONA_DIR: /app/persona
+      SELF_API_URL: http://localhost:8000
       UPLOADS_DIR: /app/uploads
       CORS_ORIGINS: "*"
     depends_on:
