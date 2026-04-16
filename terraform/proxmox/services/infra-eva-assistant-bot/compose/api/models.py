@@ -83,3 +83,28 @@ class Message(Base):
     message_text: Mapped[str] = mapped_column(Text, nullable=False)
     message_type: Mapped[str] = mapped_column(Text, nullable=False, default="chat")
     created_at: Mapped[str] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+class EVAUser(Base):
+    __tablename__ = "eva_users"
+
+    id:            Mapped[int]      = mapped_column(primary_key=True)
+    username:      Mapped[str]      = mapped_column(Text, unique=True, nullable=False)
+    password_hash: Mapped[str]      = mapped_column(Text, nullable=False)
+    display_name:  Mapped[str|None] = mapped_column(Text, nullable=True)
+    is_active:     Mapped[bool]     = mapped_column(Boolean, nullable=False, default=True)
+    created_at:    Mapped[str]      = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+    permissions = relationship("UserPermission", back_populates="user", cascade="all, delete-orphan")
+
+
+class UserPermission(Base):
+    __tablename__ = "user_permissions"
+
+    id:         Mapped[int]  = mapped_column(primary_key=True)
+    user_id:    Mapped[int]  = mapped_column(ForeignKey("eva_users.id", ondelete="CASCADE"), nullable=False)
+    area:       Mapped[str]  = mapped_column(Text, nullable=False)
+    can_read:   Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    can_write:  Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    can_delete: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+
+    user = relationship("EVAUser", back_populates="permissions")

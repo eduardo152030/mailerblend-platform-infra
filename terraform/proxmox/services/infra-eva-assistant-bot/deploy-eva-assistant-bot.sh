@@ -186,6 +186,18 @@ echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "  ✅ Despliegue completado"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+# ── 6. Regenerar hash de usuario admin ────────────────────────────────────
+echo ""
+echo "🔐 6/6 Actualizando credenciales admin..."
+NEW_PASSWORD=$(grep "^EVA_ADMIN_PASSWORD=" "${LOCAL_COMPOSE_DIR}/.env" | cut -d'=' -f2 | tr -d '"')
+if [ -z "$NEW_PASSWORD" ]; then
+  echo "   ⚠️  EVA_ADMIN_PASSWORD no encontrado en .env — saltando"
+else
+  GENERATED_HASH=$(ssh ${SSH_OPTS} root@${EVA_HOST} "docker exec eva-api python3 -c \"from passlib.context import CryptContext; print(CryptContext(schemes=['sha256_crypt']).hash('${NEW_PASSWORD}'))\"")
+  ssh ${SSH_OPTS} root@${EVA_HOST} "docker exec -i eva-postgres psql -U eva -d eva -c \"UPDATE eva_users SET password_hash = '${GENERATED_HASH}' WHERE username = 'eduardovl5';\"" 2>/dev/null || true
+  echo "   ✅ Hash actualizado para eduardovl5"
+fi
 echo ""
 echo "🌐 EVA API:       http://192.168.1.122:8001"
 echo "📋 Focalboard:    https://infra-focalboard.mailerblend.com"

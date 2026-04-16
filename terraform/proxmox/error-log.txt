@@ -1,0 +1,50 @@
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/re/__init__.py", line 294, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/re/_compiler.py", line 745, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/re/_parser.py", line 989, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/re/_parser.py", line 464, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/re/_parser.py", line 874, in _parse
+    raise source.error("missing ), unterminated subpattern",
+re.error: missing ), unterminated subpattern at position 0
+INFO:     192.168.1.71:52050 - "POST /telegram/webhook HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:35478 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43788 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56778 - "GET /health HTTP/1.1" 200 OK
+=== TELEGRAM WEBHOOK ERROR ===
+PAYLOAD: {'update_id': 825476116, 'message': {'message_id': 852, 'from': {'id': 338463916, 'is_bot': False, 'first_name': 'Blazer1x', 'username': 'Blazer1x', 'language_code': 'es'}, 'chat': {'id': 338463916, 'first_name': 'Blazer1x', 'username': 'Blazer1x', 'type': 'private'}, 'date': 1776320033, 'text': 'https://momo.mometic.com/   #contenido #NT', 'entities': [{'offset': 0, 'length': 25, 'type': 'url'}, {'offset': 28, 'length': 10, 'type': 'hashtag'}, {'offset': 39, 'length': 3, 'type': 'hashtag'}], 'link_preview_options': {'url': 'https://momo.mometic.com/'}}}
+ERROR: error('missing ), unterminated subpattern at position 0')
+Traceback (most recent call last):
+  File "/app/main.py", line 1807, in telegram_webhook
+    return await handle_content_idea(db, user, chat_id, _content_title,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/main.py", line 1117, in handle_content_idea
+    _location_match = _re_loc.search(r'(?:~|\/home\/|[A-Za-z]:\)[^\s,;]+', task_text)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/re/__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/re/__init__.py", line 294, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/re/_compiler.py", line 745, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/re/_parser.py", line 989, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/re/_parser.py", line 464, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/re/_parser.py", line 874, in _parse
+    raise source.error("missing ), unterminated subpattern",
+re.error: missing ), unterminated subpattern at position 0
+INFO:     192.168.1.71:51256 - "POST /telegram/webhook HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:46150 - "GET /health HTTP/1.1" 200 OK

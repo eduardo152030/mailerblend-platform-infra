@@ -36,6 +36,18 @@ APP_NAME = os.getenv("APP_NAME", "eva-assistant-bot")
 DEFAULT_TIMEZONE = os.getenv("TIMEZONE", "Europe/Madrid")
 TZ = ZoneInfo(DEFAULT_TIMEZONE)
 
+# ── Board de Contenido (independiente del board de tareas) ────────────────
+CONTENT_BOARD_ID     = os.getenv("FOCALBOARD_CONTENT_BOARD_ID", "bbhzrrkbxubgm8brd7bmoinekbr")
+CONTENT_STATUS_PROP  = "content_status_001"
+CONTENT_FORMATO_PROP = "content_formato_001"
+CONTENT_PROYECTO_PROP = "content_proyecto_001"
+CONTENT_FECHAPUB_PROP = "content_fechapub_001"
+CONTENT_LINK_PROP    = "content_link_001"
+CONTENT_LOCATION_PROP = "content_location_001"
+CONTENT_STATUS_IDEA  = "copt_idea"
+CONTENT_PROYECTO_MAP = {"#mailerblend": "copt_mailerblend", "#nt": "copt_nt", "#personal": "copt_personal"}
+CONTENT_FORMATO_MAP  = {"youtube": "copt_youtube", "short": "copt_shortreel", "reel": "copt_shortreel", "linkedin": "copt_linkedin"}
+
 app = FastAPI(title=APP_NAME)
 
 app.add_middleware(
@@ -45,6 +57,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# ── Auth & Admin routers ──────────────────────────────────────────────────
+try:
+    from auth import router as auth_router
+    from users import router as admin_router
+    app.include_router(auth_router)
+    app.include_router(admin_router)
+    print("[startup] ✅ auth + admin routers registered")
+except ImportError as _e:
+    print(f"[startup] ⚠️  auth modules not loaded: {_e}")
 
 
 def to_local(dt: datetime | None) -> datetime | None:
@@ -1071,6 +1093,120 @@ async def handle_bulk_cleanup(db, user: User, chat_id: int, statuses: list[str])
     return {"status": "ok", "action": "bulk_cleanup_done", "count": count}
 
 
+async def handle_content_idea(db, user: User, chat_id: int, task_text: str,
+                              tags: str | None = None, notes: str | None = None,
+                              url: str | None = None) -> dict:
+    """
+    Crea una idea de contenido en el board de Contenido de Focalboard.
+    Se activa cuando el mensaje contiene #contenido.
+    """
+    import httpx as _hx, time as _t, uuid as _u
+
+    FURL  = os.getenv("FOCALBOARD_URL", "")
+    FTOK  = os.getenv("FOCALBOARD_TOKEN", "")
+    SAPI  = os.getenv("SELF_API_URL", "http://localhost:8000")
+
+    # Detectar proyecto desde tags
+    _proyecto_opt = None
+    if tags:
+        for tag_key, tag_val in CONTENT_PROYECTO_MAP.items():
+            if tag_key in tags.lower():
+                _proyecto_opt = tag_val
+                break
+
+    # Detectar formato desde tags o texto
+    _formato_opt = None
+    _lower_task = task_text.lower()
+    for fmt_key, fmt_val in CONTENT_FORMATO_MAP.items():
+        if fmt_key in _lower_task or (tags and fmt_key in tags.lower()):
+            _formato_opt = fmt_val
+            break
+
+    # Detectar ruta local en el texto (~/..., /home/..., C:\, D:\)
+    import re as _re_loc
+    _location_match = _re_loc.search(r'(?:^|\s)(?:~(?=/)|/home/|[A-Za-z]:[/\\])[^\s,;]+', task_text)
+    _location = _location_match.group(0) if _location_match else None
+    if _location:
+        task_text = task_text.replace(_location, "").strip()
+
+    card_id = _u.uuid4().hex[:26]
+    now_ms  = int(_t.time() * 1000)
+
+    fb_props = {CONTENT_STATUS_PROP: CONTENT_STATUS_IDEA}
+    if _proyecto_opt:
+        fb_props[CONTENT_PROYECTO_PROP] = _proyecto_opt
+    if _formato_opt:
+        fb_props[CONTENT_FORMATO_PROP] = _formato_opt
+    if url:
+        fb_props[CONTENT_LINK_PROP] = url
+    if notes or tags:
+        _texto = " | ".join(filter(None, [notes, tags]))
+        fb_props["a6bxuk4rgxp7wn6bashiadwaiiy"] = _texto
+    if _location:
+        fb_props[CONTENT_LOCATION_PROP] = _location
+
+    block = {
+        "id": card_id, "type": "card", "schema": 1,
+        "boardId": CONTENT_BOARD_ID, "parentId": CONTENT_BOARD_ID,
+        "title": task_text, "createAt": now_ms, "updateAt": now_ms, "deleteAt": 0,
+        "fields": {"isTemplate": False, "contentOrder": [], "properties": fb_props},
+    }
+
+    fb_id = card_id
+    try:
+        async with _hx.AsyncClient(timeout=10) as client:
+            r = await client.post(
+                f"{FURL}/api/v2/boards/{CONTENT_BOARD_ID}/blocks",
+                headers={"Authorization": f"Bearer {FTOK}",
+                         "Content-Type": "application/json",
+                         "X-Requested-With": "XMLHttpRequest"},
+                json=[block]
+            )
+            if r.status_code in (200, 201):
+                data = r.json()
+                fb_id = data[0]["id"] if isinstance(data, list) else card_id
+    except Exception as exc:
+        print(f"[content] Focalboard error: {exc}")
+
+    # Guardar en reminders con tag #contenido
+    _all_tags = " ".join(filter(None, [tags, "#contenido"])) if tags else "#contenido"
+    reminder = Reminder(
+        user_id=user.id,
+        source_text=task_text,
+        task_text=task_text,
+        remind_at=datetime.now(TZ).replace(year=2099),
+        status="pending",
+        notes=notes,
+        tags=_all_tags,
+        url=url,
+        priority="P3",
+        focalboard_card_id=fb_id,
+        focalboard_synced_at=datetime.now(TZ),
+    )
+    db.add(reminder)
+    db.add(Event(user_id=user.id, event_type="content_idea_created",
+                 event_value=fb_id, source="telegram",
+                 payload={"task_text": task_text, "tags": _all_tags}))
+    db.commit()
+    db.refresh(reminder)
+
+    # Respuesta al usuario
+    _proyecto_display = ""
+    if tags:
+        for p in ["#mailerblend", "#NT", "#personal"]:
+            if p.lower() in tags.lower():
+                _proyecto_display = f" · {p}"
+                break
+
+    tags_clean = " ".join(t for t in (tags or "").split() if t != "#contenido") if tags else ""
+    tags_display = f"\n🏷️ {tags_clean}" if tags_clean else ""
+    reply = (f'💡 Idea de contenido guardada [{reminder.id}]: "{task_text}"{_proyecto_display}\n'
+             f'📋 Estado: Idea → /contenido{tags_display}')
+
+    await send_and_log(db, user.id, chat_id, reply, "content_idea_created")
+    return {"status": "ok", "action": "content_idea_created", "reminder_id": reminder.id}
+
+
 async def handle_pending_task(db, user: User, chat_id: int, task_text: str,
                               url: str | None = None, notes: str | None = None):
     """
@@ -1171,6 +1307,7 @@ async def handle_pending_task(db, user: User, chat_id: int, task_text: str,
                         remind_at=datetime.now(TZ).replace(year=2099),
                         status="pending",
                         notes=notes,
+                        tags=tags,
                         url=url if url else None,
                         priority=_task_priority,
                         focalboard_card_id=fb_id,
@@ -1431,6 +1568,9 @@ async def _handle_photo_message(message: dict) -> dict:
     # Título de la tarea
     task_title = caption_clean if caption_clean else "Revisar screenshot"
 
+    # Si contiene #contenido → enrutar al board de Contenido
+    _is_content = tags_str and "#contenido" in tags_str.lower()
+
     TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
     FOCALBOARD_URL_ENV = os.getenv("FOCALBOARD_URL", "")
     FOCALBOARD_TOKEN_ENV = os.getenv("FOCALBOARD_TOKEN", "")
@@ -1473,7 +1613,8 @@ async def _handle_photo_message(message: dict) -> dict:
         except Exception:
             _photo_priority = "P3"
 
-        # Crear tarjeta en Focalboard
+        # Crear tarjeta en Focalboard (board de contenido o tareas según tag)
+        _photo_board = CONTENT_BOARD_ID if _is_content else FOCALBOARD_BOARD_ID_ENV
         import time as _time
         import uuid as _uuid
         from sync_service import STATUS_OPTIONS, PRIORITY_OPTIONS, STATUS_PROP_ID, PRIORITY_PROP_ID
@@ -1490,7 +1631,7 @@ async def _handle_photo_message(message: dict) -> dict:
 
         block = {
             "id": card_id, "type": "card", "schema": 1,
-            "boardId": FOCALBOARD_BOARD_ID_ENV, "parentId": FOCALBOARD_BOARD_ID_ENV,
+            "boardId": _photo_board, "parentId": _photo_board,
             "title": task_title, "createAt": now_ms, "updateAt": now_ms, "deleteAt": 0,
             "fields": {"isTemplate": False, "contentOrder": [], "properties": fb_props},
         }
@@ -1498,7 +1639,7 @@ async def _handle_photo_message(message: dict) -> dict:
         fb_id = card_id
         async with _hx.AsyncClient(timeout=10) as client:
             r = await client.post(
-                f"{FOCALBOARD_URL_ENV}/api/v2/boards/{FOCALBOARD_BOARD_ID_ENV}/blocks",
+                f"{FOCALBOARD_URL_ENV}/api/v2/boards/{_photo_board}/blocks",
                 headers={"Authorization": f"Bearer {FOCALBOARD_TOKEN_ENV}",
                          "Content-Type": "application/json",
                          "X-Requested-With": "XMLHttpRequest"},
@@ -1510,6 +1651,13 @@ async def _handle_photo_message(message: dict) -> dict:
 
         # Crear reminder en BD
         import re as _re_ph2
+        # Para #contenido asegurar que el tag está incluido
+        _final_tags = tags_str
+        if _is_content and _final_tags and "#contenido" not in _final_tags.lower():
+            _final_tags = f"{_final_tags} #contenido".strip()
+        elif _is_content and not _final_tags:
+            _final_tags = "#contenido"
+
         pending_reminder = Reminder(
             user_id=user.id,
             source_text=f"photo:{file_id[:16]}",
@@ -1517,7 +1665,7 @@ async def _handle_photo_message(message: dict) -> dict:
             remind_at=datetime.now(TZ).replace(year=2099),
             status="pending",
             notes=None,
-            tags=tags_str,
+            tags=_final_tags,
             priority=_photo_priority,
             focalboard_card_id=fb_id,
             focalboard_synced_at=datetime.now(TZ),
@@ -1526,7 +1674,8 @@ async def _handle_photo_message(message: dict) -> dict:
         db.commit()
         db.refresh(pending_reminder)
 
-        # Subir imagen como adjunto
+        # Subir imagen como adjunto — reminder ya tiene focalboard_card_id
+        # by-card funciona directamente con este reminder
         import mimetypes as _mt
         mime = _mt.guess_type(img_name)[0] or "image/jpeg"
         async with _hx.AsyncClient(timeout=30) as client:
@@ -1535,14 +1684,29 @@ async def _handle_photo_message(message: dict) -> dict:
                 files={"file": (img_name, img_bytes, mime)}
             )
             att_ok = att_r.status_code == 200
+            if not att_ok:
+                print(f"[photo] attachment failed: {att_r.status_code} {att_r.text[:200]}")
 
-        # Responder al usuario
-        tags_display = f"\n🏷️ {tags_str}" if tags_str else ""
-        reply = (
-            f'📌 Guardado para revisar más tarde [{pending_reminder.id}]: "{task_title}"\n'
-            f'🖼️ Screenshot adjunto{"." if att_ok else " (no se pudo adjuntar)."}'
-            f'{tags_display}'
-        )
+        # Responder al usuario — mensaje diferente según el destino
+        _tags_display = ""
+        if _final_tags:
+            _tags_clean = " ".join(t for t in _final_tags.split() if t.lower() != "#contenido")
+            if _tags_clean:
+                _tags_display = f"\n🏷️ {_tags_clean}"
+
+        if _is_content:
+            reply = (
+                f'💡 Idea de contenido guardada [{pending_reminder.id}]: "{task_title}"\n'
+                f'🖼️ Screenshot adjunto{"." if att_ok else " (no se pudo adjuntar)."}\n'
+                f'📋 Estado: Idea → /contenido'
+                f'{_tags_display}'
+            )
+        else:
+            reply = (
+                f'📌 Guardado para revisar más tarde [{pending_reminder.id}]: "{task_title}"\n'
+                f'🖼️ Screenshot adjunto{"." if att_ok else " (no se pudo adjuntar)."}'
+                f'{_tags_display}'
+            )
         await send_message(chat_id, reply)
 
         db.add(Message(
@@ -1634,6 +1798,43 @@ async def telegram_webhook(request: Request):
         _text_no_url = text_in.replace(_extracted_url, "").strip() if _extracted_url else text_in
         # Si hay texto adicional junto a la URL → guardar como nota
         _url_context = _text_no_url.strip() if _extracted_url and len(_text_no_url.strip()) >= 3 else None
+
+        # ── Extraer hashtags del mensaje ──────────────────────────────────
+        _tags_list = re.findall(r'#([a-zA-Z]\w*)', text_in)
+        _tags_str = " ".join(f"#{t}" for t in _tags_list) if _tags_list else None
+
+        # ── Si contiene #contenido → board de Contenido ───────────────────
+        if _tags_str and "#contenido" in _tags_str.lower():
+            _content_title = re.sub(r'\s*#[a-zA-Z]\w*', '', text_in).strip()
+            if not _content_title and _extracted_url:
+                import urllib.parse as _cup
+                _content_title = f"Revisar {_cup.urlparse(_extracted_url).netloc.replace('www.', '')}"
+            if not _content_title:
+                _content_title = "Idea de contenido"
+            _content_tags = " ".join(f"#{t}" for t in _tags_list if t.lower() != "contenido") or None
+            return await handle_content_idea(db, user, chat_id, _content_title,
+                                             tags=_content_tags, url=_extracted_url,
+                                             notes=None)
+
+        # ── Extraer hashtags del mensaje ─────────────────────────────────────
+        import re as _re_tags
+        _tags_list = _re_tags.findall(r'#([a-zA-Z]\w*)', text_in)
+        _tags_str = " ".join(f"#{t}" for t in _tags_list) if _tags_list else None
+        # Texto limpio sin hashtags para el procesamiento
+        _text_no_tags = _re_tags.sub(r'\s*#[a-zA-Z]\w*', '', text_in).strip() if _tags_list else text_in
+
+        # ── Si contiene #contenido → board de Contenido ──────────────────────
+        if _tags_str and "#contenido" in _tags_str.lower():
+            _content_title = _re_tags.sub(r'\s*#[a-zA-Z]\w*', '', text_in).strip()
+            if not _content_title and _extracted_url:
+                import urllib.parse as _cup
+                _content_title = f"Revisar {_cup.urlparse(_extracted_url).netloc.replace('www.', '')}"
+            if not _content_title:
+                _content_title = "Idea de contenido"
+            _content_tags = " ".join(f"#{t}" for t in _tags_list if t.lower() != "contenido") or None
+            return await handle_content_idea(db, user, chat_id, _content_title,
+                                             tags=_content_tags, url=_extracted_url,
+                                             notes=None)
 
         # ── Mensaje que ES solo una URL → tarea sin fecha con URL ────────────
         if _extracted_url and len(_text_no_url.strip()) < 5:
@@ -2512,14 +2713,21 @@ async def link_card_to_task(request: Request):
         if not user:
             return JSONResponse(status_code=500, content={"error": "no_user_found"})
 
+        # Extraer hashtags del task_text antes de guardar
+        import re as _re_lc
+        _lc_tags_list = _re_lc.findall(r'#[a-zA-Z]\w*', task_text)
+        _lc_tags = " ".join(_lc_tags_list) if _lc_tags_list else None
+        _lc_task_clean = _re_lc.sub(r'\s*#[a-zA-Z]\w*', '', task_text).strip()
+
         # Crear reminder vinculado
         reminder = Reminder(
             user_id=user.id,
             source_text=f"created_from_ui:{card_id}",
-            task_text=task_text,
+            task_text=_lc_task_clean,
             remind_at=datetime.now(TZ).replace(year=2099),
             status=status,
             priority=priority,
+            tags=_lc_tags,
             focalboard_card_id=card_id,
             focalboard_synced_at=datetime.now(TZ),
         )
@@ -2592,6 +2800,38 @@ async def get_task(task_id: int):
         db.close()
 
 
+@app.patch("/tasks/{task_id}")
+async def update_task(task_id: int, request: Request):
+    """Actualiza task_text (extrae hashtags→tags), notes, status, priority."""
+    db = SessionLocal()
+    try:
+        body = await request.json()
+        reminder = db.execute(
+            select(Reminder).where(Reminder.id == task_id)
+        ).scalar_one_or_none()
+        if not reminder:
+            return JSONResponse(status_code=404, content={"error": "task_not_found"})
+        if "task_text" in body:
+            raw = body["task_text"].strip()
+            tags_found = re.findall(r'#[a-zA-Z]\w*', raw)
+            reminder.tags = " ".join(tags_found) if tags_found else None
+            reminder.task_text = re.sub(r'\s*#[a-zA-Z]\w*', '', raw).strip()
+        if "notes" in body:
+            reminder.notes = body["notes"] or None
+        if "tags" in body:
+            reminder.tags = body["tags"] or None
+        if "status" in body:
+            reminder.status = body["status"]
+        if "priority" in body:
+            reminder.priority = body["priority"]
+        db.commit()
+        return {"id": reminder.id, "task_text": reminder.task_text,
+                "tags": reminder.tags, "notes": reminder.notes,
+                "status": reminder.status, "priority": reminder.priority}
+    finally:
+        db.close()
+
+
 @app.patch("/tasks/{task_id}/description")
 async def update_task_description(task_id: int, request: Request):
     """Actualiza la descripción WYSIWYG (HTML) de una tarea."""
@@ -2612,6 +2852,107 @@ async def update_task_description(task_id: int, request: Request):
         )
         db.commit()
         return {"status": "ok", "task_id": task_id}
+    finally:
+        db.close()
+
+
+@app.delete("/tasks/by-card/{card_id}")
+async def delete_task_by_card(card_id: str):
+    """
+    Elimina el reminder de EVA cuando se borra una tarjeta de Focalboard desde la UI.
+    La UI ya borra la tarjeta en Focalboard — este endpoint limpia la BD de EVA.
+    """
+    db = SessionLocal()
+    try:
+        reminder = db.execute(
+            select(Reminder).where(Reminder.focalboard_card_id == card_id)
+        ).scalar_one_or_none()
+        if not reminder:
+            return JSONResponse(status_code=404, content={"error": "not_found"})
+        rid = reminder.id
+        task = reminder.task_text
+        db.delete(reminder)
+        db.commit()
+        print(f"[delete] reminder {rid} '{task}' deleted (card {card_id})")
+        return {"deleted": True, "id": rid, "task_text": task}
+    finally:
+        db.close()
+
+
+@app.post("/tasks/duplicate/{card_id}")
+async def duplicate_task_by_card(card_id: str, request: Request):
+    """
+    Crea un nuevo reminder en EVA para una tarjeta duplicada desde la UI.
+    La UI ya creó la copia en Focalboard — este endpoint crea el reminder en EVA.
+    body: { "new_card_id": "...", "title": "Mi tarea (copia)" }
+    """
+    db = SessionLocal()
+    try:
+        body = await request.json()
+        new_card_id = body.get("new_card_id")
+        new_title   = body.get("title", "")
+
+        if not new_card_id:
+            return JSONResponse(status_code=400, content={"error": "new_card_id required"})
+
+        # Copiar datos del reminder original
+        original = db.execute(
+            select(Reminder).where(Reminder.focalboard_card_id == card_id)
+        ).scalar_one_or_none()
+
+        user = db.execute(select(User).limit(1)).scalars().first()
+        if not user:
+            return JSONResponse(status_code=500, content={"error": "no_user"})
+
+        new_reminder = Reminder(
+            user_id=original.user_id if original else user.id,
+            source_text=f"duplicated_from:{card_id}",
+            task_text=new_title or (f"{original.task_text} (copia)" if original else "Copia"),
+            remind_at=datetime.now(TZ).replace(year=2099),
+            status="pending",
+            notes=original.notes if original else None,
+            tags=original.tags if original else None,
+            url=original.url if original else None,
+            priority=original.priority if original else "P3",
+            focalboard_card_id=new_card_id,
+            focalboard_synced_at=datetime.now(TZ),
+        )
+        db.add(new_reminder)
+        db.commit()
+        db.refresh(new_reminder)
+
+        # Copiar adjuntos del reminder original
+        attachments_copied = 0
+        if original:
+            orig_attachments = db.execute(
+                text("SELECT filename, original_name, mime_type, size_bytes FROM task_attachments WHERE reminder_id = :rid"),
+                {"rid": original.id}
+            ).fetchall()
+            for att in orig_attachments:
+                try:
+                    # Copiar el archivo físico con nuevo nombre
+                    import shutil as _sh
+                    UPLOADS_DIR = os.getenv("UPLOADS_DIR", "/app/uploads")
+                    old_path = os.path.join(UPLOADS_DIR, att[0])
+                    new_filename = f"{new_reminder.id}_{att[0].split('_', 1)[-1]}"
+                    new_path = os.path.join(UPLOADS_DIR, new_filename)
+                    if os.path.exists(old_path):
+                        _sh.copy2(old_path, new_path)
+                        db.execute(
+                            text("""INSERT INTO task_attachments
+                                    (reminder_id, filename, original_name, mime_type, size_bytes)
+                                    VALUES (:rid, :fn, :on, :mt, :sb)"""),
+                            {"rid": new_reminder.id, "fn": new_filename,
+                             "on": att[1], "mt": att[2], "sb": att[3]}
+                        )
+                        attachments_copied += 1
+                except Exception as _att_exc:
+                    print(f"[duplicate] attachment copy error: {_att_exc}")
+            db.commit()
+
+        return {"id": new_reminder.id, "focalboard_card_id": new_card_id,
+                "task_text": new_reminder.task_text, "created": True,
+                "attachments_copied": attachments_copied}
     finally:
         db.close()
 
