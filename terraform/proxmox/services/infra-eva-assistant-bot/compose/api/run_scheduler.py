@@ -248,6 +248,25 @@ async def process_daily_digest() -> None:
 
 
 _content_reminders_sent_today: str = ""
+_publishing_reminders_sent_today: str = ""
+
+
+async def process_publishing_reminders() -> None:
+    """Revisa canales de publicación a las 09:00."""
+    global _publishing_reminders_sent_today
+    now = datetime.now(TZ)
+    if now.hour != 9 or now.minute != 0:
+        return
+    reminder_key = f"{now.date()}_publishing"
+    if _publishing_reminders_sent_today == reminder_key:
+        return
+    try:
+        sent = await check_publishing_reminders(_send_telegram)
+        _publishing_reminders_sent_today = reminder_key
+        if sent:
+            print(f"[scheduler] publishing reminders sent: {sent}")
+    except Exception as exc:
+        print(f"[scheduler] ERROR publishing reminders: {exc}")
 
 
 async def process_content_reminders() -> None:

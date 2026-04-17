@@ -62,11 +62,13 @@ app.add_middleware(
 try:
     from auth import router as auth_router
     from users import router as admin_router
+    from publishing_channels import publishing_router
     app.include_router(auth_router)
     app.include_router(admin_router)
-    print("[startup] ✅ auth + admin routers registered")
+    app.include_router(publishing_router)
+    print("[startup] ✅ auth + admin + publishing routers registered")
 except ImportError as _e:
-    print(f"[startup] ⚠️  auth modules not loaded: {_e}")
+    print(f"[startup] ⚠️  modules not loaded: {_e}")
 
 
 def to_local(dt: datetime | None) -> datetime | None:
