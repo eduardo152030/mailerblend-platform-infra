@@ -31,6 +31,7 @@ from scheduler import (
     build_expired_text,
     is_digest_time,
     send_daily_digest_to_all,
+    check_content_publication_reminders,
     DAILY_DIGEST_HOUR,
     DAILY_DIGEST_MINUTE,
 )
@@ -246,6 +247,30 @@ async def process_daily_digest() -> None:
         db.close()
 
 
+_content_reminders_sent_today: str = ""
+
+
+async def process_content_reminders() -> None:
+    global _content_reminders_sent_today
+    now = datetime.now(TZ)
+    # Enviar a las 20:00 del día anterior
+    if now.hour != 20 or now.minute != 0:
+        return
+    reminder_key = f"{now.date()}_content"
+    if _content_reminders_sent_today == reminder_key:
+        return
+    db = SessionLocal()
+    try:
+        sent = await check_content_publication_reminders(db, _send_telegram)
+        _content_reminders_sent_today = reminder_key
+        if sent:
+            print(f"[scheduler] content publication reminders sent: {sent}")
+    except Exception as exc:
+        print(f"[scheduler] ERROR content reminders: {exc}")
+    finally:
+        db.close()
+
+
 async def main_loop() -> None:
     print(f"[scheduler] Starting EVA scheduler (poll every {POLL_INTERVAL}s, digest at {DAILY_DIGEST_HOUR:02d}:{DAILY_DIGEST_MINUTE:02d} {TZ})")
 
@@ -253,6 +278,7 @@ async def main_loop() -> None:
         try:
             await process_reminders()
             await process_daily_digest()
+            await process_content_reminders()
         except Exception as exc:
             print(f"[scheduler] Unhandled error in main loop: {exc}")
             traceback.print_exc()

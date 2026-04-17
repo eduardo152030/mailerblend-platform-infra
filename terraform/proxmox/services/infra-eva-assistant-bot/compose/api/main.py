@@ -1115,12 +1115,12 @@ async def handle_content_idea(db, user: User, chat_id: int, task_text: str,
                 break
 
     # Detectar formato desde tags o texto
-    _formato_opt = None
+    _formato_opts = []
     _lower_task = task_text.lower()
     for fmt_key, fmt_val in CONTENT_FORMATO_MAP.items():
         if fmt_key in _lower_task or (tags and fmt_key in tags.lower()):
-            _formato_opt = fmt_val
-            break
+            if fmt_val not in _formato_opts:
+                _formato_opts.append(fmt_val)
 
     # Detectar ruta local en el texto (~/..., /home/..., C:\, D:\)
     import re as _re_loc
@@ -1135,8 +1135,8 @@ async def handle_content_idea(db, user: User, chat_id: int, task_text: str,
     fb_props = {CONTENT_STATUS_PROP: CONTENT_STATUS_IDEA}
     if _proyecto_opt:
         fb_props[CONTENT_PROYECTO_PROP] = _proyecto_opt
-    if _formato_opt:
-        fb_props[CONTENT_FORMATO_PROP] = _formato_opt
+    if _formato_opts:
+        fb_props[CONTENT_FORMATO_PROP] = _formato_opts  # array para multiSelect
     if url:
         fb_props[CONTENT_LINK_PROP] = url
     if notes or tags:
@@ -1816,6 +1816,23 @@ async def telegram_webhook(request: Request):
                                              tags=_content_tags, url=_extracted_url,
                                              notes=None)
 
+        # ── Extraer hashtags del mensaje ──────────────────────────────────
+        _tags_list = re.findall(r'#([a-zA-Z]\w*)', text_in)
+        _tags_str = " ".join(f"#{t}" for t in _tags_list) if _tags_list else None
+
+        # ── Si contiene #contenido → board de Contenido ───────────────────
+        if _tags_str and "#contenido" in _tags_str.lower():
+            _content_title = re.sub(r'\s*#[a-zA-Z]\w*', '', text_in).strip()
+            if not _content_title and _extracted_url:
+                import urllib.parse as _cup
+                _content_title = f"Revisar {_cup.urlparse(_extracted_url).netloc.replace('www.', '')}"
+            if not _content_title:
+                _content_title = "Idea de contenido"
+            _content_tags = " ".join(f"#{t}" for t in _tags_list if t.lower() != "contenido") or None
+            return await handle_content_idea(db, user, chat_id, _content_title,
+                                             tags=_content_tags, url=_extracted_url,
+                                             notes=None)
+
         # ── Extraer hashtags del mensaje ─────────────────────────────────────
         import re as _re_tags
         _tags_list = _re_tags.findall(r'#([a-zA-Z]\w*)', text_in)
@@ -2230,7 +2247,9 @@ async def telegram_webhook(request: Request):
                 return {"status": "ok", "action": "reminder_edited_pronoun", "reminder_id": last_r.id}
 
         # ── Detección unificada con LLM ──────────────────────────────────────
-        intent_result = await detect_intent(text_in, memory_context=system_prompt)
+        _conv_history = _get_recent_context(db, user.id, limit=10)
+        intent_result = await detect_intent(text_in, memory_context=system_prompt,
+                                            conversation_history=_conv_history)
         intent = intent_result.get("intent", "unknown")
         confidence = intent_result.get("confidence", 0.0)
 

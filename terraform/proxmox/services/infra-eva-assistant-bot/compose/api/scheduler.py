@@ -134,6 +134,86 @@ def build_daily_digest(db, user, now: datetime | None = None) -> str | None:
     return "".join(lines)
 
 
+async def check_content_publication_reminders(db, send_fn) -> int:
+    """
+    Revisa tarjetas de contenido con fecha de publicación en las próximas 24h.
+    Si status != Publicado → avisa por Telegram.
+    """
+    import httpx as _hx, json as _json, os as _os
+    from datetime import timedelta
+
+    FOCALBOARD_URL   = _os.getenv("FOCALBOARD_URL", "")
+    FOCALBOARD_TOKEN = _os.getenv("FOCALBOARD_TOKEN", "")
+    CONTENT_BOARD_ID = _os.getenv("FOCALBOARD_CONTENT_BOARD_ID", "bbhzrrkbxubgm8brd7bmoinekbr")
+
+    if not FOCALBOARD_TOKEN:
+        return 0
+
+    now = datetime.now(TZ)
+    tomorrow_start = now.replace(hour=0, minute=0, second=0) + timedelta(days=1)
+    tomorrow_end   = tomorrow_start + timedelta(days=1)
+
+    sent = 0
+    try:
+        async with _hx.AsyncClient(timeout=10) as client:
+            r = await client.get(
+                f"{FOCALBOARD_URL}/api/v2/boards/{CONTENT_BOARD_ID}/blocks?type=card",
+                headers={"Authorization": f"Bearer {FOCALBOARD_TOKEN}",
+                         "X-Requested-With": "XMLHttpRequest"}
+            )
+            if r.status_code != 200:
+                return 0
+            cards = r.json()
+
+        for card in cards:
+            props = card.get("fields", {}).get("properties", {})
+            status = props.get("content_status_001", "")
+            if status == "copt_publicado":
+                continue
+
+            fecha_raw = props.get("content_fechapub_001")
+            if not fecha_raw:
+                continue
+            try:
+                if isinstance(fecha_raw, str):
+                    fecha_obj = _json.loads(fecha_raw)
+                else:
+                    fecha_obj = fecha_raw
+                pub_ts_ms = fecha_obj.get("from", 0)
+                if not pub_ts_ms:
+                    continue
+                pub_dt = datetime.fromtimestamp(pub_ts_ms / 1000, tz=TZ)
+                if not (tomorrow_start <= pub_dt <= tomorrow_end):
+                    continue
+            except Exception:
+                continue
+
+            title = card.get("title", "Sin título")
+            formato_id = props.get("content_formato_001", "")
+            formato_map = {
+                "copt_youtube": "YouTube",
+                "copt_shortreel": "Short/Reel",
+                "copt_linkedin": "LinkedIn"
+            }
+            formato = formato_map.get(formato_id, "")
+            formato_str = f" en {formato}" if formato else ""
+
+            users = db.execute(select(User)).scalars().all()
+            for user in users:
+                if not user.telegram_chat_id:
+                    continue
+                msg = f"📅 Mañana tienes que publicar{formato_str}:\n\"{title}\"\n\nRecuerda tenerlo listo antes de las 09:00."
+                try:
+                    await send_fn(user.telegram_chat_id, msg)
+                    sent += 1
+                except Exception as exc:
+                    print(f"[content_reminder] error: {exc}")
+    except Exception as exc:
+        print(f"[content_reminder] error: {exc}")
+
+    return sent
+
+
 async def send_daily_digest_to_all(db, send_fn) -> int:
     """
     Envía el resumen diario a todos los usuarios activos.

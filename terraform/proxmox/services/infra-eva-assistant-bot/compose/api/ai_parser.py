@@ -59,13 +59,22 @@ Clasifica el mensaje en UNA intención:
 
 Responde SOLO con JSON sin markdown: {"intent":"string","confidence":0.0-1.0,"hint":"razón breve","date_hint":"fecha mencionada en ISO si aplica o null"}"""
 
-async def detect_intent(text, memory_context=""):
+async def detect_intent(text, memory_context="", conversation_history=None):
     system = INTENT_SYSTEM
     if memory_context:
         system += f"\n\nContexto del usuario:{memory_context}"
     now = _now()
     prompt = f"{_day_context(now)}\n\nMensaje: '{text}'"
-    data = await _claude(system, prompt, max_tokens=120)
+    # Incluir historial conversacional para entender referencias como "cámbialo", "muévelo"
+    messages = []
+    if conversation_history:
+        for msg in conversation_history[-6:]:
+            role = "user" if msg.get("direction") == "inbound" else "assistant"
+            msg_text = msg.get("text", "")
+            if msg_text and len(msg_text) < 500:  # Evitar mensajes muy largos
+                messages.append({"role": role, "content": msg_text})
+    messages.append({"role": "user", "content": prompt})
+    data = await _claude(system, prompt, max_tokens=120, messages=messages)
     if not data: return {"intent":"unknown","confidence":0.0}
     try:
         raw = data["content"][0]["text"].strip()
