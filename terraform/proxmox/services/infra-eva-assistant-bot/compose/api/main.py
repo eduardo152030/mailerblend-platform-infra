@@ -43,7 +43,17 @@ CONTENT_FORMATO_PROP = "content_formato_001"
 CONTENT_PROYECTO_PROP = "content_proyecto_001"
 CONTENT_FECHAPUB_PROP = "content_fechapub_001"
 CONTENT_LINK_PROP    = "content_link_001"
-CONTENT_LOCATION_PROP = "content_location_001"
+CONTENT_LOCATION_PROP  = "content_location_001"
+CONTENT_PRIORITY_PROP  = "content_priority_001"
+# Reutiliza los mismos IDs que el board de Tareas para el PriorityBadge de la UI
+CONTENT_PRIORITY_DEFAULT = "argk36ea34napsf8dq78d4pg8go"  # P3 — Baja
+CONTENT_PRIORITY_MAP = {
+    "P0": "akgjwzzkom6j5hnqkw5nxaq4pmo",
+    "P1": "a44z9q4cj9jamiqip5gih6okzco",
+    "P2": "aqtsqbngmejgxwswgciahqubfoo",
+    "P3": "argk36ea34napsf8dq78d4pg8go",
+    "P4": "auoqqox58bui398gu1itti85d9a",
+}
 CONTENT_STATUS_IDEA  = "copt_idea"
 CONTENT_PROYECTO_MAP = {"#mailerblend": "copt_mailerblend", "#nt": "copt_nt", "#personal": "copt_personal"}
 CONTENT_FORMATO_MAP  = {"youtube": "copt_youtube", "short": "copt_shortreel", "reel": "copt_shortreel", "linkedin": "copt_linkedin"}
@@ -1203,6 +1213,13 @@ async def handle_content_idea(db, user: User, chat_id: int, task_text: str,
         fb_props["a6bxuk4rgxp7wn6bashiadwaiiy"] = _texto
     if _location:
         fb_props[CONTENT_LOCATION_PROP] = _location
+
+    # Prioridad — inferida por IA, mismos IDs que board de Tareas
+    try:
+        _content_prio_key = await infer_priority(task_text)
+    except Exception:
+        _content_prio_key = "P3"
+    fb_props[CONTENT_PRIORITY_PROP] = CONTENT_PRIORITY_MAP.get(_content_prio_key, CONTENT_PRIORITY_DEFAULT)
 
     block = {
         "id": card_id, "type": "card", "schema": 1,
