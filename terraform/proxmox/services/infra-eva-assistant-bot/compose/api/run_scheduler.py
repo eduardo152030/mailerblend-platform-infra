@@ -269,6 +269,27 @@ async def process_publishing_reminders() -> None:
         print(f"[scheduler] ERROR publishing reminders: {exc}")
 
 
+_undated_sent_today: str = ""
+
+
+async def process_undated_tasks() -> None:
+    """Revisa tareas sin fecha a las 09:30 cada día."""
+    global _undated_sent_today
+    now = datetime.now(TZ)
+    if now.hour != 9 or now.minute != 30:
+        return
+    reminder_key = f"{now.date()}_undated"
+    if _undated_sent_today == reminder_key:
+        return
+    try:
+        sent = await check_undated_tasks(_send_telegram)
+        _undated_sent_today = reminder_key
+        if sent:
+            print(f"[scheduler] undated task alerts sent: {sent}")
+    except Exception as exc:
+        print(f"[scheduler] ERROR undated tasks: {exc}")
+
+
 async def process_content_reminders() -> None:
     global _content_reminders_sent_today
     now = datetime.now(TZ)

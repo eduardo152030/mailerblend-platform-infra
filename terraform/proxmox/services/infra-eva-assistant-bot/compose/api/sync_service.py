@@ -277,6 +277,66 @@ async def sync_status_changes() -> int:
     return synced
 
 
+async def sync_recurring_dates() -> int:
+    """
+    Sincroniza la propiedad Fecha de Focalboard para recordatorios recurrentes/persistentes.
+    Estos tienen status='scheduled' y nunca pasan por sync_status_changes.
+    También hace backfill de tarjetas con fecha vacía en Focalboard.
+    """
+    if not FOCALBOARD_TOKEN or not FOCALBOARD_BOARD_ID:
+        return 0
+    db = SessionLocal()
+    synced = 0
+    try:
+        # Todos los recurrentes/persistentes con focalboard_card_id
+        rows = db.execute(
+            select(Reminder)
+            .where(Reminder.focalboard_card_id.isnot(None))
+            .where(Reminder.status.in_(["scheduled", "pending"]))
+            .where(
+                (Reminder.recurrence_type.isnot(None)) |
+                (Reminder.weekdays_only.is_(True)) |
+                (Reminder.is_persistent.is_(True))
+            )
+        ).scalars().all()
+
+        for r in rows:
+            if not r.remind_at:
+                continue
+            local_dt = to_local(r.remind_at)
+            if not local_dt or local_dt.year >= 2099:
+                continue
+            try:
+                import json as _json
+                date_val = _json.dumps({"from": int(local_dt.timestamp() * 1000)})
+                props = {
+                    STATUS_PROP_ID: STATUS_OPTIONS.get(r.status, "aoptpendiente00000000000001"),
+                    DATE_PROP_ID: date_val,
+                }
+                if getattr(r, "notes", None):
+                    props[TEXT_PROP_ID] = r.notes
+                if getattr(r, "url", None):
+                    props[URL_PROP_ID] = r.url
+                if getattr(r, "priority", None) and r.priority in PRIORITY_OPTIONS:
+                    props[PRIORITY_PROP_ID] = PRIORITY_OPTIONS[r.priority]
+
+                fb_url = f"{FOCALBOARD_URL}/api/v2/boards/{FOCALBOARD_BOARD_ID}/blocks/{r.focalboard_card_id}"
+                async with httpx.AsyncClient(timeout=8) as c:
+                    resp = await c.patch(fb_url, headers=_h(),
+                                         json={"updatedFields": {"properties": props}})
+                    if resp.status_code in (200, 204):
+                        synced += 1
+                        print(f"[sync] ✅ fecha updated for recurring reminder {r.id} → {local_dt.strftime('%d/%m %H:%M')}")
+            except Exception as exc:
+                print(f"[sync] fecha update error reminder {r.id}: {exc}")
+
+    except Exception as exc:
+        print(f"[sync] sync_recurring_dates error: {exc}")
+    finally:
+        db.close()
+    return synced
+
+
 async def sync_from_focalboard() -> int:
     """
     Sincroniza cambios de Focalboard → EVA.
@@ -544,8 +604,9 @@ async def main_loop():
             n1 = await sync_new_reminders()
             n2 = await sync_status_changes()
             n3 = await sync_from_focalboard()
-            if n1 or n2 or n3:
-                print(f"[sync] cycle — new:{n1} status:{n2} fb→eva:{n3}")
+            n4 = await sync_recurring_dates()
+            if n1 or n2 or n3 or n4:
+                print(f"[sync] cycle — new:{n1} status:{n2} fb→eva:{n3} dates:{n4}")
         except Exception as exc:
             print(f"[sync] unhandled: {exc}")
             traceback.print_exc()

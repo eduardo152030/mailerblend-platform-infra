@@ -56,6 +56,8 @@ scp services/infra-eva-assistant-bot/compose/api/main.py root@192.168.1.122:/opt
  ssh root@192.168.1.122 "docker logs -f eva-scheduler"
 
  ssh root@192.168.1.122 "docker logs -f eva-sync"
+  ssh root@192.168.1.122 "docker logs -f eva-api"
+
 
  ssh root@192.168.1.122 "ls /opt/infra-eva-assistant-bot/api/"
 

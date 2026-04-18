@@ -68,7 +68,7 @@ try:
     app.include_router(publishing_router)
     print("[startup] ✅ auth + admin + publishing routers registered")
 except ImportError as _e:
-    print(f"[startup] ⚠️  modules not loaded: {_e}")
+    print(f"[startup] ⚠️  auth modules not loaded: {_e}")
 
 
 def to_local(dt: datetime | None) -> datetime | None:
@@ -665,9 +665,66 @@ async def handle_ack_command(db, user: User, chat_id: int, lowered: str):
 
     now = datetime.now(TZ)
     reminder.acked_at = now
-    reminder.completed_at = now
     reminder.awaiting_ack = False
     reminder.ack_text = lowered
+
+    # ── Recurrentes: reprogramar en lugar de completar ────────────────────
+    is_recurring = (
+        reminder.recurrence_type is not None or
+        reminder.weekdays_only or
+        (reminder.is_persistent and reminder.repeat_every_minutes and reminder.stop_at is None)
+    )
+
+    if is_recurring:
+        from scheduler import next_occurrence as _next_occ
+        nxt = _next_occ(reminder)
+
+        # Caso especial: persistente con ventana diaria (is_persistent + stop_at + weekdays_only)
+        # Ej: "lavar dientes a las 19:55, cada 5 min hasta las 20:15, todos los días"
+        # next_occurrence devuelve None → calcular próximo día manualmente
+        if nxt is None and reminder.is_persistent and reminder.stop_at:
+            from datetime import timedelta
+            _base = to_local(reminder.remind_at)
+            _days_ahead = 1
+            # Si es solo días laborables, saltar fin de semana
+            if reminder.weekdays_only:
+                while True:
+                    _candidate = _base + timedelta(days=_days_ahead)
+                    if _candidate.weekday() < 5:  # 0=lunes, 4=viernes
+                        break
+                    _days_ahead += 1
+            else:
+                _candidate = _base + timedelta(days=_days_ahead)
+            # Resetear stop_at al día siguiente también
+            _stop_base = to_local(reminder.stop_at)
+            _new_stop = _stop_base + timedelta(days=_days_ahead)
+            reminder.stop_at = _new_stop
+            nxt = _candidate
+
+        if nxt:
+            reminder.remind_at = nxt
+            reminder.status = "scheduled"
+            reminder.sent_at = None
+            reminder.last_sent_at = None
+            reminder.retry_count = 0
+            reminder.completed_at = None
+            db.add(Event(
+                user_id=user.id,
+                event_type="reminder_acked_rescheduled",
+                event_value=str(reminder.id),
+                source="telegram",
+                payload={"text": lowered, "next": nxt.isoformat()},
+            ))
+            db.commit()
+            nxt_local = to_local(nxt)
+            day_names = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
+            day_str = day_names[nxt_local.weekday()]
+            reply = (f'✅ Perfecto. Próximo aviso: {day_str} {nxt_local.strftime("%d/%m a las %H:%M")}.')
+            await send_and_log(db, user.id, chat_id, reply, "ack_rescheduled")
+            return {"status": "ok", "action": "reminder_acked_rescheduled", "reminder_id": reminder.id}
+
+    # ── No recurrente: marcar como completado ─────────────────────────────
+    reminder.completed_at = now
     reminder.status = "completed"
 
     db.add(
@@ -1117,12 +1174,12 @@ async def handle_content_idea(db, user: User, chat_id: int, task_text: str,
                 break
 
     # Detectar formato desde tags o texto
-    _formato_opts = []
+    _formato_opt = None
     _lower_task = task_text.lower()
     for fmt_key, fmt_val in CONTENT_FORMATO_MAP.items():
         if fmt_key in _lower_task or (tags and fmt_key in tags.lower()):
-            if fmt_val not in _formato_opts:
-                _formato_opts.append(fmt_val)
+            _formato_opt = fmt_val
+            break
 
     # Detectar ruta local en el texto (~/..., /home/..., C:\, D:\)
     import re as _re_loc
@@ -1137,8 +1194,8 @@ async def handle_content_idea(db, user: User, chat_id: int, task_text: str,
     fb_props = {CONTENT_STATUS_PROP: CONTENT_STATUS_IDEA}
     if _proyecto_opt:
         fb_props[CONTENT_PROYECTO_PROP] = _proyecto_opt
-    if _formato_opts:
-        fb_props[CONTENT_FORMATO_PROP] = _formato_opts  # array para multiSelect
+    if _formato_opt:
+        fb_props[CONTENT_FORMATO_PROP] = _formato_opt
     if url:
         fb_props[CONTENT_LINK_PROP] = url
     if notes or tags:
@@ -1408,6 +1465,117 @@ async def root():
 @app.get("/health")
 async def health():
     return {"status": "ok", "service": APP_NAME}
+
+
+@app.get("/publishing/undated-config")
+async def get_undated_config():
+    """Obtiene configuración de recordatorios por tareas sin fecha."""
+    db = SessionLocal()
+    try:
+        from undated_tasks_reminder import get_undated_tasks_config_api
+        return get_undated_tasks_config_api(db)
+    finally:
+        db.close()
+
+
+@app.patch("/publishing/undated-config")
+async def update_undated_config(request: Request):
+    """Actualiza configuración de recordatorios por tareas sin fecha."""
+    db = SessionLocal()
+    try:
+        body = await request.json()
+        from undated_tasks_reminder import update_undated_tasks_config_api
+        return await update_undated_tasks_config_api(db, body)
+    finally:
+        db.close()
+
+
+@app.get("/publishing/undated-tasks")
+async def list_undated_tasks():
+    """Lista tareas activas sin fecha y sus días de inactividad."""
+    db = SessionLocal()
+    try:
+        from undated_tasks_reminder import get_undated_stale_tasks, _get_config
+        config = _get_config(db)
+        user = db.execute(select(User).limit(1)).scalars().first()
+        if not user:
+            return {"tasks": []}
+        tasks = get_undated_stale_tasks(db, user.id, config["days_threshold"])
+        return {"tasks": tasks, "total": len(tasks), "config": config}
+    finally:
+        db.close()
+
+
+@app.post("/publishing/undated-tasks/test")
+async def test_undated_reminders():
+    """Envía recordatorios de tareas sin fecha ahora (para testing)."""
+    from undated_tasks_reminder import check_undated_tasks
+    from telegram_service import send_message
+    sent = await check_undated_tasks(send_message)
+    return {"sent": sent}
+
+
+@app.post("/admin/backfill-dates")
+async def backfill_focalboard_dates():
+    """
+    Backfill: escribe la propiedad Fecha en Focalboard para todos los reminders
+    que tienen remind_at pero la propiedad está vacía.
+    Ejecutar una sola vez después del deploy.
+    """
+    import httpx as _hx
+    import json as _json
+    from sync_service import (STATUS_OPTIONS, STATUS_PROP_ID, DATE_PROP_ID,
+                               TEXT_PROP_ID, URL_PROP_ID, PRIORITY_PROP_ID,
+                               PRIORITY_OPTIONS, FOCALBOARD_URL as _FB_URL,
+                               FOCALBOARD_TOKEN as _FB_TOK,
+                               FOCALBOARD_BOARD_ID as _FB_BID, _h)
+
+    db = SessionLocal()
+    updated = 0
+    skipped = 0
+    errors = 0
+    try:
+        rows = db.execute(
+            select(Reminder)
+            .where(Reminder.focalboard_card_id.isnot(None))
+            .where(Reminder.remind_at.isnot(None))
+        ).scalars().all()
+
+        for r in rows:
+            local_dt = to_local(r.remind_at)
+            if not local_dt or local_dt.year >= 2099:
+                skipped += 1
+                continue
+            try:
+                date_val = _json.dumps({"from": int(local_dt.timestamp() * 1000)})
+                props = {
+                    STATUS_PROP_ID: STATUS_OPTIONS.get(r.status, "aoptpendiente00000000000001"),
+                    DATE_PROP_ID: date_val,
+                }
+                if getattr(r, "notes", None):
+                    props[TEXT_PROP_ID] = r.notes
+                if getattr(r, "url", None):
+                    props[URL_PROP_ID] = r.url
+                if getattr(r, "priority", None) and r.priority in PRIORITY_OPTIONS:
+                    props[PRIORITY_PROP_ID] = PRIORITY_OPTIONS[r.priority]
+
+                async with _hx.AsyncClient(timeout=8) as client:
+                    resp = await client.patch(
+                        f"{_FB_URL}/api/v2/boards/{_FB_BID}/blocks/{r.focalboard_card_id}",
+                        headers=_h(),
+                        json={"updatedFields": {"properties": props}}
+                    )
+                    if resp.status_code in (200, 204):
+                        updated += 1
+                    else:
+                        errors += 1
+            except Exception as exc:
+                print(f"[backfill] error {r.id}: {exc}")
+                errors += 1
+
+        return {"updated": updated, "skipped": skipped, "errors": errors, "total": len(rows)}
+    finally:
+        db.close()
 
 
 @app.get("/ready")
