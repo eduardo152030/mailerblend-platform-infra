@@ -125,6 +125,12 @@ async def parse_reminder_ai(text, context=None, memory_context=""):
               f"Eres el parser de recordatorios de EVA. Extrae usando create_reminder.\n"
               f"Reglas: remind_at debe ser futuro. 'esta tarde'→PM. 'próximo X'→siempre siguiente semana. "
               f"task_text sin prefijos. Contexto tras coma va en task_text.\n"
+              f"IMPORTANTE para recordatorios persistentes:\n"
+              f"- Si dice 'cada X minutos' → is_persistent=true, repeat_every_minutes=X\n"
+              f"- Si dice 'hasta las HH:MM' → stop_at=fecha+HH:MM:00 en ISO 8601\n"
+              f"- Si dice 'todos los días' → recurrence_type=weekdays, weekdays_only=false\n"
+              f"- Si dice 'días laborables'/'de lunes a viernes' → weekdays_only=true\n"
+              f"- SIEMPRE incluir repeat_every_minutes y stop_at cuando se mencionan\n"
               f"{memory_context}"
               f"\nSi NO es un recordatorio, no uses la tool.")
     messages = []

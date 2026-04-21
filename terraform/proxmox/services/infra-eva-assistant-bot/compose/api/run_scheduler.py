@@ -28,6 +28,7 @@ from scheduler import (
     next_occurrence,
     should_cancel_due_to_event,
     build_due_text,
+    build_due_text_ai,
     build_expired_text,
     is_digest_time,
     send_daily_digest_to_all,
@@ -84,7 +85,7 @@ async def process_reminders() -> None:
                     continue
 
                 # Enviar aviso
-                text_out = build_due_text(r)
+                text_out = await build_due_text_ai(r)
                 await send_message(user.telegram_chat_id, text_out)
 
                 r.status = "sent"
@@ -129,7 +130,11 @@ async def process_reminders() -> None:
                 # ¿Expirado?
                 if r.stop_at:
                     stop_local = to_local(r.stop_at)
-                    if now >= stop_local:
+                    # Solo expirar si stop_at es HOY o futuro cercano
+                    # Evita expirar por stop_at de días anteriores cuando
+                    # remind_at se reprogramó (ej: "No, a las 7:40")
+                    stop_is_today_or_future = stop_local.date() >= now.date()
+                    if now >= stop_local and stop_is_today_or_future:
                         user = db.execute(select(User).where(User.id == r.user_id)).scalar_one_or_none()
                         if user and user.telegram_chat_id:
                             text_out = build_expired_text(r)
@@ -165,7 +170,7 @@ async def process_reminders() -> None:
                 if not user or not user.telegram_chat_id:
                     continue
 
-                text_out = build_due_text(r)
+                text_out = await build_due_text_ai(r)
                 await send_message(user.telegram_chat_id, text_out)
 
                 r.last_sent_at = now

@@ -51,12 +51,98 @@ def build_confirmation_text(reminder: Reminder) -> str:
     return f'🧠 EVA: Te recordaré "{reminder.task_text}" el {local_dt.strftime("%Y-%m-%d %H:%M")}.'
 
 
-def build_due_text(reminder: Reminder) -> str:
+async def humanize_task_message(task_text: str, retry_count: int = 0,
+                                is_last: bool = False) -> str:
+    """
+    Usa Claude para transformar task_text en un mensaje natural en español.
+    Ejemplos:
+      "Lavar los dientes a los hijos" → "lavarles los dientes a los niños"
+      "Fichar la salida" → "fichar la salida"
+      "Revisar el servidor" → "revisar el servidor"
+    """
+    import httpx as _hx
+    import os as _os
+    import json as _json
+
+    ANTHROPIC_API_KEY = _os.getenv("ANTHROPIC_API_KEY", "")
+    if not ANTHROPIC_API_KEY:
+        return task_text  # fallback sin API
+
+    tone_hint = ""
+    if is_last:
+        tone_hint = "Es el último aviso antes de que expire."
+    elif retry_count >= 3:
+        tone_hint = "Lleva varios avisos sin respuesta."
+    elif retry_count == 0:
+        tone_hint = "Es el primer aviso."
+
+    prompt = (
+        f"Transforma esta tarea en una frase natural en español para un recordatorio de Telegram. "
+        f"Usa español coloquial real, no formal. "
+        f"Si hay 'a los hijos/niños' usa pronombre indirecto (lavarles, recordarles). "
+        f"Devuelve SOLO la frase transformada, sin comillas, sin explicación. "
+        f"Máximo 8 palabras. {tone_hint}\n\n"
+        f"Tarea: {task_text}"
+    )
+
+    try:
+        async with _hx.AsyncClient(timeout=5) as c:
+            r = await c.post(
+                "https://api.anthropic.com/v1/messages",
+                headers={"x-api-key": ANTHROPIC_API_KEY,
+                         "anthropic-version": "2023-06-01",
+                         "content-type": "application/json"},
+                json={"model": "claude-haiku-4-5-20251001",
+                      "max_tokens": 50,
+                      "messages": [{"role": "user", "content": prompt}]}
+            )
+            if r.status_code == 200:
+                text = r.json()["content"][0]["text"].strip().strip('"').strip("'")
+                return text if text else task_text
+    except Exception as exc:
+        print(f"[scheduler] humanize error: {exc}")
+    return task_text
+
+
+async def build_due_text_ai(reminder: Reminder) -> str:
+    """Versión mejorada de build_due_text con humanización por IA."""
     notes = getattr(reminder, "notes", None)
     note_str = f"\n📝 {notes}" if notes else ""
+    rid = reminder.id
+    retry = getattr(reminder, "retry_count", 0) or 0
+
+    # Detectar si es el último aviso
+    is_last = False
+    if getattr(reminder, "stop_at", None) and getattr(reminder, "repeat_every_minutes", None):
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        import os
+        _tz = ZoneInfo(os.getenv("TIMEZONE", "Europe/Madrid"))
+        _now = datetime.now(_tz)
+        _stop = reminder.stop_at
+        if _stop.tzinfo is None:
+            _stop = _stop.replace(tzinfo=_tz)
+        minutes_left = (_stop - _now).total_seconds() / 60
+        is_last = 0 < minutes_left <= reminder.repeat_every_minutes
+
+    task = await humanize_task_message(reminder.task_text, retry, is_last)
+
     if getattr(reminder, "awaiting_ack", False):
-        return f'⏰ EVA: Sigo pendiente de "{reminder.task_text}" [{reminder.id}]. Respóndeme "listo" cuando lo hayas hecho.{note_str}'
-    return f'⏰ EVA: Es hora de {reminder.task_text} [{reminder.id}]. Respóndeme "listo" cuando lo hayas hecho.{note_str}'
+        if is_last:
+            return f'⚡ Último aviso: {task} [{rid}].{note_str}'
+        if retry <= 1:
+            return f'👆 Oye, pendiente: {task} [{rid}].{note_str}'
+        elif retry == 2:
+            return f'🔔 {task} [{rid}] — ¿ya?{note_str}'
+        elif retry == 3:
+            return f'⏰ Van {retry} avisos. {task} [{rid}].{note_str}'
+        else:
+            return f'🔔 #{retry}: {task} [{rid}].{note_str}'
+
+    return f'⏰ {task} [{rid}]. Di "listo" cuando lo hayas hecho.{note_str}'
+
+
+
 
 
 def build_expired_text(reminder: Reminder) -> str:
@@ -188,15 +274,28 @@ async def check_content_publication_reminders(db, send_fn) -> int:
             except Exception:
                 continue
 
+            # Limpiar título — puede contener URLs o saltos de línea
+            import re as _re_title
             title = card.get("title", "Sin título")
-            formato_id = props.get("content_formato_001", "")
+            title = title.split("\n")[0].strip()  # solo primera línea
+            title = _re_title.sub(r'https?://\S+', '', title).strip()  # quitar URLs
+            title = _re_title.sub(r'\s+[↻—–-].*$', '', title).strip()  # quitar sufijos de fecha
+            if not title:
+                title = "Sin título"
+            formato_raw = props.get("content_formato_001", "")
             formato_map = {
                 "copt_youtube": "YouTube",
                 "copt_shortreel": "Short/Reel",
                 "copt_linkedin": "LinkedIn"
             }
-            formato = formato_map.get(formato_id, "")
-            formato_str = f" en {formato}" if formato else ""
+            # Soportar tanto string (legacy) como array (nuevo multiSelect)
+            if isinstance(formato_raw, list):
+                formatos = [formato_map.get(f, f) for f in formato_raw if f]
+            elif formato_raw:
+                formatos = [formato_map.get(formato_raw, formato_raw)]
+            else:
+                formatos = []
+            formato_str = f" en {' + '.join(formatos)}" if formatos else ""
 
             users = db.execute(select(User)).scalars().all()
             for user in users:

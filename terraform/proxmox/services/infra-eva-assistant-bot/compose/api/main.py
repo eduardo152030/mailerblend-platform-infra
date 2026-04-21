@@ -651,6 +651,28 @@ async def handle_ack_command(db, user: User, chat_id: int, lowered: str):
         reminder.remind_at = new_remind_at
         reminder.status = "scheduled"
         reminder.awaiting_ack = False
+
+        # Si el reminder tiene stop_at, avanzarlo al mismo día que el nuevo remind_at
+        # Evita que stop_at de ayer cancele el reminder reprogramado
+        if reminder.stop_at:
+            old_stop = to_local(reminder.stop_at)
+            # Calcular la diferencia horaria entre remind_at original y stop_at
+            # y aplicarla al nuevo remind_at
+            if reminder.remind_at:
+                old_remind = to_local(reminder.remind_at)
+                window_delta = old_stop - old_stop.replace(
+                    hour=old_remind.hour, minute=old_remind.minute, second=0, microsecond=0
+                )
+            else:
+                window_delta = timedelta(minutes=20)  # fallback
+            new_stop = new_remind_at.replace(
+                hour=old_stop.hour, minute=old_stop.minute, second=0, microsecond=0
+            )
+            # Si new_stop ya pasó respecto al nuevo remind_at, avanzar al día siguiente
+            if new_stop <= new_remind_at:
+                new_stop += timedelta(days=1)
+            reminder.stop_at = new_stop
+
         # Guardar nota si existe
         if snooze_note and hasattr(reminder, 'notes'):
             reminder.notes = snooze_note
