@@ -129,7 +129,7 @@ async def parse_reminder_ai(text, context=None, memory_context=""):
               f"- Si dice 'cada X minutos' → is_persistent=true, repeat_every_minutes=X\n"
               f"- Si dice 'hasta las HH:MM' → stop_at=fecha+HH:MM:00 en ISO 8601\n"
               f"- Si dice 'todos los días' → recurrence_type=weekdays, weekdays_only=false\n"
-              f"- Si dice 'días laborables'/'de lunes a viernes' → weekdays_only=true\n"
+              f"- Si dice 'días laborables'/'lunes a viernes'/'de lunes a jueves' → recurrence_type=weekdays, weekdays_only=true\n"
               f"- SIEMPRE incluir repeat_every_minutes y stop_at cuando se mencionan\n"
               f"{memory_context}"
               f"\nSi NO es un recordatorio, no uses la tool.")

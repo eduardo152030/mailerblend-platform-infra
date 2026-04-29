@@ -37,6 +37,8 @@ from scheduler import (
     DAILY_DIGEST_MINUTE,
 )
 from telegram_service import send_message
+from publishing_channels import check_publishing_reminders
+from undated_tasks_reminder import check_undated_tasks
 
 TZ = ZoneInfo(os.getenv("TIMEZONE", "Europe/Madrid"))
 POLL_INTERVAL = int(os.getenv("SCHEDULER_POLL_SECONDS", "30"))
@@ -324,6 +326,8 @@ async def main_loop() -> None:
             await process_reminders()
             await process_daily_digest()
             await process_content_reminders()
+            await process_publishing_reminders()
+            await process_undated_tasks()
         except Exception as exc:
             print(f"[scheduler] Unhandled error in main loop: {exc}")
             traceback.print_exc()

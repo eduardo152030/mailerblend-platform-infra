@@ -127,6 +127,35 @@ services:
       crond -f -l 2"
 
   # ─────────────────────────────────────────
+  # MANTENIMIENTO — Limpieza semanal Docker
+  # ─────────────────────────────────────────
+  docker-cleanup:
+    image: docker:cli
+    container_name: eva-docker-cleanup
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    entrypoint: >
+      /bin/sh -c "
+      echo 'Docker cleanup service started';
+      while true; do
+        sleep 604800;
+        echo "[cleanup] $(date) — iniciando limpieza semanal";
+        docker image prune -a --force;
+        docker container prune --force;
+        docker network prune --force;
+        docker volume prune --force;
+        echo "[cleanup] $(date) — completado. Disco: $(df -h / | tail -1 | awk '{print \$5}')";
+      done"
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+          cpus: '0.10'
+
+  # ─────────────────────────────────────────
   # FOCALBOARD — UI de proyectos y tareas
   # ─────────────────────────────────────────
   focalboard:

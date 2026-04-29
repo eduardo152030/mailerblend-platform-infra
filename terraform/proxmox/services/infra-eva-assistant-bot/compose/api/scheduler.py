@@ -23,8 +23,11 @@ def next_occurrence(reminder: Reminder) -> datetime | None:
 
     if reminder.recurrence_type == "weekdays":
         nxt = current + timedelta(days=1)
-        while nxt.weekday() >= 5:
-            nxt = nxt + timedelta(days=1)
+        # Solo saltar fin de semana si weekdays_only=True
+        # Si weekdays_only=False significa "todos los días" incluyendo finde
+        if getattr(reminder, "weekdays_only", True):
+            while nxt.weekday() >= 5:
+                nxt = nxt + timedelta(days=1)
         return nxt
 
     return None
@@ -77,8 +80,9 @@ async def humanize_task_message(task_text: str, retry_count: int = 0,
         tone_hint = "Es el primer aviso."
 
     prompt = (
-        f"Transforma esta tarea en una frase natural en español para un recordatorio de Telegram. "
-        f"Usa español coloquial real, no formal. "
+        f"Transforma esta tarea en una frase natural en español venezolano para un recordatorio de Telegram. "
+        f"Tono: informal pero respetuoso. Usa 'pana', 'chamo', 'chévere' si encaja. "
+        f"NUNCA uses argentinismos: no 'boludo', no 'fichaté', no 'anda', no 'che'. "
         f"Si hay 'a los hijos/niños' usa pronombre indirecto (lavarles, recordarles). "
         f"Devuelve SOLO la frase transformada, sin comillas, sin explicación. "
         f"Máximo 8 palabras. {tone_hint}\n\n"
@@ -102,6 +106,21 @@ async def humanize_task_message(task_text: str, retry_count: int = 0,
     except Exception as exc:
         print(f"[scheduler] humanize error: {exc}")
     return task_text
+
+
+def build_due_text(reminder: Reminder) -> str:
+    """Alias síncrono — usa el task_text directamente (fallback sin IA)."""
+    notes = getattr(reminder, "notes", None)
+    note_str = f"\n📝 {notes}" if notes else ""
+    retry = getattr(reminder, "retry_count", 0) or 0
+    task = reminder.task_text
+    rid = reminder.id
+    if getattr(reminder, "awaiting_ack", False):
+        if retry <= 1:
+            return f'👆 Oye, pendiente: {task} [{rid}].{note_str}'
+        else:
+            return f'🔔 #{retry}: {task} [{rid}].{note_str}'
+    return f'⏰ {task} [{rid}]. Di "listo" cuando lo hayas hecho.{note_str}'
 
 
 async def build_due_text_ai(reminder: Reminder) -> str:
