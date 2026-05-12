@@ -1,1 +1,13 @@
+# CDK asset staging directory
+.cdk.staging
+cdk.out
 .env
+.env
+node_modules/
+cdk.out/
+.env
+lambda/email-config/smtp.env
+*.js
+!jest.config.js
+*.d.ts
+/ui-crm-core/
