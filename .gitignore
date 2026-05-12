@@ -13,3 +13,5 @@ lambda/email-config/smtp.env
 /ui-crm-core/
 services/infra-prom/perm.env
 services/infra-prom/perm.env
+.claude/
+services/infra-prom/perm.env
