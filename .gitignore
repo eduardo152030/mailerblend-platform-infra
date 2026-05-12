@@ -11,3 +11,4 @@ lambda/email-config/smtp.env
 !jest.config.js
 *.d.ts
 /ui-crm-core/
+services/infra-prom/perm.env
