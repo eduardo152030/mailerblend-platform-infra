@@ -23,9 +23,9 @@ def next_occurrence(reminder: Reminder) -> datetime | None:
 
     if reminder.recurrence_type == "weekdays":
         nxt = current + timedelta(days=1)
-        # Solo saltar fin de semana si weekdays_only=True
-        # Si weekdays_only=False significa "todos los días" incluyendo finde
-        if getattr(reminder, "weekdays_only", True):
+        # weekdays_only=True → solo L-V, saltar finde
+        # weekdays_only=False → todos los días incluyendo finde
+        if getattr(reminder, "weekdays_only", False):  # FIX: default False (más seguro)
             while nxt.weekday() >= 5:
                 nxt = nxt + timedelta(days=1)
         return nxt
@@ -80,9 +80,8 @@ async def humanize_task_message(task_text: str, retry_count: int = 0,
         tone_hint = "Es el primer aviso."
 
     prompt = (
-        f"Transforma esta tarea en una frase natural en español venezolano para un recordatorio de Telegram. "
-        f"Tono: informal pero respetuoso. Usa 'pana', 'chamo', 'chévere' si encaja. "
-        f"NUNCA uses argentinismos: no 'boludo', no 'fichaté', no 'anda', no 'che'. "
+        f"Transforma esta tarea en una frase natural en español para un recordatorio de Telegram. "
+        f"Usa español coloquial real, no formal. "
         f"Si hay 'a los hijos/niños' usa pronombre indirecto (lavarles, recordarles). "
         f"Devuelve SOLO la frase transformada, sin comillas, sin explicación. "
         f"Máximo 8 palabras. {tone_hint}\n\n"
@@ -90,7 +89,7 @@ async def humanize_task_message(task_text: str, retry_count: int = 0,
     )
 
     try:
-        async with _hx.AsyncClient(timeout=5) as c:
+        async with _hx.AsyncClient(timeout=10) as c:  # FIX: subido de 5 a 10s
             r = await c.post(
                 "https://api.anthropic.com/v1/messages",
                 headers={"x-api-key": ANTHROPIC_API_KEY,
@@ -108,27 +107,35 @@ async def humanize_task_message(task_text: str, retry_count: int = 0,
     return task_text
 
 
-def build_due_text(reminder: Reminder) -> str:
+def build_due_text(reminder: Reminder, persona: dict | None = None) -> str:
     """Alias síncrono — usa el task_text directamente (fallback sin IA)."""
     notes = getattr(reminder, "notes", None)
     note_str = f"\n📝 {notes}" if notes else ""
     retry = getattr(reminder, "retry_count", 0) or 0
     task = reminder.task_text
     rid = reminder.id
+
+    # Usar frases de persona si están disponibles
+    confirmed = persona.get("phrases", {}).get("confirmed", "listo") if persona else "listo"
+
     if getattr(reminder, "awaiting_ack", False):
         if retry <= 1:
             return f'👆 Oye, pendiente: {task} [{rid}].{note_str}'
         else:
             return f'🔔 #{retry}: {task} [{rid}].{note_str}'
-    return f'⏰ {task} [{rid}]. Di "listo" cuando lo hayas hecho.{note_str}'
+    return f'⏰ {task} [{rid}]. Di "{confirmed}" cuando lo hayas hecho.{note_str}'
 
 
-async def build_due_text_ai(reminder: Reminder) -> str:
+async def build_due_text_ai(reminder: Reminder, persona: dict | None = None) -> str:
     """Versión mejorada de build_due_text con humanización por IA."""
     notes = getattr(reminder, "notes", None)
     note_str = f"\n📝 {notes}" if notes else ""
     rid = reminder.id
     retry = getattr(reminder, "retry_count", 0) or 0
+
+    # Usar frases de persona si están disponibles
+    confirmed = persona.get("phrases", {}).get("confirmed", "listo") if persona else "listo"
+    user_name = persona.get("user_name", "") if persona else ""
 
     # Detectar si es el último aviso
     is_last = False
@@ -150,7 +157,7 @@ async def build_due_text_ai(reminder: Reminder) -> str:
         if is_last:
             return f'⚡ Último aviso: {task} [{rid}].{note_str}'
         if retry <= 1:
-            return f'👆 Oye, pendiente: {task} [{rid}].{note_str}'
+            return f'👆 Oye{", " + user_name if user_name else ""}, pendiente: {task} [{rid}].{note_str}'
         elif retry == 2:
             return f'🔔 {task} [{rid}] — ¿ya?{note_str}'
         elif retry == 3:
@@ -158,7 +165,7 @@ async def build_due_text_ai(reminder: Reminder) -> str:
         else:
             return f'🔔 #{retry}: {task} [{rid}].{note_str}'
 
-    return f'⏰ {task} [{rid}]. Di "listo" cuando lo hayas hecho.{note_str}'
+    return f'⏰ {task} [{rid}]. Di "{confirmed}" cuando lo hayas hecho.{note_str}'
 
 
 
@@ -198,6 +205,7 @@ def build_daily_digest(db, user, now: datetime | None = None) -> str | None:
         .where(Reminder.status.in_(["scheduled", "pending", "sent"]))
         .where(Reminder.remind_at >= today_start)
         .where(Reminder.remind_at < today_end)
+        .where(Reminder.remind_at < today_start.replace(year=2099))  # FIX: excluir tareas sin fecha
         .order_by(Reminder.remind_at.asc())
     ).scalars().all()
 
@@ -206,6 +214,7 @@ def build_daily_digest(db, user, now: datetime | None = None) -> str | None:
         .where(Reminder.user_id == user.id)
         .where(Reminder.status.in_(["scheduled", "pending", "sent"]))
         .where(Reminder.remind_at < today_start)
+        .where(Reminder.remind_at < today_start.replace(year=2099))  # FIX: excluir tareas sin fecha
         .order_by(Reminder.remind_at.asc())
     ).scalars().all()
 

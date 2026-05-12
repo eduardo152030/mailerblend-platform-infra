@@ -74,6 +74,7 @@ async def detect_intent(text, memory_context="", conversation_history=None):
             if msg_text and len(msg_text) < 500:  # Evitar mensajes muy largos
                 messages.append({"role": role, "content": msg_text})
     messages.append({"role": "user", "content": prompt})
+    # FIX: pasamos messages completo, el arg 'user' queda ignorado por _claude cuando messages!=None
     data = await _claude(system, prompt, max_tokens=120, messages=messages)
     if not data: return {"intent":"unknown","confidence":0.0}
     try:
@@ -150,13 +151,21 @@ async def parse_reminder_ai(text, context=None, memory_context=""):
 def _args_to_parsed(args, now):
     try:
         remind_at = datetime.fromisoformat(args["remind_at"]).replace(tzinfo=TZ)
-        if remind_at <= now: remind_at += timedelta(days=1)
+        if remind_at <= now:
+            remind_at += timedelta(days=1)
+            print(f"[ai_parser] remind_at adjusted +1 day: {remind_at}")
         rec_type = args.get("recurrence_type","none")
         if rec_type == "none": rec_type = None
         stop_at = None
         if args.get("stop_at"):
-            try: stop_at = datetime.fromisoformat(args["stop_at"]).replace(tzinfo=TZ)
-            except: pass
+            try:
+                stop_at = datetime.fromisoformat(args["stop_at"]).replace(tzinfo=TZ)
+                # FIX: asegurar que stop_at también es futuro respecto a remind_at
+                if stop_at <= remind_at:
+                    stop_at = stop_at + timedelta(days=1)
+                    print(f"[ai_parser] stop_at adjusted +1 day: {stop_at}")
+            except Exception as e:
+                print(f"[ai_parser] stop_at parse error: {e}")
         repeat = args.get("repeat_every_minutes")
         if isinstance(repeat,str):
             try: repeat = int(repeat)

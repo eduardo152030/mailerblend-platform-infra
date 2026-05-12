@@ -623,21 +623,12 @@ async def handle_list_command(db, user: User, chat_id: int):
 
 
 async def handle_ack_command(db, user: User, chat_id: int, lowered: str):
-    from datetime import timedelta
-    _thirty_min_ago = datetime.now(TZ) - timedelta(minutes=30)
-
     reminder = db.execute(
         select(Reminder)
         .where(Reminder.user_id == user.id)
         .where(
             (Reminder.awaiting_ack.is_(True)) |
-            (Reminder.status == "sent") |
-            # También buscar reminders enviados en los últimos 30 min
-            # aunque awaiting_ack aún no se haya marcado (race condition)
-            (
-                (Reminder.last_sent_at >= _thirty_min_ago) &
-                (Reminder.status.in_(["sent", "scheduled"]))
-            )
+            (Reminder.status == "sent")
         )
         .order_by(Reminder.last_sent_at.desc().nullslast(), Reminder.id.desc())
         .limit(1)
@@ -2079,19 +2070,6 @@ async def telegram_webhook(request: Request):
             return await handle_pending_task(db, user, chat_id, task_title,
                                              url=_extracted_url, notes=_url_context)
 
-        # ── URL con título de página (ej: "Título | Sitio\nhttps://...") ─────
-        # Si el texto sin URL es corto (< 80 chars) y hay URL → guardar como tarea
-        if _extracted_url and len(_text_no_url.strip()) < 80:
-            import urllib.parse as _up2
-            _domain2 = _up2.urlparse(_extracted_url).netloc.replace("www.", "")
-            # Usar el texto como título si es corto y descriptivo
-            _title_candidate = _text_no_url.strip().split("\n")[0].strip()
-            _title_candidate = re.sub(r'\s*\|.*$', '', _title_candidate).strip()
-            task_title = _title_candidate if len(_title_candidate) >= 5 else f"Revisar {_domain2}"
-            return await handle_pending_task(db, user, chat_id, task_title,
-                                             url=_extracted_url, notes=None,
-                                             tags=_tags_str)
-
         # ── Contexto post-creación: si EVA acaba de crear una tarea, añadir nota ──
         # Si el último mensaje saliente de EVA fue "📌 Apuntado" → añadir el texto como nota
         _last_eva_msg = db.execute(
@@ -2109,7 +2087,7 @@ async def telegram_webhook(request: Request):
                 "Nota añadida a" in _last_eva_msg.message_text
             ) and
             len(lowered.strip()) >= 3 and
-            not re.match(r'^(?:cancela|elimina|borra|lista|mis recordatorios|recuérdame|recuerdame|eva[,\s]|solo guarda|guarda|/)', lowered.strip()) and
+            not re.match(r'^(?:cancela|elimina|borra|lista|mis recordatorios|recuérdame|recuerdame|eva[,\s]|/)', lowered.strip()) and
             not re.match(r'^(?:crear?\s+un?|crea\s+un?|quiero\s+(?:crear|hacer|un)|tengo\s+que|hay\s+que|pendiente[:\s])', lowered.strip(), re.IGNORECASE) and
             not re.search(r'a las\s+\d|en\s+\d+\s+min|mañana\s|el\s+\d+\s|para\s+el\s+(?:lunes|martes|miércoles|jueves|viernes|sábado|domingo|\d)|cada\s+\d|todos\s+los', lowered)
         )
@@ -2741,7 +2719,20 @@ async def telegram_webhook(request: Request):
             return {"status": "ok", "action": "reminder_created", "reminder_id": reminder.id}
 
         # ── CHAT o mensaje no reconocido ─────────────────────────────────────
+        # FIX: si parsed is None (recordatorio no parseado) o intent=chat,
+        # intentar siempre chat_reply_ai antes de caer al help_text.
+        # Esto evita que mensajes como "eva, recuerda en 5 minutos X" que
+        # fallaron en el parser muestren la lista de ejemplos en lugar de
+        # dar una respuesta inteligente o pedir aclaración.
         if intent == "chat" and confidence >= 0.7:
+            chat_reply = await chat_reply_ai(text_in, memory_context=system_prompt)
+            if chat_reply:
+                await send_and_log(db, user.id, chat_id, chat_reply, "chat_reply")
+                return {"status": "ok", "action": "chat_reply"}
+
+        # Si parsed falló pero el mensaje parece un recordatorio, intentar chat_reply
+        # para dar feedback útil en lugar de la lista de ejemplos
+        if not parsed:
             chat_reply = await chat_reply_ai(text_in, memory_context=system_prompt)
             if chat_reply:
                 await send_and_log(db, user.id, chat_id, chat_reply, "chat_reply")

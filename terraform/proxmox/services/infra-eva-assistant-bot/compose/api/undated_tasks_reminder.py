@@ -159,26 +159,18 @@ def _should_alert_today(days_inactive: int, last_alert_days_ago: int | None) -> 
     Determina si hay que alertar hoy según el escalado anti-spam.
 
     Lógica:
-    - Si nunca se alertó → alertar cuando días_inactivos alcanza algún umbral
-    - Si ya se alertó → alertar solo cuando se alcanza el siguiente umbral
+    - Si nunca se alertó → alertar siempre que supere cualquier umbral,
+      independientemente de cuánto tiempo lleve (fix: evita bloquear tareas
+      que ya superaron la ventana cuando el scheduler las detecta por primera vez)
+    - Si ya se alertó → alertar solo cuando se cruza el siguiente umbral
     """
-    # Encontrar el umbral que aplica hoy
     for threshold in ALERT_DAYS:
         if days_inactive >= threshold:
             if last_alert_days_ago is None:
-                # Nunca alertado → alertar si estamos dentro del primer threshold
-                # que aplica (evitar spam si llevan muchos días)
-                if days_inactive < threshold + ALERT_TOLERANCE_HOURS / 24 + 1:
-                    return True
+                # Nunca alertado → alertar en el primer check que supera este umbral
+                return True
             else:
-                # Ya alertado antes → alertar solo si llegamos a un nuevo threshold
-                prev_threshold = None
-                for t in ALERT_DAYS:
-                    if t < threshold:
-                        prev_threshold = t
-                if prev_threshold is None:
-                    return False
-                # Alertar si cruzamos un nuevo umbral desde la última alerta
+                # Ya alertado → alertar solo si cruzamos un nuevo umbral desde la última alerta
                 days_at_last_alert = days_inactive - last_alert_days_ago
                 if days_at_last_alert < threshold <= days_inactive:
                     return True

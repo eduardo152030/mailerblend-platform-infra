@@ -257,13 +257,20 @@ async def sync_status_changes() -> int:
 
         for r in rows:
             try:
-                # Skip if reminder was recently synced FROM Focalboard (avoid overwrite loop)
+                # Skip si el reminder fue sincronizado desde Focalboard hace menos de 2 min
+                # (evita bucle de escritura mutua EVA→FB→EVA)
                 if r.focalboard_synced_at:
-                    from datetime import timedelta as _td2
-                    _age = (datetime.now(TZ) - r.focalboard_synced_at.replace(tzinfo=TZ) if r.focalboard_synced_at.tzinfo is None else datetime.now(TZ) - r.focalboard_synced_at).total_seconds()
-                    if _age < 120:  # skip if synced from FB in last 2 minutes
+                    synced_at = r.focalboard_synced_at
+                    if synced_at.tzinfo is None:
+                        synced_at = synced_at.replace(tzinfo=TZ)  # FIX: normalizar tz naive
+                    _age = (datetime.now(TZ) - synced_at).total_seconds()
+                    if _age < 120:
                         continue
-                ok = await fb_update_card_status(r.focalboard_card_id, r.status, r.remind_at, getattr(r, "notes", None), getattr(r, "url", None), getattr(r, "priority", None))
+                ok = await fb_update_card_status(
+                    r.focalboard_card_id, r.status, r.remind_at,
+                    getattr(r, "notes", None), getattr(r, "url", None),
+                    getattr(r, "priority", None)
+                )
                 if ok:
                     r.focalboard_synced_at = datetime.now(TZ)
                     _log(db, "reminder", r.id, "eva_to_fb", "update", r.focalboard_card_id)
@@ -366,6 +373,7 @@ async def sync_from_focalboard() -> int:
     synced = 0
     try:
         db.rollback()
+        now = datetime.now(TZ)  # FIX: mover aquí — antes se usaba 'now' en línea 399 sin estar definida
         for card in cards:
             cid = card.get("id")
             if not cid:
@@ -407,7 +415,7 @@ async def sync_from_focalboard() -> int:
                     continue
 
             props = card.get("fields", {}).get("properties", {})
-            now = datetime.now(TZ)
+            # FIX: 'now' ya está definido antes del loop — no redefinir aquí
             changed = False
             notify_msg = None
 

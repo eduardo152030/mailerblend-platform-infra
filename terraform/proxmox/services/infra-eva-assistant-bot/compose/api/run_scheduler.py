@@ -37,8 +37,10 @@ from scheduler import (
     DAILY_DIGEST_MINUTE,
 )
 from telegram_service import send_message
-from publishing_channels import check_publishing_reminders
+# FIX: importar check_undated_tasks y check_publishing_reminders que faltaban
 from undated_tasks_reminder import check_undated_tasks
+from publishing_channels import check_publishing_reminders
+from persona_service import load_persona
 
 TZ = ZoneInfo(os.getenv("TIMEZONE", "Europe/Madrid"))
 POLL_INTERVAL = int(os.getenv("SCHEDULER_POLL_SECONDS", "30"))
@@ -49,6 +51,11 @@ _digest_sent_today: str = ""
 
 async def _send_telegram(chat_id: int, text: str, parse_mode: str = "MarkdownV2") -> None:
     await send_message(chat_id, text, parse_mode=parse_mode)
+
+
+async def _send_plain(chat_id: int, text: str) -> None:
+    """Wrapper sin parse_mode para funciones que no usan Markdown (undated, publishing)."""
+    await send_message(chat_id, text)
 
 
 async def process_reminders() -> None:
@@ -86,8 +93,9 @@ async def process_reminders() -> None:
                     print(f"[scheduler] reminder {r.id} cancelled by event {r.cancel_on_event_type}")
                     continue
 
-                # Enviar aviso
-                text_out = await build_due_text_ai(r)
+                # Enviar aviso con persona del usuario
+                persona = load_persona(getattr(user, "username", None))
+                text_out = await build_due_text_ai(r, persona=persona)
                 await send_message(user.telegram_chat_id, text_out)
 
                 r.status = "sent"
@@ -132,6 +140,9 @@ async def process_reminders() -> None:
                 # ¿Expirado?
                 if r.stop_at:
                     stop_local = to_local(r.stop_at)
+                    # FIX: asegurar que stop_local tiene tzinfo antes de comparar
+                    if stop_local.tzinfo is None:
+                        stop_local = stop_local.replace(tzinfo=TZ)
                     # Solo expirar si stop_at es HOY o futuro cercano
                     # Evita expirar por stop_at de días anteriores cuando
                     # remind_at se reprogramó (ej: "No, a las 7:40")
@@ -172,7 +183,8 @@ async def process_reminders() -> None:
                 if not user or not user.telegram_chat_id:
                     continue
 
-                text_out = await build_due_text_ai(r)
+                persona = load_persona(getattr(user, "username", None))
+                text_out = await build_due_text_ai(r, persona=persona)
                 await send_message(user.telegram_chat_id, text_out)
 
                 r.last_sent_at = now
@@ -199,11 +211,15 @@ async def process_reminders() -> None:
 
         db.commit()
 
-        # ── 3. Recurrentes: reprogramar completados/enviados ───────────────
+        # ── 3. Recurrentes: reprogramar enviados sin awaiting_ack ─────────
+        # IMPORTANTE: excluir los que tienen awaiting_ack=True — esos los
+        # gestiona el bloque de persistentes. Solo reprogramar los que ya
+        # se procesaron y no esperan confirmación.
         sent_recurrent = db.execute(
             select(Reminder)
             .where(Reminder.status == "sent")
             .where(Reminder.awaiting_ack.is_(False))
+            .where(Reminder.is_persistent.is_(False))   # FIX: excluir persistentes
             .where(Reminder.recurrence_type.isnot(None))
         ).scalars().all()
 
@@ -220,7 +236,7 @@ async def process_reminders() -> None:
             except Exception as exc:
                 print(f"[scheduler] ERROR rescheduling reminder {r.id}: {exc}")
 
-        db.commit()
+        db.commit()  # FIX: commit propio para recurrentes
 
     except Exception as exc:
         db.rollback()
@@ -268,7 +284,7 @@ async def process_publishing_reminders() -> None:
     if _publishing_reminders_sent_today == reminder_key:
         return
     try:
-        sent = await check_publishing_reminders(_send_telegram)
+        sent = await check_publishing_reminders(_send_plain)  # FIX: _send_plain
         _publishing_reminders_sent_today = reminder_key
         if sent:
             print(f"[scheduler] publishing reminders sent: {sent}")
@@ -289,7 +305,7 @@ async def process_undated_tasks() -> None:
     if _undated_sent_today == reminder_key:
         return
     try:
-        sent = await check_undated_tasks(_send_telegram)
+        sent = await check_undated_tasks(_send_plain)  # FIX: _send_plain
         _undated_sent_today = reminder_key
         if sent:
             print(f"[scheduler] undated task alerts sent: {sent}")
