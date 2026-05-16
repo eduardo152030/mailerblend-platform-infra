@@ -91,3 +91,17 @@ Verifica que arranque:
 
 ssh root@192.168.1.122 "cd /opt/infra-eva-assistant-bot && docker compose logs --no-color --tail=10 eva-api"
 
+Tests post-deploy
+curl https://infra-eva.mailerblend.com/health
+curl https://infra-eva.mailerblend.com/ready
+curl https://infra-eva.mailerblend.com/reminders
+curl https://infra-eva.mailerblend.com/tasks
+ test telegram : eva, lista mis recordatorios
+
+ Tests post-deploy
+
+
+curl https://infra-eva.mailerblend.com/health
+curl https://infra-eva.mailerblend.com/ready
+# Telegram: "eva, lista mis recordatorios"
+# Telegram: "eva, recuérdame probar en 2 minutos"

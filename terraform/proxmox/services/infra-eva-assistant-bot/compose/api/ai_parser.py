@@ -74,7 +74,6 @@ async def detect_intent(text, memory_context="", conversation_history=None):
             if msg_text and len(msg_text) < 500:  # Evitar mensajes muy largos
                 messages.append({"role": role, "content": msg_text})
     messages.append({"role": "user", "content": prompt})
-    # FIX: pasamos messages completo, el arg 'user' queda ignorado por _claude cuando messages!=None
     data = await _claude(system, prompt, max_tokens=120, messages=messages)
     if not data: return {"intent":"unknown","confidence":0.0}
     try:
@@ -148,24 +147,45 @@ async def parse_reminder_ai(text, context=None, memory_context=""):
             return _args_to_parsed(block.get("input",{}), now)
     return None
 
+def _clean_task_text(task: str) -> str:
+    """
+    Strip bot name and reminder verb prefixes from task_text.
+    Claude sometimes includes these even when instructed not to.
+
+    Examples:
+      "eva, recuérdame lavarle los dientes" → "lavarle los dientes"
+      "eva recuérdame fichar"               → "fichar"
+      "recuérdame revisar el servidor"      → "revisar el servidor"
+      "que tengo que fichar"                → "fichar"
+      "lavarle los dientes"                 → "lavarle los dientes"  (unchanged)
+    """
+    import re as _re
+    t = task.strip()
+    # Strip "eva," / "eva" prefix
+    t = _re.sub(r'^eva\s*[,.]?\s*', '', t, flags=_re.IGNORECASE).strip()
+    # Strip reminder verb prefixes
+    t = _re.sub(
+        r'^(?:recu[eé]rdame\s+(?:que\s+)?|recuerda\s+(?:que\s+)?|av[íi]same\s+(?:que\s+)?)',
+        '', t, flags=_re.IGNORECASE).strip()
+    # Strip "tengo que / hay que / debo / necesito" (may remain after recuérdame)
+    t = _re.sub(r'^(?:tengo\s+que|hay\s+que|debo|necesito)\s+', '', t, flags=_re.IGNORECASE).strip()
+    # Strip "que tengo que / que hay que"
+    t = _re.sub(r'^que\s+(?:tengo\s+que|hay\s+que|debo|necesito)\s+', '', t, flags=_re.IGNORECASE).strip()
+    # Strip bare "que " prefix
+    t = _re.sub(r'^que\s+(?=\w)', '', t, flags=_re.IGNORECASE).strip()
+    return t if t else task
+
+
 def _args_to_parsed(args, now):
     try:
         remind_at = datetime.fromisoformat(args["remind_at"]).replace(tzinfo=TZ)
-        if remind_at <= now:
-            remind_at += timedelta(days=1)
-            print(f"[ai_parser] remind_at adjusted +1 day: {remind_at}")
+        if remind_at <= now: remind_at += timedelta(days=1)
         rec_type = args.get("recurrence_type","none")
         if rec_type == "none": rec_type = None
         stop_at = None
         if args.get("stop_at"):
-            try:
-                stop_at = datetime.fromisoformat(args["stop_at"]).replace(tzinfo=TZ)
-                # FIX: asegurar que stop_at también es futuro respecto a remind_at
-                if stop_at <= remind_at:
-                    stop_at = stop_at + timedelta(days=1)
-                    print(f"[ai_parser] stop_at adjusted +1 day: {stop_at}")
-            except Exception as e:
-                print(f"[ai_parser] stop_at parse error: {e}")
+            try: stop_at = datetime.fromisoformat(args["stop_at"]).replace(tzinfo=TZ)
+            except: pass
         repeat = args.get("repeat_every_minutes")
         if isinstance(repeat,str):
             try: repeat = int(repeat)
@@ -173,7 +193,7 @@ def _args_to_parsed(args, now):
         rec_val = args.get("recurrence_value")
         if rec_val in ("null","none","",None): rec_val = None
         result = {
-            "task_text": args.get("task_text","").strip(),
+            "task_text": _clean_task_text(args.get("task_text","").strip()),
             "remind_at": remind_at, "status":"scheduled",
             "recurrence_type":rec_type, "recurrence_value":rec_val,
             "weekdays_only":bool(args.get("weekdays_only",False)),

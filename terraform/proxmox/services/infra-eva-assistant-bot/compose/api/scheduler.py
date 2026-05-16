@@ -23,9 +23,9 @@ def next_occurrence(reminder: Reminder) -> datetime | None:
 
     if reminder.recurrence_type == "weekdays":
         nxt = current + timedelta(days=1)
-        # weekdays_only=True → solo L-V, saltar finde
-        # weekdays_only=False → todos los días incluyendo finde
-        if getattr(reminder, "weekdays_only", False):  # FIX: default False (más seguro)
+        # Solo saltar fin de semana si weekdays_only=True
+        # Si weekdays_only=False significa "todos los días" incluyendo finde
+        if getattr(reminder, "weekdays_only", True):
             while nxt.weekday() >= 5:
                 nxt = nxt + timedelta(days=1)
         return nxt
@@ -63,12 +63,8 @@ async def humanize_task_message(task_text: str, retry_count: int = 0,
       "Fichar la salida" → "fichar la salida"
       "Revisar el servidor" → "revisar el servidor"
     """
-    import httpx as _hx
-    import os as _os
-    import json as _json
-
-    ANTHROPIC_API_KEY = _os.getenv("ANTHROPIC_API_KEY", "")
-    if not ANTHROPIC_API_KEY:
+    from integrations import anthropic_client as ac
+    if not ac.is_configured():
         return task_text  # fallback sin API
 
     tone_hint = ""
@@ -89,53 +85,41 @@ async def humanize_task_message(task_text: str, retry_count: int = 0,
     )
 
     try:
-        async with _hx.AsyncClient(timeout=10) as c:  # FIX: subido de 5 a 10s
-            r = await c.post(
-                "https://api.anthropic.com/v1/messages",
-                headers={"x-api-key": ANTHROPIC_API_KEY,
-                         "anthropic-version": "2023-06-01",
-                         "content-type": "application/json"},
-                json={"model": "claude-haiku-4-5-20251001",
-                      "max_tokens": 50,
-                      "messages": [{"role": "user", "content": prompt}]}
-            )
-            if r.status_code == 200:
-                text = r.json()["content"][0]["text"].strip().strip('"').strip("'")
-                return text if text else task_text
+        data = await ac.complete(
+            system="",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=50,
+            timeout=ac.TIMEOUT_SHORT,
+        )
+        text = ac.extract_text(data)
+        if text:
+            return text.strip('"').strip("'")
     except Exception as exc:
         print(f"[scheduler] humanize error: {exc}")
     return task_text
 
 
-def build_due_text(reminder: Reminder, persona: dict | None = None) -> str:
+def build_due_text(reminder: Reminder) -> str:
     """Alias síncrono — usa el task_text directamente (fallback sin IA)."""
     notes = getattr(reminder, "notes", None)
     note_str = f"\n📝 {notes}" if notes else ""
     retry = getattr(reminder, "retry_count", 0) or 0
     task = reminder.task_text
     rid = reminder.id
-
-    # Usar frases de persona si están disponibles
-    confirmed = persona.get("phrases", {}).get("confirmed", "listo") if persona else "listo"
-
     if getattr(reminder, "awaiting_ack", False):
         if retry <= 1:
             return f'👆 Oye, pendiente: {task} [{rid}].{note_str}'
         else:
             return f'🔔 #{retry}: {task} [{rid}].{note_str}'
-    return f'⏰ {task} [{rid}]. Di "{confirmed}" cuando lo hayas hecho.{note_str}'
+    return f'⏰ {task} [{rid}]. Di "listo" cuando lo hayas hecho.{note_str}'
 
 
-async def build_due_text_ai(reminder: Reminder, persona: dict | None = None) -> str:
+async def build_due_text_ai(reminder: Reminder) -> str:
     """Versión mejorada de build_due_text con humanización por IA."""
     notes = getattr(reminder, "notes", None)
     note_str = f"\n📝 {notes}" if notes else ""
     rid = reminder.id
     retry = getattr(reminder, "retry_count", 0) or 0
-
-    # Usar frases de persona si están disponibles
-    confirmed = persona.get("phrases", {}).get("confirmed", "listo") if persona else "listo"
-    user_name = persona.get("user_name", "") if persona else ""
 
     # Detectar si es el último aviso
     is_last = False
@@ -157,7 +141,7 @@ async def build_due_text_ai(reminder: Reminder, persona: dict | None = None) -> 
         if is_last:
             return f'⚡ Último aviso: {task} [{rid}].{note_str}'
         if retry <= 1:
-            return f'👆 Oye{", " + user_name if user_name else ""}, pendiente: {task} [{rid}].{note_str}'
+            return f'👆 Oye, pendiente: {task} [{rid}].{note_str}'
         elif retry == 2:
             return f'🔔 {task} [{rid}] — ¿ya?{note_str}'
         elif retry == 3:
@@ -165,7 +149,7 @@ async def build_due_text_ai(reminder: Reminder, persona: dict | None = None) -> 
         else:
             return f'🔔 #{retry}: {task} [{rid}].{note_str}'
 
-    return f'⏰ {task} [{rid}]. Di "{confirmed}" cuando lo hayas hecho.{note_str}'
+    return f'⏰ {task} [{rid}]. Di "listo" cuando lo hayas hecho.{note_str}'
 
 
 
@@ -205,7 +189,6 @@ def build_daily_digest(db, user, now: datetime | None = None) -> str | None:
         .where(Reminder.status.in_(["scheduled", "pending", "sent"]))
         .where(Reminder.remind_at >= today_start)
         .where(Reminder.remind_at < today_end)
-        .where(Reminder.remind_at < today_start.replace(year=2099))  # FIX: excluir tareas sin fecha
         .order_by(Reminder.remind_at.asc())
     ).scalars().all()
 
@@ -214,7 +197,6 @@ def build_daily_digest(db, user, now: datetime | None = None) -> str | None:
         .where(Reminder.user_id == user.id)
         .where(Reminder.status.in_(["scheduled", "pending", "sent"]))
         .where(Reminder.remind_at < today_start)
-        .where(Reminder.remind_at < today_start.replace(year=2099))  # FIX: excluir tareas sin fecha
         .order_by(Reminder.remind_at.asc())
     ).scalars().all()
 

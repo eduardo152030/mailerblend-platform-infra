@@ -1,0 +1,20 @@
+compose/api/
+  main.py                        ← solo factory + routers (3KB vs 3300 líneas antes)
+  core/config.py                 ← constantes y env vars
+  utils/time_utils.py            ← to_local, serializers
+  utils/text_utils.py            ← parsers, snooze, builders
+  services/
+    reminder_handlers.py         ← handle_ack, cancel, edit, note, list
+    content_handlers.py          ← handle_content_idea, handle_pending_task
+  api/
+    health_routes.py
+    reminder_routes.py
+    event_routes.py
+    task_routes.py
+    attachment_routes.py
+    digest_routes.py
+    telegram_routes.py           ← webhook + photo handler
+    admin_routes.py              ← backfill
+
+Regla de debug por área:
+ProblemaFichero a inspeccionarEVA no respondeapi/telegram_routes.pyACK / cancel / snoozeservices/reminder_handlers.pyContenido / URLsservices/content_handlers.pyFocalboard no sincronizaintegrations/focalboard_client.pyAnthropic no respondeintegrations/anthropic_client.pyTelegram no entregaintegrations/telegram_client.pyQuery lenta o incorrectarepositories/Constante o env varcore/config.pyAdjuntosapi/attachment_routes.pySync bidireccionalsync_service.py

@@ -257,20 +257,13 @@ async def sync_status_changes() -> int:
 
         for r in rows:
             try:
-                # Skip si el reminder fue sincronizado desde Focalboard hace menos de 2 min
-                # (evita bucle de escritura mutua EVA→FB→EVA)
+                # Skip if reminder was recently synced FROM Focalboard (avoid overwrite loop)
                 if r.focalboard_synced_at:
-                    synced_at = r.focalboard_synced_at
-                    if synced_at.tzinfo is None:
-                        synced_at = synced_at.replace(tzinfo=TZ)  # FIX: normalizar tz naive
-                    _age = (datetime.now(TZ) - synced_at).total_seconds()
-                    if _age < 120:
+                    from datetime import timedelta as _td2
+                    _age = (datetime.now(TZ) - r.focalboard_synced_at.replace(tzinfo=TZ) if r.focalboard_synced_at.tzinfo is None else datetime.now(TZ) - r.focalboard_synced_at).total_seconds()
+                    if _age < 120:  # skip if synced from FB in last 2 minutes
                         continue
-                ok = await fb_update_card_status(
-                    r.focalboard_card_id, r.status, r.remind_at,
-                    getattr(r, "notes", None), getattr(r, "url", None),
-                    getattr(r, "priority", None)
-                )
+                ok = await fb_update_card_status(r.focalboard_card_id, r.status, r.remind_at, getattr(r, "notes", None), getattr(r, "url", None), getattr(r, "priority", None))
                 if ok:
                     r.focalboard_synced_at = datetime.now(TZ)
                     _log(db, "reminder", r.id, "eva_to_fb", "update", r.focalboard_card_id)
@@ -373,7 +366,6 @@ async def sync_from_focalboard() -> int:
     synced = 0
     try:
         db.rollback()
-        now = datetime.now(TZ)  # FIX: mover aquí — antes se usaba 'now' en línea 399 sin estar definida
         for card in cards:
             cid = card.get("id")
             if not cid:
@@ -394,7 +386,7 @@ async def sync_from_focalboard() -> int:
                     default_user = db.execute(select(_User).limit(1)).scalars().first()
                     if default_user:
                         # Crear reminder para poder rastrear este cambio
-                        fb_title = card.get("title", "Tarea de Focalboard")
+                        fb_title = card.get("title", "Tarea sin título")
                         import re as _re
                         fb_title_clean = _re.sub(r"\s+[↻—–-]\s+.*$", "", fb_title).strip()
                         reminder = Reminder(
@@ -415,7 +407,7 @@ async def sync_from_focalboard() -> int:
                     continue
 
             props = card.get("fields", {}).get("properties", {})
-            # FIX: 'now' ya está definido antes del loop — no redefinir aquí
+            now = datetime.now(TZ)
             changed = False
             notify_msg = None
 
@@ -437,7 +429,7 @@ async def sync_from_focalboard() -> int:
                     db.add(Event(user_id=reminder.user_id, event_type="reminder_completed",
                                  event_value=str(reminder.id), source="focalboard",
                                  payload={"card_id": cid, "from": old_status}))
-                    notify_msg = f'✅ "{reminder.task_text}" completado desde Focalboard [{reminder.id}]'
+                    notify_msg = f'✅ "{reminder.task_text}" completado desde la UI [{reminder.id}]'
 
                 elif new_status == "cancelled":
                     reminder.cancelled_at = now
@@ -445,7 +437,7 @@ async def sync_from_focalboard() -> int:
                     db.add(Event(user_id=reminder.user_id, event_type="reminder_cancelled",
                                  event_value=str(reminder.id), source="focalboard",
                                  payload={"card_id": cid, "from": old_status}))
-                    notify_msg = f'🗑️ "{reminder.task_text}" cancelado desde Focalboard [{reminder.id}]'
+                    notify_msg = f'🗑️ "{reminder.task_text}" cancelado desde la UI [{reminder.id}]'
 
                 elif new_status == "scheduled":
                     # Reactivación o movimiento a Pendiente
@@ -455,7 +447,7 @@ async def sync_from_focalboard() -> int:
                                  event_value=str(reminder.id), source="focalboard",
                                  payload={"card_id": cid, "from": old_status}))
                     if old_status in ("completed", "cancelled"):
-                        notify_msg = f'🔄 "{reminder.task_text}" reactivado desde Focalboard [{reminder.id}]'
+                        notify_msg = f'🔄 "{reminder.task_text}" reactivado desde la UI [{reminder.id}]'
                     else:
                         notify_msg = f'📋 "{reminder.task_text}" movido a Pendiente [{reminder.id}]'
 
@@ -470,7 +462,7 @@ async def sync_from_focalboard() -> int:
                     db.add(Event(user_id=reminder.user_id, event_type="reminder_sent_manual",
                                  event_value=str(reminder.id), source="focalboard",
                                  payload={"card_id": cid, "from": old_status}))
-                    notify_msg = f'📨 "{reminder.task_text}" marcado como Enviado desde Focalboard [{reminder.id}]'
+                    notify_msg = f'📨 "{reminder.task_text}" marcado como Enviado desde la UI [{reminder.id}]'
 
                 else:
                     # Cualquier otro cambio de status
@@ -511,7 +503,7 @@ async def sync_from_focalboard() -> int:
                             if not notify_msg:
                                 days = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]
                                 day_str = f"{days[fb_dt.weekday()]} {fb_dt.strftime('%d/%m')}"
-                                notify_msg = (f'📅 Fecha actualizada desde Focalboard: "{reminder.task_text}" [{reminder.id}]\n'
+                                notify_msg = (f'📅 Fecha actualizada desde la UI: "{reminder.task_text}" [{reminder.id}]\n'
                                               f'Nueva fecha: {day_str} a las {fb_dt.strftime("%H:%M")}')
                             db.add(Event(user_id=reminder.user_id, event_type="reminder_rescheduled",
                                          event_value=str(reminder.id), source="focalboard",

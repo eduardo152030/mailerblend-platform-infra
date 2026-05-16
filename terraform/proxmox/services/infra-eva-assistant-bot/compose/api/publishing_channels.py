@@ -192,6 +192,57 @@ async def create_channel(request: Request):
         db.close()
 
 
+# ── Undated tasks config endpoints ────────────────────────────────────────
+
+@publishing_router.get("/undated-config")
+async def get_undated_config():
+    """Obtiene configuración de recordatorios por tareas sin fecha."""
+    db = SessionLocal()
+    try:
+        from undated_tasks_reminder import get_undated_tasks_config_api
+        return get_undated_tasks_config_api(db)
+    finally:
+        db.close()
+
+
+@publishing_router.patch("/undated-config")
+async def update_undated_config(request: Request):
+    """Actualiza configuración de recordatorios por tareas sin fecha."""
+    db = SessionLocal()
+    try:
+        body = await request.json()
+        from undated_tasks_reminder import update_undated_tasks_config_api
+        return await update_undated_tasks_config_api(db, body)
+    finally:
+        db.close()
+
+
+@publishing_router.get("/undated-tasks")
+async def list_undated_tasks():
+    """Lista tareas activas sin fecha y sus días de inactividad."""
+    db = SessionLocal()
+    try:
+        from undated_tasks_reminder import get_undated_stale_tasks, _get_config
+        from sqlalchemy import select as _select
+        config = _get_config(db)
+        user = db.execute(_select(User).limit(1)).scalars().first()
+        if not user:
+            return {"tasks": []}
+        tasks = get_undated_stale_tasks(db, user.id, config["days_threshold"])
+        return {"tasks": tasks, "total": len(tasks), "config": config}
+    finally:
+        db.close()
+
+
+@publishing_router.post("/undated-tasks/test")
+async def test_undated_reminders():
+    """Envía recordatorios de tareas sin fecha ahora (para testing)."""
+    from undated_tasks_reminder import check_undated_tasks
+    from telegram_service import send_message
+    sent = await check_undated_tasks(send_message)
+    return {"sent": sent}
+
+
 # ── Función para el scheduler ─────────────────────────────────────────────
 
 def _compute_max_days(max_days: int, posts_per_week: float | None,

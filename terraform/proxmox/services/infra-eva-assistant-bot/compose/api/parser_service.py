@@ -95,11 +95,15 @@ def _normalize_text(text: str) -> str:
 def _clean_task(task: str) -> str:
     """Limpia prefijos innecesarios del texto de la tarea."""
     task = task.strip()
+    # "eva, X" / "eva X" → "X"
+    task = re.sub(r"^eva\s*[,.]?\s*", "", task, flags=re.IGNORECASE).strip()
+    # "recuérdame X" → "X"
+    task = re.sub(r"^recu[eé]rdame\s+(?:que\s+)?", "", task, flags=re.IGNORECASE).strip()
     # "que tengo X" → "X"
     task = re.sub(r"^que\s+tengo\s+(?:que\s+)?", "", task, flags=re.IGNORECASE)
     # "que X" → "X" (solo si queda algo significativo)
     task = re.sub(r"^que\s+(?=\w)", "", task, flags=re.IGNORECASE)
-    # "mañana tengo que X" → "X"  
+    # "mañana tengo que X" → "X"
     task = re.sub(r"^ma[ñn]ana\s+(?:tengo\s+que\s+|tengo\s+)?", "", task, flags=re.IGNORECASE)
     return task.strip()
 
