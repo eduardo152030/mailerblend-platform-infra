@@ -142,12 +142,12 @@ services:
       echo 'Docker cleanup service started';
       while true; do
         sleep 604800;
-        echo "[cleanup] $(date) — iniciando limpieza semanal";
+        echo '[cleanup] '$(date)' — iniciando limpieza semanal';
         docker image prune -a --force;
         docker container prune --force;
         docker network prune --force;
         docker volume prune --force;
-        echo "[cleanup] $(date) — completado. Disco: $(df -h / | tail -1 | awk '{print \$5}')";
+        echo '[cleanup] '$(date)' — completado. Disco: '$(df -h / | tail -1 | awk '{print $5}');
       done"
     deploy:
       resources:

@@ -43,17 +43,24 @@ def _api_url(method: str) -> str:
 async def send_message(chat_id: int, text: str, parse_mode: str | None = None) -> dict:
     """
     Send a text message to a chat.
-    Returns the Telegram API response dict.
-    Raises httpx.HTTPStatusError on non-2xx responses.
+    Returns the Telegram API response dict on success.
+    Returns {"ok": False, "error": "..."} on failure — does NOT raise.
+    Callers should check the return value if they need to know if it succeeded.
     """
     payload: dict[str, Any] = {"chat_id": chat_id, "text": text}
     if parse_mode:
         payload["parse_mode"] = parse_mode
 
-    async with httpx.AsyncClient(timeout=_TIMEOUT_SEND) as client:
-        resp = await client.post(_api_url("sendMessage"), json=payload)
-        resp.raise_for_status()
-        return resp.json()
+    try:
+        async with httpx.AsyncClient(timeout=_TIMEOUT_SEND) as client:
+            resp = await client.post(_api_url("sendMessage"), json=payload)
+            if resp.status_code == 200:
+                return resp.json()
+            print(f"[tg_client] ❌ sendMessage failed {resp.status_code} chat_id={chat_id}: {resp.text[:100]}")
+            return {"ok": False, "error": f"HTTP {resp.status_code}", "chat_id": chat_id}
+    except Exception as exc:
+        print(f"[tg_client] ❌ sendMessage exception chat_id={chat_id}: {exc}")
+        return {"ok": False, "error": str(exc), "chat_id": chat_id}
 
 
 # ── File operations ───────────────────────────────────────────────────────

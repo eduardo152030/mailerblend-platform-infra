@@ -418,58 +418,79 @@ async def sync_from_focalboard() -> int:
             if new_status and new_status != reminder.status:
                 old_status = reminder.status
 
-                # Aplicar el nuevo status — TODOS los cambios se sincronizan
-                reminder.status = new_status
-                reminder.awaiting_ack = False
+                # ── Anti-loop guard ───────────────────────────────────────
+                # If EVA cancelled/completed this reminder recently (< 5 min),
+                # do NOT let Focalboard reactivate it.
+                # This prevents the sync loop where:
+                #   EVA cancels → sync_recurring_dates writes date → card gets
+                #   fresh updateAt → sync_from_focalboard sees scheduled →
+                #   reactivates → scheduler fires again → infinite loop
+                _recently_changed_by_eva = False
+                if new_status == "scheduled" and old_status in ("cancelled", "completed"):
+                    _changed_at = (
+                        reminder.cancelled_at if old_status == "cancelled"
+                        else reminder.completed_at
+                    )
+                    if _changed_at:
+                        _changed_at_tz = _changed_at if _changed_at.tzinfo else _changed_at.replace(tzinfo=TZ)
+                        _age_seconds = (now - _changed_at_tz).total_seconds()
+                        if _age_seconds < 300:  # 5 minutes
+                            _recently_changed_by_eva = True
+                            print(f"[sync] ⚠️  skip reactivation of [{reminder.id}] — "
+                                  f"cancelled/completed by EVA {_age_seconds:.0f}s ago")
 
-                # Acciones específicas según el nuevo status
-                if new_status == "completed":
-                    reminder.completed_at = now
-                    reminder.acked_at = now
-                    db.add(Event(user_id=reminder.user_id, event_type="reminder_completed",
-                                 event_value=str(reminder.id), source="focalboard",
-                                 payload={"card_id": cid, "from": old_status}))
-                    notify_msg = f'✅ "{reminder.task_text}" completado desde la UI [{reminder.id}]'
-
-                elif new_status == "cancelled":
-                    reminder.cancelled_at = now
-                    reminder.error_message = "cancelled_via_focalboard"
-                    db.add(Event(user_id=reminder.user_id, event_type="reminder_cancelled",
-                                 event_value=str(reminder.id), source="focalboard",
-                                 payload={"card_id": cid, "from": old_status}))
-                    notify_msg = f'🗑️ "{reminder.task_text}" cancelado desde la UI [{reminder.id}]'
-
-                elif new_status == "scheduled":
-                    # Reactivación o movimiento a Pendiente
-                    reminder.completed_at = None
-                    reminder.cancelled_at = None
-                    db.add(Event(user_id=reminder.user_id, event_type="reminder_reactivated",
-                                 event_value=str(reminder.id), source="focalboard",
-                                 payload={"card_id": cid, "from": old_status}))
-                    if old_status in ("completed", "cancelled"):
-                        notify_msg = f'🔄 "{reminder.task_text}" reactivado desde la UI [{reminder.id}]'
-                    else:
-                        notify_msg = f'📋 "{reminder.task_text}" movido a Pendiente [{reminder.id}]'
-
-                elif new_status == "in_progress":
-                    db.add(Event(user_id=reminder.user_id, event_type="reminder_in_progress",
-                                 event_value=str(reminder.id), source="focalboard",
-                                 payload={"card_id": cid, "from": old_status}))
-                    notify_msg = f'🔵 "{reminder.task_text}" en progreso [{reminder.id}]'
-
-                elif new_status == "sent":
-                    # Marcado como Enviado manualmente desde Focalboard
-                    db.add(Event(user_id=reminder.user_id, event_type="reminder_sent_manual",
-                                 event_value=str(reminder.id), source="focalboard",
-                                 payload={"card_id": cid, "from": old_status}))
-                    notify_msg = f'📨 "{reminder.task_text}" marcado como Enviado desde la UI [{reminder.id}]'
-
+                if _recently_changed_by_eva:
+                    pass  # Skip this card's status change
                 else:
-                    # Cualquier otro cambio de status
-                    db.add(Event(user_id=reminder.user_id, event_type="reminder_status_changed",
-                                 event_value=str(reminder.id), source="focalboard",
-                                 payload={"card_id": cid, "from": old_status, "to": new_status}))
-                    notify_msg = f'🔀 "{reminder.task_text}" → {new_status} [{reminder.id}]'
+                    # Aplicar el nuevo status — TODOS los cambios se sincronizan
+                    reminder.status = new_status
+                    reminder.awaiting_ack = False
+
+                    # Acciones específicas según el nuevo status
+                    if new_status == "completed":
+                        reminder.completed_at = now
+                        reminder.acked_at = now
+                        db.add(Event(user_id=reminder.user_id, event_type="reminder_completed",
+                                     event_value=str(reminder.id), source="focalboard",
+                                     payload={"card_id": cid, "from": old_status}))
+                        notify_msg = f'✅ "{reminder.task_text}" completado desde la UI [{reminder.id}]'
+
+                    elif new_status == "cancelled":
+                        reminder.cancelled_at = now
+                        reminder.error_message = "cancelled_via_focalboard"
+                        db.add(Event(user_id=reminder.user_id, event_type="reminder_cancelled",
+                                     event_value=str(reminder.id), source="focalboard",
+                                     payload={"card_id": cid, "from": old_status}))
+                        notify_msg = f'🗑️ "{reminder.task_text}" cancelado desde la UI [{reminder.id}]'
+
+                    elif new_status == "scheduled":
+                        reminder.completed_at = None
+                        reminder.cancelled_at = None
+                        db.add(Event(user_id=reminder.user_id, event_type="reminder_reactivated",
+                                     event_value=str(reminder.id), source="focalboard",
+                                     payload={"card_id": cid, "from": old_status}))
+                        if old_status in ("completed", "cancelled"):
+                            notify_msg = f'🔄 "{reminder.task_text}" reactivado desde la UI [{reminder.id}]'
+                        else:
+                            notify_msg = f'📋 "{reminder.task_text}" movido a Pendiente [{reminder.id}]'
+
+                    elif new_status == "in_progress":
+                        db.add(Event(user_id=reminder.user_id, event_type="reminder_in_progress",
+                                     event_value=str(reminder.id), source="focalboard",
+                                     payload={"card_id": cid, "from": old_status}))
+                        notify_msg = f'🔵 "{reminder.task_text}" en progreso [{reminder.id}]'
+
+                    elif new_status == "sent":
+                        db.add(Event(user_id=reminder.user_id, event_type="reminder_sent_manual",
+                                     event_value=str(reminder.id), source="focalboard",
+                                     payload={"card_id": cid, "from": old_status}))
+                        notify_msg = f'📨 "{reminder.task_text}" marcado como Enviado desde la UI [{reminder.id}]'
+
+                    else:
+                        db.add(Event(user_id=reminder.user_id, event_type="reminder_status_changed",
+                                     event_value=str(reminder.id), source="focalboard",
+                                     payload={"card_id": cid, "from": old_status, "to": new_status}))
+                        notify_msg = f'🔀 "{reminder.task_text}" → {new_status} [{reminder.id}]'
 
                 # Asegurar que el task_text no esté vacío en el mensaje
                 task_display = reminder.task_text or card.get("title", "")[:40]

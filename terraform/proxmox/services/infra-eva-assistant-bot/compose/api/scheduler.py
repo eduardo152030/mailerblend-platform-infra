@@ -65,7 +65,7 @@ async def humanize_task_message(task_text: str, retry_count: int = 0,
     """
     from integrations import anthropic_client as ac
     if not ac.is_configured():
-        return task_text  # fallback sin API
+        return task_text
 
     tone_hint = ""
     if is_last:
@@ -75,9 +75,37 @@ async def humanize_task_message(task_text: str, retry_count: int = 0,
     elif retry_count == 0:
         tone_hint = "Es el primer aviso."
 
+    # Load dialect from persona to ensure correct regional Spanish
+    # Default: Venezuelan Spanish — never Argentine
+    dialect_hint = (
+        "Usa español de Venezuela. Modismos naturales: 'pana', 'chamo', 'epale', 'chévere', 'vale'. "
+        "No fuerces los modismos — úsalos cuando fluyan natural. "
+        "NUNCA uses 'che' ni modismos argentinos."
+    )
+    try:
+        from persona_service import load_persona
+        _persona = load_persona(None)  # loads Blazer1x.json (default persona)
+        _lang    = _persona.get("language", "es-ve")
+        _personality = _persona.get("personality_notes", "")
+        _language_hints = {
+            "es-ve": (
+                "Usa español de Venezuela. Modismos naturales: 'pana', 'chamo', 'epale', 'chévere', 'vale'. "
+                "No fuerces los modismos — úsalos cuando fluyan natural. "
+                "NUNCA uses 'che' ni modismos argentinos."
+            ),
+            "es-es": "Usa español de España. Natural, sin forzar regionalismos.",
+            "es":    "Usa español neutro, comprensible para cualquier hispanohablante.",
+        }
+        dialect_hint = _language_hints.get(_lang, dialect_hint)
+        if _personality:
+            # Append personality notes for extra context
+            dialect_hint += f" Personalidad: {_personality}"
+    except Exception as exc:
+        print(f"[scheduler] persona load error: {exc}")
+
     prompt = (
         f"Transforma esta tarea en una frase natural en español para un recordatorio de Telegram. "
-        f"Usa español coloquial real, no formal. "
+        f"{dialect_hint} "
         f"Si hay 'a los hijos/niños' usa pronombre indirecto (lavarles, recordarles). "
         f"Devuelve SOLO la frase transformada, sin comillas, sin explicación. "
         f"Máximo 8 palabras. {tone_hint}\n\n"
@@ -114,7 +142,7 @@ def build_due_text(reminder: Reminder) -> str:
     return f'⏰ {task} [{rid}]. Di "listo" cuando lo hayas hecho.{note_str}'
 
 
-async def build_due_text_ai(reminder: Reminder) -> str:
+async def build_due_text_ai(reminder: Reminder, persona=None) -> str:
     """Versión mejorada de build_due_text con humanización por IA."""
     notes = getattr(reminder, "notes", None)
     note_str = f"\n📝 {notes}" if notes else ""

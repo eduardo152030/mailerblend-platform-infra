@@ -1,0 +1,14 @@
+ son las 13:15 y el recordatorio no ha llegado. Fue creado a las 13:02 para "en 5 minutos" (13:07) con reintento cada 5 minutos hasta las 13:35.
+
+ Antes de cualquier hipótesis, necesito los datos reales. Ejecuta estos comandos y pégame el resultado:
+# 1. Estado real del recordatorio en DB
+ssh root@192.168.1.122 "docker exec eva-postgres psql -U eva -d eva -c \
+  \"SELECT id, task_text, status, remind_at, is_persistent, repeat_every_minutes, stop_at, awaiting_ack, sent_at, last_sent_at \
+    FROM reminders ORDER BY id DESC LIMIT 5;\""
+
+# 2. Logs del scheduler de los últimos 20 minutos
+ssh root@192.168.1.122 "docker logs eva-scheduler --since=60m 2>&1 | tail -40"
+
+# 3. Verificar que eva-scheduler tiene el código nuevo
+ssh root@192.168.1.122 "docker exec eva-scheduler python -c \
+  \"import run_scheduler; print('ok')\""
