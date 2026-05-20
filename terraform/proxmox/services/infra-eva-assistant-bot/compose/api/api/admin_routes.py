@@ -15,7 +15,46 @@ from utils.time_utils import to_local
 router = APIRouter()
 
 
-@router.post("/admin/backfill-dates")
+@router.post("/admin/backfill-titles")
+async def backfill_focalboard_titles():
+    """
+    One-shot: for every reminder with a focalboard_card_id, push the
+    EVA task_text as the top-level card title.
+
+    Fixes cards where title was written to fields.title (wrong) instead
+    of the top-level title field (correct). Run once after deploying the
+    update_card_title fix.
+    """
+    from integrations import focalboard_client as fb
+    db = SessionLocal()
+    updated = skipped = errors = 0
+    try:
+        rows = db.execute(
+            select(Reminder).where(Reminder.focalboard_card_id.isnot(None))
+        ).scalars().all()
+
+        for r in rows:
+            if not r.task_text:
+                skipped += 1
+                continue
+            try:
+                ok = await fb.update_card_title(r.focalboard_card_id, r.task_text)
+                if ok:
+                    updated += 1
+                else:
+                    errors += 1
+            except Exception as exc:
+                print(f"[backfill-titles] error reminder {r.id}: {exc}")
+                errors += 1
+
+        return {
+            "updated": updated,
+            "skipped": skipped,
+            "errors": errors,
+            "total": len(rows),
+        }
+    finally:
+        db.close()
 async def backfill_focalboard_dates():
     """
     Write the Date property to Focalboard for all reminders that have

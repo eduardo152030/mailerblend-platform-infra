@@ -72,6 +72,10 @@ def is_ack_text(lowered: str) -> bool:
         return True
     if re.match(r'^en\s+\d+\s+(?:minutos?|horas?)$', lowered):
         return True
+    # "recuérdamelo a las X" / "a las X solo hoy" with active reminder = snooze
+    if re.search(r'\ba\s+las?\s+\d{1,2}(?::\d{2})?\b', lowered):
+        if re.search(r'\b(?:recu[eé]rdamelo?|solo\s+hoy|para\s+hoy|hoy)\b', lowered):
+            return True
     return False
 
 
@@ -231,12 +235,16 @@ def _parse_snooze(lowered: str) -> Optional[timedelta]:
     if norm in ("luego", "despues", "ahora no", "mas tarde", "ahorita no"):
         return timedelta(hours=1)
 
-    m = re.match(r'^(?:.+\s+)?a\s+las?\s+(\d{1,2})(?::(\d{2}))?$', norm)
+    # "a las HH:MM" optionally followed by "solo hoy", "para hoy", "hoy" etc.
+    # Use search instead of match so it finds the time anywhere in the string
+    m = re.search(r'a\s+las?\s+(\d{1,2})(?::(\d{2}))?', norm)
     if m:
         h    = int(m.group(1))
         mins = int(m.group(2)) if m.group(2) else 0
         target = now.replace(hour=h, minute=mins, second=0, microsecond=0)
-        if target <= now:
+        # "solo hoy" / "para hoy" → don't advance to next day even if past
+        _force_today = bool(re.search(r'\b(?:solo\s+)?hoy\b', norm))
+        if target <= now and not _force_today:
             target += timedelta(days=1)
         return target - now
 

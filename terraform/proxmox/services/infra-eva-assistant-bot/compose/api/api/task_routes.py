@@ -108,16 +108,25 @@ async def get_task(task_id: int):
             {"rid": task_id},
         ).fetchall()
 
+        from core.config import FOCALBOARD_BOARD_ID, CONTENT_BOARD_ID
+
+        # Determine which board this task belongs to by checking tags
+        _tags = getattr(reminder, "tags", "") or ""
+        _is_content = "#contenido" in _tags.lower()
+        _board_id = CONTENT_BOARD_ID if _is_content else FOCALBOARD_BOARD_ID
+
         return {
             "id": reminder.id,
             "task_text": reminder.task_text,
             "status": reminder.status,
             "priority": getattr(reminder, "priority", "P3"),
             "notes": reminder.notes,
+            "tags": getattr(reminder, "tags", None),
             "url": getattr(reminder, "url", None),
             "description": getattr(reminder, "description", None),
             "remind_at": reminder.remind_at.isoformat() if reminder.remind_at else None,
             "focalboard_card_id": getattr(reminder, "focalboard_card_id", None),
+            "board_id": _board_id,
             "attachments": [
                 {
                     "id": a[0], "filename": a[1], "original_name": a[2],
@@ -149,6 +158,13 @@ async def update_task(task_id: int, request: Request):
             tags_found     = re.findall(r'#[a-zA-Z]\w*', raw)
             reminder.tags  = " ".join(tags_found) if tags_found else None
             reminder.task_text = re.sub(r'\s*#[a-zA-Z]\w*', '', raw).strip()
+            # Sync top-level title to Focalboard
+            if getattr(reminder, "focalboard_card_id", None):
+                try:
+                    from integrations import focalboard_client as fb
+                    await fb.update_card_title(reminder.focalboard_card_id, reminder.task_text)
+                except Exception as _e:
+                    print(f"[task_routes] focalboard title sync error: {_e}")
         if "notes"    in body: reminder.notes    = body["notes"] or None
         if "tags"     in body: reminder.tags     = body["tags"] or None
         if "status"   in body: reminder.status   = body["status"]
@@ -166,7 +182,14 @@ async def update_task(task_id: int, request: Request):
 
 @router.patch("/tasks/{task_id}/description")
 async def update_task_description(task_id: int, request: Request):
-    """Update the WYSIWYG HTML description of a task."""
+    """
+    Update the WYSIWYG HTML description of a task.
+
+    Also extracts hashtags from the HTML and merges them into reminder.tags
+    (same behavior as task_text updates from Telegram).
+
+    Returns the updated task object so the UI can confirm the save.
+    """
     db = SessionLocal()
     try:
         body = await request.json()
@@ -178,12 +201,32 @@ async def update_task_description(task_id: int, request: Request):
         if not reminder:
             return JSONResponse(status_code=404, content={"error": "task_not_found"})
 
-        db.execute(
-            text("UPDATE reminders SET description = :desc WHERE id = :id"),
-            {"desc": html, "id": task_id},
-        )
+        # Persist HTML as-is — do not sanitize to empty
+        reminder.description = html if html else None
+
+        # Extract hashtags from HTML and merge into tags
+        # Strip HTML tags first to get plain text for tag extraction
+        plain_text = re.sub(r'<[^>]+>', ' ', html)
+        new_tags   = re.findall(r'#[a-zA-Z]\w*', plain_text)
+        if new_tags:
+            existing   = re.findall(r'#[a-zA-Z]\w*', reminder.tags or "")
+            existing_l = {t.lower() for t in existing}
+            merged     = existing + [t for t in new_tags if t.lower() not in existing_l]
+            reminder.tags = " ".join(merged)
+
         db.commit()
-        return {"status": "ok", "task_id": task_id}
+        db.refresh(reminder)
+
+        return {
+            "id":          reminder.id,
+            "task_text":   reminder.task_text,
+            "description": reminder.description,
+            "tags":        reminder.tags,
+            "notes":       reminder.notes,
+            "status":      reminder.status,
+            "priority":    getattr(reminder, "priority", "P3"),
+            "focalboard_card_id": getattr(reminder, "focalboard_card_id", None),
+        }
     finally:
         db.close()
 

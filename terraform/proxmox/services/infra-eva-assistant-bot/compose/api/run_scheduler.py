@@ -37,10 +37,6 @@ from scheduler import (
     DAILY_DIGEST_MINUTE,
 )
 from telegram_service import send_message
-# FIX: importar check_undated_tasks y check_publishing_reminders que faltaban
-from undated_tasks_reminder import check_undated_tasks
-from publishing_channels import check_publishing_reminders
-from persona_service import load_persona
 
 TZ = ZoneInfo(os.getenv("TIMEZONE", "Europe/Madrid"))
 POLL_INTERVAL = int(os.getenv("SCHEDULER_POLL_SECONDS", "30"))
@@ -51,11 +47,6 @@ _digest_sent_today: str = ""
 
 async def _send_telegram(chat_id: int, text: str, parse_mode: str = "MarkdownV2") -> None:
     await send_message(chat_id, text, parse_mode=parse_mode)
-
-
-async def _send_plain(chat_id: int, text: str) -> None:
-    """Wrapper sin parse_mode para funciones que no usan Markdown (undated, publishing)."""
-    await send_message(chat_id, text)
 
 
 async def process_reminders() -> None:
@@ -93,9 +84,8 @@ async def process_reminders() -> None:
                     print(f"[scheduler] reminder {r.id} cancelled by event {r.cancel_on_event_type}")
                     continue
 
-                # Enviar aviso con persona del usuario
-                persona = load_persona(getattr(user, "username", None))
-                text_out = await build_due_text_ai(r, persona=persona)
+                # Enviar aviso
+                text_out = await build_due_text_ai(r)
                 await send_message(user.telegram_chat_id, text_out)
 
                 r.status = "sent"
@@ -140,9 +130,6 @@ async def process_reminders() -> None:
                 # ¿Expirado?
                 if r.stop_at:
                     stop_local = to_local(r.stop_at)
-                    # FIX: asegurar que stop_local tiene tzinfo antes de comparar
-                    if stop_local.tzinfo is None:
-                        stop_local = stop_local.replace(tzinfo=TZ)
                     # Solo expirar si stop_at es HOY o futuro cercano
                     # Evita expirar por stop_at de días anteriores cuando
                     # remind_at se reprogramó (ej: "No, a las 7:40")
@@ -183,8 +170,7 @@ async def process_reminders() -> None:
                 if not user or not user.telegram_chat_id:
                     continue
 
-                persona = load_persona(getattr(user, "username", None))
-                text_out = await build_due_text_ai(r, persona=persona)
+                text_out = await build_due_text_ai(r)
                 await send_message(user.telegram_chat_id, text_out)
 
                 r.last_sent_at = now
@@ -211,15 +197,11 @@ async def process_reminders() -> None:
 
         db.commit()
 
-        # ── 3. Recurrentes: reprogramar enviados sin awaiting_ack ─────────
-        # IMPORTANTE: excluir los que tienen awaiting_ack=True — esos los
-        # gestiona el bloque de persistentes. Solo reprogramar los que ya
-        # se procesaron y no esperan confirmación.
+        # ── 3. Recurrentes: reprogramar completados/enviados ───────────────
         sent_recurrent = db.execute(
             select(Reminder)
             .where(Reminder.status == "sent")
             .where(Reminder.awaiting_ack.is_(False))
-            .where(Reminder.is_persistent.is_(False))   # FIX: excluir persistentes
             .where(Reminder.recurrence_type.isnot(None))
         ).scalars().all()
 
@@ -236,7 +218,7 @@ async def process_reminders() -> None:
             except Exception as exc:
                 print(f"[scheduler] ERROR rescheduling reminder {r.id}: {exc}")
 
-        db.commit()  # FIX: commit propio para recurrentes
+        db.commit()
 
     except Exception as exc:
         db.rollback()
@@ -284,7 +266,7 @@ async def process_publishing_reminders() -> None:
     if _publishing_reminders_sent_today == reminder_key:
         return
     try:
-        sent = await check_publishing_reminders(_send_plain)  # FIX: _send_plain
+        sent = await check_publishing_reminders(_send_telegram)
         _publishing_reminders_sent_today = reminder_key
         if sent:
             print(f"[scheduler] publishing reminders sent: {sent}")
@@ -293,6 +275,7 @@ async def process_publishing_reminders() -> None:
 
 
 _undated_sent_today: str = ""
+_weekly_cleanup_done: str = ""  # tracks last weekly cleanup (YYYY-WW format)
 
 
 async def process_undated_tasks() -> None:
@@ -305,7 +288,7 @@ async def process_undated_tasks() -> None:
     if _undated_sent_today == reminder_key:
         return
     try:
-        sent = await check_undated_tasks(_send_plain)  # FIX: _send_plain
+        sent = await check_undated_tasks(_send_telegram)
         _undated_sent_today = reminder_key
         if sent:
             print(f"[scheduler] undated task alerts sent: {sent}")
@@ -334,6 +317,72 @@ async def process_content_reminders() -> None:
         db.close()
 
 
+async def process_weekly_cleanup() -> None:
+    """
+    Every Sunday at 10:00 — delete all completed and cancelled reminders
+    from DB and their Focalboard cards.
+
+    Runs silently (no Telegram notification) — it's background maintenance.
+    To debug: docker logs eva-scheduler | grep weekly_cleanup
+    """
+    global _weekly_cleanup_done
+    now = datetime.now(TZ)
+
+    # Only on Sundays (weekday=6) at 10:00
+    if now.weekday() != 6 or now.hour != 10 or now.minute != 0:
+        return
+
+    # Deduplicate — only run once per week (keyed by year+week number)
+    week_key = f"{now.year}-W{now.isocalendar()[1]}"
+    if _weekly_cleanup_done == week_key:
+        return
+
+    db = SessionLocal()
+    try:
+        from integrations import focalboard_client as fb
+
+        rows = db.execute(
+            select(Reminder).where(Reminder.status.in_(["completed", "cancelled"]))
+        ).scalars().all()
+
+        if not rows:
+            print(f"[scheduler] weekly_cleanup: nothing to clean")
+            _weekly_cleanup_done = week_key
+            return
+
+        deleted_fb = 0
+        for r in rows:
+            if r.focalboard_card_id and fb.is_configured():
+                try:
+                    if await fb.delete_card(r.focalboard_card_id):
+                        deleted_fb += 1
+                except Exception as exc:
+                    print(f"[scheduler] weekly_cleanup: FB delete error {r.id}: {exc}")
+
+        count = len(rows)
+        for r in rows:
+            db.delete(r)
+
+        db.add(Event(
+            user_id=rows[0].user_id if rows else None,
+            event_type="weekly_cleanup",
+            event_value=str(count),
+            source="scheduler",
+            payload={"deleted_db": count, "deleted_fb": deleted_fb, "week": week_key},
+        ))
+        db.commit()
+        _weekly_cleanup_done = week_key
+        print(f"[scheduler] weekly_cleanup ✅ — deleted {count} reminders "
+              f"({deleted_fb} Focalboard cards) — week {week_key}")
+
+    except Exception as exc:
+        db.rollback()
+        print(f"[scheduler] weekly_cleanup ERROR: {exc}")
+        traceback.print_exc()
+    finally:
+        db.close()
+
+
 async def main_loop() -> None:
     print(f"[scheduler] Starting EVA scheduler (poll every {POLL_INTERVAL}s, digest at {DAILY_DIGEST_HOUR:02d}:{DAILY_DIGEST_MINUTE:02d} {TZ})")
 
@@ -344,6 +393,7 @@ async def main_loop() -> None:
             await process_content_reminders()
             await process_publishing_reminders()
             await process_undated_tasks()
+            await process_weekly_cleanup()
         except Exception as exc:
             print(f"[scheduler] Unhandled error in main loop: {exc}")
             traceback.print_exc()

@@ -231,7 +231,14 @@ def build_daily_digest(db, user, now: datetime | None = None) -> str | None:
     if not todays and not overdue:
         return None
 
-    name = (user.display_name or "").split()[0] if user.display_name else ""
+    # Use name from persona JSON (e.g. "Jainer") — not telegram display_name ("Blazer1x")
+    try:
+        from persona_service import load_persona
+        _persona = load_persona(user.telegram_username)
+        name = _persona.get("user_name", "") or (user.display_name or "").split()[0]
+    except Exception:
+        name = (user.display_name or "").split()[0] if user.display_name else ""
+
     greeting = f"\u2600\ufe0f Buenos d\u00edas{', ' + name if name else ''}\\.\n\n"
     lines = [greeting]
 

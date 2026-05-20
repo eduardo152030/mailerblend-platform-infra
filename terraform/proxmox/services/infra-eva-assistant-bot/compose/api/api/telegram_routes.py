@@ -181,6 +181,44 @@ async def telegram_webhook(request: Request):
         # ── Last EVA message (used in multiple checks below) ──────────────
         _last_eva_msg = mr.get_last_outbound(db, user.id)
 
+        # ── Screenshot title response ─────────────────────────────────────
+        # When EVA asked "¿Cómo lo llamo?" for a screenshot, the next message
+        # is either the title or "nada" (keep as-is).
+        # Detection: last EVA message contains "¿Cómo lo llamo?" + reminder ID.
+        _SCREENSHOT_PROMPT = "¿Cómo lo llamo?"
+        if _last_eva_msg and _SCREENSHOT_PROMPT in _last_eva_msg.message_text:
+            _id_m = re.search(r'\[(\d+)\]', _last_eva_msg.message_text)
+            if _id_m:
+                _ref_id = int(_id_m.group(1))
+                _target = rr.get_by_id_and_user(db, _ref_id, user.id)
+                if _target:
+                    if lowered.strip() in ("nada", "no", "así está bien", "así"):
+                        # Usuario no quiere cambiar el título — confirmar como está
+                        reply = f'👍 Guardado como "{_target.task_text}" [{_ref_id}]'
+                        await send_and_log(db, user.id, chat_id, reply, "screenshot_title_skip")
+                        return {"status": "ok", "action": "screenshot_title_skip"}
+                    else:
+                        # Usar el mensaje como nuevo título
+                        new_title = text_in.strip()
+                        _target.task_text = new_title
+                        db.commit()
+                        # Update Focalboard card title (top-level title field)
+                        if _target.focalboard_card_id and fb.is_configured():
+                            try:
+                                _FB_BOARD = os.getenv("FOCALBOARD_BOARD_ID", "")
+                                await fb.update_card_title(
+                                    _target.focalboard_card_id,
+                                    new_title,
+                                    board_id=_FB_BOARD,
+                                )
+                                print(f"[capture:photo] title updated → '{new_title}' card={_target.focalboard_card_id}")
+                            except Exception as _exc:
+                                print(f"[capture:photo] title update error: {_exc}")
+                        reply = f'✅ Guardado como "{new_title}" [{_ref_id}]'
+                        await send_and_log(db, user.id, chat_id, reply, "screenshot_title_set")
+                        return {"status": "ok", "action": "screenshot_title_set",
+                                "reminder_id": _ref_id, "title": new_title}
+
         # ── "Yes, save it" after EVA asked about a URL ───────────────────
         _save_intent = re.match(
             r'^(?:es\s+un\s+recordatorio|guarda(?:lo)?|apunta(?:lo)?|s[ií](?:\s+guarda(?:lo)?)?'
@@ -206,6 +244,7 @@ async def telegram_webhook(request: Request):
              "💡 Idea de contenido guardada" in _last_eva_msg.message_text or
              "✅ Nota añadida" in _last_eva_msg.message_text or
              "🏷️" in _last_eva_msg.message_text) and
+            "¿Cómo lo llamo?" not in _last_eva_msg.message_text and  # handled above
             len(lowered.strip()) >= 2 and
             not re.match(r'^(?:cancela|elimina|borra|lista|mis recordatorios|recuérdame|recuerdame|eva[,\s]|/)',
                          lowered.strip()) and
@@ -797,14 +836,24 @@ async def _handle_photo_message(message: dict) -> dict:
             if _tc: _tags_display = f"\n🏷️ {_tc}"
 
         _att_note = "." if att_ok else " (imagen guardada, adjunto pendiente de sincronizar)."
-        reply = (
-            f'💡 Idea de contenido guardada [{pending_reminder.id}]: "{task_title}"\n'
-            f'🖼️ Screenshot adjunto{_att_note}\n'
-            f'📋 Estado: Idea → /contenido{_tags_display}'
-        ) if _is_content else (
-            f'📌 Guardado para revisar más tarde [{pending_reminder.id}]: "{task_title}"\n'
-            f'🖼️ Screenshot adjunto{_att_note}{_tags_display}'
-        )
+
+        if caption_clean:  # hay título
+            # Título proporcionado → usar como título, confirmar directamente
+            reply = (
+                f'💡 Idea de contenido guardada [{pending_reminder.id}]: "{task_title}"\n'
+                f'🖼️ Screenshot adjunto{_att_note}\n'
+                f'📋 Estado: Idea → /contenido{_tags_display}'
+            ) if _is_content else (
+                f'📌 Guardado [{pending_reminder.id}]: "{task_title}"\n'
+                f'🖼️ Screenshot adjunto{_att_note}{_tags_display}'
+            )
+        else:
+            # Sin título → preguntar al usuario
+            reply = (
+                f'📸 Screenshot guardado [{pending_reminder.id}]{_tags_display}\n'
+                f'¿Cómo lo llamo? [{pending_reminder.id}]\n'
+                f'_(o di "nada" para dejarlo como "Revisar screenshot")_'
+            )
         await send_message(chat_id, reply)
         db.add(Message(user_id=user.id, direction="outbound",
                        message_text=reply, message_type="photo_task"))

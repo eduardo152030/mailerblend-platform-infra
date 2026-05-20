@@ -136,6 +136,41 @@ async def update_card_properties(
         return False
 
 
+async def update_card_title(
+    card_id: str,
+    title: str,
+    board_id: str | None = None,
+) -> bool:
+    """
+    Update the top-level title of a card.
+
+    IMPORTANT: Focalboard card titles live in the top-level `title` field
+    of the block, NOT in `fields.title`. The UI reads `card.title` only.
+    Payload: {"title": "...", "updateAt": <now_ms>}
+
+    Do NOT use updatedFields.title — that field is not read by the UI.
+    """
+    import time as _time
+    bid = board_id or _FB_BOARD
+    url = f"{_FB_URL}/api/v2/boards/{bid}/blocks/{card_id}"
+    try:
+        async with httpx.AsyncClient(timeout=_TIMEOUT_PATCH) as c:
+            r = await c.patch(
+                url,
+                headers=_headers(),
+                json={"title": title, "updateAt": int(_time.time() * 1000)},
+            )
+            ok = r.status_code in (200, 204)
+            if ok:
+                print(f"[fb_client] ✅ card title updated: {card_id} → '{title[:60]}'")
+            else:
+                print(f"[fb_client] ❌ update_card_title failed {r.status_code}: {r.text[:100]}")
+            return ok
+    except Exception as exc:
+        print(f"[fb_client] ❌ update_card_title exception card={card_id}: {exc}")
+        return False
+
+
 async def delete_card(card_id: str, board_id: str | None = None) -> bool:
     """Delete a card. Returns True on success."""
     bid = board_id or _FB_BOARD
