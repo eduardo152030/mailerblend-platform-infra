@@ -71,12 +71,14 @@ services:
       FOCALBOARD_TOKEN: ${FOCALBOARD_TOKEN}
       FOCALBOARD_TEAM_ID: ${FOCALBOARD_TEAM_ID}
       FOCALBOARD_BOARD_ID: ${FOCALBOARD_BOARD_ID}
+      PERSONA_DIR: /app/persona
     depends_on:
       postgres:
         condition: service_healthy
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
+      - /opt/infra-eva-assistant-bot/persona:/app/persona:ro
     entrypoint: ["python", "run_scheduler.py"]
     deploy:
       resources:
@@ -94,14 +96,16 @@ services:
       FOCALBOARD_TOKEN: ${FOCALBOARD_TOKEN}
       FOCALBOARD_TEAM_ID: ${FOCALBOARD_TEAM_ID}
       FOCALBOARD_BOARD_ID: ${FOCALBOARD_BOARD_ID}
+      PERSONA_DIR: /app/persona
     depends_on:
       postgres:
         condition: service_healthy
       focalboard:
-        condition: service_started   # ← era service_healthy, focalboard nunca es healthy en v7.8.9
+        condition: service_started
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
+      - /opt/infra-eva-assistant-bot/persona:/app/persona:ro
     entrypoint: ["python", "sync_service.py"]
     deploy:
       resources:
@@ -142,12 +146,12 @@ services:
       echo 'Docker cleanup service started';
       while true; do
         sleep 604800;
-        echo '[cleanup] '$(date)' — iniciando limpieza semanal';
+        echo "[cleanup] $(date) — iniciando limpieza semanal";
         docker image prune -a --force;
         docker container prune --force;
         docker network prune --force;
         docker volume prune --force;
-        echo '[cleanup] '$(date)' — completado. Disco: '$(df -h / | tail -1 | awk '{print $5}');
+        echo "[cleanup] $(date) — completado. Disco: $(df -h / | tail -1 | awk '{print \$5}')";
       done"
     deploy:
       resources:
