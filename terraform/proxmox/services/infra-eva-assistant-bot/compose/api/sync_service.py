@@ -279,16 +279,18 @@ async def sync_status_changes() -> int:
 
 async def sync_recurring_dates() -> int:
     """
-    Sincroniza la propiedad Fecha de Focalboard para recordatorios recurrentes/persistentes.
-    Estos tienen status='scheduled' y nunca pasan por sync_status_changes.
-    También hace backfill de tarjetas con fecha vacía en Focalboard.
+    Sincroniza la propiedad Fecha de Focalboard para:
+    1. Recordatorios recurrentes/persistentes (siempre)
+    2. Cualquier reminder con focalboard_synced_at en los últimos 5 min
+       (cubre tareas normales actualizadas desde la UI via PATCH /tasks/{id})
     """
     if not FOCALBOARD_TOKEN or not FOCALBOARD_BOARD_ID:
         return 0
     db = SessionLocal()
     synced = 0
     try:
-        # Todos los recurrentes/persistentes con focalboard_card_id
+        recently_updated_cutoff = datetime.now(TZ) - timedelta(minutes=5)
+
         rows = db.execute(
             select(Reminder)
             .where(Reminder.focalboard_card_id.isnot(None))
@@ -296,7 +298,9 @@ async def sync_recurring_dates() -> int:
             .where(
                 (Reminder.recurrence_type.isnot(None)) |
                 (Reminder.weekdays_only.is_(True)) |
-                (Reminder.is_persistent.is_(True))
+                (Reminder.is_persistent.is_(True)) |
+                # Also sync any reminder recently updated via PATCH (e.g. date picker)
+                (Reminder.focalboard_synced_at >= recently_updated_cutoff)
             )
         ).scalars().all()
 
@@ -560,18 +564,26 @@ async def sync_from_focalboard() -> int:
                 print(f"[sync] ✅ reminder {reminder.id} url updated via Focalboard")
 
             # ── 4. TÍTULO — sincronizar task_text si cambió en Focalboard ─
-            fb_title = card.get("title", "").strip()
-            # Limpiar el título de Focalboard (puede tener " — DD/MM HH:MM" al final)
-            import re as _re
-            fb_title_clean = _re.sub(r'\s+[↻—–-]\s+.*$', '', fb_title).strip()
-            if (fb_title_clean and len(fb_title_clean) >= 3
-                    and fb_title_clean.lower() != reminder.task_text.lower()
-                    and len(fb_title_clean) < 200):
-                # Solo actualizar si el cambio es sustancial (no solo espacios)
-                old_task = reminder.task_text
-                reminder.task_text = fb_title_clean
-                changed = True
-                print(f"[sync] ✅ reminder {reminder.id} task_text updated: '{old_task}' → '{fb_title_clean}'")
+            # Guard: skip if EVA wrote to this card recently (< 5 min)
+            # sync_recurring_dates updates cards every 60s — without this guard,
+            # that write triggers a title re-read which could overwrite user edits.
+            _synced_at = reminder.focalboard_synced_at
+            _eva_wrote_recently = False
+            if _synced_at:
+                _synced_tz = _synced_at if _synced_at.tzinfo else _synced_at.replace(tzinfo=TZ)
+                _eva_wrote_recently = (now - _synced_tz).total_seconds() < 300
+
+            if not _eva_wrote_recently:
+                fb_title = card.get("title", "").strip()
+                import re as _re
+                fb_title_clean = _re.sub(r'\s+[↻—–-]\s+.*$', '', fb_title).strip()
+                if (fb_title_clean and len(fb_title_clean) >= 3
+                        and fb_title_clean.lower() != (reminder.task_text or "").lower()
+                        and len(fb_title_clean) < 200):
+                    old_task = reminder.task_text
+                    reminder.task_text = fb_title_clean
+                    changed = True
+                    print(f"[sync] ✅ reminder {reminder.id} task_text updated: '{old_task}' → '{fb_title_clean}'")
 
             if changed:
                 reminder.focalboard_synced_at = now

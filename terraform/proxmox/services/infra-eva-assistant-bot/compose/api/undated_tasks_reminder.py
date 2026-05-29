@@ -34,6 +34,7 @@ DEFAULT_CONFIG = {
 # Escalado anti-spam: avisar en estos días exactos
 ALERT_DAYS = [7, 14, 30]
 ALERT_TOLERANCE_HOURS = 23  # ventana para considerar "hoy toca avisar"
+PERIODIC_REALERT_DAYS = 14  # re-alertar cada N días para tasks > 30 días
 
 
 # ── Config helpers ────────────────────────────────────────────────────────
@@ -117,12 +118,18 @@ def get_undated_stale_tasks(db, user_id: int, days_threshold: int) -> list[dict]
             if local_dt.year < 2099:
                 continue  # tiene fecha real → no es "sin fecha"
 
-        # Calcular última actividad
-        candidates = [r.created_at]
-        if r.focalboard_synced_at:
-            candidates.append(r.focalboard_synced_at)
+        # Calcular última actividad real del usuario
+        # IMPORTANT: do NOT use focalboard_synced_at — it's updated every 60s
+        # by sync_recurring_dates and makes ALL tasks look recently active.
+        # Use only created_at and sent_at (actual user interactions).
+        candidates = []
+        if r.created_at:
+            candidates.append(r.created_at)
         if r.sent_at:
             candidates.append(r.sent_at)
+        # acked_at would be ideal here — add if column exists
+        if getattr(r, 'acked_at', None):
+            candidates.append(r.acked_at)
 
         last_activity = None
         for c in candidates:
@@ -159,18 +166,32 @@ def _should_alert_today(days_inactive: int, last_alert_days_ago: int | None) -> 
     Determina si hay que alertar hoy según el escalado anti-spam.
 
     Lógica:
-    - Si nunca se alertó → alertar siempre que supere cualquier umbral,
-      independientemente de cuánto tiempo lleve (fix: evita bloquear tareas
-      que ya superaron la ventana cuando el scheduler las detecta por primera vez)
-    - Si ya se alertó → alertar solo cuando se cruza el siguiente umbral
+    - Si nunca se alertó → alertar cuando días_inactivos alcanza algún umbral
+    - Si ya se alertó → alertar solo cuando se alcanza el siguiente umbral
     """
+    # Tasks older than max threshold — periodic re-alert every PERIODIC_REALERT_DAYS
+    if days_inactive > max(ALERT_DAYS):
+        if last_alert_days_ago is None or last_alert_days_ago >= PERIODIC_REALERT_DAYS:
+            return True
+        return False
+
+    # Standard threshold logic
     for threshold in ALERT_DAYS:
         if days_inactive >= threshold:
             if last_alert_days_ago is None:
-                # Nunca alertado → alertar en el primer check que supera este umbral
-                return True
+                # Nunca alertado → alertar si estamos dentro del primer threshold
+                # que aplica (evitar spam si llevan muchos días)
+                if days_inactive < threshold + ALERT_TOLERANCE_HOURS / 24 + 1:
+                    return True
             else:
-                # Ya alertado → alertar solo si cruzamos un nuevo umbral desde la última alerta
+                # Ya alertado antes → alertar solo si llegamos a un nuevo threshold
+                prev_threshold = None
+                for t in ALERT_DAYS:
+                    if t < threshold:
+                        prev_threshold = t
+                if prev_threshold is None:
+                    return False
+                # Alertar si cruzamos un nuevo umbral desde la última alerta
                 days_at_last_alert = days_inactive - last_alert_days_ago
                 if days_at_last_alert < threshold <= days_inactive:
                     return True

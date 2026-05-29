@@ -165,6 +165,35 @@ async def update_task(task_id: int, request: Request):
                     await fb.update_card_title(reminder.focalboard_card_id, reminder.task_text)
                 except Exception as _e:
                     print(f"[task_routes] focalboard title sync error: {_e}")
+
+        if "remind_at" in body:
+            val = body["remind_at"]
+            if val is None or val == "":
+                # Clear date — reset to sentinel (no scheduled reminder)
+                reminder.remind_at = datetime.now(TZ).replace(year=2099)
+                if reminder.status == "scheduled":
+                    reminder.status = "pending"
+                reminder.focalboard_synced_at = datetime.now(TZ)
+                print(f"[task_routes] remind_at cleared for reminder {task_id}")
+            else:
+                try:
+                    new_dt = datetime.fromisoformat(val)
+                    if new_dt.tzinfo is None:
+                        new_dt = new_dt.replace(tzinfo=TZ)
+                    reminder.remind_at = new_dt
+                    # Activate the reminder — change from pending to scheduled
+                    if reminder.status in ("pending", "expired", "sent"):
+                        reminder.status = "scheduled"
+                        reminder.awaiting_ack  = False
+                        reminder.completed_at  = None
+                        reminder.cancelled_at  = None
+                    # Mark for sync so the new date appears in Focalboard immediately
+                    reminder.focalboard_synced_at = datetime.now(TZ)
+                    print(f"[task_routes] remind_at set to {new_dt} for reminder {task_id}")
+                except (ValueError, TypeError) as e:
+                    return JSONResponse(status_code=400,
+                                        content={"error": f"invalid remind_at: {e}"})
+
         if "notes"    in body: reminder.notes    = body["notes"] or None
         if "tags"     in body: reminder.tags     = body["tags"] or None
         if "status"   in body: reminder.status   = body["status"]
@@ -175,6 +204,7 @@ async def update_task(task_id: int, request: Request):
             "id": reminder.id, "task_text": reminder.task_text,
             "tags": reminder.tags, "notes": reminder.notes,
             "status": reminder.status, "priority": reminder.priority,
+            "remind_at": reminder.remind_at.isoformat() if reminder.remind_at else None,
         }
     finally:
         db.close()

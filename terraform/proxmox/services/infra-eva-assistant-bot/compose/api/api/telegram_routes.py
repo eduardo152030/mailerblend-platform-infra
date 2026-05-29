@@ -201,6 +201,7 @@ async def telegram_webhook(request: Request):
                         # Usar el mensaje como nuevo título
                         new_title = text_in.strip()
                         _target.task_text = new_title
+                        _target.focalboard_synced_at = datetime.now(TZ)  # prevent sync overwrite
                         db.commit()
                         # Update Focalboard card title (top-level title field)
                         if _target.focalboard_card_id and fb.is_configured():
@@ -751,6 +752,9 @@ async def _handle_photo_message(message: dict) -> dict:
 
         # ── Step 1: Download photo ────────────────────────────────────────
         photos     = message.get("photo", [])
+        if not photos:
+            print(f"[capture:photo] ❌ no photos in message")
+            return {"status": "ignored", "reason": "no_photos"}
         best_photo = max(photos, key=lambda p: p.get("file_size", 0))
         file_id    = best_photo.get("file_id")
         print(f"[capture:photo] step1 get_file file_id={file_id[:12]}...")

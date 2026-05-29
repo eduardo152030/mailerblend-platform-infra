@@ -147,40 +147,46 @@ async def parse_reminder_ai(text, context=None, memory_context=""):
             return _args_to_parsed(block.get("input",{}), now)
     return None
 
-def _clean_task_text(task: str) -> str:
-    """
-    Strip bot name and reminder verb prefixes from task_text.
-    Claude sometimes includes these even when instructed not to.
-
-    Examples:
-      "eva, recuérdame lavarle los dientes" → "lavarle los dientes"
-      "eva recuérdame fichar"               → "fichar"
-      "recuérdame revisar el servidor"      → "revisar el servidor"
-      "que tengo que fichar"                → "fichar"
-      "lavarle los dientes"                 → "lavarle los dientes"  (unchanged)
-    """
-    import re as _re
-    t = task.strip()
-    # Strip "eva," / "eva" prefix
-    t = _re.sub(r'^eva\s*[,.]?\s*', '', t, flags=_re.IGNORECASE).strip()
-    # Strip reminder verb prefixes
-    t = _re.sub(
-        r'^(?:recu[eé]rdame\s+(?:que\s+)?|recuerda\s+(?:que\s+)?|av[íi]same\s+(?:que\s+)?)',
-        '', t, flags=_re.IGNORECASE).strip()
-    # Strip "tengo que / hay que / debo / necesito" (may remain after recuérdame)
-    t = _re.sub(r'^(?:tengo\s+que|hay\s+que|debo|necesito)\s+', '', t, flags=_re.IGNORECASE).strip()
-    # Strip "que tengo que / que hay que"
-    t = _re.sub(r'^que\s+(?:tengo\s+que|hay\s+que|debo|necesito)\s+', '', t, flags=_re.IGNORECASE).strip()
-    # Strip bare "que " prefix
-    t = _re.sub(r'^que\s+(?=\w)', '', t, flags=_re.IGNORECASE).strip()
-    return t if t else task
-
-
 def _args_to_parsed(args, now):
     try:
         remind_at = datetime.fromisoformat(args["remind_at"]).replace(tzinfo=TZ)
-        if remind_at <= now: remind_at += timedelta(days=1)
-        rec_type = args.get("recurrence_type","none")
+
+        # For weekly recurrence, ensure remind_at lands on the correct weekday.
+        # Claude sometimes returns tomorrow's date instead of the actual recurrence day.
+        rec_type = args.get("recurrence_type", "none")
+        rec_val  = args.get("recurrence_value") or ""
+        if rec_type == "weekly" and rec_val:
+            DAY_MAP = {
+                "monday":0,"lunes":0,"tuesday":1,"martes":1,
+                "wednesday":2,"miércoles":2,"miercoles":2,
+                "thursday":3,"jueves":3,"friday":4,"viernes":4,
+                "saturday":5,"sábado":5,"sabado":5,"sunday":6,"domingo":6,
+            }
+            target_days = [DAY_MAP[d.strip().lower()]
+                           for d in rec_val.split(",")
+                           if d.strip().lower() in DAY_MAP]
+            if target_days:
+                def _next_target(dt, target_days):
+                    """Return nearest future datetime on a target weekday."""
+                    cur_wd = dt.weekday()
+                    best = None
+                    for wd in sorted(target_days):
+                        days_ahead = (wd - cur_wd) % 7 or 7
+                        candidate = dt + timedelta(days=days_ahead)
+                        if best is None or candidate < best:
+                            best = candidate
+                    return best
+
+                if remind_at.weekday() not in target_days:
+                    # Wrong weekday → advance to next correct weekday
+                    remind_at = _next_target(remind_at, target_days) or remind_at
+
+                if remind_at <= now:
+                    # Correct weekday but in the past → advance to next occurrence
+                    remind_at = _next_target(remind_at, target_days) or remind_at
+
+        if remind_at <= now:
+            remind_at += timedelta(days=1)
         if rec_type == "none": rec_type = None
         stop_at = None
         if args.get("stop_at"):
@@ -193,7 +199,7 @@ def _args_to_parsed(args, now):
         rec_val = args.get("recurrence_value")
         if rec_val in ("null","none","",None): rec_val = None
         result = {
-            "task_text": _clean_task_text(args.get("task_text","").strip()),
+            "task_text": args.get("task_text","").strip(),
             "remind_at": remind_at, "status":"scheduled",
             "recurrence_type":rec_type, "recurrence_value":rec_val,
             "weekdays_only":bool(args.get("weekdays_only",False)),
@@ -343,10 +349,8 @@ async def build_briefing_ai(reminders_today: list[dict],
         f"Genera el resumen diario matutino de hoy {day_str}.\n\n"
         f"Tono: {tone_desc}. Idioma: {lang_desc}. {emoji_instruction}\n"
         f"{notes}\n\n"
-        f"IMPORTANTE: El nombre real del usuario es '{user_name}'. "
-        f"Salúdale por este nombre — NUNCA uses su nombre de usuario de Telegram ni ningún otro apodo.\n\n"
         f"Reglas del briefing:\n"
-        f"- Empieza con un saludo breve usando el nombre '{user_name}' y la fecha\n"
+        f"- Empieza con un saludo breve y la fecha\n"
         f"- Si hay recordatorios, menciónalos de forma natural y conversacional, no como lista\n"
         f"- Usa el contexto de ayer para dar relevancia ('ayer lo pospusiste', 'es la segunda vez esta semana')\n"
         f"- Si no hay nada, dilo con optimismo en 1 línea\n"
