@@ -72,10 +72,18 @@ def is_ack_text(lowered: str) -> bool:
         return True
     if re.match(r'^en\s+\d+\s+(?:minutos?|horas?)$', lowered):
         return True
-    # "recuérdamelo a las X" / "a las X solo hoy" with active reminder = snooze
+    # "recuérdamelo a las X" / "a las X solo hoy" = snooze of active reminder
+    # BUT only if the message is SHORT — long messages with task content are new reminders
+    # Max ~8 words after removing the time expression to avoid false positives like:
+    # "recuérdame hoy a las 21:00 imprimir hojas para pintar" → new reminder, NOT snooze
     if re.search(r'\ba\s+las?\s+\d{1,2}(?::\d{2})?\b', lowered):
-        if re.search(r'\b(?:recu[eé]rdamelo?|solo\s+hoy|para\s+hoy|hoy)\b', lowered):
-            return True
+        if re.search(r'\b(?:recu[eé]rdamelo?|solo\s+hoy|para\s+hoy)\b', lowered):
+            # Remove time expression and check remaining words
+            _clean = re.sub(r'a\s+las?\s+\d{1,2}(?::\d{2})?', '', lowered).strip()
+            _clean = re.sub(r'\b(?:recu[eé]rdamelo?|solo\s+hoy|para\s+hoy|hoy)\b', '', _clean).strip()
+            _words = [w for w in _clean.split() if w]
+            if len(_words) <= 3:  # only connector words remain → it's a snooze
+                return True
     return False
 
 

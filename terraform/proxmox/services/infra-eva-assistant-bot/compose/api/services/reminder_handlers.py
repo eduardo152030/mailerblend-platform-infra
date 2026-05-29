@@ -251,24 +251,39 @@ async def handle_ack_command(db, user: User, chat_id: int, lowered: str):
     is_recurring = (
         reminder.recurrence_type is not None or
         reminder.weekdays_only or
-        (reminder.is_persistent and reminder.repeat_every_minutes and reminder.stop_at is None)
+        reminder.is_persistent  # includes both stop_at=None and stop_at set (daily window)
     )
 
     if is_recurring:
         from scheduler import next_occurrence as _next_occ
         nxt = _next_occ(reminder)
 
-        # Persistent with daily window — advance to next day manually
-        if nxt is None and reminder.is_persistent and reminder.stop_at:
-            _base = to_local(reminder.remind_at)
-            _days = 1
-            if reminder.weekdays_only:
-                while (_base + timedelta(days=_days)).weekday() >= 5:
-                    _days += 1
-            _candidate = _base + timedelta(days=_days)
-            _stop_base = to_local(reminder.stop_at)
-            reminder.stop_at = _stop_base + timedelta(days=_days)
-            nxt = _candidate
+        # Persistent with daily window — always advance stop_at to match next remind_at
+        # This must run whether nxt came from next_occurrence OR was calculated here,
+        # because stop_at must always stay on the same day as remind_at.
+        if reminder.is_persistent and reminder.stop_at:
+            _base     = to_local(reminder.remind_at)
+            _stop_cur = to_local(reminder.stop_at)
+
+            # Calculate the window delta (e.g. remind=07:40, stop=09:00 → 80min)
+            # Use time-of-day only to avoid stale date contamination
+            _remind_time_only = _base.replace(
+                year=_stop_cur.year, month=_stop_cur.month, day=_stop_cur.day)
+            _window_delta = _stop_cur - _remind_time_only
+            if _window_delta.total_seconds() <= 0:
+                _window_delta = timedelta(minutes=30)  # fallback
+
+            if nxt is None:
+                # next_occurrence didn't find a date — calculate manually
+                _days = 1
+                if reminder.weekdays_only:
+                    while (_base + timedelta(days=_days)).weekday() >= 5:
+                        _days += 1
+                nxt = _base + timedelta(days=_days)
+
+            # Advance stop_at to the same day as nxt + original window delta
+            reminder.stop_at = nxt + _window_delta
+            print(f"[ack] reminder {reminder.id} stop_at → {reminder.stop_at}")
 
         if nxt:
             reminder.remind_at     = nxt

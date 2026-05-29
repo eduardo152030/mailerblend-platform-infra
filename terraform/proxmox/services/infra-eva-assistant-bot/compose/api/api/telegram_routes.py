@@ -243,6 +243,8 @@ async def telegram_webhook(request: Request):
              "📌 Apuntado" in _last_eva_msg.message_text or  # backward compat
              "💡 Idea de contenido guardada" in _last_eva_msg.message_text or
              "✅ Nota añadida" in _last_eva_msg.message_text or
+             "✅ Anotado" in _last_eva_msg.message_text or   # reminder confirmation
+             "✅ Guardado como" in _last_eva_msg.message_text or  # screenshot title
              "🏷️" in _last_eva_msg.message_text) and
             "¿Cómo lo llamo?" not in _last_eva_msg.message_text and  # handled above
             len(lowered.strip()) >= 2 and

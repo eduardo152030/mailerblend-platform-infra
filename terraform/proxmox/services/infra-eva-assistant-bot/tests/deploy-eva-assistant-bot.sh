@@ -211,4 +211,4 @@ echo "  Logs scheduler: ssh root@192.168.1.122 \"cd /opt/infra-eva-assistant-bot
 echo "  Logs sync:      ssh root@192.168.1.122 \"cd /opt/infra-eva-assistant-bot && docker compose logs --no-color --tail=100 eva-sync\""
 echo "  Estado:         ssh root@192.168.1.122 \"cd /opt/infra-eva-assistant-bot && docker compose ps\""
 echo "  Reiniciar:      ssh root@192.168.1.122 \"cd /opt/infra-eva-assistant-bot && docker compose restart\""
-#./services/infra-eva-assistant-bot/deploy-eva-assistant-bot.sh
+#./services/infra-eva-assistant-bot/tests/deploy-eva-assistant-bot.sh

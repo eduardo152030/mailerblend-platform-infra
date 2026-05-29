@@ -10,7 +10,7 @@ Arranque: python sync_service.py
 import asyncio
 import os
 import traceback
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 import httpx
@@ -426,10 +426,10 @@ async def sync_from_focalboard() -> int:
                 #   fresh updateAt → sync_from_focalboard sees scheduled →
                 #   reactivates → scheduler fires again → infinite loop
                 _recently_changed_by_eva = False
-                if new_status == "scheduled" and old_status in ("cancelled", "completed"):
+                if new_status == "scheduled" and old_status in ("cancelled", "completed", "expired"):
                     _changed_at = (
                         reminder.cancelled_at if old_status == "cancelled"
-                        else reminder.completed_at
+                        else getattr(reminder, "expired_at", None) or reminder.completed_at
                     )
                     if _changed_at:
                         _changed_at_tz = _changed_at if _changed_at.tzinfo else _changed_at.replace(tzinfo=TZ)

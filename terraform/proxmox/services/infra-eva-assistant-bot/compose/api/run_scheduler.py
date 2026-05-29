@@ -16,7 +16,7 @@ Arranque: python run_scheduler.py
 import asyncio
 import os
 import traceback
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 from sqlalchemy import select
@@ -36,13 +36,14 @@ from scheduler import (
     DAILY_DIGEST_HOUR,
     DAILY_DIGEST_MINUTE,
 )
+from undated_tasks_reminder import check_undated_tasks
+from publishing_channels import check_publishing_reminders
 from telegram_service import send_message
 
 TZ = ZoneInfo(os.getenv("TIMEZONE", "Europe/Madrid"))
 POLL_INTERVAL = int(os.getenv("SCHEDULER_POLL_SECONDS", "30"))
 
 # Evita enviar el digest dos veces en el mismo minuto
-_digest_sent_today: str = ""
 
 
 async def _send_telegram(chat_id: int, text: str, parse_mode: str = "MarkdownV2") -> None:
@@ -130,11 +131,16 @@ async def process_reminders() -> None:
                 # ¿Expirado?
                 if r.stop_at:
                     stop_local = to_local(r.stop_at)
-                    # Solo expirar si stop_at es HOY o futuro cercano
-                    # Evita expirar por stop_at de días anteriores cuando
-                    # remind_at se reprogramó (ej: "No, a las 7:40")
-                    stop_is_today_or_future = stop_local.date() >= now.date()
-                    if now >= stop_local and stop_is_today_or_future:
+                    # Expire when:
+                    # - stop_at has passed (now >= stop_at)
+                    # - AND stop_at is not in the future relative to remind_at
+                    #   (if stop_at > remind_at it means this cycle hasn't started yet)
+                    should_expire = (
+                        now >= stop_local and
+                        stop_local <= to_local(r.remind_at) + timedelta(hours=24)
+                    )
+
+                    if should_expire:
                         user = db.execute(select(User).where(User.id == r.user_id)).scalar_one_or_none()
                         if user and user.telegram_chat_id:
                             text_out = build_expired_text(r)
@@ -155,7 +161,7 @@ async def process_reminders() -> None:
                             source="scheduler",
                             payload={},
                         ))
-                        print(f"[scheduler] reminder {r.id} expired")
+                        print(f"[scheduler] reminder {r.id} expired (stop_at={stop_local})")
                         continue
 
                 # ¿Es hora de reintentar?
@@ -229,21 +235,35 @@ async def process_reminders() -> None:
 
 
 async def process_daily_digest() -> None:
-    global _digest_sent_today
+    """
+    Envía el digest diario a las 08:00.
+    Estado persistido en DB — sobrevive reinicios del contenedor.
+    """
     now = datetime.now(TZ)
-
     if not is_digest_time(now):
-        return
-
-    # Clave única por día + hora para no enviar dos veces en el mismo minuto
-    digest_key = f"{now.date()}_{now.hour}:{now.minute}"
-    if _digest_sent_today == digest_key:
         return
 
     db = SessionLocal()
     try:
+        today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        already_sent = db.execute(
+            select(Event)
+            .where(Event.event_type == "daily_digest_sent")
+            .where(Event.created_at >= today_start)
+            .limit(1)
+        ).scalars().first()
+        if already_sent:
+            return
+
         sent = await send_daily_digest_to_all(db, _send_telegram)
-        _digest_sent_today = digest_key
+        db.add(Event(
+            user_id=None,
+            event_type="daily_digest_sent",
+            event_value=str(sent),
+            source="scheduler",
+            payload={"date": str(now.date()), "users": sent},
+        ))
+        db.commit()
         print(f"[scheduler] daily digest sent to {sent} users")
     except Exception as exc:
         print(f"[scheduler] ERROR sending daily digest: {exc}")
@@ -252,67 +272,122 @@ async def process_daily_digest() -> None:
         db.close()
 
 
-_content_reminders_sent_today: str = ""
-_publishing_reminders_sent_today: str = ""
+_weekly_cleanup_done: str = ""  # tracks last weekly cleanup (YYYY-WW format)
 
 
 async def process_publishing_reminders() -> None:
-    """Revisa canales de publicación a las 09:00."""
-    global _publishing_reminders_sent_today
+    """
+    Revisa canales de publicación a las 09:00.
+    Estado persistido en DB — sobrevive reinicios del contenedor.
+    """
     now = datetime.now(TZ)
-    if now.hour != 9 or now.minute != 0:
+    if now.hour != 9 or now.minute not in range(0, 6):
         return
-    reminder_key = f"{now.date()}_publishing"
-    if _publishing_reminders_sent_today == reminder_key:
-        return
+    db = SessionLocal()
     try:
+        today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        already_sent = db.execute(
+            select(Event)
+            .where(Event.event_type == "publishing_reminders_sent")
+            .where(Event.created_at >= today_start)
+            .limit(1)
+        ).scalars().first()
+        if already_sent:
+            return
         sent = await check_publishing_reminders(_send_telegram)
-        _publishing_reminders_sent_today = reminder_key
+        db.add(Event(
+            user_id=None,
+            event_type="publishing_reminders_sent",
+            event_value=str(sent),
+            source="scheduler",
+            payload={"date": str(now.date()), "count": sent},
+        ))
+        db.commit()
         if sent:
             print(f"[scheduler] publishing reminders sent: {sent}")
     except Exception as exc:
         print(f"[scheduler] ERROR publishing reminders: {exc}")
+    finally:
+        db.close()
 
 
-_undated_sent_today: str = ""
+async def process_content_reminders() -> None:
+    """
+    Revisa recordatorios de contenido a las 20:00.
+    Estado persistido en DB — sobrevive reinicios del contenedor.
+    """
+    now = datetime.now(TZ)
+    if now.hour != 20 or now.minute not in range(0, 6):
+        return
+    db = SessionLocal()
+    try:
+        today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        already_sent = db.execute(
+            select(Event)
+            .where(Event.event_type == "content_reminders_sent")
+            .where(Event.created_at >= today_start)
+            .limit(1)
+        ).scalars().first()
+        if already_sent:
+            return
+        sent = await check_content_reminders(_send_telegram)
+        db.add(Event(
+            user_id=None,
+            event_type="content_reminders_sent",
+            event_value=str(sent),
+            source="scheduler",
+            payload={"date": str(now.date()), "count": sent},
+        ))
+        db.commit()
+        if sent:
+            print(f"[scheduler] content reminders sent: {sent}")
+    except Exception as exc:
+        print(f"[scheduler] ERROR content reminders: {exc}")
+    finally:
+        db.close()
+
+
 _weekly_cleanup_done: str = ""  # tracks last weekly cleanup (YYYY-WW format)
 
 
 async def process_undated_tasks() -> None:
-    """Revisa tareas sin fecha a las 09:30 cada día."""
-    global _undated_sent_today
+    """
+    Revisa tareas sin fecha a las 09:30 cada día.
+    Estado persistido en DB (events) — sobrevive reinicios del contenedor.
+    """
     now = datetime.now(TZ)
-    if now.hour != 9 or now.minute != 30:
+    if now.hour != 9 or now.minute not in range(30, 36):
         return
-    reminder_key = f"{now.date()}_undated"
-    if _undated_sent_today == reminder_key:
-        return
-    try:
-        sent = await check_undated_tasks(_send_telegram)
-        _undated_sent_today = reminder_key
-        if sent:
-            print(f"[scheduler] undated task alerts sent: {sent}")
-    except Exception as exc:
-        print(f"[scheduler] ERROR undated tasks: {exc}")
 
-
-async def process_content_reminders() -> None:
-    global _content_reminders_sent_today
-    now = datetime.now(TZ)
-    # Enviar a las 20:00 del día anterior
-    if now.hour != 20 or now.minute != 0:
-        return
-    reminder_key = f"{now.date()}_content"
-    if _content_reminders_sent_today == reminder_key:
-        return
+    # Check DB — did we already send today?
     db = SessionLocal()
     try:
-        sent = await check_content_publication_reminders(db, _send_telegram)
-        _content_reminders_sent_today = reminder_key
-        if sent:
-            print(f"[scheduler] content publication reminders sent: {sent}")
-    except Exception as exc:
-        print(f"[scheduler] ERROR content reminders: {exc}")
+        from sqlalchemy import func
+        today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        already_sent = db.execute(
+            select(Event)
+            .where(Event.event_type == "undated_tasks_alert")
+            .where(Event.created_at >= today_start)
+            .limit(1)
+        ).scalars().first()
+        if already_sent:
+            return
+
+        try:
+            sent = await check_undated_tasks(_send_telegram)
+            if sent:
+                # Record in DB so restarts don't re-send
+                db.add(Event(
+                    user_id=None,
+                    event_type="undated_tasks_alert",
+                    event_value=str(sent),
+                    source="scheduler",
+                    payload={"date": str(now.date()), "count": sent},
+                ))
+                db.commit()
+                print(f"[scheduler] undated task alerts sent: {sent}")
+        except Exception as exc:
+            print(f"[scheduler] ERROR undated tasks: {exc}")
     finally:
         db.close()
 

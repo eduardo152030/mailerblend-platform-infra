@@ -19,7 +19,39 @@ def next_occurrence(reminder: Reminder) -> datetime | None:
     current = to_local(reminder.remind_at)
 
     if reminder.recurrence_type == "weekly" and reminder.recurrence_value:
-        return current + timedelta(days=7)
+        # Multi-day support: recurrence_value can be "Monday,Friday" or single "Thursday"
+        DAY_MAP = {
+            "monday": 0, "lunes": 0,
+            "tuesday": 1, "martes": 1,
+            "wednesday": 2, "miércoles": 2, "miercoles": 2,
+            "thursday": 3, "jueves": 3,
+            "friday": 4, "viernes": 4,
+            "saturday": 5, "sábado": 5, "sabado": 5,
+            "sunday": 6, "domingo": 6,
+        }
+        raw_days = [d.strip().lower() for d in reminder.recurrence_value.split(",")]
+        target_weekdays = sorted([DAY_MAP[d] for d in raw_days if d in DAY_MAP])
+
+        if not target_weekdays:
+            # Fallback: plain weekly (every 7 days)
+            return current + timedelta(days=7)
+
+        if len(target_weekdays) == 1:
+            # Single day: advance to next occurrence of that weekday
+            days_ahead = (target_weekdays[0] - current.weekday()) % 7
+            if days_ahead == 0:
+                days_ahead = 7
+            return current + timedelta(days=days_ahead)
+        else:
+            # Multi-day: find the next target weekday after today
+            current_wd = current.weekday()
+            for wd in target_weekdays:
+                days_ahead = (wd - current_wd) % 7
+                if days_ahead > 0:
+                    return current + timedelta(days=days_ahead)
+            # Wrap around to first target day next week
+            days_ahead = (target_weekdays[0] - current_wd) % 7 or 7
+            return current + timedelta(days=days_ahead)
 
     if reminder.recurrence_type == "weekdays":
         nxt = current + timedelta(days=1)
