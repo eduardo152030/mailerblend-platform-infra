@@ -364,6 +364,28 @@ async def telegram_webhook(request: Request):
         if any(w in lowered for w in _cancel_kw) and _id_m2:
             return await handle_cancel_by_id(db, user, chat_id, int(_id_m2.group(1)))
 
+        # "marca completado 222" / "completa el 222" / "marca como completada 222"
+        # Number can be anywhere in the message
+        _complete_kw = ("marca completado", "marca como completado", "marca como completada",
+                        "marca hecho", "marca como hecho", "completa el", "completar el",
+                        "marcar completado", "marcar como completado")
+        if any(w in lowered for w in _complete_kw) and _id_m2:
+            _cid = int(_id_m2.group(1))
+            _ref_r = rr.get_by_id_and_user(db, _cid, user.id)
+            if _ref_r:
+                _ref_r.status       = "completed"
+                _ref_r.completed_at = datetime.now(TZ)
+                _ref_r.awaiting_ack = False
+                db.commit()
+                await send_and_log(db, user.id, chat_id,
+                                   f'✅ Completado [{_cid}]: "{_ref_r.task_text}".',
+                                   "completed_by_id")
+                return {"status": "ok", "action": "completed_by_id"}
+            else:
+                await send_and_log(db, user.id, chat_id,
+                                   f"No encontré la tarea [{_cid}].", "completed_not_found")
+                return {"status": "ok", "action": "completed_not_found"}
+
         if is_ack_text(lowered):
             return await handle_ack_command(db, user, chat_id, lowered)
 

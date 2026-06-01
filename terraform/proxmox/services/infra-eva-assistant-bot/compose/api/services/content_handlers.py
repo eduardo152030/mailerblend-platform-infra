@@ -118,7 +118,8 @@ async def handle_content_idea(db, user: User, chat_id: int, task_text: str,
 
 
 async def handle_pending_task(db, user: User, chat_id: int, task_text: str,
-                               url: str | None = None, notes: str | None = None) -> dict:
+                               url: str | None = None, notes: str | None = None,
+                               tags: str | None = None) -> dict:
     """
     Create an undated task in the Tasks Focalboard board + EVA reminders table.
     Triggered by 'tengo que X', 'hay que X', bare URLs, etc.
@@ -149,7 +150,7 @@ async def handle_pending_task(db, user: User, chat_id: int, task_text: str,
             pending_reminder = Reminder(
                 user_id=user.id, source_text=task_text, task_text=task_text,
                 remind_at=datetime.now(TZ).replace(year=2099), status="pending",
-                notes=notes, tags=None, url=url,
+                notes=notes, tags=tags, url=url,
                 priority=_priority, focalboard_card_id=fb_id,
                 focalboard_synced_at=datetime.now(TZ),
             )
