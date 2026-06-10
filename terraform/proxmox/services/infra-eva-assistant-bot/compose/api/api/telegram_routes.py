@@ -191,7 +191,15 @@ async def telegram_webhook(request: Request):
             if _id_m:
                 _ref_id = int(_id_m.group(1))
                 _target = rr.get_by_id_and_user(db, _ref_id, user.id)
-                if _target:
+                # Guard: don't capture reminder creation messages as screenshot titles
+                # If the message looks like a reminder command, skip this handler
+                _is_reminder_cmd = bool(re.search(
+                    r'\b(?:recu[eé]rdame?|recuerda|av[íi]same|a\s+las\s+\d{1,2}|'
+                    r'cada\s+(?:lunes|martes|miércoles|jueves|viernes|día|semana)|'
+                    r'todos\s+los\s+días|cada\s+\d+\s+minutos?)\b',
+                    lowered, re.IGNORECASE
+                ))
+                if _target and not _is_reminder_cmd:
                     if lowered.strip() in ("nada", "no", "así está bien", "así"):
                         # Usuario no quiere cambiar el título — confirmar como está
                         reply = f'👍 Guardado como "{_target.task_text}" [{_ref_id}]'

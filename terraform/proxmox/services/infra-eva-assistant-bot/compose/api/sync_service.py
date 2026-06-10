@@ -423,25 +423,29 @@ async def sync_from_focalboard() -> int:
                 old_status = reminder.status
 
                 # ── Anti-loop guard ───────────────────────────────────────
-                # If EVA cancelled/completed this reminder recently (< 5 min),
-                # do NOT let Focalboard reactivate it.
-                # This prevents the sync loop where:
-                #   EVA cancels → sync_recurring_dates writes date → card gets
-                #   fresh updateAt → sync_from_focalboard sees scheduled →
-                #   reactivates → scheduler fires again → infinite loop
+                # If EVA recently changed this reminder's status (< 5 min),
+                # do NOT let Focalboard overwrite it.
+                # Cases protected:
+                #   - cancelled/completed/expired → don't reactivate
+                #   - sent (awaiting_ack) → don't reset to scheduled before user ACKs
                 _recently_changed_by_eva = False
-                if new_status == "scheduled" and old_status in ("cancelled", "completed", "expired"):
-                    _changed_at = (
-                        reminder.cancelled_at if old_status == "cancelled"
-                        else getattr(reminder, "expired_at", None) or reminder.completed_at
-                    )
+                if new_status == "scheduled" and old_status in ("cancelled", "completed", "expired", "sent"):
+                    if old_status in ("cancelled",):
+                        _changed_at = reminder.cancelled_at
+                    elif old_status == "completed":
+                        _changed_at = reminder.completed_at
+                    elif old_status == "expired":
+                        _changed_at = getattr(reminder, "expired_at", None)
+                    else:  # sent — use last_sent_at
+                        _changed_at = getattr(reminder, "last_sent_at", None) or reminder.focalboard_synced_at
+
                     if _changed_at:
                         _changed_at_tz = _changed_at if _changed_at.tzinfo else _changed_at.replace(tzinfo=TZ)
                         _age_seconds = (now - _changed_at_tz).total_seconds()
                         if _age_seconds < 300:  # 5 minutes
                             _recently_changed_by_eva = True
-                            print(f"[sync] ⚠️  skip reactivation of [{reminder.id}] — "
-                                  f"cancelled/completed by EVA {_age_seconds:.0f}s ago")
+                            print(f"[sync] ⚠️  skip status overwrite of [{reminder.id}] "
+                                  f"({old_status}→{new_status}) — EVA changed {_age_seconds:.0f}s ago")
 
                 if _recently_changed_by_eva:
                     pass  # Skip this card's status change

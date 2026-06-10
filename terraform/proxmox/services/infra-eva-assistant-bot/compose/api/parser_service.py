@@ -488,6 +488,74 @@ def parse_reminder(text: str, context: list[dict] | None = None) -> dict | None:
             minutes_before=minutes_before,
         )
 
+    # 5b) recuérdame ... cada lunes y viernes a las HH:MM  (multi-day)
+    _multi_day_m = re.search(
+        r"cada\s+"
+        r"(lunes|martes|mi[eé]rcoles|miercoles|jueves|viernes|s[aá]bado|sabado|domingo)"
+        r"(?:\s*(?:y|,)\s*"
+        r"(lunes|martes|mi[eé]rcoles|miercoles|jueves|viernes|s[aá]bado|sabado|domingo))+"
+        r"\s+a las\s+(\d{1,2}):(\d{2})",
+        lower, re.IGNORECASE,
+    )
+    if _multi_day_m:
+        # Extract ALL weekday names from the "cada ... a las" span
+        _span_start = lower.find("cada")
+        _span_end   = lower.find("a las", _span_start)
+        _span       = lower[_span_start:_span_end] if _span_end > 0 else lower[_span_start:]
+        _found_days = []
+        for _es, _en in [("lunes","Monday"),("martes","Tuesday"),
+                          ("miércoles","Wednesday"),("miercoles","Wednesday"),
+                          ("jueves","Thursday"),("viernes","Friday"),
+                          ("sábado","Saturday"),("sabado","Saturday"),("domingo","Sunday")]:
+            if re.search(rf"\b{_es}\b", _span):
+                if _en not in _found_days:
+                    _found_days.append(_en)
+        if len(_found_days) >= 2:
+            _hour   = int(_multi_day_m.group(len(_multi_day_m.groups()) - 1))
+            _minute = int(_multi_day_m.group(len(_multi_day_m.groups())))
+            # next occurrence from today
+            _target_wds = [{"Monday":0,"Tuesday":1,"Wednesday":2,"Thursday":3,
+                            "Friday":4,"Saturday":5,"Sunday":6}[d] for d in _found_days]
+            _best = None
+            for _wd in sorted(_target_wds):
+                _days_ahead = (_wd - now.weekday()) % 7 or 7
+                _candidate  = now.replace(hour=_hour, minute=_minute,
+                                          second=0, microsecond=0) + timedelta(days=_days_ahead - (
+                    0 if _days_ahead > 0 else 0))
+                _candidate  = (now + timedelta(days=_days_ahead)).replace(
+                    hour=_hour, minute=_minute, second=0, microsecond=0)
+                if _candidate > now and (_best is None or _candidate < _best):
+                    _best = _candidate
+            remind_at = _best or now + timedelta(days=1)
+
+            # Clean task_text — remove "cada DIA1, DIA2 y DIA3" and time
+            _task_clean = re.sub(r"^\s*(eva,?\s*)?recu[eé]rdame\s+", "", lower, flags=re.I)
+            _task_clean = re.sub(
+                r"\s*cada\s+"
+                r"(?:lunes|martes|mi[eé]rcoles|miercoles|jueves|viernes|s[aá]bado|sabado|domingo)"
+                r"(?:\s*(?:,|y|o)\s*"
+                r"(?:lunes|martes|mi[eé]rcoles|miercoles|jueves|viernes|s[aá]bado|sabado|domingo))*",
+                "", _task_clean, flags=re.I
+            )
+            _task_clean = re.sub(r"\s*a las\s+\d{1,2}:\d{2}", "", _task_clean, flags=re.I)
+            _task_clean = _task_clean.strip().strip(",").strip()
+
+            _rec_val = ",".join(_found_days)
+            _stop_at = _compute_stop_at(now, remind_at, stop_at_hm)
+            return _build_response(
+                task=_task_clean or raw.strip(),
+                remind_at=remind_at,
+                weekdays_only=weekdays_only,
+                remind_if_no_response=remind_if_no_response,
+                cancel_on_event_type=cancel_on_event_type,
+                mode="weekly_day",
+                recurrence_type="weekly",
+                recurrence_value=_rec_val,
+                is_persistent=is_persistent,
+                repeat_every_minutes=repeat_every_minutes,
+                stop_at=_stop_at,
+            )
+
     # 5) cada lunes recuérdame ... a las HH:MM
     m = re.match(
         r"^cada\s+(lunes|martes|miércoles|miercoles|jueves|viernes|sábado|sabado|domingo)\s+recu[eé]rdame\s+(.+)\s+a las\s+(\d{1,2}):(\d{2})$",

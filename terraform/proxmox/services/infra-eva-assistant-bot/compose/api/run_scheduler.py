@@ -142,27 +142,85 @@ async def process_reminders() -> None:
 
                     if should_expire:
                         user = db.execute(select(User).where(User.id == r.user_id)).scalar_one_or_none()
-                        if user and user.telegram_chat_id:
-                            text_out = build_expired_text(r)
-                            await send_message(user.telegram_chat_id, text_out)
-                            db.add(Message(
+
+                        # Determine if this is a recurring reminder
+                        _is_recurring = (
+                            r.recurrence_type is not None or
+                            r.weekdays_only or
+                            r.is_persistent
+                        )
+
+                        if _is_recurring:
+                            # Auto-complete and reschedule — don't expire recurring reminders
+                            # If user didn't respond, assume done and move to next cycle
+                            from scheduler import next_occurrence as _next_occ
+                            from reminder_handlers import handle_ack_command as _ack
+
+                            # Calculate next occurrence
+                            nxt = _next_occ(r)
+                            if nxt is None:
+                                # Daily window pattern — advance manually
+                                _base = to_local(r.remind_at)
+                                _days = 1
+                                if r.weekdays_only:
+                                    while (_base + timedelta(days=_days)).weekday() >= 5:
+                                        _days += 1
+                                nxt = _base + timedelta(days=_days)
+
+                            # Advance stop_at to same day as next remind_at
+                            if r.stop_at:
+                                _stop_cur = to_local(r.stop_at)
+                                _remind_time = to_local(r.remind_at)
+                                _remind_time_only = _remind_time.replace(
+                                    year=_stop_cur.year,
+                                    month=_stop_cur.month,
+                                    day=_stop_cur.day)
+                                _window_delta = _stop_cur - _remind_time_only
+                                if _window_delta.total_seconds() <= 0:
+                                    _window_delta = timedelta(minutes=30)
+                                r.stop_at = nxt + _window_delta
+
+                            r.remind_at   = nxt
+                            r.status      = "scheduled"
+                            r.awaiting_ack = False
+                            r.retry_count  = 0
+                            r.last_sent_at = None
+
+                            db.add(Event(
                                 user_id=r.user_id,
-                                direction="outbound",
-                                message_text=text_out,
-                                message_type="reminder_expired",
+                                event_type="reminder_auto_rescheduled",
+                                event_value=str(r.id),
+                                source="scheduler",
+                                payload={"next": nxt.isoformat(), "reason": "no_response"},
                             ))
-                        r.status = "expired"
-                        r.expired_at = now
-                        r.awaiting_ack = False
-                        db.add(Event(
-                            user_id=r.user_id,
-                            event_type="reminder_expired",
-                            event_value=str(r.id),
-                            source="scheduler",
-                            payload={},
-                        ))
-                        print(f"[scheduler] reminder {r.id} expired (stop_at={stop_local})")
-                        continue
+                            print(f"[scheduler] reminder {r.id} auto-rescheduled → {nxt} (no response)")
+
+                            # Silent — no notification to user
+                            continue
+
+                        else:
+                            # Non-recurring — expire as before
+                            if user and user.telegram_chat_id:
+                                text_out = build_expired_text(r)
+                                await send_message(user.telegram_chat_id, text_out)
+                                db.add(Message(
+                                    user_id=r.user_id,
+                                    direction="outbound",
+                                    message_text=text_out,
+                                    message_type="reminder_expired",
+                                ))
+                            r.status = "expired"
+                            r.expired_at = now
+                            r.awaiting_ack = False
+                            db.add(Event(
+                                user_id=r.user_id,
+                                event_type="reminder_expired",
+                                event_value=str(r.id),
+                                source="scheduler",
+                                payload={},
+                            ))
+                            print(f"[scheduler] reminder {r.id} expired (stop_at={stop_local})")
+                            continue
 
                 # ¿Es hora de reintentar?
                 repeat_minutes = r.repeat_every_minutes or 2

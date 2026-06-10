@@ -102,10 +102,15 @@ PARSE_TOOL = {
     "input_schema":{
         "type":"object",
         "properties":{
-            "task_text":{"type":"string","description":"Descripción concisa sin prefijos innecesarios."},
+            "task_text":{"type":"string","description":"Descripción concisa sin prefijos ni días de recurrencia."},
             "remind_at":{"type":"string","description":"ISO 8601: YYYY-MM-DDTHH:MM:00. Debe ser futuro."},
             "recurrence_type":{"type":"string","enum":["none","weekly","weekdays","interval"]},
-            "recurrence_value":{"type":"string","description":"Día para weekly, minutos para interval, null para otros."},
+            "recurrence_days":{
+                "type":"array",
+                "items":{"type":"string","enum":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},
+                "description":"Días de recurrencia. Ejemplos: 'cada martes'→['Tuesday'], 'cada lunes y viernes'→['Monday','Friday'], 'cada martes y jueves'→['Tuesday','Thursday']. Vacío si no aplica."
+            },
+            "recurrence_interval_minutes":{"type":"integer","description":"Solo para recurrence_type=interval. Null si no aplica."},
             "is_persistent":{"type":"boolean"},
             "repeat_every_minutes":{"type":"integer"},
             "stop_at":{"type":"string","description":"ISO 8601 o null."},
@@ -124,12 +129,21 @@ async def parse_reminder_ai(text, context=None, memory_context=""):
               f"Pasado mañana: {(now+timedelta(days=2)).strftime('%Y-%m-%d')}\n\n"
               f"Eres el parser de recordatorios de EVA. Extrae usando create_reminder.\n"
               f"Reglas: remind_at debe ser futuro. 'esta tarde'→PM. 'próximo X'→siempre siguiente semana. "
-              f"task_text sin prefijos. Contexto tras coma va en task_text.\n"
-              f"IMPORTANTE para recordatorios persistentes:\n"
-              f"- Si dice 'cada X minutos' → is_persistent=true, repeat_every_minutes=X\n"
-              f"- Si dice 'hasta las HH:MM' → stop_at=fecha+HH:MM:00 en ISO 8601\n"
-              f"- Si dice 'todos los días' → recurrence_type=weekdays, weekdays_only=false\n"
-              f"- Si dice 'días laborables'/'lunes a viernes'/'de lunes a jueves' → recurrence_type=weekdays, weekdays_only=true\n"
+              f"task_text sin prefijos ni días de recurrencia.\n"
+              f"REGLAS DE RECURRENCIA:\n"
+              f"- 'cada martes' → recurrence_type=weekly, recurrence_days=['Tuesday']\n"
+              f"- 'cada jueves' → recurrence_type=weekly, recurrence_days=['Thursday']\n"
+              f"- 'cada lunes y viernes' → recurrence_type=weekly, recurrence_days=['Monday','Friday']\n"
+              f"- 'cada martes y viernes' → recurrence_type=weekly, recurrence_days=['Tuesday','Friday']\n"
+              f"- 'cada martes y jueves' → recurrence_type=weekly, recurrence_days=['Tuesday','Thursday']\n"
+              f"- Si hay varios días unidos por 'y', ',' o 'o' → TODOS van en recurrence_days\n"
+              f"- Una hora 'a las 14:00' NO cambia la recurrencia — primero extrae días, luego hora\n"
+              f"- NUNCA usar mode=today_or_tomorrow_at_time si hay 'cada' + día(s) de semana\n"
+              f"- 'todos los días' → recurrence_type=weekdays, weekdays_only=false\n"
+              f"- 'días laborables'/'lunes a viernes' → recurrence_type=weekdays, weekdays_only=true\n"
+              f"IMPORTANTE persistentes:\n"
+              f"- 'cada X minutos' → is_persistent=true, repeat_every_minutes=X\n"
+              f"- 'hasta las HH:MM' → stop_at=fecha+HH:MM:00 en ISO 8601\n"
               f"- SIEMPRE incluir repeat_every_minutes y stop_at cuando se mencionan\n"
               f"{memory_context}"
               f"\nSi NO es un recordatorio, no uses la tool.")
@@ -144,78 +158,127 @@ async def parse_reminder_ai(text, context=None, memory_context=""):
     if not data: return None
     for block in data.get("content",[]):
         if block.get("type")=="tool_use" and block.get("name")=="create_reminder":
-            return _args_to_parsed(block.get("input",{}), now)
+            return _args_to_parsed(block.get("input",{}), now, source_text=text)
     return None
 
-def _args_to_parsed(args, now):
+DAY_MAP_ES_EN = {
+    "lunes": "Monday", "martes": "Tuesday",
+    "miércoles": "Wednesday", "miercoles": "Wednesday",
+    "jueves": "Thursday", "viernes": "Friday",
+    "sábado": "Saturday", "sabado": "Saturday", "domingo": "Sunday",
+}
+
+DAY_INDEX = {
+    "Monday": 0, "Tuesday": 1, "Wednesday": 2, "Thursday": 3,
+    "Friday": 4, "Saturday": 5, "Sunday": 6,
+}
+
+def _extract_weekly_days_from_text(text: str) -> list[str]:
+    """Deterministic regex fallback for 'cada lunes y viernes' patterns."""
+    t = text.lower()
+    if "cada" not in t:
+        return []
+    found = []
+    for es, en in DAY_MAP_ES_EN.items():
+        if re.search(rf"\b{es}\b", t):
+            if en not in found:
+                found.append(en)
+    return found
+
+def _clean_task_text_weekly(text: str) -> str:
+    """Remove recurrence days and time from task_text for weekly reminders."""
+    text = re.sub(r"^\s*(eva,?\s*)?recu[eé]rdame\s+", "", text, flags=re.I)
+    text = re.sub(
+        r"\s+cada\s+(lunes|martes|mi[eé]rcoles|miercoles|jueves|viernes|s[aá]bado|sabado|domingo)"
+        r"(\s*(,|y|o|/)\s*(lunes|martes|mi[eé]rcoles|miercoles|jueves|viernes|s[aá]bado|sabado|domingo))*",
+        "", text, flags=re.I,
+    )
+    text = re.sub(r"\s+a las\s+\d{1,2}:\d{2}", "", text, flags=re.I)
+    return text.strip()
+
+def _args_to_parsed(args, now, source_text=""):
     try:
         remind_at = datetime.fromisoformat(args["remind_at"]).replace(tzinfo=TZ)
 
-        # For weekly recurrence, ensure remind_at lands on the correct weekday.
-        # Claude sometimes returns tomorrow's date instead of the actual recurrence day.
         rec_type = args.get("recurrence_type", "none")
-        rec_val  = args.get("recurrence_value") or ""
-        if rec_type == "weekly" and rec_val:
-            DAY_MAP = {
-                "monday":0,"lunes":0,"tuesday":1,"martes":1,
-                "wednesday":2,"miércoles":2,"miercoles":2,
-                "thursday":3,"jueves":3,"friday":4,"viernes":4,
-                "saturday":5,"sábado":5,"sabado":5,"sunday":6,"domingo":6,
-            }
-            target_days = [DAY_MAP[d.strip().lower()]
-                           for d in rec_val.split(",")
-                           if d.strip().lower() in DAY_MAP]
-            if target_days:
-                def _next_target(dt, target_days):
-                    """Return nearest future datetime on a target weekday."""
-                    cur_wd = dt.weekday()
-                    best = None
-                    for wd in sorted(target_days):
-                        days_ahead = (wd - cur_wd) % 7 or 7
-                        candidate = dt + timedelta(days=days_ahead)
-                        if best is None or candidate < best:
-                            best = candidate
-                    return best
+        rec_days = args.get("recurrence_days") or []
 
-                if remind_at.weekday() not in target_days:
-                    # Wrong weekday → advance to next correct weekday
-                    remind_at = _next_target(remind_at, target_days) or remind_at
+        # Deterministic fallback: regex always wins for "cada DIA1 y DIA2" patterns
+        detected_days = _extract_weekly_days_from_text(source_text)
+        if detected_days:
+            rec_type = "weekly"
+            rec_days = detected_days
+            args["mode"] = "weekly_day"
 
-                if remind_at <= now:
-                    # Correct weekday but in the past → advance to next occurrence
-                    remind_at = _next_target(remind_at, target_days) or remind_at
+        # Build recurrence_value from array (backward compat with rest of code)
+        if rec_days:
+            rec_val = ",".join(rec_days)
+        else:
+            rec_val = args.get("recurrence_value") or args.get("recurrence_interval_minutes")
+            if isinstance(rec_val, int):
+                rec_val = str(rec_val)
+        if rec_val in ("null", "none", "", None):
+            rec_val = None
+
+        # Fix remind_at to land on correct weekday(s)
+        if rec_type == "weekly" and rec_days:
+            target_days = [DAY_INDEX[d] for d in rec_days if d in DAY_INDEX]
+
+            def _next_target(dt, target_days):
+                best = None
+                for wd in sorted(target_days):
+                    days_ahead = (wd - dt.weekday()) % 7
+                    candidate = dt + timedelta(days=days_ahead)
+                    if candidate <= now:
+                        candidate += timedelta(days=7)
+                    if best is None or candidate < best:
+                        best = candidate
+                return best
+
+            remind_at = _next_target(remind_at, target_days) or remind_at
 
         if remind_at <= now:
             remind_at += timedelta(days=1)
-        if rec_type == "none": rec_type = None
+
+        if rec_type == "none":
+            rec_type = None
+
         stop_at = None
         if args.get("stop_at"):
             try: stop_at = datetime.fromisoformat(args["stop_at"]).replace(tzinfo=TZ)
             except: pass
-        repeat = args.get("repeat_every_minutes")
-        if isinstance(repeat,str):
+
+        repeat = args.get("repeat_every_minutes") or args.get("recurrence_interval_minutes")
+        if isinstance(repeat, str):
             try: repeat = int(repeat)
             except: repeat = None
-        rec_val = args.get("recurrence_value")
-        if rec_val in ("null","none","",None): rec_val = None
+
+        # Clean task_text: use regex-cleaned version when days were detected
+        task_text = args.get("task_text", "").strip()
+        if detected_days:
+            task_text = _clean_task_text_weekly(source_text) or task_text
+        task_text = task_text.strip()
+
         result = {
-            "task_text": args.get("task_text","").strip(),
-            "remind_at": remind_at, "status":"scheduled",
-            "recurrence_type":rec_type, "recurrence_value":rec_val,
-            "weekdays_only":bool(args.get("weekdays_only",False)),
-            "remind_if_no_response":False, "retry_delay_minutes":None,
-            "cancel_on_event_type":None,
-            "mode":args.get("mode","today_or_tomorrow_at_time"),
-            "is_persistent":bool(args.get("is_persistent",False)),
-            "repeat_every_minutes":repeat, "stop_at":stop_at,
-            "awaiting_ack":False, "target_time_text":None, "minutes_before":None,
+            "task_text": task_text,
+            "remind_at": remind_at, "status": "scheduled",
+            "recurrence_type": rec_type, "recurrence_value": rec_val,
+            "weekdays_only": bool(args.get("weekdays_only", False)),
+            "remind_if_no_response": False, "retry_delay_minutes": None,
+            "cancel_on_event_type": None,
+            "mode": args.get("mode", "today_or_tomorrow_at_time"),
+            "is_persistent": bool(args.get("is_persistent", False)),
+            "repeat_every_minutes": repeat, "stop_at": stop_at,
+            "awaiting_ack": False, "target_time_text": None, "minutes_before": None,
         }
         if result["task_text"]:
-            print(f"[parse] ✅ '{result['task_text']}' → {remind_at.strftime('%Y-%m-%d %H:%M')} mode={result['mode']}")
+            print(f"[parse] ✅ '{result['task_text']}' → {remind_at.strftime('%Y-%m-%d %H:%M')} "
+                  f"mode={result['mode']} rec={rec_val}")
             return result
         return None
     except Exception as exc:
-        print(f"[parse] error: {exc}"); return None
+        print(f"[parse] error: {exc}")
+        return None
 
 # ══════════ 3. RESPONDER PREGUNTAS ══════════
 
