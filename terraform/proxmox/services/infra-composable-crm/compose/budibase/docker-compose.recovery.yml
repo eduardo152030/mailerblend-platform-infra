@@ -1,0 +1,33 @@
+# PREPARED ONLY. Apply with the base Compose after cold backups and restore validation.
+# Requires the original secrets .env plus recovery.env; never pull or upgrade during recovery.
+name: budibase-recovery
+services:
+  redis:
+    pull_policy: never
+  couchdb:
+    pull_policy: never
+  budibase-app:
+    image: ${BUDIBASE_RECOVERY_IMAGE:?set verified installed digest in recovery.env}
+    pull_policy: never
+    volumes:
+      - preserved_app_data:/data
+  budibase-worker:
+    image: ${BUDIBASE_RECOVERY_IMAGE:?set verified installed digest in recovery.env}
+    pull_policy: never
+    # Exclusion does NOT stop the existing running container. Explicitly stop it only after approval.
+    profiles: [legacy-duplicate-worker]
+    volumes:
+      - preserved_worker_data:/data
+volumes:
+  budibase_couchdb_data:
+    external: true
+    name: budibase_couchdb_data
+  budibase_redis_data:
+    external: true
+    name: budibase_redis_data
+  preserved_app_data:
+    external: true
+    name: ${BUDIBASE_APP_DATA_VOLUME:?set exact existing volume name}
+  preserved_worker_data:
+    external: true
+    name: ${BUDIBASE_WORKER_DATA_VOLUME:?set exact existing volume name}

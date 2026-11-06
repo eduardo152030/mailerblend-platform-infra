@@ -1,9 +1,17 @@
+# Phase 2 preparation: bounded logs; application data and resource allocations unchanged.
+x-bounded-logging: &bounded-logging
+  driver: json-file
+  options:
+    max-size: "20m"
+    max-file: "5"
+
 services:
 
   # ─────────────────────────────────────────
   # INFRAESTRUCTURA BASE
   # ─────────────────────────────────────────
   postgres:
+    logging: *bounded-logging
     image: postgres:16-alpine
     container_name: eva-postgres
     restart: unless-stopped
@@ -29,6 +37,7 @@ services:
   # EVA — API + SCHEDULER + SYNC + DIGEST
   # ─────────────────────────────────────────
   eva-api:
+    logging: *bounded-logging
     build:
       context: ./api
       dockerfile: Dockerfile
@@ -62,6 +71,7 @@ services:
       retries: 3
 
   eva-scheduler:
+    logging: *bounded-logging
     image: eva-backend:latest
     container_name: eva-scheduler
     restart: unless-stopped
@@ -87,6 +97,7 @@ services:
           cpus: '0.50'
 
   eva-sync:
+    logging: *bounded-logging
     image: eva-backend:latest
     container_name: eva-sync
     restart: unless-stopped
@@ -114,6 +125,7 @@ services:
           cpus: '0.25'
 
   eva-cron-digest:
+    logging: *bounded-logging
     image: alpine:latest
     container_name: eva-cron-digest
     restart: unless-stopped
@@ -134,6 +146,7 @@ services:
   # MANTENIMIENTO — Limpieza semanal Docker
   # ─────────────────────────────────────────
   docker-cleanup:
+    logging: *bounded-logging
     image: docker:cli
     container_name: eva-docker-cleanup
     restart: unless-stopped
@@ -141,25 +154,19 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
+    # Reporting only. Data/image/volume deletion requires separate explicit approval.
     entrypoint:
       - /bin/sh
       - -c
       - |
-        echo "Docker cleanup service started"
-
+        echo "Docker storage reporting started; automatic pruning disabled"
+        trap 'exit 0' TERM INT
         while true; do
-          sleep 604800
-
-          echo "[cleanup] $(date) - iniciando limpieza semanal"
-
-          docker image prune -a --force
-          docker container prune --force
-          docker network prune --force
-          docker volume prune --force
-
-          DISK_USAGE=$(df -h / | tail -1 | awk '{print $5}')
-          echo "[cleanup] $(date) - completado. Disco: ${DISK_USAGE}"
+          docker system df
+          sleep 604800 &
+          wait $$!
         done
+
     deploy:
       resources:
         limits:
@@ -170,6 +177,7 @@ services:
   # FOCALBOARD — UI de proyectos y tareas
   # ─────────────────────────────────────────
   focalboard:
+    logging: *bounded-logging
     image: mattermost/focalboard:latest
     container_name: focalboard
     restart: unless-stopped

@@ -5,7 +5,7 @@ service:
 
 resources:
   cpu: 2
-  memory: 4096
+  memory: 6144
   disk_gb: 50
 
 tags:

@@ -1,0 +1,64 @@
+schema: 1
+decision: D-040
+sample_interval_seconds: 30
+critical_cts:
+- 618
+- 622
+- 611
+- 616
+- 610
+profiles:
+  STANDARD:
+    observation_seconds: 180
+    minimum_samples: 7
+    post_watch_seconds: 0
+    rollback: reuse_verified_unchanged_procedure
+    continuity_recovery_checks: false
+  CRITICAL:
+    observation_seconds: 600
+    minimum_samples: 21
+    post_watch_seconds: 0
+    rollback: ct_specific_recovery_plan
+    continuity_recovery_checks: true
+common:
+  metric_contract: scripts/exporter_metric_contract.py
+  preserve_existing_metric_tolerances: true
+  missing_metrics_are_failure: true
+  application_acceptance: no_regression_against_verified_baseline
+  preserve_preexisting_alerts: true
+  telegram_delivery_test: per_batch_or_configuration_change
+  alertmanager_ready_required: true
+  telegram_error_increase_allowed: false
+  common_test_reuse: exact_code_and_dependency_fingerprint
+  post_acceptance_monitoring:
+    mode: existing_continuous_prometheus_alertmanager
+    blocking_extra_watch_seconds: 0
+    record_anomalies: Prometheus alert state and existing Alertmanager notification
+      pipeline; rollout evidence records detected failures
+    do_not_claim_unelapsed_alert_for: true
+execution_scope:
+  conventional_pending_authorized: false
+  excluded_cts: []
+  recommended_critical_order:
+  - 618
+  - 622
+  - 611
+  - 616
+  - 610
+  critical_deployment_authorized: false
+ct_observation_windows:
+  618:
+    observation_seconds: 300
+    minimum_samples: 11
+  622:
+    observation_seconds: 300
+    minimum_samples: 11
+  611:
+    observation_seconds: 180
+    minimum_samples: 7
+  616:
+    observation_seconds: 180
+    minimum_samples: 7
+  610:
+    observation_seconds: 600
+    minimum_samples: 21

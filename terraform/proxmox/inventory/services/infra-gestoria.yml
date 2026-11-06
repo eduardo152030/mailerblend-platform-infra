@@ -1,0 +1,12 @@
+service:
+  name: infra-gestoria
+  vmid: 623
+  ip: 192.168.1.123/24
+
+resources:
+  cpu: 2
+  memory: 4096
+  disk_gb: 20
+
+tags:
+  - internal

@@ -1,0 +1,4 @@
+services:
+  node_exporter:
+    mem_limit: 48m
+    cpus: '0.20'

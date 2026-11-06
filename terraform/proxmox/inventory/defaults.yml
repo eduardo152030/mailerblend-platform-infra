@@ -1,5 +1,5 @@
 lxc:
-  template_vmid: 104
+  template_vmid: 106
   storage: local-lvm
   bridge: vmbr0
 

@@ -1,0 +1,43 @@
+schema: 2
+decision: D-038
+strategy: SKIP_AND_CONTINUE
+order: []
+deferred:
+- 617
+- 615
+- 614
+excluded_exporters:
+- 618
+- 622
+- 611
+- 616
+- 610
+initial_seconds: 180
+initial_minimum_samples: 7
+watch_seconds: 0
+maximum_attempts_per_ct: 1
+isolated_categories:
+- application_preflight
+- local_exporter_runtime
+- local_capacity
+- application_regression
+require_original_application_working: false
+require_prior_coverage_unchanged: true
+halt_categories:
+- backup
+- common_iac
+- validator
+- ssh_identity
+- global_prometheus
+- coverage_loss
+- alertmanager_telegram
+- unknown_state
+- rollback
+- data_risk
+- critical_dependency
+require_healthy_baseline_for_done: false
+require_verified_critical_dependencies: true
+pre_existing_requires_no_mutation: true
+application_acceptance: verified_no_regression
+validation_profiles: services/common/phase4-validation-profiles.yml
+telegram_delivery_test: per_batch_or_configuration_change

@@ -1,0 +1,13 @@
+service:
+  name: infra-journal-web
+  vmid: 624
+  ip: 192.168.1.124/24
+
+resources:
+  cpu: 1
+  memory: 512
+  disk_gb: 8
+
+tags:
+  - web
+  - tradeintuit

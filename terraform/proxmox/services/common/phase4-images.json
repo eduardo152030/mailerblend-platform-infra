@@ -1,0 +1,161 @@
+{
+  "status": "INCREMENTAL_ROLLOUT_IN_PROGRESS_R6_EXCLUDED",
+  "node": {
+    "infra-blackbox": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-composable-crm": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-eva-assistant-bot": {
+      "image": "prom/node-exporter@sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-excraper": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-gestoria": {
+      "image": "prom/node-exporter@sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-grafana": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-hola": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-journal-api": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": false,
+      "new_install_requires_approved_download": true
+    },
+    "infra-journal-db": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": false,
+      "new_install_requires_approved_download": true
+    },
+    "infra-journal-web": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": false,
+      "new_install_requires_approved_download": true
+    },
+    "infra-mailerblend-edge": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-nucleoedge": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-orbit": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-project-gestion": {
+      "image": "prom/node-exporter@sha256:d375b27b61ea3233524bb12ce5f2de05bdc80cbce4c6806a45617d4f5bc7b1b1",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-prom": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "infra-pulpo": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    },
+    "svc01": {
+      "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "installed": true,
+      "new_install_requires_approved_download": false
+    }
+  },
+  "cadvisor_candidate": {
+    "version": "0.60.6",
+    "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+    "linux_amd64_manifest": "sha256:bd7c00644d65e6c9fc2c151cab70d2e86d7fe3e0182cfb9863120ec2e017cf01",
+    "registry_manifest_verified": true,
+    "nested_lxc_runtime_verified": true,
+    "runtime_verified_ct_ids": [
+      624,
+      626,
+      625
+    ],
+    "all_inventory_runtime_verified": false
+  },
+  "node_baseline_note": "Los campos node.installed describen la auditor\u00eda inicial previa a Journal; consultar pilot_624 y journal_batch para el estado posterior de CT 624/626/625. Los otros 14 requieren revalidaci\u00f3n antes del rollout.",
+  "pilot_624": {
+    "node_installed": true,
+    "node_version": "1.10.2",
+    "cpu_source": "cgroup_v2_textfile",
+    "native_cpu_collector_enabled": false,
+    "memory_source": "LXCFS",
+    "global_prometheus_discovery_applied": false,
+    "evidence": "../../docs/roadmap/PILOT-624.md"
+  },
+  "validated_ct_ids": [
+    610,
+    611,
+    613,
+    614,
+    615,
+    616,
+    617,
+    618,
+    619,
+    620,
+    621,
+    622,
+    623,
+    624,
+    625,
+    626,
+    61211
+  ],
+  "journal_batch": {
+    "ct_order": [
+      626,
+      625
+    ],
+    "result": "TECHNICAL_PASS",
+    "owner_post_execution_acceptance": "ACCEPTED_D020",
+    "evidence": "../../docs/roadmap/JOURNAL-EXECUTION.md",
+    "global_discovery_applied": false
+  },
+  "monitoring_chain_verified_ct_ids": [
+    624,
+    626,
+    625,
+    613,
+    621,
+    620,
+    619,
+    623,
+    61211,
+    622,
+    611,
+    616,
+    610,
+    617,
+    618,
+    615,
+    614
+  ]
+}

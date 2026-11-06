@@ -1,0 +1,43 @@
+def main():
+    p=argparse.ArgumentParser(description='Integrated watch: 180s initial gate; continue automatically, extend on anomaly.')
+    p.add_argument('--probe',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--seconds',type=int,default=WATCH_SECONDS);p.add_argument('--interval',type=int,default=SAMPLE_INTERVAL)
+    p.add_argument('--baseline-sample',type=Path,required=True,help='Source-verified point sample, with original preflight OOM baseline preserved')
+    args=p.parse_args();assert args.seconds>=WATCH_SECONDS and args.interval==SAMPLE_INTERVAL
+    assert Path('/etc/pve/lxc/CT_NUMBER.conf').is_file()
+    root=Path('/sys/fs/cgroup/lxc/CT_NUMBER');assert root.is_dir()
+    initial=json.loads(args.baseline_sample.read_text());previous=None;start=time.monotonic();n=0;anomaly=False;end_after=args.seconds;initial_emitted=False;tracker=WindowTracker(INITIAL_SECONDS,MIN_INITIAL_SAMPLES,args.seconds,ANOMALY_SECONDS)
+    fd=os.open(args.output,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
+    with os.fdopen(fd,'w') as out:
+        while True:
+            sample={};failure=None
+            try:
+                r=subprocess.run(['pct','exec','CT_NUMBER','--','python3','-'],input=args.probe.read_text(),capture_output=True,text=True,timeout=30)
+                assert r.returncode==0,'Probe failed'
+                sample=json.loads(r.stdout);sample['resources']=cg(root)
+                for c in sample['containers']:
+                    if not c['running']:continue
+                    paths=list(root.rglob('docker-'+c['id']+'.scope')) or list(root.rglob(c['id']))
+                    if len(paths)==1:c['cgroup']=cg(paths[0])
+                validate(sample,initial,previous);previous=sample
+            except Exception as exc:
+                failure=type(exc).__name__
+                if not anomaly:
+                    anomaly=True;end_after=max(end_after,time.monotonic()-start+ANOMALY_SECONDS)
+                    flag=args.output.with_name(args.output.name+'.HALT.json')
+                    flag.write_text(json.dumps({'halt_advance':True,'failure_type':failure,'minimum_extended_seconds':ANOMALY_SECONDS,'do_not_reset_original_oom_baseline':True}));flag.chmod(0o600)
+            sample['elapsed_seconds']=time.monotonic()-start;sample['checks_passed']=failure is None;sample['failure_type']=failure
+            out.write(json.dumps(sample)+'\n');out.flush();n+=1
+            status=tracker.observe(sample['elapsed_seconds'],failure is None)
+            if not initial_emitted and status['initial_window_passed']:
+                marker=args.output.with_name(args.output.name+'.initial-pass.json')
+                marker.write_text(json.dumps({'initial_window_passed':True,'samples':n,'seconds':sample['elapsed_seconds'],'continued_watch':True,'full_chain_acceptance_separate':True,'alert_for_runtime_firing_validated':False}));marker.chmod(0o600);initial_emitted=True
+            print('watch sample',n,'elapsed',round(sample['elapsed_seconds'],1),'healthy',failure is None,flush=True)
+            end_after=max(end_after,status['end_after'])
+            if tracker.finished(sample['elapsed_seconds']):break
+            next_at=start+min(n*args.interval,end_after);time.sleep(max(.1,next_at-time.monotonic()))
+    assert not anomaly,'Anomaly recorded: next CT blocked, >=600s extension recorded; review required'
+    assert initial_emitted
+    print('Initial gate and continued integrated watch completed; no claim that threshold predicates/for fired.')
+
+if __name__=='__main__':main()

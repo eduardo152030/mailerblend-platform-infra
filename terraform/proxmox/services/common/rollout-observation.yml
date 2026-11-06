@@ -1,0 +1,23 @@
+schema: 1
+sample_interval_seconds: 30
+initial_windows:
+  P0: {seconds: 600, minimum_samples: 21}
+  R1: {seconds: 600, minimum_samples: 21}
+  R2: {seconds: 180, minimum_samples: 7}
+  R3: {seconds: 180, minimum_samples: 7}
+  R4: {seconds: 180, minimum_samples: 7}
+  R5: {seconds: 180, minimum_samples: 7}
+  R6: {seconds: 600, minimum_samples: 21}
+  R7: {seconds: 600, minimum_samples: 21}
+anomaly:
+  halt_advance: true
+  minimum_extended_seconds: 600
+  minimum_extended_samples: 21
+  preserve_original_oom_and_restart_baseline: true
+  require_diagnosis_and_clean_extended_window: true
+post_deployment:
+  external_watch_seconds: 900
+  prometheus_alertmanager_continuous: true
+  source_and_delivery_chain_required_before_next_ct: true
+  initial_window_does_not_validate_alert_for: true
+  do_not_shorten_for_or_notification_intervals: true

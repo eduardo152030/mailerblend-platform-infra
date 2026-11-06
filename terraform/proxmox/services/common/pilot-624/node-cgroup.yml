@@ -1,0 +1,18 @@
+# Pilot-only correct CPU accounting, using the already approved /host/sys read-only view.
+services:
+  node_exporter:
+    entrypoint: [/bin/sh, /opt/pilot-node-cgroup.sh]
+    command:
+      - --path.rootfs=/host
+      - --path.procfs=/host/proc
+      - --path.sysfs=/host/sys
+      - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($$|/)
+      - --no-collector.cpu
+      - --collector.textfile.directory=/tmp/lxc-metrics
+    volumes:
+      - type: bind
+        source: ./node-cgroup.sh
+        target: /opt/pilot-node-cgroup.sh
+        read_only: true
+        bind:
+          create_host_path: false

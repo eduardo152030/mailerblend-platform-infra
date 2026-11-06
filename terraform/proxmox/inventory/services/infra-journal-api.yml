@@ -1,0 +1,13 @@
+service:
+  name: infra-journal-api
+  vmid: 626
+  ip: 192.168.1.126/24
+
+resources:
+  cpu: 2
+  memory: 2048
+  disk_gb: 8
+
+tags:
+  - app
+  - tradeintuit

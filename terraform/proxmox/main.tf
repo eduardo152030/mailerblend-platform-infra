@@ -12,7 +12,7 @@ resource "proxmox_virtual_environment_container" "svc" {
   vm_id         = each.value.vmid
   description   = "Managed by Terraform - Service: ${each.value.name}"
   start_on_boot = true
-  tags          = each.value.tags
+  tags          = lookup(var.recovery_preserve_service_tags, each.key, each.value.tags)
 
   # --- CONFIGURACIÓN CRÍTICA PARA DOCKER ---
   unprivileged = false # <--- Obligatorio para Grafana/Docker sin errores de kernel
@@ -27,6 +27,13 @@ resource "proxmox_virtual_environment_container" "svc" {
     vm_id        = each.value.template_vmid
     node_name    = var.node_name
     datastore_id = each.value.storage
+  }
+
+  lifecycle {
+    ignore_changes = [
+      clone, # Evita que cambie/destruya los LXC si actualizas la plantilla base
+      disk,  # Evita errores de API al intentar encoger discos en Proxmox
+    ]
   }
 
   initialization {

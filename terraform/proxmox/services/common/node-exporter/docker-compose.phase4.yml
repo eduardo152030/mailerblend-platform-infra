@@ -1,0 +1,22 @@
+# Candidate only: explicitly select this file after Phase 4 pilot approval.
+services:
+  node_exporter:
+    image: ${NODE_EXPORTER_IMAGE:?Select the installed digest from phase4-images.json}
+    pull_policy: never
+    container_name: node_exporter
+    restart: unless-stopped
+    pid: host
+    ports:
+      - "${EXPORTER_BIND_IP:?Set the inventory LXC address}:9100:9100"
+    command:
+      - --path.rootfs=/host
+      - --path.procfs=/host/proc
+      - --path.sysfs=/host/sys
+      - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($$|/)
+    volumes:
+      - /:/host:ro,rslave
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '5'

@@ -1,0 +1,50 @@
+schema: 1
+decision: D-041
+execution_authorized: false
+items: []
+next_unattempted_authorized: null
+resume_condition: D041 exporter coverage17/17 complete; no CT pending. Application
+  issues615/614HTTP503 remain separate; next scope requires authorization.
+next_recovery_candidate: null
+resolved:
+- ct: 617
+  service: infra-orbit
+  state: DONE
+  reason: Monitoring accepted D041; historical blocker retained separately; application
+    issues may persist
+  evidence: docs/roadmap/CT617-D033-EXECUTION.md
+  resolved_by: D-041
+  previous_blocker: D033 held-name collision; local revision isolation correction
+    not deployed; RAM acceptance pending
+  resolved_evidence: docs/roadmap/evidence/2026-11-06-d041-final.json
+- ct: 618
+  service: infra-composable-crm
+  state: DONE
+  reason: Monitoring accepted D041; historical blocker retained separately; application
+    issues may persist
+  evidence: docs/roadmap/evidence/2026-11-06-d039-618-isolation.json
+  resolved_by: D-041
+  previous_blocker: D039 local cAdvisor volatile RAM bracket failed existing allowance;
+    originals/application/resources and Prom checkpoint verified restored; no repeat
+    in this wave
+  resolved_evidence: docs/roadmap/evidence/2026-11-06-d041-final.json
+- ct: 615
+  service: infra-mailerblend-edge
+  state: DONE
+  reason: Monitoring accepted D041; historical blocker retained separately; application
+    issues may persist
+  evidence: docs/roadmap/evidence/2026-11-05-615-blocker.json
+  resolved_by: D-041
+  previous_blocker: Original application health503; no active changes; application
+    repair outside exporter scope
+  resolved_evidence: docs/roadmap/evidence/2026-11-06-d041-final.json
+- ct: 614
+  service: infra-nucleoedge
+  state: DONE
+  reason: Monitoring accepted D041; historical blocker retained separately; application
+    issues may persist
+  evidence: docs/roadmap/evidence/2026-11-06-d035-isolation.json
+  resolved_by: D-041
+  previous_blocker: Original HTTP503 predates all rollout mutations; unchanged fingerprints
+    verified; svc01 critical DB dependency local and independent
+  resolved_evidence: docs/roadmap/evidence/2026-11-06-d041-final.json

@@ -1,0 +1,125 @@
+schema: 1
+authorization: D-039
+order:
+- 618
+- 622
+- 611
+- 616
+- 610
+excluded:
+- 617
+- 615
+- 614
+contracts:
+  619:
+    batch: R3
+    urls:
+    - http://192.168.1.119:15678/healthz
+    exec:
+    - - docker
+      - exec
+      - infra-pulpo-postgres-1
+      - pg_isready
+      - -h
+      - 127.0.0.1
+      - -p
+      - '5432'
+  623:
+    batch: R3
+    urls:
+    - http://127.0.0.1:8069/web/login
+    exec:
+    - - docker
+      - exec
+      - infra-gestoria-db-1
+      - pg_isready
+      - -h
+      - 127.0.0.1
+      - -p
+      - '5432'
+  617:
+    batch: R4
+    urls: []
+    exec: []
+    http_status:
+    - url: http://192.168.1.117:18088/healthz
+      expected: 403
+    backend_http:
+    - container: analytics-ingest-gateway
+      port: 8080
+      path: /healthz
+      expected: 200
+  615:
+    batch: R4
+    urls: []
+    exec: []
+    http_status:
+    - url: http://127.0.0.1:18092/healthy
+      expected: 503
+    - url: http://127.0.0.1:18091/healthy
+      expected: 503
+    application_baseline: PRE_EXISTING_HTTP_503
+  614:
+    batch: R4
+    urls: []
+    exec: []
+    http_status:
+    - url: http://127.0.0.1:8091/healthy
+      expected: 503
+    - url: http://127.0.0.1:8092/healthy
+      expected: 503
+    application_baseline: PRE_EXISTING_HTTP_503
+  61211:
+    batch: R5
+    urls:
+    - http://127.0.0.1:18080/api/v1/health
+    exec:
+    - - docker
+      - exec
+      - infra-svc01-nocodb-db
+      - pg_isready
+      - -h
+      - 127.0.0.1
+      - -p
+      - '5432'
+  611:
+    batch: R7
+    urls:
+    - http://127.0.0.1:3010/api/health
+    exec: []
+  616:
+    batch: R7
+    urls:
+    - http://127.0.0.1:9115/-/healthy
+    exec: []
+  610:
+    batch: R7
+    urls:
+    - http://127.0.0.1:9090/-/ready
+    - http://127.0.0.1:9093/-/ready
+    exec: []
+  618:
+    batch: R6
+    urls:
+    - http://192.168.1.118:8080/
+    - http://192.168.1.118:18088/health
+    - http://192.168.1.118:18088/ready
+    exec:
+    - - docker
+      - exec
+      - supabase-db
+      - pg_isready
+      - -h
+      - 127.0.0.1
+  622:
+    batch: R6
+    urls:
+    - http://127.0.0.1:8001/health
+    - http://127.0.0.1:8002/
+    exec:
+    - - docker
+      - exec
+      - eva-postgres
+      - pg_isready
+      - -h
+      - 127.0.0.1

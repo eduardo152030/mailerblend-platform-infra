@@ -1,0 +1,74 @@
+schema: 1
+exporters_validated:
+  '624': docs/roadmap/evidence/2026-11-02-pilot624-summary.json
+  '626': docs/roadmap/evidence/2026-11-02-journal626-execution.json
+  '625': docs/roadmap/evidence/2026-11-02-journal625-execution.json
+  '613': docs/roadmap/evidence/2026-11-02-r1-execution.json
+  '621': docs/roadmap/evidence/2026-11-02-rollout-621.json
+  '620': docs/roadmap/evidence/2026-11-02-rollout-620.json
+  '619': docs/roadmap/evidence/2026-11-02-rollout-619.json
+  '623': docs/roadmap/evidence/2026-11-02-rollout-623.json
+  '61211': docs/roadmap/evidence/2026-11-02-rollout-61211.json
+  '622': docs/roadmap/evidence/2026-11-02-rollout-622.json
+  '611': docs/roadmap/evidence/2026-11-02-rollout-611.json
+  '616': docs/roadmap/evidence/2026-11-02-rollout-616.json
+  '610': docs/roadmap/evidence/2026-11-02-rollout-610.json
+  '617': docs/roadmap/evidence/2026-11-02-rollout-617.json
+  '618': docs/roadmap/evidence/2026-11-02-rollout-618.json
+  '615': docs/roadmap/evidence/2026-11-02-rollout-615.json
+  '614': docs/roadmap/evidence/2026-11-02-rollout-614.json
+prometheus_integrated:
+- 624
+- 626
+- 625
+- 613
+- 621
+- 620
+- 619
+- 623
+- 61211
+- 622
+- 611
+- 616
+- 610
+- 617
+- 618
+- 615
+- 614
+telegram_chain_verified:
+- 624
+- 626
+- 625
+- 613
+- 621
+- 620
+- 619
+- 623
+- 61211
+- 622
+- 611
+- 616
+- 610
+- 617
+- 618
+- 615
+- 614
+remaining_order: []
+cpu_contract_verified:
+  '624': docs/roadmap/evidence/2026-11-02-pilot624-summary.json
+  '626': docs/roadmap/evidence/2026-11-02-journal626-execution.json
+  '625': docs/roadmap/evidence/2026-11-02-journal625-execution.json
+  '613': docs/roadmap/evidence/2026-11-02-r1-execution.json
+  '621': docs/roadmap/evidence/2026-11-02-rollout-621.json
+  '620': docs/roadmap/evidence/2026-11-02-rollout-620.json
+  '619': docs/roadmap/evidence/2026-11-02-rollout-619.json
+  '623': docs/roadmap/evidence/2026-11-02-rollout-623.json
+  '61211': docs/roadmap/evidence/2026-11-02-rollout-61211.json
+  '622': docs/roadmap/evidence/2026-11-02-rollout-622.json
+  '611': docs/roadmap/evidence/2026-11-02-rollout-611.json
+  '616': docs/roadmap/evidence/2026-11-02-rollout-616.json
+  '610': docs/roadmap/evidence/2026-11-02-rollout-610.json
+  '617': docs/roadmap/evidence/2026-11-02-rollout-617.json
+  '618': docs/roadmap/evidence/2026-11-02-rollout-618.json
+  '615': docs/roadmap/evidence/2026-11-02-rollout-615.json
+  '614': docs/roadmap/evidence/2026-11-02-rollout-614.json

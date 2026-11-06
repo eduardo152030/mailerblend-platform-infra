@@ -1,0 +1,11 @@
+# PROPOSED: requires explicit owner approval for this pilot's containerd API access.
+# Read-only bind does NOT restrict containerd RPC methods.
+services:
+  cadvisor:
+    volumes:
+      - type: bind
+        source: /run/containerd/containerd.sock
+        target: /run/containerd/containerd.sock
+        read_only: true
+        bind:
+          create_host_path: false

@@ -1,0 +1,11 @@
+schema: 1
+decision: D-041
+status: COMPLETED
+automatic_rollout: false
+allowed_mutation_cts: []
+prometheus_config_for_cts: []
+excluded_exporter_cts: []
+reason: D041 exporter coverage17/17 complete; no further CT or phase execution authorized
+allowed_recovery_cts: []
+strategy: SKIP_AND_CONTINUE_BASELINE_AWARE
+deferred_cts: []
