@@ -1,0 +1,47 @@
+rule_files:
+  - ../../services/infra-prom/config/rules/infra-hosts.yml
+evaluation_interval: 30s
+tests:
+  - name: Stable active capacity still fires unchanged forecast after fifteen minutes
+    interval: 1m
+    input_series:
+      - series: 'node_memory_MemAvailable_bytes{job="node_exporter",instance="test:9100",service="test",cpu_contract="lxc_cgroup_v1",vmid="621"}'
+        values: '2000000000-10000000x80'
+      - series: 'node_memory_MemTotal_bytes{job="node_exporter",instance="test:9100",service="test",cpu_contract="lxc_cgroup_v1",vmid="621"}'
+        values: '4000000000+0x80'
+      - series: 'up{job="node_exporter",instance="test:9100",service="test",cpu_contract="lxc_cgroup_v1",vmid="621"}'
+        values: '1+0x80'
+    alert_rule_test:
+      - eval_time: 20m
+        alertname: HostMemoryFillingFast
+        exp_alerts:
+          - exp_labels: {job: node_exporter, instance: 'test:9100', service: test, cpu_contract: lxc_cgroup_v1, vmid: '621', severity: warning}
+            exp_annotations:
+              summary: 'Predicción: RAM agotada en test:9100'
+              description: 'Basado en 1h de datos, la RAM se agotará en <4h.'
+  - name: Capacity transition invalidates mixed-source regression without interpreting missing data as zero
+    interval: 1m
+    input_series:
+      - series: 'node_memory_MemAvailable_bytes{job="node_exporter",instance="test:9100",service="test",cpu_contract="lxc_cgroup_v1",vmid="621"}'
+        values: '12000000000+0x10 1900000000+0x60'
+      - series: 'node_memory_MemTotal_bytes{job="node_exporter",instance="test:9100",service="test",cpu_contract="lxc_cgroup_v1",vmid="621"}'
+        values: '16000000000+0x10 2000000000+0x60'
+      - series: 'up{job="node_exporter",instance="test:9100",service="test",cpu_contract="lxc_cgroup_v1",vmid="621"}'
+        values: '1+0x80'
+    alert_rule_test:
+      - eval_time: 35m
+        alertname: HostMemoryFillingFast
+        exp_alerts: []
+  - name: Inactive legacy identity cannot predict against a different live contract
+    interval: 1m
+    input_series:
+      - series: 'node_memory_MemAvailable_bytes{job="node_exporter",instance="test:9100",service="test"}'
+        values: '2000000000-10000000x80'
+      - series: 'node_memory_MemTotal_bytes{job="node_exporter",instance="test:9100",service="test"}'
+        values: '4000000000+0x80'
+      - series: 'up{job="node_exporter",instance="test:9100",service="test",cpu_contract="lxc_cgroup_v1",vmid="621"}'
+        values: '1+0x80'
+    alert_rule_test:
+      - eval_time: 20m
+        alertname: HostMemoryFillingFast
+        exp_alerts: []

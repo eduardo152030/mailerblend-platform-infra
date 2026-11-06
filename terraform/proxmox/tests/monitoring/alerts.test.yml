@@ -1,0 +1,276 @@
+rule_files:
+- ../../services/infra-prom/config/rules/*.yml
+evaluation_interval: 30s
+tests:
+- name: Node exporter failure
+  interval: 30s
+  input_series:
+  - series: up{instance="192.168.1.118:9100",job="node_exporter",service="infra-composable-crm"}
+    values: 0x6 1x6
+  alert_rule_test:
+  - eval_time: 3m
+    alertname: HostOutOfService
+    exp_alerts:
+    - exp_labels:
+        instance: 192.168.1.118:9100
+        job: node_exporter
+        service: infra-composable-crm
+        severity: critical
+        source: prometheus
+      exp_annotations:
+        summary: Node Exporter no disponible en infra-composable-crm (192.168.1.118:9100)
+        description: "node_exporter no responde desde hace m\xE1s de 2 minutos."
+  - eval_time: 1m
+    alertname: HostOutOfService
+    exp_alerts: []
+  - eval_time: 5m
+    alertname: HostOutOfService
+    exp_alerts: []
+- name: Blackbox scrape failure
+  interval: 30s
+  input_series:
+  - series: up{instance="https://example.test",job="blackbox"}
+    values: '0x10'
+  alert_rule_test:
+  - eval_time: 3m
+    alertname: ExporterDown
+    exp_alerts:
+    - exp_labels:
+        instance: https://example.test
+        job: blackbox
+        severity: critical
+      exp_annotations:
+        summary: 'Monitoring target unavailable: blackbox'
+        description: Unable to scrape https://example.test for over 2 minutes. Check
+          exporter, host and network.
+- name: Collect probe failure with legacy label
+  interval: 30s
+  input_series:
+  - series: probe_success{instance="https://example.test/collect",job="blackbox",probe_type="sgtm_collect"}
+    values: '0x10'
+  alert_rule_test:
+  - eval_time: 3m
+    alertname: CollectEndpointDown
+    exp_alerts:
+    - exp_labels:
+        instance: https://example.test/collect
+        job: blackbox
+        probe_type: sgtm_collect
+        severity: critical
+        category: analytics
+      exp_annotations:
+        summary: Collect endpoint is DOWN
+        description: '/g/collect probe failed (HEAD expected 200/204).
+
+          target=https://example.test/collect
+
+          Check edge routing, upstream, TLS, firewall.
+
+          '
+- name: memory threshold
+  interval: 30s
+  input_series:
+  - series: node_memory_MemAvailable_bytes{job="node_exporter",instance="192.168.1.110:9100",service="infra-prom"}
+    values: 5x32
+  - series: node_memory_MemTotal_bytes{job="node_exporter",instance="192.168.1.110:9100",service="infra-prom"}
+    values: 100x32
+  alert_rule_test:
+  - eval_time: 6m
+    alertname: HostLowMemory
+    exp_alerts:
+    - exp_labels:
+        job: node_exporter
+        instance: 192.168.1.110:9100
+        service: infra-prom
+        severity: critical
+      exp_annotations:
+        summary: "Memoria cr\xEDtica en 192.168.1.110:9100"
+        description: 'RAM disponible <10%. Valor actual: 5.00%.'
+- name: disk threshold
+  interval: 30s
+  input_series:
+  - series: node_filesystem_avail_bytes{job="node_exporter",instance="192.168.1.110:9100",service="infra-prom",mountpoint="/",fstype="ext4"}
+    values: 10x32
+  - series: node_filesystem_size_bytes{job="node_exporter",instance="192.168.1.110:9100",service="infra-prom",mountpoint="/",fstype="ext4"}
+    values: 100x32
+  alert_rule_test:
+  - eval_time: 11m
+    alertname: HostDiskFilling
+    exp_alerts:
+    - exp_labels:
+        job: node_exporter
+        instance: 192.168.1.110:9100
+        service: infra-prom
+        mountpoint: /
+        fstype: ext4
+        severity: warning
+      exp_annotations:
+        summary: Disco casi lleno en 192.168.1.110:9100
+        description: 'Queda menos del 15% libre en /. Valor actual: 10.00%.'
+- name: cpu threshold
+  interval: 30s
+  input_series:
+  - series: node_cpu_seconds_total{job="node_exporter",instance="192.168.1.110:9100",service="infra-prom",cpu="0",mode="idle"}
+    values: 0+0x40
+  alert_rule_test:
+  - eval_time: 12m
+    alertname: HostHighCpuUsage
+    exp_alerts:
+    - exp_labels:
+        job: node_exporter
+        instance: 192.168.1.110:9100
+        service: infra-prom
+        severity: warning
+      exp_annotations:
+        summary: CPU alta en 192.168.1.110:9100
+        description: 'Uso CPU >90% durante 10m. Valor actual: 100.00%. Fuente legacy compartida; CPU LXC sin validar.'
+- name: 'Collect variants: any failure creates exactly one logical alert'
+  interval: 30s
+  input_series:
+  - series: probe_success{job="blackbox",service="edge-nucleotecnologico-collect",probe_type="collect",alert_target="https://edge.nucleotecnologico.es/g/collect",instance="https://edge.nucleotecnologico.es/g/collect?cid=a",probe_id="a"}
+    values: '0x12'
+  - series: probe_success{job="blackbox",service="edge-nucleotecnologico-collect",probe_type="collect",alert_target="https://edge.nucleotecnologico.es/g/collect",instance="https://edge.nucleotecnologico.es/g/collect?cid=b",probe_id="b"}
+    values: 1x12
+  alert_rule_test:
+  - eval_time: 3m
+    alertname: CollectEndpointDown
+    exp_alerts:
+    - exp_labels:
+        job: blackbox
+        service: edge-nucleotecnologico-collect
+        probe_type: collect
+        instance: https://edge.nucleotecnologico.es/g/collect
+        severity: critical
+        category: analytics
+      exp_annotations:
+        summary: Collect endpoint is DOWN
+        description: '/g/collect probe failed (HEAD expected 200/204).
+
+          target=https://edge.nucleotecnologico.es/g/collect
+
+          Check edge routing, upstream, TLS, firewall.
+
+          '
+- name: Collect logical incident resolves when both variants recover
+  interval: 30s
+  input_series:
+  - series: probe_success{job="blackbox",service="edge-nucleotecnologico-collect",probe_type="collect",alert_target="https://edge.nucleotecnologico.es/g/collect",instance="https://edge.nucleotecnologico.es/g/collect?cid=a",probe_id="a"}
+    values: 0x6 1x8
+  - series: probe_success{job="blackbox",service="edge-nucleotecnologico-collect",probe_type="collect",alert_target="https://edge.nucleotecnologico.es/g/collect",instance="https://edge.nucleotecnologico.es/g/collect?cid=b",probe_id="b"}
+    values: 0x6 1x8
+  alert_rule_test:
+  - eval_time: 5m
+    alertname: CollectEndpointDown
+    exp_alerts: []
+- name: SSLCertExpiringSoon emits one alert for duplicated certificate observations
+  interval: 30s
+  input_series: &id001
+  - series: probe_ssl_earliest_cert_expiry{job="blackbox",service="internet",instance="https://example.test/strict",module="strict",tls_target="https://example.test"}
+    values: 432000x70
+  - series: probe_ssl_earliest_cert_expiry{job="blackbox",service="internet",instance="https://example.test/redirects",module="redirects",tls_target="https://example.test"}
+    values: 3456000x70
+  alert_rule_test:
+  - eval_time: 31m
+    alertname: SSLCertExpiringSoon
+    exp_alerts:
+    - exp_labels:
+        job: blackbox
+        service: internet
+        instance: https://example.test
+        severity: warning
+        category: tls
+      exp_annotations:
+        summary: SSL certificate expiring soon (<14d)
+        description: 'TLS cert for target=https://example.test expires in less than
+          14 days.
+
+          '
+- name: SSLCertExpiringVerySoon emits one alert for duplicated certificate observations
+  interval: 30s
+  input_series: *id001
+  alert_rule_test:
+  - eval_time: 31m
+    alertname: SSLCertExpiringVerySoon
+    exp_alerts:
+    - exp_labels:
+        job: blackbox
+        service: internet
+        instance: https://example.test
+        severity: critical
+        category: tls
+      exp_annotations:
+        summary: SSL certificate expiring VERY soon (<7d)
+        description: TLS cert for target=https://example.test expires in less than
+          7 days.
+- name: Three public target variants produce one svc01 incident
+  interval: 30s
+  input_series:
+  - series: probe_success{job="blackbox",service="svc01",probe_type="public_url",instance="https://infra-svc01.mailerblend.com?variant=0",alert_target="https://infra-svc01.mailerblend.com/",probe_id="0"}
+    values: '0x10'
+  - series: probe_success{job="blackbox",service="svc01",probe_type="public_url",instance="https://infra-svc01.mailerblend.com?variant=1",alert_target="https://infra-svc01.mailerblend.com/",probe_id="1"}
+    values: '0x10'
+  - series: probe_success{job="blackbox",service="svc01",probe_type="public_url",instance="https://infra-svc01.mailerblend.com?variant=2",alert_target="https://infra-svc01.mailerblend.com/",probe_id="2"}
+    values: '0x10'
+  alert_rule_test:
+  - eval_time: 3m
+    alertname: PublicUrlDown
+    exp_alerts:
+    - exp_labels:
+        job: blackbox
+        service: svc01
+        probe_type: public_url
+        instance: https://infra-svc01.mailerblend.com/
+        severity: critical
+        category: availability
+      exp_annotations:
+        summary: Public URL is DOWN
+        description: 'HTTPS probe failed.
+
+          target=https://infra-svc01.mailerblend.com/
+
+          Check DNS, reverse proxy, app, firewall.
+
+          '
+- name: Deduplication never combines distinct services
+  interval: 30s
+  input_series:
+  - series: probe_success{job="blackbox",service="svc01",probe_type="public_url",instance="https://infra-svc01.mailerblend.com?variant=a",alert_target="https://infra-svc01.mailerblend.com/",probe_id="a"}
+    values: '0x10'
+  - series: probe_success{job="blackbox",service="other-service",probe_type="public_url",instance="https://infra-svc01.mailerblend.com?variant=b",alert_target="https://infra-svc01.mailerblend.com/",probe_id="b"}
+    values: '0x10'
+  alert_rule_test:
+  - eval_time: 3m
+    alertname: PublicUrlDown
+    exp_alerts:
+    - exp_labels:
+        job: blackbox
+        service: svc01
+        probe_type: public_url
+        instance: https://infra-svc01.mailerblend.com/
+        severity: critical
+        category: availability
+      exp_annotations:
+        summary: Public URL is DOWN
+        description: 'HTTPS probe failed.
+
+          target=https://infra-svc01.mailerblend.com/
+
+          Check DNS, reverse proxy, app, firewall.
+
+          '
+    - exp_labels:
+        job: blackbox
+        service: other-service
+        probe_type: public_url
+        instance: https://infra-svc01.mailerblend.com/
+        severity: critical
+        category: availability
+      exp_annotations:
+        summary: Public URL is DOWN
+        description: 'HTTPS probe failed.
+
+          target=https://infra-svc01.mailerblend.com/
+
+          Check DNS, reverse proxy, app, firewall.
+
+          '

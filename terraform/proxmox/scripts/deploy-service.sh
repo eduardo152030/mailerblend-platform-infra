@@ -4,6 +4,11 @@ set -euo pipefail
 SERVICE="${1:?Usage: deploy-service.sh <service-name> <target-ip>}"
 TARGET_IP="${2:?Usage: deploy-service.sh <service-name> <target-ip>}"
 
+# infra-prom requires secret rendering, validation and explicit config reloads.
+if [[ "$SERVICE" == "infra-prom" ]]; then
+  PROM_HOST="$TARGET_IP" exec ./services/infra-prom/deploy-prom.sh
+fi
+
 SRC_DIR="services/${SERVICE}"
 REMOTE_DIR="/opt/${SERVICE}"
 

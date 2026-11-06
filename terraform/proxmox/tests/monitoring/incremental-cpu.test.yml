@@ -1,0 +1,125 @@
+rule_files:
+- ../../services/infra-prom/config/rules/lxc-cpu.yml
+- ../../services/infra-prom/config/rules/lxc-cpu-targets.yml
+- ../../services/infra-prom/config/rules/infra-hosts.yml
+evaluation_interval: 30s
+tests:
+- name: missing discovery emits only one quality alert
+  interval: 30s
+  input_series:
+  - series: lxc:cpu_inventory:expected{job="node_exporter",instance="192.0.2.1:9100",service="test",ct_id="613"}
+    values: 1x40
+  promql_expr_test:
+  - expr: count(ALERTS{alertstate="firing",alertname="LxcCpuTargetMissing"})
+    eval_time: 12m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertstate="firing",alertname=~"HostHighCpuUsage|LxcCpuCollectorInvalid|HostOutOfService"}
+    eval_time: 12m
+    exp_samples: []
+- name: down corrected exporter is availability not duplicate missing target
+  interval: 30s
+  input_series:
+  - series: lxc:cpu_inventory:expected{job="node_exporter",instance="192.0.2.1:9100",service="test",ct_id="613"}
+    values: 1x40
+  - series: up{job="node_exporter",instance="192.0.2.1:9100",service="test",vmid="613",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  promql_expr_test:
+  - expr: count(ALERTS{alertstate="firing",alertname="HostOutOfService"})
+    eval_time: 12m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertstate="firing",alertname=~"LxcCpuTargetMissing|LxcCpuCollectorInvalid|HostHighCpuUsage"}
+    eval_time: 12m
+    exp_samples: []
+- name: legacy source explicitly unverified without duplicate CPU alerts
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.1:9100",service="legacy"}
+    values: 1x40
+  - series: node_cpu_seconds_total{job="node_exporter",instance="192.0.2.1:9100",service="legacy",cpu="0",mode="idle"}
+    values: '0x40'
+  promql_expr_test:
+  - expr: count(lxc:cpu_migration:pending{resource_scope="unverified",cpu_source="legacy_shared"})
+    eval_time: 12m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: count(ALERTS{alertstate="firing",alertname="HostHighCpuUsage"})
+    eval_time: 12m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: lxc:cpu_usage:percent
+    eval_time: 12m
+    exp_samples: []
+- name: lost contract never falls back to shared CPU
+  interval: 30s
+  input_series:
+  - series: lxc:cpu_inventory:expected{job="node_exporter",instance="192.0.2.1:9100",service="test",ct_id="613"}
+    values: 1x40
+  - series: up{job="node_exporter",instance="192.0.2.1:9100",service="test"}
+    values: 1x40
+  - series: node_cpu_seconds_total{job="node_exporter",instance="192.0.2.1:9100",service="test",cpu="0",mode="idle"}
+    values: '0x40'
+  promql_expr_test:
+  - expr: count(ALERTS{alertstate="firing",alertname="LxcCpuTargetMissing"})
+    eval_time: 12m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertstate="firing",alertname=~"HostHighCpuUsage|LxcCpuCollectorInvalid"} or lxc:cpu_migration:pending
+    eval_time: 12m
+    exp_samples: []
+- name: wrong vmid emits one collector alert not duplicate missing target
+  interval: 30s
+  input_series:
+  - series: lxc:cpu_inventory:expected{job="node_exporter",instance="192.0.2.1:9100",service="test",ct_id="613"}
+    values: 1x40
+  - series: up{job="node_exporter",instance="192.0.2.1:9100",service="test",vmid="999",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.1:9100",service="test",ct_id="613",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.1:9100",service="test",ct_id="613",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.1:9100",service="test",ct_id="613",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.1:9100",service="test",ct_id="613",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.1:9100",service="test",ct_id="613",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.1:9100",service="test",ct_id="613",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.1:9100",service="test"}
+    values: '0x40'
+  promql_expr_test:
+  - expr: count(ALERTS{alertstate="firing",alertname="LxcCpuCollectorInvalid"})
+    eval_time: 12m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertstate="firing",alertname=~"HostHighCpuUsage|LxcCpuTargetMissing"}
+    eval_time: 12m
+    exp_samples: []
+- name: stale legacy target and corrected target do not create two migration states
+  interval: 30s
+  input_series:
+  - series: lxc:cpu_inventory:expected{job="node_exporter",instance="192.0.2.1:9100",service="test",ct_id="613"}
+    values: 1x40
+  - series: up{job="node_exporter",instance="192.0.2.1:9100",service="test",vmid="613",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: up{job="node_exporter",instance="192.0.2.1:9100",service="test"}
+    values: 1x40
+  - series: node_cpu_seconds_total{job="node_exporter",instance="192.0.2.1:9100",service="test",cpu="0",mode="idle"}
+    values: '0x40'
+  promql_expr_test:
+  - expr: count(ALERTS{alertstate="firing",alertname="LxcCpuCollectorInvalid"})
+    eval_time: 12m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertstate="firing",alertname=~"HostHighCpuUsage|LxcCpuTargetMissing"} or lxc:cpu_migration:pending
+    eval_time: 12m
+    exp_samples: []

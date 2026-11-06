@@ -1,0 +1,842 @@
+rule_files:
+- ../../services/infra-prom/config/rules/lxc-cpu.yml
+- ../../services/infra-prom/config/rules/infra-hosts.yml
+evaluation_interval: 30s
+tests:
+- name: one_busy_core_of_two
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples:
+    - labels: '{__name__="lxc:cpu_usage:percent",cpu_source="cgroup_v2",ct_id="625",instance="192.0.2.125:9100",job="node_exporter",resource_scope="lxc",service="infra-journal-db"}'
+      value: 50
+  - expr: count(ALERTS{alertname="HostHighCpuUsage",alertstate="firing"})
+    eval_time: 19m
+    exp_samples: []
+- name: two_busy_cores
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+60x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples:
+    - labels: '{__name__="lxc:cpu_usage:percent",cpu_source="cgroup_v2",ct_id="625",instance="192.0.2.125:9100",job="node_exporter",resource_scope="lxc",service="infra-journal-db"}'
+      value: 100
+  - expr: count(ALERTS{alertname="HostHighCpuUsage",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+- name: one_quota_core
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples:
+    - labels: '{__name__="lxc:cpu_usage:percent",cpu_source="cgroup_v2",ct_id="625",instance="192.0.2.125:9100",job="node_exporter",resource_scope="lxc",service="infra-journal-db"}'
+      value: 100
+  - expr: count(ALERTS{alertname="HostHighCpuUsage",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+- name: idle
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: '0x40'
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples:
+    - labels: '{__name__="lxc:cpu_usage:percent",cpu_source="cgroup_v2",ct_id="625",instance="192.0.2.125:9100",job="node_exporter",resource_scope="lxc",service="infra-journal-db"}'
+      value: 0
+  - expr: count(ALERTS{alertname="HostHighCpuUsage",alertstate="firing"})
+    eval_time: 19m
+    exp_samples: []
+- name: quota_burst_not_clamped
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+90x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples:
+    - labels: '{__name__="lxc:cpu_usage:percent",cpu_source="cgroup_v2",ct_id="625",instance="192.0.2.125:9100",job="node_exporter",resource_scope="lxc",service="infra-journal-db"}'
+      value: 150
+  - expr: count(ALERTS{alertname="HostHighCpuUsage",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+- name: counter_reset
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x10 0+30x29
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples:
+    - labels: '{__name__="lxc:cpu_usage:percent",cpu_source="cgroup_v2",ct_id="625",instance="192.0.2.125:9100",job="node_exporter",resource_scope="lxc",service="infra-journal-db"}'
+      value: 50
+  - expr: count(ALERTS{alertname="HostHighCpuUsage",alertstate="firing"})
+    eval_time: 19m
+    exp_samples: []
+- name: missing_total
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: missing_success
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: stale_timestamp
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: '0x40'
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: future_timestamp
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 9999x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: zero_capacity
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: '0x40'
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: negative_capacity
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: -2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: infinite_capacity
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf
+      +Inf +Inf +Inf +Inf +Inf +Inf +Inf
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: nan_total
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: negative_total
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: -1x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: failed_writer
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: '0x40'
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: textfile_error
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: wrong_ct
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="999",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="999",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="999",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="999",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="999",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="999",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: native_counter_forbidden
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: node_cpu_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",cpu="0",mode="idle"}
+    values: '0x40'
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: exporter_down
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent or ALERTS{alertname="LxcCpuCollectorInvalid"}
+    eval_time: 19m
+    exp_samples: []
+- name: startup_single_sample
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 0m
+    exp_samples: []
+- name: missing_user
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: infinite_total
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf
+      +Inf +Inf +Inf +Inf +Inf +Inf +Inf
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: nan_timestamp
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: duplicate_capacity
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2",duplicate="yes"}
+    values: 2x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: normal_30s_scrape_age_not_stale
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: -30+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples:
+    - labels: '{__name__="lxc:cpu_usage:percent",cpu_source="cgroup_v2",ct_id="625",instance="192.0.2.125:9100",job="node_exporter",resource_scope="lxc",service="infra-journal-db"}'
+      value: 50
+  - expr: count(ALERTS{alertname="HostHighCpuUsage",alertstate="firing"})
+    eval_time: 19m
+    exp_samples: []
+- name: older_than_45s
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: -46+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
+- name: prolonged_missing_rate_is_not_silent
+  interval: 30s
+  input_series:
+  - series: up{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: 1x40
+  - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
+    values: '0x40'
+  - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 10 _ _
+  - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+20x40
+  - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+10x40
+  - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 2x40
+  - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 1x40
+  - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
+    values: 0+30x40
+  promql_expr_test:
+  - expr: lxc:cpu_usage:percent
+    eval_time: 19m
+    exp_samples: []
+  - expr: count(ALERTS{alertname="LxcCpuCollectorInvalid",alertstate="firing"})
+    eval_time: 19m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertname="HostHighCpuUsage",alertstate="firing"}
+    eval_time: 19m
+    exp_samples: []
