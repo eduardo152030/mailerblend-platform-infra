@@ -4,3 +4,31 @@ services/*/compose/.env
 services/infra-eva-assistant-bot/compose/.env
 services/infra-eva-assistant-bot/compose/.env.example
 services/infra-eva-assistant-bot/compose/focalboard/data/
+# Local monitoring credentials, generated configuration and rollback copies
+services/infra-prom/.env
+services/infra-prom/.runtime/
+services/infra-prom/.rollback/
+
+# Recovery credentials/configuration and local backup artifacts (never commit data).
+services/infra-composable-crm/recovery/recovery.env
+services/infra-composable-crm/recovery/artifacts/
+services/infra-eva-assistant-bot/recovery/compiled-compose.yml
+
+# D-042: local secrets, Terraform state and private recovery artifacts
+**/perm.env
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+*.auto.tfvars
+*.auto.tfvars.json
+.terraform/
+**/.runtime/
+**/.rollback/
+**/__pycache__/
+*.py[cod]
+*.key
+*.pfx
+*.p12
+*Zone.Identifier
+services/infra-gestoria/compose/config/odoo.conf
+services/infra-composable-crm/recovery/plan.json
