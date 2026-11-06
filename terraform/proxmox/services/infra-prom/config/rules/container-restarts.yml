@@ -1,12 +1,3 @@
-groups:
-- name: container_stability
-  rules:
-  - alert: ContainerRestartLoop
-    expr: increase(container_restarts_total{job="cadvisor",container!=""}[10m]) > 3
-    for: 0m
-    labels:
-      severity: warning
-      source: prometheus
-    annotations:
-      summary: "Contenedor reiniciándose ({{ $labels.instance }})"
-      description: "container={{ $labels.container }} reinicios >3 en 10m."
+# Disabled: individual Docker metrics/labels are not exposed reliably.
+# See local .rollback baseline; exporter availability remains monitored.
+groups: []

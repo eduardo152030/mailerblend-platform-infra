@@ -1,0 +1,54 @@
+# Local candidate; not deployed. Prometheus freshness: scrape 30s + writer 5s + margin 10s.
+groups:
+- name: lxc_cpu_contract
+  interval: 30s
+  rules:
+  - record: lxc:cpu_contract:expected
+    expr: label_replace(up{job="node_exporter",cpu_contract="lxc_cgroup_v1"} == 1, "ct_id", "$1", "vmid", "(.+)")
+  - record: lxc:cpu_contract:valid
+    expr: |-
+      (((lxc_cpu_capacity_cores{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"} > 0)
+        and on (job, instance, service, ct_id) (lxc_cpu_capacity_cores{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"} < Inf)
+        and on (job, instance, service, ct_id) (lxc_cpu_collector_success{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"} == 1)
+        and on (job, instance, service, ct_id) ((time() - lxc_cpu_collector_timestamp_seconds{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}) >= -2)
+        and on (job, instance, service, ct_id) ((time() - lxc_cpu_collector_timestamp_seconds{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}) <= 45)
+        and on (job, instance, service, ct_id) (lxc_cpu_usage_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"} >= 0)
+        and on (job, instance, service, ct_id) (lxc_cpu_usage_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"} < Inf)
+        and on (job, instance, service, ct_id) (lxc_cpu_user_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"} >= 0)
+        and on (job, instance, service, ct_id) (lxc_cpu_user_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"} < Inf)
+        and on (job, instance, service, ct_id) (lxc_cpu_system_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"} >= 0)
+        and on (job, instance, service, ct_id) (lxc_cpu_system_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"} < Inf)
+        and on (job, instance, service, ct_id) lxc:cpu_contract:expected
+        and on (job, instance, service) (node_textfile_scrape_error{job="node_exporter"} == 0)
+      ) unless on (job, instance, service) node_cpu_seconds_total{job="node_exporter"})
+      and on (job, instance, service, ct_id) (count by (job, instance, service, ct_id) (lxc_cpu_capacity_cores{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}) == 1)
+      and on (job, instance, service, ct_id) (count by (job, instance, service, ct_id) (lxc_cpu_collector_success{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}) == 1)
+      and on (job, instance, service, ct_id) (count by (job, instance, service, ct_id) (lxc_cpu_collector_timestamp_seconds{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}) == 1)
+      and on (job, instance, service, ct_id) (count by (job, instance, service, ct_id) (lxc_cpu_usage_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}) == 1)
+      and on (job, instance, service, ct_id) (count by (job, instance, service, ct_id) (lxc_cpu_user_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}) == 1)
+      and on (job, instance, service, ct_id) (count by (job, instance, service, ct_id) (lxc_cpu_system_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}) == 1)
+  - record: lxc:cpu_usage:percent
+    expr: |-
+      100 * (sum by (job, instance, service, ct_id) (rate(lxc_cpu_usage_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}[5m])) / on (job, instance, service, ct_id) max by (job, instance, service, ct_id) (lxc_cpu_capacity_cores{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}))
+        and on (job, instance, service, ct_id) lxc:cpu_contract:valid
+        and on (job, instance, service, ct_id) (sum by (job, instance, service, ct_id) (rate(lxc_cpu_usage_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}[5m])) >= 0)
+        and on (job, instance, service, ct_id) (sum by (job, instance, service, ct_id) (rate(lxc_cpu_usage_seconds_total{job="node_exporter",resource_scope="lxc",cpu_source="cgroup_v2"}[5m])) < Inf)
+    labels:
+      resource_scope: lxc
+      cpu_source: cgroup_v2
+  - alert: LxcCpuCollectorInvalid
+    expr: lxc:cpu_contract:expected unless on (job, instance, service, ct_id) lxc:cpu_usage:percent
+    for: 2m
+    labels:
+      severity: warning
+      source: prometheus
+    annotations:
+      summary: CPU LXC no fiable en {{ $labels.instance }}
+      description: Contrato lxc_cgroup_v1 ausente, antiguo, inválido o con identidad incorrecta; no interpretar ausencia como CPU cero.
+
+  - record: lxc:cpu_migration:pending
+    expr: up{job="node_exporter",cpu_contract!="lxc_cgroup_v1"} unless on (job, instance, service) up{job="node_exporter",cpu_contract="lxc_cgroup_v1"} unless on (job, instance, service) lxc:cpu_inventory:expected
+    labels:
+      migration_state: pending
+      resource_scope: unverified
+      cpu_source: legacy_shared

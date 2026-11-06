@@ -1,0 +1,19 @@
+groups:
+  - name: monitoring_health
+    rules:
+      - alert: ExporterDown
+        expr: up{job=~"cadvisor|blackbox|blackbox_exporter|alertmanager|prometheus"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: 'Monitoring target unavailable: {{ $labels.job }}'
+          description: 'Unable to scrape {{ $labels.instance }} for over 2 minutes. Check exporter, host and network.'
+      - alert: AlertmanagerDeliveryErrors
+        expr: increase(alertmanager_notifications_failed_total[10m]) > 0
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: 'Alertmanager notification delivery failed'
+          description: 'Check receiver connectivity and credentials. Delivery failures occurred in the last 10 minutes.'

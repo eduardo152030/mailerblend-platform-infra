@@ -8,7 +8,7 @@ groups:
       severity: critical
       source: prometheus
     annotations:
-      summary: "Host {{ $labels.instance }} fuera de servicio"
+      summary: "Node Exporter no disponible en {{ $labels.service }} ({{ $labels.instance }})"
       description: "node_exporter no responde desde hace más de 2 minutos."
 
 - name: host_resources
@@ -25,7 +25,7 @@ groups:
       severity: warning
     annotations:
       summary: "Disco casi lleno en {{ $labels.instance }}"
-      description: "Queda menos del 15% libre en /. Valor actual: {{ printf \"%.2f\" $value }}%."
+      description: 'Queda menos del 15% libre en /. Valor actual: {{ printf "%.2f" $value }}%.'
 
   # Memoria baja (disponible real)
   - alert: HostLowMemory
@@ -35,11 +35,11 @@ groups:
       severity: critical
     annotations:
       summary: "Memoria crítica en {{ $labels.instance }}"
-      description: "RAM disponible <10%. Valor actual: {{ printf \"%.2f\" $value }}%."
+      description: 'RAM disponible <10%. Valor actual: {{ printf "%.2f" $value }}%.'
 
   # Predicción de RAM agotada (4h)
   - alert: HostMemoryFillingFast
-    expr: predict_linear(node_memory_MemAvailable_bytes{job="node_exporter"}[1h], 4 * 3600) < 0
+    expr: (predict_linear(node_memory_MemAvailable_bytes{job="node_exporter"}[1h], 4 * 3600) < 0) and on (job, instance, service, cpu_contract, vmid) (changes(node_memory_MemTotal_bytes{job="node_exporter"}[1h]) == 0) and on (job, instance, service, cpu_contract, vmid) (up{job="node_exporter"} == 1)
     for: 15m
     labels:
       severity: warning
@@ -50,12 +50,16 @@ groups:
   # CPU alta sostenida
   - alert: HostHighCpuUsage
     expr: |
-      100 - (
-        avg without(cpu,mode) (rate(node_cpu_seconds_total{job="node_exporter",mode="idle"}[5m])) * 100
+      (
+        (100 - avg without(cpu,mode) (rate(node_cpu_seconds_total{job="node_exporter",mode="idle"}[5m])) * 100)
+        unless on (job, instance, service) up{job="node_exporter",cpu_contract="lxc_cgroup_v1"}
+        unless on (job, instance, service) lxc:cpu_inventory:expected
       ) > 90
+      or
+      lxc:cpu_usage:percent > 90
     for: 10m
     labels:
       severity: warning
     annotations:
       summary: "CPU alta en {{ $labels.instance }}"
-      description: "Uso CPU >90% durante 10m. Valor actual: {{ printf \"%.2f\" $value }}%."
+      description: 'Uso CPU >90% durante 10m. Valor actual: {{ printf "%.2f" $value }}%.{{ if ne $labels.resource_scope "lxc" }} Fuente legacy compartida; CPU LXC sin validar.{{ end }}'

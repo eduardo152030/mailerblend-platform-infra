@@ -1,0 +1,12 @@
+groups:
+- name: lxc_cpu_discovery_quality
+  rules:
+  - alert: LxcCpuTargetMissing
+    expr: lxc:cpu_inventory:expected unless on (job, instance, service) up{job="node_exporter",cpu_contract="lxc_cgroup_v1"}
+    for: 2m
+    labels:
+      severity: warning
+      source: prometheus
+    annotations:
+      summary: 'Target CPU corregido ausente: {{ $labels.service }}'
+      description: 'El CT migrado no tiene un target Node con su contrato esperado; comprobar discovery, no interpretar ausencia como cero.'

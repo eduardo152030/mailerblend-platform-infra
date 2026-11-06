@@ -1,0 +1,50 @@
+[
+  {
+    "targets": [
+      "http://192.168.1.126:3000/health"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "service": "infra-journal-api",
+      "vmid": "626",
+      "module": "http_2xx_strict",
+      "probe_type": "internal",
+      "scope": "internal",
+      "source": "inventory",
+      "probe_id": "infra-journal-api-availability",
+      "alert_target": "http://192.168.1.126:3000/health"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.125:5432"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "service": "infra-journal-db",
+      "vmid": "625",
+      "module": "tcp_connect",
+      "probe_type": "tcp",
+      "scope": "internal",
+      "source": "inventory",
+      "probe_id": "infra-journal-db-availability",
+      "alert_target": "tcp://192.168.1.125:5432"
+    }
+  },
+  {
+    "targets": [
+      "http://192.168.1.124:8090/"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "service": "infra-journal-web",
+      "vmid": "624",
+      "module": "http_2xx_strict",
+      "probe_type": "internal",
+      "scope": "internal",
+      "source": "inventory",
+      "probe_id": "infra-journal-web-availability",
+      "alert_target": "http://192.168.1.124:8090/"
+    }
+  }
+]

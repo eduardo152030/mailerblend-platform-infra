@@ -1,145 +1,32 @@
-#!/bin/bash
-# deploy-prom.sh - Despliega Prometheus + Alertmanager al servidor
-# Uso: ./deploy-prom.sh
-#      ./services/infra-prom/scripts/deploy-prom.sh
-#
-# Debug útil:
-#   ssh root@192.168.1.110 'docker ps --filter name=prometheus --filter name=alertmanager'
-#   ssh root@192.168.1.110 'docker logs --tail 50 prometheus'
-#   ssh root@192.168.1.110 'docker logs --tail 50 alertmanager'
-#   ssh root@192.168.1.110 'curl -s http://localhost:9090/-/healthy'
-#   ssh root@192.168.1.110 'curl -s http://localhost:9093/-/healthy'
-
-set -e  # Exit on error
-
+#!/usr/bin/env bash
+# Run only after explicit deployment approval. Never enable shell tracing.
+set -euo pipefail
+cd "$(dirname "$0")/../.."
 PROM_HOST="${PROM_HOST:-192.168.1.110}"
-SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
-
-LOCAL_BASE="services/infra-prom"
-REMOTE_BASE="/opt/infra-prom"
-
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  🚀 Desplegando Prometheus + Alertmanager"
-echo "  📍 Host: ${PROM_HOST}"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo ""
-
-# 0. Validar que perm.env existe
-echo "🔍 0/4 Validando perm.env..."
-PERM_ENV="${LOCAL_BASE}/perm.env"
-
-if [ ! -f "$PERM_ENV" ]; then
-  echo "❌ Error: No se encontró ${PERM_ENV}"
-  exit 1
-fi
-echo "   ✅ perm.env encontrado"
-echo ""
-
-# 1. Sync configuración al servidor
-echo "📦 1/4 Sincronizando configuración..."
-
-# docker-compose.yml
-rsync -av \
-  -e "ssh ${SSH_OPTS}" \
-  ${LOCAL_BASE}/compose/docker-compose.yml \
-  root@${PROM_HOST}:${REMOTE_BASE}/docker-compose.yml
-
-# perm.env
-rsync -av \
-  -e "ssh ${SSH_OPTS}" \
-  ${LOCAL_BASE}/perm.env \
-  root@${PROM_HOST}:${REMOTE_BASE}/perm.env
-
-# prometheus.yml
-rsync -av \
-  -e "ssh ${SSH_OPTS}" \
-  ${LOCAL_BASE}/config/prometheus.yml \
-  root@${PROM_HOST}:${REMOTE_BASE}/config/prometheus.yml
-
-# alertmanager.yml
-rsync -av \
-  -e "ssh ${SSH_OPTS}" \
-  ${LOCAL_BASE}/config/alertmanager/alertmanager.yml \
-  root@${PROM_HOST}:${REMOTE_BASE}/config/alertmanager/alertmanager.yml
-
-# rules/ — con --delete (todo versionado en repo)
-rsync -av --delete \
-  -e "ssh ${SSH_OPTS}" \
-  ${LOCAL_BASE}/config/rules/ \
-  root@${PROM_HOST}:${REMOTE_BASE}/config/rules/
-
-# targets/ — sin --delete (hay archivos remotos no versionados)
-rsync -av \
-  -e "ssh ${SSH_OPTS}" \
-  ${LOCAL_BASE}/config/targets/ \
-  root@${PROM_HOST}:${REMOTE_BASE}/config/targets/
-
-echo ""
-
-# 2. Asegurar que los contenedores están levantados
-echo "🔨 2/4 Asegurando contenedores en marcha..."
-ssh ${SSH_OPTS} root@${PROM_HOST} << 'ENDSSH'
-cd /opt/infra-prom
-docker compose up -d prometheus alertmanager
-ENDSSH
-echo ""
-
-# 3. Recargar configuración
-# - Prometheus: necesita restart para recargar prometheus.yml principal
-# - Alertmanager: acepta SIGHUP para reload en caliente
-echo "🔄 3/4 Recargando configuración..."
-ssh ${SSH_OPTS} root@${PROM_HOST} << 'ENDSSH'
-echo "   → Reiniciando prometheus (necesario para recargar prometheus.yml)..."
-docker restart prometheus
-
-echo "   → Enviando SIGHUP a alertmanager (reload en caliente)..."
-docker kill --signal=SIGHUP alertmanager
-ENDSSH
-echo ""
-
-# 4. Verificar health
-echo "⏳ 4/4 Verificando estado..."
-sleep 5
-
-ssh ${SSH_OPTS} root@${PROM_HOST} << 'ENDSSH'
-echo "📊 Estado de contenedores:"
-docker ps --filter name=prometheus --filter name=alertmanager \
-  --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
-
-echo ""
-echo "🏥 Health checks:"
-
-PROM_HEALTH=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:9090/-/healthy)
-if [ "$PROM_HEALTH" = "200" ]; then
-  echo "   ✅ Prometheus healthy (HTTP ${PROM_HEALTH})"
-else
-  echo "   ❌ Prometheus NO responde (HTTP ${PROM_HEALTH})"
-fi
-
-ALERT_HEALTH=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:9093/-/healthy)
-if [ "$ALERT_HEALTH" = "200" ]; then
-  echo "   ✅ Alertmanager healthy (HTTP ${ALERT_HEALTH})"
-else
-  echo "   ❌ Alertmanager NO responde (HTTP ${ALERT_HEALTH})"
-fi
-
-echo ""
-echo "📜 Logs recientes Prometheus:"
-docker logs --tail 20 prometheus
-
-echo ""
-echo "📜 Logs recientes Alertmanager:"
-docker logs --tail 20 alertmanager
-ENDSSH
-
-echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  ✅ Despliegue completado"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo ""
-echo "🌐 Servicios disponibles en:"
-echo "   http://192.168.1.110:9090        ← Prometheus"
-echo "   http://192.168.1.110:9090/-/healthy"
-echo "   http://192.168.1.110:9093        ← Alertmanager"
-echo "   http://192.168.1.110:9093/-/healthy"
-echo ""
+[[ "$PROM_HOST" =~ ^[a-zA-Z0-9.-]+$ ]] || { echo 'Invalid PROM_HOST' >&2; exit 1; }
+READINESS_TIMEOUT="${READINESS_TIMEOUT:-90}"
+READINESS_INTERVAL="${READINESS_INTERVAL:-2}"
+for VALUE in "$READINESS_TIMEOUT" "$READINESS_INTERVAL"; do
+  [[ "$VALUE" =~ ^[1-9][0-9]*$ ]] && (( VALUE <= 3600 )) || {
+    echo 'Readiness timeout/interval must be integers between 1 and 3600 seconds.' >&2; exit 2;
+  }
+done
+./scripts/validate-monitoring.sh
+# Override any global UserKnownHostsFile=/dev/null for both transports.
+SSH_OPTIONS=(-o BatchMode=yes -o StrictHostKeyChecking=yes
+  -o "UserKnownHostsFile=$HOME/.ssh/known_hosts")
+SSH=(ssh "${SSH_OPTIONS[@]}" "root@$PROM_HOST")
+# rsync parses -e as words, with doubled single quotes inside quoted arguments.
+RSH=ssh
+for OPTION in "${SSH_OPTIONS[@]}"; do
+  RSH+=" '${OPTION//\'/\'\'}'"
+done
+# Preserve remote baseline including secrets, accessible only by root.
+"${SSH[@]}" 'set -eu; umask 077; mkdir -p /opt/infra-prom/.rollback; chmod 700 /opt/infra-prom/.rollback; if test -f /opt/infra-prom/docker-compose.yml; then tar --exclude=./.rollback -czf /opt/infra-prom/.rollback/pre-telegram-$(date -u +%Y%m%dT%H%M%SZ).tgz -C /opt/infra-prom .; fi; mkdir -p /opt/infra-prom/config /opt/infra-prom/.runtime; chmod 700 /opt/infra-prom/.runtime'
+# Snapshot before copying content: Compose does not track changes inside bind mounts.
+"${SSH[@]}" bash -s -- snapshot "$READINESS_TIMEOUT" "$READINESS_INTERVAL" < scripts/apply-monitoring.sh
+rsync -a -e "$RSH" services/infra-prom/compose/ "root@$PROM_HOST:/opt/infra-prom/"
+rsync -a --checksum --inplace -e "$RSH" services/infra-prom/config/ "root@$PROM_HOST:/opt/infra-prom/config/"
+rsync -a --checksum --inplace -e "$RSH" services/infra-prom/.runtime/alertmanager.yml services/infra-prom/.runtime/telegram_bot_token "root@$PROM_HOST:/opt/infra-prom/.runtime/"
+"${SSH[@]}" bash -s -- apply "$READINESS_TIMEOUT" "$READINESS_INTERVAL" < scripts/apply-monitoring.sh
+echo 'Deployment complete. Check targets, rules and Telegram delivery; readiness alone does not prove delivery.'

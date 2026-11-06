@@ -1,0 +1,176 @@
+[
+  {
+    "targets": [
+      "https://infra-doc.mailerblend.com/"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx",
+      "probe_type": "public_url",
+      "scope": "external",
+      "service": "infra-doc",
+      "source": "repository",
+      "probe_id": "docs-public",
+      "alert_target": "https://infra-doc.mailerblend.com/",
+      "tls_target": "https://infra-doc.mailerblend.com"
+    }
+  },
+  {
+    "targets": [
+      "https://infra-eva.mailerblend.com/"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx",
+      "probe_type": "public_url",
+      "scope": "external",
+      "service": "infra-eva-assistant-bot",
+      "source": "repository",
+      "probe_id": "eva-public",
+      "alert_target": "https://infra-eva.mailerblend.com/",
+      "tls_target": "https://infra-eva.mailerblend.com"
+    }
+  },
+  {
+    "targets": [
+      "http://192.168.1.110:9093/-/healthy"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx_strict",
+      "probe_type": "internal",
+      "scope": "internal",
+      "service": "infra-alertmanager",
+      "source": "repository",
+      "probe_id": "infra-alertmanager-health",
+      "alert_target": "http://192.168.1.110:9093/-/healthy"
+    }
+  },
+  {
+    "targets": [
+      "http://192.168.1.110:9090/-/healthy"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx_strict",
+      "probe_type": "internal",
+      "scope": "internal",
+      "service": "infra-prometheus",
+      "source": "repository",
+      "probe_id": "infra-prometheus-health",
+      "alert_target": "http://192.168.1.110:9090/-/healthy"
+    }
+  },
+  {
+    "targets": [
+      "https://www.google.com/generate_204"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx",
+      "probe_type": "internet",
+      "scope": "external",
+      "service": "internet",
+      "source": "repository",
+      "probe_id": "internet-follow-redirects",
+      "alert_target": "https://www.google.com/generate_204",
+      "tls_target": "https://www.google.com"
+    }
+  },
+  {
+    "targets": [
+      "https://www.google.com/generate_204"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx_strict",
+      "probe_type": "internet",
+      "scope": "external",
+      "service": "internet",
+      "source": "repository",
+      "probe_id": "internet-no-redirects",
+      "alert_target": "https://www.google.com/generate_204",
+      "tls_target": "https://www.google.com"
+    }
+  },
+  {
+    "targets": [
+      "https://edge.mailerblend.com/g/collect?v=2&tid=G-TEST123&cid=555&t=page_view&en=test_ping"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_collect_200",
+      "probe_type": "collect",
+      "scope": "external",
+      "service": "edge-mailerblend-collect",
+      "source": "repository",
+      "probe_id": "mailerblend-collect",
+      "alert_target": "https://edge.mailerblend.com/g/collect",
+      "tls_target": "https://edge.mailerblend.com"
+    }
+  },
+  {
+    "targets": [
+      "https://edge.nucleotecnologico.es/g/collect?v=2&en=page_view&tid=G-SVDYWQXM1W&cid=blackbox-test&dl=https%3A%2F%2Fnucleotecnologico.es"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_collect_200",
+      "probe_type": "collect",
+      "scope": "external",
+      "service": "edge-nucleotecnologico-collect",
+      "source": "repository",
+      "probe_id": "nucleo-collect-blackbox",
+      "alert_target": "https://edge.nucleotecnologico.es/g/collect",
+      "tls_target": "https://edge.nucleotecnologico.es"
+    }
+  },
+  {
+    "targets": [
+      "https://edge.nucleotecnologico.es/g/collect?v=2&en=page_view&tid=G-SVDYWQXM1W&cid=local-cli-test&dl=https://nucleotecnologico.es"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_collect_200",
+      "probe_type": "collect",
+      "scope": "external",
+      "service": "edge-nucleotecnologico-collect",
+      "source": "repository",
+      "probe_id": "nucleo-collect-local-client",
+      "alert_target": "https://edge.nucleotecnologico.es/g/collect",
+      "tls_target": "https://edge.nucleotecnologico.es"
+    }
+  },
+  {
+    "targets": [
+      "https://infra-pulpo.mailerblend.com/"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx",
+      "probe_type": "public_url",
+      "scope": "external",
+      "service": "infra-pulpo",
+      "source": "repository",
+      "probe_id": "pulpo-public",
+      "alert_target": "https://infra-pulpo.mailerblend.com/",
+      "tls_target": "https://infra-pulpo.mailerblend.com"
+    }
+  },
+  {
+    "targets": [
+      "https://infra-svc01.mailerblend.com/"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx",
+      "probe_type": "public_url",
+      "scope": "external",
+      "service": "svc01",
+      "source": "repository",
+      "probe_id": "svc01-public",
+      "alert_target": "https://infra-svc01.mailerblend.com/",
+      "tls_target": "https://infra-svc01.mailerblend.com"
+    }
+  }
+]

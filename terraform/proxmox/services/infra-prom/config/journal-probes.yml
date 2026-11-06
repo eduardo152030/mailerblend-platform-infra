@@ -1,0 +1,18 @@
+# Phase 4 candidate contracts; IPs/VMIDs come only from inventory.
+infra-journal-api:
+  port: 3000
+  path: /health
+  module: http_2xx_strict
+  probe_type: internal
+  contract: HTTP 200/204 on /health; does not prove all API business flows
+infra-journal-web:
+  port: 8090
+  path: /
+  module: http_2xx_strict
+  probe_type: internal
+  contract: HTTP 200/204 on root; does not execute browser/API integration
+infra-journal-db:
+  port: 5432
+  module: tcp_connect
+  probe_type: tcp
+  contract: TCP connectivity only; not authentication, SQL readiness or data integrity

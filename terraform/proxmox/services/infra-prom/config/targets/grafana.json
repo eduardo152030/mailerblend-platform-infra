@@ -6,7 +6,9 @@
     "labels": {
       "job": "grafana",
       "source": "inventory",
-      "service": "infra-grafana"
+      "service": "infra-grafana",
+      "vmid": "611",
+      "collector_scope": "application"
     }
   }
 ]

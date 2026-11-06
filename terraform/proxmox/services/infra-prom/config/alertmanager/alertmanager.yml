@@ -1,19 +1,23 @@
+# Rendered locally by scripts/prepare-telegram.py; the token stays in a file.
 global:
-  smtp_smarthost: 'authsmtp.securemail.pro:587'
-  smtp_from: 'team@nucleotecnologico.es'
-  smtp_auth_username: 'team@nucleotecnologico.es'
-  smtp_auth_password: '64qIP&Cd^2DhJDJLgY^%'
-  smtp_require_tls: true
-
+  resolve_timeout: 5m
 route:
-  receiver: email-default
-  group_by: ['alertname', 'job', 'instance']
-  group_wait: 10s
-  group_interval: 1m
-  repeat_interval: 1h
-
+  receiver: telegram
+  group_by: [alertname, service, instance]
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 4h
 receivers:
-  - name: email-default
-    email_configs:
-      - to: 'eduardovl5@hotmail.com'
+  - name: telegram
+    telegram_configs:
+      - bot_token_file: /run/secrets/telegram_bot_token
+        chat_id: __TELEGRAM_CHAT_ID__
         send_resolved: true
+        parse_mode: HTML
+        message: '{{ template "telegram.message" . }}'
+templates:
+  - /etc/alertmanager/templates/*.tmpl
+inhibit_rules:
+  - source_matchers: ['severity="critical"']
+    target_matchers: ['severity="warning"']
+    equal: [instance, service, alertname]
