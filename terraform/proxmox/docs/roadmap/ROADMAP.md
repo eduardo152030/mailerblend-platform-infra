@@ -1,13 +1,19 @@
 # Roadmap de infraestructura
 
-## D-042 — consolidación Git en curso — 2026-11-06 21:18 CET
+## D-042 — consolidación Git — 2026-11-06T21:20:11+01:00
 
-F7-01 IN PROGRESS: respaldo privado verificado, exclusiones de secretos/estado,
-230 tests y validadores Prom/AM PASS. Commit/push normal autorizados por propietario
-para cambios seguros revisados; sin producción. Secretos históricos requieren
-rotación separada. [Auditoría y selección](GIT-CONSOLIDATION-D042.md).
-Cobertura exporters F4 sigue17/17 según D041; no certifica F5/F6/F7 completas.
-
+F7-01 DONE para IaC de monitorización curada: push normal SSH confirmado de cinco
+commits nuevos y cuatro previos; origin/main y main iguales en `44c0e8b` tras ese
+push (0ahead/0behind). Cierre documental separado, con verificación final en sesión.
+425 rutas versionadas en el push principal,230 tests y validadores Prom/AM PASS;
+cero hallazgos de secretos nuevos en selección/historial saliente. Respaldo privado
+verificado. Árbol no limpio: EVA funcional y aplicaciones Gestoría/Journal
+conservadas fuera del alcance; secretos/estado locales ignorados. F7 global
+IN PROGRESS, F7-04 y rotación de secretos históricos pendientes; F4exporters17/17
+conservado, no nueva validación productiva. Sin despliegues ni reinicios.
+[Informe](GIT-CONSOLIDATION-D042.md), [evidencia](evidence/2026-11-06-git-consolidation.json).
+Siguiente paso: rotación de secretos históricos y revisión separada de cambios
+de aplicaciones; F5/F6 y complementos siguen pendientes.
 
 ## D-041 cerrado — 2026-11-06 21:08 CET
 

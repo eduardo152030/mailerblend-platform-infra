@@ -60,7 +60,20 @@ separada; no se considera perdido ni aceptado por F4. Inventarios de identidad
 Journal/Gestoría sí son necesarios para la cobertura17 y forman parte de IaC.
 
 F4 cobertura exporters DONE según evidencia D041, no nueva verificación viva.
-F7-01 IN PROGRESS hasta comprobar push y sincronización. F7-04 sigue pendiente
+F7-01 completado para monitorización en el resultado inferior. F7-04 sigue pendiente
 de rotación/gestión global; F5/F6 y otros complementos no se aceptan aquí.
 Selección final escaneada por Gitleaks: cero hallazgos. Siguiente paso: verificar
 el historial saliente y realizar push normal autorizado.
+
+
+## Resultado D-042
+
+Push normal SSH confirmado a main: cinco commits nuevos y cuatro previos,425
+rutas cambiadas; HEAD/origin `44c0e8b`,0ahead/0behind en verificación del primer
+push. Se añade cierre documental con esta evidencia en un commit separado, que
+también requiere auditoría y push normal; su hash final se entrega en la sesión.
+F7-01 DONE en alcance monitorización curada; F7 global IN PROGRESS. No árbol
+limpio: un archivo funcional EVA modificado y19entradas nuevas de apps/repositorios
+Gestoría/Journal conservadas. No hay cambios staged tras los commits principales.
+F7-04/rotación histórica y revisión de esas aplicaciones pendientes.
+[Evidencia fechada](evidence/2026-11-06-git-consolidation.json).

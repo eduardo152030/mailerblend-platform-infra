@@ -1,0 +1,35 @@
+{
+  "date_europe_madrid": "2026-11-06T21:20:11+01:00",
+  "phase": "F7-01",
+  "scope": "curated monitoring IaC; no production",
+  "branch": "main",
+  "head_main_push": "44c0e8b687d830501249e1eb7a2020b783ad1a74",
+  "origin_main_after_push": "44c0e8b687d830501249e1eb7a2020b783ad1a74",
+  "ahead": 0,
+  "behind": 0,
+  "new_commits_main_push": [
+    "44c0e8b687d830501249e1eb7a2020b783ad1a74 docs: consolidate monitoring decisions, evidence and phase handoff",
+    "1a94386a31c2fab801515f677b1ab956843c9887 tooling: add guarded exporter rollout, recovery and metric validation",
+    "8b173e9a82c3a63c48bdc80bce0d7b04b9a1b62d monitoring: version Prometheus, Alertmanager, Telegram and discovery",
+    "ed25221897aa0883a81cfdbab96c77bfb76774f6 infra: preserve recovery IaC and validated LXC exporter coverage",
+    "3de1184c8b2f50fff1461297a936a8667accc6ef security: exclude local credentials, Terraform state and recovery artifacts"
+  ],
+  "preexisting_commits_published": 4,
+  "paths_changed_main_push": 425,
+  "unittest": {
+    "count": 230,
+    "result": "PASS"
+  },
+  "monitoring_config_rules_templates": "PASS: promtool3.12.0/amtool0.33.0",
+  "local_links": "PASS",
+  "syntax": "PASS",
+  "diff_check": "PASS",
+  "gitleaks_outgoing_findings": 0,
+  "gitleaks_candidates_findings": 0,
+  "ssh": "strict known_hosts, BatchMode",
+  "historical_secret_rotation": "PENDING",
+  "working_tree_clean": false,
+  "remaining": "EVA sync_service.py modified; Gestoria and Journal application files untracked; ignored credentials/state preserved",
+  "backup": "$HOME/.local/share/mailerblend-recovery/git/20261106T201522Z/",
+  "closure_documentation": "separate final documentation commit; final remote HEAD checked in session"
+}

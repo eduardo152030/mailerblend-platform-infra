@@ -17,7 +17,7 @@ Dependencias: Inventario real, resultados F3/F4 y decisiones del propietario sob
 
 | ID | Tarea | Estado | Evidencia / pendiente |
 |---|---|---|---|
-| F7-01 | Consolidar commits curados y documentación de cambios previos | IN PROGRESS | Árbol amplio sin commit; no incluir secretos/estado ni cambios ajenos por lote |
+| F7-01 | Consolidar commits curados y documentación de cambios previos | DONE | D042: monitorización curada publicada; apps ajenas preservadas fuera de alcance; [evidencia](../evidence/2026-11-06-git-consolidation.json) |
 | F7-02 | Eliminar dependencia de promtool/amtool en /tmp | TODO | Versiones y checksums reproducibles, sin usar latest |
 | F7-03 | Idempotencia/readiness y backups para todos los deploys | TODO | Prom/CRM/EVA tienen mejoras; deploy-cadvisor-all sigue usando rm -f |
 | F7-04 | Retirar/rotar secretos heredados y proteger estado Terraform | TODO | .env nuevo ignorado no resuelve perm.env/tfstate/tfvars ya rastreados |
@@ -58,3 +58,7 @@ cambios seguros. Respaldo privado verificado;230tests, validadores Prom/AM, enla
 y diff --check PASS. Estados/credenciales locales preservados y excluidos del
 índice; secretos históricos pendientes de rotación (F7-04 no DONE). Sin producción.
 [Auditoría, alcance y pendientes](../GIT-CONSOLIDATION-D042.md).
+
+Cierre D042: push principal confirmado, main/origin iguales (0/0); F7-01 DONE
+solo para consolidación de monitorización. F7 global IN PROGRESS y F7-04 pendiente.
+Árbol residual preservado, sin aceptar cambios de aplicaciones. Ver evidencia D042.

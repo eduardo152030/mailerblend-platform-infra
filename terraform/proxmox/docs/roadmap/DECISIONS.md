@@ -778,3 +778,10 @@ Alcance F7-01 y prevención local F7-04: excluir credenciales/estado/artefactos
 privados conservando sus archivos y respaldos. No despliegues ni reinicios.
 Secretos históricos requieren rotación separada; no se consideran revocados.
 Los cambios de aplicaciones ajenos a monitorización se conservan sin incluir.
+
+Resultado D042: consolidación curada publicada por SSH normal, sin force ni
+reescritura. Auditoría saliente sin secretos nuevos; credenciales/estado locales
+preservados fuera de seguimiento. Secretos históricos requieren rotación; no
+revocados por eliminación de archivos. F7-01 DONE solo monitorización, F7 global
+IN PROGRESS; aplicaciones ajenas pendientes. Sin producción.
+[Informe](GIT-CONSOLIDATION-D042.md), [evidencia](evidence/2026-11-06-git-consolidation.json).

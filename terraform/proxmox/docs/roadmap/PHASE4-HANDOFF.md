@@ -417,3 +417,7 @@ permiso de apply ni habilitar política por esta preparación.
 segura revisada; sustituye las prohibiciones históricas de commit/push solo para
 esta consolidación. No autoriza producción. Ver [auditoría](GIT-CONSOLIDATION-D042.md).
 Cobertura17/17 D041 conservada; pendientes de apps y complementos sin aceptación nueva.
+
+Resultado D042: IaC de monitorización publicada por SSH normal,230pruebas y
+validadores locales PASS, sin producción. F7-01 DONE en ese alcance; árbol residual
+de apps preservado y rotación histórica pendiente. [Evidencia](evidence/2026-11-06-git-consolidation.json).
