@@ -1,0 +1,61 @@
+{
+  "validated_at": "2026-11-02T21:45:46.332626+01:00",
+  "phase": 4,
+  "status": "PREPARED_LOCALLY_VALIDATED_NOT_DEPLOYED",
+  "unit_tests": 106,
+  "promtool_version": "3.12.0",
+  "live_prometheus_version": "3.12.0",
+  "prior_cpu_scenarios": 28,
+  "incremental_cpu_scenarios": 6,
+  "legacy_suite": "PASS",
+  "config_rules_and_service_discovery": "PASS",
+  "candidate_node_targets": 17,
+  "candidate_cadvisor_targets": 17,
+  "corrected_contracts_prepared": 3,
+  "legacy_targets_preserved": 14,
+  "blackbox_preserved": 11,
+  "live_target_counts_unchanged": {
+    "alertmanager": 1,
+    "blackbox": 11,
+    "blackbox_exporter": 1,
+    "cadvisor": 14,
+    "node_exporter": 14,
+    "prometheus": 1
+  },
+  "reliable_exporters_accepted_cts": [
+    624,
+    626,
+    625
+  ],
+  "full_reliable_cpu_chains_verified": 0,
+  "telegram_notification_sent": false,
+  "r1_deployed": false,
+  "r1_backups_created": false,
+  "r1_security_review_required": [
+    "containerd socket bind ro create_host_path=false",
+    "cAdvisor cgroupns private to host within CT613"
+  ],
+  "pilot624_deployed_inputs_unchanged": true,
+  "file_sha256": {
+    "scripts/gen-prom-targets.py": "816bd1681631648b2c6168735ee9ca5348c93168b308152c6419a4512419a321",
+    "scripts/snapshot-incremental-monitoring.py": "5630819ad60c82acb98f99c420ede30d35c9aa2788b07a85f161e8e241c2cb1f",
+    "scripts/prepare-incremental-monitoring.py": "997082d86a13b38fe6dc49943354747d51580dd2d6e659b7fa94e015e9c6cc3e",
+    "scripts/prepare-r1-exporters.py": "7fabf0ec38cf95e6287a21d293c9013f31b2a6915212c0ce994506ba845660f8",
+    "scripts/check-incremental-chain.py": "3a9c06657c3ea13e6a495be84901280a6ec4a51774999a3112fa059c2875fe40",
+    "scripts/test-incremental-monitoring.sh": "e1cf629b832a3d694cc48096e7b0097ba9da68e7155acfd6b1d4b064808b4b53",
+    "scripts/plan-exporter-rollout.py": "92510384fb8e8aa2933df852abd09c2f025686069f0e3c133d01187a35f35152",
+    "services/common/exporter-migration.yml": "98126d39f79b3cb0b00c8d2c419750557a3e2d1710a8ea7fefee225a07824403",
+    "services/infra-prom/config/rules/infra-hosts.yml": "252548ef9980d2cc99881c4a7d66266d817cd8c7e246e2890c3c17342e97ab50",
+    "services/infra-prom/config/rules/lxc-cpu.yml": "6335496ad41ff6aeeeb9e445e0173b969d0178a5354b4a823cb923f57bdb1a96",
+    "services/infra-prom/config/rules/lxc-cpu-targets.yml": "50b6ff76f14288d44741b9840a36bd584626d82299120c79154f016ccb630e95",
+    "tests/monitoring/incremental-cpu.test.yml": "c23b99f1da6bbadb41aa6df43c854a5423e5408b0ccb65114fb2c0f9a811f798",
+    "tests/monitoring/test_incremental_monitoring.py": "6b4739b65ddf827217c0066b03879ce03863152227aa34c5011b2162196a76b3",
+    "tests/monitoring/test_incremental_chain.py": "b3f9c970e1ed9fef5bd8331bc520e9560131d092c8f9b2202c2f5f2d96c0108f",
+    "tests/monitoring/test_r1_preparation.py": "99bec91e00222e123e5116f83277d8c17a7b937a56df7e36c3b6a0f58816a130"
+  },
+  "production_mutations": [],
+  "documentation_links_checked": 215,
+  "shell_syntax": "PASS",
+  "r1_readonly_compose_render": "PASS",
+  "r1_node_and_ct_namespace_boundary_review": "CT init cgroup namespace differs from PVE; new cAdvisor boundary must be verified after approved deployment"
+}

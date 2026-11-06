@@ -1,0 +1,29 @@
+{
+  "observed_at_utc": "2026-11-06T11:25:50.530323+00:00",
+  "tests_passed": 52,
+  "test_counts": {
+    "skip_policy": 13,
+    "memory_alignment": 15,
+    "cpu_alignment": 11,
+    "approved_rollout": 7,
+    "reentry": 6
+  },
+  "links": "PASS",
+  "diff_check": "PASS",
+  "secret_signature_matches": 0,
+  "active_rollout_processes": [],
+  "commit_push_staging_performed": false,
+  "local_parser_fix_deployed": false,
+  "source_sha256": {
+    "scripts/phase4-skip-policy.py": "0dfb741fb3ad2f1f9bfae79285fae67a9451958d9472277968306b406ad59125",
+    "scripts/run-skip-exporter-wave.py": "8a78ea765218a243c1ce6e4da4a8ed7dce8b48fc67d69c0383d0048f4ac3934f",
+    "scripts/verify-614-61211-isolation.py": "f871da9b53a43b77d8a30c6e516c83fdf095040e0f36e20bea8e2f8a17a30fa2",
+    "scripts/exporter-memory-alignment.py": "dc1a48ed4033cead1be723696f5f5ca55b18ca4f3b14ac2c5e0650c4d91986ba",
+    "scripts/audit-wave-rollback.py": "1843624a6d406baffa33a69c0037060c5184aab11c030477ea8121d530870044",
+    "scripts/audit-61211-completion.py": "e19482ee86b3d7f19542dbffedd5c0c4830fa049b189d26f9b1ff06516a2c45b",
+    "tests/monitoring/test_skip_policy.py": "5c8dfef22956cd416721c615a4556ecb6cce1c2a1bebfa33679fc9fc327dbf68",
+    "tests/monitoring/test_memory_alignment.py": "6425e46ad15b522eafb722bc3d4427cc06b92dacd3a4c56e4ac214bb80904bb4"
+  },
+  "git_status_entries": 356,
+  "preexisting_dirty_workspace": true
+}

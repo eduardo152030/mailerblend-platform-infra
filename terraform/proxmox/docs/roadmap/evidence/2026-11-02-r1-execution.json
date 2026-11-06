@@ -1,0 +1,64 @@
+{
+  "run": "integration-20261102T204936Z",
+  "result": "PASS",
+  "observation": {
+    "samples": 21,
+    "seconds": 600.967,
+    "sha256": "97099259654f2c58fe860a39cf6074df3fcc02bb3bc21792a7796d1b709a3608"
+  },
+  "validated_cpu_cts": [
+    {
+      "ct": 613,
+      "result": "PASS",
+      "cpu_source": "cgroup_v2_textfile"
+    }
+  ],
+  "telegram_attempts_delta": 2.0,
+  "telegram_failures_delta": 0.0,
+  "recipient_confirmation": {
+    "confirmed": true,
+    "ct": 613,
+    "firing": true,
+    "resolved": true,
+    "at": "2026-11-02T21:23:43.396008+00:00",
+    "source": "Explicit owner response in conversation"
+  },
+  "rollback_verified": true,
+  "idempotence_verified": true,
+  "backups_offhost_verified": true,
+  "backup": {
+    "sha256": "db725bc3b500f12b27fe0f0bf7d74e621a0d435f2da7db9be3c56ada9c24a70b",
+    "bytes": 46909440
+  },
+  "monitoring_after_archive": {
+    "sha256": "af9c6412ae1eb1d9aea81c24d01e59d97ca24145518e6c53945e934d09cd3d43",
+    "bytes": 6770,
+    "offhost_verified": true,
+    "archive_readable_and_complete": true,
+    "filename": "integration-after-v2.tar.gz"
+  },
+  "exporter_after_archive": {
+    "sha256": "b91d6c3f6913c4479f0c472cb6c88609fc7a4f50dfa26cfc69895abc0e86a15e",
+    "bytes": 16616,
+    "offhost_verified": true,
+    "existing_archive_preserved": true
+  },
+  "partial_archive_preserved": true,
+  "exporters": {
+    "node_exporter": {
+      "Id": "dcb0015377df0ce7242b71236e7574da279da6921462e037cfa366abfe811e09",
+      "Image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "RestartCount": 0,
+      "started_at": "2026-11-02T21:14:59.241278048Z"
+    },
+    "cadvisor": {
+      "Id": "eb114f7ac1c01c7f7bb2498299809a79bd4b652d001d76a6d0bb6f80929cf4ef",
+      "Image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "RestartCount": 0,
+      "started_at": "2026-11-02T21:15:00.726682648Z"
+    }
+  },
+  "memory_note": "memory.high 0 preflight ->399 before observation; stable399 over21 samples; no new OOM; observed PSI0. Preparation transient, not evidence of zero pressure throughout.",
+  "ct": 613,
+  "cpu_source": "cgroup_v2_textfile"
+}

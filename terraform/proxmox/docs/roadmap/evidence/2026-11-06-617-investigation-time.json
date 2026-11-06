@@ -1,0 +1,14 @@
+{
+  "started_at_utc": "2026-11-06T09:17:50.856617+00:00",
+  "scope": "Read-only CT617 RAM diagnosis; compare eight accepted sources read-only; local IaC and tests only. No deployment, policy or HALT changes.",
+  "finished_at_utc": "2026-11-06T09:56:54.092305+00:00",
+  "elapsed_seconds": 2343.236,
+  "status": "DIAGNOSED_LOCAL_PREPARATION_ONLY_NO_DEPLOYMENT",
+  "regression_tests_passed": 44,
+  "production_counts": {
+    "done": 8,
+    "blocked": 2,
+    "pending": 7
+  },
+  "next_step": "Review diagnosis and obtain CT617-only deployment authorization"
+}

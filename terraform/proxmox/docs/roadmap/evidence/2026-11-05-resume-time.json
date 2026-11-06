@@ -1,0 +1,26 @@
+{
+  "started_at_utc": "2026-11-05T20:05:24.369161+00:00",
+  "scope": "D031 CT623,617,615,614,61211 and minimal incremental Prom610 configuration; exporters610 excluded",
+  "status": "CLOSED_BLOCKED_SAFE",
+  "ct623_pass_at_utc": "2026-11-05T20:26:27.228717+00:00",
+  "ct617_pass_and_ct615_halt_at_utc": "2026-11-05T20:38:46.349235+00:00",
+  "recovery617_completed_at_utc": "2026-11-05T20:54:17.946169+00:00",
+  "finished_at_utc": "2026-11-05T21:04:19.397453+00:00",
+  "elapsed_seconds": 3535.028,
+  "final_counts": {
+    "done": 8,
+    "blocked": 2,
+    "pending": 7
+  },
+  "this_session": {
+    "623": "DONE",
+    "617": "BLOCKED_ROLLED_BACK",
+    "615": "BLOCKED_NO_CHANGES",
+    "614": "NOT_STARTED",
+    "61211": "NOT_STARTED"
+  },
+  "regression_tests_passed": 31,
+  "git_diff_check": "PASS",
+  "local_document_links": "PASS",
+  "commit_or_push_performed": false
+}

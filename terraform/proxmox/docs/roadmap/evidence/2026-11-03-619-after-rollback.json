@@ -1,0 +1,63 @@
+{
+  "memory.current": "1212403712",
+  "memory.max": "2147483648",
+  "memory.events": "low 0\nhigh 0\nmax 35772\noom 0\noom_kill 0\noom_group_kill 0",
+  "memory.pressure": "some avg10=0.00 avg60=0.03 avg300=0.85 total=27556536\nfull avg10=0.00 avg60=0.03 avg300=0.81 total=25795442",
+  "memory.swap.current": "155815936",
+  "containers": [
+    {
+      "name": "/cadvisor-phase4-619-held",
+      "id": "56dac09c5071da13d3281ea5449b44fabcc347d569b462934554a143566c0dd4",
+      "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "running": false,
+      "started_at": "2026-11-02T23:21:38.538707958Z",
+      "oom_killed": false,
+      "restarts": 0
+    },
+    {
+      "name": "/node_exporter-phase4-619-held",
+      "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+      "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "running": false,
+      "started_at": "2026-11-02T23:21:37.09361103Z",
+      "oom_killed": false,
+      "restarts": 0
+    },
+    {
+      "name": "/infra-pulpo-n8n-1",
+      "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+      "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+      "running": true,
+      "started_at": "2026-09-17T20:44:10.223424359Z",
+      "oom_killed": false,
+      "restarts": 0
+    },
+    {
+      "name": "/cadvisor",
+      "id": "0d9536b642e4c580ec4b281dd9fd98134497ef1228ccbf01f742040d9dd8dcf9",
+      "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+      "running": true,
+      "started_at": "2026-11-02T23:36:58.287755392Z",
+      "oom_killed": false,
+      "restarts": 0
+    },
+    {
+      "name": "/node_exporter",
+      "id": "5b85a6c02c98ccf2ff56dded4a0d74b3f23588c1e03724951de76c53af32b437",
+      "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "running": true,
+      "started_at": "2026-11-02T23:36:59.004152962Z",
+      "oom_killed": false,
+      "restarts": 0
+    },
+    {
+      "name": "/infra-pulpo-postgres-1",
+      "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+      "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+      "running": true,
+      "started_at": "2026-09-17T20:44:10.188084591Z",
+      "oom_killed": false,
+      "restarts": 0
+    }
+  ]
+}

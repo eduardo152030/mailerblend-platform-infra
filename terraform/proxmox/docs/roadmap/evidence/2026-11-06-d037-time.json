@@ -1,0 +1,15 @@
+{
+  "run": "integration-20261106T123445Z",
+  "started_at_utc": "2026-11-06T12:34:45.410984+00:00",
+  "status": "DONE",
+  "scope": "CT61211 only; minimal coordinated Prom610 configuration and recovery; no other exporters/apps/resources",
+  "resumed_at_utc": "2026-11-06T15:05:16.034693+00:00",
+  "last_prior_readonly_completed_at_utc": "2026-11-06T12:39:23.673491+00:00",
+  "observed_no_action_gap_seconds": 8752.361,
+  "no_production_mutation_before_resume": true,
+  "completed_at_utc": "2026-11-06T15:38:38.613815+00:00",
+  "wall_seconds": 11033.203,
+  "elapsed_excluding_recorded_no_action_gap_seconds": 2280.842,
+  "production_procedure_seconds": 1517.004,
+  "time_note": "Elapsed excluding documented inactivity; includes read-only checks, observations and documentation, not a CPU-time estimate"
+}

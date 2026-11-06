@@ -1,0 +1,151 @@
+{
+  "observed_at": "2026-11-02T18:50:28.023500+00:00",
+  "mode": "read-only",
+  "node_mem_available_kib": 9286864,
+  "services": [
+    {
+      "ct": 625,
+      "proxmox": {
+        "hostname": "infra-journal-db",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512"
+      },
+      "parent_cgroup": {
+        "cpu.stat": "usage_usec 9764080805\nuser_usec 5273801499\nsystem_usec 4490279306\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "1-2",
+        "memory.max": "2147483648",
+        "memory.current": "352317440",
+        "memory.swap.current": "77975552",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=13599608\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=13257007"
+      },
+      "runtime": {
+        "mem_available_kib": 1902004,
+        "free_bytes": 46510182400,
+        "containers": [
+          {
+            "name": "infra-journal-db-db-1",
+            "id": "5f4ca06ee58e11d6a24f53c355216839d212052da0b5eb622228c8b269eccecb",
+            "image_id": "sha256:57c72fd2a128e416c7fcc499958864df5301e940bca0a56f58fddf30ffc07777",
+            "started_at": "2026-09-17T20:45:20.616432186Z",
+            "running": true,
+            "restarts": 0,
+            "oom_killed": false,
+            "privileged": false
+          },
+          {
+            "name": "cadvisor",
+            "id": "76a29d19db8fa24b1f91c7b5397e527ff426d720a8a797931e94cce9b115c402",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "started_at": "2026-09-17T20:45:20.599885645Z",
+            "running": true,
+            "restarts": 0,
+            "oom_killed": false,
+            "privileged": true
+          },
+          {
+            "name": "test-nginx",
+            "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+            "image_id": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+            "started_at": "2026-09-17T20:45:20.612194803Z",
+            "running": true,
+            "restarts": 0,
+            "oom_killed": false,
+            "privileged": false
+          }
+        ],
+        "sockets": {
+          "/run/containerd/containerd.sock": true,
+          "/var/run/docker.sock": true
+        },
+        "proc_cpu_count": 2,
+        "pg_isready_exit": 0,
+        "cpu_stat_readable_as_nobody": {
+          "usage_usec": "9764276888",
+          "user_usec": "5273918577",
+          "system_usec": "4490358311",
+          "core_sched.force_idle_usec": "0",
+          "nr_periods": "0",
+          "nr_throttled": "0",
+          "throttled_usec": "0",
+          "nr_bursts": "0",
+          "burst_usec": "0"
+        }
+      }
+    },
+    {
+      "ct": 626,
+      "proxmox": {
+        "hostname": "infra-journal-api",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512"
+      },
+      "parent_cgroup": {
+        "cpu.stat": "usage_usec 8132284105\nuser_usec 4198168057\nsystem_usec 3934116048\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "1-2",
+        "memory.max": "2147483648",
+        "memory.current": "391061504",
+        "memory.swap.current": "98791424",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=11086111\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10827536"
+      },
+      "runtime": {
+        "mem_available_kib": 1860228,
+        "free_bytes": 46578937856,
+        "containers": [
+          {
+            "name": "infra-journal-api-api-1",
+            "id": "d5e15cd5730f21c7477a266510831dbe4b828ac6a1f7a454110d1253261dfd11",
+            "image_id": "sha256:65da103fc1ea2c256eaea873a27bb240ee9e5c06826d547b510fa8ca6928508a",
+            "started_at": "2026-09-17T20:45:28.159070271Z",
+            "running": true,
+            "restarts": 0,
+            "oom_killed": false,
+            "privileged": false
+          },
+          {
+            "name": "cadvisor",
+            "id": "00346eb9dd36c892cc4a66d3bc718e10925f0240381c42416d4b5978c722004b",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "started_at": "2026-09-17T20:45:28.181837659Z",
+            "running": true,
+            "restarts": 0,
+            "oom_killed": false,
+            "privileged": true
+          },
+          {
+            "name": "test-nginx",
+            "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+            "image_id": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+            "started_at": "2026-09-17T20:45:28.174931898Z",
+            "running": true,
+            "restarts": 0,
+            "oom_killed": false,
+            "privileged": false
+          }
+        ],
+        "sockets": {
+          "/run/containerd/containerd.sock": true,
+          "/var/run/docker.sock": true
+        },
+        "proc_cpu_count": 2,
+        "application_status": 200,
+        "cpu_stat_readable_as_nobody": {
+          "usage_usec": "8132410672",
+          "user_usec": "4198243793",
+          "system_usec": "3934166878",
+          "core_sched.force_idle_usec": "0",
+          "nr_periods": "0",
+          "nr_throttled": "0",
+          "throttled_usec": "0",
+          "nr_bursts": "0",
+          "burst_usec": "0"
+        }
+      }
+    }
+  ]
+}

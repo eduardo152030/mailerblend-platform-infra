@@ -1,0 +1,80 @@
+{
+  "observed_at": "2026-11-02T19:14:06.760219+00:00",
+  "read_only": true,
+  "targets_by_job": {
+    "alertmanager": 1,
+    "blackbox": 11,
+    "blackbox_exporter": 1,
+    "cadvisor": 14,
+    "node_exporter": 14,
+    "prometheus": 1
+  },
+  "journal_in_global_discovery": [],
+  "telegram_failed_counter": [
+    {
+      "metric": {
+        "__name__": "alertmanager_notifications_failed_total",
+        "instance": "alertmanager:9093",
+        "integration": "telegram",
+        "job": "alertmanager",
+        "reason": "clientError"
+      },
+      "value": [
+        1793646846.392,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "alertmanager_notifications_failed_total",
+        "instance": "alertmanager:9093",
+        "integration": "telegram",
+        "job": "alertmanager",
+        "reason": "contextCanceled"
+      },
+      "value": [
+        1793646846.392,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "alertmanager_notifications_failed_total",
+        "instance": "alertmanager:9093",
+        "integration": "telegram",
+        "job": "alertmanager",
+        "reason": "contextDeadlineExceeded"
+      },
+      "value": [
+        1793646846.392,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "alertmanager_notifications_failed_total",
+        "instance": "alertmanager:9093",
+        "integration": "telegram",
+        "job": "alertmanager",
+        "reason": "other"
+      },
+      "value": [
+        1793646846.392,
+        "56"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "alertmanager_notifications_failed_total",
+        "instance": "alertmanager:9093",
+        "integration": "telegram",
+        "job": "alertmanager",
+        "reason": "serverError"
+      },
+      "value": [
+        1793646846.392,
+        "0"
+      ]
+    }
+  ]
+}

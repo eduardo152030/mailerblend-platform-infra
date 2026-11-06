@@ -1,0 +1,96 @@
+{
+  "617": [
+    {
+      "name": "/analytics-ingest-gateway",
+      "health": null,
+      "published_ports": {
+        "8080/tcp": null
+      }
+    },
+    {
+      "name": "/orbit-gateway-proxy",
+      "health": null,
+      "published_ports": {
+        "80/tcp": null,
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "18088"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "18088"
+          }
+        ]
+      }
+    }
+  ],
+  "615": [
+    {
+      "name": "/mailerblend-sgtm-serving",
+      "health": "unhealthy",
+      "published_ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "18091"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "18091"
+          }
+        ]
+      }
+    },
+    {
+      "name": "/mailerblend-sgtm-preview",
+      "health": "unhealthy",
+      "published_ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "18092"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "18092"
+          }
+        ]
+      }
+    }
+  ],
+  "614": [
+    {
+      "name": "/infra-nucleoedge-sgtm-1",
+      "health": "unhealthy",
+      "published_ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8091"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8091"
+          }
+        ]
+      }
+    },
+    {
+      "name": "/infra-nucleoedge-sgtm_preview-1",
+      "health": "unhealthy",
+      "published_ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8092"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8092"
+          }
+        ]
+      }
+    }
+  ]
+}

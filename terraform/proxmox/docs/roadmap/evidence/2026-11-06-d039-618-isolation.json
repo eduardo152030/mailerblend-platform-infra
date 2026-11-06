@@ -1,0 +1,704 @@
+{
+  "message": "Aligned cAdvisor RAM mismatch or volatile bracket: cadvisor",
+  "scope": "infra-composable-crm|cgroup:[4026532648]",
+  "sample_time": 1793986791.7600412,
+  "containers": [
+    {
+      "name": "cadvisor",
+      "id": "35c19255be638f4f01834b024053b8c3d296323d35a4f6814a8727ab4d0a46ca",
+      "started_at": "2026-11-06T17:39:28.119376244Z",
+      "metric_timestamp": 1793986768.653,
+      "age_at_sample": 23.107041120529175,
+      "cadvisor_bytes": 20582400.0,
+      "bracket": [
+        {
+          "id": "35c19255be638f4f01834b024053b8c3d296323d35a4f6814a8727ab4d0a46ca",
+          "name": "cadvisor",
+          "started_at": "2026-11-06T17:39:28.119376244Z",
+          "time": 1793986768.57782,
+          "request_before": 1793986768.577046,
+          "request_after": 1793986768.5799687,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 14094336,
+          "cgroup_before": 14069760,
+          "cgroup_after": 14102528,
+          "stat_before": {
+            "anon": 8024064,
+            "file": 12288,
+            "kernel": 5783552,
+            "shmem": 0,
+            "inactive_file": 12288,
+            "active_file": 0,
+            "slab_reclaimable": 5227416,
+            "slab_unreclaimable": 272592
+          },
+          "stat_after": {
+            "anon": 8044544,
+            "file": 12288,
+            "kernel": 5787648,
+            "shmem": 0,
+            "inactive_file": 12288,
+            "active_file": 0,
+            "slab_reclaimable": 5227416,
+            "slab_unreclaimable": 273152
+          },
+          "docker_stat": {
+            "active_file": 0,
+            "anon": 8036352,
+            "file": 12288,
+            "inactive_file": 12288,
+            "shmem": 0,
+            "slab_reclaimable": 5227416,
+            "slab_unreclaimable": 271720
+          }
+        },
+        {
+          "id": "35c19255be638f4f01834b024053b8c3d296323d35a4f6814a8727ab4d0a46ca",
+          "name": "cadvisor",
+          "started_at": "2026-11-06T17:39:28.119376244Z",
+          "time": 1793986768.990609,
+          "request_before": 1793986768.9897313,
+          "request_after": 1793986768.9933083,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 30056448,
+          "cgroup_before": 30265344,
+          "cgroup_after": 30367744,
+          "stat_before": {
+            "anon": 12795904,
+            "file": 6635520,
+            "kernel": 10600448,
+            "shmem": 0,
+            "inactive_file": 6545408,
+            "active_file": 0,
+            "slab_reclaimable": 9794472,
+            "slab_unreclaimable": 379544
+          },
+          "stat_after": {
+            "anon": 12795904,
+            "file": 6733824,
+            "kernel": 10600448,
+            "shmem": 0,
+            "inactive_file": 6721536,
+            "active_file": 0,
+            "slab_reclaimable": 9797384,
+            "slab_unreclaimable": 379544
+          },
+          "docker_stat": {
+            "active_file": 0,
+            "anon": 12795904,
+            "file": 6660096,
+            "inactive_file": 6598656,
+            "shmem": 0,
+            "slab_reclaimable": 9795368,
+            "slab_unreclaimable": 379016
+          }
+        }
+      ],
+      "failures": [
+        {
+          "field": "docker_bytes",
+          "reference": 14094336,
+          "difference": 6488064.0,
+          "allowed": 4228300.8
+        },
+        {
+          "field": "cgroup_before",
+          "reference": 14069760,
+          "difference": 6512640.0,
+          "allowed": 4220928.0
+        },
+        {
+          "field": "cgroup_after",
+          "reference": 14102528,
+          "difference": 6479872.0,
+          "allowed": 4230758.399999999
+        },
+        {
+          "field": "docker_bytes",
+          "reference": 30056448,
+          "difference": 9474048.0,
+          "allowed": 9016934.4
+        },
+        {
+          "field": "cgroup_before",
+          "reference": 30265344,
+          "difference": 9682944.0,
+          "allowed": 9079603.2
+        },
+        {
+          "field": "cgroup_after",
+          "reference": 30367744,
+          "difference": 9785344.0,
+          "allowed": 9110323.2
+        }
+      ]
+    },
+    {
+      "name": "node_exporter",
+      "id": "fa1adaebf453d3eb802fd520542e83ba417e24108ee3de14d26e7b476b67ee81",
+      "started_at": "2026-11-06T17:32:43.428206416Z",
+      "metric_timestamp": 1793986768.62,
+      "age_at_sample": 23.14004135131836,
+      "cadvisor_bytes": 17870848.0,
+      "bracket": [
+        {
+          "id": "fa1adaebf453d3eb802fd520542e83ba417e24108ee3de14d26e7b476b67ee81",
+          "name": "node_exporter",
+          "started_at": "2026-11-06T17:32:43.428206416Z",
+          "time": 1793986768.581545,
+          "request_before": 1793986768.5809221,
+          "request_after": 1793986768.585188,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 17870848,
+          "cgroup_before": 17870848,
+          "cgroup_after": 17870848,
+          "stat_before": {
+            "anon": 7778304,
+            "file": 8179712,
+            "kernel": 1912832,
+            "shmem": 0,
+            "inactive_file": 262144,
+            "active_file": 7917568,
+            "slab_reclaimable": 1366728,
+            "slab_unreclaimable": 238040
+          },
+          "stat_after": {
+            "anon": 7778304,
+            "file": 8179712,
+            "kernel": 1912832,
+            "shmem": 0,
+            "inactive_file": 262144,
+            "active_file": 7917568,
+            "slab_reclaimable": 1366728,
+            "slab_unreclaimable": 238040
+          },
+          "docker_stat": {
+            "active_file": 7917568,
+            "anon": 7778304,
+            "file": 8179712,
+            "inactive_file": 262144,
+            "shmem": 0,
+            "slab_reclaimable": 1366728,
+            "slab_unreclaimable": 238040
+          }
+        },
+        {
+          "id": "fa1adaebf453d3eb802fd520542e83ba417e24108ee3de14d26e7b476b67ee81",
+          "name": "node_exporter",
+          "started_at": "2026-11-06T17:32:43.428206416Z",
+          "time": 1793986768.995107,
+          "request_before": 1793986768.9943392,
+          "request_after": 1793986768.9980266,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 17870848,
+          "cgroup_before": 17870848,
+          "cgroup_after": 17870848,
+          "stat_before": {
+            "anon": 7778304,
+            "file": 8179712,
+            "kernel": 1912832,
+            "shmem": 0,
+            "inactive_file": 262144,
+            "active_file": 7917568,
+            "slab_reclaimable": 1366728,
+            "slab_unreclaimable": 238040
+          },
+          "stat_after": {
+            "anon": 7778304,
+            "file": 8179712,
+            "kernel": 1912832,
+            "shmem": 0,
+            "inactive_file": 262144,
+            "active_file": 7917568,
+            "slab_reclaimable": 1366728,
+            "slab_unreclaimable": 238040
+          },
+          "docker_stat": {
+            "active_file": 7917568,
+            "anon": 7778304,
+            "file": 8179712,
+            "inactive_file": 262144,
+            "shmem": 0,
+            "slab_reclaimable": 1366728,
+            "slab_unreclaimable": 238040
+          }
+        }
+      ],
+      "failures": []
+    },
+    {
+      "name": "budibase-app",
+      "id": "7c2f530c866f2d14a67ce7eaefd61dca4f375ed70446044119e923595c6121a8",
+      "started_at": "2026-11-02T10:36:09.53355109Z",
+      "metric_timestamp": 1793986768.615,
+      "age_at_sample": 23.1450412273407,
+      "cadvisor_bytes": 1447264256.0,
+      "bracket": [
+        {
+          "id": "7c2f530c866f2d14a67ce7eaefd61dca4f375ed70446044119e923595c6121a8",
+          "name": "budibase-app",
+          "started_at": "2026-11-02T10:36:09.53355109Z",
+          "time": 1793986768.587028,
+          "request_before": 1793986768.5862594,
+          "request_after": 1793986768.5889525,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 1447264256,
+          "cgroup_before": 1447264256,
+          "cgroup_after": 1447264256,
+          "stat_before": {
+            "anon": 1321148416,
+            "file": 59904000,
+            "kernel": 57643008,
+            "shmem": 7024640,
+            "inactive_file": 39813120,
+            "active_file": 20455424,
+            "slab_reclaimable": 10697768,
+            "slab_unreclaimable": 5365720
+          },
+          "stat_after": {
+            "anon": 1321148416,
+            "file": 59904000,
+            "kernel": 57643008,
+            "shmem": 7024640,
+            "inactive_file": 39813120,
+            "active_file": 20455424,
+            "slab_reclaimable": 10697768,
+            "slab_unreclaimable": 5365720
+          },
+          "docker_stat": {
+            "active_file": 20455424,
+            "anon": 1321148416,
+            "file": 59904000,
+            "inactive_file": 39813120,
+            "shmem": 7024640,
+            "slab_reclaimable": 10697768,
+            "slab_unreclaimable": 5365720
+          }
+        },
+        {
+          "id": "7c2f530c866f2d14a67ce7eaefd61dca4f375ed70446044119e923595c6121a8",
+          "name": "budibase-app",
+          "started_at": "2026-11-02T10:36:09.53355109Z",
+          "time": 1793986769.000309,
+          "request_before": 1793986768.9995239,
+          "request_after": 1793986769.0036306,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 1447264256,
+          "cgroup_before": 1447264256,
+          "cgroup_after": 1447264256,
+          "stat_before": {
+            "anon": 1321148416,
+            "file": 59904000,
+            "kernel": 57643008,
+            "shmem": 7024640,
+            "inactive_file": 39813120,
+            "active_file": 20455424,
+            "slab_reclaimable": 10697768,
+            "slab_unreclaimable": 5365720
+          },
+          "stat_after": {
+            "anon": 1321148416,
+            "file": 59904000,
+            "kernel": 57643008,
+            "shmem": 7024640,
+            "inactive_file": 39813120,
+            "active_file": 20455424,
+            "slab_reclaimable": 10697768,
+            "slab_unreclaimable": 5365720
+          },
+          "docker_stat": {
+            "active_file": 20455424,
+            "anon": 1321148416,
+            "file": 59904000,
+            "inactive_file": 39813120,
+            "shmem": 7024640,
+            "slab_reclaimable": 10697768,
+            "slab_unreclaimable": 5365720
+          }
+        }
+      ],
+      "failures": []
+    },
+    {
+      "name": "crm-api",
+      "id": "5c8c33abda54ec15da0bb92b8c9e504d5d69a75b019b58918de6a197bd9b14ff",
+      "started_at": "2026-11-02T10:34:49.993018102Z",
+      "metric_timestamp": 1793986768.607,
+      "age_at_sample": 23.153041124343872,
+      "cadvisor_bytes": 28336128.0,
+      "bracket": [
+        {
+          "id": "5c8c33abda54ec15da0bb92b8c9e504d5d69a75b019b58918de6a197bd9b14ff",
+          "name": "crm-api",
+          "started_at": "2026-11-02T10:34:49.993018102Z",
+          "time": 1793986768.590807,
+          "request_before": 1793986768.5900016,
+          "request_after": 1793986768.5932505,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 28336128,
+          "cgroup_before": 28336128,
+          "cgroup_after": 28336128,
+          "stat_before": {
+            "anon": 14909440,
+            "file": 9052160,
+            "kernel": 3493888,
+            "shmem": 0,
+            "inactive_file": 2142208,
+            "active_file": 6909952,
+            "slab_reclaimable": 2862984,
+            "slab_unreclaimable": 290968
+          },
+          "stat_after": {
+            "anon": 14909440,
+            "file": 9052160,
+            "kernel": 3493888,
+            "shmem": 0,
+            "inactive_file": 2142208,
+            "active_file": 6909952,
+            "slab_reclaimable": 2862984,
+            "slab_unreclaimable": 290968
+          },
+          "docker_stat": {
+            "active_file": 6909952,
+            "anon": 14909440,
+            "file": 9052160,
+            "inactive_file": 2142208,
+            "shmem": 0,
+            "slab_reclaimable": 2862984,
+            "slab_unreclaimable": 290968
+          }
+        },
+        {
+          "id": "5c8c33abda54ec15da0bb92b8c9e504d5d69a75b019b58918de6a197bd9b14ff",
+          "name": "crm-api",
+          "started_at": "2026-11-02T10:34:49.993018102Z",
+          "time": 1793986769.005804,
+          "request_before": 1793986769.0047328,
+          "request_after": 1793986769.0086339,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 28336128,
+          "cgroup_before": 28336128,
+          "cgroup_after": 28336128,
+          "stat_before": {
+            "anon": 14909440,
+            "file": 9052160,
+            "kernel": 3493888,
+            "shmem": 0,
+            "inactive_file": 2142208,
+            "active_file": 6909952,
+            "slab_reclaimable": 2862984,
+            "slab_unreclaimable": 290968
+          },
+          "stat_after": {
+            "anon": 14909440,
+            "file": 9052160,
+            "kernel": 3493888,
+            "shmem": 0,
+            "inactive_file": 2142208,
+            "active_file": 6909952,
+            "slab_reclaimable": 2862984,
+            "slab_unreclaimable": 290968
+          },
+          "docker_stat": {
+            "active_file": 6909952,
+            "anon": 14909440,
+            "file": 9052160,
+            "inactive_file": 2142208,
+            "shmem": 0,
+            "slab_reclaimable": 2862984,
+            "slab_unreclaimable": 290968
+          }
+        }
+      ],
+      "failures": []
+    },
+    {
+      "name": "budibase-redis",
+      "id": "52d40aeb530556e49b325b18010f041e9926bf737a949ed08cdd1cc3a52aaa12",
+      "started_at": "2026-11-02T10:34:49.954618469Z",
+      "metric_timestamp": 1793986768.61,
+      "age_at_sample": 23.150041341781616,
+      "cadvisor_bytes": 8413184.0,
+      "bracket": [
+        {
+          "id": "52d40aeb530556e49b325b18010f041e9926bf737a949ed08cdd1cc3a52aaa12",
+          "name": "budibase-redis",
+          "started_at": "2026-11-02T10:34:49.954618469Z",
+          "time": 1793986768.595518,
+          "request_before": 1793986768.5942657,
+          "request_after": 1793986768.5979161,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 8413184,
+          "cgroup_before": 8413184,
+          "cgroup_after": 8413184,
+          "stat_before": {
+            "anon": 1761280,
+            "file": 5754880,
+            "kernel": 819200,
+            "shmem": 0,
+            "inactive_file": 0,
+            "active_file": 5754880,
+            "slab_reclaimable": 326760,
+            "slab_unreclaimable": 251264
+          },
+          "stat_after": {
+            "anon": 1761280,
+            "file": 5754880,
+            "kernel": 819200,
+            "shmem": 0,
+            "inactive_file": 0,
+            "active_file": 5754880,
+            "slab_reclaimable": 326760,
+            "slab_unreclaimable": 251264
+          },
+          "docker_stat": {
+            "active_file": 5754880,
+            "anon": 1761280,
+            "file": 5754880,
+            "inactive_file": 0,
+            "shmem": 0,
+            "slab_reclaimable": 326760,
+            "slab_unreclaimable": 251264
+          }
+        },
+        {
+          "id": "52d40aeb530556e49b325b18010f041e9926bf737a949ed08cdd1cc3a52aaa12",
+          "name": "budibase-redis",
+          "started_at": "2026-11-02T10:34:49.954618469Z",
+          "time": 1793986769.010143,
+          "request_before": 1793986769.0095055,
+          "request_after": 1793986769.012135,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 8413184,
+          "cgroup_before": 8413184,
+          "cgroup_after": 8413184,
+          "stat_before": {
+            "anon": 1761280,
+            "file": 5754880,
+            "kernel": 819200,
+            "shmem": 0,
+            "inactive_file": 0,
+            "active_file": 5754880,
+            "slab_reclaimable": 326760,
+            "slab_unreclaimable": 251264
+          },
+          "stat_after": {
+            "anon": 1761280,
+            "file": 5754880,
+            "kernel": 819200,
+            "shmem": 0,
+            "inactive_file": 0,
+            "active_file": 5754880,
+            "slab_reclaimable": 326760,
+            "slab_unreclaimable": 251264
+          },
+          "docker_stat": {
+            "active_file": 5754880,
+            "anon": 1761280,
+            "file": 5754880,
+            "inactive_file": 0,
+            "shmem": 0,
+            "slab_reclaimable": 326760,
+            "slab_unreclaimable": 251264
+          }
+        }
+      ],
+      "failures": []
+    },
+    {
+      "name": "budibase-couchdb",
+      "id": "60d427817b94d175b723f358678714d45061318a139288aa52d198be72d31e14",
+      "started_at": "2026-11-02T10:34:50.034894206Z",
+      "metric_timestamp": 1793986768.625,
+      "age_at_sample": 23.13504123687744,
+      "cadvisor_bytes": 79400960.0,
+      "bracket": [
+        {
+          "id": "60d427817b94d175b723f358678714d45061318a139288aa52d198be72d31e14",
+          "name": "budibase-couchdb",
+          "started_at": "2026-11-02T10:34:50.034894206Z",
+          "time": 1793986768.599957,
+          "request_before": 1793986768.598978,
+          "request_after": 1793986768.6021357,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 79400960,
+          "cgroup_before": 79400960,
+          "cgroup_after": 79400960,
+          "stat_before": {
+            "anon": 56410112,
+            "file": 13271040,
+            "kernel": 9396224,
+            "shmem": 7860224,
+            "inactive_file": 2621440,
+            "active_file": 2789376,
+            "slab_reclaimable": 6399864,
+            "slab_unreclaimable": 928912
+          },
+          "stat_after": {
+            "anon": 56410112,
+            "file": 13271040,
+            "kernel": 9396224,
+            "shmem": 7860224,
+            "inactive_file": 2621440,
+            "active_file": 2789376,
+            "slab_reclaimable": 6399864,
+            "slab_unreclaimable": 928912
+          },
+          "docker_stat": {
+            "active_file": 2789376,
+            "anon": 56410112,
+            "file": 13271040,
+            "inactive_file": 2621440,
+            "shmem": 7860224,
+            "slab_reclaimable": 6399864,
+            "slab_unreclaimable": 928912
+          }
+        },
+        {
+          "id": "60d427817b94d175b723f358678714d45061318a139288aa52d198be72d31e14",
+          "name": "budibase-couchdb",
+          "started_at": "2026-11-02T10:34:50.034894206Z",
+          "time": 1793986769.013708,
+          "request_before": 1793986769.0130467,
+          "request_after": 1793986769.015777,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 79400960,
+          "cgroup_before": 79400960,
+          "cgroup_after": 79400960,
+          "stat_before": {
+            "anon": 56410112,
+            "file": 13271040,
+            "kernel": 9396224,
+            "shmem": 7860224,
+            "inactive_file": 2621440,
+            "active_file": 2789376,
+            "slab_reclaimable": 6399864,
+            "slab_unreclaimable": 928912
+          },
+          "stat_after": {
+            "anon": 56410112,
+            "file": 13271040,
+            "kernel": 9396224,
+            "shmem": 7860224,
+            "inactive_file": 2621440,
+            "active_file": 2789376,
+            "slab_reclaimable": 6399864,
+            "slab_unreclaimable": 928912
+          },
+          "docker_stat": {
+            "active_file": 2789376,
+            "anon": 56410112,
+            "file": 13271040,
+            "inactive_file": 2621440,
+            "shmem": 7860224,
+            "slab_reclaimable": 6399864,
+            "slab_unreclaimable": 928912
+          }
+        }
+      ],
+      "failures": []
+    },
+    {
+      "name": "supabase-db",
+      "id": "b051af0f849ff8d345b54d7616a3c2a8e625f46f412025981e9f7ad89f2c9e79",
+      "started_at": "2026-11-02T10:34:50.006941849Z",
+      "metric_timestamp": 1793986768.641,
+      "age_at_sample": 23.119041204452515,
+      "cadvisor_bytes": 43958272.0,
+      "bracket": [
+        {
+          "id": "b051af0f849ff8d345b54d7616a3c2a8e625f46f412025981e9f7ad89f2c9e79",
+          "name": "supabase-db",
+          "started_at": "2026-11-02T10:34:50.006941849Z",
+          "time": 1793986768.603779,
+          "request_before": 1793986768.6030319,
+          "request_after": 1793986768.606527,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 43958272,
+          "cgroup_before": 43958272,
+          "cgroup_after": 43958272,
+          "stat_before": {
+            "anon": 3395584,
+            "file": 34889728,
+            "kernel": 4349952,
+            "shmem": 18595840,
+            "inactive_file": 745472,
+            "active_file": 15548416,
+            "slab_reclaimable": 2488192,
+            "slab_unreclaimable": 602920
+          },
+          "stat_after": {
+            "anon": 3395584,
+            "file": 34889728,
+            "kernel": 4349952,
+            "shmem": 18595840,
+            "inactive_file": 745472,
+            "active_file": 15548416,
+            "slab_reclaimable": 2488192,
+            "slab_unreclaimable": 602920
+          },
+          "docker_stat": {
+            "active_file": 15548416,
+            "anon": 3395584,
+            "file": 34889728,
+            "inactive_file": 745472,
+            "shmem": 18595840,
+            "slab_reclaimable": 2488192,
+            "slab_unreclaimable": 602920
+          }
+        },
+        {
+          "id": "b051af0f849ff8d345b54d7616a3c2a8e625f46f412025981e9f7ad89f2c9e79",
+          "name": "supabase-db",
+          "started_at": "2026-11-02T10:34:50.006941849Z",
+          "time": 1793986769.017355,
+          "request_before": 1793986769.0166922,
+          "request_after": 1793986769.0198176,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "docker_bytes": 43958272,
+          "cgroup_before": 43958272,
+          "cgroup_after": 43958272,
+          "stat_before": {
+            "anon": 3395584,
+            "file": 34889728,
+            "kernel": 4349952,
+            "shmem": 18595840,
+            "inactive_file": 745472,
+            "active_file": 15548416,
+            "slab_reclaimable": 2488192,
+            "slab_unreclaimable": 602920
+          },
+          "stat_after": {
+            "anon": 3395584,
+            "file": 34889728,
+            "kernel": 4349952,
+            "shmem": 18595840,
+            "inactive_file": 745472,
+            "active_file": 15548416,
+            "slab_reclaimable": 2488192,
+            "slab_unreclaimable": 602920
+          },
+          "docker_stat": {
+            "active_file": 15548416,
+            "anon": 3395584,
+            "file": 34889728,
+            "inactive_file": 745472,
+            "shmem": 18595840,
+            "slab_reclaimable": 2488192,
+            "slab_unreclaimable": 602920
+          }
+        }
+      ],
+      "failures": []
+    }
+  ],
+  "cpu_aligned_count": 7,
+  "historical_replay_clock": 1793986791.7600412,
+  "ct": 618,
+  "isolated_local_measurement": true,
+  "metric_acceptance_passed": false,
+  "common_framework_defect_demonstrated": false,
+  "active_container_count": 7,
+  "state_safe_verified": true,
+  "prior_coverage_unchanged": true
+}

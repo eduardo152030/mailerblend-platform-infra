@@ -1,0 +1,26 @@
+{
+  "validated_at": "2026-11-02T20:34:23.108137+01:00",
+  "result": "PASS",
+  "python_tests": 93,
+  "promtool_cpu_scenarios": 28,
+  "legacy_rules_tests": "PASS",
+  "promtool_config_and_rules": "PASS",
+  "python_syntax": "PASS",
+  "documentation_links_checked": 173,
+  "pilot624_original_deployed_input_hashes_unchanged": true,
+  "progressive_plan_matches_inventory_and_documented_order": true,
+  "real_deployment_results": {
+    "626": "PASS; backup, rollback, second apply, 600.960s",
+    "625": "PASS; after 626, backup, rollback, second apply, 601.019s"
+  },
+  "global_configuration_modified": false,
+  "other_ct_deployments": [],
+  "file_sha256": {
+    "scripts/rollout-journal-exporters.py": "08c1a13f4f5ee61ed2ace07eed640115d8bb9e08aa3a24e79f2bd15b27c64c24",
+    "scripts/archive-journal-exporters.py": "0a415e8158f0ab0b54938559cedcc19d674eef3e26ea91f1426d9985a7ef759f",
+    "scripts/report-journal-exporters.py": "24d51a7492e41c258011f1929779be657f29f37689743851d6ccdabfff51f7b5",
+    "scripts/plan-exporter-rollout.py": "6c6aced92f3231232785da07a43bd83a3ae4a5e0d6f541782f108d0338726f8c",
+    "tests/monitoring/test_progressive_rollout.py": "66d39f6f104a3ce6f793a95c3a27d55d65b62f854ae48a317b3773f7bfab666e"
+  },
+  "commit_created": false
+}

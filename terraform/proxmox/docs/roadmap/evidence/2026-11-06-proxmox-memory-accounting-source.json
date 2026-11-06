@@ -1,0 +1,21 @@
+{
+  "/usr/share/perl5/PVE/LXC.pm": [],
+  "/usr/share/perl5/PVE/CGroup.pm": [
+    {
+      "line": 335,
+      "excerpt": "    return $res;\n}\n\n# Parse some memory data from `memory.stat`\nsub get_memory_stat {\n    my ($self) = @_;\n\n    my $res = {"
+    },
+    {
+      "line": 351,
+      "excerpt": "    } elsif ($ver == 2) {\n\tmy $mem = file_get_contents(\"$path/memory.current\");\n\tmy $swap = file_get_contents(\"$path/memory.swap.current\");\n\tmy $stat = parse_flat_keyed_file(file_get_contents(\"$path/memory.stat\"));\n\n\tchomp ($mem, $swap);\n\n\t$res->{mem} = $mem - $stat->{file};"
+    },
+    {
+      "line": 359,
+      "excerpt": "\t$res->{swap} = $swap;\n    } elsif ($ver == 1) {\n\t# cgroupv1 environment:\n\tmy $stat = parse_flat_keyed_file(file_get_contents(\"$path/memory.stat\"));\n\tmy $mem = file_get_contents(\"$path/memory.usage_in_bytes\");\n\tmy $memsw = file_get_contents(\"$path/memory.memsw.usage_in_bytes\");\n\tchomp ($mem, $memsw);\n"
+    },
+    {
+      "line": 364,
+      "excerpt": "\tmy $memsw = file_get_contents(\"$path/memory.memsw.usage_in_bytes\");\n\tchomp ($mem, $memsw);\n\n\t$res->{mem} = $mem - $stat->{total_cache};\n\t$res->{swap} = $memsw - $mem;\n    } else {\n\tdie \"bad cgroup version: $ver\\n\";\n    }"
+    }
+  ]
+}

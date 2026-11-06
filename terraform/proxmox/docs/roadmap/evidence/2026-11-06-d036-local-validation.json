@@ -1,0 +1,42 @@
+{
+  "observed_at_utc": "2026-11-06T12:32:12.734864+00:00",
+  "tests_passed": 80,
+  "test_counts": {
+    "metric_contract": 21,
+    "cpu": 11,
+    "memory": 15,
+    "skip_policy": 13,
+    "rollout": 7,
+    "reentry": 6,
+    "incremental_apply": 4,
+    "phase4_close": 3
+  },
+  "local_links": "PASS",
+  "git_diff_check": "PASS",
+  "untracked_source_whitespace": "PASS",
+  "secret_signature_matches": 0,
+  "syntax": "PASS",
+  "active_rollout_or_audit_processes": [],
+  "source_sha256": {
+    "scripts/exporter_metric_contract.py": "93f5faa87866a39569b6cf6635f1b9d53b5389f4a064f8be61d41fdbe50d36f4",
+    "scripts/exporter-cpu-alignment.py": "e21e80435e0b503078b6b975c9e51d573f54dedcfbf5b47e0c7bc5c1394e42e5",
+    "scripts/exporter-memory-alignment.py": "6be7cecbaecef4e59b33630876b87abf0df85804e31bc14e80fc10fcefc0dbb7",
+    "scripts/prepare-approved-exporters.py": "5c63790a7c20409cf95651c534774a43c5cdc5ec228b21c14b70d2594d64d5be",
+    "scripts/prepare-aligned-exporters.py": "c629e76a0031e7bfd439f7e2eafd0427e76d9c66ef93f797428261983c658658",
+    "scripts/prepare-617-memory.py": "8bef7c7b187885cc8d461926fb64892ac6cb567dfc3c15a969b333c556851f4b",
+    "scripts/diagnose-617-memory.py": "dee3e5ab536d303f19b44ed185404fe019c0b2a5e5a24288689baed236c20372",
+    "scripts/rollout-approved-exporters.py": "cba78032dfdc38a1865e420b96974b06104cb78947ee586a763738df317a6163",
+    "scripts/run-skip-exporter-wave.py": "40ba4ed044a3b5d043a1f833a5039765035668bb43a40b054d58ed0a4aa8ace6",
+    "scripts/audit-exporter-reentry.py": "39951b676828c5893b56e48aa72beb2f7c58a49d63742cb690f26f3a1f5b7afc",
+    "scripts/check-framework-compatibility.py": "b6e785d523f3d6a6760a4f5f5040591c01730807a7d98acfcfb37d757148e34c",
+    "tests/monitoring/test_metric_contract.py": "4912435787de9e031d115e9a515b2dc58fcfd1dc7b8b4b2295258cad5adb9ad0",
+    "tests/monitoring/test_cpu_alignment.py": "5f5cbcad0e4e3bfd5c4ab1c09254098d51b2a0fffd874bfdb35f32f3d3518f6f",
+    "tests/monitoring/test_memory_alignment.py": "1f4dcae824db7d145b0a13c9d00eaa6a3a31df70a88fd3f222193e6fb77d62b6",
+    "tests/monitoring/test_skip_policy.py": "b60c284f6f7f9b4f0a19a85a8013b0809ab5d02e857daadecf4e335a41a18f4f"
+  },
+  "git_status_entry_count": 371,
+  "preexisting_dirty_workspace": true,
+  "source_files_may_be_untracked": true,
+  "commit_push_or_staging_performed": false,
+  "production_mutation": false
+}

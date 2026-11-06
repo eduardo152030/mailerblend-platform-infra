@@ -1,0 +1,43 @@
+{
+  "observed_time": 1793963348.578791,
+  "cpu": {
+    "active": true,
+    "last_history_time": 1793963348.404477,
+    "last_id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+    "sanitized_error_lines": []
+  },
+  "memory": {
+    "active": false,
+    "last_history_time": 1793963196.241173,
+    "last_id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+    "sanitized_error_lines": []
+  },
+  "latest_probe_failure": {
+    "type": "AssertionError",
+    "message": "RAM timeline does not bracket metric timestamp",
+    "sample_time": 1793963332.1028724,
+    "cpu_aligned": 4,
+    "ram_times": [
+      {
+        "name": "cadvisor",
+        "timestamp": 1793963317.815,
+        "bytes": 67284992.0
+      },
+      {
+        "name": "node_exporter",
+        "timestamp": 1793963317.816,
+        "bytes": 9375744.0
+      },
+      {
+        "name": "infra-svc01-nocodb-db",
+        "timestamp": 1793963317.809,
+        "bytes": 19632128.0
+      },
+      {
+        "name": "infra-svc01-nocodb",
+        "timestamp": 1793963317.81,
+        "bytes": 68829184.0
+      }
+    ]
+  }
+}

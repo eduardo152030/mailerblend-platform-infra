@@ -1,0 +1,79 @@
+{
+  "validated_at": "2026-11-02T19:59:56.433097+01:00",
+  "phase": 4,
+  "status": "LOCAL_VALIDATED_NOT_DEPLOYED",
+  "python_unittests": {
+    "count": 89,
+    "result": "PASS",
+    "runtime_idempotence_ct625_626": "NOT_RUN; mocked repeated apply and actual deterministic local rendering tested"
+  },
+  "promtool": {
+    "version": "3.12.0",
+    "rule_syntax": "PASS all rule files",
+    "prometheus_config_syntax": "PASS local paths rewritten in temporary file",
+    "legacy_alert_tests": "PASS",
+    "lxc_cpu_scenarios": 28,
+    "lxc_cpu_result": "PASS"
+  },
+  "shell_syntax": "PASS runner, monitoring validator and both generated collectors",
+  "read_only_compose_config_models": 4,
+  "accepted_ct624_deployed_input_hashes_unchanged": true,
+  "manifest_by_ct": {
+    "625": {
+      "ct": 625,
+      "hostname": "infra-journal-db",
+      "ip": "192.168.1.125",
+      "allocated_cores": 2,
+      "allocated_memory_mib": 2048,
+      "status": "PREPARED_NOT_DEPLOYED",
+      "containerd_socket_approval_required": true,
+      "files": {
+        "cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+        "cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "node-cgroup.sh": "65916a334e7a5dbb0fd4c5185ffdb27425b592c46968a1e4546676c3c8d66f9c",
+        "node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "observe.py": "8d27842e026d8ce30fba51977aa743b7571e69e03faf7dde05e232ce13f9873f",
+        "pilot.py": "a82be7efd44e1a5529059016ba2be176e95c9d2bb30a11388994c3734c1217ff",
+        "sample.py": "e1235dfded5ae37bfdee9f1d24275a34dc2a9ac7d21a0b32fe06f830f534c747"
+      }
+    },
+    "626": {
+      "ct": 626,
+      "hostname": "infra-journal-api",
+      "ip": "192.168.1.126",
+      "allocated_cores": 2,
+      "allocated_memory_mib": 2048,
+      "status": "PREPARED_NOT_DEPLOYED",
+      "containerd_socket_approval_required": true,
+      "files": {
+        "cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+        "cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "node-cgroup.sh": "c16eb85760f18f471c01990b33627317c38ce0224f5ab28e5ebeab843960906c",
+        "node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "observe.py": "2236fbba87266531b781cd171e25cf478e8c1a76bd92aaf5f1f12ef744247d1c",
+        "pilot.py": "1746d1ceaeaab104dbc2fb4b3c8aa061c55c148cc5b7c4495a6092f0038cd2fc",
+        "sample.py": "eef43d6a536faaf6641b5d831682d5edbe966d4fe0fbf41e55bd66279d88c02e"
+      }
+    }
+  },
+  "file_sha256": {
+    "scripts/prepare-journal-exporters.py": "35402ce596dabb49becb7209b8e6223d95f153c26017fe6638324dae0fc81175",
+    "scripts/test-journal-exporters.sh": "cae25e1119cdd9c94fb26f6bada7a026c1ba19794847c5405c875e25ec4857c3",
+    "scripts/validate-phase4-evidence.py": "1ae3213c9b019511f540bacaa1193c1616e08905d6e1f4b57277ad8158382d5f",
+    "scripts/audit-monitoring-runtime.py": "d07d58b7a46f92be9b73977b42c532f52519fe2668e0174a369bbf9091ed10e2",
+    "scripts/gen-prom-targets.py": "156f9d3ae9597118e98b1e314cf0f3ff44dc89f5b3722615a6ad92f435a7e012",
+    "services/infra-prom/config/rules/lxc-cpu.yml": "9c373551fcfa2d56d58c9b9894039592e10deff7003320384a8a09bdd829ec75",
+    "services/infra-prom/config/rules/infra-hosts.yml": "a63b65f0c9e64f836a604d526503ae54de39976103e9d0a1133aecb00bc1889b",
+    "tests/monitoring/lxc-cpu.test.yml": "384dab586a6817368a4942e467c272b903f1be28d9dc2169d5672fd3b896377c"
+  },
+  "production_changes_this_intervention": [],
+  "backups_ct625_626": "NOT_CREATED; required pre-deployment gate",
+  "socket_mount_approval_ct625_626": "PENDING",
+  "global_prometheus_discovery": "NOT_ACTIVATED"
+}

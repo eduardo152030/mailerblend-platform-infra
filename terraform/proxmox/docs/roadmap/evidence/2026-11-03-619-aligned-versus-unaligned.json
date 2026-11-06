@@ -1,0 +1,82 @@
+{
+  "validation_in_progress": false,
+  "examples": [
+    {
+      "sample_elapsed_seconds": 0.0004165879945503548,
+      "name": "cadvisor",
+      "metric_time": 1793694429.003,
+      "cadvisor_seconds": 7.543747,
+      "unaligned_current_docker_seconds": 8.96215,
+      "aligned_docker_seconds": 7.544304764694207,
+      "aligned_cgroup_seconds": 7.544219299441436,
+      "bounds": {
+        "cgroup_seconds": [
+          7.543726,
+          7.5442195000000005
+        ],
+        "docker_seconds": [
+          7.543726,
+          7.544305
+        ]
+      }
+    },
+    {
+      "sample_elapsed_seconds": 60.05002409098961,
+      "name": "cadvisor",
+      "metric_time": 1793694473.404,
+      "cadvisor_seconds": 8.981202,
+      "unaligned_current_docker_seconds": 10.426241,
+      "aligned_docker_seconds": 8.980352182433748,
+      "aligned_cgroup_seconds": 8.980352182433748,
+      "bounds": {
+        "cgroup_seconds": [
+          8.975383,
+          8.982406
+        ],
+        "docker_seconds": [
+          8.975383,
+          8.982406
+        ]
+      }
+    },
+    {
+      "sample_elapsed_seconds": 120.07654796299175,
+      "name": "cadvisor",
+      "metric_time": 1793694531.644,
+      "cadvisor_seconds": 10.439408,
+      "unaligned_current_docker_seconds": 11.884768,
+      "aligned_docker_seconds": 10.439382620597955,
+      "aligned_cgroup_seconds": 10.439382620597955,
+      "bounds": {
+        "cgroup_seconds": [
+          10.439305,
+          10.440455
+        ],
+        "docker_seconds": [
+          10.439305,
+          10.440455
+        ]
+      }
+    },
+    {
+      "sample_elapsed_seconds": 180.12289837798744,
+      "name": "cadvisor",
+      "metric_time": 1793694628.383,
+      "cadvisor_seconds": 11.968681,
+      "unaligned_current_docker_seconds": 13.384775,
+      "aligned_docker_seconds": 11.969389932856473,
+      "aligned_cgroup_seconds": 11.969389932856473,
+      "bounds": {
+        "cgroup_seconds": [
+          11.968376,
+          11.971441
+        ],
+        "docker_seconds": [
+          11.968376,
+          11.971441
+        ]
+      }
+    }
+  ],
+  "full_observation_pass": "2026-11-02-rollout-619.json"
+}

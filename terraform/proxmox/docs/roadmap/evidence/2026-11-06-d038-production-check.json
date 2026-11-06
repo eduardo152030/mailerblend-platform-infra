@@ -1,0 +1,54 @@
+{
+  "observed_at_utc": "2026-11-06T16:31:29.484027+00:00",
+  "mode": "read-only",
+  "accepted_runtime_unchanged": {
+    "624": true,
+    "626": true,
+    "625": true,
+    "613": true,
+    "621": true,
+    "620": true,
+    "619": true,
+    "623": true,
+    "61211": true
+  },
+  "accepted_chain_issues": {
+    "624": [],
+    "626": [],
+    "625": [],
+    "613": [],
+    "621": [],
+    "620": [],
+    "619": [],
+    "623": [],
+    "61211": []
+  },
+  "telegram_before": {
+    "alertmanager_notifications_total": 128.0,
+    "alertmanager_notifications_failed_total": 56.0
+  },
+  "telegram_after": {
+    "alertmanager_notifications_total": 128.0,
+    "alertmanager_notifications_failed_total": 56.0
+  },
+  "new_telegram_errors": 0,
+  "telegram_test_sent": false,
+  "targets_up": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "ready": {
+    "9090": 200,
+    "9093": 200
+  },
+  "pending_cts": [
+    618,
+    622,
+    611,
+    616,
+    610
+  ],
+  "standard_authorized_candidates": [],
+  "production_mutation": false
+}

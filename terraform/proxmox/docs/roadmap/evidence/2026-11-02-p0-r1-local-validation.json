@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "python_tests": 124,
+  "promtool_version": "3.12.0",
+  "rule_suites": [
+    "alerts.test.yml",
+    "lxc-cpu.test.yml",
+    "incremental-cpu.test.yml"
+  ],
+  "fresh_live_snapshot_candidate_config": "PASS",
+  "actual_promtool_discovery": {
+    "node": 17,
+    "cadvisor": 17,
+    "blackbox": 11,
+    "corrected_cpu": 4,
+    "duplicate_identities": 0
+  },
+  "bash_syntax": "PASS",
+  "local_document_links": "PASS",
+  "git_diff_check": "PASS",
+  "r2_deployed": false
+}

@@ -1,0 +1,32 @@
+{
+  "validated_at": "2026-11-02T19:43:53.608418+01:00",
+  "scope": "CT 624 pilot; no other CT deployments",
+  "unit_tests": {
+    "command": "python3 -m unittest discover -s tests/monitoring -p 'test_*.py'",
+    "count": 81,
+    "result": "PASS"
+  },
+  "shell_syntax": "PASS: bash -n services/common/pilot-624/node-cgroup.sh",
+  "python_syntax": {
+    "result": "PASS",
+    "scripts": [
+      "exporter-pilot-624.py",
+      "sample-exporter-pilot-624.py",
+      "observe-exporter-pilot-624.py",
+      "compare-pilot-624-cpu.py",
+      "audit-monitoring-runtime.py",
+      "validate-phase4-evidence.py"
+    ]
+  },
+  "documentation_links_checked": 134,
+  "deployed_inputs_sha256_match_count": 8,
+  "runtime_audit_collector_ct624": {
+    "result": "PASS",
+    "cpu_source": "cgroup_v2_textfile",
+    "capacity_cores": 1,
+    "memory_total_bytes": 536870912,
+    "native_cpu_series": 0,
+    "named_docker_memory_series": 4
+  },
+  "strict_observer_revalidation": "PASS: 21 periodic samples plus independent final sample; no claim of continuous observation in gap"
+}

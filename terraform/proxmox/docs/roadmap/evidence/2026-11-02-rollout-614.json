@@ -1,0 +1,324 @@
+{
+  "ct": 614,
+  "run": "integration-20261106T191534614Z",
+  "result": "PASS",
+  "duration_seconds": 367.425,
+  "timings_seconds": {
+    "preflight": 4.485,
+    "staging": 1.276,
+    "image_archive_restore_and_snapshot": 5.024,
+    "external_backup_verified": 6.119,
+    "monitoring_backup_verified": 11.155,
+    "cpu_history_started": 0.956,
+    "pinned_images": 9.36,
+    "apply_ready": 10.821,
+    "incremental_integration": 117.286,
+    "idempotence": 7.974,
+    "observation_no_regression": 182.964,
+    "completed": 10.007
+  },
+  "observation": {
+    "samples": 7,
+    "seconds": 180.12867742199887,
+    "initial_seconds_required": 180,
+    "initial_minimum_samples": 7,
+    "sha256": "d188ef06e796af5d6a8f511a35a9a1ce09f75b9ce147c01660c91dc7064628c8"
+  },
+  "telegram": {
+    "firing_and_resolved_accepted_by_api": false,
+    "human_receipt_confirmed": false,
+    "attempts_delta": 0,
+    "failures_delta": 0,
+    "delivery_test": "Unchanged channel verified D039; no new delivery test; no new errors"
+  },
+  "backup": {
+    "sha256": "dfee0829614f97175828d01753ae0ec8bff072b1407396fc484263f6a91f3c89",
+    "bytes": 46991360
+  },
+  "after_archive": {
+    "sha256": "03f442247ade8e7a926956055a6616eb0ff740f9d6f425f8dcdb69c3f3e07095",
+    "bytes": 455999,
+    "offhost_verified": true
+  },
+  "exporters": {
+    "node_exporter": {
+      "id": "f2f26d0194da9d5b5477750c451eb01fafb70eb7e9868bc867c759b46f83e812",
+      "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "started_at": "2026-11-06T19:37:15.884324228Z",
+      "restarts": 0
+    },
+    "cadvisor": {
+      "id": "f798612c31daac404ad8594c1a04a906341621f3aabc4a4378e7c887fe1b01f5",
+      "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "started_at": "2026-11-06T19:37:19.426265335Z",
+      "restarts": 0
+    }
+  },
+  "namespaces": {
+    "init": "cgroup:[4026533274]",
+    "daemon": "cgroup:[4026533274]",
+    "candidate": "cgroup:[4026533274]",
+    "pve": "cgroup:[4026531835]"
+  },
+  "cpu_source": "cgroup_v2_textfile",
+  "backup_external_verified": true,
+  "rollback_verified": false,
+  "idempotence_verified": true,
+  "observed_at_utc": "2026-11-06T19:54:14.354524+00:00",
+  "decision": "D-041",
+  "cpu_alignment_verification": {
+    "threshold_unchanged": "max(1 CPU second, 3% reference counter); both timestamp bounds and delta windows",
+    "identity": "full Docker ID and StartedAt",
+    "no_missing_or_stale_timestamps": true,
+    "containers": [
+      {
+        "id": "50831c52de70df000901eeb96e423bfe0cd9125a8ab5b4a00f0b3299352dade9",
+        "name": "infra-nucleoedge-sgtm-1",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              7779.899407,
+              7779.899407
+            ],
+            "docker_seconds": [
+              7779.899407,
+              7779.899407
+            ]
+          },
+          "cadvisor_seconds": 7779.899407,
+          "cgroup_seconds": 7779.899407,
+          "docker_seconds": 7779.899407,
+          "measurement_scope": "infra-nucleoedge|cgroup:[4026533274]",
+          "name": "infra-nucleoedge-sgtm-1",
+          "started_at": "2026-09-17T20:43:37.34056289Z",
+          "time": 1793993959.865
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              7782.669132,
+              7782.669132
+            ],
+            "docker_seconds": [
+              7782.669132,
+              7782.669132
+            ]
+          },
+          "cadvisor_seconds": 7782.669132,
+          "cgroup_seconds": 7782.669132,
+          "docker_seconds": 7782.669132,
+          "measurement_scope": "infra-nucleoedge|cgroup:[4026533274]",
+          "name": "infra-nucleoedge-sgtm-1",
+          "started_at": "2026-09-17T20:43:37.34056289Z",
+          "time": 1793994829.926
+        },
+        "window_seconds": 870.0610001087189,
+        "rates_cores": {
+          "cadvisor_seconds": 0.0031833687519082173,
+          "docker_seconds": 0.0031833687519082173,
+          "cgroup_seconds": 0.0031833687519082173
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.3183368751908217,
+          "docker_seconds": 0.3183368751908217,
+          "cgroup_seconds": 0.3183368751908217
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.15916843759541086,
+          "docker_seconds": 0.15916843759541086,
+          "cgroup_seconds": 0.15916843759541086
+        }
+      },
+      {
+        "id": "63c7faa64ddf5fbf699182d58f818e09868be4e10439da673e523559d689035b",
+        "name": "infra-nucleoedge-sgtm_preview-1",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              3248.614049,
+              3248.614049
+            ],
+            "docker_seconds": [
+              3248.614049,
+              3248.614049
+            ]
+          },
+          "cadvisor_seconds": 3248.614049,
+          "cgroup_seconds": 3248.614049,
+          "docker_seconds": 3248.614049,
+          "measurement_scope": "infra-nucleoedge|cgroup:[4026533274]",
+          "name": "infra-nucleoedge-sgtm_preview-1",
+          "started_at": "2026-09-17T20:43:37.350562172Z",
+          "time": 1793993959.805
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              3249.297943,
+              3249.297943
+            ],
+            "docker_seconds": [
+              3249.297943,
+              3249.297943
+            ]
+          },
+          "cadvisor_seconds": 3249.297943,
+          "cgroup_seconds": 3249.297943,
+          "docker_seconds": 3249.297943,
+          "measurement_scope": "infra-nucleoedge|cgroup:[4026533274]",
+          "name": "infra-nucleoedge-sgtm_preview-1",
+          "started_at": "2026-09-17T20:43:37.350562172Z",
+          "time": 1793994829.901
+        },
+        "window_seconds": 870.095999956131,
+        "rates_cores": {
+          "cadvisor_seconds": 0.0007859983266613312,
+          "docker_seconds": 0.0007859983266613312,
+          "cgroup_seconds": 0.0007859983266613312
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.07859983266613313,
+          "docker_seconds": 0.07859983266613313,
+          "cgroup_seconds": 0.07859983266613313
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.039299916333066565,
+          "docker_seconds": 0.039299916333066565,
+          "cgroup_seconds": 0.039299916333066565
+        }
+      },
+      {
+        "id": "f2f26d0194da9d5b5477750c451eb01fafb70eb7e9868bc867c759b46f83e812",
+        "name": "node_exporter",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              0.342057,
+              0.342057
+            ],
+            "docker_seconds": [
+              0.342057,
+              0.342057
+            ]
+          },
+          "cadvisor_seconds": 0.342057,
+          "cgroup_seconds": 0.342057,
+          "docker_seconds": 0.342057,
+          "measurement_scope": "infra-nucleoedge|cgroup:[4026533274]",
+          "name": "node_exporter",
+          "started_at": "2026-11-06T19:37:15.884324228Z",
+          "time": 1793993959.805
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              2.228419,
+              2.228419
+            ],
+            "docker_seconds": [
+              2.228419,
+              2.228419
+            ]
+          },
+          "cadvisor_seconds": 2.228419,
+          "cgroup_seconds": 2.228419,
+          "docker_seconds": 2.228419,
+          "measurement_scope": "infra-nucleoedge|cgroup:[4026533274]",
+          "name": "node_exporter",
+          "started_at": "2026-11-06T19:37:15.884324228Z",
+          "time": 1793994829.901
+        },
+        "window_seconds": 870.095999956131,
+        "rates_cores": {
+          "cadvisor_seconds": 0.002167992957208294,
+          "docker_seconds": 0.002167992957208294,
+          "cgroup_seconds": 0.002167992957208294
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.2167992957208294,
+          "docker_seconds": 0.2167992957208294,
+          "cgroup_seconds": 0.2167992957208294
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.1083996478604147,
+          "docker_seconds": 0.1083996478604147,
+          "cgroup_seconds": 0.1083996478604147
+        }
+      },
+      {
+        "id": "f798612c31daac404ad8594c1a04a906341621f3aabc4a4378e7c887fe1b01f5",
+        "name": "cadvisor",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              1.32187,
+              1.343818
+            ],
+            "docker_seconds": [
+              1.32187,
+              1.343818
+            ]
+          },
+          "cadvisor_seconds": 1.32207,
+          "cgroup_seconds": 1.3343868282015205,
+          "docker_seconds": 1.3343868282015205,
+          "measurement_scope": "infra-nucleoedge|cgroup:[4026533274]",
+          "name": "cadvisor",
+          "started_at": "2026-11-06T19:37:19.426265335Z",
+          "time": 1793993959.805
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              7.091561,
+              7.0954265
+            ],
+            "docker_seconds": [
+              7.091561,
+              7.095554
+            ]
+          },
+          "cadvisor_seconds": 7.093316,
+          "cgroup_seconds": 7.09539070561084,
+          "docker_seconds": 7.095517024965486,
+          "measurement_scope": "infra-nucleoedge|cgroup:[4026533274]",
+          "name": "cadvisor",
+          "started_at": "2026-11-06T19:37:19.426265335Z",
+          "time": 1793994829.9
+        },
+        "window_seconds": 870.0950000286102,
+        "rates_cores": {
+          "cadvisor_seconds": 0.006632891810446251,
+          "docker_seconds": 0.006621265719920846,
+          "cgroup_seconds": 0.006621120541113197
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.6632891810446251,
+          "docker_seconds": 0.6621265719920846,
+          "cgroup_seconds": 0.6621120541113197
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.33164459052231254,
+          "docker_seconds": 0.3310632859960423,
+          "cgroup_seconds": 0.33105602705565984
+        }
+      }
+    ]
+  },
+  "resources": {
+    "minimum_available_bytes": 1673084928,
+    "maximum_memory_current_bytes": 1089376256,
+    "final_swap_bytes": 118870016,
+    "memory_event_deltas": {
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "exporter_memory_peak_sampled_bytes": {
+      "cadvisor": 125587456,
+      "node_exporter": 19779584
+    }
+  }
+}

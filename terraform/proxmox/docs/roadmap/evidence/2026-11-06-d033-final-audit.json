@@ -1,0 +1,81 @@
+{
+  "run": "integration-20261106T100830Z",
+  "final_state": "BLOCKED_ROLLED_BACK",
+  "accepted_exporters_unchanged": {
+    "624": true,
+    "626": true,
+    "625": true,
+    "613": true,
+    "621": true,
+    "620": true,
+    "619": true,
+    "623": true
+  },
+  "comparison_note": "Mount lists sorted by source,target,rw; Docker inspect order is not stable",
+  "monitoring_checkpoint_restored": {
+    "config_files_restored": {
+      "prometheus.yml": true,
+      "rules/blackbox-alerts.yml": true,
+      "rules/container-availability.yml": true,
+      "rules/container-restarts.yml": true,
+      "rules/infra-containers.yml": true,
+      "rules/infra-hosts.yml": true,
+      "rules/lxc-cpu-inventory.yml": true,
+      "rules/lxc-cpu-targets.yml": true,
+      "rules/lxc-cpu.yml": true,
+      "rules/monitoring-health.yml": true,
+      "targets/blackbox-collect.json": true,
+      "targets/blackbox-edge-collect.json": true,
+      "targets/blackbox-edge-external.json": true,
+      "targets/blackbox-edge-mailerblend-collect.json": true,
+      "targets/blackbox-edge-nucleotecnologico.json": true,
+      "targets/blackbox-http.json": true,
+      "targets/blackbox-infra-doc.json": true,
+      "targets/blackbox-infra-svc01.json": true,
+      "targets/blackbox-internal-critical.json": true,
+      "targets/blackbox-internet.json": true,
+      "targets/blackbox.json": true,
+      "targets/cadvisor.json": true,
+      "targets/grafana.json": true,
+      "targets/node-exporter.json": true
+    },
+    "monitoring": {
+      "prometheus": {
+        "id": "289e8713965d81a981c1f45df05fc378a7ee481bb8fb95d182b3f980cad53fe6",
+        "started_at": "2026-11-02T07:01:00.034601404Z",
+        "running": true,
+        "restarts": 0
+      },
+      "alertmanager": {
+        "id": "0b34a623d76bc754dba7bddee342a1a99de5f3444840f43686ba17431b2ac5f0",
+        "started_at": "2026-11-02T08:03:27.203080469Z",
+        "running": true,
+        "restarts": 0
+      }
+    }
+  },
+  "ready": {
+    "prometheus": 200,
+    "alertmanager": 200
+  },
+  "memory_events_delta": {
+    "low": 0,
+    "high": 475,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "telegram_counters_after": {
+    "alertmanager_notifications_total": 124.0,
+    "alertmanager_notifications_failed_total": 56.0
+  },
+  "telegram_test_sent": false,
+  "observation600s": "NOT_EXECUTED apply failed",
+  "watch900s": "NOT_EXECUTED apply failed",
+  "application_audit": "originals-after-rollback PASS proxy403/backend200 unchanged configuration and identities",
+  "idempotence": "NOT_EXECUTED candidate never created",
+  "real_metric_validation": "NOT_EXECUTED candidate never created; original legacy coverage retained",
+  "automatic_rollout": false,
+  "monitoring_identity_started_at_unchanged_since_previous_close": true
+}

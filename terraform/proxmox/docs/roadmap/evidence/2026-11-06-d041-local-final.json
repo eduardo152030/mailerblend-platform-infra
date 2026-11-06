@@ -1,0 +1,16 @@
+{
+  "checked_at_utc": "2026-11-06T20:09:57.532094+00:00",
+  "syntax": "PASS",
+  "local_links_checked": 192,
+  "missing_links": [],
+  "new_secret_signatures_found": false,
+  "git_diff_check": "PASS",
+  "execution_policy_closed": true,
+  "remaining_rollout_processes": 0,
+  "accepted_cts": 17,
+  "active_blockers": 0,
+  "common_metric_suite_repeated": false,
+  "affected_tests_passed": 24,
+  "profile_tests_after_fixture_decoupling_passed": 9,
+  "commit_push_performed": false
+}

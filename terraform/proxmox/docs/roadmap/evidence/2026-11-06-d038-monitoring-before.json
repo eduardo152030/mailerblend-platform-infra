@@ -1,0 +1,16 @@
+{
+  "observed_at_utc": "2026-11-06T16:31:04.831787+00:00",
+  "telegram": {
+    "alertmanager_notifications_total": 128.0,
+    "alertmanager_notifications_failed_total": 56.0
+  },
+  "ready": {
+    "9090": 200,
+    "9093": 200
+  },
+  "targets_up": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  }
+}

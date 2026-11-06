@@ -1,0 +1,11 @@
+{
+  "verified_at_utc": "2026-11-06T19:15:34.897245+00:00",
+  "channel_unchanged_since_D039": true,
+  "private_config_files_compared": 2,
+  "prior_delivery_test": "D039 R6/R7 FIRING/RESOLVED accepted by API",
+  "human_receipt_confirmed": false,
+  "telemetry": {
+    "alertmanager_notifications_total": 132.0,
+    "alertmanager_notifications_failed_total": 56.0
+  }
+}

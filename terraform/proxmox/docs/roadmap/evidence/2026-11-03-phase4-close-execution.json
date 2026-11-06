@@ -1,0 +1,8 @@
+{
+  "local_active_rollout_or_watch_processes": [],
+  "policy": "SUSPENDED",
+  "new_remote_deployments": 0,
+  "new_restarts_or_reloads": 0,
+  "next_lots_started": false,
+  "existing_halt_preserved": true
+}

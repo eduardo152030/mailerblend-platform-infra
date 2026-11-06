@@ -1,0 +1,8 @@
+{
+  "same_configuration": true,
+  "no_container_restart": true,
+  "unknown_health_observed": false,
+  "polls": 4,
+  "bad_health_observed": false,
+  "api_errors": []
+}

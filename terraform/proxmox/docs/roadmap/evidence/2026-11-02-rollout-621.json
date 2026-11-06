@@ -1,0 +1,84 @@
+{
+  "ct": 621,
+  "run": "integration-20261102T223431Z",
+  "result": "PASS",
+  "duration_seconds": 712.737,
+  "timings_seconds": {
+    "preflight": 3.048,
+    "staging": 1.28,
+    "image_archive_restore_and_snapshot": 4.896,
+    "external_backup_verified": 6.634,
+    "monitoring_backup_verified": 7.083,
+    "pinned_images": 8.181,
+    "apply_ready": 9.104,
+    "incremental_integration": 76.944,
+    "coordinated_rollback_ready_verified": 29.109,
+    "resume_and_idempotence": 99.798,
+    "controlled_firing_rule": 5.617,
+    "observation_and_telegram": 398.492,
+    "completed": 4.631
+  },
+  "observation": {
+    "samples": 14,
+    "seconds": 395.66096204899804,
+    "initial_seconds_required": 180,
+    "initial_minimum_samples": 7,
+    "sha256": "29c6a6821e4a2e10be60a03f4e00284896ae27641a71c23e43be1160ebe6754d",
+    "alert_high_cpu_for_runtime_proven": false
+  },
+  "telegram": {
+    "firing_and_resolved_accepted_by_api": true,
+    "human_receipt_confirmed": false,
+    "attempts_delta": 2.0,
+    "failures_delta": 0.0
+  },
+  "backup": {
+    "sha256": "420016ea3e6abade7b0c80f1ea48312e22f35d534efb9d1f58fd00735b887e55",
+    "bytes": 47165440
+  },
+  "after_archive": {
+    "sha256": "58f0de818d58cccbd03e4f3a7f306e07b58119402cf4824e7e5f20b6c6be09fb",
+    "bytes": 18258,
+    "offhost_verified": true
+  },
+  "exporters": {
+    "node_exporter": {
+      "id": "4667b7688ff67d5ff5e1cd54b703639cb3eb048364bac97ca2d6b0a9e90b0325",
+      "image": "sha256:d375b27b61ea3233524bb12ce5f2de05bdc80cbce4c6806a45617d4f5bc7b1b1",
+      "started_at": "2026-11-02T22:38:27.583853811Z",
+      "restarts": 0
+    },
+    "cadvisor": {
+      "id": "7e5ab08e74c153b975d2a8b0b9c1d0d978ac2545338cd24505e049b7da67cee5",
+      "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "started_at": "2026-11-02T22:38:28.725210725Z",
+      "restarts": 0
+    }
+  },
+  "namespaces": {
+    "init": "cgroup:[4026535769]",
+    "daemon": "cgroup:[4026535769]",
+    "candidate": "cgroup:[4026535769]",
+    "pve": "cgroup:[4026531835]"
+  },
+  "cpu_source": "cgroup_v2_textfile",
+  "backup_external_verified": true,
+  "rollback_verified": true,
+  "idempotence_verified": true,
+  "resources": {
+    "minimum_available_bytes": 1960235008,
+    "maximum_memory_current_bytes": 696901632,
+    "final_swap_bytes": 40677376,
+    "memory_event_deltas": {
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "exporter_memory_peak_sampled_bytes": {
+      "cadvisor": 22859776,
+      "node_exporter": 10199040
+    }
+  }
+}

@@ -1,0 +1,1877 @@
+{
+  "observed_at_utc": "2026-11-06T10:08:38.960495+00:00",
+  "mode": "read-only",
+  "exporters": {
+    "624": [
+      {
+        "name": "node_exporter",
+        "id": "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757",
+        "running": true,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started_at": "2026-11-02T16:04:37.826058931Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($|/)",
+          "--no-collector.cpu",
+          "--collector.textfile.directory=/tmp/lxc-metrics"
+        ],
+        "memory_limit": 50331648,
+        "nano_cpus": 200000000,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "exporter-pilot-624-node-cgroup",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          },
+          {
+            "source": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.sh",
+            "target": "/opt/pilot-node-cgroup.sh",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+          "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+          "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+          "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.sh": "a2481b0d3c2041e2516bedb7959c05e679be5aca672c1e5f814cc76648058af8"
+        }
+      },
+      {
+        "name": "cadvisor",
+        "id": "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af",
+        "running": true,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-02T16:04:39.364223922Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false"
+        ],
+        "memory_limit": 134217728,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-624-cadvisor-containerd",
+        "mounts": [
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          },
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+          "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+          "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+        }
+      },
+      {
+        "name": "cadvisor-phase4-624-rejected-1",
+        "id": "754e63551892651d1576466b264ceb01a825b98a732814015a01f71f15ef0e06",
+        "running": false,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-02T15:31:29.388027039Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false"
+        ],
+        "memory_limit": 134217728,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-624",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          },
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+          "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61"
+        }
+      },
+      {
+        "name": "node_exporter-phase4-624-rejected-2",
+        "id": "82ac3f6bfe1440ec87fc64015d6f83e2b46db17004e0632960d5b4430516f089",
+        "running": false,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started_at": "2026-11-02T15:39:03.230199202Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($|/)"
+        ],
+        "memory_limit": 50331648,
+        "nano_cpus": 200000000,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "exporter-pilot-624",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+          "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d"
+        }
+      },
+      {
+        "name": "cadvisor-pre-phase4-624",
+        "id": "5db0b97c7498faec8a3428c94888191ca6281e381c5274605fb6e945e1eb3c64",
+        "running": false,
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+        "started_at": "2026-11-02T16:04:35.409470205Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--housekeeping_interval=10s",
+          "--global_housekeeping_interval=30s",
+          "--docker_only=true",
+          "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "private",
+        "project": "cadvisor",
+        "mounts": [
+          {
+            "source": "/var/run",
+            "target": "/var/run",
+            "rw": true
+          },
+          {
+            "source": "/dev/disk",
+            "target": "/dev/disk",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+        }
+      }
+    ],
+    "626": [
+      {
+        "name": "cadvisor",
+        "id": "b2d16e00c7fbeeb82a358e0d76250fb761c9d07178fd851aa587c9b07703f3dc",
+        "running": true,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-02T19:07:07.130308945Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false"
+        ],
+        "memory_limit": 134217728,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-626-cadvisor-containerd",
+        "mounts": [
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          },
+          {
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+        }
+      },
+      {
+        "name": "node_exporter",
+        "id": "e28b5738a2683cd0765d16c2fd28c18173d0418aa5cee7cac5dfa8b632a06e00",
+        "running": true,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started_at": "2026-11-02T19:07:06.063620045Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($|/)",
+          "--no-collector.cpu",
+          "--collector.textfile.directory=/tmp/lxc-metrics"
+        ],
+        "memory_limit": 50331648,
+        "nano_cpus": 200000000,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "exporter-pilot-626-node-cgroup",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          },
+          {
+            "source": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.sh",
+            "target": "/opt/pilot-node-cgroup.sh",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.sh": "c16eb85760f18f471c01990b33627317c38ce0224f5ab28e5ebeab843960906c"
+        }
+      },
+      {
+        "name": "cadvisor-pre-phase4-626",
+        "id": "00346eb9dd36c892cc4a66d3bc718e10925f0240381c42416d4b5978c722004b",
+        "running": false,
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+        "started_at": "2026-11-02T19:06:58.955963561Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--housekeeping_interval=10s",
+          "--global_housekeeping_interval=30s",
+          "--docker_only=true",
+          "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "private",
+        "project": "cadvisor",
+        "mounts": [
+          {
+            "source": "/dev/disk",
+            "target": "/dev/disk",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/run",
+            "target": "/var/run",
+            "rw": true
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+        }
+      }
+    ],
+    "625": [
+      {
+        "name": "cadvisor",
+        "id": "a57b4fbae95ae07903990dda5973572fc8bd4a45ae260cd463792a8f53767841",
+        "running": true,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-02T19:18:00.541161415Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false"
+        ],
+        "memory_limit": 134217728,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-625-cadvisor-containerd",
+        "mounts": [
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          },
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          },
+          {
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+        }
+      },
+      {
+        "name": "node_exporter",
+        "id": "653eef29ec4bdc0ef8973e06a3204a305bc827869f0f8019b17623ddbb9503e4",
+        "running": true,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started_at": "2026-11-02T19:17:59.357856841Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($|/)",
+          "--no-collector.cpu",
+          "--collector.textfile.directory=/tmp/lxc-metrics"
+        ],
+        "memory_limit": 50331648,
+        "nano_cpus": 200000000,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "exporter-pilot-625-node-cgroup",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          },
+          {
+            "source": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.sh",
+            "target": "/opt/pilot-node-cgroup.sh",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+          "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.sh": "65916a334e7a5dbb0fd4c5185ffdb27425b592c46968a1e4546676c3c8d66f9c"
+        }
+      },
+      {
+        "name": "cadvisor-pre-phase4-625",
+        "id": "76a29d19db8fa24b1f91c7b5397e527ff426d720a8a797931e94cce9b115c402",
+        "running": false,
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+        "started_at": "2026-11-02T19:17:52.15992516Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--housekeeping_interval=10s",
+          "--global_housekeeping_interval=30s",
+          "--docker_only=true",
+          "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "private",
+        "project": "cadvisor",
+        "mounts": [
+          {
+            "source": "/dev/disk",
+            "target": "/dev/disk",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/run",
+            "target": "/var/run",
+            "rw": true
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+        }
+      }
+    ],
+    "613": [
+      {
+        "name": "cadvisor",
+        "id": "eb114f7ac1c01c7f7bb2498299809a79bd4b652d001d76a6d0bb6f80929cf4ef",
+        "running": true,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-02T21:15:00.726682648Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false"
+        ],
+        "memory_limit": 134217728,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-613-cadvisor-containerd",
+        "mounts": [
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+          "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+          "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+        }
+      },
+      {
+        "name": "node_exporter",
+        "id": "dcb0015377df0ce7242b71236e7574da279da6921462e037cfa366abfe811e09",
+        "running": true,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started_at": "2026-11-02T21:14:59.241278048Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($|/)",
+          "--no-collector.cpu",
+          "--collector.textfile.directory=/tmp/lxc-metrics"
+        ],
+        "memory_limit": 50331648,
+        "nano_cpus": 200000000,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "exporter-pilot-613-node-cgroup",
+        "mounts": [
+          {
+            "source": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.sh",
+            "target": "/opt/pilot-node-cgroup.sh",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+          "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+          "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+          "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.sh": "3abf15cc620ba953311f3010c539530ed547c11c99dd521478ab954a8d03f8ee"
+        }
+      },
+      {
+        "name": "node_exporter-pre-phase4-613",
+        "id": "1e5a52be483e7f3b9f29c4a2a74c32aaccb365acf5571d820d623581a1b6ad09",
+        "running": false,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter:latest",
+        "started_at": "2026-11-02T21:14:28.018241211Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "node-exporter",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/node-exporter/docker-compose.yml": "745cb89ccd097b68fe2b042bafecdf620a2e9f0f412dd9074eb37ea964a78d77"
+        }
+      },
+      {
+        "name": "cadvisor-pre-phase4-613",
+        "id": "6c181468f88ce28c244f0a853b4f73057a569b69f0e785040006a18f528917b8",
+        "running": false,
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+        "started_at": "2026-11-02T21:14:26.986311294Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--housekeeping_interval=10s",
+          "--global_housekeeping_interval=30s",
+          "--docker_only=true",
+          "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "private",
+        "project": "cadvisor",
+        "mounts": [
+          {
+            "source": "/dev/disk",
+            "target": "/dev/disk",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/run",
+            "target": "/var/run",
+            "rw": true
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+        }
+      }
+    ],
+    "621": [
+      {
+        "name": "cadvisor",
+        "id": "7e5ab08e74c153b975d2a8b0b9c1d0d978ac2545338cd24505e049b7da67cee5",
+        "running": true,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-02T22:38:28.725210725Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false"
+        ],
+        "memory_limit": 134217728,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-621-cadvisor-containerd",
+        "mounts": [
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          },
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+        }
+      },
+      {
+        "name": "node_exporter",
+        "id": "4667b7688ff67d5ff5e1cd54b703639cb3eb048364bac97ca2d6b0a9e90b0325",
+        "running": true,
+        "image": "sha256:d375b27b61ea3233524bb12ce5f2de05bdc80cbce4c6806a45617d4f5bc7b1b1",
+        "image_reference": "prom/node-exporter@sha256:d375b27b61ea3233524bb12ce5f2de05bdc80cbce4c6806a45617d4f5bc7b1b1",
+        "started_at": "2026-11-02T22:38:27.583853811Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($|/)",
+          "--no-collector.cpu",
+          "--collector.textfile.directory=/tmp/lxc-metrics"
+        ],
+        "memory_limit": 50331648,
+        "nano_cpus": 200000000,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "exporter-pilot-621-node-cgroup",
+        "mounts": [
+          {
+            "source": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.sh",
+            "target": "/opt/pilot-node-cgroup.sh",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.sh": "c66e49237172f2320853bc667153e2b5db69a6e4e3693259888b0eef115a729b"
+        }
+      },
+      {
+        "name": "node_exporter-pre-phase4-621",
+        "id": "648fd4d19de300038ee804741f9ef7170dbb7c109f645cd2dcb11af7effbe80e",
+        "running": false,
+        "image": "sha256:d375b27b61ea3233524bb12ce5f2de05bdc80cbce4c6806a45617d4f5bc7b1b1",
+        "image_reference": "prom/node-exporter:latest",
+        "started_at": "2026-11-02T22:36:58.675517981Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "node-exporter",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/node-exporter/docker-compose.yml": "745cb89ccd097b68fe2b042bafecdf620a2e9f0f412dd9074eb37ea964a78d77"
+        }
+      },
+      {
+        "name": "cadvisor-pre-phase4-621",
+        "id": "582a4733cd7bd22883118bdb8d65164b1873d1c9bc4ebc40562a0366faa161cc",
+        "running": false,
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+        "started_at": "2026-11-02T22:36:57.883479749Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--housekeeping_interval=10s",
+          "--global_housekeeping_interval=30s",
+          "--docker_only=true",
+          "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "private",
+        "project": "cadvisor",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/run",
+            "target": "/var/run",
+            "rw": true
+          },
+          {
+            "source": "/dev/disk",
+            "target": "/dev/disk",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+        }
+      }
+    ],
+    "620": [
+      {
+        "name": "cadvisor",
+        "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+        "running": true,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-02T23:05:48.683072376Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false"
+        ],
+        "memory_limit": 134217728,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-620-cadvisor-containerd",
+        "mounts": [
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          },
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+        }
+      },
+      {
+        "name": "node_exporter",
+        "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+        "running": true,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started_at": "2026-11-02T23:05:47.313931038Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($|/)",
+          "--no-collector.cpu",
+          "--collector.textfile.directory=/tmp/lxc-metrics"
+        ],
+        "memory_limit": 50331648,
+        "nano_cpus": 200000000,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "exporter-pilot-620-node-cgroup",
+        "mounts": [
+          {
+            "source": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.sh",
+            "target": "/opt/pilot-node-cgroup.sh",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.sh": "a8ef97c7b57942379c96ced167f1c19a84dc062b0149c6d2ecad33e9852c3be3"
+        }
+      },
+      {
+        "name": "cadvisor-pre-phase4-620",
+        "id": "d6171836b995f3ee98f6e4005b340f07cec100a91ebb684892d0e24293ae32d0",
+        "running": false,
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+        "started_at": "2026-11-02T22:49:53.639011761Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--housekeeping_interval=10s",
+          "--global_housekeeping_interval=30s",
+          "--docker_only=true",
+          "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "private",
+        "project": "cadvisor",
+        "mounts": [
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/run",
+            "target": "/var/run",
+            "rw": true
+          },
+          {
+            "source": "/dev/disk",
+            "target": "/dev/disk",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+        }
+      },
+      {
+        "name": "node_exporter-pre-phase4-620",
+        "id": "9e3a9bbe406e9ab4b9ef7f10aea2564fd5da1626aa0af1896fc111c565f6c99a",
+        "running": false,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter:latest",
+        "started_at": "2026-11-02T22:49:54.301907173Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "node-exporter",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/node-exporter/docker-compose.yml": "745cb89ccd097b68fe2b042bafecdf620a2e9f0f412dd9074eb37ea964a78d77"
+        }
+      }
+    ],
+    "619": [
+      {
+        "name": "cadvisor",
+        "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+        "running": true,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-03T08:22:06.8114351Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false"
+        ],
+        "memory_limit": 268435456,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-619-cadvisor-containerd-m256",
+        "mounts": [
+          {
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          },
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-limits.yml": "1c15f466c9fa05e4ebce0f835012d7dc3c6747079d8e012c0712031febb2c181",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+        }
+      },
+      {
+        "name": "cadvisor-phase4-619-rejected-1",
+        "id": "56dac09c5071da13d3281ea5449b44fabcc347d569b462934554a143566c0dd4",
+        "running": false,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-03T07:42:26.638794763Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false"
+        ],
+        "memory_limit": 134217728,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-619-cadvisor-containerd",
+        "mounts": [
+          {
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          },
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-limits.yml": "1c15f466c9fa05e4ebce0f835012d7dc3c6747079d8e012c0712031febb2c181",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+        }
+      },
+      {
+        "name": "node_exporter",
+        "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+        "running": true,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started_at": "2026-11-03T08:22:05.446450106Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($|/)",
+          "--no-collector.cpu",
+          "--collector.textfile.directory=/tmp/lxc-metrics"
+        ],
+        "memory_limit": 50331648,
+        "nano_cpus": 200000000,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "exporter-pilot-619-node-cgroup",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          },
+          {
+            "source": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.sh",
+            "target": "/opt/pilot-node-cgroup.sh",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.sh": "e4e03dae7a9dcf6700dff3d820335b071b88ce94d0191103c96cb1be736a7f2d"
+        }
+      },
+      {
+        "name": "cadvisor-pre-phase4-619",
+        "id": "0d9536b642e4c580ec4b281dd9fd98134497ef1228ccbf01f742040d9dd8dcf9",
+        "running": false,
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+        "started_at": "2026-11-03T08:21:57.103521572Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--housekeeping_interval=10s",
+          "--global_housekeeping_interval=30s",
+          "--docker_only=true",
+          "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "private",
+        "project": "cadvisor",
+        "mounts": [
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/run",
+            "target": "/var/run",
+            "rw": true
+          },
+          {
+            "source": "/dev/disk",
+            "target": "/dev/disk",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+        }
+      },
+      {
+        "name": "node_exporter-pre-phase4-619",
+        "id": "5b85a6c02c98ccf2ff56dded4a0d74b3f23588c1e03724951de76c53af32b437",
+        "running": false,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter:latest",
+        "started_at": "2026-11-03T08:21:57.858431131Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "node-exporter",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/node-exporter/docker-compose.yml": "745cb89ccd097b68fe2b042bafecdf620a2e9f0f412dd9074eb37ea964a78d77"
+        }
+      }
+    ],
+    "623": [
+      {
+        "name": "cadvisor",
+        "id": "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7",
+        "running": true,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-05T20:14:08.922260441Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false",
+          "--allow_dynamic_housekeeping=false",
+          "--max_housekeeping_interval=30s",
+          "--jitter_factor=0",
+          "--initial_splay_factor=0"
+        ],
+        "memory_limit": 134217728,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-623-cadvisor-containerd-cadence30",
+        "mounts": [
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          },
+          {
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor.yml": "271acec1c85ccdcc0393249fce94ebc23c597adee112b8389a999a5529430bce",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+        }
+      },
+      {
+        "name": "cadvisor-phase4-623-rejected-1",
+        "id": "db25b700488e8d35556eb43ebd5ee0082766ddc3b6f8b80443d9dc43e139dfea",
+        "running": false,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-03T08:41:38.214994875Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false"
+        ],
+        "memory_limit": 134217728,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-623-cadvisor-containerd",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          },
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          },
+          {
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor.yml": "271acec1c85ccdcc0393249fce94ebc23c597adee112b8389a999a5529430bce",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+        }
+      },
+      {
+        "name": "node_exporter",
+        "id": "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288",
+        "running": true,
+        "image": "sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+        "image_reference": "prom/node-exporter@sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+        "started_at": "2026-11-05T20:14:07.375961108Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($|/)",
+          "--no-collector.cpu",
+          "--collector.textfile.directory=/tmp/lxc-metrics"
+        ],
+        "memory_limit": 50331648,
+        "nano_cpus": 200000000,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "exporter-pilot-623-node-cgroup",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          },
+          {
+            "source": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-cgroup.sh",
+            "target": "/opt/pilot-node-cgroup.sh",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-cgroup.sh": "15edc9bd3761bcc05bed41e52a2c73a7b22e8a80f8515421f79d168eb56b2842"
+        }
+      },
+      {
+        "name": "cadvisor-pre-phase4-623",
+        "id": "e9b4d517eb3a58d267d1ee16acdcce35c92f39f3892f785b7e6a272cf03f7c50",
+        "running": false,
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+        "started_at": "2026-11-05T20:13:58.672039918Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--housekeeping_interval=10s",
+          "--global_housekeeping_interval=30s",
+          "--docker_only=true",
+          "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "private",
+        "project": "cadvisor",
+        "mounts": [
+          {
+            "source": "/dev/disk",
+            "target": "/dev/disk",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/run",
+            "target": "/var/run",
+            "rw": true
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+        }
+      },
+      {
+        "name": "node_exporter-pre-phase4-623",
+        "id": "ae2cf4ac1e2d9a52ec6c3895bc3e5fd0deb6a582236cd6a3ad3fb1aaabd37870",
+        "running": false,
+        "image": "sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+        "image_reference": "prom/node-exporter:latest",
+        "started_at": "2026-11-05T20:13:59.463039258Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "node-exporter",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/node-exporter/docker-compose.yml": "745cb89ccd097b68fe2b042bafecdf620a2e9f0f412dd9074eb37ea964a78d77"
+        }
+      }
+    ],
+    "617": [
+      {
+        "name": "cadvisor-phase4-617-held",
+        "id": "d0449dc592ae8eae9e1e2de6dffa93feb5ea07db7627a53b5ec49b91745a454d",
+        "running": false,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_reference": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started_at": "2026-11-05T20:30:10.003210194Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false",
+          "--allow_dynamic_housekeeping=false",
+          "--max_housekeeping_interval=30s",
+          "--jitter_factor=0",
+          "--initial_splay_factor=0"
+        ],
+        "memory_limit": 134217728,
+        "nano_cpus": 500000000,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "host",
+        "project": "exporter-pilot-617-cadvisor-containerd",
+        "mounts": [
+          {
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "rw": false
+          },
+          {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-617/cadvisor.yml": "271acec1c85ccdcc0393249fce94ebc23c597adee112b8389a999a5529430bce",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-617/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-617/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+        }
+      },
+      {
+        "name": "node_exporter-phase4-617-held",
+        "id": "5d4ec1ba054db1944f24cfefbedd3c4285dea3d6155b0afc7ba0841d8a9ba3b4",
+        "running": false,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started_at": "2026-11-05T20:30:08.284251015Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($|/)",
+          "--no-collector.cpu",
+          "--collector.textfile.directory=/tmp/lxc-metrics"
+        ],
+        "memory_limit": 50331648,
+        "nano_cpus": 200000000,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "exporter-pilot-617-node-cgroup",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          },
+          {
+            "source": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-617/node-cgroup.sh",
+            "target": "/opt/pilot-node-cgroup.sh",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-617/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-617/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-617/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+          "/opt/exporter-phase4-pilot/integration-20261102T223431Z-617/node-cgroup.sh": "d33a645c3e5a79c3f109e56c01eff1b7a4a4d3b90054b9c3ffbc595d9222668a"
+        }
+      },
+      {
+        "name": "node_exporter",
+        "id": "1ef621df6768c350ebe2b70e4de45ff4b1c188f911f18c5aff93d1ca6c1e01fc",
+        "running": true,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_reference": "prom/node-exporter:latest",
+        "started_at": "2026-11-05T20:53:58.82542601Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--path.rootfs=/host"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": false,
+        "pid_mode": "host",
+        "cgroupns": "private",
+        "project": "node-exporter",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "rw": false
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/node-exporter/docker-compose.yml": "745cb89ccd097b68fe2b042bafecdf620a2e9f0f412dd9074eb37ea964a78d77"
+        }
+      },
+      {
+        "name": "cadvisor",
+        "id": "e398529a1b27c141f02e943767283bb2d0e627278592afeebb6be9c054f73ced",
+        "running": true,
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+        "started_at": "2026-11-05T20:53:57.898880699Z",
+        "restarts": 0,
+        "oom_killed": false,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--housekeeping_interval=10s",
+          "--global_housekeeping_interval=30s",
+          "--docker_only=true",
+          "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+        ],
+        "memory_limit": 0,
+        "nano_cpus": 0,
+        "privileged": true,
+        "pid_mode": "",
+        "cgroupns": "private",
+        "project": "cadvisor",
+        "mounts": [
+          {
+            "source": "/dev/disk",
+            "target": "/dev/disk",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/run",
+            "target": "/var/run",
+            "rw": true
+          }
+        ],
+        "active_input_sha256": {
+          "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,341 @@
+{
+  "scope": "active exporter Compose and mounted cgroup collector files; no runtime writes",
+  "results": {
+    "624": [
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.sh",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-containerd.yml",
+        "matches_generated_repo_input": true
+      }
+    ],
+    "626": [
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.sh",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-containerd.yml",
+        "matches_generated_repo_input": true
+      }
+    ],
+    "625": [
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.sh",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-containerd.yml",
+        "matches_generated_repo_input": true
+      }
+    ],
+    "613": [
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.sh",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-containerd.yml",
+        "matches_generated_repo_input": true
+      }
+    ],
+    "621": [
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.sh",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-containerd.yml",
+        "matches_generated_repo_input": true
+      }
+    ],
+    "620": [
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.sh",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-containerd.yml",
+        "matches_generated_repo_input": true
+      }
+    ],
+    "619": [
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.sh",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-limits.yml",
+        "matches_generated_repo_input": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-containerd.yml",
+        "matches_generated_repo_input": true
+      }
+    ]
+  },
+  "all_match": true,
+  "legacy623": "Original Compose retained, not claimed corrected; private snapshot archives retained for byte-exact rollback.",
+  "monitoring_generated_files": {
+    "prometheus.yml": {
+      "expected_sha256": "4f83f9fd9bc78a38ff0660b86300037976ed5e0d528ff8edd9e05417dae2397f",
+      "actual_sha256": "4f83f9fd9bc78a38ff0660b86300037976ed5e0d528ff8edd9e05417dae2397f",
+      "match": true
+    },
+    "rules/blackbox-alerts.yml": {
+      "expected_sha256": "7ee7f53a62a8ae26ea0577504770c477c0500170baf0df4a7a4685731682cb45",
+      "actual_sha256": "7ee7f53a62a8ae26ea0577504770c477c0500170baf0df4a7a4685731682cb45",
+      "match": true
+    },
+    "rules/container-availability.yml": {
+      "expected_sha256": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "actual_sha256": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "match": true
+    },
+    "rules/container-restarts.yml": {
+      "expected_sha256": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "actual_sha256": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "match": true
+    },
+    "rules/infra-containers.yml": {
+      "expected_sha256": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "actual_sha256": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "match": true
+    },
+    "rules/infra-hosts.yml": {
+      "expected_sha256": "99fe345c80ed31fac07ddefa629b460f8300e41b4263120580acf708e962c54b",
+      "actual_sha256": "99fe345c80ed31fac07ddefa629b460f8300e41b4263120580acf708e962c54b",
+      "match": true
+    },
+    "rules/lxc-cpu-inventory.yml": {
+      "expected_sha256": "f96f7cff05a37ff49ad2ddee5362f65b7f912cec5a2808bb9f65ba6f94d15212",
+      "actual_sha256": "f96f7cff05a37ff49ad2ddee5362f65b7f912cec5a2808bb9f65ba6f94d15212",
+      "match": true
+    },
+    "rules/lxc-cpu-targets.yml": {
+      "expected_sha256": "50b6ff76f14288d44741b9840a36bd584626d82299120c79154f016ccb630e95",
+      "actual_sha256": "50b6ff76f14288d44741b9840a36bd584626d82299120c79154f016ccb630e95",
+      "match": true
+    },
+    "rules/lxc-cpu.yml": {
+      "expected_sha256": "6335496ad41ff6aeeeb9e445e0173b969d0178a5354b4a823cb923f57bdb1a96",
+      "actual_sha256": "6335496ad41ff6aeeeb9e445e0173b969d0178a5354b4a823cb923f57bdb1a96",
+      "match": true
+    },
+    "rules/monitoring-health.yml": {
+      "expected_sha256": "0284b9b902773753abf0b5f91e6695b781a4bb6333b0056f58e4b13b489e3ca6",
+      "actual_sha256": "0284b9b902773753abf0b5f91e6695b781a4bb6333b0056f58e4b13b489e3ca6",
+      "match": true
+    },
+    "targets/blackbox-collect.json": {
+      "expected_sha256": "9eef9c5ba7bb278d247ea2865213568a095a66304232fdf4af8a7132c05da425",
+      "actual_sha256": "9eef9c5ba7bb278d247ea2865213568a095a66304232fdf4af8a7132c05da425",
+      "match": true
+    },
+    "targets/blackbox-edge-collect.json": {
+      "expected_sha256": "100d94689ccfe59abc0ff4fe0c6e448761eef635d533c4da22825d27f45ee939",
+      "actual_sha256": "100d94689ccfe59abc0ff4fe0c6e448761eef635d533c4da22825d27f45ee939",
+      "match": true
+    },
+    "targets/blackbox-edge-external.json": {
+      "expected_sha256": "10a68a01f9d1d8c4cfee978b726d022067b40483a2e542b6cc93efab06227b77",
+      "actual_sha256": "10a68a01f9d1d8c4cfee978b726d022067b40483a2e542b6cc93efab06227b77",
+      "match": true
+    },
+    "targets/blackbox-edge-mailerblend-collect.json": {
+      "expected_sha256": "0d35aac677aafc303bafe28aa3fbc492658783a52042614c2005fa455183cc0b",
+      "actual_sha256": "0d35aac677aafc303bafe28aa3fbc492658783a52042614c2005fa455183cc0b",
+      "match": true
+    },
+    "targets/blackbox-edge-nucleotecnologico.json": {
+      "expected_sha256": "56679e973b4a707ba120f7457e0bf8738575a48f66a21b799186b3b6af0f14cd",
+      "actual_sha256": "56679e973b4a707ba120f7457e0bf8738575a48f66a21b799186b3b6af0f14cd",
+      "match": true
+    },
+    "targets/blackbox-http.json": {
+      "expected_sha256": "9729d58915a3ddcdb435a2e091429c959c256190fce28f831bff6a65201b4981",
+      "actual_sha256": "9729d58915a3ddcdb435a2e091429c959c256190fce28f831bff6a65201b4981",
+      "match": true
+    },
+    "targets/blackbox-infra-doc.json": {
+      "expected_sha256": "c968841c9e155eb302b08e187330a582f6047e3869f09eb801ba98e1b089d0b4",
+      "actual_sha256": "c968841c9e155eb302b08e187330a582f6047e3869f09eb801ba98e1b089d0b4",
+      "match": true
+    },
+    "targets/blackbox-infra-svc01.json": {
+      "expected_sha256": "f3b527a99b7db676a54995b55ee64c46e55c3be547d8f16447cebf12d8511406",
+      "actual_sha256": "f3b527a99b7db676a54995b55ee64c46e55c3be547d8f16447cebf12d8511406",
+      "match": true
+    },
+    "targets/blackbox-internal-critical.json": {
+      "expected_sha256": "585b4bcc6a4ecedbad197f0dda5bd7a26396263442346e709213b958bd78240b",
+      "actual_sha256": "585b4bcc6a4ecedbad197f0dda5bd7a26396263442346e709213b958bd78240b",
+      "match": true
+    },
+    "targets/blackbox-internet.json": {
+      "expected_sha256": "c3be69eabea61634cff6c1a6959ff761c313324de688414c10af7c57a546e287",
+      "actual_sha256": "c3be69eabea61634cff6c1a6959ff761c313324de688414c10af7c57a546e287",
+      "match": true
+    },
+    "targets/blackbox.json": {
+      "expected_sha256": "94ef9374cd35e9dbda33796b312ab3798fdc5fe8e281b5fc6a6a846d58dbb9a9",
+      "actual_sha256": "94ef9374cd35e9dbda33796b312ab3798fdc5fe8e281b5fc6a6a846d58dbb9a9",
+      "match": true
+    },
+    "targets/cadvisor.json": {
+      "expected_sha256": "3c129db80a3d63bfd2a6f6cef96c72f8bdc3aa29d6d6f879812a9779523de9f3",
+      "actual_sha256": "3c129db80a3d63bfd2a6f6cef96c72f8bdc3aa29d6d6f879812a9779523de9f3",
+      "match": true
+    },
+    "targets/grafana.json": {
+      "expected_sha256": "69145575e32a4351df775028c9cecf023dfe7b5e11e4eb43bdd8e633372bdfb6",
+      "actual_sha256": "69145575e32a4351df775028c9cecf023dfe7b5e11e4eb43bdd8e633372bdfb6",
+      "match": true
+    },
+    "targets/node-exporter.json": {
+      "expected_sha256": "9e3d2a8b10e6175f4d15bb7367e614a2b9a4f9b354db0f144b5a96c1c2bdf96d",
+      "actual_sha256": "9e3d2a8b10e6175f4d15bb7367e614a2b9a4f9b354db0f144b5a96c1c2bdf96d",
+      "match": true
+    }
+  },
+  "monitoring_all_match": true,
+  "monitoring_inputs": "Versioned generator, registry and preserved private baseline623 including secrets; no temporary verification rule. No new snapshot, reload or writes on CT610."
+}

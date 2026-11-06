@@ -1,0 +1,4161 @@
+{
+  "mode": "read-only",
+  "accepted_cts": [
+    624,
+    626,
+    625,
+    613,
+    621,
+    620,
+    619,
+    623
+  ],
+  "checked_cts": [
+    624,
+    626,
+    625,
+    613,
+    621,
+    620,
+    619,
+    623
+  ],
+  "observed_at_utc": "2026-11-06T15:09:40.842864+00:00",
+  "results": [
+    {
+      "result": "PASS",
+      "ct": 626,
+      "source_freshness_errors": [],
+      "measurement_scope": "infra-journal-api|cgroup:[4026538505]",
+      "alignment_compatibility_passed": true,
+      "observed_at": 1793977648.967477,
+      "seconds": 130,
+      "valid_samples": 17,
+      "container_count": 4,
+      "containers_unchanged": true,
+      "node_before": {
+        "total_memory_bytes": 2147483648,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 1.760627269744873,
+        "native_cpu_series": 0
+      },
+      "node_after": {
+        "total_memory_bytes": 2147483648,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 1.9654407501220703,
+        "native_cpu_series": 0
+      },
+      "input_sha256": {
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.sh": "c16eb85760f18f471c01990b33627317c38ce0224f5ab28e5ebeab843960906c"
+      },
+      "cpu_window_seconds": {
+        "b2d16e00c7fbeeb82a358e0d76250fb761c9d07178fd851aa587c9b07703f3dc": 47.77499985694885,
+        "e28b5738a2683cd0765d16c2fd28c18173d0418aa5cee7cac5dfa8b632a06e00": 111.19900012016296,
+        "d5e15cd5730f21c7477a266510831dbe4b828ac6a1f7a454110d1253261dfd11": 91.34999990463257,
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": 86.54900002479553
+      },
+      "timestamp_fractional_widths_observed": {
+        "8": 98,
+        "9": 927,
+        "7": 15
+      },
+      "last_cpu_alignment": {
+        "b2d16e00c7fbeeb82a358e0d76250fb761c9d07178fd851aa587c9b07703f3dc": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T19:07:07.130308945Z",
+          "time": 1793977609.573,
+          "cadvisor_seconds": 548.878963,
+          "docker_seconds": 548.8793418236372,
+          "cgroup_seconds": 548.8793418236372,
+          "bounds": {
+            "docker_seconds": [
+              548.878821,
+              548.879991
+            ],
+            "cgroup_seconds": [
+              548.878821,
+              548.879991
+            ]
+          },
+          "measurement_scope": "infra-journal-api|cgroup:[4026538505]"
+        },
+        "e28b5738a2683cd0765d16c2fd28c18173d0418aa5cee7cac5dfa8b632a06e00": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T19:07:06.063620045Z",
+          "time": 1793977640.523,
+          "cadvisor_seconds": 592.742257,
+          "docker_seconds": 592.742257,
+          "cgroup_seconds": 592.742257,
+          "bounds": {
+            "docker_seconds": [
+              592.742257,
+              592.742257
+            ],
+            "cgroup_seconds": [
+              592.742257,
+              592.742257
+            ]
+          },
+          "measurement_scope": "infra-journal-api|cgroup:[4026538505]"
+        },
+        "d5e15cd5730f21c7477a266510831dbe4b828ac6a1f7a454110d1253261dfd11": {
+          "name": "infra-journal-api-api-1",
+          "started_at": "2026-09-17T20:45:28.159070271Z",
+          "time": 1793977626.415,
+          "cadvisor_seconds": 49.667186,
+          "docker_seconds": 49.667186,
+          "cgroup_seconds": 49.667186,
+          "bounds": {
+            "docker_seconds": [
+              49.667186,
+              49.667186
+            ],
+            "cgroup_seconds": [
+              49.667186,
+              49.667186
+            ]
+          },
+          "measurement_scope": "infra-journal-api|cgroup:[4026538505]"
+        },
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": {
+          "name": "test-nginx",
+          "started_at": "2026-09-17T20:45:28.174931898Z",
+          "time": 1793977634.628,
+          "cadvisor_seconds": 0.063738,
+          "docker_seconds": 0.063738,
+          "cgroup_seconds": 0.063738,
+          "bounds": {
+            "docker_seconds": [
+              0.063738,
+              0.063738
+            ],
+            "cgroup_seconds": [
+              0.063738,
+              0.063738
+            ]
+          },
+          "measurement_scope": "infra-journal-api|cgroup:[4026538505]"
+        }
+      },
+      "last_memory_alignment": {
+        "b2d16e00c7fbeeb82a358e0d76250fb761c9d07178fd851aa587c9b07703f3dc": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T19:07:07.130308945Z",
+          "time": 1793977609.573,
+          "cadvisor_bytes": 21352448.0,
+          "bracket": [
+            {
+              "id": "b2d16e00c7fbeeb82a358e0d76250fb761c9d07178fd851aa587c9b07703f3dc",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T19:07:07.130308945Z",
+              "time": 1793977609.350189,
+              "request_before": 1793977609.349067,
+              "request_after": 1793977609.3525789,
+              "measurement_scope": "infra-journal-api|cgroup:[4026538505]",
+              "docker_bytes": 21090304,
+              "cgroup_before": 21090304,
+              "cgroup_after": 21090304,
+              "stat_before": {
+                "anon": 12627968,
+                "file": 5283840,
+                "kernel": 3166208,
+                "shmem": 0,
+                "inactive_file": 3686400,
+                "active_file": 1597440,
+                "slab_reclaimable": 2434040,
+                "slab_unreclaimable": 327880
+              },
+              "stat_after": {
+                "anon": 12627968,
+                "file": 5283840,
+                "kernel": 3166208,
+                "shmem": 0,
+                "inactive_file": 3686400,
+                "active_file": 1597440,
+                "slab_reclaimable": 2434040,
+                "slab_unreclaimable": 327880
+              },
+              "docker_stat": {
+                "active_file": 1597440,
+                "anon": 12627968,
+                "file": 5283840,
+                "inactive_file": 3686400,
+                "shmem": 0,
+                "slab_reclaimable": 2434040,
+                "slab_unreclaimable": 327880
+              }
+            },
+            {
+              "id": "b2d16e00c7fbeeb82a358e0d76250fb761c9d07178fd851aa587c9b07703f3dc",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T19:07:07.130308945Z",
+              "time": 1793977609.850721,
+              "request_before": 1793977609.8496482,
+              "request_after": 1793977609.85284,
+              "measurement_scope": "infra-journal-api|cgroup:[4026538505]",
+              "docker_bytes": 21245952,
+              "cgroup_before": 21245952,
+              "cgroup_after": 21245952,
+              "stat_before": {
+                "anon": 12783616,
+                "file": 5283840,
+                "kernel": 3166208,
+                "shmem": 0,
+                "inactive_file": 3686400,
+                "active_file": 1597440,
+                "slab_reclaimable": 2434040,
+                "slab_unreclaimable": 327880
+              },
+              "stat_after": {
+                "anon": 12783616,
+                "file": 5283840,
+                "kernel": 3166208,
+                "shmem": 0,
+                "inactive_file": 3686400,
+                "active_file": 1597440,
+                "slab_reclaimable": 2434040,
+                "slab_unreclaimable": 327880
+              },
+              "docker_stat": {
+                "active_file": 1597440,
+                "anon": 12783616,
+                "file": 5283840,
+                "inactive_file": 3686400,
+                "shmem": 0,
+                "slab_reclaimable": 2434040,
+                "slab_unreclaimable": 327880
+              }
+            }
+          ]
+        },
+        "e28b5738a2683cd0765d16c2fd28c18173d0418aa5cee7cac5dfa8b632a06e00": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T19:07:06.063620045Z",
+          "time": 1793977640.523,
+          "cadvisor_bytes": 12271616.0,
+          "bracket": [
+            {
+              "id": "e28b5738a2683cd0765d16c2fd28c18173d0418aa5cee7cac5dfa8b632a06e00",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T19:07:06.063620045Z",
+              "time": 1793977640.387668,
+              "request_before": 1793977640.3869631,
+              "request_after": 1793977640.3896224,
+              "measurement_scope": "infra-journal-api|cgroup:[4026538505]",
+              "docker_bytes": 12271616,
+              "cgroup_before": 12271616,
+              "cgroup_after": 12271616,
+              "stat_before": {
+                "anon": 9609216,
+                "file": 1392640,
+                "kernel": 1200128,
+                "shmem": 0,
+                "inactive_file": 655360,
+                "active_file": 737280,
+                "slab_reclaimable": 555736,
+                "slab_unreclaimable": 268136
+              },
+              "stat_after": {
+                "anon": 9609216,
+                "file": 1392640,
+                "kernel": 1200128,
+                "shmem": 0,
+                "inactive_file": 655360,
+                "active_file": 737280,
+                "slab_reclaimable": 555736,
+                "slab_unreclaimable": 268136
+              },
+              "docker_stat": {
+                "active_file": 737280,
+                "anon": 9609216,
+                "file": 1392640,
+                "inactive_file": 655360,
+                "shmem": 0,
+                "slab_reclaimable": 555736,
+                "slab_unreclaimable": 268136
+              }
+            },
+            {
+              "id": "e28b5738a2683cd0765d16c2fd28c18173d0418aa5cee7cac5dfa8b632a06e00",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T19:07:06.063620045Z",
+              "time": 1793977640.885724,
+              "request_before": 1793977640.8849409,
+              "request_after": 1793977640.8905046,
+              "measurement_scope": "infra-journal-api|cgroup:[4026538505]",
+              "docker_bytes": 12271616,
+              "cgroup_before": 12271616,
+              "cgroup_after": 12271616,
+              "stat_before": {
+                "anon": 9609216,
+                "file": 1392640,
+                "kernel": 1200128,
+                "shmem": 0,
+                "inactive_file": 655360,
+                "active_file": 737280,
+                "slab_reclaimable": 555736,
+                "slab_unreclaimable": 268136
+              },
+              "stat_after": {
+                "anon": 9609216,
+                "file": 1392640,
+                "kernel": 1200128,
+                "shmem": 0,
+                "inactive_file": 655360,
+                "active_file": 737280,
+                "slab_reclaimable": 555736,
+                "slab_unreclaimable": 268136
+              },
+              "docker_stat": {
+                "active_file": 737280,
+                "anon": 9609216,
+                "file": 1392640,
+                "inactive_file": 655360,
+                "shmem": 0,
+                "slab_reclaimable": 555736,
+                "slab_unreclaimable": 268136
+              }
+            }
+          ]
+        },
+        "d5e15cd5730f21c7477a266510831dbe4b828ac6a1f7a454110d1253261dfd11": {
+          "name": "infra-journal-api-api-1",
+          "started_at": "2026-09-17T20:45:28.159070271Z",
+          "time": 1793977626.415,
+          "cadvisor_bytes": 61562880.0,
+          "bracket": [
+            {
+              "id": "d5e15cd5730f21c7477a266510831dbe4b828ac6a1f7a454110d1253261dfd11",
+              "name": "infra-journal-api-api-1",
+              "started_at": "2026-09-17T20:45:28.159070271Z",
+              "time": 1793977626.372435,
+              "request_before": 1793977626.3716526,
+              "request_after": 1793977626.3744497,
+              "measurement_scope": "infra-journal-api|cgroup:[4026538505]",
+              "docker_bytes": 61562880,
+              "cgroup_before": 61562880,
+              "cgroup_after": 61562880,
+              "stat_before": {
+                "anon": 42496000,
+                "file": 16093184,
+                "kernel": 2809856,
+                "shmem": 0,
+                "inactive_file": 5881856,
+                "active_file": 10211328,
+                "slab_reclaimable": 425528,
+                "slab_unreclaimable": 380248
+              },
+              "stat_after": {
+                "anon": 42496000,
+                "file": 16093184,
+                "kernel": 2809856,
+                "shmem": 0,
+                "inactive_file": 5881856,
+                "active_file": 10211328,
+                "slab_reclaimable": 425528,
+                "slab_unreclaimable": 380248
+              },
+              "docker_stat": {
+                "active_file": 10211328,
+                "anon": 42496000,
+                "file": 16093184,
+                "inactive_file": 5881856,
+                "shmem": 0,
+                "slab_reclaimable": 425528,
+                "slab_unreclaimable": 380248
+              }
+            },
+            {
+              "id": "d5e15cd5730f21c7477a266510831dbe4b828ac6a1f7a454110d1253261dfd11",
+              "name": "infra-journal-api-api-1",
+              "started_at": "2026-09-17T20:45:28.159070271Z",
+              "time": 1793977626.872938,
+              "request_before": 1793977626.872229,
+              "request_after": 1793977626.8750062,
+              "measurement_scope": "infra-journal-api|cgroup:[4026538505]",
+              "docker_bytes": 61562880,
+              "cgroup_before": 61562880,
+              "cgroup_after": 61562880,
+              "stat_before": {
+                "anon": 42496000,
+                "file": 16093184,
+                "kernel": 2809856,
+                "shmem": 0,
+                "inactive_file": 5881856,
+                "active_file": 10211328,
+                "slab_reclaimable": 425528,
+                "slab_unreclaimable": 380248
+              },
+              "stat_after": {
+                "anon": 42496000,
+                "file": 16093184,
+                "kernel": 2809856,
+                "shmem": 0,
+                "inactive_file": 5881856,
+                "active_file": 10211328,
+                "slab_reclaimable": 425528,
+                "slab_unreclaimable": 380248
+              },
+              "docker_stat": {
+                "active_file": 10211328,
+                "anon": 42496000,
+                "file": 16093184,
+                "inactive_file": 5881856,
+                "shmem": 0,
+                "slab_reclaimable": 425528,
+                "slab_unreclaimable": 380248
+              }
+            }
+          ]
+        },
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": {
+          "name": "test-nginx",
+          "started_at": "2026-09-17T20:45:28.174931898Z",
+          "time": 1793977634.628,
+          "cadvisor_bytes": 737280.0,
+          "bracket": [
+            {
+              "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+              "name": "test-nginx",
+              "started_at": "2026-09-17T20:45:28.174931898Z",
+              "time": 1793977634.388421,
+              "request_before": 1793977634.3876104,
+              "request_after": 1793977634.3925605,
+              "measurement_scope": "infra-journal-api|cgroup:[4026538505]",
+              "docker_bytes": 737280,
+              "cgroup_before": 737280,
+              "cgroup_after": 737280,
+              "stat_before": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 716800,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 201064,
+                "slab_unreclaimable": 234640
+              },
+              "stat_after": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 716800,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 201064,
+                "slab_unreclaimable": 234640
+              },
+              "docker_stat": {
+                "active_file": 0,
+                "anon": 12288,
+                "file": 8192,
+                "inactive_file": 8192,
+                "shmem": 0,
+                "slab_reclaimable": 201064,
+                "slab_unreclaimable": 234640
+              }
+            },
+            {
+              "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+              "name": "test-nginx",
+              "started_at": "2026-09-17T20:45:28.174931898Z",
+              "time": 1793977634.884781,
+              "request_before": 1793977634.8839822,
+              "request_after": 1793977634.8867333,
+              "measurement_scope": "infra-journal-api|cgroup:[4026538505]",
+              "docker_bytes": 737280,
+              "cgroup_before": 737280,
+              "cgroup_after": 737280,
+              "stat_before": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 716800,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 201064,
+                "slab_unreclaimable": 234640
+              },
+              "stat_after": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 716800,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 201064,
+                "slab_unreclaimable": 234640
+              },
+              "docker_stat": {
+                "active_file": 0,
+                "anon": 12288,
+                "file": 8192,
+                "inactive_file": 8192,
+                "shmem": 0,
+                "slab_reclaimable": 201064,
+                "slab_unreclaimable": 234640
+              }
+            }
+          ]
+        }
+      },
+      "runtime": {
+        "cadvisor": {
+          "id": "b2d16e00c7fbeeb82a358e0d76250fb761c9d07178fd851aa587c9b07703f3dc",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T19:07:07.130308945Z",
+          "running": true,
+          "restarts": 0
+        },
+        "node_exporter": {
+          "id": "e28b5738a2683cd0765d16c2fd28c18173d0418aa5cee7cac5dfa8b632a06e00",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T19:07:06.063620045Z",
+          "running": true,
+          "restarts": 0
+        },
+        "infra-journal-api-api-1": {
+          "id": "d5e15cd5730f21c7477a266510831dbe4b828ac6a1f7a454110d1253261dfd11",
+          "image": "sha256:65da103fc1ea2c256eaea873a27bb240ee9e5c06826d547b510fa8ca6928508a",
+          "started_at": "2026-09-17T20:45:28.159070271Z",
+          "running": true,
+          "restarts": 0
+        },
+        "cadvisor-pre-phase4-626": {
+          "id": "00346eb9dd36c892cc4a66d3bc718e10925f0240381c42416d4b5978c722004b",
+          "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+          "started_at": "2026-11-02T19:06:58.955963561Z",
+          "running": false,
+          "restarts": 0
+        },
+        "test-nginx": {
+          "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+          "image": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+          "started_at": "2026-09-17T20:45:28.174931898Z",
+          "running": true,
+          "restarts": 0
+        }
+      },
+      "remote_files_written": false,
+      "deployment_or_restart_performed": false
+    },
+    {
+      "result": "PASS",
+      "ct": 613,
+      "source_freshness_errors": [],
+      "measurement_scope": "infra-hola|cgroup:[4026532987]",
+      "alignment_compatibility_passed": true,
+      "observed_at": 1793977649.0765762,
+      "seconds": 130,
+      "valid_samples": 19,
+      "container_count": 2,
+      "containers_unchanged": true,
+      "node_before": {
+        "total_memory_bytes": 536870912,
+        "capacity_cores": 1,
+        "cpu_collector_age_seconds": 0.7546052932739258,
+        "native_cpu_series": 0
+      },
+      "node_after": {
+        "total_memory_bytes": 536870912,
+        "capacity_cores": 1,
+        "cpu_collector_age_seconds": 1.073625087738037,
+        "native_cpu_series": 0
+      },
+      "input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.sh": "3abf15cc620ba953311f3010c539530ed547c11c99dd521478ab954a8d03f8ee"
+      },
+      "cpu_window_seconds": {
+        "eb114f7ac1c01c7f7bb2498299809a79bd4b652d001d76a6d0bb6f80929cf4ef": 91.78399991989136,
+        "dcb0015377df0ce7242b71236e7574da279da6921462e037cfa366abfe811e09": 90.05800008773804
+      },
+      "timestamp_fractional_widths_observed": {
+        "9": 466,
+        "8": 50,
+        "7": 4
+      },
+      "last_cpu_alignment": {
+        "eb114f7ac1c01c7f7bb2498299809a79bd4b652d001d76a6d0bb6f80929cf4ef": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T21:15:00.726682648Z",
+          "time": 1793977617.656,
+          "cadvisor_seconds": 213.849407,
+          "docker_seconds": 213.84987046576185,
+          "cgroup_seconds": 213.84987046576185,
+          "bounds": {
+            "docker_seconds": [
+              213.849116,
+              213.850384
+            ],
+            "cgroup_seconds": [
+              213.849116,
+              213.850384
+            ]
+          },
+          "measurement_scope": "infra-hola|cgroup:[4026532987]"
+        },
+        "dcb0015377df0ce7242b71236e7574da279da6921462e037cfa366abfe811e09": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T21:14:59.241278048Z",
+          "time": 1793977640.832,
+          "cadvisor_seconds": 534.776926,
+          "docker_seconds": 534.776926,
+          "cgroup_seconds": 534.776926,
+          "bounds": {
+            "docker_seconds": [
+              534.776926,
+              534.776926
+            ],
+            "cgroup_seconds": [
+              534.776926,
+              534.776926
+            ]
+          },
+          "measurement_scope": "infra-hola|cgroup:[4026532987]"
+        }
+      },
+      "last_memory_alignment": {
+        "eb114f7ac1c01c7f7bb2498299809a79bd4b652d001d76a6d0bb6f80929cf4ef": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T21:15:00.726682648Z",
+          "time": 1793977617.656,
+          "cadvisor_bytes": 19980288.0,
+          "bracket": [
+            {
+              "id": "eb114f7ac1c01c7f7bb2498299809a79bd4b652d001d76a6d0bb6f80929cf4ef",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T21:15:00.726682648Z",
+              "time": 1793977617.358328,
+              "request_before": 1793977617.3575315,
+              "request_after": 1793977617.3609927,
+              "measurement_scope": "infra-hola|cgroup:[4026532987]",
+              "docker_bytes": 19718144,
+              "cgroup_before": 19718144,
+              "cgroup_after": 19718144,
+              "stat_before": {
+                "anon": 12800000,
+                "file": 3670016,
+                "kernel": 3006464,
+                "shmem": 0,
+                "inactive_file": 2834432,
+                "active_file": 835584,
+                "slab_reclaimable": 2357216,
+                "slab_unreclaimable": 296768
+              },
+              "stat_after": {
+                "anon": 12800000,
+                "file": 3670016,
+                "kernel": 3006464,
+                "shmem": 0,
+                "inactive_file": 2834432,
+                "active_file": 835584,
+                "slab_reclaimable": 2357216,
+                "slab_unreclaimable": 296768
+              },
+              "docker_stat": {
+                "active_file": 835584,
+                "anon": 12800000,
+                "file": 3670016,
+                "inactive_file": 2834432,
+                "shmem": 0,
+                "slab_reclaimable": 2357216,
+                "slab_unreclaimable": 296768
+              }
+            },
+            {
+              "id": "eb114f7ac1c01c7f7bb2498299809a79bd4b652d001d76a6d0bb6f80929cf4ef",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T21:15:00.726682648Z",
+              "time": 1793977617.858613,
+              "request_before": 1793977617.8577986,
+              "request_after": 1793977617.861222,
+              "measurement_scope": "infra-hola|cgroup:[4026532987]",
+              "docker_bytes": 19787776,
+              "cgroup_before": 19787776,
+              "cgroup_after": 19787776,
+              "stat_before": {
+                "anon": 12865536,
+                "file": 3670016,
+                "kernel": 3010560,
+                "shmem": 0,
+                "inactive_file": 2834432,
+                "active_file": 835584,
+                "slab_reclaimable": 2358256,
+                "slab_unreclaimable": 299328
+              },
+              "stat_after": {
+                "anon": 12865536,
+                "file": 3670016,
+                "kernel": 3010560,
+                "shmem": 0,
+                "inactive_file": 2834432,
+                "active_file": 835584,
+                "slab_reclaimable": 2358256,
+                "slab_unreclaimable": 299328
+              },
+              "docker_stat": {
+                "active_file": 835584,
+                "anon": 12865536,
+                "file": 3670016,
+                "inactive_file": 2834432,
+                "shmem": 0,
+                "slab_reclaimable": 2358256,
+                "slab_unreclaimable": 299328
+              }
+            }
+          ]
+        },
+        "dcb0015377df0ce7242b71236e7574da279da6921462e037cfa366abfe811e09": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T21:14:59.241278048Z",
+          "time": 1793977640.832,
+          "cadvisor_bytes": 14958592.0,
+          "bracket": [
+            {
+              "id": "dcb0015377df0ce7242b71236e7574da279da6921462e037cfa366abfe811e09",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T21:14:59.241278048Z",
+              "time": 1793977640.387239,
+              "request_before": 1793977640.385357,
+              "request_after": 1793977640.3908448,
+              "measurement_scope": "infra-hola|cgroup:[4026532987]",
+              "docker_bytes": 14958592,
+              "cgroup_before": 14958592,
+              "cgroup_after": 14958592,
+              "stat_before": {
+                "anon": 9338880,
+                "file": 3940352,
+                "kernel": 1601536,
+                "shmem": 0,
+                "inactive_file": 3805184,
+                "active_file": 135168,
+                "slab_reclaimable": 941416,
+                "slab_unreclaimable": 277208
+              },
+              "stat_after": {
+                "anon": 9338880,
+                "file": 3940352,
+                "kernel": 1601536,
+                "shmem": 0,
+                "inactive_file": 3805184,
+                "active_file": 135168,
+                "slab_reclaimable": 941416,
+                "slab_unreclaimable": 277208
+              },
+              "docker_stat": {
+                "active_file": 135168,
+                "anon": 9338880,
+                "file": 3940352,
+                "inactive_file": 3805184,
+                "shmem": 0,
+                "slab_reclaimable": 941416,
+                "slab_unreclaimable": 277208
+              }
+            },
+            {
+              "id": "dcb0015377df0ce7242b71236e7574da279da6921462e037cfa366abfe811e09",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T21:14:59.241278048Z",
+              "time": 1793977640.886182,
+              "request_before": 1793977640.885484,
+              "request_after": 1793977640.8901138,
+              "measurement_scope": "infra-hola|cgroup:[4026532987]",
+              "docker_bytes": 14958592,
+              "cgroup_before": 14958592,
+              "cgroup_after": 14958592,
+              "stat_before": {
+                "anon": 9338880,
+                "file": 3940352,
+                "kernel": 1601536,
+                "shmem": 0,
+                "inactive_file": 3805184,
+                "active_file": 135168,
+                "slab_reclaimable": 941416,
+                "slab_unreclaimable": 277208
+              },
+              "stat_after": {
+                "anon": 9338880,
+                "file": 3940352,
+                "kernel": 1601536,
+                "shmem": 0,
+                "inactive_file": 3805184,
+                "active_file": 135168,
+                "slab_reclaimable": 941416,
+                "slab_unreclaimable": 277208
+              },
+              "docker_stat": {
+                "active_file": 135168,
+                "anon": 9338880,
+                "file": 3940352,
+                "inactive_file": 3805184,
+                "shmem": 0,
+                "slab_reclaimable": 941416,
+                "slab_unreclaimable": 277208
+              }
+            }
+          ]
+        }
+      },
+      "runtime": {
+        "cadvisor": {
+          "id": "eb114f7ac1c01c7f7bb2498299809a79bd4b652d001d76a6d0bb6f80929cf4ef",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T21:15:00.726682648Z",
+          "running": true,
+          "restarts": 0
+        },
+        "node_exporter": {
+          "id": "dcb0015377df0ce7242b71236e7574da279da6921462e037cfa366abfe811e09",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T21:14:59.241278048Z",
+          "running": true,
+          "restarts": 0
+        },
+        "node_exporter-pre-phase4-613": {
+          "id": "1e5a52be483e7f3b9f29c4a2a74c32aaccb365acf5571d820d623581a1b6ad09",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T21:14:28.018241211Z",
+          "running": false,
+          "restarts": 0
+        },
+        "cadvisor-pre-phase4-613": {
+          "id": "6c181468f88ce28c244f0a853b4f73057a569b69f0e785040006a18f528917b8",
+          "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+          "started_at": "2026-11-02T21:14:26.986311294Z",
+          "running": false,
+          "restarts": 0
+        }
+      },
+      "remote_files_written": false,
+      "deployment_or_restart_performed": false
+    },
+    {
+      "result": "PASS",
+      "ct": 624,
+      "source_freshness_errors": [],
+      "measurement_scope": "infra-journal-web|cgroup:[4026537382]",
+      "alignment_compatibility_passed": true,
+      "observed_at": 1793977649.0858488,
+      "seconds": 130,
+      "valid_samples": 17,
+      "container_count": 4,
+      "containers_unchanged": true,
+      "node_before": {
+        "total_memory_bytes": 536870912,
+        "capacity_cores": 1,
+        "cpu_collector_age_seconds": 4.787458419799805,
+        "native_cpu_series": 0
+      },
+      "node_after": {
+        "total_memory_bytes": 536870912,
+        "capacity_cores": 1,
+        "cpu_collector_age_seconds": 5.083697557449341,
+        "native_cpu_series": 0
+      },
+      "input_sha256": {
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.sh": "a2481b0d3c2041e2516bedb7959c05e679be5aca672c1e5f814cc76648058af8",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      },
+      "cpu_window_seconds": {
+        "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757": 86.09500002861023,
+        "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af": 53.34400010108948,
+        "473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3": 84.69900012016296,
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": 39.65899991989136
+      },
+      "timestamp_fractional_widths_observed": {
+        "9": 936,
+        "8": 93,
+        "7": 10,
+        "6": 1
+      },
+      "last_cpu_alignment": {
+        "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T16:04:37.826058931Z",
+          "time": 1793977623.951,
+          "cadvisor_seconds": 581.785436,
+          "docker_seconds": 581.785436,
+          "cgroup_seconds": 581.785436,
+          "bounds": {
+            "docker_seconds": [
+              581.785436,
+              581.785436
+            ],
+            "cgroup_seconds": [
+              581.785436,
+              581.785436
+            ]
+          },
+          "measurement_scope": "infra-journal-web|cgroup:[4026537382]"
+        },
+        "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T16:04:39.364223922Z",
+          "time": 1793977616.002,
+          "cadvisor_seconds": 434.495702,
+          "docker_seconds": 434.4955496211683,
+          "cgroup_seconds": 434.4955496211683,
+          "bounds": {
+            "docker_seconds": [
+              434.495383,
+              434.496393
+            ],
+            "cgroup_seconds": [
+              434.495383,
+              434.496393
+            ]
+          },
+          "measurement_scope": "infra-journal-web|cgroup:[4026537382]"
+        },
+        "473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3": {
+          "name": "infra-journal-web-web-1",
+          "started_at": "2026-09-28T20:10:09.492274366Z",
+          "time": 1793977619.516,
+          "cadvisor_seconds": 4.159206,
+          "docker_seconds": 4.159206,
+          "cgroup_seconds": 4.159206,
+          "bounds": {
+            "docker_seconds": [
+              4.159206,
+              4.159206
+            ],
+            "cgroup_seconds": [
+              4.159206,
+              4.159206
+            ]
+          },
+          "measurement_scope": "infra-journal-web|cgroup:[4026537382]"
+        },
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": {
+          "name": "test-nginx",
+          "started_at": "2026-09-17T20:45:00.143855766Z",
+          "time": 1793977598.579,
+          "cadvisor_seconds": 0.061853,
+          "docker_seconds": 0.061853,
+          "cgroup_seconds": 0.061853,
+          "bounds": {
+            "docker_seconds": [
+              0.061853,
+              0.061853
+            ],
+            "cgroup_seconds": [
+              0.061853,
+              0.061853
+            ]
+          },
+          "measurement_scope": "infra-journal-web|cgroup:[4026537382]"
+        }
+      },
+      "last_memory_alignment": {
+        "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T16:04:37.826058931Z",
+          "time": 1793977623.951,
+          "cadvisor_bytes": 15863808.0,
+          "bracket": [
+            {
+              "id": "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T16:04:37.826058931Z",
+              "time": 1793977623.921724,
+              "request_before": 1793977623.920607,
+              "request_after": 1793977623.9273531,
+              "measurement_scope": "infra-journal-web|cgroup:[4026537382]",
+              "docker_bytes": 15863808,
+              "cgroup_before": 15863808,
+              "cgroup_after": 15863808,
+              "stat_before": {
+                "anon": 10137600,
+                "file": 4313088,
+                "kernel": 1380352,
+                "shmem": 0,
+                "inactive_file": 3268608,
+                "active_file": 1044480,
+                "slab_reclaimable": 658304,
+                "slab_unreclaimable": 299384
+              },
+              "stat_after": {
+                "anon": 10137600,
+                "file": 4313088,
+                "kernel": 1380352,
+                "shmem": 0,
+                "inactive_file": 3268608,
+                "active_file": 1044480,
+                "slab_reclaimable": 658304,
+                "slab_unreclaimable": 299384
+              },
+              "docker_stat": {
+                "active_file": 1044480,
+                "anon": 10137600,
+                "file": 4313088,
+                "inactive_file": 3268608,
+                "shmem": 0,
+                "slab_reclaimable": 658304,
+                "slab_unreclaimable": 299384
+              }
+            },
+            {
+              "id": "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T16:04:37.826058931Z",
+              "time": 1793977624.422018,
+              "request_before": 1793977624.4212346,
+              "request_after": 1793977624.4241657,
+              "measurement_scope": "infra-journal-web|cgroup:[4026537382]",
+              "docker_bytes": 15863808,
+              "cgroup_before": 15863808,
+              "cgroup_after": 15863808,
+              "stat_before": {
+                "anon": 10137600,
+                "file": 4313088,
+                "kernel": 1380352,
+                "shmem": 0,
+                "inactive_file": 3268608,
+                "active_file": 1044480,
+                "slab_reclaimable": 658304,
+                "slab_unreclaimable": 299384
+              },
+              "stat_after": {
+                "anon": 10137600,
+                "file": 4313088,
+                "kernel": 1380352,
+                "shmem": 0,
+                "inactive_file": 3268608,
+                "active_file": 1044480,
+                "slab_reclaimable": 658304,
+                "slab_unreclaimable": 299384
+              },
+              "docker_stat": {
+                "active_file": 1044480,
+                "anon": 10137600,
+                "file": 4313088,
+                "inactive_file": 3268608,
+                "shmem": 0,
+                "slab_reclaimable": 658304,
+                "slab_unreclaimable": 299384
+              }
+            }
+          ]
+        },
+        "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T16:04:39.364223922Z",
+          "time": 1793977616.002,
+          "cadvisor_bytes": 26832896.0,
+          "bracket": [
+            {
+              "id": "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T16:04:39.364223922Z",
+              "time": 1793977615.919722,
+              "request_before": 1793977615.9180462,
+              "request_after": 1793977615.9241815,
+              "measurement_scope": "infra-journal-web|cgroup:[4026537382]",
+              "docker_bytes": 26570752,
+              "cgroup_before": 26570752,
+              "cgroup_after": 26570752,
+              "stat_before": {
+                "anon": 12427264,
+                "file": 10973184,
+                "kernel": 3145728,
+                "shmem": 0,
+                "inactive_file": 9400320,
+                "active_file": 1572864,
+                "slab_reclaimable": 2458080,
+                "slab_unreclaimable": 315608
+              },
+              "stat_after": {
+                "anon": 12427264,
+                "file": 10973184,
+                "kernel": 3145728,
+                "shmem": 0,
+                "inactive_file": 9400320,
+                "active_file": 1572864,
+                "slab_reclaimable": 2458080,
+                "slab_unreclaimable": 315608
+              },
+              "docker_stat": {
+                "active_file": 1572864,
+                "anon": 12427264,
+                "file": 10973184,
+                "inactive_file": 9400320,
+                "shmem": 0,
+                "slab_reclaimable": 2458080,
+                "slab_unreclaimable": 315608
+              }
+            },
+            {
+              "id": "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T16:04:39.364223922Z",
+              "time": 1793977616.418463,
+              "request_before": 1793977616.4177666,
+              "request_after": 1793977616.420764,
+              "measurement_scope": "infra-journal-web|cgroup:[4026537382]",
+              "docker_bytes": 26570752,
+              "cgroup_before": 26570752,
+              "cgroup_after": 26570752,
+              "stat_before": {
+                "anon": 12427264,
+                "file": 10973184,
+                "kernel": 3145728,
+                "shmem": 0,
+                "inactive_file": 9400320,
+                "active_file": 1572864,
+                "slab_reclaimable": 2458080,
+                "slab_unreclaimable": 315608
+              },
+              "stat_after": {
+                "anon": 12427264,
+                "file": 10973184,
+                "kernel": 3145728,
+                "shmem": 0,
+                "inactive_file": 9400320,
+                "active_file": 1572864,
+                "slab_reclaimable": 2458080,
+                "slab_unreclaimable": 315608
+              },
+              "docker_stat": {
+                "active_file": 1572864,
+                "anon": 12427264,
+                "file": 10973184,
+                "inactive_file": 9400320,
+                "shmem": 0,
+                "slab_reclaimable": 2458080,
+                "slab_unreclaimable": 315608
+              }
+            }
+          ]
+        },
+        "473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3": {
+          "name": "infra-journal-web-web-1",
+          "started_at": "2026-09-28T20:10:09.492274366Z",
+          "time": 1793977619.516,
+          "cadvisor_bytes": 4628480.0,
+          "bracket": [
+            {
+              "id": "473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3",
+              "name": "infra-journal-web-web-1",
+              "started_at": "2026-09-28T20:10:09.492274366Z",
+              "time": 1793977619.423049,
+              "request_before": 1793977619.4224448,
+              "request_after": 1793977619.4251857,
+              "measurement_scope": "infra-journal-web|cgroup:[4026537382]",
+              "docker_bytes": 4628480,
+              "cgroup_before": 4628480,
+              "cgroup_after": 4628480,
+              "stat_before": {
+                "anon": 307200,
+                "file": 3293184,
+                "kernel": 978944,
+                "shmem": 4096,
+                "inactive_file": 2379776,
+                "active_file": 909312,
+                "slab_reclaimable": 586392,
+                "slab_unreclaimable": 200024
+              },
+              "stat_after": {
+                "anon": 307200,
+                "file": 3293184,
+                "kernel": 978944,
+                "shmem": 4096,
+                "inactive_file": 2379776,
+                "active_file": 909312,
+                "slab_reclaimable": 586392,
+                "slab_unreclaimable": 200024
+              },
+              "docker_stat": {
+                "active_file": 909312,
+                "anon": 307200,
+                "file": 3293184,
+                "inactive_file": 2379776,
+                "shmem": 4096,
+                "slab_reclaimable": 586392,
+                "slab_unreclaimable": 200024
+              }
+            },
+            {
+              "id": "473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3",
+              "name": "infra-journal-web-web-1",
+              "started_at": "2026-09-28T20:10:09.492274366Z",
+              "time": 1793977619.930638,
+              "request_before": 1793977619.9299786,
+              "request_after": 1793977619.9326422,
+              "measurement_scope": "infra-journal-web|cgroup:[4026537382]",
+              "docker_bytes": 4628480,
+              "cgroup_before": 4628480,
+              "cgroup_after": 4628480,
+              "stat_before": {
+                "anon": 307200,
+                "file": 3293184,
+                "kernel": 978944,
+                "shmem": 4096,
+                "inactive_file": 2379776,
+                "active_file": 909312,
+                "slab_reclaimable": 586392,
+                "slab_unreclaimable": 200024
+              },
+              "stat_after": {
+                "anon": 307200,
+                "file": 3293184,
+                "kernel": 978944,
+                "shmem": 4096,
+                "inactive_file": 2379776,
+                "active_file": 909312,
+                "slab_reclaimable": 586392,
+                "slab_unreclaimable": 200024
+              },
+              "docker_stat": {
+                "active_file": 909312,
+                "anon": 307200,
+                "file": 3293184,
+                "inactive_file": 2379776,
+                "shmem": 4096,
+                "slab_reclaimable": 586392,
+                "slab_unreclaimable": 200024
+              }
+            }
+          ]
+        },
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": {
+          "name": "test-nginx",
+          "started_at": "2026-09-17T20:45:00.143855766Z",
+          "time": 1793977598.579,
+          "cadvisor_bytes": 606208.0,
+          "bracket": [
+            {
+              "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+              "name": "test-nginx",
+              "started_at": "2026-09-17T20:45:00.143855766Z",
+              "time": 1793977598.398304,
+              "request_before": 1793977598.3976765,
+              "request_after": 1793977598.4001348,
+              "measurement_scope": "infra-journal-web|cgroup:[4026537382]",
+              "docker_bytes": 606208,
+              "cgroup_before": 606208,
+              "cgroup_after": 606208,
+              "stat_before": {
+                "anon": 8192,
+                "file": 4096,
+                "kernel": 589824,
+                "shmem": 0,
+                "inactive_file": 4096,
+                "active_file": 0,
+                "slab_reclaimable": 196944,
+                "slab_unreclaimable": 196688
+              },
+              "stat_after": {
+                "anon": 8192,
+                "file": 4096,
+                "kernel": 589824,
+                "shmem": 0,
+                "inactive_file": 4096,
+                "active_file": 0,
+                "slab_reclaimable": 196944,
+                "slab_unreclaimable": 196688
+              },
+              "docker_stat": {
+                "active_file": 0,
+                "anon": 8192,
+                "file": 4096,
+                "inactive_file": 4096,
+                "shmem": 0,
+                "slab_reclaimable": 196944,
+                "slab_unreclaimable": 196688
+              }
+            },
+            {
+              "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+              "name": "test-nginx",
+              "started_at": "2026-09-17T20:45:00.143855766Z",
+              "time": 1793977598.899468,
+              "request_before": 1793977598.8987982,
+              "request_after": 1793977598.9018283,
+              "measurement_scope": "infra-journal-web|cgroup:[4026537382]",
+              "docker_bytes": 606208,
+              "cgroup_before": 606208,
+              "cgroup_after": 606208,
+              "stat_before": {
+                "anon": 8192,
+                "file": 4096,
+                "kernel": 589824,
+                "shmem": 0,
+                "inactive_file": 4096,
+                "active_file": 0,
+                "slab_reclaimable": 196944,
+                "slab_unreclaimable": 196688
+              },
+              "stat_after": {
+                "anon": 8192,
+                "file": 4096,
+                "kernel": 589824,
+                "shmem": 0,
+                "inactive_file": 4096,
+                "active_file": 0,
+                "slab_reclaimable": 196944,
+                "slab_unreclaimable": 196688
+              },
+              "docker_stat": {
+                "active_file": 0,
+                "anon": 8192,
+                "file": 4096,
+                "inactive_file": 4096,
+                "shmem": 0,
+                "slab_reclaimable": 196944,
+                "slab_unreclaimable": 196688
+              }
+            }
+          ]
+        }
+      },
+      "runtime": {
+        "node_exporter": {
+          "id": "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T16:04:37.826058931Z",
+          "running": true,
+          "restarts": 0
+        },
+        "cadvisor": {
+          "id": "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T16:04:39.364223922Z",
+          "running": true,
+          "restarts": 0
+        },
+        "cadvisor-phase4-624-rejected-1": {
+          "id": "754e63551892651d1576466b264ceb01a825b98a732814015a01f71f15ef0e06",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T15:31:29.388027039Z",
+          "running": false,
+          "restarts": 0
+        },
+        "node_exporter-phase4-624-rejected-2": {
+          "id": "82ac3f6bfe1440ec87fc64015d6f83e2b46db17004e0632960d5b4430516f089",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T15:39:03.230199202Z",
+          "running": false,
+          "restarts": 0
+        },
+        "infra-journal-web-web-1": {
+          "id": "473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3",
+          "image": "sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1abeac2",
+          "started_at": "2026-09-28T20:10:09.492274366Z",
+          "running": true,
+          "restarts": 0
+        },
+        "cadvisor-pre-phase4-624": {
+          "id": "5db0b97c7498faec8a3428c94888191ca6281e381c5274605fb6e945e1eb3c64",
+          "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+          "started_at": "2026-11-02T16:04:35.409470205Z",
+          "running": false,
+          "restarts": 0
+        },
+        "test-nginx": {
+          "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+          "image": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+          "started_at": "2026-09-17T20:45:00.143855766Z",
+          "running": true,
+          "restarts": 0
+        }
+      },
+      "remote_files_written": false,
+      "deployment_or_restart_performed": false
+    },
+    {
+      "result": "PASS",
+      "ct": 625,
+      "source_freshness_errors": [],
+      "measurement_scope": "infra-journal-db|cgroup:[4026537788]",
+      "alignment_compatibility_passed": true,
+      "observed_at": 1793977649.8900688,
+      "seconds": 130,
+      "valid_samples": 18,
+      "container_count": 4,
+      "containers_unchanged": true,
+      "node_before": {
+        "total_memory_bytes": 2147483648,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 5.589326620101929,
+        "native_cpu_series": 0
+      },
+      "node_after": {
+        "total_memory_bytes": 2147483648,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 5.887959241867065,
+        "native_cpu_series": 0
+      },
+      "input_sha256": {
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.sh": "65916a334e7a5dbb0fd4c5185ffdb27425b592c46968a1e4546676c3c8d66f9c"
+      },
+      "cpu_window_seconds": {
+        "a57b4fbae95ae07903990dda5973572fc8bd4a45ae260cd463792a8f53767841": 83.88300013542175,
+        "653eef29ec4bdc0ef8973e06a3204a305bc827869f0f8019b17623ddbb9503e4": 115.08999991416931,
+        "5f4ca06ee58e11d6a24f53c355216839d212052da0b5eb622228c8b269eccecb": 77.45199990272522,
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": 56.94099998474121
+      },
+      "timestamp_fractional_widths_observed": {
+        "8": 100,
+        "9": 931,
+        "7": 9
+      },
+      "last_cpu_alignment": {
+        "a57b4fbae95ae07903990dda5973572fc8bd4a45ae260cd463792a8f53767841": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T19:18:00.541161415Z",
+          "time": 1793977630.502,
+          "cadvisor_seconds": 523.424388,
+          "docker_seconds": 523.4248476410037,
+          "cgroup_seconds": 523.4248476410037,
+          "bounds": {
+            "docker_seconds": [
+              523.424085,
+              523.425397
+            ],
+            "cgroup_seconds": [
+              523.424085,
+              523.425397
+            ]
+          },
+          "measurement_scope": "infra-journal-db|cgroup:[4026537788]"
+        },
+        "653eef29ec4bdc0ef8973e06a3204a305bc827869f0f8019b17623ddbb9503e4": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T19:17:59.357856841Z",
+          "time": 1793977638.912,
+          "cadvisor_seconds": 603.412612,
+          "docker_seconds": 603.412612,
+          "cgroup_seconds": 603.412612,
+          "bounds": {
+            "docker_seconds": [
+              603.412612,
+              603.412612
+            ],
+            "cgroup_seconds": [
+              603.412612,
+              603.412612
+            ]
+          },
+          "measurement_scope": "infra-journal-db|cgroup:[4026537788]"
+        },
+        "5f4ca06ee58e11d6a24f53c355216839d212052da0b5eb622228c8b269eccecb": {
+          "name": "infra-journal-db-db-1",
+          "started_at": "2026-09-17T20:45:20.616432186Z",
+          "time": 1793977635.949,
+          "cadvisor_seconds": 450.263198,
+          "docker_seconds": 450.263198,
+          "cgroup_seconds": 450.263198,
+          "bounds": {
+            "docker_seconds": [
+              450.263198,
+              450.263198
+            ],
+            "cgroup_seconds": [
+              450.263198,
+              450.263198
+            ]
+          },
+          "measurement_scope": "infra-journal-db|cgroup:[4026537788]"
+        },
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": {
+          "name": "test-nginx",
+          "started_at": "2026-09-17T20:45:20.612194803Z",
+          "time": 1793977576.766,
+          "cadvisor_seconds": 0.160483,
+          "docker_seconds": 0.160483,
+          "cgroup_seconds": 0.160483,
+          "bounds": {
+            "docker_seconds": [
+              0.160483,
+              0.160483
+            ],
+            "cgroup_seconds": [
+              0.160483,
+              0.160483
+            ]
+          },
+          "measurement_scope": "infra-journal-db|cgroup:[4026537788]"
+        }
+      },
+      "last_memory_alignment": {
+        "a57b4fbae95ae07903990dda5973572fc8bd4a45ae260cd463792a8f53767841": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T19:18:00.541161415Z",
+          "time": 1793977630.502,
+          "cadvisor_bytes": 22614016.0,
+          "bracket": [
+            {
+              "id": "a57b4fbae95ae07903990dda5973572fc8bd4a45ae260cd463792a8f53767841",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T19:18:00.541161415Z",
+              "time": 1793977630.211074,
+              "request_before": 1793977630.210126,
+              "request_after": 1793977630.2130404,
+              "measurement_scope": "infra-journal-db|cgroup:[4026537788]",
+              "docker_bytes": 22089728,
+              "cgroup_before": 22089728,
+              "cgroup_after": 22089728,
+              "stat_before": {
+                "anon": 13275136,
+                "file": 5476352,
+                "kernel": 3162112,
+                "shmem": 0,
+                "inactive_file": 3289088,
+                "active_file": 2187264,
+                "slab_reclaimable": 2420864,
+                "slab_unreclaimable": 332328
+              },
+              "stat_after": {
+                "anon": 13275136,
+                "file": 5476352,
+                "kernel": 3162112,
+                "shmem": 0,
+                "inactive_file": 3289088,
+                "active_file": 2187264,
+                "slab_reclaimable": 2420864,
+                "slab_unreclaimable": 332328
+              },
+              "docker_stat": {
+                "active_file": 2187264,
+                "anon": 13275136,
+                "file": 5476352,
+                "inactive_file": 3289088,
+                "shmem": 0,
+                "slab_reclaimable": 2420864,
+                "slab_unreclaimable": 332328
+              }
+            },
+            {
+              "id": "a57b4fbae95ae07903990dda5973572fc8bd4a45ae260cd463792a8f53767841",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T19:18:00.541161415Z",
+              "time": 1793977630.711565,
+              "request_before": 1793977630.7104795,
+              "request_after": 1793977630.713619,
+              "measurement_scope": "infra-journal-db|cgroup:[4026537788]",
+              "docker_bytes": 22093824,
+              "cgroup_before": 22093824,
+              "cgroup_after": 22093824,
+              "stat_before": {
+                "anon": 13275136,
+                "file": 5476352,
+                "kernel": 3166208,
+                "shmem": 0,
+                "inactive_file": 3289088,
+                "active_file": 2187264,
+                "slab_reclaimable": 2421904,
+                "slab_unreclaimable": 334888
+              },
+              "stat_after": {
+                "anon": 13275136,
+                "file": 5476352,
+                "kernel": 3166208,
+                "shmem": 0,
+                "inactive_file": 3289088,
+                "active_file": 2187264,
+                "slab_reclaimable": 2421904,
+                "slab_unreclaimable": 334888
+              },
+              "docker_stat": {
+                "active_file": 2187264,
+                "anon": 13275136,
+                "file": 5476352,
+                "inactive_file": 3289088,
+                "shmem": 0,
+                "slab_reclaimable": 2421904,
+                "slab_unreclaimable": 334888
+              }
+            }
+          ]
+        },
+        "653eef29ec4bdc0ef8973e06a3204a305bc827869f0f8019b17623ddbb9503e4": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T19:17:59.357856841Z",
+          "time": 1793977638.912,
+          "cadvisor_bytes": 13656064.0,
+          "bracket": [
+            {
+              "id": "653eef29ec4bdc0ef8973e06a3204a305bc827869f0f8019b17623ddbb9503e4",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T19:17:59.357856841Z",
+              "time": 1793977638.724354,
+              "request_before": 1793977638.7237113,
+              "request_after": 1793977638.7267263,
+              "measurement_scope": "infra-journal-db|cgroup:[4026537788]",
+              "docker_bytes": 13656064,
+              "cgroup_before": 13656064,
+              "cgroup_after": 13656064,
+              "stat_before": {
+                "anon": 10129408,
+                "file": 2236416,
+                "kernel": 1236992,
+                "shmem": 0,
+                "inactive_file": 1269760,
+                "active_file": 966656,
+                "slab_reclaimable": 587624,
+                "slab_unreclaimable": 267272
+              },
+              "stat_after": {
+                "anon": 10129408,
+                "file": 2236416,
+                "kernel": 1236992,
+                "shmem": 0,
+                "inactive_file": 1269760,
+                "active_file": 966656,
+                "slab_reclaimable": 587624,
+                "slab_unreclaimable": 267272
+              },
+              "docker_stat": {
+                "active_file": 966656,
+                "anon": 10129408,
+                "file": 2236416,
+                "inactive_file": 1269760,
+                "shmem": 0,
+                "slab_reclaimable": 587624,
+                "slab_unreclaimable": 267272
+              }
+            },
+            {
+              "id": "653eef29ec4bdc0ef8973e06a3204a305bc827869f0f8019b17623ddbb9503e4",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T19:17:59.357856841Z",
+              "time": 1793977639.22563,
+              "request_before": 1793977639.2249103,
+              "request_after": 1793977639.227498,
+              "measurement_scope": "infra-journal-db|cgroup:[4026537788]",
+              "docker_bytes": 13656064,
+              "cgroup_before": 13656064,
+              "cgroup_after": 13656064,
+              "stat_before": {
+                "anon": 10129408,
+                "file": 2236416,
+                "kernel": 1236992,
+                "shmem": 0,
+                "inactive_file": 1269760,
+                "active_file": 966656,
+                "slab_reclaimable": 587624,
+                "slab_unreclaimable": 267272
+              },
+              "stat_after": {
+                "anon": 10129408,
+                "file": 2236416,
+                "kernel": 1236992,
+                "shmem": 0,
+                "inactive_file": 1269760,
+                "active_file": 966656,
+                "slab_reclaimable": 587624,
+                "slab_unreclaimable": 267272
+              },
+              "docker_stat": {
+                "active_file": 966656,
+                "anon": 10129408,
+                "file": 2236416,
+                "inactive_file": 1269760,
+                "shmem": 0,
+                "slab_reclaimable": 587624,
+                "slab_unreclaimable": 267272
+              }
+            }
+          ]
+        },
+        "5f4ca06ee58e11d6a24f53c355216839d212052da0b5eb622228c8b269eccecb": {
+          "name": "infra-journal-db-db-1",
+          "started_at": "2026-09-17T20:45:20.616432186Z",
+          "time": 1793977635.949,
+          "cadvisor_bytes": 27688960.0,
+          "bracket": [
+            {
+              "id": "5f4ca06ee58e11d6a24f53c355216839d212052da0b5eb622228c8b269eccecb",
+              "name": "infra-journal-db-db-1",
+              "started_at": "2026-09-17T20:45:20.616432186Z",
+              "time": 1793977635.722674,
+              "request_before": 1793977635.7220173,
+              "request_after": 1793977635.724613,
+              "measurement_scope": "infra-journal-db|cgroup:[4026537788]",
+              "docker_bytes": 27688960,
+              "cgroup_before": 27688960,
+              "cgroup_after": 27688960,
+              "stat_before": {
+                "anon": 860160,
+                "file": 22949888,
+                "kernel": 2670592,
+                "shmem": 8945664,
+                "inactive_file": 12025856,
+                "active_file": 1978368,
+                "slab_reclaimable": 1166240,
+                "slab_unreclaimable": 531792
+              },
+              "stat_after": {
+                "anon": 860160,
+                "file": 22949888,
+                "kernel": 2670592,
+                "shmem": 8945664,
+                "inactive_file": 12025856,
+                "active_file": 1978368,
+                "slab_reclaimable": 1166240,
+                "slab_unreclaimable": 531792
+              },
+              "docker_stat": {
+                "active_file": 1978368,
+                "anon": 860160,
+                "file": 22949888,
+                "inactive_file": 12025856,
+                "shmem": 8945664,
+                "slab_reclaimable": 1166240,
+                "slab_unreclaimable": 531792
+              }
+            },
+            {
+              "id": "5f4ca06ee58e11d6a24f53c355216839d212052da0b5eb622228c8b269eccecb",
+              "name": "infra-journal-db-db-1",
+              "started_at": "2026-09-17T20:45:20.616432186Z",
+              "time": 1793977636.223569,
+              "request_before": 1793977636.2228513,
+              "request_after": 1793977636.2255933,
+              "measurement_scope": "infra-journal-db|cgroup:[4026537788]",
+              "docker_bytes": 27688960,
+              "cgroup_before": 27688960,
+              "cgroup_after": 27688960,
+              "stat_before": {
+                "anon": 860160,
+                "file": 22949888,
+                "kernel": 2670592,
+                "shmem": 8945664,
+                "inactive_file": 12025856,
+                "active_file": 1978368,
+                "slab_reclaimable": 1166240,
+                "slab_unreclaimable": 531792
+              },
+              "stat_after": {
+                "anon": 860160,
+                "file": 22949888,
+                "kernel": 2670592,
+                "shmem": 8945664,
+                "inactive_file": 12025856,
+                "active_file": 1978368,
+                "slab_reclaimable": 1166240,
+                "slab_unreclaimable": 531792
+              },
+              "docker_stat": {
+                "active_file": 1978368,
+                "anon": 860160,
+                "file": 22949888,
+                "inactive_file": 12025856,
+                "shmem": 8945664,
+                "slab_reclaimable": 1166240,
+                "slab_unreclaimable": 531792
+              }
+            }
+          ]
+        },
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": {
+          "name": "test-nginx",
+          "started_at": "2026-09-17T20:45:20.612194803Z",
+          "time": 1793977576.766,
+          "cadvisor_bytes": 729088.0,
+          "bracket": [
+            {
+              "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+              "name": "test-nginx",
+              "started_at": "2026-09-17T20:45:20.612194803Z",
+              "time": 1793977576.659844,
+              "request_before": 1793977576.659021,
+              "request_after": 1793977576.6618829,
+              "measurement_scope": "infra-journal-db|cgroup:[4026537788]",
+              "docker_bytes": 729088,
+              "cgroup_before": 729088,
+              "cgroup_after": 729088,
+              "stat_before": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 708608,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 199552,
+                "slab_unreclaimable": 234640
+              },
+              "stat_after": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 708608,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 199552,
+                "slab_unreclaimable": 234640
+              },
+              "docker_stat": {
+                "active_file": 0,
+                "anon": 12288,
+                "file": 8192,
+                "inactive_file": 8192,
+                "shmem": 0,
+                "slab_reclaimable": 199552,
+                "slab_unreclaimable": 234640
+              }
+            },
+            {
+              "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+              "name": "test-nginx",
+              "started_at": "2026-09-17T20:45:20.612194803Z",
+              "time": 1793977577.160947,
+              "request_before": 1793977577.1602576,
+              "request_after": 1793977577.1658478,
+              "measurement_scope": "infra-journal-db|cgroup:[4026537788]",
+              "docker_bytes": 729088,
+              "cgroup_before": 729088,
+              "cgroup_after": 729088,
+              "stat_before": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 708608,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 199552,
+                "slab_unreclaimable": 234640
+              },
+              "stat_after": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 708608,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 199552,
+                "slab_unreclaimable": 234640
+              },
+              "docker_stat": {
+                "active_file": 0,
+                "anon": 12288,
+                "file": 8192,
+                "inactive_file": 8192,
+                "shmem": 0,
+                "slab_reclaimable": 199552,
+                "slab_unreclaimable": 234640
+              }
+            }
+          ]
+        }
+      },
+      "runtime": {
+        "cadvisor": {
+          "id": "a57b4fbae95ae07903990dda5973572fc8bd4a45ae260cd463792a8f53767841",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T19:18:00.541161415Z",
+          "running": true,
+          "restarts": 0
+        },
+        "node_exporter": {
+          "id": "653eef29ec4bdc0ef8973e06a3204a305bc827869f0f8019b17623ddbb9503e4",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T19:17:59.357856841Z",
+          "running": true,
+          "restarts": 0
+        },
+        "infra-journal-db-db-1": {
+          "id": "5f4ca06ee58e11d6a24f53c355216839d212052da0b5eb622228c8b269eccecb",
+          "image": "sha256:57c72fd2a128e416c7fcc499958864df5301e940bca0a56f58fddf30ffc07777",
+          "started_at": "2026-09-17T20:45:20.616432186Z",
+          "running": true,
+          "restarts": 0
+        },
+        "cadvisor-pre-phase4-625": {
+          "id": "76a29d19db8fa24b1f91c7b5397e527ff426d720a8a797931e94cce9b115c402",
+          "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+          "started_at": "2026-11-02T19:17:52.15992516Z",
+          "running": false,
+          "restarts": 0
+        },
+        "test-nginx": {
+          "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+          "image": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+          "started_at": "2026-09-17T20:45:20.612194803Z",
+          "running": true,
+          "restarts": 0
+        }
+      },
+      "remote_files_written": false,
+      "deployment_or_restart_performed": false
+    },
+    {
+      "result": "PASS",
+      "ct": 621,
+      "source_freshness_errors": [],
+      "measurement_scope": "infra-project-gestion|cgroup:[4026535769]",
+      "alignment_compatibility_passed": true,
+      "observed_at": 1793977780.4858549,
+      "seconds": 130,
+      "valid_samples": 16,
+      "container_count": 3,
+      "containers_unchanged": true,
+      "node_before": {
+        "total_memory_bytes": 2147483648,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 5.259984970092773,
+        "native_cpu_series": 0
+      },
+      "node_after": {
+        "total_memory_bytes": 2147483648,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 5.483899831771851,
+        "native_cpu_series": 0
+      },
+      "input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.sh": "c66e49237172f2320853bc667153e2b5db69a6e4e3693259888b0eef115a729b"
+      },
+      "cpu_window_seconds": {
+        "7e5ab08e74c153b975d2a8b0b9c1d0d978ac2545338cd24505e049b7da67cee5": 58.03699994087219,
+        "4667b7688ff67d5ff5e1cd54b703639cb3eb048364bac97ca2d6b0a9e90b0325": 97.34700012207031,
+        "f7fd71cb630b4e2d1858b4f4fc65d39cdbe06078f59157b0e4688fe29d5e4490": 75.77999997138977
+      },
+      "timestamp_fractional_widths_observed": {
+        "9": 705,
+        "8": 68,
+        "7": 6,
+        "6": 1
+      },
+      "last_cpu_alignment": {
+        "7e5ab08e74c153b975d2a8b0b9c1d0d978ac2545338cd24505e049b7da67cee5": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T22:38:28.725210725Z",
+          "time": 1793977755.963,
+          "cadvisor_seconds": 414.035361,
+          "docker_seconds": 414.03527660576367,
+          "cgroup_seconds": 414.03527660576367,
+          "bounds": {
+            "docker_seconds": [
+              414.03499,
+              414.036436
+            ],
+            "cgroup_seconds": [
+              414.03499,
+              414.036436
+            ]
+          },
+          "measurement_scope": "infra-project-gestion|cgroup:[4026535769]"
+        },
+        "4667b7688ff67d5ff5e1cd54b703639cb3eb048364bac97ca2d6b0a9e90b0325": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T22:38:27.583853811Z",
+          "time": 1793977762.256,
+          "cadvisor_seconds": 610.287336,
+          "docker_seconds": 610.287336,
+          "cgroup_seconds": 610.287336,
+          "bounds": {
+            "docker_seconds": [
+              610.287336,
+              610.287336
+            ],
+            "cgroup_seconds": [
+              610.287336,
+              610.287336
+            ]
+          },
+          "measurement_scope": "infra-project-gestion|cgroup:[4026535769]"
+        },
+        "f7fd71cb630b4e2d1858b4f4fc65d39cdbe06078f59157b0e4688fe29d5e4490": {
+          "name": "focalboard",
+          "started_at": "2026-09-17T20:44:33.9795019Z",
+          "time": 1793977741.697,
+          "cadvisor_seconds": 111.294809,
+          "docker_seconds": 111.294809,
+          "cgroup_seconds": 111.294809,
+          "bounds": {
+            "docker_seconds": [
+              111.294809,
+              111.294809
+            ],
+            "cgroup_seconds": [
+              111.294809,
+              111.294809
+            ]
+          },
+          "measurement_scope": "infra-project-gestion|cgroup:[4026535769]"
+        }
+      },
+      "last_memory_alignment": {
+        "7e5ab08e74c153b975d2a8b0b9c1d0d978ac2545338cd24505e049b7da67cee5": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T22:38:28.725210725Z",
+          "time": 1793977755.963,
+          "cadvisor_bytes": 20537344.0,
+          "bracket": [
+            {
+              "id": "7e5ab08e74c153b975d2a8b0b9c1d0d978ac2545338cd24505e049b7da67cee5",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T22:38:28.725210725Z",
+              "time": 1793977755.863514,
+              "request_before": 1793977755.8626513,
+              "request_after": 1793977755.8657708,
+              "measurement_scope": "infra-project-gestion|cgroup:[4026535769]",
+              "docker_bytes": 20275200,
+              "cgroup_before": 20275200,
+              "cgroup_after": 20275200,
+              "stat_before": {
+                "anon": 13443072,
+                "file": 4227072,
+                "kernel": 2400256,
+                "shmem": 0,
+                "inactive_file": 3571712,
+                "active_file": 655360,
+                "slab_reclaimable": 1631416,
+                "slab_unreclaimable": 342416
+              },
+              "stat_after": {
+                "anon": 13443072,
+                "file": 4227072,
+                "kernel": 2400256,
+                "shmem": 0,
+                "inactive_file": 3571712,
+                "active_file": 655360,
+                "slab_reclaimable": 1631416,
+                "slab_unreclaimable": 342416
+              },
+              "docker_stat": {
+                "active_file": 655360,
+                "anon": 13443072,
+                "file": 4227072,
+                "inactive_file": 3571712,
+                "shmem": 0,
+                "slab_reclaimable": 1631416,
+                "slab_unreclaimable": 342416
+              }
+            },
+            {
+              "id": "7e5ab08e74c153b975d2a8b0b9c1d0d978ac2545338cd24505e049b7da67cee5",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T22:38:28.725210725Z",
+              "time": 1793977756.365447,
+              "request_before": 1793977756.3644583,
+              "request_after": 1793977756.3690698,
+              "measurement_scope": "infra-project-gestion|cgroup:[4026535769]",
+              "docker_bytes": 20275200,
+              "cgroup_before": 20275200,
+              "cgroup_after": 20275200,
+              "stat_before": {
+                "anon": 13443072,
+                "file": 4227072,
+                "kernel": 2400256,
+                "shmem": 0,
+                "inactive_file": 3571712,
+                "active_file": 655360,
+                "slab_reclaimable": 1631416,
+                "slab_unreclaimable": 342416
+              },
+              "stat_after": {
+                "anon": 13443072,
+                "file": 4227072,
+                "kernel": 2400256,
+                "shmem": 0,
+                "inactive_file": 3571712,
+                "active_file": 655360,
+                "slab_reclaimable": 1631416,
+                "slab_unreclaimable": 342416
+              },
+              "docker_stat": {
+                "active_file": 655360,
+                "anon": 13443072,
+                "file": 4227072,
+                "inactive_file": 3571712,
+                "shmem": 0,
+                "slab_reclaimable": 1631416,
+                "slab_unreclaimable": 342416
+              }
+            }
+          ]
+        },
+        "4667b7688ff67d5ff5e1cd54b703639cb3eb048364bac97ca2d6b0a9e90b0325": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T22:38:27.583853811Z",
+          "time": 1793977762.256,
+          "cadvisor_bytes": 15163392.0,
+          "bracket": [
+            {
+              "id": "4667b7688ff67d5ff5e1cd54b703639cb3eb048364bac97ca2d6b0a9e90b0325",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T22:38:27.583853811Z",
+              "time": 1793977761.873876,
+              "request_before": 1793977761.87316,
+              "request_after": 1793977761.8762076,
+              "measurement_scope": "infra-project-gestion|cgroup:[4026535769]",
+              "docker_bytes": 15163392,
+              "cgroup_before": 15163392,
+              "cgroup_after": 15163392,
+              "stat_before": {
+                "anon": 10121216,
+                "file": 3932160,
+                "kernel": 1032192,
+                "shmem": 0,
+                "inactive_file": 2428928,
+                "active_file": 1503232,
+                "slab_reclaimable": 295024,
+                "slab_unreclaimable": 294496
+              },
+              "stat_after": {
+                "anon": 10121216,
+                "file": 3932160,
+                "kernel": 1032192,
+                "shmem": 0,
+                "inactive_file": 2428928,
+                "active_file": 1503232,
+                "slab_reclaimable": 295024,
+                "slab_unreclaimable": 294496
+              },
+              "docker_stat": {
+                "active_file": 1503232,
+                "anon": 10121216,
+                "file": 3932160,
+                "inactive_file": 2428928,
+                "shmem": 0,
+                "slab_reclaimable": 295024,
+                "slab_unreclaimable": 294496
+              }
+            },
+            {
+              "id": "4667b7688ff67d5ff5e1cd54b703639cb3eb048364bac97ca2d6b0a9e90b0325",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T22:38:27.583853811Z",
+              "time": 1793977762.373274,
+              "request_before": 1793977762.3725524,
+              "request_after": 1793977762.3752985,
+              "measurement_scope": "infra-project-gestion|cgroup:[4026535769]",
+              "docker_bytes": 15163392,
+              "cgroup_before": 15163392,
+              "cgroup_after": 15163392,
+              "stat_before": {
+                "anon": 10121216,
+                "file": 3932160,
+                "kernel": 1032192,
+                "shmem": 0,
+                "inactive_file": 2428928,
+                "active_file": 1503232,
+                "slab_reclaimable": 295024,
+                "slab_unreclaimable": 294496
+              },
+              "stat_after": {
+                "anon": 10121216,
+                "file": 3932160,
+                "kernel": 1032192,
+                "shmem": 0,
+                "inactive_file": 2428928,
+                "active_file": 1503232,
+                "slab_reclaimable": 295024,
+                "slab_unreclaimable": 294496
+              },
+              "docker_stat": {
+                "active_file": 1503232,
+                "anon": 10121216,
+                "file": 3932160,
+                "inactive_file": 2428928,
+                "shmem": 0,
+                "slab_reclaimable": 295024,
+                "slab_unreclaimable": 294496
+              }
+            }
+          ]
+        },
+        "f7fd71cb630b4e2d1858b4f4fc65d39cdbe06078f59157b0e4688fe29d5e4490": {
+          "name": "focalboard",
+          "started_at": "2026-09-17T20:44:33.9795019Z",
+          "time": 1793977741.697,
+          "cadvisor_bytes": 13934592.0,
+          "bracket": [
+            {
+              "id": "f7fd71cb630b4e2d1858b4f4fc65d39cdbe06078f59157b0e4688fe29d5e4490",
+              "name": "focalboard",
+              "started_at": "2026-09-17T20:44:33.9795019Z",
+              "time": 1793977741.356496,
+              "request_before": 1793977741.355832,
+              "request_after": 1793977741.358184,
+              "measurement_scope": "infra-project-gestion|cgroup:[4026535769]",
+              "docker_bytes": 13934592,
+              "cgroup_before": 13934592,
+              "cgroup_after": 13934592,
+              "stat_before": {
+                "anon": 7622656,
+                "file": 5287936,
+                "kernel": 892928,
+                "shmem": 0,
+                "inactive_file": 1921024,
+                "active_file": 3366912,
+                "slab_reclaimable": 211584,
+                "slab_unreclaimable": 248808
+              },
+              "stat_after": {
+                "anon": 7622656,
+                "file": 5287936,
+                "kernel": 892928,
+                "shmem": 0,
+                "inactive_file": 1921024,
+                "active_file": 3366912,
+                "slab_reclaimable": 211584,
+                "slab_unreclaimable": 248808
+              },
+              "docker_stat": {
+                "active_file": 3366912,
+                "anon": 7622656,
+                "file": 5287936,
+                "inactive_file": 1921024,
+                "shmem": 0,
+                "slab_reclaimable": 211584,
+                "slab_unreclaimable": 248808
+              }
+            },
+            {
+              "id": "f7fd71cb630b4e2d1858b4f4fc65d39cdbe06078f59157b0e4688fe29d5e4490",
+              "name": "focalboard",
+              "started_at": "2026-09-17T20:44:33.9795019Z",
+              "time": 1793977741.859861,
+              "request_before": 1793977741.8590715,
+              "request_after": 1793977741.8618312,
+              "measurement_scope": "infra-project-gestion|cgroup:[4026535769]",
+              "docker_bytes": 13934592,
+              "cgroup_before": 13934592,
+              "cgroup_after": 13934592,
+              "stat_before": {
+                "anon": 7622656,
+                "file": 5287936,
+                "kernel": 892928,
+                "shmem": 0,
+                "inactive_file": 1921024,
+                "active_file": 3366912,
+                "slab_reclaimable": 211584,
+                "slab_unreclaimable": 248808
+              },
+              "stat_after": {
+                "anon": 7622656,
+                "file": 5287936,
+                "kernel": 892928,
+                "shmem": 0,
+                "inactive_file": 1921024,
+                "active_file": 3366912,
+                "slab_reclaimable": 211584,
+                "slab_unreclaimable": 248808
+              },
+              "docker_stat": {
+                "active_file": 3366912,
+                "anon": 7622656,
+                "file": 5287936,
+                "inactive_file": 1921024,
+                "shmem": 0,
+                "slab_reclaimable": 211584,
+                "slab_unreclaimable": 248808
+              }
+            }
+          ]
+        }
+      },
+      "runtime": {
+        "cadvisor": {
+          "id": "7e5ab08e74c153b975d2a8b0b9c1d0d978ac2545338cd24505e049b7da67cee5",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T22:38:28.725210725Z",
+          "running": true,
+          "restarts": 0
+        },
+        "node_exporter": {
+          "id": "4667b7688ff67d5ff5e1cd54b703639cb3eb048364bac97ca2d6b0a9e90b0325",
+          "image": "sha256:d375b27b61ea3233524bb12ce5f2de05bdc80cbce4c6806a45617d4f5bc7b1b1",
+          "started_at": "2026-11-02T22:38:27.583853811Z",
+          "running": true,
+          "restarts": 0
+        },
+        "focalboard": {
+          "id": "f7fd71cb630b4e2d1858b4f4fc65d39cdbe06078f59157b0e4688fe29d5e4490",
+          "image": "sha256:d04be04895523d1c4fec75cbe7d5bb82987455d8deb3a795fea42eadfc28449c",
+          "started_at": "2026-09-17T20:44:33.9795019Z",
+          "running": true,
+          "restarts": 0
+        },
+        "node_exporter-pre-phase4-621": {
+          "id": "648fd4d19de300038ee804741f9ef7170dbb7c109f645cd2dcb11af7effbe80e",
+          "image": "sha256:d375b27b61ea3233524bb12ce5f2de05bdc80cbce4c6806a45617d4f5bc7b1b1",
+          "started_at": "2026-11-02T22:36:58.675517981Z",
+          "running": false,
+          "restarts": 0
+        },
+        "cadvisor-pre-phase4-621": {
+          "id": "582a4733cd7bd22883118bdb8d65164b1873d1c9bc4ebc40562a0366faa161cc",
+          "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+          "started_at": "2026-11-02T22:36:57.883479749Z",
+          "running": false,
+          "restarts": 0
+        }
+      },
+      "remote_files_written": false,
+      "deployment_or_restart_performed": false
+    },
+    {
+      "result": "PASS",
+      "ct": 620,
+      "source_freshness_errors": [],
+      "measurement_scope": "infra-excraper|cgroup:[4026535820]",
+      "alignment_compatibility_passed": true,
+      "observed_at": 1793977780.7608085,
+      "seconds": 130,
+      "valid_samples": 19,
+      "container_count": 5,
+      "containers_unchanged": true,
+      "node_before": {
+        "total_memory_bytes": 2147483648,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 3.4591546058654785,
+        "native_cpu_series": 0
+      },
+      "node_after": {
+        "total_memory_bytes": 2147483648,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 3.758702039718628,
+        "native_cpu_series": 0
+      },
+      "input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.sh": "a8ef97c7b57942379c96ced167f1c19a84dc062b0149c6d2ecad33e9852c3be3"
+      },
+      "cpu_window_seconds": {
+        "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f": 96.3360002040863,
+        "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575": 118.25200009346008,
+        "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2": 78.625,
+        "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b": 101.31200003623962,
+        "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3": 57.42199993133545
+      },
+      "timestamp_fractional_widths_observed": {
+        "9": 1161,
+        "8": 128,
+        "6": 2,
+        "7": 9
+      },
+      "last_cpu_alignment": {
+        "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T23:05:48.683072376Z",
+          "time": 1793977762.492,
+          "cadvisor_seconds": 1962.65126,
+          "docker_seconds": 1962.6522554282415,
+          "cgroup_seconds": 1962.6522554282415,
+          "bounds": {
+            "docker_seconds": [
+              1962.651182,
+              1962.652514
+            ],
+            "cgroup_seconds": [
+              1962.651182,
+              1962.652514
+            ]
+          },
+          "measurement_scope": "infra-excraper|cgroup:[4026535820]"
+        },
+        "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T23:05:47.313931038Z",
+          "time": 1793977772.286,
+          "cadvisor_seconds": 600.433564,
+          "docker_seconds": 600.4343076146334,
+          "cgroup_seconds": 600.4343076146334,
+          "bounds": {
+            "docker_seconds": [
+              600.433564,
+              600.435578
+            ],
+            "cgroup_seconds": [
+              600.433564,
+              600.435578
+            ]
+          },
+          "measurement_scope": "infra-excraper|cgroup:[4026535820]"
+        },
+        "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2": {
+          "name": "infra-excraper-linkedin-worker-1",
+          "started_at": "2026-09-17T20:44:10.776598641Z",
+          "time": 1793977750.216,
+          "cadvisor_seconds": 11.6137,
+          "docker_seconds": 11.6137,
+          "cgroup_seconds": 11.6137,
+          "bounds": {
+            "docker_seconds": [
+              11.6137,
+              11.6137
+            ],
+            "cgroup_seconds": [
+              11.6137,
+              11.6137
+            ]
+          },
+          "measurement_scope": "infra-excraper|cgroup:[4026535820]"
+        },
+        "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b": {
+          "name": "infra-excraper-signals-worker-1",
+          "started_at": "2026-09-17T20:44:10.77412796Z",
+          "time": 1793977758.94,
+          "cadvisor_seconds": 386.62224,
+          "docker_seconds": 386.62227107439867,
+          "cgroup_seconds": 386.62227107439867,
+          "bounds": {
+            "docker_seconds": [
+              386.62224,
+              386.622285
+            ],
+            "cgroup_seconds": [
+              386.62224,
+              386.622285
+            ]
+          },
+          "measurement_scope": "infra-excraper|cgroup:[4026535820]"
+        },
+        "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3": {
+          "name": "infra-excraper-redis-1",
+          "started_at": "2026-09-17T20:44:10.798360464Z",
+          "time": 1793977739.059,
+          "cadvisor_seconds": 37184.504055,
+          "docker_seconds": 37184.50398313786,
+          "cgroup_seconds": 37184.50398313786,
+          "bounds": {
+            "docker_seconds": [
+              37184.502144,
+              37184.504055
+            ],
+            "cgroup_seconds": [
+              37184.502144,
+              37184.504055
+            ]
+          },
+          "measurement_scope": "infra-excraper|cgroup:[4026535820]"
+        }
+      },
+      "last_memory_alignment": {
+        "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f": {
+          "name": "cadvisor",
+          "started_at": "2026-11-02T23:05:48.683072376Z",
+          "time": 1793977762.492,
+          "cadvisor_bytes": 38756352.0,
+          "bracket": [
+            {
+              "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T23:05:48.683072376Z",
+              "time": 1793977762.088574,
+              "request_before": 1793977762.0875347,
+              "request_after": 1793977762.0905588,
+              "measurement_scope": "infra-excraper|cgroup:[4026535820]",
+              "docker_bytes": 38494208,
+              "cgroup_before": 38494208,
+              "cgroup_after": 38494208,
+              "stat_before": {
+                "anon": 13045760,
+                "file": 21573632,
+                "kernel": 3629056,
+                "shmem": 0,
+                "inactive_file": 20353024,
+                "active_file": 1220608,
+                "slab_reclaimable": 2861056,
+                "slab_unreclaimable": 342320
+              },
+              "stat_after": {
+                "anon": 13045760,
+                "file": 21573632,
+                "kernel": 3629056,
+                "shmem": 0,
+                "inactive_file": 20353024,
+                "active_file": 1220608,
+                "slab_reclaimable": 2861056,
+                "slab_unreclaimable": 342320
+              },
+              "docker_stat": {
+                "active_file": 1220608,
+                "anon": 13045760,
+                "file": 21573632,
+                "inactive_file": 20353024,
+                "shmem": 0,
+                "slab_reclaimable": 2861056,
+                "slab_unreclaimable": 342320
+              }
+            },
+            {
+              "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+              "name": "cadvisor",
+              "started_at": "2026-11-02T23:05:48.683072376Z",
+              "time": 1793977762.589179,
+              "request_before": 1793977762.5882912,
+              "request_after": 1793977762.5913637,
+              "measurement_scope": "infra-excraper|cgroup:[4026535820]",
+              "docker_bytes": 38535168,
+              "cgroup_before": 38535168,
+              "cgroup_after": 38535168,
+              "stat_before": {
+                "anon": 13086720,
+                "file": 21573632,
+                "kernel": 3629056,
+                "shmem": 0,
+                "inactive_file": 20353024,
+                "active_file": 1220608,
+                "slab_reclaimable": 2861056,
+                "slab_unreclaimable": 342320
+              },
+              "stat_after": {
+                "anon": 13086720,
+                "file": 21573632,
+                "kernel": 3629056,
+                "shmem": 0,
+                "inactive_file": 20353024,
+                "active_file": 1220608,
+                "slab_reclaimable": 2861056,
+                "slab_unreclaimable": 342320
+              },
+              "docker_stat": {
+                "active_file": 1220608,
+                "anon": 13086720,
+                "file": 21573632,
+                "inactive_file": 20353024,
+                "shmem": 0,
+                "slab_reclaimable": 2861056,
+                "slab_unreclaimable": 342320
+              }
+            }
+          ]
+        },
+        "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575": {
+          "name": "node_exporter",
+          "started_at": "2026-11-02T23:05:47.313931038Z",
+          "time": 1793977772.286,
+          "cadvisor_bytes": 14434304.0,
+          "bracket": [
+            {
+              "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T23:05:47.313931038Z",
+              "time": 1793977772.101242,
+              "request_before": 1793977772.100534,
+              "request_after": 1793977772.103275,
+              "measurement_scope": "infra-excraper|cgroup:[4026535820]",
+              "docker_bytes": 14434304,
+              "cgroup_before": 14434304,
+              "cgroup_after": 14434304,
+              "stat_before": {
+                "anon": 9596928,
+                "file": 3891200,
+                "kernel": 901120,
+                "shmem": 0,
+                "inactive_file": 2387968,
+                "active_file": 1503232,
+                "slab_reclaimable": 247448,
+                "slab_unreclaimable": 268952
+              },
+              "stat_after": {
+                "anon": 9596928,
+                "file": 3891200,
+                "kernel": 901120,
+                "shmem": 0,
+                "inactive_file": 2387968,
+                "active_file": 1503232,
+                "slab_reclaimable": 247448,
+                "slab_unreclaimable": 268952
+              },
+              "docker_stat": {
+                "active_file": 1503232,
+                "anon": 9596928,
+                "file": 3891200,
+                "inactive_file": 2387968,
+                "shmem": 0,
+                "slab_reclaimable": 247448,
+                "slab_unreclaimable": 268952
+              }
+            },
+            {
+              "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+              "name": "node_exporter",
+              "started_at": "2026-11-02T23:05:47.313931038Z",
+              "time": 1793977772.601639,
+              "request_before": 1793977772.6009092,
+              "request_after": 1793977772.6034484,
+              "measurement_scope": "infra-excraper|cgroup:[4026535820]",
+              "docker_bytes": 14434304,
+              "cgroup_before": 14434304,
+              "cgroup_after": 14434304,
+              "stat_before": {
+                "anon": 9596928,
+                "file": 3891200,
+                "kernel": 901120,
+                "shmem": 0,
+                "inactive_file": 2387968,
+                "active_file": 1503232,
+                "slab_reclaimable": 247448,
+                "slab_unreclaimable": 268952
+              },
+              "stat_after": {
+                "anon": 9596928,
+                "file": 3891200,
+                "kernel": 901120,
+                "shmem": 0,
+                "inactive_file": 2387968,
+                "active_file": 1503232,
+                "slab_reclaimable": 247448,
+                "slab_unreclaimable": 268952
+              },
+              "docker_stat": {
+                "active_file": 1503232,
+                "anon": 9596928,
+                "file": 3891200,
+                "inactive_file": 2387968,
+                "shmem": 0,
+                "slab_reclaimable": 247448,
+                "slab_unreclaimable": 268952
+              }
+            }
+          ]
+        },
+        "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2": {
+          "name": "infra-excraper-linkedin-worker-1",
+          "started_at": "2026-09-17T20:44:10.776598641Z",
+          "time": 1793977750.216,
+          "cadvisor_bytes": 23552000.0,
+          "bracket": [
+            {
+              "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+              "name": "infra-excraper-linkedin-worker-1",
+              "started_at": "2026-09-17T20:44:10.776598641Z",
+              "time": 1793977750.083463,
+              "request_before": 1793977750.082707,
+              "request_after": 1793977750.0851703,
+              "measurement_scope": "infra-excraper|cgroup:[4026535820]",
+              "docker_bytes": 23552000,
+              "cgroup_before": 23552000,
+              "cgroup_after": 23552000,
+              "stat_before": {
+                "anon": 7647232,
+                "file": 8716288,
+                "kernel": 7020544,
+                "shmem": 0,
+                "inactive_file": 5832704,
+                "active_file": 2883584,
+                "slab_reclaimable": 4888856,
+                "slab_unreclaimable": 441840
+              },
+              "stat_after": {
+                "anon": 7647232,
+                "file": 8716288,
+                "kernel": 7020544,
+                "shmem": 0,
+                "inactive_file": 5832704,
+                "active_file": 2883584,
+                "slab_reclaimable": 4888856,
+                "slab_unreclaimable": 441840
+              },
+              "docker_stat": {
+                "active_file": 2883584,
+                "anon": 7647232,
+                "file": 8716288,
+                "inactive_file": 5832704,
+                "shmem": 0,
+                "slab_reclaimable": 4888856,
+                "slab_unreclaimable": 441840
+              }
+            },
+            {
+              "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+              "name": "infra-excraper-linkedin-worker-1",
+              "started_at": "2026-09-17T20:44:10.776598641Z",
+              "time": 1793977750.58468,
+              "request_before": 1793977750.5840843,
+              "request_after": 1793977750.586612,
+              "measurement_scope": "infra-excraper|cgroup:[4026535820]",
+              "docker_bytes": 23552000,
+              "cgroup_before": 23552000,
+              "cgroup_after": 23552000,
+              "stat_before": {
+                "anon": 7647232,
+                "file": 8716288,
+                "kernel": 7020544,
+                "shmem": 0,
+                "inactive_file": 5832704,
+                "active_file": 2883584,
+                "slab_reclaimable": 4888856,
+                "slab_unreclaimable": 441840
+              },
+              "stat_after": {
+                "anon": 7647232,
+                "file": 8716288,
+                "kernel": 7020544,
+                "shmem": 0,
+                "inactive_file": 5832704,
+                "active_file": 2883584,
+                "slab_reclaimable": 4888856,
+                "slab_unreclaimable": 441840
+              },
+              "docker_stat": {
+                "active_file": 2883584,
+                "anon": 7647232,
+                "file": 8716288,
+                "inactive_file": 5832704,
+                "shmem": 0,
+                "slab_reclaimable": 4888856,
+                "slab_unreclaimable": 441840
+              }
+            }
+          ]
+        },
+        "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b": {
+          "name": "infra-excraper-signals-worker-1",
+          "started_at": "2026-09-17T20:44:10.77412796Z",
+          "time": 1793977758.94,
+          "cadvisor_bytes": 11767808.0,
+          "bracket": [
+            {
+              "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+              "name": "infra-excraper-signals-worker-1",
+              "started_at": "2026-09-17T20:44:10.77412796Z",
+              "time": 1793977758.593515,
+              "request_before": 1793977758.5928817,
+              "request_after": 1793977758.5952182,
+              "measurement_scope": "infra-excraper|cgroup:[4026535820]",
+              "docker_bytes": 11767808,
+              "cgroup_before": 11767808,
+              "cgroup_after": 11767808,
+              "stat_before": {
+                "anon": 6897664,
+                "file": 1662976,
+                "kernel": 3153920,
+                "shmem": 0,
+                "inactive_file": 0,
+                "active_file": 1662976,
+                "slab_reclaimable": 2647272,
+                "slab_unreclaimable": 242440
+              },
+              "stat_after": {
+                "anon": 6897664,
+                "file": 1662976,
+                "kernel": 3153920,
+                "shmem": 0,
+                "inactive_file": 0,
+                "active_file": 1662976,
+                "slab_reclaimable": 2647272,
+                "slab_unreclaimable": 242440
+              },
+              "docker_stat": {
+                "active_file": 1662976,
+                "anon": 6897664,
+                "file": 1662976,
+                "inactive_file": 0,
+                "shmem": 0,
+                "slab_reclaimable": 2647272,
+                "slab_unreclaimable": 242440
+              }
+            },
+            {
+              "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+              "name": "infra-excraper-signals-worker-1",
+              "started_at": "2026-09-17T20:44:10.77412796Z",
+              "time": 1793977759.095273,
+              "request_before": 1793977759.0946474,
+              "request_after": 1793977759.0969822,
+              "measurement_scope": "infra-excraper|cgroup:[4026535820]",
+              "docker_bytes": 11767808,
+              "cgroup_before": 11767808,
+              "cgroup_after": 11767808,
+              "stat_before": {
+                "anon": 6897664,
+                "file": 1662976,
+                "kernel": 3153920,
+                "shmem": 0,
+                "inactive_file": 0,
+                "active_file": 1662976,
+                "slab_reclaimable": 2647272,
+                "slab_unreclaimable": 242440
+              },
+              "stat_after": {
+                "anon": 6897664,
+                "file": 1662976,
+                "kernel": 3153920,
+                "shmem": 0,
+                "inactive_file": 0,
+                "active_file": 1662976,
+                "slab_reclaimable": 2647272,
+                "slab_unreclaimable": 242440
+              },
+              "docker_stat": {
+                "active_file": 1662976,
+                "anon": 6897664,
+                "file": 1662976,
+                "inactive_file": 0,
+                "shmem": 0,
+                "slab_reclaimable": 2647272,
+                "slab_unreclaimable": 242440
+              }
+            }
+          ]
+        },
+        "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3": {
+          "name": "infra-excraper-redis-1",
+          "started_at": "2026-09-17T20:44:10.798360464Z",
+          "time": 1793977739.059,
+          "cadvisor_bytes": 5328896.0,
+          "bracket": [
+            {
+              "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+              "name": "infra-excraper-redis-1",
+              "started_at": "2026-09-17T20:44:10.798360464Z",
+              "time": 1793977738.57648,
+              "request_before": 1793977738.5758533,
+              "request_after": 1793977738.5782864,
+              "measurement_scope": "infra-excraper|cgroup:[4026535820]",
+              "docker_bytes": 5328896,
+              "cgroup_before": 5328896,
+              "cgroup_after": 5328896,
+              "stat_before": {
+                "anon": 716800,
+                "file": 3977216,
+                "kernel": 634880,
+                "shmem": 0,
+                "inactive_file": 3145728,
+                "active_file": 831488,
+                "slab_reclaimable": 193520,
+                "slab_unreclaimable": 219280
+              },
+              "stat_after": {
+                "anon": 716800,
+                "file": 3977216,
+                "kernel": 634880,
+                "shmem": 0,
+                "inactive_file": 3145728,
+                "active_file": 831488,
+                "slab_reclaimable": 193520,
+                "slab_unreclaimable": 219280
+              },
+              "docker_stat": {
+                "active_file": 831488,
+                "anon": 716800,
+                "file": 3977216,
+                "inactive_file": 3145728,
+                "shmem": 0,
+                "slab_reclaimable": 193520,
+                "slab_unreclaimable": 219280
+              }
+            },
+            {
+              "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+              "name": "infra-excraper-redis-1",
+              "started_at": "2026-09-17T20:44:10.798360464Z",
+              "time": 1793977739.077854,
+              "request_before": 1793977739.0771844,
+              "request_after": 1793977739.0800884,
+              "measurement_scope": "infra-excraper|cgroup:[4026535820]",
+              "docker_bytes": 5328896,
+              "cgroup_before": 5328896,
+              "cgroup_after": 5328896,
+              "stat_before": {
+                "anon": 716800,
+                "file": 3977216,
+                "kernel": 634880,
+                "shmem": 0,
+                "inactive_file": 3145728,
+                "active_file": 831488,
+                "slab_reclaimable": 193520,
+                "slab_unreclaimable": 219280
+              },
+              "stat_after": {
+                "anon": 716800,
+                "file": 3977216,
+                "kernel": 634880,
+                "shmem": 0,
+                "inactive_file": 3145728,
+                "active_file": 831488,
+                "slab_reclaimable": 193520,
+                "slab_unreclaimable": 219280
+              },
+              "docker_stat": {
+                "active_file": 831488,
+                "anon": 716800,
+                "file": 3977216,
+                "inactive_file": 3145728,
+                "shmem": 0,
+                "slab_reclaimable": 193520,
+                "slab_unreclaimable": 219280
+              }
+            }
+          ]
+        }
+      },
+      "runtime": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T23:05:48.683072376Z",
+          "running": true,
+          "restarts": 0
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T23:05:47.313931038Z",
+          "running": true,
+          "restarts": 0
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started_at": "2026-09-17T20:44:10.776598641Z",
+          "running": true,
+          "restarts": 0
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started_at": "2026-09-17T20:44:10.77412796Z",
+          "running": true,
+          "restarts": 0
+        },
+        "cadvisor-pre-phase4-620": {
+          "id": "d6171836b995f3ee98f6e4005b340f07cec100a91ebb684892d0e24293ae32d0",
+          "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+          "started_at": "2026-11-02T22:49:53.639011761Z",
+          "running": false,
+          "restarts": 0
+        },
+        "node_exporter-pre-phase4-620": {
+          "id": "9e3a9bbe406e9ab4b9ef7f10aea2564fd5da1626aa0af1896fc111c565f6c99a",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T22:49:54.301907173Z",
+          "running": false,
+          "restarts": 0
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started_at": "2026-09-17T20:44:10.798360464Z",
+          "running": true,
+          "restarts": 0
+        }
+      },
+      "remote_files_written": false,
+      "deployment_or_restart_performed": false
+    },
+    {
+      "result": "PASS",
+      "ct": 619,
+      "source_freshness_errors": [],
+      "measurement_scope": "infra-pulpo|cgroup:[4026535109]",
+      "alignment_compatibility_passed": true,
+      "observed_at": 1793977780.8357248,
+      "seconds": 130,
+      "valid_samples": 18,
+      "container_count": 4,
+      "containers_unchanged": true,
+      "node_before": {
+        "total_memory_bytes": 2147483648,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 4.515676259994507,
+        "native_cpu_series": 0
+      },
+      "node_after": {
+        "total_memory_bytes": 2147483648,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 4.833658933639526,
+        "native_cpu_series": 0
+      },
+      "input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-limits.yml": "1c15f466c9fa05e4ebce0f835012d7dc3c6747079d8e012c0712031febb2c181",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.sh": "e4e03dae7a9dcf6700dff3d820335b071b88ce94d0191103c96cb1be736a7f2d"
+      },
+      "cpu_window_seconds": {
+        "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85": 100.8420000076294,
+        "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005": 58.65400004386902,
+        "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4": 87.53600001335144,
+        "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f": 90.72300004959106
+      },
+      "timestamp_fractional_widths_observed": {
+        "9": 927,
+        "8": 109,
+        "7": 3,
+        "6": 1
+      },
+      "last_cpu_alignment": {
+        "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85": {
+          "name": "cadvisor",
+          "started_at": "2026-11-03T08:22:06.8114351Z",
+          "time": 1793977754.314,
+          "cadvisor_seconds": 6688.783822,
+          "docker_seconds": 6688.7841995942545,
+          "cgroup_seconds": 6688.7841995942545,
+          "bounds": {
+            "docker_seconds": [
+              6688.783727,
+              6688.785032
+            ],
+            "cgroup_seconds": [
+              6688.783727,
+              6688.785032
+            ]
+          },
+          "measurement_scope": "infra-pulpo|cgroup:[4026535109]"
+        },
+        "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005": {
+          "name": "node_exporter",
+          "started_at": "2026-11-03T08:22:05.446450106Z",
+          "time": 1793977745.328,
+          "cadvisor_seconds": 520.235449,
+          "docker_seconds": 520.235449,
+          "cgroup_seconds": 520.235449,
+          "bounds": {
+            "docker_seconds": [
+              520.235449,
+              520.235449
+            ],
+            "cgroup_seconds": [
+              520.235449,
+              520.235449
+            ]
+          },
+          "measurement_scope": "infra-pulpo|cgroup:[4026535109]"
+        },
+        "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4": {
+          "name": "infra-pulpo-n8n-1",
+          "started_at": "2026-09-17T20:44:10.223424359Z",
+          "time": 1793977739.621,
+          "cadvisor_seconds": 5041.548568,
+          "docker_seconds": 5041.5485672926025,
+          "cgroup_seconds": 5041.5485672926025,
+          "bounds": {
+            "docker_seconds": [
+              5041.548328,
+              5041.548568
+            ],
+            "cgroup_seconds": [
+              5041.548328,
+              5041.548568
+            ]
+          },
+          "measurement_scope": "infra-pulpo|cgroup:[4026535109]"
+        },
+        "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f": {
+          "name": "infra-pulpo-postgres-1",
+          "started_at": "2026-09-17T20:44:10.188084591Z",
+          "time": 1793977753.551,
+          "cadvisor_seconds": 14244.95824,
+          "docker_seconds": 14244.952733359136,
+          "cgroup_seconds": 14244.952733359136,
+          "bounds": {
+            "docker_seconds": [
+              14244.927396,
+              14244.95824
+            ],
+            "cgroup_seconds": [
+              14244.927396,
+              14244.95824
+            ]
+          },
+          "measurement_scope": "infra-pulpo|cgroup:[4026535109]"
+        }
+      },
+      "last_memory_alignment": {
+        "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85": {
+          "name": "cadvisor",
+          "started_at": "2026-11-03T08:22:06.8114351Z",
+          "time": 1793977754.314,
+          "cadvisor_bytes": 18464768.0,
+          "bracket": [
+            {
+              "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+              "name": "cadvisor",
+              "started_at": "2026-11-03T08:22:06.8114351Z",
+              "time": 1793977754.132665,
+              "request_before": 1793977754.131691,
+              "request_after": 1793977754.1347396,
+              "measurement_scope": "infra-pulpo|cgroup:[4026535109]",
+              "docker_bytes": 18206720,
+              "cgroup_before": 18206720,
+              "cgroup_after": 18206720,
+              "stat_before": {
+                "anon": 14274560,
+                "file": 749568,
+                "kernel": 3055616,
+                "shmem": 0,
+                "inactive_file": 147456,
+                "active_file": 602112,
+                "slab_reclaimable": 2328504,
+                "slab_unreclaimable": 327704
+              },
+              "stat_after": {
+                "anon": 14274560,
+                "file": 749568,
+                "kernel": 3055616,
+                "shmem": 0,
+                "inactive_file": 147456,
+                "active_file": 602112,
+                "slab_reclaimable": 2328504,
+                "slab_unreclaimable": 327704
+              },
+              "docker_stat": {
+                "active_file": 602112,
+                "anon": 14274560,
+                "file": 749568,
+                "inactive_file": 147456,
+                "shmem": 0,
+                "slab_reclaimable": 2328504,
+                "slab_unreclaimable": 327704
+              }
+            },
+            {
+              "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+              "name": "cadvisor",
+              "started_at": "2026-11-03T08:22:06.8114351Z",
+              "time": 1793977754.633395,
+              "request_before": 1793977754.6323361,
+              "request_after": 1793977754.6355195,
+              "measurement_scope": "infra-pulpo|cgroup:[4026535109]",
+              "docker_bytes": 18202624,
+              "cgroup_before": 18202624,
+              "cgroup_after": 18202624,
+              "stat_before": {
+                "anon": 14274560,
+                "file": 749568,
+                "kernel": 3051520,
+                "shmem": 0,
+                "inactive_file": 147456,
+                "active_file": 602112,
+                "slab_reclaimable": 2328504,
+                "slab_unreclaimable": 327704
+              },
+              "stat_after": {
+                "anon": 14274560,
+                "file": 749568,
+                "kernel": 3051520,
+                "shmem": 0,
+                "inactive_file": 147456,
+                "active_file": 602112,
+                "slab_reclaimable": 2328504,
+                "slab_unreclaimable": 327704
+              },
+              "docker_stat": {
+                "active_file": 602112,
+                "anon": 14274560,
+                "file": 749568,
+                "inactive_file": 147456,
+                "shmem": 0,
+                "slab_reclaimable": 2328504,
+                "slab_unreclaimable": 327704
+              }
+            }
+          ]
+        },
+        "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005": {
+          "name": "node_exporter",
+          "started_at": "2026-11-03T08:22:05.446450106Z",
+          "time": 1793977745.328,
+          "cadvisor_bytes": 13791232.0,
+          "bracket": [
+            {
+              "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+              "name": "node_exporter",
+              "started_at": "2026-11-03T08:22:05.446450106Z",
+              "time": 1793977745.126791,
+              "request_before": 1793977745.1261678,
+              "request_after": 1793977745.1293018,
+              "measurement_scope": "infra-pulpo|cgroup:[4026535109]",
+              "docker_bytes": 13791232,
+              "cgroup_before": 13791232,
+              "cgroup_after": 13791232,
+              "stat_before": {
+                "anon": 10248192,
+                "file": 2637824,
+                "kernel": 839680,
+                "shmem": 0,
+                "inactive_file": 434176,
+                "active_file": 2203648,
+                "slab_reclaimable": 159792,
+                "slab_unreclaimable": 277976
+              },
+              "stat_after": {
+                "anon": 10248192,
+                "file": 2637824,
+                "kernel": 839680,
+                "shmem": 0,
+                "inactive_file": 434176,
+                "active_file": 2203648,
+                "slab_reclaimable": 159792,
+                "slab_unreclaimable": 277976
+              },
+              "docker_stat": {
+                "active_file": 2203648,
+                "anon": 10248192,
+                "file": 2637824,
+                "inactive_file": 434176,
+                "shmem": 0,
+                "slab_reclaimable": 159792,
+                "slab_unreclaimable": 277976
+              }
+            },
+            {
+              "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+              "name": "node_exporter",
+              "started_at": "2026-11-03T08:22:05.446450106Z",
+              "time": 1793977745.626432,
+              "request_before": 1793977745.6258059,
+              "request_after": 1793977745.6284056,
+              "measurement_scope": "infra-pulpo|cgroup:[4026535109]",
+              "docker_bytes": 13791232,
+              "cgroup_before": 13791232,
+              "cgroup_after": 13791232,
+              "stat_before": {
+                "anon": 10248192,
+                "file": 2637824,
+                "kernel": 839680,
+                "shmem": 0,
+                "inactive_file": 434176,
+                "active_file": 2203648,
+                "slab_reclaimable": 159792,
+                "slab_unreclaimable": 277976
+              },
+              "stat_after": {
+                "anon": 10248192,
+                "file": 2637824,
+                "kernel": 839680,
+                "shmem": 0,
+                "inactive_file": 434176,
+                "active_file": 2203648,
+                "slab_reclaimable": 159792,
+                "slab_unreclaimable": 277976
+              },
+              "docker_stat": {
+                "active_file": 2203648,
+                "anon": 10248192,
+                "file": 2637824,
+                "inactive_file": 434176,
+                "shmem": 0,
+                "slab_reclaimable": 159792,
+                "slab_unreclaimable": 277976
+              }
+            }
+          ]
+        },
+        "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4": {
+          "name": "infra-pulpo-n8n-1",
+          "started_at": "2026-09-17T20:44:10.223424359Z",
+          "time": 1793977739.621,
+          "cadvisor_bytes": 267202560.0,
+          "bracket": [
+            {
+              "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+              "name": "infra-pulpo-n8n-1",
+              "started_at": "2026-09-17T20:44:10.223424359Z",
+              "time": 1793977739.125485,
+              "request_before": 1793977739.1248078,
+              "request_after": 1793977739.1274474,
+              "measurement_scope": "infra-pulpo|cgroup:[4026535109]",
+              "docker_bytes": 267202560,
+              "cgroup_before": 267202560,
+              "cgroup_after": 267202560,
+              "stat_before": {
+                "anon": 187510784,
+                "file": 54525952,
+                "kernel": 25038848,
+                "shmem": 0,
+                "inactive_file": 38993920,
+                "active_file": 15532032,
+                "slab_reclaimable": 16221528,
+                "slab_unreclaimable": 877720
+              },
+              "stat_after": {
+                "anon": 187510784,
+                "file": 54525952,
+                "kernel": 25038848,
+                "shmem": 0,
+                "inactive_file": 38993920,
+                "active_file": 15532032,
+                "slab_reclaimable": 16221528,
+                "slab_unreclaimable": 877720
+              },
+              "docker_stat": {
+                "active_file": 15532032,
+                "anon": 187510784,
+                "file": 54525952,
+                "inactive_file": 38993920,
+                "shmem": 0,
+                "slab_reclaimable": 16221528,
+                "slab_unreclaimable": 877720
+              }
+            },
+            {
+              "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+              "name": "infra-pulpo-n8n-1",
+              "started_at": "2026-09-17T20:44:10.223424359Z",
+              "time": 1793977739.622465,
+              "request_before": 1793977739.621716,
+              "request_after": 1793977739.6251583,
+              "measurement_scope": "infra-pulpo|cgroup:[4026535109]",
+              "docker_bytes": 267202560,
+              "cgroup_before": 267202560,
+              "cgroup_after": 267202560,
+              "stat_before": {
+                "anon": 187510784,
+                "file": 54525952,
+                "kernel": 25038848,
+                "shmem": 0,
+                "inactive_file": 38993920,
+                "active_file": 15532032,
+                "slab_reclaimable": 16221528,
+                "slab_unreclaimable": 877720
+              },
+              "stat_after": {
+                "anon": 187510784,
+                "file": 54525952,
+                "kernel": 25038848,
+                "shmem": 0,
+                "inactive_file": 38993920,
+                "active_file": 15532032,
+                "slab_reclaimable": 16221528,
+                "slab_unreclaimable": 877720
+              },
+              "docker_stat": {
+                "active_file": 15532032,
+                "anon": 187510784,
+                "file": 54525952,
+                "inactive_file": 38993920,
+                "shmem": 0,
+                "slab_reclaimable": 16221528,
+                "slab_unreclaimable": 877720
+              }
+            }
+          ]
+        },
+        "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f": {
+          "name": "infra-pulpo-postgres-1",
+          "started_at": "2026-09-17T20:44:10.188084591Z",
+          "time": 1793977753.551,
+          "cadvisor_bytes": 43872256.0,
+          "bracket": [
+            {
+              "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+              "name": "infra-pulpo-postgres-1",
+              "started_at": "2026-09-17T20:44:10.188084591Z",
+              "time": 1793977753.139296,
+              "request_before": 1793977753.1387331,
+              "request_after": 1793977753.1412187,
+              "measurement_scope": "infra-pulpo|cgroup:[4026535109]",
+              "docker_bytes": 43872256,
+              "cgroup_before": 43872256,
+              "cgroup_after": 43872256,
+              "stat_before": {
+                "anon": 2760704,
+                "file": 36478976,
+                "kernel": 3715072,
+                "shmem": 13209600,
+                "inactive_file": 14872576,
+                "active_file": 8396800,
+                "slab_reclaimable": 2070512,
+                "slab_unreclaimable": 604088
+              },
+              "stat_after": {
+                "anon": 2760704,
+                "file": 36478976,
+                "kernel": 3715072,
+                "shmem": 13209600,
+                "inactive_file": 14872576,
+                "active_file": 8396800,
+                "slab_reclaimable": 2070512,
+                "slab_unreclaimable": 604088
+              },
+              "docker_stat": {
+                "active_file": 8396800,
+                "anon": 2760704,
+                "file": 36478976,
+                "inactive_file": 14872576,
+                "shmem": 13209600,
+                "slab_reclaimable": 2070512,
+                "slab_unreclaimable": 604088
+              }
+            },
+            {
+              "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+              "name": "infra-pulpo-postgres-1",
+              "started_at": "2026-09-17T20:44:10.188084591Z",
+              "time": 1793977753.640477,
+              "request_before": 1793977753.6398406,
+              "request_after": 1793977753.6425645,
+              "measurement_scope": "infra-pulpo|cgroup:[4026535109]",
+              "docker_bytes": 43872256,
+              "cgroup_before": 43872256,
+              "cgroup_after": 43872256,
+              "stat_before": {
+                "anon": 2760704,
+                "file": 36478976,
+                "kernel": 3715072,
+                "shmem": 13209600,
+                "inactive_file": 14872576,
+                "active_file": 8396800,
+                "slab_reclaimable": 2070512,
+                "slab_unreclaimable": 604088
+              },
+              "stat_after": {
+                "anon": 2760704,
+                "file": 36478976,
+                "kernel": 3715072,
+                "shmem": 13209600,
+                "inactive_file": 14872576,
+                "active_file": 8396800,
+                "slab_reclaimable": 2070512,
+                "slab_unreclaimable": 604088
+              },
+              "docker_stat": {
+                "active_file": 8396800,
+                "anon": 2760704,
+                "file": 36478976,
+                "inactive_file": 14872576,
+                "shmem": 13209600,
+                "slab_reclaimable": 2070512,
+                "slab_unreclaimable": 604088
+              }
+            }
+          ]
+        }
+      },
+      "runtime": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-03T08:22:06.8114351Z",
+          "running": true,
+          "restarts": 0
+        },
+        "cadvisor-phase4-619-rejected-1": {
+          "id": "56dac09c5071da13d3281ea5449b44fabcc347d569b462934554a143566c0dd4",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-03T07:42:26.638794763Z",
+          "running": false,
+          "restarts": 0
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-03T08:22:05.446450106Z",
+          "running": true,
+          "restarts": 0
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started_at": "2026-09-17T20:44:10.223424359Z",
+          "running": true,
+          "restarts": 0
+        },
+        "cadvisor-pre-phase4-619": {
+          "id": "0d9536b642e4c580ec4b281dd9fd98134497ef1228ccbf01f742040d9dd8dcf9",
+          "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+          "started_at": "2026-11-03T08:21:57.103521572Z",
+          "running": false,
+          "restarts": 0
+        },
+        "node_exporter-pre-phase4-619": {
+          "id": "5b85a6c02c98ccf2ff56dded4a0d74b3f23588c1e03724951de76c53af32b437",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-03T08:21:57.858431131Z",
+          "running": false,
+          "restarts": 0
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started_at": "2026-09-17T20:44:10.188084591Z",
+          "running": true,
+          "restarts": 0
+        }
+      },
+      "remote_files_written": false,
+      "deployment_or_restart_performed": false
+    },
+    {
+      "result": "PASS",
+      "ct": 623,
+      "source_freshness_errors": [],
+      "measurement_scope": "infra-gestoria|cgroup:[4026536584]",
+      "alignment_compatibility_passed": true,
+      "observed_at": 1793977781.528983,
+      "seconds": 130,
+      "valid_samples": 23,
+      "container_count": 5,
+      "containers_unchanged": true,
+      "node_before": {
+        "total_memory_bytes": 4294967296,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 2.2346575260162354,
+        "native_cpu_series": 0
+      },
+      "node_after": {
+        "total_memory_bytes": 4294967296,
+        "capacity_cores": 2,
+        "cpu_collector_age_seconds": 2.527041435241699,
+        "native_cpu_series": 0
+      },
+      "input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor.yml": "271acec1c85ccdcc0393249fce94ebc23c597adee112b8389a999a5529430bce",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-cgroup.sh": "15edc9bd3761bcc05bed41e52a2c73a7b22e8a80f8515421f79d168eb56b2842"
+      },
+      "cpu_window_seconds": {
+        "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7": 90.0220000743866,
+        "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288": 90.02300000190735,
+        "73159f2af290c498344f26c0133bac4b70093249c931d670848fefa4322983b0": 90.0220000743866,
+        "fb1e3b3d36ffc0c6feb9f0b7b70aaf5436811e188f75f95926153543c0c6d0f3": 90.02100014686584,
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": 90.0220000743866
+      },
+      "timestamp_fractional_widths_observed": {
+        "9": 1166,
+        "8": 119,
+        "7": 13,
+        "6": 2
+      },
+      "last_cpu_alignment": {
+        "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7": {
+          "name": "cadvisor",
+          "started_at": "2026-11-05T20:14:08.922260441Z",
+          "time": 1793977756.203,
+          "cadvisor_seconds": 945.91164,
+          "docker_seconds": 945.9149205104479,
+          "cgroup_seconds": 945.9149205104479,
+          "bounds": {
+            "docker_seconds": [
+              945.911265,
+              945.916424
+            ],
+            "cgroup_seconds": [
+              945.911265,
+              945.916424
+            ]
+          },
+          "measurement_scope": "infra-gestoria|cgroup:[4026536584]"
+        },
+        "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288": {
+          "name": "node_exporter",
+          "started_at": "2026-11-05T20:14:07.375961108Z",
+          "time": 1793977756.203,
+          "cadvisor_seconds": 136.899662,
+          "docker_seconds": 136.899662,
+          "cgroup_seconds": 136.899662,
+          "bounds": {
+            "docker_seconds": [
+              136.899662,
+              136.899662
+            ],
+            "cgroup_seconds": [
+              136.899662,
+              136.899662
+            ]
+          },
+          "measurement_scope": "infra-gestoria|cgroup:[4026536584]"
+        },
+        "73159f2af290c498344f26c0133bac4b70093249c931d670848fefa4322983b0": {
+          "name": "infra-gestoria-odoo-1",
+          "started_at": "2026-09-17T20:44:59.514514039Z",
+          "time": 1793977756.203,
+          "cadvisor_seconds": 449.934634,
+          "docker_seconds": 449.9346569235274,
+          "cgroup_seconds": 449.9346569235274,
+          "bounds": {
+            "docker_seconds": [
+              449.934634,
+              449.934667
+            ],
+            "cgroup_seconds": [
+              449.934634,
+              449.934667
+            ]
+          },
+          "measurement_scope": "infra-gestoria|cgroup:[4026536584]"
+        },
+        "fb1e3b3d36ffc0c6feb9f0b7b70aaf5436811e188f75f95926153543c0c6d0f3": {
+          "name": "infra-gestoria-db-1",
+          "started_at": "2026-09-17T20:44:59.527555014Z",
+          "time": 1793977756.203,
+          "cadvisor_seconds": 419.334223,
+          "docker_seconds": 419.334223,
+          "cgroup_seconds": 419.334223,
+          "bounds": {
+            "docker_seconds": [
+              419.334223,
+              419.334223
+            ],
+            "cgroup_seconds": [
+              419.334223,
+              419.334223
+            ]
+          },
+          "measurement_scope": "infra-gestoria|cgroup:[4026536584]"
+        },
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": {
+          "name": "test-nginx",
+          "started_at": "2026-09-17T20:44:59.495546401Z",
+          "time": 1793977756.204,
+          "cadvisor_seconds": 0.066726,
+          "docker_seconds": 0.066726,
+          "cgroup_seconds": 0.066726,
+          "bounds": {
+            "docker_seconds": [
+              0.066726,
+              0.066726
+            ],
+            "cgroup_seconds": [
+              0.066726,
+              0.066726
+            ]
+          },
+          "measurement_scope": "infra-gestoria|cgroup:[4026536584]"
+        }
+      },
+      "last_memory_alignment": {
+        "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7": {
+          "name": "cadvisor",
+          "started_at": "2026-11-05T20:14:08.922260441Z",
+          "time": 1793977756.203,
+          "cadvisor_bytes": 76771328.0,
+          "bracket": [
+            {
+              "id": "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7",
+              "name": "cadvisor",
+              "started_at": "2026-11-05T20:14:08.922260441Z",
+              "time": 1793977755.848463,
+              "request_before": 1793977755.8474724,
+              "request_after": 1793977755.8506117,
+              "measurement_scope": "infra-gestoria|cgroup:[4026536584]",
+              "docker_bytes": 76247040,
+              "cgroup_before": 76247040,
+              "cgroup_after": 76247040,
+              "stat_before": {
+                "anon": 15618048,
+                "file": 57159680,
+                "kernel": 3469312,
+                "shmem": 0,
+                "inactive_file": 43413504,
+                "active_file": 13746176,
+                "slab_reclaimable": 2717672,
+                "slab_unreclaimable": 343784
+              },
+              "stat_after": {
+                "anon": 15618048,
+                "file": 57159680,
+                "kernel": 3469312,
+                "shmem": 0,
+                "inactive_file": 43413504,
+                "active_file": 13746176,
+                "slab_reclaimable": 2717672,
+                "slab_unreclaimable": 343784
+              },
+              "docker_stat": {
+                "active_file": 13746176,
+                "anon": 15618048,
+                "file": 57159680,
+                "inactive_file": 43413504,
+                "shmem": 0,
+                "slab_reclaimable": 2717672,
+                "slab_unreclaimable": 343784
+              }
+            },
+            {
+              "id": "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7",
+              "name": "cadvisor",
+              "started_at": "2026-11-05T20:14:08.922260441Z",
+              "time": 1793977756.348819,
+              "request_before": 1793977756.3479278,
+              "request_after": 1793977756.35258,
+              "measurement_scope": "infra-gestoria|cgroup:[4026536584]",
+              "docker_bytes": 76251136,
+              "cgroup_before": 76251136,
+              "cgroup_after": 76251136,
+              "stat_before": {
+                "anon": 15618048,
+                "file": 57159680,
+                "kernel": 3473408,
+                "shmem": 0,
+                "inactive_file": 43413504,
+                "active_file": 13746176,
+                "slab_reclaimable": 2717672,
+                "slab_unreclaimable": 343784
+              },
+              "stat_after": {
+                "anon": 15618048,
+                "file": 57159680,
+                "kernel": 3473408,
+                "shmem": 0,
+                "inactive_file": 43413504,
+                "active_file": 13746176,
+                "slab_reclaimable": 2717672,
+                "slab_unreclaimable": 343784
+              },
+              "docker_stat": {
+                "active_file": 13746176,
+                "anon": 15618048,
+                "file": 57159680,
+                "inactive_file": 43413504,
+                "shmem": 0,
+                "slab_reclaimable": 2717672,
+                "slab_unreclaimable": 343784
+              }
+            }
+          ]
+        },
+        "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288": {
+          "name": "node_exporter",
+          "started_at": "2026-11-05T20:14:07.375961108Z",
+          "time": 1793977756.203,
+          "cadvisor_bytes": 12189696.0,
+          "bracket": [
+            {
+              "id": "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288",
+              "name": "node_exporter",
+              "started_at": "2026-11-05T20:14:07.375961108Z",
+              "time": 1793977755.851486,
+              "request_before": 1793977755.850689,
+              "request_after": 1793977755.85346,
+              "measurement_scope": "infra-gestoria|cgroup:[4026536584]",
+              "docker_bytes": 12189696,
+              "cgroup_before": 12189696,
+              "cgroup_after": 12189696,
+              "stat_before": {
+                "anon": 10559488,
+                "file": 724992,
+                "kernel": 905216,
+                "shmem": 0,
+                "inactive_file": 81920,
+                "active_file": 643072,
+                "slab_reclaimable": 184664,
+                "slab_unreclaimable": 296448
+              },
+              "stat_after": {
+                "anon": 10559488,
+                "file": 724992,
+                "kernel": 905216,
+                "shmem": 0,
+                "inactive_file": 81920,
+                "active_file": 643072,
+                "slab_reclaimable": 184664,
+                "slab_unreclaimable": 296448
+              },
+              "docker_stat": {
+                "active_file": 643072,
+                "anon": 10559488,
+                "file": 724992,
+                "inactive_file": 81920,
+                "shmem": 0,
+                "slab_reclaimable": 184664,
+                "slab_unreclaimable": 296448
+              }
+            },
+            {
+              "id": "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288",
+              "name": "node_exporter",
+              "started_at": "2026-11-05T20:14:07.375961108Z",
+              "time": 1793977756.353453,
+              "request_before": 1793977756.3526645,
+              "request_after": 1793977756.3555348,
+              "measurement_scope": "infra-gestoria|cgroup:[4026536584]",
+              "docker_bytes": 12189696,
+              "cgroup_before": 12189696,
+              "cgroup_after": 12189696,
+              "stat_before": {
+                "anon": 10559488,
+                "file": 724992,
+                "kernel": 905216,
+                "shmem": 0,
+                "inactive_file": 81920,
+                "active_file": 643072,
+                "slab_reclaimable": 184664,
+                "slab_unreclaimable": 296448
+              },
+              "stat_after": {
+                "anon": 10559488,
+                "file": 724992,
+                "kernel": 905216,
+                "shmem": 0,
+                "inactive_file": 81920,
+                "active_file": 643072,
+                "slab_reclaimable": 184664,
+                "slab_unreclaimable": 296448
+              },
+              "docker_stat": {
+                "active_file": 643072,
+                "anon": 10559488,
+                "file": 724992,
+                "inactive_file": 81920,
+                "shmem": 0,
+                "slab_reclaimable": 184664,
+                "slab_unreclaimable": 296448
+              }
+            }
+          ]
+        },
+        "73159f2af290c498344f26c0133bac4b70093249c931d670848fefa4322983b0": {
+          "name": "infra-gestoria-odoo-1",
+          "started_at": "2026-09-17T20:44:59.514514039Z",
+          "time": 1793977756.203,
+          "cadvisor_bytes": 95170560.0,
+          "bracket": [
+            {
+              "id": "73159f2af290c498344f26c0133bac4b70093249c931d670848fefa4322983b0",
+              "name": "infra-gestoria-odoo-1",
+              "started_at": "2026-09-17T20:44:59.514514039Z",
+              "time": 1793977755.85417,
+              "request_before": 1793977755.8535647,
+              "request_after": 1793977755.8560047,
+              "measurement_scope": "infra-gestoria|cgroup:[4026536584]",
+              "docker_bytes": 95170560,
+              "cgroup_before": 95170560,
+              "cgroup_after": 95170560,
+              "stat_before": {
+                "anon": 69595136,
+                "file": 9146368,
+                "kernel": 16244736,
+                "shmem": 0,
+                "inactive_file": 5533696,
+                "active_file": 3612672,
+                "slab_reclaimable": 15322592,
+                "slab_unreclaimable": 377136
+              },
+              "stat_after": {
+                "anon": 69595136,
+                "file": 9146368,
+                "kernel": 16244736,
+                "shmem": 0,
+                "inactive_file": 5533696,
+                "active_file": 3612672,
+                "slab_reclaimable": 15322592,
+                "slab_unreclaimable": 377136
+              },
+              "docker_stat": {
+                "active_file": 3612672,
+                "anon": 69595136,
+                "file": 9146368,
+                "inactive_file": 5533696,
+                "shmem": 0,
+                "slab_reclaimable": 15322592,
+                "slab_unreclaimable": 377136
+              }
+            },
+            {
+              "id": "73159f2af290c498344f26c0133bac4b70093249c931d670848fefa4322983b0",
+              "name": "infra-gestoria-odoo-1",
+              "started_at": "2026-09-17T20:44:59.514514039Z",
+              "time": 1793977756.356335,
+              "request_before": 1793977756.3556304,
+              "request_after": 1793977756.358794,
+              "measurement_scope": "infra-gestoria|cgroup:[4026536584]",
+              "docker_bytes": 95170560,
+              "cgroup_before": 95170560,
+              "cgroup_after": 95170560,
+              "stat_before": {
+                "anon": 69595136,
+                "file": 9146368,
+                "kernel": 16244736,
+                "shmem": 0,
+                "inactive_file": 5533696,
+                "active_file": 3612672,
+                "slab_reclaimable": 15322592,
+                "slab_unreclaimable": 377136
+              },
+              "stat_after": {
+                "anon": 69595136,
+                "file": 9146368,
+                "kernel": 16244736,
+                "shmem": 0,
+                "inactive_file": 5533696,
+                "active_file": 3612672,
+                "slab_reclaimable": 15322592,
+                "slab_unreclaimable": 377136
+              },
+              "docker_stat": {
+                "active_file": 3612672,
+                "anon": 69595136,
+                "file": 9146368,
+                "inactive_file": 5533696,
+                "shmem": 0,
+                "slab_reclaimable": 15322592,
+                "slab_unreclaimable": 377136
+              }
+            }
+          ]
+        },
+        "fb1e3b3d36ffc0c6feb9f0b7b70aaf5436811e188f75f95926153543c0c6d0f3": {
+          "name": "infra-gestoria-db-1",
+          "started_at": "2026-09-17T20:44:59.527555014Z",
+          "time": 1793977756.203,
+          "cadvisor_bytes": 50929664.0,
+          "bracket": [
+            {
+              "id": "fb1e3b3d36ffc0c6feb9f0b7b70aaf5436811e188f75f95926153543c0c6d0f3",
+              "name": "infra-gestoria-db-1",
+              "started_at": "2026-09-17T20:44:59.527555014Z",
+              "time": 1793977755.856743,
+              "request_before": 1793977755.8560789,
+              "request_after": 1793977755.8584876,
+              "measurement_scope": "infra-gestoria|cgroup:[4026536584]",
+              "docker_bytes": 50929664,
+              "cgroup_before": 50929664,
+              "cgroup_after": 50929664,
+              "stat_before": {
+                "anon": 2535424,
+                "file": 41754624,
+                "kernel": 4829184,
+                "shmem": 17948672,
+                "inactive_file": 13172736,
+                "active_file": 10633216,
+                "slab_reclaimable": 2232432,
+                "slab_unreclaimable": 944152
+              },
+              "stat_after": {
+                "anon": 2535424,
+                "file": 41754624,
+                "kernel": 4829184,
+                "shmem": 17948672,
+                "inactive_file": 13172736,
+                "active_file": 10633216,
+                "slab_reclaimable": 2232432,
+                "slab_unreclaimable": 944152
+              },
+              "docker_stat": {
+                "active_file": 10633216,
+                "anon": 2535424,
+                "file": 41754624,
+                "inactive_file": 13172736,
+                "shmem": 17948672,
+                "slab_reclaimable": 2232432,
+                "slab_unreclaimable": 944152
+              }
+            },
+            {
+              "id": "fb1e3b3d36ffc0c6feb9f0b7b70aaf5436811e188f75f95926153543c0c6d0f3",
+              "name": "infra-gestoria-db-1",
+              "started_at": "2026-09-17T20:44:59.527555014Z",
+              "time": 1793977756.36047,
+              "request_before": 1793977756.358919,
+              "request_after": 1793977756.3631518,
+              "measurement_scope": "infra-gestoria|cgroup:[4026536584]",
+              "docker_bytes": 50929664,
+              "cgroup_before": 50929664,
+              "cgroup_after": 50929664,
+              "stat_before": {
+                "anon": 2535424,
+                "file": 41754624,
+                "kernel": 4829184,
+                "shmem": 17948672,
+                "inactive_file": 13172736,
+                "active_file": 10633216,
+                "slab_reclaimable": 2232432,
+                "slab_unreclaimable": 944152
+              },
+              "stat_after": {
+                "anon": 2535424,
+                "file": 41754624,
+                "kernel": 4829184,
+                "shmem": 17948672,
+                "inactive_file": 13172736,
+                "active_file": 10633216,
+                "slab_reclaimable": 2232432,
+                "slab_unreclaimable": 944152
+              },
+              "docker_stat": {
+                "active_file": 10633216,
+                "anon": 2535424,
+                "file": 41754624,
+                "inactive_file": 13172736,
+                "shmem": 17948672,
+                "slab_reclaimable": 2232432,
+                "slab_unreclaimable": 944152
+              }
+            }
+          ]
+        },
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": {
+          "name": "test-nginx",
+          "started_at": "2026-09-17T20:44:59.495546401Z",
+          "time": 1793977756.204,
+          "cadvisor_bytes": 884736.0,
+          "bracket": [
+            {
+              "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+              "name": "test-nginx",
+              "started_at": "2026-09-17T20:44:59.495546401Z",
+              "time": 1793977755.859197,
+              "request_before": 1793977755.8585663,
+              "request_after": 1793977755.860928,
+              "measurement_scope": "infra-gestoria|cgroup:[4026536584]",
+              "docker_bytes": 884736,
+              "cgroup_before": 884736,
+              "cgroup_after": 884736,
+              "stat_before": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 860160,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 334136,
+                "slab_unreclaimable": 234640
+              },
+              "stat_after": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 860160,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 334136,
+                "slab_unreclaimable": 234640
+              },
+              "docker_stat": {
+                "active_file": 0,
+                "anon": 12288,
+                "file": 8192,
+                "inactive_file": 8192,
+                "shmem": 0,
+                "slab_reclaimable": 334136,
+                "slab_unreclaimable": 234640
+              }
+            },
+            {
+              "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+              "name": "test-nginx",
+              "started_at": "2026-09-17T20:44:59.495546401Z",
+              "time": 1793977756.364105,
+              "request_before": 1793977756.3632307,
+              "request_after": 1793977756.367158,
+              "measurement_scope": "infra-gestoria|cgroup:[4026536584]",
+              "docker_bytes": 884736,
+              "cgroup_before": 884736,
+              "cgroup_after": 884736,
+              "stat_before": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 860160,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 334136,
+                "slab_unreclaimable": 234640
+              },
+              "stat_after": {
+                "anon": 12288,
+                "file": 8192,
+                "kernel": 860160,
+                "shmem": 0,
+                "inactive_file": 8192,
+                "active_file": 0,
+                "slab_reclaimable": 334136,
+                "slab_unreclaimable": 234640
+              },
+              "docker_stat": {
+                "active_file": 0,
+                "anon": 12288,
+                "file": 8192,
+                "inactive_file": 8192,
+                "shmem": 0,
+                "slab_reclaimable": 334136,
+                "slab_unreclaimable": 234640
+              }
+            }
+          ]
+        }
+      },
+      "runtime": {
+        "cadvisor": {
+          "id": "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-05T20:14:08.922260441Z",
+          "running": true,
+          "restarts": 0
+        },
+        "cadvisor-phase4-623-rejected-1": {
+          "id": "db25b700488e8d35556eb43ebd5ee0082766ddc3b6f8b80443d9dc43e139dfea",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-03T08:41:38.214994875Z",
+          "running": false,
+          "restarts": 0
+        },
+        "node_exporter": {
+          "id": "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288",
+          "image": "sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+          "started_at": "2026-11-05T20:14:07.375961108Z",
+          "running": true,
+          "restarts": 0
+        },
+        "cadvisor-pre-phase4-623": {
+          "id": "e9b4d517eb3a58d267d1ee16acdcce35c92f39f3892f785b7e6a272cf03f7c50",
+          "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+          "started_at": "2026-11-05T20:13:58.672039918Z",
+          "running": false,
+          "restarts": 0
+        },
+        "node_exporter-pre-phase4-623": {
+          "id": "ae2cf4ac1e2d9a52ec6c3895bc3e5fd0deb6a582236cd6a3ad3fb1aaabd37870",
+          "image": "sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+          "started_at": "2026-11-05T20:13:59.463039258Z",
+          "running": false,
+          "restarts": 0
+        },
+        "infra-gestoria-odoo-1": {
+          "id": "73159f2af290c498344f26c0133bac4b70093249c931d670848fefa4322983b0",
+          "image": "sha256:67f04958d8a71423cc6d3ccb228b998ef7fb36fe214998c47f52aff975120b32",
+          "started_at": "2026-09-17T20:44:59.514514039Z",
+          "running": true,
+          "restarts": 0
+        },
+        "infra-gestoria-db-1": {
+          "id": "fb1e3b3d36ffc0c6feb9f0b7b70aaf5436811e188f75f95926153543c0c6d0f3",
+          "image": "sha256:c2ca90969ca293925ab474466e837689cc712321afdd9e4640bd0cf942fdca3a",
+          "started_at": "2026-09-17T20:44:59.527555014Z",
+          "running": true,
+          "restarts": 0
+        },
+        "test-nginx": {
+          "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+          "image": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+          "started_at": "2026-09-17T20:44:59.495546401Z",
+          "running": true,
+          "restarts": 0
+        }
+      },
+      "remote_files_written": false,
+      "deployment_or_restart_performed": false
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "ct": 626,
+  "prometheus_rules_checks_passed": false,
+  "issues": [
+    "Expected exactly one healthy node_exporter",
+    "Expected exactly one healthy cadvisor",
+    "CPU percent missing/invalid; never substitute zero",
+    "CPU contract is not valid",
+    "Missing/duplicate/unhealthy rule LxcCpuCollectorInvalid",
+    "Missing/duplicate/unhealthy rule LxcCpuTargetMissing"
+  ],
+  "full_chain_verified": false,
+  "telegram_delivery_requires_real_FIRING_and_RESOLVED_evidence_and_recipient_confirmation": true
+}

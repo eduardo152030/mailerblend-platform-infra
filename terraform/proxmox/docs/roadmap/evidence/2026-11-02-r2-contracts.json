@@ -1,0 +1,45 @@
+{
+  "621": {
+    "labels": {
+      "focalboard": {
+        "com.docker.compose.project": "infra-project-gestion",
+        "com.docker.compose.service": "focalboard"
+      },
+      "node_exporter": {
+        "com.docker.compose.project": "node-exporter",
+        "com.docker.compose.service": "node_exporter"
+      },
+      "cadvisor": {
+        "com.docker.compose.project": "cadvisor",
+        "com.docker.compose.service": "cadvisor"
+      }
+    },
+    "collector_shell_and_cgroup_readable": true
+  },
+  "620": {
+    "labels": {
+      "infra-excraper-linkedin-worker-1": {
+        "com.docker.compose.project": "infra-excraper",
+        "com.docker.compose.service": "linkedin-worker"
+      },
+      "infra-excraper-signals-worker-1": {
+        "com.docker.compose.project": "infra-excraper",
+        "com.docker.compose.service": "signals-worker"
+      },
+      "cadvisor": {
+        "com.docker.compose.project": "cadvisor",
+        "com.docker.compose.service": "cadvisor"
+      },
+      "node_exporter": {
+        "com.docker.compose.project": "node-exporter",
+        "com.docker.compose.service": "node_exporter"
+      },
+      "infra-excraper-redis-1": {
+        "com.docker.compose.project": "infra-excraper",
+        "com.docker.compose.service": "redis"
+      }
+    },
+    "collector_shell_and_cgroup_readable": true,
+    "redis_ping_ok": true
+  }
+}

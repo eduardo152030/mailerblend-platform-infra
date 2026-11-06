@@ -1,0 +1,23 @@
+{
+  "observed_at": "2026-11-02T20:37:44.697893+00:00",
+  "mode": "local promtool service-discovery, no deployment",
+  "result": "PASS",
+  "jobs": {
+    "node": {
+      "targets": 17,
+      "unique_identities": 17,
+      "corrected_cpu_contracts": 3
+    },
+    "cadvisor": {
+      "targets": 17,
+      "unique_identities": 17,
+      "corrected_cpu_contracts": 0
+    },
+    "blackbox": {
+      "targets": 11,
+      "unique_identities": 11,
+      "corrected_cpu_contracts": 0
+    }
+  },
+  "blackbox_identity_includes_module_and_probe_type": true
+}

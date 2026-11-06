@@ -1,0 +1,237 @@
+{
+  "result": "BLOCKED",
+  "ct": 619,
+  "samples": [
+    {
+      "elapsed": 0.0,
+      "root_memory_current": 1197654016,
+      "available_bytes": 1480937472,
+      "root_memory_pressure": "some avg10=0.33 avg60=1.78 avg300=1.17 total=10721161\nfull avg10=0.30 avg60=1.60 avg300=1.06 total=9661812",
+      "root_memory_events": "low 0\nhigh 0\nmax 9163\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 133132288,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 3904\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.37 avg60=1.52 avg300=0.65 total=2624973\nfull avg10=0.35 avg60=1.41 avg300=0.61 total=2480594"
+    },
+    {
+      "elapsed": 29.17992377281189,
+      "root_memory_current": 1197961216,
+      "available_bytes": 1477222400,
+      "root_memory_pressure": "some avg10=0.01 avg60=1.07 avg300=1.05 total=10808599\nfull avg10=0.01 avg60=0.97 avg300=0.96 total=9729900",
+      "root_memory_events": "low 0\nhigh 0\nmax 9316\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134078464,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 4059\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.19 avg60=0.95 avg300=0.59 total=2725894\nfull avg10=0.19 avg60=0.89 avg300=0.55 total=2573522"
+    },
+    {
+      "elapsed": 57.9983332157135,
+      "root_memory_current": 1199243264,
+      "available_bytes": 1477349376,
+      "root_memory_pressure": "some avg10=2.17 avg60=2.29 avg300=1.39 total=12178505\nfull avg10=2.13 avg60=2.18 avg300=1.29 total=11046220",
+      "root_memory_events": "low 0\nhigh 0\nmax 11660\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 133869568,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 6401\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=2.23 avg60=2.22 avg300=0.97 total=4096501\nfull avg10=2.23 avg60=2.18 avg300=0.93 total=3915400"
+    },
+    {
+      "elapsed": 86.89807295799255,
+      "root_memory_current": 1197752320,
+      "available_bytes": 1478844416,
+      "root_memory_pressure": "some avg10=0.18 avg60=1.46 avg300=1.27 total=12252068\nfull avg10=0.17 avg60=1.37 avg300=1.17 total=11115406",
+      "root_memory_events": "low 0\nhigh 0\nmax 11729\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 133836800,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 6470\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.13 avg60=1.38 avg300=0.88 total=4174412\nfull avg10=0.13 avg60=1.36 avg300=0.85 total=3992359"
+    },
+    {
+      "elapsed": 115.84288215637207,
+      "root_memory_current": 1198297088,
+      "available_bytes": 1477464064,
+      "root_memory_pressure": "some avg10=4.85 avg60=2.05 avg300=1.40 total=13210348\nfull avg10=4.73 avg60=1.97 avg300=1.31 total=12025529",
+      "root_memory_events": "low 0\nhigh 0\nmax 13259\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134017024,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 8001\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=4.96 avg60=2.04 avg300=1.06 total=5131281\nfull avg10=4.78 avg60=1.99 avg300=1.02 total=4921224"
+    },
+    {
+      "elapsed": 144.61393284797668,
+      "root_memory_current": 1198166016,
+      "available_bytes": 1475579904,
+      "root_memory_pressure": "some avg10=0.87 avg60=2.01 avg300=1.48 total=13837450\nfull avg10=0.81 avg60=1.89 avg300=1.38 total=12619342",
+      "root_memory_events": "low 0\nhigh 0\nmax 14174\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134127616,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 8915\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.87 avg60=2.00 avg300=1.17 total=5757352\nfull avg10=0.83 avg60=1.93 avg300=1.13 total=5528364"
+    },
+    {
+      "elapsed": 173.5988564491272,
+      "root_memory_current": 1198440448,
+      "available_bytes": 1477292032,
+      "root_memory_pressure": "some avg10=0.05 avg60=1.26 avg300=1.34 total=13910390\nfull avg10=0.04 avg60=1.18 avg300=1.25 total=12690352",
+      "root_memory_events": "low 0\nhigh 0\nmax 14224\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134197248,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 8965\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.05 avg60=1.25 avg300=1.06 total=5828739\nfull avg10=0.05 avg60=1.21 avg300=1.02 total=5599491"
+    },
+    {
+      "elapsed": 202.4670341014862,
+      "root_memory_current": 1198301184,
+      "available_bytes": 1477627904,
+      "root_memory_pressure": "some avg10=6.43 avg60=3.13 avg300=1.78 total=15750214\nfull avg10=6.43 avg60=3.09 avg300=1.69 total=14471813",
+      "root_memory_events": "low 0\nhigh 0\nmax 16869\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134029312,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 11610\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=6.52 avg60=3.16 avg300=1.53 total=7673524\nfull avg10=6.35 avg60=3.08 avg300=1.48 total=7412761"
+    },
+    {
+      "elapsed": 231.36512684822083,
+      "root_memory_current": 1198751744,
+      "available_bytes": 1477545984,
+      "root_memory_pressure": "some avg10=0.58 avg60=2.02 avg300=1.63 total=15809847\nfull avg10=0.58 avg60=1.99 avg300=1.55 total=14528779",
+      "root_memory_events": "low 0\nhigh 0\nmax 16895\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134041600,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 11636\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.50 avg60=2.03 avg300=1.40 total=7735916\nfull avg10=0.49 avg60=1.98 avg300=1.36 total=7473415"
+    },
+    {
+      "elapsed": 260.14296317100525,
+      "root_memory_current": 1198690304,
+      "available_bytes": 1476747264,
+      "root_memory_pressure": "some avg10=0.33 avg60=1.38 avg300=1.50 total=15904122\nfull avg10=0.33 avg60=1.36 avg300=1.43 total=14620416",
+      "root_memory_events": "low 0\nhigh 0\nmax 16952\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134094848,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 11693\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.18 avg60=1.33 avg300=1.28 total=7831833\nfull avg10=0.18 avg60=1.29 avg300=1.24 total=7568480"
+    },
+    {
+      "elapsed": 289.0358684062958,
+      "root_memory_current": 1199652864,
+      "available_bytes": 1477062656,
+      "root_memory_pressure": "some avg10=2.64 avg60=2.66 avg300=1.84 total=17543330\nfull avg10=2.64 avg60=2.65 avg300=1.77 total=16190916",
+      "root_memory_events": "low 0\nhigh 0\nmax 19528\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134021120,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 14269\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=2.69 avg60=2.79 avg300=1.69 total=9473156\nfull avg10=2.60 avg60=2.70 avg300=1.63 total=9176946"
+    },
+    {
+      "elapsed": 317.90745186805725,
+      "root_memory_current": 1198796800,
+      "available_bytes": 1476345856,
+      "root_memory_pressure": "some avg10=0.38 avg60=1.75 avg300=1.68 total=17648817\nfull avg10=0.38 avg60=1.74 avg300=1.63 total=16293767",
+      "root_memory_events": "low 0\nhigh 0\nmax 19609\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134029312,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 14350\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.57 avg60=1.89 avg300=1.57 total=9584128\nfull avg10=0.56 avg60=1.83 avg300=1.51 total=9287231"
+    },
+    {
+      "elapsed": 346.8355076313019,
+      "root_memory_current": 1199267840,
+      "available_bytes": 1476710400,
+      "root_memory_pressure": "some avg10=4.77 avg60=2.12 avg300=1.75 total=18428221\nfull avg10=4.49 avg60=2.05 avg300=1.68 total=17033612",
+      "root_memory_events": "low 0\nhigh 0\nmax 20919\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134078464,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 15660\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=4.85 avg60=2.23 avg300=1.65 total=10364956\nfull avg10=4.67 avg60=2.17 avg300=1.60 total=10043583"
+    },
+    {
+      "elapsed": 375.6083517074585,
+      "root_memory_current": 1198186496,
+      "available_bytes": 1478758400,
+      "root_memory_pressure": "some avg10=1.26 avg60=2.33 avg300=1.87 total=19351590\nfull avg10=1.23 avg60=2.27 avg300=1.80 total=17921709",
+      "root_memory_events": "low 0\nhigh 0\nmax 22329\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 133898240,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 17070\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=1.31 avg60=2.43 avg300=1.78 total=11289414\nfull avg10=1.28 avg60=2.37 avg300=1.73 total=10949095"
+    },
+    {
+      "elapsed": 404.5063009262085,
+      "root_memory_current": 1197580288,
+      "available_bytes": 1477439488,
+      "root_memory_pressure": "some avg10=0.07 avg60=1.46 avg300=1.69 total=19351677\nfull avg10=0.07 avg60=1.42 avg300=1.63 total=17921795",
+      "root_memory_events": "low 0\nhigh 0\nmax 22331\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 133521408,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 17072\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.07 avg60=1.52 avg300=1.62 total=11289498\nfull avg10=0.07 avg60=1.48 avg300=1.57 total=10949179"
+    },
+    {
+      "elapsed": 433.4785125255585,
+      "root_memory_current": 1200435200,
+      "available_bytes": 1476210688,
+      "root_memory_pressure": "some avg10=7.04 avg60=2.86 avg300=1.97 total=20774858\nfull avg10=6.69 avg60=2.72 avg300=1.89 total=19295038",
+      "root_memory_events": "low 0\nhigh 0\nmax 25074\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134045696,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 19815\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=6.99 avg60=2.87 avg300=1.90 total=12718516\nfull avg10=6.99 avg60=2.85 avg300=1.86 total=12352221"
+    },
+    {
+      "elapsed": 462.2278537750244,
+      "root_memory_current": 1199267840,
+      "available_bytes": 1477054464,
+      "root_memory_pressure": "some avg10=0.44 avg60=1.81 avg300=1.80 total=20781647\nfull avg10=0.41 avg60=1.73 avg300=1.72 total=19301475",
+      "root_memory_events": "low 0\nhigh 0\nmax 25082\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134062080,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 19823\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.43 avg60=1.82 avg300=1.73 total=12727174\nfull avg10=0.43 avg60=1.80 avg300=1.69 total=12360833"
+    },
+    {
+      "elapsed": 491.1318037509918,
+      "root_memory_current": 1198571520,
+      "available_bytes": 1476939776,
+      "root_memory_pressure": "some avg10=0.02 avg60=1.10 avg300=1.62 total=20826860\nfull avg10=0.01 avg60=1.04 avg300=1.55 total=19345255",
+      "root_memory_events": "low 0\nhigh 0\nmax 25122\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 134049792,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 19863\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.02 avg60=1.10 avg300=1.56 total=12771768\nfull avg10=0.02 avg60=1.09 avg300=1.52 total=12404841"
+    },
+    {
+      "elapsed": 519.9677309989929,
+      "root_memory_current": 1197969408,
+      "available_bytes": 1477181440,
+      "root_memory_pressure": "some avg10=2.63 avg60=2.47 avg300=1.93 total=22333225\nfull avg10=2.47 avg60=2.31 avg300=1.84 total=20786383",
+      "root_memory_events": "low 0\nhigh 0\nmax 27711\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 132734976,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 22452\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=2.57 avg60=2.44 avg300=1.87 total=14279261\nfull avg10=2.57 avg60=2.43 avg300=1.84 total=13869525"
+    },
+    {
+      "elapsed": 548.9372408390045,
+      "root_memory_current": 1199648768,
+      "available_bytes": 1478459392,
+      "root_memory_pressure": "some avg10=0.52 avg60=1.61 avg300=1.77 total=22422274\nfull avg10=0.42 avg60=1.49 avg300=1.68 total=20872000",
+      "root_memory_events": "low 0\nhigh 0\nmax 27747\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 133963776,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 22488\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=0.52 avg60=1.59 avg300=1.71 total=14366913\nfull avg10=0.42 avg60=1.56 avg300=1.68 total=13954855"
+    },
+    {
+      "elapsed": 577.8049838542938,
+      "root_memory_current": 1185611776,
+      "available_bytes": 1475768320,
+      "root_memory_pressure": "some avg10=4.76 avg60=2.07 avg300=1.83 total=23319263\nfull avg10=4.57 avg60=1.96 avg300=1.74 total=21717749",
+      "root_memory_events": "low 0\nhigh 0\nmax 29099\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_current": 118779904,
+      "cadvisor_memory_max": 134217728,
+      "cadvisor_memory_events": "low 0\nhigh 0\nmax 23840\noom 0\noom_kill 0\noom_group_kill 0",
+      "cadvisor_memory_pressure": "some avg10=4.30 avg60=1.94 avg300=1.76 total=15314255\nfull avg10=4.12 avg60=1.88 avg300=1.72 total=14868887"
+    }
+  ]
+}

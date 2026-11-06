@@ -1,0 +1,18 @@
+{
+  "ct": 617,
+  "status": "BLOCKED_POST_WATCH_PENDING_ROLLBACK",
+  "elapsed_seconds": 120.02608833400018,
+  "container": "analytics-ingest-gateway",
+  "id": "674fd7dbdff0972aa9b41d7d0d09160887cd03ab7f11a69ba31f1d8522bca09a",
+  "cadvisor_bytes": 47448064.0,
+  "cadvisor_metric_timestamp": 1793911210.764,
+  "docker_bytes": 61263872,
+  "pve_cgroup_bytes": 60858368,
+  "difference_bytes": 13815808.0,
+  "original_allowance_bytes": 12252774.4,
+  "sample_time": 1793911217.9410284,
+  "full_private_sample_preserved": true,
+  "threshold_relaxed": false,
+  "subsequent_ct615": "BLOCKED_NO_CHANGES preflight503, no export/config deployment",
+  "ct623": "PASS including post-watch31/901.544s"
+}

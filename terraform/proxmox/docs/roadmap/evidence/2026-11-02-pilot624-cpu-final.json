@@ -1,0 +1,62 @@
+{
+  "ct": 624,
+  "mode": "read-only, no synthetic load",
+  "metric_source": "cgroup_v2_textfile",
+  "first": {
+    "time": 1793644184.9849963,
+    "node_lxc_cpu_total": 9440.166589,
+    "node_cpu_seconds": {},
+    "pve_assigned_core_before": {
+      "user": 190282.54,
+      "nice": 60.61,
+      "system": 195267.07,
+      "idle": 3484834.78,
+      "iowait": 51743.53,
+      "irq": 0.0,
+      "softirq": 733.07,
+      "steal": 0.0
+    },
+    "pve_assigned_core_after": {
+      "user": 190282.56,
+      "nice": 60.61,
+      "system": 195267.09,
+      "idle": 3484834.82,
+      "iowait": 51743.53,
+      "irq": 0.0,
+      "softirq": 733.07,
+      "steal": 0.0
+    },
+    "node_matches_physical_core": null,
+    "cgroup_usage_seconds": 9440.23784
+  },
+  "last": {
+    "time": 1793644205.0786035,
+    "node_lxc_cpu_total": 9440.287985,
+    "node_cpu_seconds": {},
+    "pve_assigned_core_before": {
+      "user": 190283.38,
+      "nice": 60.61,
+      "system": 195267.8,
+      "idle": 3484852.85,
+      "iowait": 51743.58,
+      "irq": 0.0,
+      "softirq": 733.08,
+      "steal": 0.0
+    },
+    "pve_assigned_core_after": {
+      "user": 190283.4,
+      "nice": 60.61,
+      "system": 195267.81,
+      "idle": 3484852.9,
+      "iowait": 51743.58,
+      "irq": 0.0,
+      "softirq": 733.08,
+      "steal": 0.0
+    },
+    "node_matches_physical_core": null,
+    "cgroup_usage_seconds": 9440.327211
+  },
+  "elapsed_seconds": 20.093607187271118,
+  "node_busy_delta_seconds": 0.12139600000045903,
+  "lxc_cgroup_usage_delta_seconds": 0.08937100000002829
+}

@@ -1,0 +1,589 @@
+{
+  "observed_utc": "2026-11-05T20:56:16.837752+00:00",
+  "scope": "D031 final read-only closure after verified CT617 rollback",
+  "backups": [
+    {
+      "relative_path": "pilot-624-20261102T161242+0100/exporters-before.tar",
+      "sha256": "79b66ecf4f8cb8c83752d76a1eb6d3d39894367b3be5b269f589887cac687a07",
+      "bytes": 33812480,
+      "members_readable": 11,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/pilot-624-20261102T161242+0100/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "pilot-624-20261102T161242+0100/exporters-after-config.tar.gz",
+      "sha256": "9ac4c6d239588542ab03064b076b0cd068c1eb9d786d0be48def10c68e15c3d3",
+      "bytes": 12067,
+      "members_readable": 16,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/pilot-624-20261102T161242+0100/exporters-after-config.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/623/exporters-before-d031-20261105T201112Z.tar",
+      "sha256": "7f0c2fc44740cd3a5fd6c2508531580bece725ce2c85f433db4ed4307693d138",
+      "bytes": 51630080,
+      "members_readable": 24,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/623/exporters-before-d031-20261105T201112Z.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/623/exporters-before.tar",
+      "sha256": "7edd4123cfc031d889f91aac9028670ad7f79f4df5c52294608b78e00d32582b",
+      "bytes": 47185920,
+      "members_readable": 19,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/623/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/623/exporters-after.tar.gz",
+      "sha256": "3737f5cc547fc9e4f4d6623ce4e583dbe6fe634eaf157382fdb96512b089b3a9",
+      "bytes": 562557,
+      "members_readable": 32,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/623/exporters-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/623/monitoring/integration-before.tar",
+      "sha256": "afb129d0042a68413e117b1e8c30341f80051b190722b6fec88f212d7de611e0",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/623/monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/623/monitoring-d031-20261105T201112Z/integration-before.tar",
+      "sha256": "de0d7259ed845b468bd15d3c5cef0197d81ba1be3fd0b5041028a0a1d3257154",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261105T201112Z/623/monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/623/monitoring-d031-20261105T201112Z/integration-after.tar.gz",
+      "sha256": "f18a43fd1f8a0d68fddd5e655dc4908172c5e5343b5ca890fa544ca841eea22a",
+      "bytes": 6887,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261105T201112Z/623/monitoring/integration-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/620/exporters-before.tar",
+      "sha256": "eeb07ca69df5ca886f74cb447c81ee56d7f508da569319eaf053947c464463cf",
+      "bytes": 46919680,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/620/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/620/exporters-after.tar.gz",
+      "sha256": "d16efe1ef89bd9316612bd09858a81d97dcdede6753bd89e2a23c07759bb1cd0",
+      "bytes": 18254,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/620/exporters-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/620/monitoring/integration-before.tar",
+      "sha256": "8d284e99edb0ba3dba60e18616c0de6b66a698d09adac96e615e35b2d73e811f",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/620/monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/620/monitoring/integration-after.tar.gz",
+      "sha256": "25090340df5f73c230ce39f062b3c5cebca50f859bf17525cd0d1d1af5687e85",
+      "bytes": 6819,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/620/monitoring/integration-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/621/exporters-before.tar",
+      "sha256": "420016ea3e6abade7b0c80f1ea48312e22f35d534efb9d1f58fd00735b887e55",
+      "bytes": 47165440,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/621/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/621/exporters-after.tar.gz",
+      "sha256": "58f0de818d58cccbd03e4f3a7f306e07b58119402cf4824e7e5f20b6c6be09fb",
+      "bytes": 18258,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/621/exporters-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/621/monitoring/integration-before.tar",
+      "sha256": "b7e0f233f4bda167e07b365ed4fbff44171806720599e604fd43954117e330e7",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/621/monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/621/monitoring/integration-after.tar.gz",
+      "sha256": "d85961ef72f012e66a95494138a509aba39e38b7c3e7fff8388459608e79f959",
+      "bytes": 6790,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/621/monitoring/integration-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/memory-compat/integration-before.tar",
+      "sha256": "e109aa365833d86ad1f7cf4c55f80f9f3e715fc5c7a41b0a1e1fea71ef914acb",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/memory-compat/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/memory-compat/integration-after.tar.gz",
+      "sha256": "a220f55408ac14e1a8f05da554588d3c6aa3bbfc9b02ec258c3e44c385f9985e",
+      "bytes": 6851,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/memory-compat/integration-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/619/exporters-before.tar",
+      "sha256": "cd30b908a0449e7de424e22d8837a274310db381fc6c5d5e96864a619c30fc4b",
+      "bytes": 46909440,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/619/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/619/exporters-after.tar.gz",
+      "sha256": "1f9189785e494eb810e45144e509516febc384bcb46e186893b98fe23adcfda4",
+      "bytes": 168644,
+      "members_readable": 29,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/619/exporters-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/619/monitoring/integration-before.tar",
+      "sha256": "decccb84be24c1565da9edb3d2374ff1cb9ce6a9458cae08e360ce740e6c3319",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/619/monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/619/monitoring/integration-after.tar.gz",
+      "sha256": "a3b8332fe042a1bac1f8803e57b96801b8f9cf835ce8c21b47d3386818110f7e",
+      "bytes": 6872,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/619/monitoring/integration-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/617/exporters-before.tar",
+      "sha256": "3874d3051d3be17f12dd252d7d7296b8962dbe9cf85124e2470011373a1d3bbb",
+      "bytes": 46940160,
+      "members_readable": 19,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/617/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/617/exporters-after.tar.gz",
+      "sha256": "90896da552ba31555f5b341700740b7a7ad7bad8ecbd908cb8b2d36bf11a927b",
+      "bytes": 139778,
+      "members_readable": 22,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/617/exporters-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/617/monitoring/integration-before.tar",
+      "sha256": "8851baa8c767d1293893311a2f26ef10cf5103c166eac5bc4778fac201870d42",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/617/monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/617/monitoring/integration-after.tar.gz",
+      "sha256": "15b4c5cf0237baeabb874e003d850021cd7c6c6070276de0adc73b472dbcd6a6",
+      "bytes": 6954,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/617/monitoring/integration-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T204936Z/613/exporters-before.tar",
+      "sha256": "db725bc3b500f12b27fe0f0bf7d74e621a0d435f2da7db9be3c56ada9c24a70b",
+      "bytes": 46909440,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T204936Z/613/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T204936Z/613/exporters-after-config.tar.gz",
+      "sha256": "b91d6c3f6913c4479f0c472cb6c88609fc7a4f50dfa26cfc69895abc0e86a15e",
+      "bytes": 16616,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T204936Z/613/exporters-after-config.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T204936Z/613/integration-after-v2.tar.gz",
+      "sha256": "af9c6412ae1eb1d9aea81c24d01e59d97ca24145518e6c53945e934d09cd3d43",
+      "bytes": 6770,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T204936Z/R1-monitoring/integration-after-v2.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T204936Z/613/monitoring/integration-before.tar",
+      "sha256": "d96783d47cdafba501fef3e08c5576d745bb0e875bfe4962df1e0e4f883bf4b2",
+      "bytes": 92160,
+      "members_readable": 33,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T204936Z/R1-monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T204936Z/P0/integration-before.tar",
+      "sha256": "d8e2aa83ed3a0c4296531acc6222e7043f2f004143350e2585193a8666a9a4bd",
+      "bytes": 81920,
+      "members_readable": 30,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T204936Z/P0/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "journal-20261102T190629Z/626/exporters-before.tar",
+      "sha256": "ab31b752d274b45f9ac776003ae45ac1e809eebff5e31083ee9e3a94396040b2",
+      "bytes": 33832960,
+      "members_readable": 15,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/journal-20261102T190629Z/626/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "journal-20261102T190629Z/626/exporters-after-config.tar.gz",
+      "sha256": "5a4eda04567bdd1615131c068f313ab5b84592963a8f4f7a81867ea45738df78",
+      "bytes": 15194,
+      "members_readable": 16,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/journal-20261102T190629Z/626/exporters-after-config.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "journal-20261102T190629Z/625/exporters-before.tar",
+      "sha256": "4ce7eb0109ef53832cabdc42e4d3d7e046513cabf3fd4c9966d85a07e6332353",
+      "bytes": 33832960,
+      "members_readable": 15,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/journal-20261102T190629Z/625/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "journal-20261102T190629Z/625/exporters-after-config.tar.gz",
+      "sha256": "08ece2bec61425f2901e9ac0c84182cc126bb0ad60085ef13243ed63c97279bf",
+      "bytes": 15951,
+      "members_readable": 16,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/journal-20261102T190629Z/625/exporters-after-config.tar.gz"
+      ]
+    }
+  ],
+  "applications": {
+    "624": {
+      "checks": {
+        "http://192.168.1.124:8090/": 200
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.sh": "a2481b0d3c2041e2516bedb7959c05e679be5aca672c1e5f814cc76648058af8",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "626": {
+      "checks": {
+        "http://192.168.1.126:3000/health": 200
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.sh": "c16eb85760f18f471c01990b33627317c38ce0224f5ab28e5ebeab843960906c",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "625": {
+      "checks": {
+        "pg": true
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.sh": "65916a334e7a5dbb0fd4c5185ffdb27425b592c46968a1e4546676c3c8d66f9c",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "613": {
+      "checks": {
+        "no_application": "baseline sin aplicaciones"
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.sh": "3abf15cc620ba953311f3010c539530ed547c11c99dd521478ab954a8d03f8ee",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "621": {
+      "checks": {
+        "http://192.168.1.121:8081/": 200
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.sh": "c66e49237172f2320853bc667153e2b5db69a6e4e3693259888b0eef115a729b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "620": {
+      "checks": {
+        "http://192.168.1.120:3000/health": 200,
+        "http://192.168.1.120:3001/health": 200,
+        "redis": true
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.sh": "a8ef97c7b57942379c96ced167f1c19a84dc062b0149c6d2ecad33e9852c3be3",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "619": {
+      "checks": {
+        "http://192.168.1.119:15678/healthz": 200,
+        "pg": true
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.sh": "e4e03dae7a9dcf6700dff3d820335b071b88ce94d0191103c96cb1be736a7f2d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-limits.yml": "1c15f466c9fa05e4ebce0f835012d7dc3c6747079d8e012c0712031febb2c181",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "623": {
+      "checks": {
+        "http://127.0.0.1:8069/web/login": 200,
+        "pg": true
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-cgroup.sh": "15edc9bd3761bcc05bed41e52a2c73a7b22e8a80f8515421f79d168eb56b2842",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor.yml": "271acec1c85ccdcc0393249fce94ebc23c597adee112b8389a999a5529430bce",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      },
+      "application_baseline_unchanged": true,
+      "originals_preserved_stopped": true,
+      "resources": {
+        "memory.events": "low 0\nhigh 0\nmax 14466\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=21732144\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=19863376",
+        "memory.current": "1205592064",
+        "memory.max": "max"
+      }
+    },
+    "617": {
+      "checks": {
+        "helper_application_baseline_unchanged": true,
+        "application_probe": {
+          "status": 200,
+          "read_only_application_checks": [
+            {
+              "endpoint": "http://192.168.1.117:18088/healthz",
+              "status": 403
+            },
+            {
+              "container": "analytics-ingest-gateway",
+              "status": 200
+            }
+          ]
+        }
+      },
+      "active_input_sha256": {
+        "/opt/common/node-exporter/docker-compose.yml": "745cb89ccd097b68fe2b042bafecdf620a2e9f0f412dd9074eb37ea964a78d77",
+        "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+      }
+    },
+    "615": {
+      "checks": {
+        "http://127.0.0.1:18092/healthy": 503,
+        "http://127.0.0.1:18091/healthy": 503
+      },
+      "active_input_sha256": {
+        "/opt/common/node-exporter/docker-compose.yml": "745cb89ccd097b68fe2b042bafecdf620a2e9f0f412dd9074eb37ea964a78d77",
+        "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+      }
+    }
+  },
+  "pve_resources": {
+    "624": {
+      "memory.events": "low 0\nhigh 1485\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=8310427\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=7621928",
+      "memory.current": "371974144",
+      "memory.max": "536870912",
+      "cpu.stat": "usage_usec 10926163513\nuser_usec 7195152970\nsystem_usec 3731010542\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "626": {
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=11380299\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11070277",
+      "memory.current": "466423808",
+      "memory.max": "2147483648",
+      "cpu.stat": "usage_usec 9599759444\nuser_usec 4887681813\nsystem_usec 4712077630\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "625": {
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=14136907\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=13766790",
+      "memory.current": "422555648",
+      "memory.max": "2147483648",
+      "cpu.stat": "usage_usec 11396493915\nuser_usec 6048707326\nsystem_usec 5347786588\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "613": {
+      "memory.events": "low 0\nhigh 399\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=48821146\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=47770060",
+      "memory.current": "341753856",
+      "memory.max": "536870912",
+      "cpu.stat": "usage_usec 9945002419\nuser_usec 6161621628\nsystem_usec 3783380790\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "621": {
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3230762\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=2981446",
+      "memory.current": "399056896",
+      "memory.max": "2147483648",
+      "cpu.stat": "usage_usec 10949798240\nuser_usec 5189546452\nsystem_usec 5760251787\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "620": {
+      "memory.events": "low 0\nhigh 0\nmax 242\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=8431240\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=8223200",
+      "memory.current": "591024128",
+      "memory.max": "2147483648",
+      "cpu.stat": "usage_usec 70403963776\nuser_usec 47614594226\nsystem_usec 22789369550\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "619": {
+      "memory.events": "low 0\nhigh 0\nmax 36272\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=27794471\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=26012654",
+      "memory.current": "1182814208",
+      "memory.max": "2147483648",
+      "cpu.stat": "usage_usec 46057337676\nuser_usec 26983176130\nsystem_usec 19074161545\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "623": {
+      "memory.events": "low 0\nhigh 0\nmax 14466\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=21732600\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=19862492",
+      "memory.current": "1194213376",
+      "memory.max": "4294967296",
+      "cpu.stat": "usage_usec 13590676971\nuser_usec 7222206350\nsystem_usec 6368470621\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "617": {
+      "memory.events": "low 0\nhigh 958\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.01 avg300=0.00 total=13253183\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=12300035",
+      "memory.current": "500432896",
+      "memory.max": "536870912",
+      "cpu.stat": "usage_usec 10908387388\nuser_usec 7553495813\nsystem_usec 3354891575\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "615": {
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3680718\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=3323418",
+      "memory.current": "533155840",
+      "memory.max": "2147483648",
+      "cpu.stat": "usage_usec 83563505694\nuser_usec 70612291609\nsystem_usec 12951214084\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    }
+  },
+  "accepted_chain_issues": {
+    "624": [],
+    "626": [],
+    "625": [],
+    "613": [],
+    "621": [],
+    "620": [],
+    "619": [],
+    "623": []
+  },
+  "target_counts": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "targets_up": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "unhealthy_rules": [],
+  "controlled_test_rules": [],
+  "telegram_counters": {
+    "alertmanager_notifications_total": 124.0,
+    "alertmanager_notifications_failed_total": 56.0
+  },
+  "telegram_sent_this_audit": false,
+  "deployment_or_reload_performed": false
+}

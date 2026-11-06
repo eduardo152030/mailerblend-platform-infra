@@ -1,0 +1,88 @@
+{
+  "ct": 624,
+  "deployed_inputs_match_repository": true,
+  "sha256": {
+    "scripts/exporter-pilot-624.py": "e1c9ae77ae75a4e2698a96155b7d95e24627d16fe3a4e06f54048d6511eee30a",
+    "services/common/node-exporter/docker-compose.phase4.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+    "services/common/cadvisor/docker-compose.phase4.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+    "services/common/pilot-624/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+    "services/common/pilot-624/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+    "services/common/pilot-624/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+    "services/common/pilot-624/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+    "services/common/pilot-624/node-cgroup.sh": "a2481b0d3c2041e2516bedb7959c05e679be5aca672c1e5f814cc76648058af8"
+  },
+  "backup_bundle_sha256": "79b66ecf4f8cb8c83752d76a1eb6d3d39894367b3be5b269f589887cac687a07",
+  "backups_verified_on_pve_and_offhost": true,
+  "original_image_archive_loaded_and_checked": true,
+  "runtime_security_context": {
+    "node_exporter": {
+      "user": "nobody",
+      "privileged": false,
+      "cgroupns": "private",
+      "pid_mode": "host",
+      "cap_add": null,
+      "security_opt": [
+        "label=disable"
+      ],
+      "devices": null,
+      "mounts": [
+        {
+          "source": "/",
+          "target": "/host",
+          "read_only": true
+        },
+        {
+          "source": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.sh",
+          "target": "/opt/pilot-node-cgroup.sh",
+          "read_only": true
+        }
+      ]
+    },
+    "cadvisor": {
+      "user": "",
+      "privileged": true,
+      "cgroupns": "host",
+      "pid_mode": "",
+      "cap_add": null,
+      "security_opt": [
+        "label=disable"
+      ],
+      "devices": null,
+      "mounts": [
+        {
+          "source": "/var/lib/containerd",
+          "target": "/var/lib/containerd",
+          "read_only": true
+        },
+        {
+          "source": "/var/run/docker.sock",
+          "target": "/var/run/docker.sock",
+          "read_only": true
+        },
+        {
+          "source": "/",
+          "target": "/rootfs",
+          "read_only": true
+        },
+        {
+          "source": "/sys",
+          "target": "/sys",
+          "read_only": true
+        },
+        {
+          "source": "/var/lib/docker",
+          "target": "/var/lib/docker",
+          "read_only": true
+        },
+        {
+          "source": "/run/containerd/containerd.sock",
+          "target": "/run/containerd/containerd.sock",
+          "read_only": true
+        }
+      ]
+    }
+  },
+  "after_configuration_bundle_sha256": "9ac4c6d239588542ab03064b076b0cd068c1eb9d786d0be48def10c68e15c3d3",
+  "after_configuration_bundle_offhost_verified": true,
+  "audit_collector_lan_binding_and_cgroup_contract_verified": true
+}

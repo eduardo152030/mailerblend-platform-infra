@@ -1,0 +1,22 @@
+{
+  "observed_at_utc": "2026-11-06T10:36:20.086853+00:00",
+  "tests_passed": 36,
+  "skip_policy_tests": 9,
+  "ram_tests": 14,
+  "rollout_tests": 7,
+  "reentry_tests": 6,
+  "local_links": "PASS",
+  "git_diff_check": "PASS",
+  "secret_signatures": 0,
+  "active_rollout_processes": [],
+  "source_sha256": {
+    "scripts/phase4-skip-policy.py": "f32a179fe4909325354a589a1bf32b596ba9e9a32283d3b9651bd01221a88768",
+    "scripts/run-skip-exporter-wave.py": "3ec9ff05d6e00cc9ff6bc0ba214ae11f431ec8c382109c02b676446204c16464",
+    "scripts/prepare-617-memory.py": "28f65b7f95b221cebf6580a3382d01cf67ed94798f9a1c7fb0124ce93763c488",
+    "scripts/rollout-approved-exporters.py": "51314dc8fc3a68ac81a292dd4c35e8addaabae01adf8001e4a7461bd10b40779",
+    "tests/monitoring/test_skip_policy.py": "c48d3caeac45dbdff54620ddc32fcc23050dfd465d1fb32e58a02c6a0a52ebb2"
+  },
+  "commit_push_staging_performed": false,
+  "deployment_or_reload_performed": false,
+  "git_status_entries": 341
+}

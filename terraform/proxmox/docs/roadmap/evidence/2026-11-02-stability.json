@@ -1,0 +1,21 @@
+{
+  "mode": "read-only comparison",
+  "production_changes": false,
+  "observed_at": "2026-11-02T15:41:02.168983+01:00",
+  "services": {
+    "infra-composable-crm": {
+      "container_id_image_started_at_unchanged": true,
+      "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1042065\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=894231",
+      "memory_current_bytes": "2541518848",
+      "swap_current_bytes": "25518080"
+    },
+    "infra-eva-assistant-bot": {
+      "container_id_image_started_at_unchanged": true,
+      "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1968\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=1858",
+      "memory_current_bytes": "1233129472",
+      "swap_current_bytes": "0"
+    }
+  }
+}

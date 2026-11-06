@@ -1,0 +1,27 @@
+{
+  "decision": "D-040",
+  "mode": "local_plan_only",
+  "accepted": [
+    610,
+    611,
+    613,
+    614,
+    615,
+    616,
+    617,
+    618,
+    619,
+    620,
+    621,
+    622,
+    623,
+    624,
+    625,
+    626,
+    61211
+  ],
+  "blocked": [],
+  "pending": [],
+  "authorized_standard_order": [],
+  "critical_deployment_authorized": false
+}

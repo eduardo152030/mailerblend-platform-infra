@@ -1,0 +1,54 @@
+{
+  "run": "integration-20261106T100830Z",
+  "result": "BLOCKED_ROLLED_BACK",
+  "safe_rollback_verified": true,
+  "backups": [
+    {
+      "file": "exporters-before.tar",
+      "sha256": "6d65de0542fe04d24cf409be220ee991b7db67ae472e94fc058edc18d33871fc",
+      "members": 20,
+      "external_verified": true
+    },
+    {
+      "file": "integration-before.tar",
+      "sha256": "54f73fb9ef8f15bf1c92b564f46e007913618f64d6f7ac1b3e039982816d7726",
+      "members": 35,
+      "external_verified": true
+    }
+  ],
+  "live": {
+    "backups": {
+      "exporters-before.tar": "6d65de0542fe04d24cf409be220ee991b7db67ae472e94fc058edc18d33871fc",
+      "integration-before.tar": "54f73fb9ef8f15bf1c92b564f46e007913618f64d6f7ac1b3e039982816d7726"
+    },
+    "resources": {
+      "memory.events": "low 0\nhigh 1538\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.11 avg300=0.10 total=14064267\nfull avg10=0.00 avg60=0.04 avg300=0.04 total=12814234",
+      "memory.current": "497549312",
+      "memory.max": "536870912"
+    },
+    "collectors_active": {
+      "cpu": false,
+      "memory": false
+    }
+  },
+  "accepted_chain_issues": {
+    "624": [],
+    "626": [],
+    "625": [],
+    "613": [],
+    "621": [],
+    "620": [],
+    "619": [],
+    "623": []
+  },
+  "targets_up": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "telegram_tests_executed": false,
+  "initial_600s_executed": false,
+  "post_watch_900s_executed": false,
+  "cause": "Legacy held-name collision: new Compose revision still used node_exporter-phase4-617-held; records for new run empty, identity/hash guard correctly rejected old candidate before new exporter creation."
+}

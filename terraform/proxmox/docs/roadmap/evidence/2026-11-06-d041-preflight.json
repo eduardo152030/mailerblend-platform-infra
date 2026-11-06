@@ -1,0 +1,27 @@
+{
+  "accepted": [
+    624,
+    626,
+    625,
+    613,
+    621,
+    620,
+    619,
+    623,
+    61211,
+    622,
+    611,
+    616,
+    610
+  ],
+  "telegram": {
+    "alertmanager_notifications_total": 132.0,
+    "alertmanager_notifications_failed_total": 56.0
+  },
+  "coverage_counts": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "observed_at_utc": "2026-11-06T19:13:34.591758+00:00"
+}

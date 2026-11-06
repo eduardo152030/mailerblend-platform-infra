@@ -1,0 +1,25 @@
+{
+  "observed_at_utc": "2026-11-06T09:56:54.092305+00:00",
+  "regression_tests_passed": 44,
+  "new_ram_regressions": 13,
+  "existing_relevant_regressions": 31,
+  "local_links": "PASS",
+  "git_diff_check": "PASS",
+  "secret_signature_matches": 0,
+  "production_deployment": false,
+  "commit_push_staging": false,
+  "policy": "BLOCKED unchanged",
+  "historical_halts": "preserved",
+  "source_sha256": {
+    "scripts/exporter-memory-alignment.py": "8092b44d5d627f632925ea9bfe1511ae035987251623457e442c7d1809b0c551",
+    "scripts/prepare-617-memory.py": "2344bd8df0014722d7716b56e695b7fbccb5799f28a85b7817e52d9e9fec8725",
+    "scripts/diagnose-617-memory.py": "df96ae1bf3551da36d6f35b59c5bacf83ce69baea086d4dbe29a129ef7ee71b5",
+    "scripts/audit-phase4-template.py": "1dec03f507e36381cb65246fb07c0f17145ad3d1e7631da5cc9ab88f98380378",
+    "scripts/audit-617-reentry.py": "cea5a9b08ad3519344e72685e2e4fab62a946724572f46146649176ff949aa5d",
+    "tests/monitoring/test_memory_alignment.py": "a72675266d747ed6ee405dd17010e6cbb4e5eea77f5ec77a0b4f51b43e25f0ae",
+    "scripts/rollout-approved-exporters.py": "b6f58ab295cc89fdf27d2b01ffdc7dfd6d031fec86277621e23e51fa4f5bc49a",
+    "scripts/rollback-post-watch-617.py": "c9a1f4bead94b9addac8ad9772dd5b920522a5a9ba5b710d15213c0cadb71dd6"
+  },
+  "git_status_entry_count": 320,
+  "preexisting_dirty_workspace": true
+}

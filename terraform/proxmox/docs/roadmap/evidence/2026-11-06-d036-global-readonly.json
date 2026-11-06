@@ -1,0 +1,25 @@
+{
+  "accepted_chain_issues": {
+    "624": [],
+    "626": [],
+    "625": [],
+    "613": [],
+    "621": [],
+    "620": [],
+    "619": [],
+    "623": []
+  },
+  "targets_up": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "unhealthy_rules": [],
+  "readiness": {
+    "prometheus": 200,
+    "alertmanager": 200
+  },
+  "telegram_test_sent": false,
+  "reload_or_deployment_performed": false,
+  "policy_unchanged_blocked": true
+}

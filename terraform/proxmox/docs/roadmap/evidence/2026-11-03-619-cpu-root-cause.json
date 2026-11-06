@@ -1,0 +1,207 @@
+{
+  "ct": 619,
+  "root_cause": "Validator compares cached cAdvisor cumulative counter with current Docker cumulative counter; original sampler drops explicit Prometheus millisecond timestamp and Docker read timestamp. container_last_seen is export time, not CPU measurement time.",
+  "attribution": "validator/sampler; no evidence for Docker or LXC CPU accounting error in recorded values",
+  "historical_limits": "Original failed rollout rows discarded their full samples. Exact values below are all reproducible failures from the preserved independent diagnostic; no missing original values inferred.",
+  "affected_containers": [
+    "cadvisor"
+  ],
+  "exact_diagnostic_failures": [
+    {
+      "sample": 3,
+      "sample_time_unix": 1793692415.7209299,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 10.665283,
+      "docker_ns": 11972806000,
+      "docker_seconds": 11.972806,
+      "cgroup_seconds": 11.976798,
+      "absolute_difference_seconds": 1.3075229999999998,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 4,
+      "sample_time_unix": 1793692426.0042691,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 10.665283,
+      "docker_ns": 11991161000,
+      "docker_seconds": 11.991161,
+      "cgroup_seconds": 11.997478,
+      "absolute_difference_seconds": 1.3258779999999994,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 5,
+      "sample_time_unix": 1793692436.0670311,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 10.665283,
+      "docker_ns": 12005464000,
+      "docker_seconds": 12.005464,
+      "cgroup_seconds": 12.01246,
+      "absolute_difference_seconds": 1.3401809999999994,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 6,
+      "sample_time_unix": 1793692446.1918302,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 10.665283,
+      "docker_ns": 12012460000,
+      "docker_seconds": 12.01246,
+      "cgroup_seconds": 12.016541,
+      "absolute_difference_seconds": 1.3471770000000003,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 9,
+      "sample_time_unix": 1793692476.7562635,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 12.064623,
+      "docker_ns": 13504951000,
+      "docker_seconds": 13.504951,
+      "cgroup_seconds": 13.509448,
+      "absolute_difference_seconds": 1.440328000000001,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 10,
+      "sample_time_unix": 1793692486.9555938,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 12.064623,
+      "docker_ns": 13522816000,
+      "docker_seconds": 13.522816,
+      "cgroup_seconds": 13.52983,
+      "absolute_difference_seconds": 1.4581930000000014,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 11,
+      "sample_time_unix": 1793692497.0993974,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 12.064623,
+      "docker_ns": 13535683000,
+      "docker_seconds": 13.535683,
+      "cgroup_seconds": 13.5425,
+      "absolute_difference_seconds": 1.4710600000000014,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 15,
+      "sample_time_unix": 1793692537.7307262,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 13.542687,
+      "docker_ns": 14995875000,
+      "docker_seconds": 14.995875,
+      "cgroup_seconds": 15.000673,
+      "absolute_difference_seconds": 1.453187999999999,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 16,
+      "sample_time_unix": 1793692548.0338926,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 13.542687,
+      "docker_ns": 15011022000,
+      "docker_seconds": 15.011022,
+      "cgroup_seconds": 15.017349,
+      "absolute_difference_seconds": 1.4683349999999997,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 27,
+      "sample_time_unix": 1793692660.0396347,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 16.63084,
+      "docker_ns": 17838597000,
+      "docker_seconds": 17.838597,
+      "cgroup_seconds": 17.988889,
+      "absolute_difference_seconds": 1.2077570000000009,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 28,
+      "sample_time_unix": 1793692670.2147646,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 16.63084,
+      "docker_ns": 18070204000,
+      "docker_seconds": 18.070204,
+      "cgroup_seconds": 18.078368,
+      "absolute_difference_seconds": 1.4393640000000012,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 29,
+      "sample_time_unix": 1793692680.4735134,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 16.63084,
+      "docker_ns": 18084425000,
+      "docker_seconds": 18.084425,
+      "cgroup_seconds": 18.091352,
+      "absolute_difference_seconds": 1.4535850000000003,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 34,
+      "sample_time_unix": 1793692731.2970889,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 18.174179,
+      "docker_ns": 19600301000,
+      "docker_seconds": 19.600301,
+      "cgroup_seconds": 19.604642,
+      "absolute_difference_seconds": 1.426122000000003,
+      "original_tolerance_seconds": 1
+    },
+    {
+      "sample": 35,
+      "sample_time_unix": 1793692741.4618328,
+      "container": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "cadvisor_seconds": 18.174179,
+      "docker_ns": 19612720000,
+      "docker_seconds": 19.61272,
+      "cgroup_seconds": 19.617517,
+      "absolute_difference_seconds": 1.4385410000000007,
+      "original_tolerance_seconds": 1
+    }
+  ],
+  "units": {
+    "cadvisor": "CPU seconds, sum of all CPUs; no division by CPU count",
+    "docker": "CPU nanoseconds / 1e9, sum of all CPUs",
+    "cgroup_v2": "usage_usec / 1e6, sum of all CPUs"
+  },
+  "rates": {
+    "cores": "delta accumulated CPU seconds / delta wall seconds over the identical timestamp endpoints",
+    "percent_one_core": "100 * cores",
+    "percent_allocated_lxc": "100 * cores / allocated_cores (2 for CT619)",
+    "docker_cli": "delta total_usage / delta system_cpu_usage * online_cpus * 100; not used by validator or LXC rule",
+    "lxc_rule": "100 * rate(lxc_cpu_usage_seconds_total[5m]) / lxc_cpu_capacity_cores"
+  },
+  "correction": "Capture metric timestamp; bounded Docker/cgroup history keyed by full ID and StartedAt; both bounds <= original max(1s,3%) tolerance; comparable delta windows with same tolerance; reject missing/stale timestamps, gaps >2s, counter reset, wrong identity. No fallback/normalization change.",
+  "source_references": [
+    "https://github.com/google/cadvisor/blob/v0.60.6/lib/metrics/prometheus.go",
+    "https://github.com/moby/moby/blob/master/api/types/container/stats.go",
+    "https://github.com/docker/cli/blob/master/cli/command/container/stats_helpers.go"
+  ],
+  "live_proof": "2026-11-03-619-cpu-alignment-live-proof.json",
+  "status": "ROOT_CAUSE_CORRECTED_CT619_FULL_TECHNICAL_PASS",
+  "regression_tests": {
+    "alignment": 10,
+    "approved_rollout": 7,
+    "619_recovery": 3,
+    "threshold_seconds": "max(1.0, reference_seconds*0.03), unchanged; applied also to both bracketing endpoints and delta windows"
+  },
+  "same_ct_live_confirmation": "2026-11-03-619-aligned-versus-unaligned.json",
+  "ct619_validation": "2026-11-02-rollout-619.json"
+}

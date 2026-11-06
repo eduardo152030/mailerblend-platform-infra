@@ -1,0 +1,62 @@
+{
+  "mode": "read-only",
+  "production_changes": false,
+  "node_path_comparison": {
+    "crm": {
+      "exporter_proc_memtotal_kib": 16256616,
+      "lxc_host_proc_memtotal_kib": 6291456,
+      "lxc_host_proc_cpu_count": 2
+    },
+    "eva": {
+      "lxc_host_proc_memtotal_kib": 2097152,
+      "lxc_host_proc_cpu_count": 2
+    }
+  },
+  "docker_api_probe": {
+    "ct": 610,
+    "version": "29.1.3",
+    "api": "1.52",
+    "minimum_api": "1.44",
+    "request_api": "1.41",
+    "http": 400,
+    "message": "client version 1.41 is too old. Minimum supported API version is 1.44"
+  },
+  "cadvisor_candidate_registry": {
+    "tag": "0.60.6",
+    "digest": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+    "runtime_tested": false
+  },
+  "grafana_metrics": {
+    "http": 200
+  },
+  "journal_web": {
+    "http": 200
+  },
+  "journal_api_health": {
+    "http": 200
+  },
+  "observed_at": "2026-11-02T15:46:20.860807+01:00",
+  "blackbox_effective_modules": {
+    "http_2xx_strict": {
+      "present": true,
+      "prober": "http"
+    },
+    "tcp_connect": {
+      "present": true,
+      "prober": "tcp"
+    }
+  },
+  "journal_db_tcp_connect": true,
+  "crm_builder": {
+    "http": 200
+  },
+  "crm_api_ready": {
+    "http": 200
+  },
+  "eva_api": {
+    "http": 200
+  },
+  "eva_focalboard": {
+    "http": 200
+  }
+}

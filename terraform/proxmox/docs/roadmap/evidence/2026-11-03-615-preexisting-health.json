@@ -1,0 +1,30 @@
+{
+  "observed_utc": "2026-11-03T08:41:27.733852+00:00",
+  "ct": 615,
+  "scope": "read-only before own rollout",
+  "http_health": {
+    "18091": 503,
+    "18092": 503
+  },
+  "containers": [
+    {
+      "name": "/mailerblend-sgtm-serving",
+      "id": "a5a253823717c289330c6c139a33f1f41271b12566fe8625f12155b3c9067561",
+      "started_at": "2026-09-17T20:43:44.36388595Z",
+      "running": true,
+      "health": "unhealthy",
+      "restarts": 0,
+      "oom_killed": false
+    },
+    {
+      "name": "/mailerblend-sgtm-preview",
+      "id": "329efa4bf868c0fd46afd9f0a15d0344249a9af322175a2d8c2d6347fa7aaf26",
+      "started_at": "2026-09-17T20:43:44.360575831Z",
+      "running": true,
+      "health": "unhealthy",
+      "restarts": 0,
+      "oom_killed": false
+    }
+  ],
+  "application_changed": false
+}

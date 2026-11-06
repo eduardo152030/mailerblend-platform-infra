@@ -1,0 +1,31 @@
+{
+  "run": "integration-20261106T102530Z",
+  "decision": "D-034",
+  "results": [
+    {
+      "ct": 614,
+      "evidence": {
+        "completed": false,
+        "category": "application_preflight",
+        "isolated": true,
+        "run": "integration-20261106T102530614Z",
+        "failed_stage": "preflight",
+        "failure_type": "AssertionError",
+        "originals_verified": true,
+        "application_working": false,
+        "prior_coverage_unchanged": true,
+        "global_monitoring_healthy": true,
+        "recovery_complete": true,
+        "data_safe": true,
+        "backups_recoverable": true,
+        "state": "BLOCKED_NO_CHANGES",
+        "no_active_changes": true
+      },
+      "result": "HALT GLOBAL",
+      "continue": false,
+      "reason": "Skip safety evidence missing: application_working"
+    }
+  ],
+  "halt_global": true,
+  "observed_at_utc": "2026-11-06T10:31:34.056413+00:00"
+}

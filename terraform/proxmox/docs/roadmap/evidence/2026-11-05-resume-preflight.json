@@ -1,0 +1,464 @@
+{
+  "observed_utc": "2026-11-05T20:05:50.807350+00:00",
+  "scope": "D030 read-only closure",
+  "backups": [
+    {
+      "relative_path": "pilot-624-20261102T161242+0100/exporters-before.tar",
+      "sha256": "79b66ecf4f8cb8c83752d76a1eb6d3d39894367b3be5b269f589887cac687a07",
+      "bytes": 33812480,
+      "members_readable": 11,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/pilot-624-20261102T161242+0100/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "pilot-624-20261102T161242+0100/exporters-after-config.tar.gz",
+      "sha256": "9ac4c6d239588542ab03064b076b0cd068c1eb9d786d0be48def10c68e15c3d3",
+      "bytes": 12067,
+      "members_readable": 16,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/pilot-624-20261102T161242+0100/exporters-after-config.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/623/exporters-before.tar",
+      "sha256": "7edd4123cfc031d889f91aac9028670ad7f79f4df5c52294608b78e00d32582b",
+      "bytes": 47185920,
+      "members_readable": 19,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/623/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/623/monitoring/integration-before.tar",
+      "sha256": "afb129d0042a68413e117b1e8c30341f80051b190722b6fec88f212d7de611e0",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/623/monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/620/exporters-before.tar",
+      "sha256": "eeb07ca69df5ca886f74cb447c81ee56d7f508da569319eaf053947c464463cf",
+      "bytes": 46919680,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/620/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/620/exporters-after.tar.gz",
+      "sha256": "d16efe1ef89bd9316612bd09858a81d97dcdede6753bd89e2a23c07759bb1cd0",
+      "bytes": 18254,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/620/exporters-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/620/monitoring/integration-before.tar",
+      "sha256": "8d284e99edb0ba3dba60e18616c0de6b66a698d09adac96e615e35b2d73e811f",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/620/monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/620/monitoring/integration-after.tar.gz",
+      "sha256": "25090340df5f73c230ce39f062b3c5cebca50f859bf17525cd0d1d1af5687e85",
+      "bytes": 6819,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/620/monitoring/integration-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/621/exporters-before.tar",
+      "sha256": "420016ea3e6abade7b0c80f1ea48312e22f35d534efb9d1f58fd00735b887e55",
+      "bytes": 47165440,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/621/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/621/exporters-after.tar.gz",
+      "sha256": "58f0de818d58cccbd03e4f3a7f306e07b58119402cf4824e7e5f20b6c6be09fb",
+      "bytes": 18258,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/621/exporters-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/621/monitoring/integration-before.tar",
+      "sha256": "b7e0f233f4bda167e07b365ed4fbff44171806720599e604fd43954117e330e7",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/621/monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/621/monitoring/integration-after.tar.gz",
+      "sha256": "d85961ef72f012e66a95494138a509aba39e38b7c3e7fff8388459608e79f959",
+      "bytes": 6790,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/621/monitoring/integration-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/memory-compat/integration-before.tar",
+      "sha256": "e109aa365833d86ad1f7cf4c55f80f9f3e715fc5c7a41b0a1e1fea71ef914acb",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/memory-compat/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/memory-compat/integration-after.tar.gz",
+      "sha256": "a220f55408ac14e1a8f05da554588d3c6aa3bbfc9b02ec258c3e44c385f9985e",
+      "bytes": 6851,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/memory-compat/integration-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/619/exporters-before.tar",
+      "sha256": "cd30b908a0449e7de424e22d8837a274310db381fc6c5d5e96864a619c30fc4b",
+      "bytes": 46909440,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/619/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/619/exporters-after.tar.gz",
+      "sha256": "1f9189785e494eb810e45144e509516febc384bcb46e186893b98fe23adcfda4",
+      "bytes": 168644,
+      "members_readable": 29,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/619/exporters-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/619/monitoring/integration-before.tar",
+      "sha256": "decccb84be24c1565da9edb3d2374ff1cb9ce6a9458cae08e360ce740e6c3319",
+      "bytes": 102400,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/619/monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T223431Z/619/monitoring/integration-after.tar.gz",
+      "sha256": "a3b8332fe042a1bac1f8803e57b96801b8f9cf835ce8c21b47d3386818110f7e",
+      "bytes": 6872,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T223431Z/619/monitoring/integration-after.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T204936Z/613/exporters-before.tar",
+      "sha256": "db725bc3b500f12b27fe0f0bf7d74e621a0d435f2da7db9be3c56ada9c24a70b",
+      "bytes": 46909440,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T204936Z/613/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T204936Z/613/exporters-after-config.tar.gz",
+      "sha256": "b91d6c3f6913c4479f0c472cb6c88609fc7a4f50dfa26cfc69895abc0e86a15e",
+      "bytes": 16616,
+      "members_readable": 18,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T204936Z/613/exporters-after-config.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T204936Z/613/integration-after-v2.tar.gz",
+      "sha256": "af9c6412ae1eb1d9aea81c24d01e59d97ca24145518e6c53945e934d09cd3d43",
+      "bytes": 6770,
+      "members_readable": 35,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T204936Z/R1-monitoring/integration-after-v2.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T204936Z/613/monitoring/integration-before.tar",
+      "sha256": "d96783d47cdafba501fef3e08c5576d745bb0e875bfe4962df1e0e4f883bf4b2",
+      "bytes": 92160,
+      "members_readable": 33,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T204936Z/R1-monitoring/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "integration-20261102T204936Z/P0/integration-before.tar",
+      "sha256": "d8e2aa83ed3a0c4296531acc6222e7043f2f004143350e2585193a8666a9a4bd",
+      "bytes": 81920,
+      "members_readable": 30,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/integration-20261102T204936Z/P0/integration-before.tar"
+      ]
+    },
+    {
+      "relative_path": "journal-20261102T190629Z/626/exporters-before.tar",
+      "sha256": "ab31b752d274b45f9ac776003ae45ac1e809eebff5e31083ee9e3a94396040b2",
+      "bytes": 33832960,
+      "members_readable": 15,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/journal-20261102T190629Z/626/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "journal-20261102T190629Z/626/exporters-after-config.tar.gz",
+      "sha256": "5a4eda04567bdd1615131c068f313ab5b84592963a8f4f7a81867ea45738df78",
+      "bytes": 15194,
+      "members_readable": 16,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/journal-20261102T190629Z/626/exporters-after-config.tar.gz"
+      ]
+    },
+    {
+      "relative_path": "journal-20261102T190629Z/625/exporters-before.tar",
+      "sha256": "4ce7eb0109ef53832cabdc42e4d3d7e046513cabf3fd4c9966d85a07e6332353",
+      "bytes": 33832960,
+      "members_readable": 15,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/journal-20261102T190629Z/625/exporters-before.tar"
+      ]
+    },
+    {
+      "relative_path": "journal-20261102T190629Z/625/exporters-after-config.tar.gz",
+      "sha256": "08ece2bec61425f2901e9ac0c84182cc126bb0ad60085ef13243ed63c97279bf",
+      "bytes": 15951,
+      "members_readable": 16,
+      "remote_hash_matches": [
+        "/mnt/storage/mailerblend-recovery/phase4/journal-20261102T190629Z/625/exporters-after-config.tar.gz"
+      ]
+    }
+  ],
+  "applications": {
+    "624": {
+      "checks": {
+        "http://192.168.1.124:8090/": 200
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.sh": "a2481b0d3c2041e2516bedb7959c05e679be5aca672c1e5f814cc76648058af8",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "626": {
+      "checks": {
+        "http://192.168.1.126:3000/health": 200
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.sh": "c16eb85760f18f471c01990b33627317c38ce0224f5ab28e5ebeab843960906c",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "625": {
+      "checks": {
+        "pg": true
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.sh": "65916a334e7a5dbb0fd4c5185ffdb27425b592c46968a1e4546676c3c8d66f9c",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "613": {
+      "checks": {
+        "no_application": "baseline sin aplicaciones"
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.sh": "3abf15cc620ba953311f3010c539530ed547c11c99dd521478ab954a8d03f8ee",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "621": {
+      "checks": {
+        "http://192.168.1.121:8081/": 200
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.sh": "c66e49237172f2320853bc667153e2b5db69a6e4e3693259888b0eef115a729b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "620": {
+      "checks": {
+        "http://192.168.1.120:3000/health": 200,
+        "http://192.168.1.120:3001/health": 200,
+        "redis": true
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.sh": "a8ef97c7b57942379c96ced167f1c19a84dc062b0149c6d2ecad33e9852c3be3",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "619": {
+      "checks": {
+        "http://192.168.1.119:15678/healthz": 200,
+        "pg": true
+      },
+      "active_input_sha256": {
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.sh": "e4e03dae7a9dcf6700dff3d820335b071b88ce94d0191103c96cb1be736a7f2d",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-limits.yml": "1c15f466c9fa05e4ebce0f835012d7dc3c6747079d8e012c0712031febb2c181",
+        "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2"
+      }
+    },
+    "623": {
+      "checks": {
+        "http://127.0.0.1:8069/web/login": 200,
+        "pg": true
+      },
+      "active_input_sha256": {
+        "/opt/common/node-exporter/docker-compose.yml": "745cb89ccd097b68fe2b042bafecdf620a2e9f0f412dd9074eb37ea964a78d77",
+        "/opt/common/cadvisor/docker-compose.yml": "bf610c0e3a7d378d4e5297c81e87a1f0fda67de8b30c7809503289f2c4456f2f"
+      },
+      "application_baseline_unchanged": true,
+      "originals_verified": true,
+      "candidates_stopped": true,
+      "resources": {
+        "memory.events": "low 0\nhigh 0\nmax 13999\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.03 avg60=0.02 avg300=0.00 total=21642279\nfull avg10=0.03 avg60=0.02 avg300=0.00 total=19790385",
+        "memory.current": "965730304",
+        "memory.max": "max"
+      }
+    }
+  },
+  "pve_resources": {
+    "624": {
+      "memory.events": "low 0\nhigh 1485\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=8307410\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=7619168",
+      "memory.current": "367833088",
+      "memory.max": "536870912",
+      "cpu.stat": "usage_usec 10908660607\nuser_usec 7185358211\nsystem_usec 3723302396\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "626": {
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.44 avg60=0.09 avg300=0.02 total=11379193\nfull avg10=0.44 avg60=0.09 avg300=0.02 total=11069220",
+      "memory.current": "466219008",
+      "memory.max": "2147483648",
+      "cpu.stat": "usage_usec 9583058873\nuser_usec 4879720934\nsystem_usec 4703337938\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "625": {
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.54 avg60=0.09 avg300=0.02 total=14135902\nfull avg10=0.54 avg60=0.09 avg300=0.02 total=13766299",
+      "memory.current": "421216256",
+      "memory.max": "2147483648",
+      "cpu.stat": "usage_usec 11377635274\nuser_usec 6039703322\nsystem_usec 5337931952\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "613": {
+      "memory.events": "low 0\nhigh 399\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.49 avg60=0.14 avg300=0.03 total=48820923\nfull avg10=0.19 avg60=0.05 avg300=0.01 total=47769837",
+      "memory.current": "343416832",
+      "memory.max": "536870912",
+      "cpu.stat": "usage_usec 9932545367\nuser_usec 6154872297\nsystem_usec 3777673069\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "621": {
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3227068\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=2978493",
+      "memory.current": "394694656",
+      "memory.max": "2147483648",
+      "cpu.stat": "usage_usec 10933352218\nuser_usec 5181718277\nsystem_usec 5751633941\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "620": {
+      "memory.events": "low 0\nhigh 0\nmax 242\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.13 avg60=0.07 avg300=0.01 total=8430472\nfull avg10=0.13 avg60=0.07 avg300=0.01 total=8223018",
+      "memory.current": "589443072",
+      "memory.max": "2147483648",
+      "cpu.stat": "usage_usec 70328946411\nuser_usec 47570161493\nsystem_usec 22758784917\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "619": {
+      "memory.events": "low 0\nhigh 0\nmax 36272\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=27789778\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=26008268",
+      "memory.current": "1183264768",
+      "memory.max": "2147483648",
+      "cpu.stat": "usage_usec 45948957540\nuser_usec 26939691114\nsystem_usec 19009266426\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    },
+    "623": {
+      "memory.events": "low 0\nhigh 0\nmax 13999\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.03 avg60=0.02 avg300=0.00 total=21642801\nfull avg10=0.03 avg60=0.02 avg300=0.00 total=19789568",
+      "memory.current": "954105856",
+      "memory.max": "4294967296",
+      "cpu.stat": "usage_usec 13298678710\nuser_usec 7024754264\nsystem_usec 6273924446\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000"
+    }
+  },
+  "accepted_chain_issues": {
+    "624": [],
+    "626": [],
+    "625": [],
+    "613": [],
+    "621": [],
+    "620": [],
+    "619": []
+  },
+  "target_counts": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "targets_up": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "unhealthy_rules": [],
+  "controlled_test_rules": [],
+  "telegram_counters": {
+    "alertmanager_notifications_total": 120.0,
+    "alertmanager_notifications_failed_total": 56.0
+  },
+  "telegram_sent_this_audit": false,
+  "deployment_or_reload_performed": false
+}

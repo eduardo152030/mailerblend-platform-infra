@@ -1,0 +1,44 @@
+{
+  "decision": "D-038",
+  "mode": "local_plan_only",
+  "accepted": [
+    613,
+    619,
+    620,
+    621,
+    623,
+    624,
+    625,
+    626,
+    61211
+  ],
+  "blocked": [
+    614,
+    615,
+    617
+  ],
+  "pending": [
+    {
+      "ct": 618,
+      "profile": "CRITICAL"
+    },
+    {
+      "ct": 622,
+      "profile": "CRITICAL"
+    },
+    {
+      "ct": 611,
+      "profile": "CRITICAL"
+    },
+    {
+      "ct": 616,
+      "profile": "CRITICAL"
+    },
+    {
+      "ct": 610,
+      "profile": "CRITICAL"
+    }
+  ],
+  "authorized_standard_order": [],
+  "critical_deployment_authorized": false
+}

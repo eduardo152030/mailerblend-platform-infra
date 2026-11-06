@@ -1,0 +1,16 @@
+{
+  "decision": "D-039",
+  "run": "integration-20261106T172713Z",
+  "results": [
+    {
+      "ct": 618,
+      "result": "HALT GLOBAL",
+      "stage": "observe",
+      "failure_type": "RuntimeError",
+      "state_safe_verified": true,
+      "seconds": 495.541
+    }
+  ],
+  "halt_global": true,
+  "observed_at_utc": "2026-11-06T17:40:38.577497+00:00"
+}

@@ -1,0 +1,138 @@
+{
+  "mode": "read-only config via stdin; no staging, up or image pulls",
+  "models": [
+    {
+      "service": "node_exporter",
+      "model": {
+        "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "pull_policy": "never",
+        "privileged": null,
+        "cgroup": null,
+        "pid": "host",
+        "mem_limit": "50331648",
+        "cpus": 0.2,
+        "ports": [
+          {
+            "mode": "ingress",
+            "host_ip": "192.168.1.113",
+            "target": 9100,
+            "published": "9100",
+            "protocol": "tcp"
+          }
+        ],
+        "volumes": [
+          {
+            "type": "bind",
+            "source": "/",
+            "target": "/host",
+            "read_only": true,
+            "bind": {
+              "propagation": "rslave"
+            }
+          },
+          {
+            "type": "bind",
+            "source": "/opt/exporter-phase4-pilot/r1-review/node-cgroup.sh",
+            "target": "/opt/pilot-node-cgroup.sh",
+            "read_only": true,
+            "bind": {
+              "create_host_path": false
+            }
+          }
+        ],
+        "entrypoint": [
+          "/bin/sh",
+          "/opt/pilot-node-cgroup.sh"
+        ],
+        "command": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($$|/)",
+          "--no-collector.cpu",
+          "--collector.textfile.directory=/tmp/lxc-metrics"
+        ]
+      }
+    },
+    {
+      "service": "cadvisor",
+      "model": {
+        "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "pull_policy": "never",
+        "privileged": true,
+        "cgroup": "host",
+        "pid": null,
+        "mem_limit": "134217728",
+        "cpus": 0.5,
+        "ports": [
+          {
+            "mode": "ingress",
+            "host_ip": "192.168.1.113",
+            "target": 8080,
+            "published": "8085",
+            "protocol": "tcp"
+          }
+        ],
+        "volumes": [
+          {
+            "type": "bind",
+            "source": "/",
+            "target": "/rootfs",
+            "read_only": true,
+            "bind": {}
+          },
+          {
+            "type": "bind",
+            "source": "/sys",
+            "target": "/sys",
+            "read_only": true,
+            "bind": {}
+          },
+          {
+            "type": "bind",
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "read_only": true,
+            "bind": {}
+          },
+          {
+            "type": "bind",
+            "source": "/var/lib/containerd",
+            "target": "/var/lib/containerd",
+            "read_only": true,
+            "bind": {}
+          },
+          {
+            "type": "bind",
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "read_only": true,
+            "bind": {}
+          },
+          {
+            "type": "bind",
+            "source": "/run/containerd/containerd.sock",
+            "target": "/run/containerd/containerd.sock",
+            "read_only": true,
+            "bind": {
+              "create_host_path": false
+            }
+          }
+        ],
+        "entrypoint": null,
+        "command": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false"
+        ]
+      }
+    }
+  ]
+}

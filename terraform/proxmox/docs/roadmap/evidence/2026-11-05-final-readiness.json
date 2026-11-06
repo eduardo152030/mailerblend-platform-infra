@@ -1,0 +1,5 @@
+{
+  "prometheus": 200,
+  "alertmanager": 200,
+  "active_rollout_processes": []
+}

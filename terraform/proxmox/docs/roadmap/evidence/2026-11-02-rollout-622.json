@@ -1,0 +1,605 @@
+{
+  "ct": 622,
+  "run": "integration-20261106T174253622Z",
+  "result": "PASS",
+  "duration_seconds": 792.858,
+  "timings_seconds": {
+    "preflight": 4.651,
+    "staging": 1.084,
+    "image_archive_restore_and_snapshot": 4.02,
+    "external_backup_verified": 6.234,
+    "monitoring_backup_verified": 9.864,
+    "cpu_history_started": 0.942,
+    "pinned_images": 7.807,
+    "apply_ready": 10.929,
+    "incremental_integration": 119.42,
+    "idempotence": 8.623,
+    "controlled_firing_rule": 5.422,
+    "observation_and_telegram": 603.702,
+    "completed": 10.16
+  },
+  "observation": {
+    "samples": 21,
+    "seconds": 600.4672030140027,
+    "initial_seconds_required": 600,
+    "initial_minimum_samples": 21,
+    "sha256": "86ff38198a0f46f384220fd0042bcae6d45417180c72c61ace533ec2a0a53fc9",
+    "alert_high_cpu_for_runtime_proven": false
+  },
+  "telegram": {
+    "firing_and_resolved_accepted_by_api": true,
+    "human_receipt_confirmed": false,
+    "attempts_delta": 2.0,
+    "failures_delta": 0.0
+  },
+  "backup": {
+    "sha256": "55af4f29fa70eb4fc2acccc9de57cbb9cb660243d3cdeea168d02de9626c2e15",
+    "bytes": 47247360
+  },
+  "after_archive": {
+    "sha256": "9a6b85b716bae79c43d3987220aaeac3e0af778d7eb32443bd7bfdbeb7d3e046",
+    "bytes": 942695,
+    "offhost_verified": true
+  },
+  "exporters": {
+    "node_exporter": {
+      "id": "247afc4c13d8bffbf602187642d50a9ccef55ed392c52cbddf26a3cdb68a690c",
+      "image": "sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+      "started_at": "2026-11-06T17:43:38.293906221Z",
+      "restarts": 0
+    },
+    "cadvisor": {
+      "id": "f6cb02f9cbfa384f9150e54ba8497b6dabde1741562c7585d9813112beaab86b",
+      "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "started_at": "2026-11-06T17:43:41.976273849Z",
+      "restarts": 0
+    }
+  },
+  "namespaces": {
+    "init": "cgroup:[4026535663]",
+    "daemon": "cgroup:[4026535663]",
+    "candidate": "cgroup:[4026535663]",
+    "pve": "cgroup:[4026531835]"
+  },
+  "cpu_source": "cgroup_v2_textfile",
+  "backup_external_verified": true,
+  "rollback_verified": false,
+  "idempotence_verified": true,
+  "observed_at_utc": "2026-11-06T17:59:32.203684+00:00",
+  "decision": "D-039",
+  "cpu_alignment_verification": {
+    "threshold_unchanged": "max(1 CPU second, 3% reference counter); both timestamp bounds and delta windows",
+    "identity": "full Docker ID and StartedAt",
+    "no_missing_or_stale_timestamps": true,
+    "containers": [
+      {
+        "id": "0a5ca4194e9358c6daecf018e85193c6ce708807c162e9c13402a7079fe4a874",
+        "name": "eva-api",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              746.817341,
+              746.817751
+            ],
+            "docker_seconds": [
+              746.817341,
+              746.817751
+            ]
+          },
+          "cadvisor_seconds": 746.817341,
+          "cgroup_seconds": 746.8173610863167,
+          "docker_seconds": 746.8173610863167,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-api",
+          "started_at": "2026-11-02T14:08:17.541991395Z",
+          "time": 1793987142.423
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              748.498759,
+              748.4992225000001
+            ],
+            "docker_seconds": [
+              748.498759,
+              748.499271
+            ]
+          },
+          "cadvisor_seconds": 748.499081,
+          "cgroup_seconds": 748.4991081921997,
+          "docker_seconds": 748.4991447311893,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-api",
+          "started_at": "2026-11-02T14:08:17.541991395Z",
+          "time": 1793987952.609
+        },
+        "window_seconds": 810.1859998703003,
+        "rates_cores": {
+          "cadvisor_seconds": 0.0020757455698681712,
+          "docker_seconds": 0.0020757994400567074,
+          "cgroup_seconds": 0.002075754340549244
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.20757455698681712,
+          "docker_seconds": 0.20757994400567073,
+          "cgroup_seconds": 0.2075754340549244
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.10378727849340856,
+          "docker_seconds": 0.10378997200283537,
+          "cgroup_seconds": 0.1037877170274622
+        }
+      },
+      {
+        "id": "247afc4c13d8bffbf602187642d50a9ccef55ed392c52cbddf26a3cdb68a690c",
+        "name": "node_exporter",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              0.439337,
+              0.439337
+            ],
+            "docker_seconds": [
+              0.439337,
+              0.439337
+            ]
+          },
+          "cadvisor_seconds": 0.439337,
+          "cgroup_seconds": 0.439337,
+          "docker_seconds": 0.439337,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "node_exporter",
+          "started_at": "2026-11-06T17:43:38.293906221Z",
+          "time": 1793987142.529
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              2.994766,
+              2.994766
+            ],
+            "docker_seconds": [
+              2.994766,
+              2.994766
+            ]
+          },
+          "cadvisor_seconds": 2.994766,
+          "cgroup_seconds": 2.994766,
+          "docker_seconds": 2.994766,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "node_exporter",
+          "started_at": "2026-11-06T17:43:38.293906221Z",
+          "time": 1793987952.61
+        },
+        "window_seconds": 810.0809998512268,
+        "rates_cores": {
+          "cadvisor_seconds": 0.003154535164346911,
+          "docker_seconds": 0.003154535164346911,
+          "cgroup_seconds": 0.003154535164346911
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.3154535164346911,
+          "docker_seconds": 0.3154535164346911,
+          "cgroup_seconds": 0.3154535164346911
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.15772675821734555,
+          "docker_seconds": 0.15772675821734555,
+          "cgroup_seconds": 0.15772675821734555
+        }
+      },
+      {
+        "id": "40709de2cc57f6e26e3ebc51818babff69388bd8298bdd1ff52c3cd56bfe2823",
+        "name": "eva-postgres",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              2458.9025675000003,
+              2458.921997
+            ],
+            "docker_seconds": [
+              2458.902035,
+              2458.921997
+            ]
+          },
+          "cadvisor_seconds": 2458.921997,
+          "cgroup_seconds": 2458.903920643642,
+          "docker_seconds": 2458.9034252289493,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-postgres",
+          "started_at": "2026-11-02T14:08:15.490146518Z",
+          "time": 1793987142.422
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              2465.2952255,
+              2465.295289
+            ],
+            "docker_seconds": [
+              2465.295234,
+              2465.295289
+            ]
+          },
+          "cadvisor_seconds": 2465.295289,
+          "cgroup_seconds": 2465.2952742339453,
+          "docker_seconds": 2465.2952762105037,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-postgres",
+          "started_at": "2026-11-02T14:08:15.490146518Z",
+          "time": 1793987952.608
+        },
+        "window_seconds": 810.1860001087189,
+        "rates_cores": {
+          "cadvisor_seconds": 0.007866455356109569,
+          "docker_seconds": 0.00788936241887255,
+          "cgroup_seconds": 0.007888748496574574
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.7866455356109568,
+          "docker_seconds": 0.788936241887255,
+          "cgroup_seconds": 0.7888748496574574
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.3933227678054784,
+          "docker_seconds": 0.3944681209436275,
+          "cgroup_seconds": 0.3944374248287287
+        }
+      },
+      {
+        "id": "8cc9c78afd68f41559e2708490247bcbbef5d775e8e2aef0d9826cf45b623adf",
+        "name": "eva-scheduler",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              76.079911,
+              76.079911
+            ],
+            "docker_seconds": [
+              76.079911,
+              76.079911
+            ]
+          },
+          "cadvisor_seconds": 76.079911,
+          "cgroup_seconds": 76.079911,
+          "docker_seconds": 76.079911,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-scheduler",
+          "started_at": "2026-11-02T14:08:20.843951912Z",
+          "time": 1793987142.429
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              76.248462,
+              76.248462
+            ],
+            "docker_seconds": [
+              76.248462,
+              76.248462
+            ]
+          },
+          "cadvisor_seconds": 76.248462,
+          "cgroup_seconds": 76.248462,
+          "docker_seconds": 76.248462,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-scheduler",
+          "started_at": "2026-11-02T14:08:20.843951912Z",
+          "time": 1793987952.61
+        },
+        "window_seconds": 810.180999994278,
+        "rates_cores": {
+          "cadvisor_seconds": 0.0002080411661112743,
+          "docker_seconds": 0.0002080411661112743,
+          "cgroup_seconds": 0.0002080411661112743
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.02080411661112743,
+          "docker_seconds": 0.02080411661112743,
+          "cgroup_seconds": 0.02080411661112743
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.010402058305563715,
+          "docker_seconds": 0.010402058305563715,
+          "cgroup_seconds": 0.010402058305563715
+        }
+      },
+      {
+        "id": "9e4a1618d1fb4763f40e17eb21b0a1b2b37ecbb11646d35393bb479406798f86",
+        "name": "eva-docker-cleanup",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              0.068926,
+              0.068926
+            ],
+            "docker_seconds": [
+              0.068926,
+              0.068926
+            ]
+          },
+          "cadvisor_seconds": 0.068926,
+          "cgroup_seconds": 0.068926,
+          "docker_seconds": 0.068926,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-docker-cleanup",
+          "started_at": "2026-11-02T14:08:11.286776855Z",
+          "time": 1793987142.444
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              0.068926,
+              0.068926
+            ],
+            "docker_seconds": [
+              0.068926,
+              0.068926
+            ]
+          },
+          "cadvisor_seconds": 0.068926,
+          "cgroup_seconds": 0.068926,
+          "docker_seconds": 0.068926,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-docker-cleanup",
+          "started_at": "2026-11-02T14:08:11.286776855Z",
+          "time": 1793987952.604
+        },
+        "window_seconds": 810.1600000858307,
+        "rates_cores": {
+          "cadvisor_seconds": 0.0,
+          "docker_seconds": 0.0,
+          "cgroup_seconds": 0.0
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.0,
+          "docker_seconds": 0.0,
+          "cgroup_seconds": 0.0
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.0,
+          "docker_seconds": 0.0,
+          "cgroup_seconds": 0.0
+        }
+      },
+      {
+        "id": "cd4c0bc1f13ae295ce5319eae3dd7606fe2ccecca78ec21bb495f4201f9c75db",
+        "name": "eva-cron-digest",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              2.061628,
+              2.061628
+            ],
+            "docker_seconds": [
+              2.061628,
+              2.061628
+            ]
+          },
+          "cadvisor_seconds": 2.061628,
+          "cgroup_seconds": 2.061628,
+          "docker_seconds": 2.061628,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-cron-digest",
+          "started_at": "2026-11-02T14:08:23.341043753Z",
+          "time": 1793987142.421
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              2.063556,
+              2.063556
+            ],
+            "docker_seconds": [
+              2.063556,
+              2.063556
+            ]
+          },
+          "cadvisor_seconds": 2.063556,
+          "cgroup_seconds": 2.063556,
+          "docker_seconds": 2.063556,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-cron-digest",
+          "started_at": "2026-11-02T14:08:23.341043753Z",
+          "time": 1793987952.612
+        },
+        "window_seconds": 810.1909999847412,
+        "rates_cores": {
+          "cadvisor_seconds": 2.379685777843354e-06,
+          "docker_seconds": 2.379685777843354e-06,
+          "cgroup_seconds": 2.379685777843354e-06
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.0002379685777843354,
+          "docker_seconds": 0.0002379685777843354,
+          "cgroup_seconds": 0.0002379685777843354
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.0001189842888921677,
+          "docker_seconds": 0.0001189842888921677,
+          "cgroup_seconds": 0.0001189842888921677
+        }
+      },
+      {
+        "id": "ed914691f93a9162afec8c407f963ddab9fcdbed0fca12d2e83a39f4080be906",
+        "name": "eva-sync",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              367.411662,
+              367.411662
+            ],
+            "docker_seconds": [
+              367.411662,
+              367.411662
+            ]
+          },
+          "cadvisor_seconds": 367.411662,
+          "cgroup_seconds": 367.411662,
+          "docker_seconds": 367.411662,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-sync",
+          "started_at": "2026-11-02T14:08:22.019973823Z",
+          "time": 1793987142.424
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              368.331057,
+              368.331057
+            ],
+            "docker_seconds": [
+              368.331057,
+              368.331057
+            ]
+          },
+          "cadvisor_seconds": 368.331057,
+          "cgroup_seconds": 368.331057,
+          "docker_seconds": 368.331057,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "eva-sync",
+          "started_at": "2026-11-02T14:08:22.019973823Z",
+          "time": 1793987952.608
+        },
+        "window_seconds": 810.1840000152588,
+        "rates_cores": {
+          "cadvisor_seconds": 0.0011347977743113823,
+          "docker_seconds": 0.0011347977743113823,
+          "cgroup_seconds": 0.0011347977743113823
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.11347977743113823,
+          "docker_seconds": 0.11347977743113823,
+          "cgroup_seconds": 0.11347977743113823
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.05673988871556911,
+          "docker_seconds": 0.05673988871556911,
+          "cgroup_seconds": 0.05673988871556911
+        }
+      },
+      {
+        "id": "f6cb02f9cbfa384f9150e54ba8497b6dabde1741562c7585d9813112beaab86b",
+        "name": "cadvisor",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              1.65997,
+              1.686021
+            ],
+            "docker_seconds": [
+              1.65997,
+              1.686021
+            ]
+          },
+          "cadvisor_seconds": 1.662954,
+          "cgroup_seconds": 1.6632325996014716,
+          "docker_seconds": 1.6632325996014716,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "cadvisor",
+          "started_at": "2026-11-06T17:43:41.976273849Z",
+          "time": 1793987142.423
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              8.902752,
+              8.913556
+            ],
+            "docker_seconds": [
+              8.902752,
+              8.913556
+            ]
+          },
+          "cadvisor_seconds": 8.907919,
+          "cgroup_seconds": 8.911616344573009,
+          "docker_seconds": 8.911616344573009,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "cadvisor",
+          "started_at": "2026-11-06T17:43:41.976273849Z",
+          "time": 1793987952.607
+        },
+        "window_seconds": 810.1840000152588,
+        "rates_cores": {
+          "cadvisor_seconds": 0.008942369881241237,
+          "docker_seconds": 0.008946589595493151,
+          "cgroup_seconds": 0.008946589595493151
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.8942369881241237,
+          "docker_seconds": 0.8946589595493151,
+          "cgroup_seconds": 0.8946589595493151
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.44711849406206183,
+          "docker_seconds": 0.44732947977465753,
+          "cgroup_seconds": 0.44732947977465753
+        }
+      },
+      {
+        "id": "ff699ad98b286a99f4d0ebc9958f2d121a49a4f2a3bc73d3ab676100f1241d28",
+        "name": "focalboard",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              639.771575,
+              639.771575
+            ],
+            "docker_seconds": [
+              639.771575,
+              639.771575
+            ]
+          },
+          "cadvisor_seconds": 639.771575,
+          "cgroup_seconds": 639.771575,
+          "docker_seconds": 639.771575,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "focalboard",
+          "started_at": "2026-11-02T14:08:16.588731088Z",
+          "time": 1793987142.427
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              641.225976,
+              641.225976
+            ],
+            "docker_seconds": [
+              641.225976,
+              641.225976
+            ]
+          },
+          "cadvisor_seconds": 641.225976,
+          "cgroup_seconds": 641.225976,
+          "docker_seconds": 641.225976,
+          "measurement_scope": "infra-eva-assistant-bot|cgroup:[4026535663]",
+          "name": "focalboard",
+          "started_at": "2026-11-02T14:08:16.588731088Z",
+          "time": 1793987952.609
+        },
+        "window_seconds": 810.1819999217987,
+        "rates_cores": {
+          "cadvisor_seconds": 0.0017951534348335867,
+          "docker_seconds": 0.0017951534348335867,
+          "cgroup_seconds": 0.0017951534348335867
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.17951534348335868,
+          "docker_seconds": 0.17951534348335868,
+          "cgroup_seconds": 0.17951534348335868
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.08975767174167934,
+          "docker_seconds": 0.08975767174167934,
+          "cgroup_seconds": 0.08975767174167934
+        }
+      }
+    ]
+  },
+  "batch_telegram_delivery_evidence": {
+    "ct": 622,
+    "run": "integration-20261106T174253Z",
+    "attempts_delta": 2.0,
+    "failures_delta": 0
+  }
+}

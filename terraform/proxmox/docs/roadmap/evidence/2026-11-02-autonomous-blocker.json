@@ -1,0 +1,31 @@
+{
+  "result": "RESOLVED_SSH",
+  "phase": 4,
+  "authorized_order": [
+    621,
+    620,
+    619,
+    623,
+    617,
+    615,
+    614,
+    61211,
+    611,
+    616,
+    610
+  ],
+  "excluded": [
+    618,
+    622
+  ],
+  "deployed_cts": [],
+  "ssh_alias": "pve",
+  "address": "192.168.1.100",
+  "strict_check": "PASS",
+  "known_hosts_and_old_checked": true,
+  "ssh_configuration_modified": false,
+  "preliminary_queries_identity_authenticated": false,
+  "existing_verified_chains": 4,
+  "host_key_registration": "OWNER_VERIFIED_AND_REGISTERED_ED25519",
+  "preflight_identity_authenticated": true
+}

@@ -1,0 +1,139 @@
+{
+  "at_utc": "2026-11-02T22:52:35.431599+00:00",
+  "targets_by_job": {
+    "alertmanager": 1,
+    "blackbox": 11,
+    "blackbox_exporter": 1,
+    "cadvisor": 17,
+    "node_exporter": 17,
+    "prometheus": 1
+  },
+  "corrected_sources": [
+    "infra-journal-db",
+    "infra-project-gestion",
+    "infra-journal-api",
+    "infra-journal-web",
+    "infra-hola"
+  ],
+  "rules_health": {
+    "ok": 24
+  },
+  "test_rules_remaining": [],
+  "telegram_failures_total": [
+    {
+      "metric": {},
+      "value": [
+        1793659954.521,
+        "56"
+      ]
+    }
+  ],
+  "rule_evaluation_failures_increase_30m": [
+    {
+      "metric": {},
+      "value": [
+        1793659954.523,
+        "0"
+      ]
+    }
+  ],
+  "cpu_percent": [
+    {
+      "metric": {
+        "__name__": "lxc:cpu_usage:percent",
+        "cpu_source": "cgroup_v2",
+        "ct_id": "624",
+        "instance": "192.168.1.124:9100",
+        "job": "node_exporter",
+        "resource_scope": "lxc",
+        "service": "infra-journal-web"
+      },
+      "value": [
+        1793659954.526,
+        "0.5772281481485051"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "lxc:cpu_usage:percent",
+        "cpu_source": "cgroup_v2",
+        "ct_id": "625",
+        "instance": "192.168.1.125:9100",
+        "job": "node_exporter",
+        "resource_scope": "lxc",
+        "service": "infra-journal-db"
+      },
+      "value": [
+        1793659954.526,
+        "0.2919268518518139"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "lxc:cpu_usage:percent",
+        "cpu_source": "cgroup_v2",
+        "ct_id": "626",
+        "instance": "192.168.1.126:9100",
+        "job": "node_exporter",
+        "resource_scope": "lxc",
+        "service": "infra-journal-api"
+      },
+      "value": [
+        1793659954.526,
+        "0.26416018518493395"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "lxc:cpu_usage:percent",
+        "cpu_source": "cgroup_v2",
+        "ct_id": "613",
+        "instance": "192.168.1.113:9100",
+        "job": "node_exporter",
+        "resource_scope": "lxc",
+        "service": "infra-hola"
+      },
+      "value": [
+        1793659954.526,
+        "0.4106859259263729"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "lxc:cpu_usage:percent",
+        "cpu_source": "cgroup_v2",
+        "ct_id": "621",
+        "instance": "192.168.1.121:9100",
+        "job": "node_exporter",
+        "resource_scope": "lxc",
+        "service": "infra-project-gestion"
+      },
+      "value": [
+        1793659954.526,
+        "0.6131527777779411"
+      ]
+    }
+  ],
+  "ct620_targets": [
+    {
+      "labels": {
+        "instance": "192.168.1.120:8085",
+        "job": "cadvisor",
+        "service": "infra-excraper",
+        "source": "inventory"
+      },
+      "health": "up"
+    },
+    {
+      "labels": {
+        "instance": "192.168.1.120:9100",
+        "job": "node_exporter",
+        "service": "infra-excraper",
+        "source": "inventory"
+      },
+      "health": "up"
+    }
+  ],
+  "9090_ready": 200,
+  "9093_ready": 200
+}

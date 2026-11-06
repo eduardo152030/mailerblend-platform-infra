@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-11-02T19:27:57.768018+01:00",
+  "discovery_unchanged": true,
+  "ct624_in_global_discovery": false,
+  "targets_by_job": {
+    "alertmanager": 1,
+    "blackbox": 11,
+    "blackbox_exporter": 1,
+    "cadvisor": 14,
+    "node_exporter": 14,
+    "prometheus": 1
+  },
+  "unhealthy_rules": [],
+  "no_other_ct_changed_by_this_pilot": true
+}

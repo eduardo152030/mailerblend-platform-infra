@@ -1,0 +1,72 @@
+{
+  "decision": "D-041",
+  "run": "integration-20261106T191534Z",
+  "results": [
+    {
+      "ct": 617,
+      "result": "DONE",
+      "seconds": 322.078,
+      "observation": {
+        "samples": 7,
+        "seconds": 180.14034083300066,
+        "initial_seconds_required": 180,
+        "initial_minimum_samples": 7,
+        "sha256": "d69fd084031983846d853d2bb83f8809f801e1cdc4cca1bce338e797fe158aed"
+      },
+      "rollback_rehearsed_this_ct": false,
+      "backup_verified": true,
+      "application_no_regression": true,
+      "evidence": "docs/roadmap/evidence/2026-11-02-rollout-617.json"
+    },
+    {
+      "ct": 618,
+      "result": "DONE",
+      "seconds": 499.22,
+      "observation": {
+        "samples": 11,
+        "seconds": 300.13123608800015,
+        "initial_seconds_required": 300,
+        "initial_minimum_samples": 11,
+        "sha256": "a7e8d2021b65bcfd0f95966df20fa1adfc10c93fa716dd3e343a3d6ec3394a71"
+      },
+      "rollback_rehearsed_this_ct": false,
+      "backup_verified": true,
+      "application_no_regression": true,
+      "evidence": "docs/roadmap/evidence/2026-11-02-rollout-618.json"
+    },
+    {
+      "ct": 615,
+      "result": "DONE",
+      "seconds": 332.264,
+      "observation": {
+        "samples": 7,
+        "seconds": 180.1217134610015,
+        "initial_seconds_required": 180,
+        "initial_minimum_samples": 7,
+        "sha256": "9eaddbd9878f179e433ca4655f7d92b1974056ab047d146afcfe0035354a1ae3"
+      },
+      "rollback_rehearsed_this_ct": false,
+      "backup_verified": true,
+      "application_no_regression": true,
+      "evidence": "docs/roadmap/evidence/2026-11-02-rollout-615.json"
+    },
+    {
+      "ct": 614,
+      "result": "DONE",
+      "seconds": 376.615,
+      "observation": {
+        "samples": 7,
+        "seconds": 180.12867742199887,
+        "initial_seconds_required": 180,
+        "initial_minimum_samples": 7,
+        "sha256": "d188ef06e796af5d6a8f511a35a9a1ce09f75b9ce147c01660c91dc7064628c8"
+      },
+      "rollback_rehearsed_this_ct": false,
+      "backup_verified": true,
+      "application_no_regression": true,
+      "evidence": "docs/roadmap/evidence/2026-11-02-rollout-614.json"
+    }
+  ],
+  "halt_global": false,
+  "observed_at_utc": "2026-11-06T19:54:19.461946+00:00"
+}

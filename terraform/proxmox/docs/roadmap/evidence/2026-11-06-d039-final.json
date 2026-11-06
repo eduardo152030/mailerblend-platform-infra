@@ -1,0 +1,328 @@
+{
+  "observed_at_utc": "2026-11-06T18:44:20.166872+00:00",
+  "decision": "D-039",
+  "accepted_total": 13,
+  "blocked": [
+    617,
+    615,
+    614,
+    618
+  ],
+  "pending": [],
+  "cts": [
+    {
+      "ct": 622,
+      "result": "DONE",
+      "seconds": 800.919,
+      "initial": {
+        "samples": 21,
+        "seconds": 600.4672030140027,
+        "initial_seconds_required": 600,
+        "initial_minimum_samples": 21,
+        "sha256": "86ff38198a0f46f384220fd0042bcae6d45417180c72c61ace533ec2a0a53fc9",
+        "alert_high_cpu_for_runtime_proven": false
+      },
+      "cpu_ram_containers": 9,
+      "new_oom": {
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "application_and_resource_fingerprints_unchanged": true,
+      "versions": {
+        "node": "1.11.1",
+        "cadvisor": "v0.60.6"
+      },
+      "archives": [
+        {
+          "name": "exporters-before.tar",
+          "sha256": "55af4f29fa70eb4fc2acccc9de57cbb9cb660243d3cdeea168d02de9626c2e15",
+          "readable": true
+        },
+        {
+          "name": "exporters-after.tar.gz",
+          "sha256": "9a6b85b716bae79c43d3987220aaeac3e0af778d7eb32443bd7bfdbeb7d3e046",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-before.tar",
+          "sha256": "6f1cfa4301afcefe5d0c310d90b1969f6b0c49bf1fd1203b4ee33a0e0cdcfb2a",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-after.tar.gz",
+          "sha256": "c8da655ae5e376cab0a2b10a3ccdf8852ae10cf7c48885840b92390534aa9b3f",
+          "readable": true
+        }
+      ],
+      "idempotence_verified": true,
+      "recovery_procedure": {
+        "available": true,
+        "prior_real_rollback": "D037 CT61211",
+        "unchanged_operation_bodies": [
+          "rollback",
+          "stop",
+          "unchanged"
+        ],
+        "current_backup_verified": true,
+        "rehearsed_this_ct": false
+      },
+      "telegram": {
+        "firing_and_resolved_accepted_by_api": true,
+        "human_receipt_confirmed": false,
+        "attempts_delta": 2.0,
+        "failures_delta": 0.0
+      },
+      "run": "integration-20261106T174253622Z",
+      "source_inputs_verified": 12
+    },
+    {
+      "ct": 611,
+      "result": "DONE",
+      "seconds": 787.464,
+      "initial": {
+        "samples": 21,
+        "seconds": 600.4848774790007,
+        "initial_seconds_required": 600,
+        "initial_minimum_samples": 21,
+        "sha256": "4c9d2381d8f2069a1d62685190b3d879313bb22a7dc3748af8715ef15a6d7efb"
+      },
+      "cpu_ram_containers": 3,
+      "new_oom": {
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "application_and_resource_fingerprints_unchanged": true,
+      "versions": {
+        "node": "1.10.2",
+        "cadvisor": "v0.60.6"
+      },
+      "archives": [
+        {
+          "name": "exporters-before.tar",
+          "sha256": "f8475b5115384dde10138169d860b8aaa14f4eda73aa3699af4186702d0b3952",
+          "readable": true
+        },
+        {
+          "name": "exporters-after.tar.gz",
+          "sha256": "9c93b4708becf75e7a37a29c5fdc161fc7910e0cd08185ccf60315d6acaea9ac",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-before.tar",
+          "sha256": "e4790d26ea0995ec8b3002768f8ff83ff89e3b9c938dcb310838b7513957f372",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-after.tar.gz",
+          "sha256": "e631fabafb816ed0dcc3afafcab70ee5f27ac5ad9ea3643154d4cf6f9392e95c",
+          "readable": true
+        }
+      ],
+      "idempotence_verified": true,
+      "recovery_procedure": {
+        "available": true,
+        "prior_real_rollback": "D037 CT61211",
+        "unchanged_operation_bodies": [
+          "rollback",
+          "stop",
+          "unchanged"
+        ],
+        "current_backup_verified": true,
+        "rehearsed_this_ct": false
+      },
+      "telegram": {
+        "firing_and_resolved_accepted_by_api": false,
+        "human_receipt_confirmed": false,
+        "attempts_delta": 0,
+        "failures_delta": 0,
+        "delivery_test": "deferred_to_batch_end"
+      },
+      "run": "integration-20261106T174253611Z",
+      "source_inputs_verified": 12
+    },
+    {
+      "ct": 616,
+      "result": "DONE",
+      "seconds": 795.447,
+      "initial": {
+        "samples": 21,
+        "seconds": 600.4854277470004,
+        "initial_seconds_required": 600,
+        "initial_minimum_samples": 21,
+        "sha256": "ffac37f374baa07f72ea0c93cc54efe3895f3196d2205e457bc1eb859f1f3fff"
+      },
+      "cpu_ram_containers": 3,
+      "new_oom": {
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "application_and_resource_fingerprints_unchanged": true,
+      "versions": {
+        "node": "1.10.2",
+        "cadvisor": "v0.60.6"
+      },
+      "archives": [
+        {
+          "name": "exporters-before.tar",
+          "sha256": "2812625e613f6b8f6367e695ff489364827a3f66b5a21481e46ed39e018623ab",
+          "readable": true
+        },
+        {
+          "name": "exporters-after.tar.gz",
+          "sha256": "a6d07b9b6c25d876ad5cc9ca3bc1613fcb6dd4c7e18ba83615967ab3461f9643",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-before.tar",
+          "sha256": "0d666dc862bee7929ade6ba75d2ecf5a45e6ce1755f0828d668934e88d567420",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-after.tar.gz",
+          "sha256": "dd5762cbd81538a1a8b71b7a55a86ba5f02898407d94e8d709be277e1ee64c3d",
+          "readable": true
+        }
+      ],
+      "idempotence_verified": true,
+      "recovery_procedure": {
+        "available": true,
+        "prior_real_rollback": "D037 CT61211",
+        "unchanged_operation_bodies": [
+          "rollback",
+          "stop",
+          "unchanged"
+        ],
+        "current_backup_verified": true,
+        "rehearsed_this_ct": false
+      },
+      "telegram": {
+        "firing_and_resolved_accepted_by_api": false,
+        "human_receipt_confirmed": false,
+        "attempts_delta": 0,
+        "failures_delta": 0,
+        "delivery_test": "deferred_to_batch_end"
+      },
+      "run": "integration-20261106T174253616Z",
+      "source_inputs_verified": 12
+    },
+    {
+      "ct": 610,
+      "result": "DONE",
+      "seconds": 760.323,
+      "initial": {
+        "samples": 21,
+        "seconds": 600.372323607,
+        "initial_seconds_required": 600,
+        "initial_minimum_samples": 21,
+        "sha256": "9536ad5a36522f1cf99e158c7a499bdb6445b29bd8fea0256c52bbd6eba8f4d2",
+        "alert_high_cpu_for_runtime_proven": false
+      },
+      "cpu_ram_containers": 5,
+      "new_oom": {
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "application_and_resource_fingerprints_unchanged": true,
+      "versions": {
+        "node": "1.10.2",
+        "cadvisor": "v0.60.6"
+      },
+      "archives": [
+        {
+          "name": "exporters-before.tar",
+          "sha256": "c5ddc94ff61c8763f31a617fc292de5ab4a9ac3d207ef2e61b93ac418b929677",
+          "readable": true
+        },
+        {
+          "name": "exporters-after.tar.gz",
+          "sha256": "812fe15e758ba3c720ed4ccc3a1b839ce2ff69582cc077e0d79b9a8e60887d7a",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-before.tar",
+          "sha256": "61c297aebd286c50e76b793ef015d7705e49f1d5de606eb5981272cbc217cc1f",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-after.tar.gz",
+          "sha256": "8efbe0bd089d90d09080b05b20e9c259aabe371a3c885f0647a9c3b509074a4b",
+          "readable": true
+        }
+      ],
+      "idempotence_verified": true,
+      "recovery_procedure": {
+        "available": true,
+        "prior_real_rollback": "D037 CT61211",
+        "unchanged_operation_bodies": [
+          "rollback",
+          "stop",
+          "unchanged"
+        ],
+        "current_backup_verified": true,
+        "rehearsed_this_ct": false
+      },
+      "telegram": {
+        "firing_and_resolved_accepted_by_api": true,
+        "human_receipt_confirmed": false,
+        "attempts_delta": 2.0,
+        "failures_delta": 0.0
+      },
+      "run": "integration-20261106T174253610Z",
+      "source_inputs_verified": 12,
+      "external_observer": {
+        "samples": 23,
+        "all_passed": true,
+        "independent_of_prometheus_api": true,
+        "other_cts": [
+          624,
+          626,
+          625,
+          613,
+          621,
+          620,
+          619,
+          623,
+          61211,
+          622,
+          611,
+          616
+        ]
+      },
+      "alertmanager_archived_files_unchanged": true,
+      "alertmanager_and_telegram_private_files_unchanged": true,
+      "private_files_compared": 3
+    }
+  ],
+  "archives_verified": 16,
+  "crm_originals_applications_resources_restored": true,
+  "accepted_chain_issues": {
+    "624": [],
+    "626": [],
+    "625": [],
+    "613": [],
+    "621": [],
+    "620": [],
+    "619": [],
+    "623": [],
+    "61211": [],
+    "622": [],
+    "611": [],
+    "616": [],
+    "610": []
+  },
+  "targets_up": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "telegram_final": {
+    "alertmanager_notifications_total": 132.0,
+    "alertmanager_notifications_failed_total": 56.0
+  },
+  "pre_rollout_historical_node_series_accessible": 17,
+  "production_changes_scope": "Only five attempted exporter CTs and coordinated minimal Prom configuration; CRM reverted, four accepted; no app/data/resource changes"
+}

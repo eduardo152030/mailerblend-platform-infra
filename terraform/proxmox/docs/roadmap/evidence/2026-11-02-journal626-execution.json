@@ -1,0 +1,115 @@
+{
+  "ct": 626,
+  "result": "PASS",
+  "scope": "exporters only; no global discovery",
+  "recorded_at": "2026-11-02T19:20:23.595046+00:00",
+  "images": {
+    "node": "1.10.2",
+    "cadvisor": "0.60.6"
+  },
+  "allocated_cpu_cores": 2,
+  "node_memory_total_bytes": 2147483648.0,
+  "cpu_source": "cgroup_v2_textfile",
+  "native_cpu_series_absent": true,
+  "cpu_window_delta_seconds": {
+    "node_lxc": 6.283825999999863,
+    "parent_cgroup": 6.275684999999612
+  },
+  "max_counter_read_lag_seconds": 0.22374800000034156,
+  "observation": {
+    "samples": 21,
+    "seconds": 600.96,
+    "sha256": "c5f34bc3a5864c54868e35c2a94470abb41bb26579b50f2a405d43835f917dfb",
+    "first_sample_at": "2026-11-02T19:07:16.907561+00:00",
+    "last_sample_at": "2026-11-02T19:17:16.918145+00:00"
+  },
+  "minimum_lxc_available_memory_bytes": 1826770944,
+  "memory_current_peak_bytes": 851206144,
+  "memory_psi_max_sampled_avg_percent": 0.0,
+  "memory_events_before": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "memory_events_final": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "swap_bytes_first": 89280512,
+  "swap_bytes_last": 88711168,
+  "active_docker_containers": [
+    "cadvisor",
+    "infra-journal-api-api-1",
+    "node_exporter",
+    "test-nginx"
+  ],
+  "exporter_resources": {
+    "node_exporter": {
+      "id": "e28b5738a2683cd0765d16c2fd28c18173d0418aa5cee7cac5dfa8b632a06e00",
+      "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "started_at": "2026-11-02T19:07:06.063620045Z",
+      "restart_count": 0,
+      "memory_peak_sampled_bytes": 9416704,
+      "memory_limit_bytes": 50331648,
+      "cpu_quota_cores": 0.2,
+      "max_interval_mean_cpu_percent_of_one_core": 0.38934687851841626
+    },
+    "cadvisor": {
+      "id": "b2d16e00c7fbeeb82a358e0d76250fb761c9d07178fd851aa587c9b07703f3dc",
+      "image_id": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "started_at": "2026-11-02T19:07:07.130308945Z",
+      "restart_count": 0,
+      "memory_peak_sampled_bytes": 21520384,
+      "memory_limit_bytes": 134217728,
+      "cpu_quota_cores": 0.5,
+      "max_interval_mean_cpu_percent_of_one_core": 0.7787850522928925
+    }
+  },
+  "application_status": {
+    "sha256": "648296f6e8d390262ca71fc7c48259682c03f59525593675eb067e8e8aeb79ec",
+    "status": 200
+  },
+  "backups": {
+    "sha256": "ab31b752d274b45f9ac776003ae45ac1e809eebff5e31083ee9e3a94396040b2",
+    "bytes": 33832960,
+    "pve_directory": "/mnt/storage/mailerblend-recovery/phase4/journal-20261102T190629Z/626",
+    "offhost_location": "~/.local/share/mailerblend-recovery/phase4/journal-20261102T190629Z/626",
+    "nested_image_hashes_verified": true,
+    "original_image_load_verified": true
+  },
+  "original_exporter_ids": {
+    "node_exporter": null,
+    "cadvisor": "00346eb9dd36c892cc4a66d3bc718e10925f0240381c42416d4b5978c722004b"
+  },
+  "after_configuration": {
+    "sha256": "5a4eda04567bdd1615131c068f313ab5b84592963a8f4f7a81867ea45738df78",
+    "bytes": 15194,
+    "offhost_verified": true
+  },
+  "rollback_original_running_and_metrics_verified": true,
+  "resume_same_candidate_ids_verified": true,
+  "second_apply_same_id_started_at_verified": true,
+  "application_ids_images_config_and_started_at_preserved": true,
+  "node_and_docker_metrics_separate": true,
+  "strict_local_observer_revalidation": "PASS",
+  "run": "journal-20261102T190629Z",
+  "deployed_file_sha256": {
+    "cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+    "cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+    "cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+    "node-cgroup.sh": "c16eb85760f18f471c01990b33627317c38ce0224f5ab28e5ebeab843960906c",
+    "node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+    "node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+    "node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+    "observe.py": "2236fbba87266531b781cd171e25cf478e8c1a76bd92aaf5f1f12ef744247d1c",
+    "pilot.py": "1746d1ceaeaab104dbc2fb4b3c8aa061c55c148cc5b7c4495a6092f0038cd2fc",
+    "sample.py": "eef43d6a536faaf6641b5d831682d5edbe966d4fe0fbf41e55bd66279d88c02e"
+  }
+}

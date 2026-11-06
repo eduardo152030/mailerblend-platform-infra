@@ -1,0 +1,1093 @@
+{
+  "first": {
+    "cadvisor": {
+      "cadvisor_version_info": [
+        {
+          "labels": {
+            "cadvisorVersion": "v0.60.6",
+            "dockerVersion": "",
+            "kernelVersion": "6.8.12-4-pve",
+            "osVersion": "Alpine Linux v3.23"
+          },
+          "value": 1.0
+        }
+      ],
+      "container_cpu_usage_seconds_total": [
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "docker-test",
+            "container_label_com_docker_compose_service": "web",
+            "cpu": "total",
+            "id": "/system.slice/docker-7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5.scope",
+            "image": "nginx:alpine",
+            "name": "test-nginx"
+          },
+          "value": 0.061853
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-cadvisor-containerd",
+            "container_label_com_docker_compose_service": "cadvisor",
+            "cpu": "total",
+            "id": "/system.slice/docker-d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af.scope",
+            "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+            "name": "cadvisor"
+          },
+          "value": 0.219912
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-node-cgroup",
+            "container_label_com_docker_compose_service": "node_exporter",
+            "cpu": "total",
+            "id": "/system.slice/docker-35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757.scope",
+            "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "name": "node_exporter"
+          },
+          "value": 0.10288
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "infra-journal-web",
+            "container_label_com_docker_compose_service": "web",
+            "cpu": "total",
+            "id": "/system.slice/docker-473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3.scope",
+            "image": "nginx:alpine",
+            "name": "infra-journal-web-web-1"
+          },
+          "value": 3.666362
+        }
+      ],
+      "container_last_seen": [
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "docker-test",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5.scope",
+            "image": "nginx:alpine",
+            "name": "test-nginx"
+          },
+          "value": 1793635569.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-cadvisor-containerd",
+            "container_label_com_docker_compose_service": "cadvisor",
+            "id": "/system.slice/docker-d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af.scope",
+            "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+            "name": "cadvisor"
+          },
+          "value": 1793635569.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-node-cgroup",
+            "container_label_com_docker_compose_service": "node_exporter",
+            "id": "/system.slice/docker-35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757.scope",
+            "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "name": "node_exporter"
+          },
+          "value": 1793635569.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "infra-journal-web",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3.scope",
+            "image": "nginx:alpine",
+            "name": "infra-journal-web-web-1"
+          },
+          "value": 1793635569.0
+        }
+      ],
+      "container_memory_usage_bytes": [
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "docker-test",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5.scope",
+            "image": "nginx:alpine",
+            "name": "test-nginx"
+          },
+          "value": 606208.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-cadvisor-containerd",
+            "container_label_com_docker_compose_service": "cadvisor",
+            "id": "/system.slice/docker-d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af.scope",
+            "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+            "name": "cadvisor"
+          },
+          "value": 21921792.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-node-cgroup",
+            "container_label_com_docker_compose_service": "node_exporter",
+            "id": "/system.slice/docker-35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757.scope",
+            "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "name": "node_exporter"
+          },
+          "value": 6955008.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "infra-journal-web",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3.scope",
+            "image": "nginx:alpine",
+            "name": "infra-journal-web-web-1"
+          },
+          "value": 1679360.0
+        }
+      ],
+      "container_memory_working_set_bytes": [
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "docker-test",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5.scope",
+            "image": "nginx:alpine",
+            "name": "test-nginx"
+          },
+          "value": 602112.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-cadvisor-containerd",
+            "container_label_com_docker_compose_service": "cadvisor",
+            "id": "/system.slice/docker-d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af.scope",
+            "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+            "name": "cadvisor"
+          },
+          "value": 21909504.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-node-cgroup",
+            "container_label_com_docker_compose_service": "node_exporter",
+            "id": "/system.slice/docker-35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757.scope",
+            "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "name": "node_exporter"
+          },
+          "value": 6934528.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "infra-journal-web",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3.scope",
+            "image": "nginx:alpine",
+            "name": "infra-journal-web-web-1"
+          },
+          "value": 1519616.0
+        }
+      ],
+      "container_spec_memory_limit_bytes": [
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "docker-test",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5.scope",
+            "image": "nginx:alpine",
+            "name": "test-nginx"
+          },
+          "value": 0.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-cadvisor-containerd",
+            "container_label_com_docker_compose_service": "cadvisor",
+            "id": "/system.slice/docker-d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af.scope",
+            "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+            "name": "cadvisor"
+          },
+          "value": 134217728.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-node-cgroup",
+            "container_label_com_docker_compose_service": "node_exporter",
+            "id": "/system.slice/docker-35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757.scope",
+            "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "name": "node_exporter"
+          },
+          "value": 50331648.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "infra-journal-web",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3.scope",
+            "image": "nginx:alpine",
+            "name": "infra-journal-web-web-1"
+          },
+          "value": 0.0
+        }
+      ]
+    },
+    "containers": [
+      {
+        "cgroupns": "private",
+        "docker_stats": {
+          "cpu_total_ns": 113737000,
+          "memory_limit": 50331648,
+          "memory_usage": 6955008
+        },
+        "id": "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757",
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "memory_limit": 50331648,
+        "name": "node_exporter",
+        "nano_cpus": 200000000,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": true,
+        "started_at": "2026-11-02T16:04:37.826058931Z",
+        "cgroup": {
+          "memory.current": "7954432",
+          "memory.max": "50331648",
+          "memory.swap.current": "0",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1972\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=1907",
+          "cpu.stat": "usage_usec 151787\nuser_usec 63006\nsystem_usec 88781\ncore_sched.force_idle_usec 0\nnr_periods 44\nnr_throttled 3\nthrottled_usec 148960\nnr_bursts 0\nburst_usec 0",
+          "cpu.max": "20000 100000",
+          "cpuset.cpus.effective": "2"
+        }
+      },
+      {
+        "cgroupns": "host",
+        "docker_stats": {
+          "cpu_total_ns": 222996000,
+          "memory_limit": 134217728,
+          "memory_usage": 21671936
+        },
+        "id": "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "memory_limit": 134217728,
+        "name": "cadvisor",
+        "nano_cpus": 500000000,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": true,
+        "started_at": "2026-11-02T16:04:39.364223922Z",
+        "cgroup": {
+          "memory.current": "21688320",
+          "memory.max": "134217728",
+          "memory.swap.current": "0",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+          "cpu.stat": "usage_usec 227614\nuser_usec 80160\nsystem_usec 147454\ncore_sched.force_idle_usec 0\nnr_periods 34\nnr_throttled 1\nthrottled_usec 45423\nnr_bursts 0\nburst_usec 0",
+          "cpu.max": "50000 100000",
+          "cpuset.cpus.effective": "2"
+        }
+      },
+      {
+        "cgroupns": "host",
+        "id": "754e63551892651d1576466b264ceb01a825b98a732814015a01f71f15ef0e06",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "memory_limit": 134217728,
+        "name": "cadvisor-phase4-624-rejected-1",
+        "nano_cpus": 500000000,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": false,
+        "started_at": "2026-11-02T15:31:29.388027039Z"
+      },
+      {
+        "cgroupns": "private",
+        "id": "82ac3f6bfe1440ec87fc64015d6f83e2b46db17004e0632960d5b4430516f089",
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "memory_limit": 50331648,
+        "name": "node_exporter-phase4-624-rejected-2",
+        "nano_cpus": 200000000,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": false,
+        "started_at": "2026-11-02T15:39:03.230199202Z"
+      },
+      {
+        "cgroupns": "private",
+        "docker_stats": {
+          "cpu_total_ns": 3666362000,
+          "memory_limit": 536870912,
+          "memory_usage": 1679360
+        },
+        "id": "473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3",
+        "image": "sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1abeac2",
+        "memory_limit": 0,
+        "name": "infra-journal-web-web-1",
+        "nano_cpus": 0,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": true,
+        "started_at": "2026-09-28T20:10:09.492274366Z",
+        "cgroup": {
+          "memory.current": "1679360",
+          "memory.max": "max",
+          "memory.swap.current": "1925120",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=38589\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=38513",
+          "cpu.stat": "usage_usec 3666568\nuser_usec 877355\nsystem_usec 2789212\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+          "cpu.max": "max 100000",
+          "cpuset.cpus.effective": "2"
+        }
+      },
+      {
+        "cgroupns": "private",
+        "id": "5db0b97c7498faec8a3428c94888191ca6281e381c5274605fb6e945e1eb3c64",
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "memory_limit": 0,
+        "name": "cadvisor-pre-phase4-624",
+        "nano_cpus": 0,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": false,
+        "started_at": "2026-11-02T16:04:35.409470205Z"
+      },
+      {
+        "cgroupns": "private",
+        "docker_stats": {
+          "cpu_total_ns": 61853000,
+          "memory_limit": 536870912,
+          "memory_usage": 606208
+        },
+        "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+        "image": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+        "memory_limit": 0,
+        "name": "test-nginx",
+        "nano_cpus": 0,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": true,
+        "started_at": "2026-09-17T20:45:00.143855766Z",
+        "cgroup": {
+          "memory.current": "606208",
+          "memory.max": "max",
+          "memory.swap.current": "2125824",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+          "cpu.stat": "usage_usec 61853\nuser_usec 30926\nsystem_usec 30926\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+          "cpu.max": "max 100000",
+          "cpuset.cpus.effective": "2"
+        }
+      }
+    ],
+    "ct": 624,
+    "lxc_proc": {
+      "cpu_count": 1,
+      "mem_available_bytes": 290242560,
+      "mem_total_bytes": 536870912
+    },
+    "node": {
+      "lxc_cpu_capacity_cores": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 1.0
+        }
+      ],
+      "lxc_cpu_collector_success": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 1.0
+        }
+      ],
+      "lxc_cpu_collector_timestamp_seconds": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 1793635568.0
+        }
+      ],
+      "lxc_cpu_system_seconds_total": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 3063.213867
+        }
+      ],
+      "lxc_cpu_usage_seconds_total": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 9400.441893
+        }
+      ],
+      "lxc_cpu_user_seconds_total": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 6337.228026
+        }
+      ],
+      "node_cpu_seconds_total": [],
+      "node_exporter_build_info": [
+        {
+          "labels": {
+            "version": "1.10.2"
+          },
+          "value": 1.0
+        }
+      ],
+      "node_filesystem_avail_bytes": [
+        {
+          "labels": {
+            "fstype": "ext4",
+            "mountpoint": "/"
+          },
+          "value": 46234411008.0
+        },
+        {
+          "labels": {
+            "fstype": "ramfs",
+            "mountpoint": "/run/credentials/systemd-sysusers.service"
+          },
+          "value": 0.0
+        },
+        {
+          "labels": {
+            "fstype": "tmpfs",
+            "mountpoint": "/run"
+          },
+          "value": 3327918080.0
+        },
+        {
+          "labels": {
+            "fstype": "tmpfs",
+            "mountpoint": "/run/lock"
+          },
+          "value": 5242880.0
+        }
+      ],
+      "node_filesystem_size_bytes": [
+        {
+          "labels": {
+            "fstype": "ext4",
+            "mountpoint": "/"
+          },
+          "value": 52521566208.0
+        },
+        {
+          "labels": {
+            "fstype": "ramfs",
+            "mountpoint": "/run/credentials/systemd-sysusers.service"
+          },
+          "value": 0.0
+        },
+        {
+          "labels": {
+            "fstype": "tmpfs",
+            "mountpoint": "/run"
+          },
+          "value": 3329355776.0
+        },
+        {
+          "labels": {
+            "fstype": "tmpfs",
+            "mountpoint": "/run/lock"
+          },
+          "value": 5242880.0
+        }
+      ],
+      "node_memory_MemAvailable_bytes": [
+        {
+          "labels": {},
+          "value": 289509376.0
+        }
+      ],
+      "node_memory_MemTotal_bytes": [
+        {
+          "labels": {},
+          "value": 536870912.0
+        }
+      ],
+      "node_textfile_scrape_error": [
+        {
+          "labels": {},
+          "value": 0.0
+        }
+      ]
+    },
+    "time": 1793635569.7599828,
+    "web": {
+      "sha256": "60348bc45c198808658817deb563935e53a88748c1d42d89b998b31357aa9dc2",
+      "status": 200
+    },
+    "resources": {
+      "memory.current": "502702080",
+      "memory.max": "536870912",
+      "memory.swap.current": "52137984",
+      "memory.events": "low 0\nhigh 1093\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=7747950\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=7123735",
+      "cpu.stat": "usage_usec 9400665150\nuser_usec 6337390372\nsystem_usec 3063274778\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000",
+      "cpuset.cpus.effective": "2"
+    },
+    "elapsed_seconds": 1.045
+  },
+  "final": {
+    "cadvisor": {
+      "cadvisor_version_info": [
+        {
+          "labels": {
+            "cadvisorVersion": "v0.60.6",
+            "dockerVersion": "",
+            "kernelVersion": "6.8.12-4-pve",
+            "osVersion": "Alpine Linux v3.23"
+          },
+          "value": 1.0
+        }
+      ],
+      "container_cpu_usage_seconds_total": [
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "docker-test",
+            "container_label_com_docker_compose_service": "web",
+            "cpu": "total",
+            "id": "/system.slice/docker-7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5.scope",
+            "image": "nginx:alpine",
+            "name": "test-nginx"
+          },
+          "value": 0.061853
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-cadvisor-containerd",
+            "container_label_com_docker_compose_service": "cadvisor",
+            "cpu": "total",
+            "id": "/system.slice/docker-d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af.scope",
+            "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+            "name": "cadvisor"
+          },
+          "value": 8.421799
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-node-cgroup",
+            "container_label_com_docker_compose_service": "node_exporter",
+            "cpu": "total",
+            "id": "/system.slice/docker-35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757.scope",
+            "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "name": "node_exporter"
+          },
+          "value": 3.436484
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "infra-journal-web",
+            "container_label_com_docker_compose_service": "web",
+            "cpu": "total",
+            "id": "/system.slice/docker-473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3.scope",
+            "image": "nginx:alpine",
+            "name": "infra-journal-web-web-1"
+          },
+          "value": 3.678208
+        }
+      ],
+      "container_last_seen": [
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "docker-test",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5.scope",
+            "image": "nginx:alpine",
+            "name": "test-nginx"
+          },
+          "value": 1793643101.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-cadvisor-containerd",
+            "container_label_com_docker_compose_service": "cadvisor",
+            "id": "/system.slice/docker-d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af.scope",
+            "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+            "name": "cadvisor"
+          },
+          "value": 1793643101.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-node-cgroup",
+            "container_label_com_docker_compose_service": "node_exporter",
+            "id": "/system.slice/docker-35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757.scope",
+            "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "name": "node_exporter"
+          },
+          "value": 1793643101.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "infra-journal-web",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3.scope",
+            "image": "nginx:alpine",
+            "name": "infra-journal-web-web-1"
+          },
+          "value": 1793643101.0
+        }
+      ],
+      "container_memory_usage_bytes": [
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "docker-test",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5.scope",
+            "image": "nginx:alpine",
+            "name": "test-nginx"
+          },
+          "value": 606208.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-cadvisor-containerd",
+            "container_label_com_docker_compose_service": "cadvisor",
+            "id": "/system.slice/docker-d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af.scope",
+            "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+            "name": "cadvisor"
+          },
+          "value": 23674880.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-node-cgroup",
+            "container_label_com_docker_compose_service": "node_exporter",
+            "id": "/system.slice/docker-35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757.scope",
+            "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "name": "node_exporter"
+          },
+          "value": 8290304.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "infra-journal-web",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3.scope",
+            "image": "nginx:alpine",
+            "name": "infra-journal-web-web-1"
+          },
+          "value": 2097152.0
+        }
+      ],
+      "container_memory_working_set_bytes": [
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "docker-test",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5.scope",
+            "image": "nginx:alpine",
+            "name": "test-nginx"
+          },
+          "value": 602112.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-cadvisor-containerd",
+            "container_label_com_docker_compose_service": "cadvisor",
+            "id": "/system.slice/docker-d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af.scope",
+            "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+            "name": "cadvisor"
+          },
+          "value": 23662592.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-node-cgroup",
+            "container_label_com_docker_compose_service": "node_exporter",
+            "id": "/system.slice/docker-35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757.scope",
+            "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "name": "node_exporter"
+          },
+          "value": 8269824.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "infra-journal-web",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3.scope",
+            "image": "nginx:alpine",
+            "name": "infra-journal-web-web-1"
+          },
+          "value": 1806336.0
+        }
+      ],
+      "container_spec_memory_limit_bytes": [
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "docker-test",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5.scope",
+            "image": "nginx:alpine",
+            "name": "test-nginx"
+          },
+          "value": 0.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-cadvisor-containerd",
+            "container_label_com_docker_compose_service": "cadvisor",
+            "id": "/system.slice/docker-d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af.scope",
+            "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+            "name": "cadvisor"
+          },
+          "value": 134217728.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "exporter-pilot-624-node-cgroup",
+            "container_label_com_docker_compose_service": "node_exporter",
+            "id": "/system.slice/docker-35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757.scope",
+            "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "name": "node_exporter"
+          },
+          "value": 50331648.0
+        },
+        {
+          "labels": {
+            "container_label_com_docker_compose_project": "infra-journal-web",
+            "container_label_com_docker_compose_service": "web",
+            "id": "/system.slice/docker-473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3.scope",
+            "image": "nginx:alpine",
+            "name": "infra-journal-web-web-1"
+          },
+          "value": 0.0
+        }
+      ]
+    },
+    "containers": [
+      {
+        "cgroupns": "private",
+        "docker_stats": {
+          "cpu_total_ns": 3445127000,
+          "memory_limit": 50331648,
+          "memory_usage": 7254016
+        },
+        "id": "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757",
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "memory_limit": 50331648,
+        "name": "node_exporter",
+        "nano_cpus": 200000000,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": true,
+        "started_at": "2026-11-02T16:04:37.826058931Z",
+        "cgroup": {
+          "memory.current": "8257536",
+          "memory.max": "50331648",
+          "memory.swap.current": "0",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1972\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=1907",
+          "cpu.stat": "usage_usec 3480987\nuser_usec 1005927\nsystem_usec 2475059\ncore_sched.force_idle_usec 0\nnr_periods 3127\nnr_throttled 24\nthrottled_usec 1063034\nnr_bursts 0\nburst_usec 0",
+          "cpu.max": "20000 100000",
+          "cpuset.cpus.effective": "2"
+        }
+      },
+      {
+        "cgroupns": "host",
+        "docker_stats": {
+          "cpu_total_ns": 8431711000,
+          "memory_limit": 134217728,
+          "memory_usage": 22118400
+        },
+        "id": "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "memory_limit": 134217728,
+        "name": "cadvisor",
+        "nano_cpus": 500000000,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": true,
+        "started_at": "2026-11-02T16:04:39.364223922Z",
+        "cgroup": {
+          "memory.current": "22183936",
+          "memory.max": "134217728",
+          "memory.swap.current": "0",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+          "cpu.stat": "usage_usec 8447069\nuser_usec 3162288\nsystem_usec 5284781\ncore_sched.force_idle_usec 0\nnr_periods 2705\nnr_throttled 1\nthrottled_usec 45423\nnr_bursts 0\nburst_usec 0",
+          "cpu.max": "50000 100000",
+          "cpuset.cpus.effective": "2"
+        }
+      },
+      {
+        "cgroupns": "host",
+        "id": "754e63551892651d1576466b264ceb01a825b98a732814015a01f71f15ef0e06",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "memory_limit": 134217728,
+        "name": "cadvisor-phase4-624-rejected-1",
+        "nano_cpus": 500000000,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": false,
+        "started_at": "2026-11-02T15:31:29.388027039Z"
+      },
+      {
+        "cgroupns": "private",
+        "id": "82ac3f6bfe1440ec87fc64015d6f83e2b46db17004e0632960d5b4430516f089",
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "memory_limit": 50331648,
+        "name": "node_exporter-phase4-624-rejected-2",
+        "nano_cpus": 200000000,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": false,
+        "started_at": "2026-11-02T15:39:03.230199202Z"
+      },
+      {
+        "cgroupns": "private",
+        "docker_stats": {
+          "cpu_total_ns": 3678208000,
+          "memory_limit": 536870912,
+          "memory_usage": 2097152
+        },
+        "id": "473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3",
+        "image": "sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1abeac2",
+        "memory_limit": 0,
+        "name": "infra-journal-web-web-1",
+        "nano_cpus": 0,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": true,
+        "started_at": "2026-09-28T20:10:09.492274366Z",
+        "cgroup": {
+          "memory.current": "2097152",
+          "memory.max": "max",
+          "memory.swap.current": "1925120",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=38589\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=38513",
+          "cpu.stat": "usage_usec 3678347\nuser_usec 883260\nsystem_usec 2795086\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+          "cpu.max": "max 100000",
+          "cpuset.cpus.effective": "2"
+        }
+      },
+      {
+        "cgroupns": "private",
+        "id": "5db0b97c7498faec8a3428c94888191ca6281e381c5274605fb6e945e1eb3c64",
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "memory_limit": 0,
+        "name": "cadvisor-pre-phase4-624",
+        "nano_cpus": 0,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": false,
+        "started_at": "2026-11-02T16:04:35.409470205Z"
+      },
+      {
+        "cgroupns": "private",
+        "docker_stats": {
+          "cpu_total_ns": 61853000,
+          "memory_limit": 536870912,
+          "memory_usage": 606208
+        },
+        "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+        "image": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+        "memory_limit": 0,
+        "name": "test-nginx",
+        "nano_cpus": 0,
+        "oom_killed": false,
+        "restarts": 0,
+        "running": true,
+        "started_at": "2026-09-17T20:45:00.143855766Z",
+        "cgroup": {
+          "memory.current": "606208",
+          "memory.max": "max",
+          "memory.swap.current": "2125824",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+          "cpu.stat": "usage_usec 61853\nuser_usec 30926\nsystem_usec 30926\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+          "cpu.max": "max 100000",
+          "cpuset.cpus.effective": "2"
+        }
+      }
+    ],
+    "ct": 624,
+    "lxc_proc": {
+      "cpu_count": 1,
+      "mem_available_bytes": 293728256,
+      "mem_total_bytes": 536870912
+    },
+    "node": {
+      "lxc_cpu_capacity_cores": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 1.0
+        }
+      ],
+      "lxc_cpu_collector_success": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 1.0
+        }
+      ],
+      "lxc_cpu_collector_timestamp_seconds": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 1793643101.0
+        }
+      ],
+      "lxc_cpu_system_seconds_total": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 3077.423521
+        }
+      ],
+      "lxc_cpu_usage_seconds_total": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 9435.621587
+        }
+      ],
+      "lxc_cpu_user_seconds_total": [
+        {
+          "labels": {
+            "cpu_source": "cgroup_v2",
+            "ct_id": "624",
+            "resource_scope": "lxc"
+          },
+          "value": 6358.198066
+        }
+      ],
+      "node_cpu_seconds_total": [],
+      "node_exporter_build_info": [
+        {
+          "labels": {
+            "version": "1.10.2"
+          },
+          "value": 1.0
+        }
+      ],
+      "node_filesystem_avail_bytes": [
+        {
+          "labels": {
+            "fstype": "ext4",
+            "mountpoint": "/"
+          },
+          "value": 46234398720.0
+        },
+        {
+          "labels": {
+            "fstype": "ramfs",
+            "mountpoint": "/run/credentials/systemd-sysusers.service"
+          },
+          "value": 0.0
+        },
+        {
+          "labels": {
+            "fstype": "tmpfs",
+            "mountpoint": "/run"
+          },
+          "value": 3327918080.0
+        },
+        {
+          "labels": {
+            "fstype": "tmpfs",
+            "mountpoint": "/run/lock"
+          },
+          "value": 5242880.0
+        }
+      ],
+      "node_filesystem_size_bytes": [
+        {
+          "labels": {
+            "fstype": "ext4",
+            "mountpoint": "/"
+          },
+          "value": 52521566208.0
+        },
+        {
+          "labels": {
+            "fstype": "ramfs",
+            "mountpoint": "/run/credentials/systemd-sysusers.service"
+          },
+          "value": 0.0
+        },
+        {
+          "labels": {
+            "fstype": "tmpfs",
+            "mountpoint": "/run"
+          },
+          "value": 3329355776.0
+        },
+        {
+          "labels": {
+            "fstype": "tmpfs",
+            "mountpoint": "/run/lock"
+          },
+          "value": 5242880.0
+        }
+      ],
+      "node_memory_MemAvailable_bytes": [
+        {
+          "labels": {},
+          "value": 293167104.0
+        }
+      ],
+      "node_memory_MemTotal_bytes": [
+        {
+          "labels": {},
+          "value": 536870912.0
+        }
+      ],
+      "node_textfile_scrape_error": [
+        {
+          "labels": {},
+          "value": 0.0
+        }
+      ]
+    },
+    "time": 1793643101.0690932,
+    "web": {
+      "sha256": "60348bc45c198808658817deb563935e53a88748c1d42d89b998b31357aa9dc2",
+      "status": 200
+    },
+    "resources": {
+      "memory.current": "489066496",
+      "memory.max": "536870912",
+      "memory.swap.current": "52060160",
+      "memory.events": "low 0\nhigh 1094\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=7758799\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=7133115",
+      "cpu.stat": "usage_usec 9435764042\nuser_usec 6358280424\nsystem_usec 3077483617\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000",
+      "cpuset.cpus.effective": "2"
+    }
+  }
+}

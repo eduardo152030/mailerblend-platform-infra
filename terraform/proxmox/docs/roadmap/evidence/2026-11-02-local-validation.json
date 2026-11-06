@@ -1,0 +1,12 @@
+{
+  "monitoring_unittests_passed": 54,
+  "new_phase4_tests": 11,
+  "promtool_config_and_rules_passed": true,
+  "compose_candidates_parse_passed": 2,
+  "compose_parse_remote_read_only": true,
+  "local_links_checked": 138,
+  "broken_links": 0,
+  "production_deployments": 0,
+  "git_commit_created": false,
+  "roadmap_added_to_git_index": true
+}

@@ -1,0 +1,12 @@
+{
+  "syntax": "PASS",
+  "local_links_checked": 125,
+  "missing_links": [],
+  "new_secret_signatures_found": false,
+  "distinct_targeted_tests_passed": 25,
+  "unchanged_common_suite_repeated": false,
+  "production_changes": false,
+  "new_done_cts": [],
+  "standard_authorized_pending": [],
+  "commit_push_performed": false
+}

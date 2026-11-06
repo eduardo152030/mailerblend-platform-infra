@@ -1,0 +1,377 @@
+{
+  "ct": 623,
+  "run": "integration-20261102T223431Z",
+  "result": "PASS",
+  "duration_seconds": 905.326,
+  "timings_seconds": {
+    "preflight": 5.268,
+    "staging": 1.138,
+    "image_archive_restore_and_snapshot": 4.152,
+    "external_backup_verified": 6.299,
+    "monitoring_backup_verified": 6.59,
+    "cpu_history_started": 1.089,
+    "pinned_images": 2.816,
+    "apply_ready": 11.248,
+    "incremental_integration": 120.823,
+    "coordinated_rollback": 12.802,
+    "resume_and_idempotence": 117.819,
+    "controlled_firing_rule": 5.843,
+    "d031_fresh_backups_and_compatibility_verified": 22.245,
+    "previous_cadvisor_preserved_stopped": 1.589,
+    "observation_and_telegram": 603.939,
+    "completed": 5.114
+  },
+  "observation": {
+    "samples": 21,
+    "seconds": 600.803658595,
+    "initial_seconds_required": 600,
+    "initial_minimum_samples": 21,
+    "sha256": "bcb9067d56c655482cabdada454d174e7ecff57cd1096e523f59d810dc792d62",
+    "alert_high_cpu_for_runtime_proven": false
+  },
+  "telegram": {
+    "firing_and_resolved_accepted_by_api": true,
+    "human_receipt_confirmed": false,
+    "attempts_delta": 2.0,
+    "failures_delta": 0.0
+  },
+  "backup": {
+    "sha256": "7edd4123cfc031d889f91aac9028670ad7f79f4df5c52294608b78e00d32582b",
+    "bytes": 47185920
+  },
+  "after_archive": {
+    "sha256": "3737f5cc547fc9e4f4d6623ce4e583dbe6fe634eaf157382fdb96512b089b3a9",
+    "bytes": 562557,
+    "offhost_verified": true
+  },
+  "exporters": {
+    "node_exporter": {
+      "id": "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288",
+      "image": "sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+      "started_at": "2026-11-05T20:14:07.375961108Z",
+      "restarts": 0
+    },
+    "cadvisor": {
+      "id": "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7",
+      "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "started_at": "2026-11-05T20:14:08.922260441Z",
+      "restarts": 0
+    }
+  },
+  "namespaces": {
+    "init": "cgroup:[4026536584]",
+    "daemon": "cgroup:[4026536584]",
+    "candidate": "cgroup:[4026536584]",
+    "pve": "cgroup:[4026531835]"
+  },
+  "cpu_source": "cgroup_v2_textfile",
+  "backup_external_verified": true,
+  "rollback_verified": true,
+  "idempotence_verified": true,
+  "observed_at_utc": "2026-11-05T20:26:18.094770+00:00",
+  "decision": "D-031",
+  "recovery_started_at_utc": "2026-11-05T20:11:33.955965+00:00",
+  "cpu_alignment_verification": {
+    "threshold_unchanged": "max(1 CPU second, 3% reference counter); both timestamp bounds and delta windows",
+    "identity": "full Docker ID and StartedAt",
+    "no_missing_or_stale_timestamps": true,
+    "containers": [
+      {
+        "id": "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7",
+        "name": "cadvisor",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              1.953648,
+              1.990164
+            ],
+            "docker_seconds": [
+              1.953648,
+              1.990164
+            ]
+          },
+          "cadvisor_seconds": 1.964162,
+          "cgroup_seconds": 1.970467505480661,
+          "docker_seconds": 1.970467505480661,
+          "name": "cadvisor",
+          "started_at": "2026-11-05T20:14:08.922260441Z",
+          "time": 1793909769.446
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              10.763857,
+              10.800818
+            ],
+            "docker_seconds": [
+              10.763857,
+              10.800818
+            ]
+          },
+          "cadvisor_seconds": 10.778923,
+          "cgroup_seconds": 10.779854288604964,
+          "docker_seconds": 10.779854288604964,
+          "name": "cadvisor",
+          "started_at": "2026-11-05T20:14:08.922260441Z",
+          "time": 1793910369.586
+        },
+        "window_seconds": 600.1399998664856,
+        "rates_cores": {
+          "cadvisor_seconds": 0.01468784117366121,
+          "docker_seconds": 0.01467888623501874,
+          "cgroup_seconds": 0.01467888623501874
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 1.4687841173661211,
+          "docker_seconds": 1.467888623501874,
+          "cgroup_seconds": 1.467888623501874
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.7343920586830606,
+          "docker_seconds": 0.733944311750937,
+          "cgroup_seconds": 0.733944311750937
+        }
+      },
+      {
+        "id": "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288",
+        "name": "node_exporter",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              0.524025,
+              0.524025
+            ],
+            "docker_seconds": [
+              0.524025,
+              0.524025
+            ]
+          },
+          "cadvisor_seconds": 0.524025,
+          "cgroup_seconds": 0.524025,
+          "docker_seconds": 0.524025,
+          "name": "node_exporter",
+          "started_at": "2026-11-05T20:14:07.375961108Z",
+          "time": 1793909769.445
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              2.510327,
+              2.510327
+            ],
+            "docker_seconds": [
+              2.510327,
+              2.510327
+            ]
+          },
+          "cadvisor_seconds": 2.510327,
+          "cgroup_seconds": 2.510327,
+          "docker_seconds": 2.510327,
+          "name": "node_exporter",
+          "started_at": "2026-11-05T20:14:07.375961108Z",
+          "time": 1793910369.583
+        },
+        "window_seconds": 600.1380000114441,
+        "rates_cores": {
+          "cadvisor_seconds": 0.00330974209258891,
+          "docker_seconds": 0.00330974209258891,
+          "cgroup_seconds": 0.00330974209258891
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.33097420925889104,
+          "docker_seconds": 0.33097420925889104,
+          "cgroup_seconds": 0.33097420925889104
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.16548710462944552,
+          "docker_seconds": 0.16548710462944552,
+          "cgroup_seconds": 0.16548710462944552
+        }
+      },
+      {
+        "id": "73159f2af290c498344f26c0133bac4b70093249c931d670848fefa4322983b0",
+        "name": "infra-gestoria-odoo-1",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              438.410988,
+              438.411033
+            ],
+            "docker_seconds": [
+              438.410988,
+              438.411033
+            ]
+          },
+          "cadvisor_seconds": 438.410988,
+          "cgroup_seconds": 438.41100721817986,
+          "docker_seconds": 438.41100721817986,
+          "name": "infra-gestoria-odoo-1",
+          "started_at": "2026-09-17T20:44:59.514514039Z",
+          "time": 1793909769.444
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              439.049894,
+              439.049946
+            ],
+            "docker_seconds": [
+              439.049894,
+              439.049946
+            ]
+          },
+          "cadvisor_seconds": 439.049946,
+          "cgroup_seconds": 439.04991574548995,
+          "docker_seconds": 439.04991574548995,
+          "name": "infra-gestoria-odoo-1",
+          "started_at": "2026-09-17T20:44:59.514514039Z",
+          "time": 1793910369.583
+        },
+        "window_seconds": 600.1389999389648,
+        "rates_cores": {
+          "cadvisor_seconds": 0.0010646833484659146,
+          "docker_seconds": 0.0010646009130802552,
+          "cgroup_seconds": 0.0010646009130802552
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.10646833484659146,
+          "docker_seconds": 0.10646009130802553,
+          "cgroup_seconds": 0.10646009130802553
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.05323416742329573,
+          "docker_seconds": 0.053230045654012764,
+          "cgroup_seconds": 0.053230045654012764
+        }
+      },
+      {
+        "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+        "name": "test-nginx",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              0.066726,
+              0.066726
+            ],
+            "docker_seconds": [
+              0.066726,
+              0.066726
+            ]
+          },
+          "cadvisor_seconds": 0.066726,
+          "cgroup_seconds": 0.066726,
+          "docker_seconds": 0.066726,
+          "name": "test-nginx",
+          "started_at": "2026-09-17T20:44:59.495546401Z",
+          "time": 1793909769.445
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              0.066726,
+              0.066726
+            ],
+            "docker_seconds": [
+              0.066726,
+              0.066726
+            ]
+          },
+          "cadvisor_seconds": 0.066726,
+          "cgroup_seconds": 0.066726,
+          "docker_seconds": 0.066726,
+          "name": "test-nginx",
+          "started_at": "2026-09-17T20:44:59.495546401Z",
+          "time": 1793910369.586
+        },
+        "window_seconds": 600.1410000324249,
+        "rates_cores": {
+          "cadvisor_seconds": 0.0,
+          "docker_seconds": 0.0,
+          "cgroup_seconds": 0.0
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.0,
+          "docker_seconds": 0.0,
+          "cgroup_seconds": 0.0
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.0,
+          "docker_seconds": 0.0,
+          "cgroup_seconds": 0.0
+        }
+      },
+      {
+        "id": "fb1e3b3d36ffc0c6feb9f0b7b70aaf5436811e188f75f95926153543c0c6d0f3",
+        "name": "infra-gestoria-db-1",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              400.542786,
+              400.542786
+            ],
+            "docker_seconds": [
+              400.542786,
+              400.542786
+            ]
+          },
+          "cadvisor_seconds": 400.542786,
+          "cgroup_seconds": 400.542786,
+          "docker_seconds": 400.542786,
+          "name": "infra-gestoria-db-1",
+          "started_at": "2026-09-17T20:44:59.527555014Z",
+          "time": 1793909769.444
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              402.104446,
+              402.104446
+            ],
+            "docker_seconds": [
+              402.104446,
+              402.104446
+            ]
+          },
+          "cadvisor_seconds": 402.104446,
+          "cgroup_seconds": 402.104446,
+          "docker_seconds": 402.104446,
+          "name": "infra-gestoria-db-1",
+          "started_at": "2026-09-17T20:44:59.527555014Z",
+          "time": 1793910369.583
+        },
+        "window_seconds": 600.1389999389648,
+        "rates_cores": {
+          "cadvisor_seconds": 0.00260216383231025,
+          "docker_seconds": 0.00260216383231025,
+          "cgroup_seconds": 0.00260216383231025
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.26021638323102503,
+          "docker_seconds": 0.26021638323102503,
+          "cgroup_seconds": 0.26021638323102503
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.13010819161551251,
+          "docker_seconds": 0.13010819161551251,
+          "cgroup_seconds": 0.13010819161551251
+        }
+      }
+    ]
+  },
+  "resources": {
+    "minimum_available_bytes": 3673161728,
+    "maximum_memory_current_bytes": 1218273280,
+    "final_swap_bytes": 158601216,
+    "memory_event_deltas": {
+      "high": 0,
+      "max": 467,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "exporter_memory_peak_sampled_bytes": {
+      "cadvisor": 80371712,
+      "node_exporter": 9920512
+    }
+  }
+}

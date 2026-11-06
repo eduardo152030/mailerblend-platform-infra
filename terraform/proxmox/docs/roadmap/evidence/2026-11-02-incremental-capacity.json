@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-11-02T20:29:21.832085+00:00",
+  "mode": "read-only",
+  "prometheus_ct": 610,
+  "resources": {
+    "memory.max": "2147483648",
+    "memory.current": "842276864",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+    "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10334944\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=9839755"
+  },
+  "runtime": {
+    "available_kib": "1787776",
+    "root_free_bytes": 3938406400
+  },
+  "r1_required_dirs": {
+    "/var/lib/docker": true,
+    "/var/lib/containerd": true,
+    "/sys": true
+  }
+}

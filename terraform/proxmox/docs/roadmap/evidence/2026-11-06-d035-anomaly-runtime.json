@@ -1,0 +1,37 @@
+{
+  "sample_time": 1793963606.7027545,
+  "application": {
+    "status": 200,
+    "read_only_application_checks": [
+      {
+        "endpoint": "http://127.0.0.1:18080/api/v1/health",
+        "status": 200
+      }
+    ]
+  },
+  "cpu_aligned": 4,
+  "active_containers": [
+    {
+      "name": "cadvisor",
+      "restarts": 0,
+      "oom_killed": false
+    },
+    {
+      "name": "node_exporter",
+      "restarts": 0,
+      "oom_killed": false
+    },
+    {
+      "name": "infra-svc01-nocodb",
+      "restarts": 0,
+      "oom_killed": false
+    },
+    {
+      "name": "infra-svc01-nocodb-db",
+      "restarts": 0,
+      "oom_killed": false
+    }
+  ],
+  "memory_events": "low 0\nhigh 0\nmax 584\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "new_oom": 0
+}

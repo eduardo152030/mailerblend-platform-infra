@@ -1,0 +1,35 @@
+{
+  "ct": 623,
+  "result": "BLOCKED_ROLLED_BACK",
+  "observed_utc": "2026-11-03T09:01:49.297690+00:00",
+  "reason": "CPU metric timestamp age exceeded90s; full failed raw sample unavailable; no freshness relaxation",
+  "failed_observation": {
+    "result": "FAIL",
+    "samples": 33,
+    "seconds": 960.7930725089973,
+    "first_failure_seconds": 360.28175478200137,
+    "failed_samples": 1,
+    "sha256": "c03ae413974f399ca519e3152caf46dfcfb9845f0909d489dbf261b64789ffb4"
+  },
+  "applications_original_identity_config_verified_by_helper": true,
+  "original_exporter_id_images_readiness_verified": true,
+  "candidates_retained_stopped": true,
+  "monitoring_checkpoint_corrected_sources": 7,
+  "target_counts": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "up_target_counts": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "controlled_rule_removed": true,
+  "collector_stopped": true,
+  "next_cts_started": false,
+  "backup_sha256": "7edd4123cfc031d889f91aac9028670ad7f79f4df5c52294608b78e00d32582b",
+  "diagnostic_reference": "2026-11-03-623-cpu-freshness-diagnosis.json",
+  "followup_reference": "2026-11-03-623-cpu-stale-observations.json",
+  "causality_limit": "test-nginx likely affected: timestamp1793695689.715 at elapsed330 and1793695803.350 at elapsed390, gap113.635s; other successful previous timestamps age<46s. Exact original failed age/identity not captured, so no definitive attribution or timestamp invented."
+}

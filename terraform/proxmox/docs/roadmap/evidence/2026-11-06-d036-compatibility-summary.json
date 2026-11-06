@@ -1,0 +1,154 @@
+{
+  "accepted_count": 8,
+  "accepted_inputs_unchanged": 56,
+  "deployment_or_restart_performed": false,
+  "results": {
+    "613": {
+      "valid_samples": 20,
+      "container_count": 2,
+      "scope": "infra-hola|cgroup:[4026532987]",
+      "inputs_unchanged": 7,
+      "exporter_identities_unchanged": true,
+      "source_freshness_errors": [],
+      "cpu_windows_seconds": {
+        "eb114f7ac1c01c7f7bb2498299809a79bd4b652d001d76a6d0bb6f80929cf4ef": 94.45900011062622,
+        "dcb0015377df0ce7242b71236e7574da279da6921462e037cfa366abfe811e09": 73.90599989891052
+      }
+    },
+    "626": {
+      "valid_samples": 20,
+      "container_count": 4,
+      "scope": "infra-journal-api|cgroup:[4026538505]",
+      "inputs_unchanged": 7,
+      "exporter_identities_unchanged": true,
+      "source_freshness_errors": [],
+      "cpu_windows_seconds": {
+        "b2d16e00c7fbeeb82a358e0d76250fb761c9d07178fd851aa587c9b07703f3dc": 120.5460000038147,
+        "e28b5738a2683cd0765d16c2fd28c18173d0418aa5cee7cac5dfa8b632a06e00": 80.94700002670288,
+        "d5e15cd5730f21c7477a266510831dbe4b828ac6a1f7a454110d1253261dfd11": 87.95600008964539,
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": 88.9060001373291
+      }
+    },
+    "625": {
+      "valid_samples": 19,
+      "container_count": 4,
+      "scope": "infra-journal-db|cgroup:[4026537788]",
+      "inputs_unchanged": 7,
+      "exporter_identities_unchanged": true,
+      "source_freshness_errors": [],
+      "cpu_windows_seconds": {
+        "a57b4fbae95ae07903990dda5973572fc8bd4a45ae260cd463792a8f53767841": 51.223000049591064,
+        "653eef29ec4bdc0ef8973e06a3204a305bc827869f0f8019b17623ddbb9503e4": 77.70099997520447,
+        "5f4ca06ee58e11d6a24f53c355216839d212052da0b5eb622228c8b269eccecb": 47.36500000953674,
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": 109.3439998626709
+      }
+    },
+    "624": {
+      "valid_samples": 19,
+      "container_count": 4,
+      "scope": "infra-journal-web|cgroup:[4026537382]",
+      "inputs_unchanged": 7,
+      "exporter_identities_unchanged": true,
+      "source_freshness_errors": [],
+      "cpu_windows_seconds": {
+        "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757": 58.66900014877319,
+        "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af": 71.85800004005432,
+        "473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3": 59.33299994468689,
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": 54.92700004577637
+      }
+    },
+    "621": {
+      "valid_samples": 15,
+      "container_count": 3,
+      "scope": "infra-project-gestion|cgroup:[4026535769]",
+      "inputs_unchanged": 7,
+      "exporter_identities_unchanged": true,
+      "source_freshness_errors": [],
+      "cpu_windows_seconds": {
+        "7e5ab08e74c153b975d2a8b0b9c1d0d978ac2545338cd24505e049b7da67cee5": 86.76699995994568,
+        "4667b7688ff67d5ff5e1cd54b703639cb3eb048364bac97ca2d6b0a9e90b0325": 33.26400017738342,
+        "f7fd71cb630b4e2d1858b4f4fc65d39cdbe06078f59157b0e4688fe29d5e4490": 45.420000076293945
+      }
+    },
+    "619": {
+      "valid_samples": 15,
+      "container_count": 4,
+      "scope": "infra-pulpo|cgroup:[4026535109]",
+      "inputs_unchanged": 7,
+      "exporter_identities_unchanged": true,
+      "source_freshness_errors": [],
+      "cpu_windows_seconds": {
+        "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85": 42.513999938964844,
+        "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005": 89.90400004386902,
+        "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4": 51.28000020980835,
+        "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f": 104.75600004196167
+      }
+    },
+    "623": {
+      "valid_samples": 23,
+      "container_count": 5,
+      "scope": "infra-gestoria|cgroup:[4026536584]",
+      "inputs_unchanged": 7,
+      "exporter_identities_unchanged": true,
+      "source_freshness_errors": [],
+      "cpu_windows_seconds": {
+        "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7": 90.00899982452393,
+        "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288": 90.0090000629425,
+        "73159f2af290c498344f26c0133bac4b70093249c931d670848fefa4322983b0": 90.0090000629425,
+        "fb1e3b3d36ffc0c6feb9f0b7b70aaf5436811e188f75f95926153543c0c6d0f3": 90.00600004196167,
+        "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5": 90.00899982452393
+      }
+    },
+    "620": {
+      "valid_samples": 16,
+      "container_count": 5,
+      "scope": "infra-excraper|cgroup:[4026535820]",
+      "inputs_unchanged": 7,
+      "exporter_identities_unchanged": true,
+      "source_freshness_errors": [],
+      "cpu_windows_seconds": {
+        "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f": 56.62899994850159,
+        "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575": 83.14299988746643,
+        "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2": 92.5220000743866,
+        "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b": 89.41799998283386,
+        "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3": 49.235000133514404
+      }
+    }
+  },
+  "actual_pve_allocations": {
+    "613": {
+      "cores": "1",
+      "memory": "512"
+    },
+    "626": {
+      "cores": "2",
+      "memory": "2048"
+    },
+    "625": {
+      "cores": "2",
+      "memory": "2048"
+    },
+    "624": {
+      "cores": "1",
+      "memory": "512"
+    },
+    "621": {
+      "cores": "2",
+      "memory": "2048"
+    },
+    "619": {
+      "cores": "2",
+      "memory": "2048"
+    },
+    "623": {
+      "cores": "2",
+      "memory": "4096"
+    },
+    "620": {
+      "cores": "2",
+      "memory": "2048"
+    }
+  },
+  "initial_625_freshness_rejection_preserved": "docs/roadmap/evidence/2026-11-06-d036-compatibility.json; original sample incomplete, do not attribute unique cause",
+  "compatibility_final": "PASS8/8; bounded observation, no guarantee of future freshness"
+}

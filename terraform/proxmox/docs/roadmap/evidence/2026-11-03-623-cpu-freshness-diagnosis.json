@@ -1,0 +1,108 @@
+{
+  "observed_unix": 1793695890.1622305,
+  "ct": 623,
+  "cpu_metrics": [
+    {
+      "name": "test-nginx",
+      "id": "/system.slice/docker-7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5.scope",
+      "cpu_seconds": 0.066726,
+      "metric_time": 1793695869.099,
+      "age_seconds": 21.063230514526367
+    },
+    {
+      "name": "cadvisor",
+      "id": "/system.slice/docker-db25b700488e8d35556eb43ebd5ee0082766ddc3b6f8b80443d9dc43e139dfea.scope",
+      "cpu_seconds": 17.869488,
+      "metric_time": 1793695871.591,
+      "age_seconds": 18.57123041152954
+    },
+    {
+      "name": "node_exporter",
+      "id": "/system.slice/docker-420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288.scope",
+      "cpu_seconds": 2.056046,
+      "metric_time": 1793695882.457,
+      "age_seconds": 7.705230474472046
+    },
+    {
+      "name": "infra-gestoria-db-1",
+      "id": "/system.slice/docker-fb1e3b3d36ffc0c6feb9f0b7b70aaf5436811e188f75f95926153543c0c6d0f3.scope",
+      "cpu_seconds": 350.825892,
+      "metric_time": 1793695851.379,
+      "age_seconds": 38.7832305431366
+    },
+    {
+      "name": "infra-gestoria-odoo-1",
+      "id": "/system.slice/docker-73159f2af290c498344f26c0133bac4b70093249c931d670848fefa4322983b0.scope",
+      "cpu_seconds": 405.783942,
+      "metric_time": 1793695867.313,
+      "age_seconds": 22.849230527877808
+    }
+  ],
+  "latest_docker_cgroup_history_time": 1793695889.875949,
+  "containers": [
+    {
+      "name": "/cadvisor",
+      "id": "db25b700488e8d35556eb43ebd5ee0082766ddc3b6f8b80443d9dc43e139dfea",
+      "running": true,
+      "restarts": 0,
+      "oom_killed": false,
+      "started_at": "2026-11-03T08:41:38.214994875Z",
+      "memory_limit": 134217728
+    },
+    {
+      "name": "/node_exporter",
+      "id": "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288",
+      "running": true,
+      "restarts": 0,
+      "oom_killed": false,
+      "started_at": "2026-11-03T08:41:36.472576901Z",
+      "memory_limit": 50331648
+    },
+    {
+      "name": "/cadvisor-pre-phase4-623",
+      "id": "e9b4d517eb3a58d267d1ee16acdcce35c92f39f3892f785b7e6a272cf03f7c50",
+      "running": false,
+      "restarts": 0,
+      "oom_killed": false,
+      "started_at": "2026-11-03T08:41:27.497930791Z",
+      "memory_limit": 0
+    },
+    {
+      "name": "/node_exporter-pre-phase4-623",
+      "id": "ae2cf4ac1e2d9a52ec6c3895bc3e5fd0deb6a582236cd6a3ad3fb1aaabd37870",
+      "running": false,
+      "restarts": 0,
+      "oom_killed": false,
+      "started_at": "2026-11-03T08:41:28.379389953Z",
+      "memory_limit": 0
+    },
+    {
+      "name": "/infra-gestoria-odoo-1",
+      "id": "73159f2af290c498344f26c0133bac4b70093249c931d670848fefa4322983b0",
+      "running": true,
+      "restarts": 0,
+      "oom_killed": false,
+      "started_at": "2026-09-17T20:44:59.514514039Z",
+      "memory_limit": 0
+    },
+    {
+      "name": "/infra-gestoria-db-1",
+      "id": "fb1e3b3d36ffc0c6feb9f0b7b70aaf5436811e188f75f95926153543c0c6d0f3",
+      "running": true,
+      "restarts": 0,
+      "oom_killed": false,
+      "started_at": "2026-09-17T20:44:59.527555014Z",
+      "memory_limit": 0
+    },
+    {
+      "name": "/test-nginx",
+      "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+      "running": true,
+      "restarts": 0,
+      "oom_killed": false,
+      "started_at": "2026-09-17T20:44:59.495546401Z",
+      "memory_limit": 0
+    }
+  ],
+  "collector_log_tail": ""
+}

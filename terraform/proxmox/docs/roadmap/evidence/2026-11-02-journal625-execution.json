@@ -1,0 +1,115 @@
+{
+  "ct": 625,
+  "result": "PASS",
+  "scope": "exporters only; no global discovery",
+  "recorded_at": "2026-11-02T19:28:20.826517+00:00",
+  "images": {
+    "node": "1.10.2",
+    "cadvisor": "0.60.6"
+  },
+  "allocated_cpu_cores": 2,
+  "node_memory_total_bytes": 2147483648.0,
+  "cpu_source": "cgroup_v2_textfile",
+  "native_cpu_series_absent": true,
+  "cpu_window_delta_seconds": {
+    "node_lxc": 8.139871999999741,
+    "parent_cgroup": 8.056123999998817
+  },
+  "max_counter_read_lag_seconds": 0.35615300000063144,
+  "observation": {
+    "samples": 21,
+    "seconds": 601.019,
+    "sha256": "8ee6d65875da28ccb52c2dea9c2015c94aafee3c222c3001c4ebc8b68184bdd1",
+    "first_sample_at": "2026-11-02T19:18:10.991348+00:00",
+    "last_sample_at": "2026-11-02T19:28:10.971494+00:00"
+  },
+  "minimum_lxc_available_memory_bytes": 1869729792,
+  "memory_current_peak_bytes": 809742336,
+  "memory_psi_max_sampled_avg_percent": 0.0,
+  "memory_events_before": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "memory_events_final": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "swap_bytes_first": 67973120,
+  "swap_bytes_last": 67674112,
+  "active_docker_containers": [
+    "cadvisor",
+    "infra-journal-db-db-1",
+    "node_exporter",
+    "test-nginx"
+  ],
+  "exporter_resources": {
+    "node_exporter": {
+      "id": "653eef29ec4bdc0ef8973e06a3204a305bc827869f0f8019b17623ddbb9503e4",
+      "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "started_at": "2026-11-02T19:17:59.357856841Z",
+      "restart_count": 0,
+      "memory_peak_sampled_bytes": 9457664,
+      "memory_limit_bytes": 50331648,
+      "cpu_quota_cores": 0.2,
+      "max_interval_mean_cpu_percent_of_one_core": 0.3902171488124656
+    },
+    "cadvisor": {
+      "id": "a57b4fbae95ae07903990dda5973572fc8bd4a45ae260cd463792a8f53767841",
+      "image_id": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "started_at": "2026-11-02T19:18:00.541161415Z",
+      "restart_count": 0,
+      "memory_peak_sampled_bytes": 21983232,
+      "memory_limit_bytes": 134217728,
+      "cpu_quota_cores": 0.5,
+      "max_interval_mean_cpu_percent_of_one_core": 0.7701308603049523
+    }
+  },
+  "application_status": {
+    "postgres_ready": true,
+    "status": 200
+  },
+  "backups": {
+    "sha256": "4ce7eb0109ef53832cabdc42e4d3d7e046513cabf3fd4c9966d85a07e6332353",
+    "bytes": 33832960,
+    "pve_directory": "/mnt/storage/mailerblend-recovery/phase4/journal-20261102T190629Z/625",
+    "offhost_location": "~/.local/share/mailerblend-recovery/phase4/journal-20261102T190629Z/625",
+    "nested_image_hashes_verified": true,
+    "original_image_load_verified": true
+  },
+  "original_exporter_ids": {
+    "node_exporter": null,
+    "cadvisor": "76a29d19db8fa24b1f91c7b5397e527ff426d720a8a797931e94cce9b115c402"
+  },
+  "after_configuration": {
+    "sha256": "08ece2bec61425f2901e9ac0c84182cc126bb0ad60085ef13243ed63c97279bf",
+    "bytes": 15951,
+    "offhost_verified": true
+  },
+  "rollback_original_running_and_metrics_verified": true,
+  "resume_same_candidate_ids_verified": true,
+  "second_apply_same_id_started_at_verified": true,
+  "application_ids_images_config_and_started_at_preserved": true,
+  "node_and_docker_metrics_separate": true,
+  "strict_local_observer_revalidation": "PASS",
+  "run": "journal-20261102T190629Z",
+  "deployed_file_sha256": {
+    "cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+    "cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+    "cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+    "node-cgroup.sh": "65916a334e7a5dbb0fd4c5185ffdb27425b592c46968a1e4546676c3c8d66f9c",
+    "node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+    "node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+    "node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+    "observe.py": "8d27842e026d8ce30fba51977aa743b7571e69e03faf7dde05e232ce13f9873f",
+    "pilot.py": "a82be7efd44e1a5529059016ba2be176e95c9d2bb30a11388994c3734c1217ff",
+    "sample.py": "e1235dfded5ae37bfdee9f1d24275a34dc2a9ac7d21a0b32fe06f830f534c747"
+  }
+}

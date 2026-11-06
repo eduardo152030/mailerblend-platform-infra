@@ -1,0 +1,16 @@
+{
+  "run": "integration-20261106T172713Z",
+  "started_at_utc": "2026-11-06T17:27:13.448805+00:00",
+  "status": "DONE",
+  "completed_at_utc": "2026-11-06T18:48:31.140623+00:00",
+  "elapsed_seconds": 4877.692,
+  "accepted_cts": [
+    622,
+    611,
+    616,
+    610
+  ],
+  "blocked_cts": [
+    618
+  ]
+}

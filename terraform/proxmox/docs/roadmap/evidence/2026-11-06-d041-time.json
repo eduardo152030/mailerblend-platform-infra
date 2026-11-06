@@ -1,0 +1,15 @@
+{
+  "run": "integration-20261106T191226Z",
+  "started_at_utc": "2026-11-06T19:12:26.949280+00:00",
+  "status": "DONE",
+  "completed_at_utc": "2026-11-06T20:10:34.434170+00:00",
+  "elapsed_seconds": 3487.485,
+  "accepted_cts": [
+    617,
+    618,
+    615,
+    614
+  ],
+  "blocked_cts": [],
+  "time_note": "Session wall elapsed includes preparation and documentation; four measured CT interventions total25.5minutes"
+}

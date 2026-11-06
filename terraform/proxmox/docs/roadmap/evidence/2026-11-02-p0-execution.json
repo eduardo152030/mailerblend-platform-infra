@@ -1,0 +1,43 @@
+{
+  "run": "integration-20261102T204936Z",
+  "result": "PASS",
+  "observation": {
+    "samples": 21,
+    "seconds": 600.5628018310017,
+    "sha256": "bbaffa1a0ca010333df0bd55b7a61f188803aa2a8c1250b7d2e05401270d7079"
+  },
+  "validated_cpu_cts": [
+    {
+      "ct": 624,
+      "result": "PASS",
+      "cpu_source": "cgroup_v2_textfile"
+    },
+    {
+      "ct": 626,
+      "result": "PASS",
+      "cpu_source": "cgroup_v2_textfile"
+    },
+    {
+      "ct": 625,
+      "result": "PASS",
+      "cpu_source": "cgroup_v2_textfile"
+    }
+  ],
+  "telegram_attempts_delta": 6.0,
+  "telegram_failures_delta": 0.0,
+  "recipient_confirmation": {
+    "confirmed": true,
+    "cts": [
+      624,
+      626,
+      625
+    ],
+    "firing": true,
+    "resolved": true,
+    "at": "2026-11-02T21:07:31.049766+00:00",
+    "source": "Explicit owner response in conversation"
+  },
+  "rollback_verified": true,
+  "idempotence_verified": true,
+  "backups_offhost_verified": true
+}

@@ -1,0 +1,9 @@
+{
+  "ct": 623,
+  "samples": 41,
+  "stale_observations": [],
+  "maximum_age_seconds": 57.57306957244873,
+  "threshold_seconds": 90,
+  "source": "explicit CPU metric timestamp, not container_last_seen",
+  "changes_performed": false
+}

@@ -1,0 +1,13 @@
+{
+  "started_at_utc": "2026-11-06T19:00:31.573935+00:00",
+  "scope": "Local observation policy only; no active rollout; no repeats or production changes",
+  "status": "DONE",
+  "completed_at_utc": "2026-11-06T19:01:55.972914+00:00",
+  "targeted_tests_passed": 17,
+  "local_links_checked": 114,
+  "syntax": "PASS",
+  "production_changes": false,
+  "accepted_observations_repeated": false,
+  "execution_policy_closed": true,
+  "for_period_validation_claimed": false
+}

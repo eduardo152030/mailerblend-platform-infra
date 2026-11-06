@@ -1,0 +1,18 @@
+{
+  "run": "integration-20261106T104900Z",
+  "started_at_utc": "2026-11-06T10:49:00.130703+00:00",
+  "status": "CLOSED_HALT_GLOBAL_SAFE_ROLLBACK",
+  "scope": [
+    61211
+  ],
+  "finished_at_utc": "2026-11-06T11:25:50.530323+00:00",
+  "elapsed_seconds": 2210.4,
+  "counts": {
+    "done": 8,
+    "blocked": 4,
+    "pending": 5
+  },
+  "ct614": "BLOCKED_PRE_EXISTING_ISSUE unchanged independent",
+  "ct61211": "BLOCKED_ROLLED_BACK common RAM timestamp reader failure; local fix not deployed",
+  "elapsed_minutes": 36.8
+}

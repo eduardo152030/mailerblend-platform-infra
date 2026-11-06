@@ -1,0 +1,82 @@
+{
+  "run": "integration-20261106T191534614Z",
+  "result": "IN_PROGRESS",
+  "completed_this_run": [
+    614
+  ],
+  "coverage_corrected": 17,
+  "required": 17,
+  "excluded_r6": [
+    618,
+    622
+  ],
+  "states": [
+    {
+      "ct": 614,
+      "result": "PASS",
+      "steps": [
+        "preflight",
+        "staging",
+        "image_archive_restore_and_snapshot",
+        "external_backup_verified",
+        "monitoring_backup_verified",
+        "cpu_history_started",
+        "pinned_images",
+        "apply_ready",
+        "incremental_integration",
+        "idempotence",
+        "observation_no_regression",
+        "completed"
+      ],
+      "timings_seconds": {
+        "preflight": 4.485,
+        "staging": 1.276,
+        "image_archive_restore_and_snapshot": 5.024,
+        "external_backup_verified": 6.119,
+        "monitoring_backup_verified": 11.155,
+        "cpu_history_started": 0.956,
+        "pinned_images": 9.36,
+        "apply_ready": 10.821,
+        "incremental_integration": 117.286,
+        "idempotence": 7.974,
+        "observation_no_regression": 182.964,
+        "completed": 10.007
+      },
+      "duration_seconds": 367.425,
+      "observation": {
+        "samples": 7,
+        "seconds": 180.12867742199887,
+        "initial_seconds_required": 180,
+        "initial_minimum_samples": 7,
+        "sha256": "d188ef06e796af5d6a8f511a35a9a1ce09f75b9ce147c01660c91dc7064628c8"
+      },
+      "telegram": {
+        "firing_and_resolved_accepted_by_api": false,
+        "human_receipt_confirmed": false,
+        "attempts_delta": 0,
+        "failures_delta": 0,
+        "delivery_test": "Unchanged channel verified D039; no new delivery test; no new errors"
+      },
+      "resources": {
+        "minimum_available_bytes": 1673084928,
+        "maximum_memory_current_bytes": 1089376256,
+        "final_swap_bytes": 118870016,
+        "memory_event_deltas": {
+          "high": 0,
+          "max": 0,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0
+        },
+        "exporter_memory_peak_sampled_bytes": {
+          "cadvisor": 125587456,
+          "node_exporter": 19779584
+        }
+      }
+    }
+  ],
+  "human_receipt_confirmed_this_run": false,
+  "alert_high_cpu_for_proven": false,
+  "reported_at_utc": "2026-11-06T19:54:14.369783+00:00",
+  "total_elapsed_wall_seconds": 1063.472
+}

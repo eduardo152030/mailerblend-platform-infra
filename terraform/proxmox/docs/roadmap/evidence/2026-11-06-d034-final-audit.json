@@ -1,0 +1,37 @@
+{
+  "wave": "integration-20261106T102530Z",
+  "result": "HALT GLOBAL",
+  "trigger_ct": 614,
+  "application_working": false,
+  "original_state_verified": true,
+  "no_exporter_deployment": true,
+  "no_prometheus_write_or_reload": true,
+  "no_remote_backup_or_staging_performed": true,
+  "accepted_and_monitoring_identities_unchanged": {
+    "624": true,
+    "626": true,
+    "625": true,
+    "613": true,
+    "621": true,
+    "620": true,
+    "619": true,
+    "623": true,
+    "610": true
+  },
+  "memory_events_delta614": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "ct61211_started": false,
+  "counts": {
+    "done": 8,
+    "blocked": 3,
+    "pending": 6
+  },
+  "telegram_test_sent": false,
+  "source": "Verified no-change preflight; candidate validation/idempotence/observation not executed"
+}

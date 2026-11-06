@@ -1,0 +1,12 @@
+{
+  "observed_at_utc": "2026-11-06T10:16:32.287763+00:00",
+  "tests_passed": 27,
+  "ram_regression_tests": 14,
+  "links": "PASS",
+  "git_diff_check": "PASS",
+  "secret_signature_matches": 0,
+  "commit_push_staging_performed": false,
+  "policy": "BLOCKED",
+  "runtime_retry_performed": false,
+  "local_held_name_correction_deployed": false
+}

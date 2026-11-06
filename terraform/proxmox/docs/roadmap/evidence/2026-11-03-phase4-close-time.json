@@ -1,0 +1,15 @@
+{
+  "started_at_utc": "2026-11-03T10:06:47.448147+00:00",
+  "scope": "D030 CT623 bounded diagnosis, read-only audit, handoff; no subsequent rollout",
+  "status": "CLOSED_D030",
+  "finished_at_utc": "2026-11-03T10:27:22.886052+00:00",
+  "elapsed_seconds": 1235.437905,
+  "done": 7,
+  "blocked_rolled_back": 1,
+  "pending": 9,
+  "tests_passed": 31,
+  "markdown_files_checked": 7,
+  "secret_signature_findings": 0,
+  "remote_mutations": 0,
+  "continuation_authorized": false
+}

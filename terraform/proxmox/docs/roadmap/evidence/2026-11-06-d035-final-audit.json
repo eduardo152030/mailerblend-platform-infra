@@ -1,0 +1,267 @@
+{
+  "observed_at_utc": "2026-11-06T11:22:12.852362+00:00",
+  "ct": 61211,
+  "result": "BLOCKED_ROLLED_BACK",
+  "wave_result": "HALT GLOBAL",
+  "run": "integration-20261106T10490061211Z",
+  "archives": [
+    {
+      "relative_path": "exporters-before.tar",
+      "sha256": "55a142f094808eac1e00c32cd9efa40e3c6b10538dc8e7282b30e8c678b5080b",
+      "readable": true
+    },
+    {
+      "relative_path": "monitoring/integration-before.tar",
+      "sha256": "54f73fb9ef8f15bf1c92b564f46e007913618f64d6f7ac1b3e039982816d7726",
+      "readable": true
+    }
+  ],
+  "live": {
+    "runtime": {
+      "624": {
+        "node_exporter": {
+          "id": "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T16:04:37.826058931Z",
+          "restarts": 0,
+          "running": true
+        },
+        "cadvisor": {
+          "id": "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T16:04:39.364223922Z",
+          "restarts": 0,
+          "running": true
+        }
+      },
+      "626": {
+        "node_exporter": {
+          "id": "e28b5738a2683cd0765d16c2fd28c18173d0418aa5cee7cac5dfa8b632a06e00",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T19:07:06.063620045Z",
+          "restarts": 0,
+          "running": true
+        },
+        "cadvisor": {
+          "id": "b2d16e00c7fbeeb82a358e0d76250fb761c9d07178fd851aa587c9b07703f3dc",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T19:07:07.130308945Z",
+          "restarts": 0,
+          "running": true
+        }
+      },
+      "625": {
+        "node_exporter": {
+          "id": "653eef29ec4bdc0ef8973e06a3204a305bc827869f0f8019b17623ddbb9503e4",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T19:17:59.357856841Z",
+          "restarts": 0,
+          "running": true
+        },
+        "cadvisor": {
+          "id": "a57b4fbae95ae07903990dda5973572fc8bd4a45ae260cd463792a8f53767841",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T19:18:00.541161415Z",
+          "restarts": 0,
+          "running": true
+        }
+      },
+      "613": {
+        "node_exporter": {
+          "id": "dcb0015377df0ce7242b71236e7574da279da6921462e037cfa366abfe811e09",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T21:14:59.241278048Z",
+          "restarts": 0,
+          "running": true
+        },
+        "cadvisor": {
+          "id": "eb114f7ac1c01c7f7bb2498299809a79bd4b652d001d76a6d0bb6f80929cf4ef",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T21:15:00.726682648Z",
+          "restarts": 0,
+          "running": true
+        }
+      },
+      "621": {
+        "node_exporter": {
+          "id": "4667b7688ff67d5ff5e1cd54b703639cb3eb048364bac97ca2d6b0a9e90b0325",
+          "image": "sha256:d375b27b61ea3233524bb12ce5f2de05bdc80cbce4c6806a45617d4f5bc7b1b1",
+          "started_at": "2026-11-02T22:38:27.583853811Z",
+          "restarts": 0,
+          "running": true
+        },
+        "cadvisor": {
+          "id": "7e5ab08e74c153b975d2a8b0b9c1d0d978ac2545338cd24505e049b7da67cee5",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T22:38:28.725210725Z",
+          "restarts": 0,
+          "running": true
+        }
+      },
+      "620": {
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-02T23:05:47.313931038Z",
+          "restarts": 0,
+          "running": true
+        },
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-02T23:05:48.683072376Z",
+          "restarts": 0,
+          "running": true
+        }
+      },
+      "619": {
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-03T08:22:05.446450106Z",
+          "restarts": 0,
+          "running": true
+        },
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-03T08:22:06.8114351Z",
+          "restarts": 0,
+          "running": true
+        }
+      },
+      "623": {
+        "node_exporter": {
+          "id": "420ecf21fd567ada0e658d38a56862ec595c9446c3cfc81ac01100cab255c288",
+          "image": "sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+          "started_at": "2026-11-05T20:14:07.375961108Z",
+          "restarts": 0,
+          "running": true
+        },
+        "cadvisor": {
+          "id": "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started_at": "2026-11-05T20:14:08.922260441Z",
+          "restarts": 0,
+          "running": true
+        }
+      },
+      "61211": {
+        "node_exporter": {
+          "id": "c73286a66fc8610f4089edb4cceeb1970129fb54d8372e9262ed60fca8376f65",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started_at": "2026-11-06T11:21:29.451941859Z",
+          "restarts": 0,
+          "running": true
+        },
+        "cadvisor": {
+          "id": "6a9453f785f086262692d760e5d5380d1bca0f35a9604b068beb86df61e2c05e",
+          "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+          "started_at": "2026-11-06T11:21:28.743298944Z",
+          "restarts": 0,
+          "running": true
+        }
+      },
+      "610": {
+        "prometheus": {
+          "id": "289e8713965d81a981c1f45df05fc378a7ee481bb8fb95d182b3f980cad53fe6",
+          "image": "sha256:69f5241418838263316593f7274a304b095c40bcf22e57272865da91bd60a8ac",
+          "started_at": "2026-11-02T07:01:00.034601404Z",
+          "restarts": 0,
+          "running": true
+        },
+        "alertmanager": {
+          "id": "0b34a623d76bc754dba7bddee342a1a99de5f3444840f43686ba17431b2ac5f0",
+          "image": "sha256:af26fbe4dd1886ac0efd7bd55cd9027da262e105b137a376522b7c14c3626e4a",
+          "started_at": "2026-11-02T08:03:27.203080469Z",
+          "restarts": 0,
+          "running": true
+        }
+      }
+    },
+    "checkpoint_files_restored": {
+      "prometheus.yml": true,
+      "rules/blackbox-alerts.yml": true,
+      "rules/container-availability.yml": true,
+      "rules/container-restarts.yml": true,
+      "rules/infra-containers.yml": true,
+      "rules/infra-hosts.yml": true,
+      "rules/lxc-cpu-inventory.yml": true,
+      "rules/lxc-cpu-targets.yml": true,
+      "rules/lxc-cpu.yml": true,
+      "rules/monitoring-health.yml": true,
+      "targets/blackbox-collect.json": true,
+      "targets/blackbox-edge-collect.json": true,
+      "targets/blackbox-edge-external.json": true,
+      "targets/blackbox-edge-mailerblend-collect.json": true,
+      "targets/blackbox-edge-nucleotecnologico.json": true,
+      "targets/blackbox-http.json": true,
+      "targets/blackbox-infra-doc.json": true,
+      "targets/blackbox-infra-svc01.json": true,
+      "targets/blackbox-internal-critical.json": true,
+      "targets/blackbox-internet.json": true,
+      "targets/blackbox.json": true,
+      "targets/cadvisor.json": true,
+      "targets/grafana.json": true,
+      "targets/node-exporter.json": true
+    },
+    "collectors_active": {
+      "cpu": false,
+      "memory": false
+    },
+    "resources": {
+      "memory.events": "low 0\nhigh 0\nmax 584\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10833542\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10511389",
+      "memory.current": "1035100160",
+      "memory.max": "6979321856"
+    },
+    "remote_archives_verified": true
+  },
+  "accepted_and_monitoring_unchanged": {
+    "624": true,
+    "626": true,
+    "625": true,
+    "613": true,
+    "621": true,
+    "620": true,
+    "619": true,
+    "623": true,
+    "610": true
+  },
+  "memory_event_deltas": {
+    "low": 0,
+    "high": 0,
+    "max": 584,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "initial": {
+    "samples": 13,
+    "seconds": 360.22496261700053,
+    "initial_seconds_required": 180,
+    "initial_minimum_samples": 7,
+    "sha256": "a8ef257e7230c9d2407ed28c841a5047b61a2d3bb0531381d55e6249de9c1bdd",
+    "alert_high_cpu_for_runtime_proven": false
+  },
+  "watch": {
+    "result": "FAIL",
+    "samples": 31,
+    "seconds": 903.636643629,
+    "alert_for_proven": false
+  },
+  "failed_watch_samples": 29,
+  "first_watch_failure_seconds": 60.0247618049998,
+  "extended_after_first_failure_seconds": 843.6118818240002,
+  "telegram": {
+    "firing_and_resolved_accepted_by_api": true,
+    "human_receipt_confirmed": false,
+    "attempts_delta": 2.0,
+    "failures_delta": 0.0
+  },
+  "idempotence_verified_before_failure": true,
+  "originals_and_application_restored": true,
+  "prior_coverage_unchanged": true,
+  "global_monitoring_healthy": true,
+  "legacy614_and_alerts_preserved": true
+}

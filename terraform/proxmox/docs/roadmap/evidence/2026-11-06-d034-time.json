@@ -1,0 +1,18 @@
+{
+  "run": "integration-20261106T102530Z",
+  "started_at_utc": "2026-11-06T10:25:30.355319+00:00",
+  "status": "CLOSED_HALT_GLOBAL",
+  "scope": [
+    614,
+    61211
+  ],
+  "finished_at_utc": "2026-11-06T10:36:20.086853+00:00",
+  "elapsed_minutes": 10.8,
+  "elapsed_seconds": 649.732,
+  "result": "614 original application still unhealthy; positive skip safety condition unmet;61211 not started",
+  "counts": {
+    "done": 8,
+    "blocked": 3,
+    "pending": 6
+  }
+}

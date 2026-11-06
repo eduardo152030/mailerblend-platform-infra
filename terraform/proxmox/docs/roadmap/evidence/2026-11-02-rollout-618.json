@@ -1,0 +1,482 @@
+{
+  "ct": 618,
+  "run": "integration-20261106T191534618Z",
+  "result": "PASS",
+  "duration_seconds": 491.051,
+  "timings_seconds": {
+    "preflight": 4.815,
+    "staging": 1.103,
+    "image_archive_restore_and_snapshot": 3.696,
+    "external_backup_verified": 6.102,
+    "monitoring_backup_verified": 10.989,
+    "cpu_history_started": 0.959,
+    "pinned_images": 4.098,
+    "apply_ready": 11.248,
+    "incremental_integration": 121.312,
+    "idempotence": 10.652,
+    "observation_no_regression": 304.329,
+    "completed": 11.749
+  },
+  "observation": {
+    "samples": 11,
+    "seconds": 300.13123608800015,
+    "initial_seconds_required": 300,
+    "initial_minimum_samples": 11,
+    "sha256": "a7e8d2021b65bcfd0f95966df20fa1adfc10c93fa716dd3e343a3d6ec3394a71"
+  },
+  "telegram": {
+    "firing_and_resolved_accepted_by_api": false,
+    "human_receipt_confirmed": false,
+    "attempts_delta": 0,
+    "failures_delta": 0,
+    "delivery_test": "Unchanged channel verified D039; no new delivery test; no new errors"
+  },
+  "backup": {
+    "sha256": "7619a6da3070c5e2bd46ef9d70493421cb7ba6c2cbd52eb6e15fc8b43376576f",
+    "bytes": 46991360
+  },
+  "after_archive": {
+    "sha256": "6f70af4ea49ab48d556965031e380d27cbd57cd59d55a1a013abe0584430b6b6",
+    "bytes": 1150420,
+    "offhost_verified": true
+  },
+  "exporters": {
+    "node_exporter": {
+      "id": "0c7227c369f4a0938f53eefa52ed08f1838fd0b0b1e92d591fb31f590ee793f6",
+      "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "started_at": "2026-11-06T19:22:39.665734556Z",
+      "restarts": 0
+    },
+    "cadvisor": {
+      "id": "7a110a7339fe9762643a954d11511e0002fb5708773ad06baa9f59d8f8aec4dc",
+      "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "started_at": "2026-11-06T19:22:41.858910316Z",
+      "restarts": 0
+    }
+  },
+  "namespaces": {
+    "init": "cgroup:[4026532648]",
+    "daemon": "cgroup:[4026532648]",
+    "candidate": "cgroup:[4026532648]",
+    "pve": "cgroup:[4026531835]"
+  },
+  "cpu_source": "cgroup_v2_textfile",
+  "backup_external_verified": true,
+  "rollback_verified": false,
+  "idempotence_verified": true,
+  "observed_at_utc": "2026-11-06T19:30:35.205302+00:00",
+  "decision": "D-041",
+  "cpu_alignment_verification": {
+    "threshold_unchanged": "max(1 CPU second, 3% reference counter); both timestamp bounds and delta windows",
+    "identity": "full Docker ID and StartedAt",
+    "no_missing_or_stale_timestamps": true,
+    "containers": [
+      {
+        "id": "0c7227c369f4a0938f53eefa52ed08f1838fd0b0b1e92d591fb31f590ee793f6",
+        "name": "node_exporter",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              0.378076,
+              0.378076
+            ],
+            "docker_seconds": [
+              0.378076,
+              0.378076
+            ]
+          },
+          "cadvisor_seconds": 0.378076,
+          "cgroup_seconds": 0.378076,
+          "docker_seconds": 0.378076,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "node_exporter",
+          "started_at": "2026-11-06T19:22:39.665734556Z",
+          "time": 1793993082.471
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              1.639283,
+              1.639283
+            ],
+            "docker_seconds": [
+              1.639283,
+              1.639283
+            ]
+          },
+          "cadvisor_seconds": 1.639283,
+          "cgroup_seconds": 1.639283,
+          "docker_seconds": 1.639283,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "node_exporter",
+          "started_at": "2026-11-06T19:22:39.665734556Z",
+          "time": 1793993412.542
+        },
+        "window_seconds": 330.07100009918213,
+        "rates_cores": {
+          "cadvisor_seconds": 0.0038210172951305124,
+          "docker_seconds": 0.0038210172951305124,
+          "cgroup_seconds": 0.0038210172951305124
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.3821017295130512,
+          "docker_seconds": 0.3821017295130512,
+          "cgroup_seconds": 0.3821017295130512
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.1910508647565256,
+          "docker_seconds": 0.1910508647565256,
+          "cgroup_seconds": 0.1910508647565256
+        }
+      },
+      {
+        "id": "52d40aeb530556e49b325b18010f041e9926bf737a949ed08cdd1cc3a52aaa12",
+        "name": "budibase-redis",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              2582.427687,
+              2582.429596
+            ],
+            "docker_seconds": [
+              2582.427687,
+              2582.429596
+            ]
+          },
+          "cadvisor_seconds": 2582.429238,
+          "cgroup_seconds": 2582.428966189808,
+          "docker_seconds": 2582.428966189808,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "budibase-redis",
+          "started_at": "2026-11-02T10:34:49.954618469Z",
+          "time": 1793993082.471
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              2584.675397,
+              2584.677308
+            ],
+            "docker_seconds": [
+              2584.675397,
+              2584.677308
+            ]
+          },
+          "cadvisor_seconds": 2584.675761,
+          "cgroup_seconds": 2584.6758652455765,
+          "docker_seconds": 2584.6758652455765,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "budibase-redis",
+          "started_at": "2026-11-02T10:34:49.954618469Z",
+          "time": 1793993412.545
+        },
+        "window_seconds": 330.07400012016296,
+        "rates_cores": {
+          "cadvisor_seconds": 0.006806119231390397,
+          "docker_seconds": 0.006807258538844708,
+          "cgroup_seconds": 0.006807258538844708
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.6806119231390396,
+          "docker_seconds": 0.6807258538844707,
+          "cgroup_seconds": 0.6807258538844707
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.3403059615695198,
+          "docker_seconds": 0.34036292694223536,
+          "cgroup_seconds": 0.34036292694223536
+        }
+      },
+      {
+        "id": "5c8c33abda54ec15da0bb92b8c9e504d5d69a75b019b58918de6a197bd9b14ff",
+        "name": "crm-api",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              1262.988259,
+              1262.988752
+            ],
+            "docker_seconds": [
+              1262.988259,
+              1262.988752
+            ]
+          },
+          "cadvisor_seconds": 1262.988524,
+          "cgroup_seconds": 1262.9885924540472,
+          "docker_seconds": 1262.9885924540472,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "crm-api",
+          "started_at": "2026-11-02T10:34:49.993018102Z",
+          "time": 1793993082.471
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              1264.123382,
+              1264.123815
+            ],
+            "docker_seconds": [
+              1264.123382,
+              1264.123815
+            ]
+          },
+          "cadvisor_seconds": 1264.123485,
+          "cgroup_seconds": 1264.123491294655,
+          "docker_seconds": 1264.123491294655,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "crm-api",
+          "started_at": "2026-11-02T10:34:49.993018102Z",
+          "time": 1793993412.545
+        },
+        "window_seconds": 330.07400012016296,
+        "rates_cores": {
+          "cadvisor_seconds": 0.0034385046976944406,
+          "docker_seconds": 0.003438316378129198,
+          "cgroup_seconds": 0.003438316378129198
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.34385046976944406,
+          "docker_seconds": 0.3438316378129198,
+          "cgroup_seconds": 0.3438316378129198
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.17192523488472203,
+          "docker_seconds": 0.1719158189064599,
+          "cgroup_seconds": 0.1719158189064599
+        }
+      },
+      {
+        "id": "60d427817b94d175b723f358678714d45061318a139288aa52d198be72d31e14",
+        "name": "budibase-couchdb",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              3571.2891255,
+              3571.293025
+            ],
+            "docker_seconds": [
+              3571.289146,
+              3571.293025
+            ]
+          },
+          "cadvisor_seconds": 3571.291793,
+          "cgroup_seconds": 3571.2917062162824,
+          "docker_seconds": 3571.2917131492395,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "budibase-couchdb",
+          "started_at": "2026-11-02T10:34:50.034894206Z",
+          "time": 1793993082.47
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              3573.859535,
+              3573.863084
+            ],
+            "docker_seconds": [
+              3573.859535,
+              3573.863053
+            ]
+          },
+          "cadvisor_seconds": 3573.860386,
+          "cgroup_seconds": 3573.8603781757465,
+          "docker_seconds": 3573.860370810729,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "budibase-couchdb",
+          "started_at": "2026-11-02T10:34:50.034894206Z",
+          "time": 1793993412.544
+        },
+        "window_seconds": 330.0739998817444,
+        "rates_cores": {
+          "cadvisor_seconds": 0.00778187012888084,
+          "docker_seconds": 0.0077820660288591935,
+          "cgroup_seconds": 0.007782109346341828
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.778187012888084,
+          "docker_seconds": 0.7782066028859194,
+          "cgroup_seconds": 0.7782109346341828
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.389093506444042,
+          "docker_seconds": 0.3891033014429597,
+          "cgroup_seconds": 0.3891054673170914
+        }
+      },
+      {
+        "id": "7a110a7339fe9762643a954d11511e0002fb5708773ad06baa9f59d8f8aec4dc",
+        "name": "cadvisor",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              4.275977,
+              4.301567
+            ],
+            "docker_seconds": [
+              4.275977,
+              4.301567
+            ]
+          },
+          "cadvisor_seconds": 4.280608,
+          "cgroup_seconds": 4.295957882459904,
+          "docker_seconds": 4.295957882459904,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "cadvisor",
+          "started_at": "2026-11-06T19:22:41.858910316Z",
+          "time": 1793993082.509
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              13.888569,
+              13.895132
+            ],
+            "docker_seconds": [
+              13.888569,
+              13.895132
+            ]
+          },
+          "cadvisor_seconds": 13.888623,
+          "cgroup_seconds": 13.890336139253199,
+          "docker_seconds": 13.890336139253199,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "cadvisor",
+          "started_at": "2026-11-06T19:22:41.858910316Z",
+          "time": 1793993412.541
+        },
+        "window_seconds": 330.0319998264313,
+        "rates_cores": {
+          "cadvisor_seconds": 0.029112373966927448,
+          "docker_seconds": 0.029071054509378243,
+          "cgroup_seconds": 0.029071054509378243
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 2.9112373966927447,
+          "docker_seconds": 2.9071054509378245,
+          "cgroup_seconds": 2.9071054509378245
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 1.4556186983463724,
+          "docker_seconds": 1.4535527254689122,
+          "cgroup_seconds": 1.4535527254689122
+        }
+      },
+      {
+        "id": "7c2f530c866f2d14a67ce7eaefd61dca4f375ed70446044119e923595c6121a8",
+        "name": "budibase-app",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              7961.710278,
+              7961.7156104999995
+            ],
+            "docker_seconds": [
+              7961.710278,
+              7961.715628
+            ]
+          },
+          "cadvisor_seconds": 7961.711673,
+          "cgroup_seconds": 7961.713908157192,
+          "docker_seconds": 7961.713920070508,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "budibase-app",
+          "started_at": "2026-11-02T10:36:09.53355109Z",
+          "time": 1793993082.47
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              7969.068977,
+              7969.079005
+            ],
+            "docker_seconds": [
+              7969.068801,
+              7969.079005
+            ]
+          },
+          "cadvisor_seconds": 7969.069938,
+          "cgroup_seconds": 7969.071634902007,
+          "docker_seconds": 7969.071505550467,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "budibase-app",
+          "started_at": "2026-11-02T10:36:09.53355109Z",
+          "time": 1793993412.546
+        },
+        "window_seconds": 330.07599997520447,
+        "rates_cores": {
+          "cadvisor_seconds": 0.022292638666708893,
+          "docker_seconds": 0.02229057998919008,
+          "cgroup_seconds": 0.022291007965944864
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 2.2292638666708893,
+          "docker_seconds": 2.229057998919008,
+          "cgroup_seconds": 2.2291007965944862
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 1.1146319333354446,
+          "docker_seconds": 1.114528999459504,
+          "cgroup_seconds": 1.1145503982972431
+        }
+      },
+      {
+        "id": "b051af0f849ff8d345b54d7616a3c2a8e625f46f412025981e9f7ad89f2c9e79",
+        "name": "supabase-db",
+        "first": {
+          "bounds": {
+            "cgroup_seconds": [
+              1228.346911,
+              1228.346911
+            ],
+            "docker_seconds": [
+              1228.346911,
+              1228.346911
+            ]
+          },
+          "cadvisor_seconds": 1228.346911,
+          "cgroup_seconds": 1228.346911,
+          "docker_seconds": 1228.346911,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "supabase-db",
+          "started_at": "2026-11-02T10:34:50.006941849Z",
+          "time": 1793993082.471
+        },
+        "last": {
+          "bounds": {
+            "cgroup_seconds": [
+              1229.947598,
+              1229.947598
+            ],
+            "docker_seconds": [
+              1229.947598,
+              1229.947598
+            ]
+          },
+          "cadvisor_seconds": 1229.947598,
+          "cgroup_seconds": 1229.947598,
+          "docker_seconds": 1229.947598,
+          "measurement_scope": "infra-composable-crm|cgroup:[4026532648]",
+          "name": "supabase-db",
+          "started_at": "2026-11-02T10:34:50.006941849Z",
+          "time": 1793993412.544
+        },
+        "window_seconds": 330.07299995422363,
+        "rates_cores": {
+          "cadvisor_seconds": 0.00484949390050647,
+          "docker_seconds": 0.00484949390050647,
+          "cgroup_seconds": 0.00484949390050647
+        },
+        "percent_one_core": {
+          "cadvisor_seconds": 0.48494939005064697,
+          "docker_seconds": 0.48494939005064697,
+          "cgroup_seconds": 0.48494939005064697
+        },
+        "percent_allocated_lxc": {
+          "cadvisor_seconds": 0.24247469502532348,
+          "docker_seconds": 0.24247469502532348,
+          "cgroup_seconds": 0.24247469502532348
+        }
+      }
+    ]
+  }
+}

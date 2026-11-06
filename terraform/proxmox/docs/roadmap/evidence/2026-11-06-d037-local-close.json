@@ -1,0 +1,13 @@
+{
+  "local_links_checked": 159,
+  "missing_links": [],
+  "d037_secret_signatures_found": false,
+  "execution_policy_closed": true,
+  "commit_push_performed": false,
+  "production_code_changes_during_retry": false,
+  "framework_tests_passed_before_retry": 80,
+  "git_status_entries_total": 385,
+  "preexisting_mixed_index_preserved": true,
+  "git_diff_check_passed": true,
+  "rollout_processes_remaining": 0
+}

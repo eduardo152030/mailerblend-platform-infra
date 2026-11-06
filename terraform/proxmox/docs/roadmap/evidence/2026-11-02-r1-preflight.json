@@ -1,0 +1,102 @@
+{
+  "observed_at": "2026-11-02T20:00:28.956527+00:00",
+  "mode": "read-only",
+  "ct": 613,
+  "proxmox": {
+    "hostname": "infra-hola",
+    "cores": "1",
+    "memory": "512",
+    "swap": "512"
+  },
+  "parent": {
+    "cpu.max": "max 100000",
+    "cpuset.cpus.effective": "0",
+    "memory.max": "536870912",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+    "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=48276898\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=47447642"
+  },
+  "runtime": {
+    "meminfo": {
+      "MemTotal": "524288",
+      "MemAvailable": "407240"
+    },
+    "free_bytes": 7985266688,
+    "containerd_socket": true,
+    "containers": [
+      {
+        "name": "node_exporter",
+        "id": "1e5a52be483e7f3b9f29c4a2a74c32aaccb365acf5571d820d623581a1b6ad09",
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "running": true,
+        "started_at": "2026-09-17T20:43:34.938097639Z",
+        "privileged": false
+      },
+      {
+        "name": "cadvisor",
+        "id": "6c181468f88ce28c244f0a853b4f73057a569b69f0e785040006a18f528917b8",
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "running": true,
+        "started_at": "2026-09-17T20:43:34.934301697Z",
+        "privileged": true
+      }
+    ],
+    "node_live_metrics": {
+      "native_idle_cpu_series": 4,
+      "memory_total_bytes": 16646774784.0,
+      "lxc_cpu_contract_present": false
+    },
+    "exporter_security_baseline": {
+      "node_exporter": {
+        "user": "nobody",
+        "pid_mode": "host",
+        "privileged": false,
+        "cgroupns": "private",
+        "mounts": [
+          {
+            "source": "/",
+            "target": "/host",
+            "read_only": true
+          }
+        ]
+      },
+      "cadvisor": {
+        "user": "",
+        "pid_mode": "",
+        "privileged": true,
+        "cgroupns": "private",
+        "mounts": [
+          {
+            "source": "/dev/disk",
+            "target": "/dev/disk",
+            "read_only": true
+          },
+          {
+            "source": "/",
+            "target": "/rootfs",
+            "read_only": true
+          },
+          {
+            "source": "/sys",
+            "target": "/sys",
+            "read_only": true
+          },
+          {
+            "source": "/var/lib/docker",
+            "target": "/var/lib/docker",
+            "read_only": true
+          },
+          {
+            "source": "/var/run",
+            "target": "/var/run",
+            "read_only": false
+          }
+        ]
+      }
+    },
+    "namespace_boundary": {
+      "pve_init_cgroup_namespace": "cgroup:[4026531835]",
+      "ct613_init_cgroup_namespace": "cgroup:[4026532987]",
+      "ct_namespace_is_distinct_from_pve": true
+    }
+  }
+}

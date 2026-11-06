@@ -1,0 +1,431 @@
+{
+  "schema": 1,
+  "mode": "PLAN_ONLY_NO_REMOTE_ACTIONS",
+  "required_total_lxc": 17,
+  "journal_order": [
+    624,
+    626,
+    625
+  ],
+  "remaining_ct_count": 14,
+  "remaining_batches": [
+    {
+      "batch": "R1",
+      "reason": "Canario sin aplicaciones",
+      "approval": "PENDING",
+      "execution": "NOT_AUTHORIZED",
+      "ct_order": [
+        {
+          "service": "infra-hola",
+          "ct": 613,
+          "ip": "192.168.1.113",
+          "last_audit_cores": 1,
+          "last_audit_memory_mib": 512,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        }
+      ],
+      "steps_per_ct": [
+        "scope_and_live_preflight",
+        "freeze_model_and_exact_images",
+        "snapshot_originals_and_load_archive",
+        "verify_pve_and_offhost_backups",
+        "apply_exporters_only",
+        "validate_real_metrics_and_application",
+        "integrate_source_verified_ct_into_prometheus_and_rules",
+        "exercise_rollback_and_resume_same_ids",
+        "second_apply_without_recreation",
+        "verify_exporter_backed_rule_alertmanager_telegram_chain",
+        "observe_integrated_using_batch_policy_and_continue_watch",
+        "archive_evidence_and_config_offhost",
+        "accept_ct_before_next"
+      ],
+      "observation": {
+        "seconds": 600,
+        "minimum_samples": 21,
+        "interval": 30,
+        "watch_seconds": 900,
+        "extended_seconds": 600,
+        "extended_minimum_samples": 21
+      },
+      "technical_result": "PASS"
+    },
+    {
+      "batch": "R2",
+      "reason": "Gesti\u00f3n interna y workers",
+      "approval": "PENDING",
+      "execution": "NOT_AUTHORIZED",
+      "ct_order": [
+        {
+          "service": "infra-project-gestion",
+          "ct": 621,
+          "ip": "192.168.1.121",
+          "last_audit_cores": 2,
+          "last_audit_memory_mib": 2048,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:d375b27b61ea3233524bb12ce5f2de05bdc80cbce4c6806a45617d4f5bc7b1b1",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        },
+        {
+          "service": "infra-excraper",
+          "ct": 620,
+          "ip": "192.168.1.120",
+          "last_audit_cores": 2,
+          "last_audit_memory_mib": 2048,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        }
+      ],
+      "steps_per_ct": [
+        "scope_and_live_preflight",
+        "freeze_model_and_exact_images",
+        "snapshot_originals_and_load_archive",
+        "verify_pve_and_offhost_backups",
+        "apply_exporters_only",
+        "validate_real_metrics_and_application",
+        "integrate_source_verified_ct_into_prometheus_and_rules",
+        "exercise_rollback_and_resume_same_ids",
+        "second_apply_without_recreation",
+        "verify_exporter_backed_rule_alertmanager_telegram_chain",
+        "observe_integrated_using_batch_policy_and_continue_watch",
+        "archive_evidence_and_config_offhost",
+        "accept_ct_before_next"
+      ],
+      "observation": {
+        "seconds": 180,
+        "minimum_samples": 7,
+        "interval": 30,
+        "watch_seconds": 900,
+        "extended_seconds": 600,
+        "extended_minimum_samples": 21
+      },
+      "technical_result": "NOT_EXECUTED"
+    },
+    {
+      "batch": "R3",
+      "reason": "Aplicaciones con almacenamiento",
+      "approval": "PENDING",
+      "execution": "NOT_AUTHORIZED",
+      "ct_order": [
+        {
+          "service": "infra-pulpo",
+          "ct": 619,
+          "ip": "192.168.1.119",
+          "last_audit_cores": 2,
+          "last_audit_memory_mib": 2048,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        },
+        {
+          "service": "infra-gestoria",
+          "ct": 623,
+          "ip": "192.168.1.123",
+          "last_audit_cores": 2,
+          "last_audit_memory_mib": 4096,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        }
+      ],
+      "steps_per_ct": [
+        "scope_and_live_preflight",
+        "freeze_model_and_exact_images",
+        "snapshot_originals_and_load_archive",
+        "verify_pve_and_offhost_backups",
+        "apply_exporters_only",
+        "validate_real_metrics_and_application",
+        "integrate_source_verified_ct_into_prometheus_and_rules",
+        "exercise_rollback_and_resume_same_ids",
+        "second_apply_without_recreation",
+        "verify_exporter_backed_rule_alertmanager_telegram_chain",
+        "observe_integrated_using_batch_policy_and_continue_watch",
+        "archive_evidence_and_config_offhost",
+        "accept_ct_before_next"
+      ],
+      "observation": {
+        "seconds": 180,
+        "minimum_samples": 7,
+        "interval": 30,
+        "watch_seconds": 900,
+        "extended_seconds": 600,
+        "extended_minimum_samples": 21
+      },
+      "technical_result": "NOT_EXECUTED"
+    },
+    {
+      "batch": "R4",
+      "reason": "Entrada y anal\u00edtica p\u00fablica",
+      "approval": "PENDING",
+      "execution": "NOT_AUTHORIZED",
+      "ct_order": [
+        {
+          "service": "infra-orbit",
+          "ct": 617,
+          "ip": "192.168.1.117",
+          "last_audit_cores": 1,
+          "last_audit_memory_mib": 512,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        },
+        {
+          "service": "infra-mailerblend-edge",
+          "ct": 615,
+          "ip": "192.168.1.115",
+          "last_audit_cores": 2,
+          "last_audit_memory_mib": 2048,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        },
+        {
+          "service": "infra-nucleoedge",
+          "ct": 614,
+          "ip": "192.168.1.114",
+          "last_audit_cores": 2,
+          "last_audit_memory_mib": 2048,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        }
+      ],
+      "steps_per_ct": [
+        "scope_and_live_preflight",
+        "freeze_model_and_exact_images",
+        "snapshot_originals_and_load_archive",
+        "verify_pve_and_offhost_backups",
+        "apply_exporters_only",
+        "validate_real_metrics_and_application",
+        "integrate_source_verified_ct_into_prometheus_and_rules",
+        "exercise_rollback_and_resume_same_ids",
+        "second_apply_without_recreation",
+        "verify_exporter_backed_rule_alertmanager_telegram_chain",
+        "observe_integrated_using_batch_policy_and_continue_watch",
+        "archive_evidence_and_config_offhost",
+        "accept_ct_before_next"
+      ],
+      "observation": {
+        "seconds": 180,
+        "minimum_samples": 7,
+        "interval": 30,
+        "watch_seconds": 900,
+        "extended_seconds": 600,
+        "extended_minimum_samples": 21
+      },
+      "technical_result": "NOT_EXECUTED"
+    },
+    {
+      "batch": "R5",
+      "reason": "Plataforma multiusuario con base de datos",
+      "approval": "PENDING",
+      "execution": "NOT_AUTHORIZED",
+      "ct_order": [
+        {
+          "service": "svc01",
+          "ct": 61211,
+          "ip": "192.168.1.112",
+          "last_audit_cores": 3,
+          "last_audit_memory_mib": 6656,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        }
+      ],
+      "steps_per_ct": [
+        "scope_and_live_preflight",
+        "freeze_model_and_exact_images",
+        "snapshot_originals_and_load_archive",
+        "verify_pve_and_offhost_backups",
+        "apply_exporters_only",
+        "validate_real_metrics_and_application",
+        "integrate_source_verified_ct_into_prometheus_and_rules",
+        "exercise_rollback_and_resume_same_ids",
+        "second_apply_without_recreation",
+        "verify_exporter_backed_rule_alertmanager_telegram_chain",
+        "observe_integrated_using_batch_policy_and_continue_watch",
+        "archive_evidence_and_config_offhost",
+        "accept_ct_before_next"
+      ],
+      "observation": {
+        "seconds": 180,
+        "minimum_samples": 7,
+        "interval": 30,
+        "watch_seconds": 900,
+        "extended_seconds": 600,
+        "extended_minimum_samples": 21
+      },
+      "technical_result": "NOT_EXECUTED"
+    },
+    {
+      "batch": "R6",
+      "reason": "\u00daltimo lote de aplicaciones: recuperadas recientemente",
+      "approval": "PENDING",
+      "execution": "NOT_AUTHORIZED",
+      "ct_order": [
+        {
+          "service": "infra-composable-crm",
+          "ct": 618,
+          "ip": "192.168.1.118",
+          "last_audit_cores": 2,
+          "last_audit_memory_mib": 6144,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        },
+        {
+          "service": "infra-eva-assistant-bot",
+          "ct": 622,
+          "ip": "192.168.1.122",
+          "last_audit_cores": 2,
+          "last_audit_memory_mib": 2048,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        }
+      ],
+      "steps_per_ct": [
+        "scope_and_live_preflight",
+        "freeze_model_and_exact_images",
+        "snapshot_originals_and_load_archive",
+        "verify_pve_and_offhost_backups",
+        "apply_exporters_only",
+        "validate_real_metrics_and_application",
+        "integrate_source_verified_ct_into_prometheus_and_rules",
+        "exercise_rollback_and_resume_same_ids",
+        "second_apply_without_recreation",
+        "verify_exporter_backed_rule_alertmanager_telegram_chain",
+        "observe_integrated_using_batch_policy_and_continue_watch",
+        "archive_evidence_and_config_offhost",
+        "accept_ct_before_next"
+      ],
+      "observation": {
+        "seconds": 600,
+        "minimum_samples": 21,
+        "interval": 30,
+        "watch_seconds": 900,
+        "extended_seconds": 600,
+        "extended_minimum_samples": 21
+      },
+      "technical_result": "NOT_EXECUTED"
+    },
+    {
+      "batch": "R7",
+      "reason": "Plano de observabilidad, Prometheus al final",
+      "approval": "PENDING",
+      "execution": "NOT_AUTHORIZED",
+      "ct_order": [
+        {
+          "service": "infra-grafana",
+          "ct": 611,
+          "ip": "192.168.1.111",
+          "last_audit_cores": 1,
+          "last_audit_memory_mib": 1048,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        },
+        {
+          "service": "infra-blackbox",
+          "ct": 616,
+          "ip": "192.168.1.116",
+          "last_audit_cores": 1,
+          "last_audit_memory_mib": 512,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        },
+        {
+          "service": "infra-prom",
+          "ct": 610,
+          "ip": "192.168.1.110",
+          "last_audit_cores": 2,
+          "last_audit_memory_mib": 2048,
+          "resources_require_live_revalidation": true,
+          "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "containerd_socket_approval": "PENDING_CT_SPECIFIC_REVIEW",
+          "application_contract": "REQUIRES_CT_SPECIFIC_BASELINE_AND_READ_ONLY_PROBE"
+        }
+      ],
+      "steps_per_ct": [
+        "scope_and_live_preflight",
+        "freeze_model_and_exact_images",
+        "snapshot_originals_and_load_archive",
+        "verify_pve_and_offhost_backups",
+        "apply_exporters_only",
+        "validate_real_metrics_and_application",
+        "integrate_source_verified_ct_into_prometheus_and_rules",
+        "exercise_rollback_and_resume_same_ids",
+        "second_apply_without_recreation",
+        "verify_exporter_backed_rule_alertmanager_telegram_chain",
+        "observe_integrated_using_batch_policy_and_continue_watch",
+        "archive_evidence_and_config_offhost",
+        "accept_ct_before_next"
+      ],
+      "observation": {
+        "seconds": 600,
+        "minimum_samples": 21,
+        "interval": 30,
+        "watch_seconds": 900,
+        "extended_seconds": 600,
+        "extended_minimum_samples": 21
+      },
+      "technical_result": "NOT_EXECUTED"
+    }
+  ],
+  "concurrency": 1,
+  "stop_on_failure": true,
+  "force_stop_allowed": false,
+  "apps_or_volumes_may_change": false,
+  "incremental_integration": {
+    "bootstrap_cts": [
+      624,
+      626,
+      625
+    ],
+    "required_before_next_ct": true,
+    "complete_chain_required_per_ct": true
+  },
+  "global_integration": {
+    "after_all_17_validated": true,
+    "independent_validation_required": true,
+    "scope": [
+      "17 Node",
+      "17 cAdvisor",
+      "Grafana job",
+      "Journal probes",
+      "lxc_cpu compatible rules",
+      "FIRING/RESOLVED Telegram delivery"
+    ],
+    "execution_in_current_batch": false
+  }
+}

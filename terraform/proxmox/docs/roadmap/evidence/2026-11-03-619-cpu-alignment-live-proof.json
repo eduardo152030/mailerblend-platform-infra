@@ -1,0 +1,63 @@
+{
+  "ct": 620,
+  "container": "cadvisor",
+  "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+  "collector_samples": 240,
+  "history_first": 1793693568.089868,
+  "history_last": 1793693687.728291,
+  "aligned_points": [
+    {
+      "time": 1793693599.226581,
+      "cadvisor_seconds": 202.542049,
+      "docker_seconds": 202.54195664695789,
+      "cgroup_seconds": 202.54195664695789,
+      "docker_bounds": [
+        202.541754,
+        202.542871
+      ],
+      "cgroup_bounds": [
+        202.541754,
+        202.542871
+      ],
+      "all_counter_checks_passed": true
+    },
+    {
+      "time": 1793693653.973913,
+      "cadvisor_seconds": 202.904458,
+      "docker_seconds": 202.904857711707,
+      "cgroup_seconds": 202.904857711707,
+      "docker_bounds": [
+        202.904104,
+        202.905412
+      ],
+      "cgroup_bounds": [
+        202.904104,
+        202.905412
+      ],
+      "all_counter_checks_passed": true
+    }
+  ],
+  "aligned_windows": [
+    {
+      "seconds": 54.747331857681274,
+      "rates_cores": {
+        "cadvisor_seconds": 0.006619665063169034,
+        "docker_seconds": 0.0066286529851809295,
+        "cgroup_seconds": 0.0066286529851809295
+      },
+      "percent_one_core": {
+        "cadvisor_seconds": 0.6619665063169033,
+        "docker_seconds": 0.662865298518093,
+        "cgroup_seconds": 0.662865298518093
+      },
+      "percent_lxc_two_cores": {
+        "cadvisor_seconds": 0.3309832531584517,
+        "docker_seconds": 0.3314326492590465,
+        "cgroup_seconds": 0.3314326492590465
+      }
+    }
+  ],
+  "errors": "",
+  "log": "",
+  "provenance": "Two successive read-only API observations of the same ID and generation, backed by the same Docker/cgroup timeline; earlier observation retained from tool result before its snapshot was replaced."
+}

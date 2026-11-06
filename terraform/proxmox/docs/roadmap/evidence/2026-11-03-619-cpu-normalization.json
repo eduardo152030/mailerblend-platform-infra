@@ -1,0 +1,25 @@
+{
+  "ct": 619,
+  "lxc_proc_cpu_count": 2,
+  "containers": [
+    {
+      "name": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "docker_online_cpus": 2,
+      "docker_percpu_length": 0,
+      "nano_cpus": 500000000,
+      "cgroup_cpu_max": "50000 100000",
+      "cgroup_cpuset": "1-2"
+    },
+    {
+      "name": "infra-pulpo-n8n-1",
+      "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+      "docker_online_cpus": 2,
+      "docker_percpu_length": 0,
+      "nano_cpus": 0,
+      "cgroup_cpu_max": "max 100000",
+      "cgroup_cpuset": "1-2"
+    }
+  ],
+  "normalization_used_by_comparison": "none: CPU seconds accumulated across all cores"
+}

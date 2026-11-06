@@ -1,0 +1,122 @@
+{
+  "containers": [
+    {
+      "name": "node_exporter",
+      "id": "a21245ae78853df63cc70e89331e27f3a33fd3b1a72316fc4df6048e532a1d1b",
+      "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "running": true,
+      "health": null,
+      "started_at": "2026-09-17T20:43:37.323051518Z",
+      "restarts": 0,
+      "ports": {
+        "9100/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "9100"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "9100"
+          }
+        ]
+      }
+    },
+    {
+      "name": "infra-nucleoedge-sgtm-1",
+      "id": "50831c52de70df000901eeb96e423bfe0cd9125a8ab5b4a00f0b3299352dade9",
+      "image": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+      "running": true,
+      "health": "unhealthy",
+      "started_at": "2026-09-17T20:43:37.34056289Z",
+      "restarts": 0,
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8091"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8091"
+          }
+        ]
+      }
+    },
+    {
+      "name": "infra-nucleoedge-sgtm_preview-1",
+      "id": "63c7faa64ddf5fbf699182d58f818e09868be4e10439da673e523559d689035b",
+      "image": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+      "running": true,
+      "health": "unhealthy",
+      "started_at": "2026-09-17T20:43:37.350562172Z",
+      "restarts": 0,
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8092"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8092"
+          }
+        ]
+      }
+    },
+    {
+      "name": "cadvisor",
+      "id": "cdd635e6c550f71fe6aa58c5742ede7bb052c977cd3e8981a4f3d49da93764c8",
+      "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+      "running": true,
+      "health": "healthy",
+      "started_at": "2026-09-17T20:43:37.332993314Z",
+      "restarts": 0,
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8085"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8085"
+          }
+        ]
+      }
+    }
+  ],
+  "probes": [
+    {
+      "url": "http://127.0.0.1:8091/healthy",
+      "status": 503
+    },
+    {
+      "url": "http://127.0.0.1:8091/",
+      "status": 400
+    },
+    {
+      "url": "http://127.0.0.1:8092/healthy",
+      "status": 503
+    },
+    {
+      "url": "http://127.0.0.1:8092/",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18091/healthy",
+      "status": "URLError"
+    },
+    {
+      "url": "http://127.0.0.1:18091/",
+      "status": "URLError"
+    },
+    {
+      "url": "http://127.0.0.1:18092/healthy",
+      "status": "URLError"
+    },
+    {
+      "url": "http://127.0.0.1:18092/",
+      "status": "URLError"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "619": [
+    {
+      "url": "http://127.0.0.1:15678/healthz",
+      "error": "URLError"
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "infra-pulpo-postgres-1",
+        "pg_isready"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "623": [
+    {
+      "url": "http://127.0.0.1:8069/web/login",
+      "status": 200
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "infra-gestoria-db-1",
+        "pg_isready"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "617": [
+    {
+      "url": "http://127.0.0.1:18088/healthz",
+      "error": "HTTPError"
+    }
+  ],
+  "615": [
+    {
+      "url": "http://127.0.0.1:18092/healthy",
+      "error": "HTTPError"
+    },
+    {
+      "url": "http://127.0.0.1:18091/healthy",
+      "error": "HTTPError"
+    }
+  ],
+  "614": [
+    {
+      "url": "http://127.0.0.1:8093/healthy",
+      "error": "URLError"
+    },
+    {
+      "url": "http://127.0.0.1:8094/healthy",
+      "error": "URLError"
+    }
+  ],
+  "61211": [
+    {
+      "url": "http://127.0.0.1:18080/api/v1/health",
+      "status": 200
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "infra-svc01-nocodb-db",
+        "pg_isready"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "611": [
+    {
+      "url": "http://127.0.0.1:3010/api/health",
+      "status": 200
+    }
+  ],
+  "616": [
+    {
+      "url": "http://127.0.0.1:9115/-/healthy",
+      "status": 200
+    }
+  ],
+  "610": [
+    {
+      "url": "http://127.0.0.1:9090/-/ready",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:9093/-/ready",
+      "status": 200
+    }
+  ]
+}

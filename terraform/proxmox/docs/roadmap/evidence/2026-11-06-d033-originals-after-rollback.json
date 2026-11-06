@@ -1,0 +1,96 @@
+[
+  {
+    "containers": [
+      {
+        "name": "cadvisor-phase4-617-held",
+        "id": "d0449dc592ae8eae9e1e2de6dffa93feb5ea07db7627a53b5ec49b91745a454d",
+        "started_at": "2026-11-05T20:30:10.003210194Z",
+        "running": false,
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "compose_service": "cadvisor",
+        "compose_project": "exporter-pilot-617-cadvisor-containerd",
+        "privileged": true,
+        "cgroupns": "host"
+      },
+      {
+        "name": "node_exporter-phase4-617-held",
+        "id": "5d4ec1ba054db1944f24cfefbedd3c4285dea3d6155b0afc7ba0841d8a9ba3b4",
+        "started_at": "2026-11-05T20:30:08.284251015Z",
+        "running": false,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "compose_service": "node_exporter",
+        "compose_project": "exporter-pilot-617-node-cgroup",
+        "privileged": false,
+        "cgroupns": "private"
+      },
+      {
+        "name": "analytics-ingest-gateway",
+        "id": "674fd7dbdff0972aa9b41d7d0d09160887cd03ab7f11a69ba31f1d8522bca09a",
+        "started_at": "2026-09-17T20:43:50.983839068Z",
+        "running": true,
+        "image": "sha256:93c09229621472abe50029b647a371427c74af98ef2d5b9555d56355eb963d29",
+        "compose_service": "ingest-gateway",
+        "compose_project": "infra-orbit",
+        "privileged": false,
+        "cgroupns": "private"
+      },
+      {
+        "name": "orbit-gateway-proxy",
+        "id": "9f3b461faecfca1a29936747d67724064f02f26aa475eab5e6e4ff3b9f1742f9",
+        "started_at": "2026-09-17T20:43:50.943355494Z",
+        "running": true,
+        "image": "sha256:516475cc129da42866742567714ddc681e5eed7b9ee0b9e9c015e464b4221a00",
+        "compose_service": "orbit-gateway-proxy",
+        "compose_project": "infra-orbit",
+        "privileged": false,
+        "cgroupns": "private"
+      },
+      {
+        "name": "node_exporter",
+        "id": "1ef621df6768c350ebe2b70e4de45ff4b1c188f911f18c5aff93d1ca6c1e01fc",
+        "started_at": "2026-11-06T10:09:28.338356006Z",
+        "running": true,
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "compose_service": "node_exporter",
+        "compose_project": "node-exporter",
+        "privileged": false,
+        "cgroupns": "private"
+      },
+      {
+        "name": "cadvisor",
+        "id": "e398529a1b27c141f02e943767283bb2d0e627278592afeebb6be9c054f73ced",
+        "started_at": "2026-11-05T20:53:57.898880699Z",
+        "running": true,
+        "image": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "compose_service": "cadvisor",
+        "compose_project": "cadvisor",
+        "privileged": true,
+        "cgroupns": "private"
+      }
+    ],
+    "memory_kib": {
+      "MemTotal": 524288,
+      "MemAvailable": 262952
+    },
+    "disk_free": 4740349952,
+    "socket_exists": true,
+    "docker_version": "29.1.3",
+    "ct": 617,
+    "hostname": "infra-orbit",
+    "allocation": {
+      "hostname": "infra-orbit",
+      "cores": "1",
+      "memory": "512",
+      "swap": "512"
+    },
+    "cgroup": {
+      "memory.events": "low 0\nhigh 1538\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.13 avg300=0.10 total=14063624\nfull avg10=0.00 avg60=0.05 avg300=0.04 total=12813591",
+      "memory.current": "497688576",
+      "memory.max": "536870912",
+      "cpu.max": "max 100000"
+    },
+    "observed_at_utc": "2026-11-06T10:11:05.969125+00:00",
+    "mode": "read-only"
+  }
+]

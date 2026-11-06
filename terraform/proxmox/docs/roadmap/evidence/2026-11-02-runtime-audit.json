@@ -1,0 +1,2715 @@
+{
+  "services": [
+    {
+      "service": "infra-blackbox",
+      "ct": 616,
+      "ip": "192.168.1.116",
+      "proxmox": {
+        "hostname": "infra-blackbox",
+        "cores": "1",
+        "memory": "512",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 524288,
+        "proc_cpu_count": 1,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "223809536",
+        "memory.swap.current": "51347456",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3569632\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=3118978",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "infra-blackbox",
+            "id": "7c8891e1b4ae5fe59fe540485fbbf4623ec306ee7ae4b7fb982a13c4866151c5",
+            "image_id": "sha256:b04a9fef4fa086a02fc7fcd8dcdbc4b7b35cc30cdee860fdc6a19dd8b208d63e",
+            "image_reference": "prom/blackbox-exporter:v0.25.0",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:43:44.929718301Z",
+            "restarts": 0
+          },
+          {
+            "name": "cadvisor",
+            "id": "d927bb041bf1fd29ee9a1233c9a6dfdd0d4e4874d293df7fb3a9e2d0922f24bb",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:43:44.921339273Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          },
+          {
+            "name": "node_exporter",
+            "id": "7763c8857c9d68d1cd499b7cbb12fc92866ec65b4e5349d603f9e8b0e2e045bc",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:43:44.925654082Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-composable-crm",
+      "ct": 618,
+      "ip": "192.168.1.118",
+      "proxmox": {
+        "hostname": "infra-composable-crm",
+        "cores": "2",
+        "memory": "6144",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 6291456,
+        "proc_cpu_count": 2,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "2529648640",
+        "memory.swap.current": "25518080",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "0,2",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1033390\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=887191",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "budibase-app",
+            "id": "7c2f530c866f2d14a67ce7eaefd61dca4f375ed70446044119e923595c6121a8",
+            "image_id": "sha256:5c5c995643132864ea017af2b838e35506b37977ea5c0f379c059d9cce1f0bfa",
+            "image_reference": "budibase/budibase@sha256:5c5c995643132864ea017af2b838e35506b37977ea5c0f379c059d9cce1f0bfa",
+            "running": true,
+            "health": "unhealthy",
+            "started_at": "2026-11-02T10:36:09.53355109Z",
+            "restarts": 0
+          },
+          {
+            "name": "crm-api",
+            "id": "5c8c33abda54ec15da0bb92b8c9e504d5d69a75b019b58918de6a197bd9b14ff",
+            "image_id": "sha256:de8e5ff20722fa1e19990161cbc4ce525d2d9d4b7e4955007ff0e5a49a7bb0d3",
+            "image_reference": "infra-composable-crm/crm-api:local",
+            "running": true,
+            "health": "unhealthy",
+            "started_at": "2026-11-02T10:34:49.993018102Z",
+            "restarts": 0
+          },
+          {
+            "name": "node_exporter",
+            "id": "e37acbe63e189361966b33c702db0555799f68d7f0a9a0055b58c6009634eb63",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-11-02T10:34:49.925514766Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          },
+          {
+            "name": "cadvisor",
+            "id": "82a6529f1d6d6802f4872b2def4aa07e07a961fa7f77b8059ad5a2c60c3f319a",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-11-02T10:34:49.928100875Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              },
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          },
+          {
+            "name": "budibase-app-pre-recovery",
+            "id": "41d96595d54a96b7c56eacaecf37564b26bfac40816947988b54a2b7ceb2f139",
+            "image_id": "sha256:5c5c995643132864ea017af2b838e35506b37977ea5c0f379c059d9cce1f0bfa",
+            "image_reference": "budibase/budibase:latest",
+            "running": false,
+            "health": "unhealthy",
+            "started_at": "2026-11-02T10:34:50.188235342Z",
+            "restarts": 0
+          },
+          {
+            "name": "budibase-worker",
+            "id": "92a1d0ea391adb1ada37c8002356acb8b80523c63a6a0aeba47a96d222c85ea4",
+            "image_id": "sha256:5c5c995643132864ea017af2b838e35506b37977ea5c0f379c059d9cce1f0bfa",
+            "image_reference": "budibase/budibase:latest",
+            "running": false,
+            "health": "unhealthy",
+            "started_at": "2026-11-02T10:34:50.176736657Z",
+            "restarts": 0
+          },
+          {
+            "name": "budibase-redis",
+            "id": "52d40aeb530556e49b325b18010f041e9926bf737a949ed08cdd1cc3a52aaa12",
+            "image_id": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+            "image_reference": "redis:7-alpine",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-11-02T10:34:49.954618469Z",
+            "restarts": 0
+          },
+          {
+            "name": "budibase-couchdb",
+            "id": "60d427817b94d175b723f358678714d45061318a139288aa52d198be72d31e14",
+            "image_id": "sha256:c311385c44e9708952c3b9ada25eb538f2b5a57d0cf89bfd07f4a4dbf962697c",
+            "image_reference": "couchdb:3",
+            "running": true,
+            "health": null,
+            "started_at": "2026-11-02T10:34:50.034894206Z",
+            "restarts": 0
+          },
+          {
+            "name": "supabase-db",
+            "id": "b051af0f849ff8d345b54d7616a3c2a8e625f46f412025981e9f7ad89f2c9e79",
+            "image_id": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+            "image_reference": "postgres:16-alpine",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-11-02T10:34:50.006941849Z",
+            "restarts": 0
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-eva-assistant-bot",
+      "ct": 622,
+      "ip": "192.168.1.122",
+      "proxmox": {
+        "hostname": "infra-eva-assistant-bot",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 2097152,
+        "proc_cpu_count": 2,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "1227915264",
+        "memory.swap.current": "0",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "1-2",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1968\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=1858",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "eva-cron-digest",
+            "id": "cd4c0bc1f13ae295ce5319eae3dd7606fe2ccecca78ec21bb495f4201f9c75db",
+            "image_id": "sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659",
+            "image_reference": "sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659",
+            "running": true,
+            "health": null,
+            "started_at": "2026-11-02T14:08:23.341043753Z",
+            "restarts": 0
+          },
+          {
+            "name": "eva-sync",
+            "id": "ed914691f93a9162afec8c407f963ddab9fcdbed0fca12d2e83a39f4080be906",
+            "image_id": "sha256:aa054e4001f73fc2b3a62ea1e347b3701e2e9f01afeeae9d5678e095df058fdb",
+            "image_reference": "sha256:aa054e4001f73fc2b3a62ea1e347b3701e2e9f01afeeae9d5678e095df058fdb",
+            "running": true,
+            "health": null,
+            "started_at": "2026-11-02T14:08:22.019973823Z",
+            "restarts": 0
+          },
+          {
+            "name": "eva-scheduler",
+            "id": "8cc9c78afd68f41559e2708490247bcbbef5d775e8e2aef0d9826cf45b623adf",
+            "image_id": "sha256:aa054e4001f73fc2b3a62ea1e347b3701e2e9f01afeeae9d5678e095df058fdb",
+            "image_reference": "sha256:aa054e4001f73fc2b3a62ea1e347b3701e2e9f01afeeae9d5678e095df058fdb",
+            "running": true,
+            "health": null,
+            "started_at": "2026-11-02T14:08:20.843951912Z",
+            "restarts": 0
+          },
+          {
+            "name": "focalboard",
+            "id": "ff699ad98b286a99f4d0ebc9958f2d121a49a4f2a3bc73d3ab676100f1241d28",
+            "image_id": "sha256:337346b132a7c1bd988b5fea59a9050ade42b9855399b0add5f95cf8f99ba800",
+            "image_reference": "sha256:337346b132a7c1bd988b5fea59a9050ade42b9855399b0add5f95cf8f99ba800",
+            "running": true,
+            "health": "unhealthy",
+            "started_at": "2026-11-02T14:08:16.588731088Z",
+            "restarts": 0
+          },
+          {
+            "name": "eva-postgres",
+            "id": "40709de2cc57f6e26e3ebc51818babff69388bd8298bdd1ff52c3cd56bfe2823",
+            "image_id": "sha256:20edbde7749f822887a1a022ad526fde0a47d6b2be9a8364433605cf65099416",
+            "image_reference": "sha256:20edbde7749f822887a1a022ad526fde0a47d6b2be9a8364433605cf65099416",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-11-02T14:08:15.490146518Z",
+            "restarts": 0
+          },
+          {
+            "name": "eva-docker-cleanup",
+            "id": "9e4a1618d1fb4763f40e17eb21b0a1b2b37ecbb11646d35393bb479406798f86",
+            "image_id": "sha256:17b5c235f40be7432a7c0914c154e9278aed63bad4afe5607e4f91840696a9f8",
+            "image_reference": "sha256:17b5c235f40be7432a7c0914c154e9278aed63bad4afe5607e4f91840696a9f8",
+            "running": true,
+            "health": null,
+            "started_at": "2026-11-02T14:08:11.286776855Z",
+            "restarts": 0
+          },
+          {
+            "name": "eva-api",
+            "id": "0a5ca4194e9358c6daecf018e85193c6ce708807c162e9c13402a7079fe4a874",
+            "image_id": "sha256:aa054e4001f73fc2b3a62ea1e347b3701e2e9f01afeeae9d5678e095df058fdb",
+            "image_reference": "sha256:aa054e4001f73fc2b3a62ea1e347b3701e2e9f01afeeae9d5678e095df058fdb",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-11-02T14:08:17.541991395Z",
+            "restarts": 0
+          },
+          {
+            "name": "eva-api-pre-storage-recovery",
+            "id": "59cd328f26c6799dfa94afba2e4a8af7db02a8210fcd6e4734f3a6953a41b794",
+            "image_id": "sha256:aa054e4001f73fc2b3a62ea1e347b3701e2e9f01afeeae9d5678e095df058fdb",
+            "image_reference": "eva-backend:latest",
+            "running": false,
+            "health": "unhealthy",
+            "started_at": "2026-11-02T13:07:10.823054202Z",
+            "restarts": 0
+          },
+          {
+            "name": "eva-scheduler-pre-storage-recovery",
+            "id": "f54b247002e40b3da7d646c12720fbccca54178466b826e806f59af3d0091edb",
+            "image_id": "sha256:aa054e4001f73fc2b3a62ea1e347b3701e2e9f01afeeae9d5678e095df058fdb",
+            "image_reference": "eva-backend:latest",
+            "running": false,
+            "health": null,
+            "started_at": "2026-11-02T13:07:10.827965349Z",
+            "restarts": 0
+          },
+          {
+            "name": "eva-sync-pre-storage-recovery",
+            "id": "a1ec0de37d91123c7db7abd63235f41243e40090e8992fc945ca773837a5c658",
+            "image_id": "sha256:aa054e4001f73fc2b3a62ea1e347b3701e2e9f01afeeae9d5678e095df058fdb",
+            "image_reference": "eva-backend:latest",
+            "running": false,
+            "health": null,
+            "started_at": "2026-11-02T13:07:10.833860939Z",
+            "restarts": 0
+          },
+          {
+            "name": "eva-docker-cleanup-pre-storage-recovery",
+            "id": "709e496a8ffe95a672da5704b00d7c468414b14ad15fa8d10b465963e37f9990",
+            "image_id": "sha256:17b5c235f40be7432a7c0914c154e9278aed63bad4afe5607e4f91840696a9f8",
+            "image_reference": "docker:cli",
+            "running": false,
+            "health": null,
+            "started_at": "2026-11-02T13:07:10.847794892Z",
+            "restarts": 0
+          },
+          {
+            "name": "focalboard-pre-storage-recovery",
+            "id": "2b56e611428e9ad9baccef88a27478151e17ca08431d60fd94d73108db17bca2",
+            "image_id": "sha256:337346b132a7c1bd988b5fea59a9050ade42b9855399b0add5f95cf8f99ba800",
+            "image_reference": "mattermost/focalboard:latest",
+            "running": false,
+            "health": "unhealthy",
+            "started_at": "2026-11-02T13:07:12.697882714Z",
+            "restarts": 1
+          },
+          {
+            "name": "eva-postgres-pre-storage-recovery",
+            "id": "61d792c0278c65edd303adfea44cc47def7abe0b279ca9a0f96e73117421aa1f",
+            "image_id": "sha256:20edbde7749f822887a1a022ad526fde0a47d6b2be9a8364433605cf65099416",
+            "image_reference": "postgres:16-alpine",
+            "running": false,
+            "health": "unhealthy",
+            "started_at": "2026-11-02T13:07:10.836995479Z",
+            "restarts": 0
+          },
+          {
+            "name": "eva-cron-digest-pre-storage-recovery",
+            "id": "0c217cd62dd14c4ac534fd88394f19f706d57ea06617f03dfa386df965bc8f8e",
+            "image_id": "sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659",
+            "image_reference": "alpine:latest",
+            "running": false,
+            "health": null,
+            "started_at": "2026-11-02T13:07:10.762907961Z",
+            "restarts": 0
+          },
+          {
+            "name": "cadvisor",
+            "id": "90460a9a26d19a79ade74106c9a58f1909ca010bdd96840f2dea173bbe5b45f2",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-11-02T13:07:10.77645481Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              },
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          },
+          {
+            "name": "node_exporter",
+            "id": "412c7b7a048f0c9c7029c39bba4d41572c829ae0c49c6be58b3a5129ebe43e8f",
+            "image_id": "sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-11-02T13:07:10.780719787Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-excraper",
+      "ct": 620,
+      "ip": "192.168.1.120",
+      "proxmox": {
+        "hostname": "infra-excraper",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 2097152,
+        "proc_cpu_count": 2,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "299393024",
+        "memory.swap.current": "124047360",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "1-2",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=8205413\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=8018483",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "infra-excraper-linkedin-worker-1",
+            "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+            "image_id": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+            "image_reference": "mcr.microsoft.com/playwright:v1.41.0-jammy",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:44:10.776598641Z",
+            "restarts": 0
+          },
+          {
+            "name": "infra-excraper-signals-worker-1",
+            "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+            "image_id": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+            "image_reference": "python:3.11-slim",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:44:10.77412796Z",
+            "restarts": 0
+          },
+          {
+            "name": "cadvisor",
+            "id": "d6171836b995f3ee98f6e4005b340f07cec100a91ebb684892d0e24293ae32d0",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:44:10.77475113Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          },
+          {
+            "name": "node_exporter",
+            "id": "9e3a9bbe406e9ab4b9ef7f10aea2564fd5da1626aa0af1896fc111c565f6c99a",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:44:10.738340895Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          },
+          {
+            "name": "infra-excraper-redis-1",
+            "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+            "image_id": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+            "image_reference": "redis:7-alpine",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:44:10.798360464Z",
+            "restarts": 0
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-gestoria",
+      "ct": 623,
+      "ip": "192.168.1.123",
+      "proxmox": {
+        "hostname": "infra-gestoria",
+        "cores": "2",
+        "memory": "4096",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 4194304,
+        "proc_cpu_count": 2,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "336687104",
+        "memory.swap.current": "150507520",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "1-2",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=11719214\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11164258",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.0.2",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "cadvisor",
+            "id": "e9b4d517eb3a58d267d1ee16acdcce35c92f39f3892f785b7e6a272cf03f7c50",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:44:59.47928958Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          },
+          {
+            "name": "node_exporter",
+            "id": "ae2cf4ac1e2d9a52ec6c3895bc3e5fd0deb6a582236cd6a3ad3fb1aaabd37870",
+            "image_id": "sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:44:59.416804345Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          },
+          {
+            "name": "infra-gestoria-odoo-1",
+            "id": "73159f2af290c498344f26c0133bac4b70093249c931d670848fefa4322983b0",
+            "image_id": "sha256:67f04958d8a71423cc6d3ccb228b998ef7fb36fe214998c47f52aff975120b32",
+            "image_reference": "odoo:17",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:44:59.514514039Z",
+            "restarts": 0
+          },
+          {
+            "name": "infra-gestoria-db-1",
+            "id": "fb1e3b3d36ffc0c6feb9f0b7b70aaf5436811e188f75f95926153543c0c6d0f3",
+            "image_id": "sha256:c2ca90969ca293925ab474466e837689cc712321afdd9e4640bd0cf942fdca3a",
+            "image_reference": "postgres:15",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:44:59.527555014Z",
+            "restarts": 0
+          },
+          {
+            "name": "test-nginx",
+            "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+            "image_id": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+            "image_reference": "nginx:alpine",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:44:59.495546401Z",
+            "restarts": 0
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-grafana",
+      "ct": 611,
+      "ip": "192.168.1.111",
+      "proxmox": {
+        "hostname": "infra-grafana",
+        "cores": "1",
+        "memory": "1048",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 1073152,
+        "proc_cpu_count": 1,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "352563200",
+        "memory.swap.current": "114618368",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "3",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=20091264\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=18164839",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "cadvisor",
+            "id": "e35f42838a5cd920e8a48de89bd4d2ea19897dcd3d330e518aeda1fd59a7bd74",
+            "image_id": "sha256:3cde6faf0791ebf7b41d6f8ae7145466fed712ea6f252c935294d2608b1af388",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.49.1",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:43:29.192315693Z",
+            "restarts": 0,
+            "command": [
+              "--docker_only=true",
+              "--housekeeping_interval=10s"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              },
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": true,
+              "api_version_errors": 9,
+              "docker_factory_error": true,
+              "cgroup_error": false
+            }
+          },
+          {
+            "name": "grafana",
+            "id": "9c12e920f162827cd8df394e20854a2774e7ee292ac4e794231232cd6720d6df",
+            "image_id": "sha256:2175aaa91c96733d86d31cf270d5310b278654b03f5718c59de12a865380a31f",
+            "image_reference": "grafana/grafana:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:43:29.225731572Z",
+            "restarts": 0
+          },
+          {
+            "name": "node_exporter",
+            "id": "51f92decb7d54386bc2d6b1bb196666d566840fc4d50ba7a0231c049579bbd83",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:43:29.180608864Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-hola",
+      "ct": 613,
+      "ip": "192.168.1.113",
+      "proxmox": {
+        "hostname": "infra-hola",
+        "cores": "1",
+        "memory": "512",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 524288,
+        "proc_cpu_count": 1,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "195551232",
+        "memory.swap.current": "58060800",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=48239549\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=47413624",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "node_exporter",
+            "id": "1e5a52be483e7f3b9f29c4a2a74c32aaccb365acf5571d820d623581a1b6ad09",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:43:34.938097639Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          },
+          {
+            "name": "cadvisor",
+            "id": "6c181468f88ce28c244f0a853b4f73057a569b69f0e785040006a18f528917b8",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:43:34.934301697Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              },
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-journal-api",
+      "ct": 626,
+      "ip": "192.168.1.126",
+      "proxmox": {
+        "hostname": "infra-journal-api",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 2097152,
+        "proc_cpu_count": 2,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "328228864",
+        "memory.swap.current": "101314560",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "1-2",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=11061782\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10804002",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.0.2",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "infra-journal-api-api-1",
+            "id": "d5e15cd5730f21c7477a266510831dbe4b828ac6a1f7a454110d1253261dfd11",
+            "image_id": "sha256:65da103fc1ea2c256eaea873a27bb240ee9e5c06826d547b510fa8ca6928508a",
+            "image_reference": "infra-journal-api-api",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:45:28.159070271Z",
+            "restarts": 0
+          },
+          {
+            "name": "cadvisor",
+            "id": "00346eb9dd36c892cc4a66d3bc718e10925f0240381c42416d4b5978c722004b",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:45:28.181837659Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              },
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          },
+          {
+            "name": "test-nginx",
+            "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+            "image_id": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+            "image_reference": "nginx:alpine",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:45:28.174931898Z",
+            "restarts": 0
+          }
+        ],
+        "node_endpoint": {
+          "error": "URLError"
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-journal-db",
+      "ct": 625,
+      "ip": "192.168.1.125",
+      "proxmox": {
+        "hostname": "infra-journal-db",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 2097152,
+        "proc_cpu_count": 2,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "291385344",
+        "memory.swap.current": "79040512",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "1-2",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=13588180\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=13247417",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.0.2",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "infra-journal-db-db-1",
+            "id": "5f4ca06ee58e11d6a24f53c355216839d212052da0b5eb622228c8b269eccecb",
+            "image_id": "sha256:57c72fd2a128e416c7fcc499958864df5301e940bca0a56f58fddf30ffc07777",
+            "image_reference": "postgres:16-alpine",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:45:20.616432186Z",
+            "restarts": 0
+          },
+          {
+            "name": "cadvisor",
+            "id": "76a29d19db8fa24b1f91c7b5397e527ff426d720a8a797931e94cce9b115c402",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:45:20.599885645Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              },
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          },
+          {
+            "name": "test-nginx",
+            "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+            "image_id": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+            "image_reference": "nginx:alpine",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:45:20.612194803Z",
+            "restarts": 0
+          }
+        ],
+        "node_endpoint": {
+          "error": "URLError"
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-journal-web",
+      "ct": 624,
+      "ip": "192.168.1.124",
+      "proxmox": {
+        "hostname": "infra-journal-web",
+        "cores": "1",
+        "memory": "512",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 524288,
+        "proc_cpu_count": 1,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "268279808",
+        "memory.swap.current": "62779392",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "2",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=7282639\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=6837178",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.0.2",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "infra-journal-web-web-1",
+            "id": "473195f5f3f2ff634810d65319ce764508562fe1510812874e215d4370b592d3",
+            "image_id": "sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1abeac2",
+            "image_reference": "nginx:alpine",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-28T20:10:09.492274366Z",
+            "restarts": 0
+          },
+          {
+            "name": "cadvisor",
+            "id": "5db0b97c7498faec8a3428c94888191ca6281e381c5274605fb6e945e1eb3c64",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:45:00.157185699Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          },
+          {
+            "name": "test-nginx",
+            "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+            "image_id": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+            "image_reference": "nginx:alpine",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:45:00.143855766Z",
+            "restarts": 0
+          }
+        ],
+        "node_endpoint": {
+          "error": "URLError"
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-mailerblend-edge",
+      "ct": 615,
+      "ip": "192.168.1.115",
+      "proxmox": {
+        "hostname": "infra-mailerblend-edge",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 2097152,
+        "proc_cpu_count": 2,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "395972608",
+        "memory.swap.current": "108273664",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "0,3",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3506288\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=3178886",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "cadvisor",
+            "id": "4d68b7f9ea901273ba4d32b3adf086b9a6202e1e3acd580c4604aa0b28f6a0d5",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:43:44.335528972Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          },
+          {
+            "name": "node_exporter",
+            "id": "bff6ff4970744064c4cfef67e0966f8d0f4309d964c91f71d057f551cfc3a6b5",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:43:44.329846385Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          },
+          {
+            "name": "mailerblend-sgtm-serving",
+            "id": "a5a253823717c289330c6c139a33f1f41271b12566fe8625f12155b3c9067561",
+            "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+            "image_reference": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+            "running": true,
+            "health": "unhealthy",
+            "started_at": "2026-09-17T20:43:44.36388595Z",
+            "restarts": 0
+          },
+          {
+            "name": "mailerblend-sgtm-preview",
+            "id": "329efa4bf868c0fd46afd9f0a15d0344249a9af322175a2d8c2d6347fa7aaf26",
+            "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+            "image_reference": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+            "running": true,
+            "health": "unhealthy",
+            "started_at": "2026-09-17T20:43:44.360575831Z",
+            "restarts": 0
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-nucleoedge",
+      "ct": 614,
+      "ip": "192.168.1.114",
+      "proxmox": {
+        "hostname": "infra-nucleoedge",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 2097152,
+        "proc_cpu_count": 2,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "449028096",
+        "memory.swap.current": "114012160",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "0,3",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1133429\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=806626",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "node_exporter",
+            "id": "a21245ae78853df63cc70e89331e27f3a33fd3b1a72316fc4df6048e532a1d1b",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:43:37.323051518Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          },
+          {
+            "name": "infra-nucleoedge-sgtm-1",
+            "id": "50831c52de70df000901eeb96e423bfe0cd9125a8ab5b4a00f0b3299352dade9",
+            "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+            "image_reference": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+            "running": true,
+            "health": "unhealthy",
+            "started_at": "2026-09-17T20:43:37.34056289Z",
+            "restarts": 0
+          },
+          {
+            "name": "infra-nucleoedge-sgtm_preview-1",
+            "id": "63c7faa64ddf5fbf699182d58f818e09868be4e10439da673e523559d689035b",
+            "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+            "image_reference": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+            "running": true,
+            "health": "unhealthy",
+            "started_at": "2026-09-17T20:43:37.350562172Z",
+            "restarts": 0
+          },
+          {
+            "name": "cadvisor",
+            "id": "cdd635e6c550f71fe6aa58c5742ede7bb052c977cd3e8981a4f3d49da93764c8",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:43:37.332993314Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-orbit",
+      "ct": 617,
+      "ip": "192.168.1.117",
+      "proxmox": {
+        "hostname": "infra-orbit",
+        "cores": "1",
+        "memory": "512",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 524288,
+        "proc_cpu_count": 1,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "241762304",
+        "memory.swap.current": "105574400",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "3",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=11765061\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11256222",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "analytics-ingest-gateway",
+            "id": "674fd7dbdff0972aa9b41d7d0d09160887cd03ab7f11a69ba31f1d8522bca09a",
+            "image_id": "sha256:93c09229621472abe50029b647a371427c74af98ef2d5b9555d56355eb963d29",
+            "image_reference": "infra-orbit-ingest-gateway",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:43:50.983839068Z",
+            "restarts": 0
+          },
+          {
+            "name": "orbit-gateway-proxy",
+            "id": "9f3b461faecfca1a29936747d67724064f02f26aa475eab5e6e4ff3b9f1742f9",
+            "image_id": "sha256:516475cc129da42866742567714ddc681e5eed7b9ee0b9e9c015e464b4221a00",
+            "image_reference": "nginx:1.25-alpine",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:43:50.943355494Z",
+            "restarts": 0
+          },
+          {
+            "name": "node_exporter",
+            "id": "1ef621df6768c350ebe2b70e4de45ff4b1c188f911f18c5aff93d1ca6c1e01fc",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:43:50.963385052Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          },
+          {
+            "name": "cadvisor",
+            "id": "e398529a1b27c141f02e943767283bb2d0e627278592afeebb6be9c054f73ced",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:43:50.968024206Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              },
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-project-gestion",
+      "ct": 621,
+      "ip": "192.168.1.121",
+      "proxmox": {
+        "hostname": "infra-project-gestion",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 2097152,
+        "proc_cpu_count": 2,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "205979648",
+        "memory.swap.current": "57061376",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "1-2",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3020025\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=2787946",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "focalboard",
+            "id": "f7fd71cb630b4e2d1858b4f4fc65d39cdbe06078f59157b0e4688fe29d5e4490",
+            "image_id": "sha256:d04be04895523d1c4fec75cbe7d5bb82987455d8deb3a795fea42eadfc28449c",
+            "image_reference": "mattermost/focalboard:7.10.0",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:44:33.9795019Z",
+            "restarts": 0
+          },
+          {
+            "name": "node_exporter",
+            "id": "648fd4d19de300038ee804741f9ef7170dbb7c109f645cd2dcb11af7effbe80e",
+            "image_id": "sha256:d375b27b61ea3233524bb12ce5f2de05bdc80cbce4c6806a45617d4f5bc7b1b1",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:44:33.970993096Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          },
+          {
+            "name": "cadvisor",
+            "id": "582a4733cd7bd22883118bdb8d65164b1873d1c9bc4ebc40562a0366faa161cc",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:44:33.976237193Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              },
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-prom",
+      "ct": 610,
+      "ip": "192.168.1.110",
+      "proxmox": {
+        "hostname": "infra-prom",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 2097152,
+        "proc_cpu_count": 2,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "570175488",
+        "memory.swap.current": "74633216",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "0,3",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10325013\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=9831062",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "eloquent_ganguly",
+            "id": "b28bdfdc02f68e6d556d3e945064574dbbbd8d7360c0608bfbdf16eae1772d0e",
+            "image_id": "sha256:af26fbe4dd1886ac0efd7bd55cd9027da262e105b137a376522b7c14c3626e4a",
+            "image_reference": "prom/alertmanager:v0.33.0",
+            "running": true,
+            "health": null,
+            "started_at": "2026-11-02T07:10:44.035705902Z",
+            "restarts": 0
+          },
+          {
+            "name": "prometheus",
+            "id": "289e8713965d81a981c1f45df05fc378a7ee481bb8fb95d182b3f980cad53fe6",
+            "image_id": "sha256:69f5241418838263316593f7274a304b095c40bcf22e57272865da91bd60a8ac",
+            "image_reference": "prom/prometheus:v3.12.0",
+            "running": true,
+            "health": null,
+            "started_at": "2026-11-02T07:01:00.034601404Z",
+            "restarts": 0
+          },
+          {
+            "name": "alertmanager",
+            "id": "0b34a623d76bc754dba7bddee342a1a99de5f3444840f43686ba17431b2ac5f0",
+            "image_id": "sha256:af26fbe4dd1886ac0efd7bd55cd9027da262e105b137a376522b7c14c3626e4a",
+            "image_reference": "prom/alertmanager:v0.33.0",
+            "running": true,
+            "health": null,
+            "started_at": "2026-11-02T08:03:27.203080469Z",
+            "restarts": 0
+          },
+          {
+            "name": "node_exporter",
+            "id": "b11abaf579de415c18f65076801770d138ad11c467a299706ccf22f00d94ead8",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:43:27.037955338Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          },
+          {
+            "name": "cadvisor",
+            "id": "f2b7e2a72a04480b31ddef7f6405e6c4d69f7ea463d9e8a6179a2eb897cb1090",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:43:27.044984166Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              },
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "infra-pulpo",
+      "ct": 619,
+      "ip": "192.168.1.119",
+      "proxmox": {
+        "hostname": "infra-pulpo",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 2097152,
+        "proc_cpu_count": 2,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "483168256",
+        "memory.swap.current": "173060096",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "1-2",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5072577\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=4475226",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "infra-pulpo-n8n-1",
+            "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+            "image_id": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+            "image_reference": "n8nio/n8n:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:44:10.223424359Z",
+            "restarts": 0
+          },
+          {
+            "name": "cadvisor",
+            "id": "0d9536b642e4c580ec4b281dd9fd98134497ef1228ccbf01f742040d9dd8dcf9",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:44:10.171957442Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          },
+          {
+            "name": "node_exporter",
+            "id": "5b85a6c02c98ccf2ff56dded4a0d74b3f23588c1e03724951de76c53af32b437",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:44:10.199919771Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          },
+          {
+            "name": "infra-pulpo-postgres-1",
+            "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+            "image_id": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+            "image_reference": "postgres:16-alpine",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:44:10.188084591Z",
+            "restarts": 0
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    },
+    {
+      "service": "svc01",
+      "ct": 61211,
+      "ip": "192.168.1.112",
+      "proxmox": {
+        "hostname": "svc01",
+        "cores": "3",
+        "memory": "6656",
+        "swap": "512",
+        "unprivileged": "0",
+        "features": "nesting=1,keyctl=1"
+      },
+      "runtime": {
+        "proc_memory_kib": 6815744,
+        "proc_cpu_count": 3,
+        "cgroup2": true,
+        "memory.max": "max",
+        "memory.current": "319377408",
+        "memory.swap.current": "243204096",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "0-1,3",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10655343\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10340771",
+        "proc_mounts": [
+          {
+            "target": "/sys/fs/cgroup",
+            "filesystem": "cgroup2"
+          },
+          {
+            "target": "/proc/cpuinfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/meminfo",
+            "filesystem": "fuse.lxcfs"
+          },
+          {
+            "target": "/proc/stat",
+            "filesystem": "fuse.lxcfs"
+          }
+        ],
+        "docker_available": true,
+        "docker_version": "29.1.3",
+        "docker_min_api": "1.44",
+        "containers": [
+          {
+            "name": "infra-svc01-nocodb",
+            "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+            "image_id": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+            "image_reference": "nocodb/nocodb:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:45:30.133727061Z",
+            "restarts": 0
+          },
+          {
+            "name": "infra-svc01-nocodb-db",
+            "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+            "image_id": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+            "image_reference": "postgres:16-alpine",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:45:30.113556359Z",
+            "restarts": 0
+          },
+          {
+            "name": "node_exporter",
+            "id": "c73286a66fc8610f4089edb4cceeb1970129fb54d8372e9262ed60fca8376f65",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "image_reference": "prom/node-exporter:latest",
+            "running": true,
+            "health": null,
+            "started_at": "2026-09-17T20:45:30.094462253Z",
+            "restarts": 0,
+            "command": [
+              "--path.rootfs=/host"
+            ],
+            "pid_mode": "host",
+            "cgroupns": "private",
+            "privileged": false,
+            "mounts": [
+              {
+                "source": "/",
+                "target": "/host",
+                "read_only": true
+              }
+            ]
+          },
+          {
+            "name": "cadvisor",
+            "id": "6a9453f785f086262692d760e5d5380d1bca0f35a9604b068beb86df61e2c05e",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "image_reference": "gcr.io/cadvisor/cadvisor:v0.47.2",
+            "running": true,
+            "health": "healthy",
+            "started_at": "2026-09-17T20:45:30.108950199Z",
+            "restarts": 0,
+            "command": [
+              "--listen_ip=0.0.0.0",
+              "--port=8080",
+              "--housekeeping_interval=10s",
+              "--global_housekeeping_interval=30s",
+              "--docker_only=true",
+              "--enable_metrics=cpu,memory,network,disk,diskIO,process,perf_event,referenced_memory,udp"
+            ],
+            "pid_mode": "",
+            "cgroupns": "private",
+            "privileged": true,
+            "mounts": [
+              {
+                "source": "/dev/disk",
+                "target": "/dev/disk",
+                "read_only": true
+              },
+              {
+                "source": "/",
+                "target": "/rootfs",
+                "read_only": true
+              },
+              {
+                "source": "/sys",
+                "target": "/sys",
+                "read_only": true
+              },
+              {
+                "source": "/var/lib/docker",
+                "target": "/var/lib/docker",
+                "read_only": true
+              },
+              {
+                "source": "/var/run",
+                "target": "/var/run",
+                "read_only": false
+              }
+            ],
+            "diagnostic_flags": {
+              "old_api": false,
+              "api_version_errors": 0,
+              "docker_factory_error": false,
+              "cgroup_error": false
+            }
+          }
+        ],
+        "node_endpoint": {
+          "http": 200,
+          "memory_total": 16646774784.0,
+          "cpu_count": 4
+        },
+        "cadvisor_endpoint": {
+          "http": 200,
+          "memory_series": 1,
+          "named_memory_series": 0
+        }
+      }
+    }
+  ],
+  "pve_memory_kib": 16256616,
+  "pve_cpu_count": 4,
+  "lxcfs_version": "6.0.0-pve2",
+  "observed_at": "2026-11-02T15:20:28.093425+01:00",
+  "mode": "read-only"
+}

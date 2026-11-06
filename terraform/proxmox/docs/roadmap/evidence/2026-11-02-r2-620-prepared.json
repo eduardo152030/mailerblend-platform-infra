@@ -1,0 +1,36 @@
+{
+  "ct": 620,
+  "service": "infra-excraper",
+  "status": "PREPARED_NOT_DEPLOYED",
+  "node_image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+  "cadvisor_image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+  "initial_seconds": 180,
+  "initial_minimum_samples": 7,
+  "interval_seconds": 30,
+  "continued_external_watch_seconds": 900,
+  "continuous_prometheus_alertmanager_required": true,
+  "alert_for_runtime_firing_validated": false,
+  "anomaly_extended_seconds": 600,
+  "socket_and_namespace_approval": "PENDING_FOR_R2",
+  "apps": {
+    "infra-excraper-linkedin-worker-1": "linkedin-worker",
+    "infra-excraper-signals-worker-1": "signals-worker",
+    "infra-excraper-redis-1": "redis"
+  },
+  "application_urls": [
+    "http://192.168.1.120:3000/health",
+    "http://192.168.1.120:3001/health"
+  ],
+  "file_sha256": {
+    "cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+    "cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+    "cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+    "node-cgroup.sh": "a8ef97c7b57942379c96ced167f1c19a84dc062b0149c6d2ecad33e9852c3be3",
+    "node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+    "node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+    "node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+    "observe.py": "e2c69e921ac6eed3c0b8fc328f0d3b361cd716b13c9a2f0e17b95a8925e7c0d6",
+    "pilot.py": "7f0469ffab72c466efd89163c9b3bf8263d3a5dae851e1263234dc663b9d3e0c",
+    "sample.py": "fadc5113f3a357f37a35e706abb9eb01f6824443e5eff22a73cfc9e9b03a0104"
+  }
+}

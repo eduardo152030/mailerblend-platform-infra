@@ -1,0 +1,26 @@
+{
+  "accepted_chain_issues": {
+    "624": [],
+    "626": [],
+    "625": [],
+    "613": [],
+    "621": [],
+    "620": [],
+    "619": [],
+    "623": []
+  },
+  "target_counts": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "targets_up": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "unhealthy_rules": [],
+  "prometheus_ready": 200,
+  "alertmanager_ready": 200,
+  "notifications_sent": false
+}

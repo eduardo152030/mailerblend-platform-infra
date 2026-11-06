@@ -1,0 +1,9 @@
+{
+  "release": "v0.60.6",
+  "asset": "cadvisor-v0.60.6-linux-amd64",
+  "sha256": "c381c2c911bc43d465d1e0eaff60f96d58c031c409bddf06da0316fdde8a9296",
+  "official_asset_digest_verified": true,
+  "cli_flags_accepted": true,
+  "mode": "local --version, no daemon/container started",
+  "nested_lxc_runtime_verified": false
+}

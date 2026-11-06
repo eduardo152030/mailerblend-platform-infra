@@ -1,0 +1,58 @@
+{
+  "617": [
+    {
+      "container": "/analytics-ingest-gateway",
+      "status": 200
+    },
+    {
+      "container": "/orbit-gateway-proxy",
+      "status": 403
+    }
+  ],
+  "615": [
+    {
+      "container": "mailerblend-sgtm-serving",
+      "health": "unhealthy",
+      "health_exit_codes": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "log_keyword_counts": {
+        "ECONNREFUSED": 0,
+        "ENOTFOUND": 0,
+        "ETIMEDOUT": 0,
+        "invalid": 0,
+        "not ready": 0,
+        "configuration": 0,
+        "permission": 0,
+        "certificate": 0,
+        "503": 0
+      }
+    },
+    {
+      "container": "mailerblend-sgtm-preview",
+      "health": "unhealthy",
+      "health_exit_codes": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "log_keyword_counts": {
+        "ECONNREFUSED": 0,
+        "ENOTFOUND": 0,
+        "ETIMEDOUT": 0,
+        "invalid": 0,
+        "not ready": 0,
+        "configuration": 0,
+        "permission": 0,
+        "certificate": 0,
+        "503": 0
+      }
+    }
+  ]
+}

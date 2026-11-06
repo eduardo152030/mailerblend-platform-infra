@@ -1,0 +1,14 @@
+{
+  "started_at_utc": "2026-11-06T11:48:13.198786+00:00",
+  "scope": "Common CPU/RAM framework local correction and read-only compatibility on accepted624/626/625/613/621/620/619/623; no deployment or production writes",
+  "status": "COMPLETE_LOCAL_AND_READONLY_NO_DEPLOYMENT",
+  "finished_at_utc": "2026-11-06T12:32:12.734864+00:00",
+  "elapsed_minutes": 44.0,
+  "elapsed_seconds": 2639.536,
+  "counts": {
+    "done": 8,
+    "blocked": 4,
+    "pending": 5
+  },
+  "tests_passed": 80
+}

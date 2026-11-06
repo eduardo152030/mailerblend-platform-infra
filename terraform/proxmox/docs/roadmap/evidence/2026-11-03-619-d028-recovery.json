@@ -1,0 +1,103 @@
+{
+  "authorization": "D-028",
+  "ct": 619,
+  "result": "BLOCKED_ROLLED_BACK",
+  "observed_utc": "2026-11-03T08:02:09.435648+00:00",
+  "candidate_memory_mib": 256,
+  "candidate_stopped_preserved": true,
+  "originals_restored_verified": true,
+  "application_readiness_verified_by_rollback": true,
+  "incremental_integration_tested_then_rolled_back": true,
+  "coordinated_rollback_verified": true,
+  "idempotence_verified_before_observation": true,
+  "observation": {
+    "result": "FAIL",
+    "samples": 27,
+    "seconds": 780.5789993589933,
+    "first_failure_seconds": 180.1245681529981,
+    "failed_samples": 10,
+    "sha256": "d637c2adfd36004e82d0ec28199f788ad5e2057aea6fff74d22189e07cb78181"
+  },
+  "diagnosis": {
+    "samples": 36,
+    "failures": 14,
+    "failure_messages": [
+      "cAdvisor/Docker CPU mismatch: cadvisor"
+    ],
+    "maximum_cadvisor_cgroup_memory_bytes": 25325568,
+    "cadvisor_oom_or_restart": false,
+    "sample_sha256": "d702cc892aff2466712bb225cae2e3117bb9057f1ebf9a0aad6f829d24457a37",
+    "hypothesis": "cAdvisor cached CPU sample versus current Docker counter; timestamp alignment still unverified"
+  },
+  "accepted_chains_revalidated": {
+    "624": [],
+    "626": [],
+    "625": [],
+    "613": [],
+    "621": [],
+    "620": []
+  },
+  "coverage_corrected": 6,
+  "target_counts": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "controlled_test_removed": true,
+  "containers": [
+    {
+      "name": "/cadvisor-phase4-619-held",
+      "running": false,
+      "limit_mib": 256,
+      "oom_killed": false,
+      "restarts": 0
+    },
+    {
+      "name": "/cadvisor-phase4-619-rejected-1",
+      "running": false,
+      "limit_mib": 128,
+      "oom_killed": false,
+      "restarts": 0
+    },
+    {
+      "name": "/node_exporter-phase4-619-held",
+      "running": false,
+      "limit_mib": 48,
+      "oom_killed": false,
+      "restarts": 0
+    },
+    {
+      "name": "/infra-pulpo-n8n-1",
+      "running": true,
+      "limit_mib": 0,
+      "oom_killed": false,
+      "restarts": 0
+    },
+    {
+      "name": "/cadvisor",
+      "running": true,
+      "limit_mib": 0,
+      "oom_killed": false,
+      "restarts": 0
+    },
+    {
+      "name": "/node_exporter",
+      "running": true,
+      "limit_mib": 0,
+      "oom_killed": false,
+      "restarts": 0
+    },
+    {
+      "name": "/infra-pulpo-postgres-1",
+      "running": true,
+      "limit_mib": 0,
+      "oom_killed": false,
+      "restarts": 0
+    }
+  ],
+  "later_cts_started": false,
+  "telegram_chain_accepted": false,
+  "human_receipt_confirmed": false,
+  "backup_sha256": "cd30b908a0449e7de424e22d8837a274310db381fc6c5d5e96864a619c30fc4b",
+  "rollback_preserved_data_images": true
+}

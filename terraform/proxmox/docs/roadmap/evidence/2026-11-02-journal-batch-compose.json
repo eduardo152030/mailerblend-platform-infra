@@ -1,0 +1,239 @@
+{
+  "mode": "read-only Compose config via stdin; no files uploaded or services changed",
+  "models": [
+    {
+      "ct": 625,
+      "service": "node_exporter",
+      "model": {
+        "node_exporter": {
+          "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "pull_policy": "never",
+          "privileged": null,
+          "mem_limit": "50331648",
+          "cpus": 0.2,
+          "ports": [
+            {
+              "mode": "ingress",
+              "host_ip": "192.168.1.125",
+              "target": 9100,
+              "published": "9100",
+              "protocol": "tcp"
+            }
+          ],
+          "volumes": [
+            {
+              "type": "bind",
+              "source": "/",
+              "target": "/host",
+              "read_only": true,
+              "bind": {
+                "propagation": "rslave",
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/opt/exporter-phase4-pilot/preparation-only/node-cgroup.sh",
+              "target": "/opt/pilot-node-cgroup.sh",
+              "read_only": true,
+              "bind": {}
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ct": 625,
+      "service": "cadvisor",
+      "model": {
+        "cadvisor": {
+          "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "pull_policy": "never",
+          "privileged": true,
+          "mem_limit": "134217728",
+          "cpus": 0.5,
+          "ports": [
+            {
+              "mode": "ingress",
+              "host_ip": "192.168.1.125",
+              "target": 8080,
+              "published": "8085",
+              "protocol": "tcp"
+            }
+          ],
+          "volumes": [
+            {
+              "type": "bind",
+              "source": "/",
+              "target": "/rootfs",
+              "read_only": true,
+              "bind": {
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/sys",
+              "target": "/sys",
+              "read_only": true,
+              "bind": {
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/var/lib/docker",
+              "target": "/var/lib/docker",
+              "read_only": true,
+              "bind": {
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/var/lib/containerd",
+              "target": "/var/lib/containerd",
+              "read_only": true,
+              "bind": {
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/var/run/docker.sock",
+              "target": "/var/run/docker.sock",
+              "read_only": true,
+              "bind": {
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/run/containerd/containerd.sock",
+              "target": "/run/containerd/containerd.sock",
+              "read_only": true,
+              "bind": {}
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ct": 626,
+      "service": "node_exporter",
+      "model": {
+        "node_exporter": {
+          "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "pull_policy": "never",
+          "privileged": null,
+          "mem_limit": "50331648",
+          "cpus": 0.2,
+          "ports": [
+            {
+              "mode": "ingress",
+              "host_ip": "192.168.1.126",
+              "target": 9100,
+              "published": "9100",
+              "protocol": "tcp"
+            }
+          ],
+          "volumes": [
+            {
+              "type": "bind",
+              "source": "/",
+              "target": "/host",
+              "read_only": true,
+              "bind": {
+                "propagation": "rslave",
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/opt/exporter-phase4-pilot/preparation-only/node-cgroup.sh",
+              "target": "/opt/pilot-node-cgroup.sh",
+              "read_only": true,
+              "bind": {}
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ct": 626,
+      "service": "cadvisor",
+      "model": {
+        "cadvisor": {
+          "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "pull_policy": "never",
+          "privileged": true,
+          "mem_limit": "134217728",
+          "cpus": 0.5,
+          "ports": [
+            {
+              "mode": "ingress",
+              "host_ip": "192.168.1.126",
+              "target": 8080,
+              "published": "8085",
+              "protocol": "tcp"
+            }
+          ],
+          "volumes": [
+            {
+              "type": "bind",
+              "source": "/",
+              "target": "/rootfs",
+              "read_only": true,
+              "bind": {
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/sys",
+              "target": "/sys",
+              "read_only": true,
+              "bind": {
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/var/lib/docker",
+              "target": "/var/lib/docker",
+              "read_only": true,
+              "bind": {
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/var/lib/containerd",
+              "target": "/var/lib/containerd",
+              "read_only": true,
+              "bind": {
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/var/run/docker.sock",
+              "target": "/var/run/docker.sock",
+              "read_only": true,
+              "bind": {
+                "create_host_path": true
+              }
+            },
+            {
+              "type": "bind",
+              "source": "/run/containerd/containerd.sock",
+              "target": "/run/containerd/containerd.sock",
+              "read_only": true,
+              "bind": {}
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

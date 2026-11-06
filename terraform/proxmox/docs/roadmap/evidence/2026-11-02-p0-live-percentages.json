@@ -1,0 +1,20 @@
+[
+  {
+    "ct": 624,
+    "record_cpu_percent": 0.5487181481476,
+    "raw_rate_divided_by_assigned_cores_percent": 0.5487181481476,
+    "evaluation_timestamp": 1793653881.692
+  },
+  {
+    "ct": 626,
+    "record_cpu_percent": 0.2588585185185366,
+    "raw_rate_divided_by_assigned_cores_percent": 0.2588585185185366,
+    "evaluation_timestamp": 1793653881.692
+  },
+  {
+    "ct": 625,
+    "record_cpu_percent": 0.294895185185211,
+    "raw_rate_divided_by_assigned_cores_percent": 0.294895185185211,
+    "evaluation_timestamp": 1793653881.692
+  }
+]

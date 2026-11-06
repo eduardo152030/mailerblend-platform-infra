@@ -1,0 +1,17 @@
+[
+  {
+    "service": "infra-project-gestion",
+    "url": "http://192.168.1.121:8081/",
+    "status": 200
+  },
+  {
+    "service": "linkedin-worker",
+    "url": "http://192.168.1.120:3000/health",
+    "status": 200
+  },
+  {
+    "service": "signals-worker",
+    "url": "http://192.168.1.120:3001/health",
+    "status": 200
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "scripts/exporter-cpu-alignment.py": "44f1586bfe46bba31c1bb688609c1b2541011bc5ebdab8484dc99b9b0027554a",
+  "scripts/exporter-memory-alignment.py": "dc1a48ed4033cead1be723696f5f5ca55b18ca4f3b14ac2c5e0650c4d91986ba",
+  "scripts/prepare-approved-exporters.py": "8abb4858aaa1671e32e117b962330cbb2b98ccc1e97642d54ced1561eb009763",
+  "scripts/prepare-617-memory.py": "28f65b7f95b221cebf6580a3382d01cf67ed94798f9a1c7fb0124ce93763c488"
+}

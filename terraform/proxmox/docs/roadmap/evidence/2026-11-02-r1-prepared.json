@@ -1,0 +1,26 @@
+{
+  "ct": 613,
+  "hostname": "infra-hola",
+  "ip": "192.168.1.113",
+  "status": "PREPARED_NOT_DEPLOYED",
+  "cores": 1,
+  "memory_mib": 512,
+  "original_exporters_to_preserve": [
+    "node_exporter",
+    "cadvisor"
+  ],
+  "application_probe": "No application in audited baseline; abort if one appears",
+  "socket_approval": "PENDING_CT613",
+  "files": {
+    "pilot.py": "6ba0f5409423e12470bc3bf989e1816dadd1f41c7a1982da593cfbdb0a66dfb9",
+    "node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+    "cadvisor.yml": "e45b57af4f5cd2a87591567d6da6093e375c4f34d1a6dc6ae2677e5f6fc5a255",
+    "node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+    "cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+    "cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+    "node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+    "node-cgroup.sh": "3abf15cc620ba953311f3010c539530ed547c11c99dd521478ab954a8d03f8ee",
+    "sample.py": "a1b44c1e7cacbe07ca7081da439c603e843389321e8d5e0e2c1ffc655eb8a7f4",
+    "observe.py": "0a1f0c958cc8bbd5328131e117cc32dffeab5b38cea166eaf0c7b04af50ab7ae"
+  }
+}

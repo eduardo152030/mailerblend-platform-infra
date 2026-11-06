@@ -1,0 +1,37 @@
+{
+  "incident": "CT619 CPU counter discrepancy",
+  "started_at_utc": "2026-11-03T08:07:36.116763+00:00",
+  "timezone": "Europe/Madrid",
+  "status": "CT619_CORRECTED_PASS_STABLE_ROLLOUT_STOPPED_AND_ROLLED_BACK_AT623",
+  "scope": "D029 investigation, regression fix, CT619-only retry then D025 sequence on full PASS",
+  "diagnosis_completed_at_utc": "2026-11-03T08:19:47.353762+00:00",
+  "diagnosis_elapsed_seconds": 731.236999,
+  "collector_race_corrected_at_utc": "2026-11-03T08:27:44.667030+00:00",
+  "last_updated_utc": "2026-11-03T08:50:12.385120+00:00",
+  "total_elapsed_seconds": 2556.268357,
+  "ct619_pass_at_utc": "2026-11-03T08:38:09.037857+00:00",
+  "elapsed_until_ct619_pass_seconds": 1832.921094,
+  "ct619_stability_completed_at_utc": "2026-11-03T08:53:11.283992+00:00",
+  "elapsed_until_ct619_stability_seconds": 2735.167229,
+  "ct619_post_watch": {
+    "result": "PASS",
+    "samples": 31,
+    "seconds": 901.7252992540016,
+    "alert_for_proven": false
+  },
+  "finished_at_utc": "2026-11-03T09:05:48.801096+00:00",
+  "total_intervention_elapsed_seconds": 3492.684333,
+  "validation_and_recovery_until_ct619_pass_seconds": 1101.684095,
+  "measurement_note": "Wall-clock elapsed time includes verification, mandatory observation, post-watch, and coordinated rollbacks; not claimed as manual active hours.",
+  "final_checks": {
+    "regression_tests_passed": 28,
+    "local_markdown_files_links_checked": 7,
+    "git_diff_check": "PASS",
+    "cpu_collectors_stopped": [
+      619,
+      623
+    ],
+    "coverage_corrected": 7,
+    "rollout_status": "BLOCKED_ROLLED_BACK_AT623"
+  }
+}

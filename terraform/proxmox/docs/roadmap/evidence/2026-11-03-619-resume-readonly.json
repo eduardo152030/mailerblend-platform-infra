@@ -1,0 +1,14 @@
+{
+  "observed_utc": "2026-11-03T07:38:50.706259+00:00",
+  "ct": 619,
+  "original_exporters_running": true,
+  "applications_running": true,
+  "oom_killed": false,
+  "restart_counts": 0,
+  "n8n_http_status": 200,
+  "postgres_ready": true,
+  "proposal_tests_passed": 2,
+  "deployment_performed": false,
+  "initial_loopback_probe": "connection refused; successful probe used documented LXC address 192.168.1.119",
+  "approval_pending": "cAdvisor CT619 memory limit 128 to 256 MiB; observation >=600s/21 samples; sequential rollout remains halted"
+}

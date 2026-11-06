@@ -1,0 +1,64 @@
+{
+  "615": {
+    "pids.current": "203",
+    "pids.max": "max",
+    "pids.events": "max 0",
+    "containers": [
+      {
+        "name": "/cadvisor",
+        "pids_limit": null,
+        "oom_killed": false,
+        "restarts": 0
+      },
+      {
+        "name": "/node_exporter",
+        "pids_limit": null,
+        "oom_killed": false,
+        "restarts": 0
+      },
+      {
+        "name": "/mailerblend-sgtm-serving",
+        "pids_limit": null,
+        "oom_killed": false,
+        "restarts": 0
+      },
+      {
+        "name": "/mailerblend-sgtm-preview",
+        "pids_limit": null,
+        "oom_killed": false,
+        "restarts": 0
+      }
+    ]
+  },
+  "614": {
+    "pids.current": "209",
+    "pids.max": "max",
+    "pids.events": "max 0",
+    "containers": [
+      {
+        "name": "/node_exporter",
+        "pids_limit": null,
+        "oom_killed": false,
+        "restarts": 0
+      },
+      {
+        "name": "/infra-nucleoedge-sgtm-1",
+        "pids_limit": null,
+        "oom_killed": false,
+        "restarts": 0
+      },
+      {
+        "name": "/infra-nucleoedge-sgtm_preview-1",
+        "pids_limit": null,
+        "oom_killed": false,
+        "restarts": 0
+      },
+      {
+        "name": "/cadvisor",
+        "pids_limit": null,
+        "oom_killed": false,
+        "restarts": 0
+      }
+    ]
+  }
+}

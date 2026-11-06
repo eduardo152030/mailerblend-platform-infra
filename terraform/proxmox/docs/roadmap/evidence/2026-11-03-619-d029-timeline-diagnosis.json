@@ -1,0 +1,51 @@
+{
+  "now": 1793694250.1942418,
+  "containers": [
+    {
+      "name": "cadvisor",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "generation": "2026-11-03T08:22:06.8114351Z",
+      "rows": 0,
+      "first": null,
+      "last": null,
+      "metric_tail": [
+        "3.056911 1793694245162"
+      ]
+    },
+    {
+      "name": "node_exporter",
+      "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+      "generation": "2026-11-03T08:22:05.446450106Z",
+      "rows": 0,
+      "first": null,
+      "last": null,
+      "metric_tail": [
+        "0.437891 1793694235385"
+      ]
+    },
+    {
+      "name": "infra-pulpo-n8n-1",
+      "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+      "generation": "2026-09-17T20:44:10.223424359Z",
+      "rows": 5,
+      "first": 1793693997.409707,
+      "last": 1793693999.415596,
+      "metric_tail": [
+        "4667.679828 1793694234825"
+      ]
+    },
+    {
+      "name": "infra-pulpo-postgres-1",
+      "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+      "generation": "2026-09-17T20:44:10.188084591Z",
+      "rows": 5,
+      "first": 1793693997.421079,
+      "last": 1793693999.423953,
+      "metric_tail": [
+        "13308.221961 1793694203210"
+      ]
+    }
+  ],
+  "collector_errors_tail": "",
+  "collector_log": "Traceback (most recent call last):\n  File \"/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cpu-alignment.py\", line 156, in <module>\n    collect_cpu(a.directory,a.names,a.seconds)\n  File \"/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cpu-alignment.py\", line 129, in collect_cpu\n    pid=c['State']['Pid'];text=Path('/proc/'+str(pid)+'/cgroup').read_text()\n  File \"/usr/lib/python3.10/pathlib.py\", line 1134, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n  File \"/usr/lib/python3.10/pathlib.py\", line 1119, in open\n    return self._accessor.open(self, mode, buffering, encoding, errors,\nFileNotFoundError: [Errno 2] No such file or directory: '/proc/0/cgroup'\n"
+}

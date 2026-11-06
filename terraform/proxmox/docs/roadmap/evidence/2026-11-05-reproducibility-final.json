@@ -1,0 +1,375 @@
+{
+  "active_exporter_inputs": {
+    "624": [
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/node-cgroup.sh",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/pilot-624-20261102T161242+0100/cadvisor-containerd.yml",
+        "match": true
+      }
+    ],
+    "626": [
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/node-cgroup.sh",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-626/cadvisor-containerd.yml",
+        "match": true
+      }
+    ],
+    "625": [
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/node-cgroup.sh",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/journal-20261102T190629Z-625/cadvisor-containerd.yml",
+        "match": true
+      }
+    ],
+    "613": [
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/node-cgroup.sh",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T204936Z-613/cadvisor-containerd.yml",
+        "match": true
+      }
+    ],
+    "621": [
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/node-cgroup.sh",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-621/cadvisor-containerd.yml",
+        "match": true
+      }
+    ],
+    "620": [
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.sh",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-containerd.yml",
+        "match": true
+      }
+    ],
+    "619": [
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.sh",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-containerd.yml",
+        "match": true
+      }
+    ],
+    "623": [
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-cgroup.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/node-cgroup.sh",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor-limits.yml",
+        "match": true
+      },
+      {
+        "path": "/opt/exporter-phase4-pilot/integration-20261102T223431Z-623/cadvisor-containerd.yml",
+        "match": true
+      }
+    ]
+  },
+  "all_exporter_inputs_match": true,
+  "monitoring": {
+    "prometheus.yml": {
+      "expected": "4f83f9fd9bc78a38ff0660b86300037976ed5e0d528ff8edd9e05417dae2397f",
+      "actual": "4f83f9fd9bc78a38ff0660b86300037976ed5e0d528ff8edd9e05417dae2397f",
+      "match": true
+    },
+    "rules/blackbox-alerts.yml": {
+      "expected": "7ee7f53a62a8ae26ea0577504770c477c0500170baf0df4a7a4685731682cb45",
+      "actual": "7ee7f53a62a8ae26ea0577504770c477c0500170baf0df4a7a4685731682cb45",
+      "match": true
+    },
+    "rules/container-availability.yml": {
+      "expected": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "actual": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "match": true
+    },
+    "rules/container-restarts.yml": {
+      "expected": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "actual": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "match": true
+    },
+    "rules/infra-containers.yml": {
+      "expected": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "actual": "e309a9571fc4b39c08569f27fd2cde6ebe2837e471f03b304a1b11c686d50751",
+      "match": true
+    },
+    "rules/infra-hosts.yml": {
+      "expected": "99fe345c80ed31fac07ddefa629b460f8300e41b4263120580acf708e962c54b",
+      "actual": "99fe345c80ed31fac07ddefa629b460f8300e41b4263120580acf708e962c54b",
+      "match": true
+    },
+    "rules/lxc-cpu-inventory.yml": {
+      "expected": "2037d4cbfb55f10b00b334ab7d016fc86e9fac1b3d96c874f6abceb959742dfe",
+      "actual": "2037d4cbfb55f10b00b334ab7d016fc86e9fac1b3d96c874f6abceb959742dfe",
+      "match": true
+    },
+    "rules/lxc-cpu-targets.yml": {
+      "expected": "50b6ff76f14288d44741b9840a36bd584626d82299120c79154f016ccb630e95",
+      "actual": "50b6ff76f14288d44741b9840a36bd584626d82299120c79154f016ccb630e95",
+      "match": true
+    },
+    "rules/lxc-cpu.yml": {
+      "expected": "6335496ad41ff6aeeeb9e445e0173b969d0178a5354b4a823cb923f57bdb1a96",
+      "actual": "6335496ad41ff6aeeeb9e445e0173b969d0178a5354b4a823cb923f57bdb1a96",
+      "match": true
+    },
+    "rules/monitoring-health.yml": {
+      "expected": "0284b9b902773753abf0b5f91e6695b781a4bb6333b0056f58e4b13b489e3ca6",
+      "actual": "0284b9b902773753abf0b5f91e6695b781a4bb6333b0056f58e4b13b489e3ca6",
+      "match": true
+    },
+    "targets/blackbox-collect.json": {
+      "expected": "9eef9c5ba7bb278d247ea2865213568a095a66304232fdf4af8a7132c05da425",
+      "actual": "9eef9c5ba7bb278d247ea2865213568a095a66304232fdf4af8a7132c05da425",
+      "match": true
+    },
+    "targets/blackbox-edge-collect.json": {
+      "expected": "100d94689ccfe59abc0ff4fe0c6e448761eef635d533c4da22825d27f45ee939",
+      "actual": "100d94689ccfe59abc0ff4fe0c6e448761eef635d533c4da22825d27f45ee939",
+      "match": true
+    },
+    "targets/blackbox-edge-external.json": {
+      "expected": "10a68a01f9d1d8c4cfee978b726d022067b40483a2e542b6cc93efab06227b77",
+      "actual": "10a68a01f9d1d8c4cfee978b726d022067b40483a2e542b6cc93efab06227b77",
+      "match": true
+    },
+    "targets/blackbox-edge-mailerblend-collect.json": {
+      "expected": "0d35aac677aafc303bafe28aa3fbc492658783a52042614c2005fa455183cc0b",
+      "actual": "0d35aac677aafc303bafe28aa3fbc492658783a52042614c2005fa455183cc0b",
+      "match": true
+    },
+    "targets/blackbox-edge-nucleotecnologico.json": {
+      "expected": "56679e973b4a707ba120f7457e0bf8738575a48f66a21b799186b3b6af0f14cd",
+      "actual": "56679e973b4a707ba120f7457e0bf8738575a48f66a21b799186b3b6af0f14cd",
+      "match": true
+    },
+    "targets/blackbox-http.json": {
+      "expected": "9729d58915a3ddcdb435a2e091429c959c256190fce28f831bff6a65201b4981",
+      "actual": "9729d58915a3ddcdb435a2e091429c959c256190fce28f831bff6a65201b4981",
+      "match": true
+    },
+    "targets/blackbox-infra-doc.json": {
+      "expected": "c968841c9e155eb302b08e187330a582f6047e3869f09eb801ba98e1b089d0b4",
+      "actual": "c968841c9e155eb302b08e187330a582f6047e3869f09eb801ba98e1b089d0b4",
+      "match": true
+    },
+    "targets/blackbox-infra-svc01.json": {
+      "expected": "f3b527a99b7db676a54995b55ee64c46e55c3be547d8f16447cebf12d8511406",
+      "actual": "f3b527a99b7db676a54995b55ee64c46e55c3be547d8f16447cebf12d8511406",
+      "match": true
+    },
+    "targets/blackbox-internal-critical.json": {
+      "expected": "585b4bcc6a4ecedbad197f0dda5bd7a26396263442346e709213b958bd78240b",
+      "actual": "585b4bcc6a4ecedbad197f0dda5bd7a26396263442346e709213b958bd78240b",
+      "match": true
+    },
+    "targets/blackbox-internet.json": {
+      "expected": "c3be69eabea61634cff6c1a6959ff761c313324de688414c10af7c57a546e287",
+      "actual": "c3be69eabea61634cff6c1a6959ff761c313324de688414c10af7c57a546e287",
+      "match": true
+    },
+    "targets/blackbox.json": {
+      "expected": "94ef9374cd35e9dbda33796b312ab3798fdc5fe8e281b5fc6a6a846d58dbb9a9",
+      "actual": "94ef9374cd35e9dbda33796b312ab3798fdc5fe8e281b5fc6a6a846d58dbb9a9",
+      "match": true
+    },
+    "targets/cadvisor.json": {
+      "expected": "3c129db80a3d63bfd2a6f6cef96c72f8bdc3aa29d6d6f879812a9779523de9f3",
+      "actual": "3c129db80a3d63bfd2a6f6cef96c72f8bdc3aa29d6d6f879812a9779523de9f3",
+      "match": true
+    },
+    "targets/grafana.json": {
+      "expected": "69145575e32a4351df775028c9cecf023dfe7b5e11e4eb43bdd8e633372bdfb6",
+      "actual": "69145575e32a4351df775028c9cecf023dfe7b5e11e4eb43bdd8e633372bdfb6",
+      "match": true
+    },
+    "targets/node-exporter.json": {
+      "expected": "5df81852d198497cad5c1811b132c81a94ce786b76aed34845664ffbe5d693e8",
+      "actual": "5df81852d198497cad5c1811b132c81a94ce786b76aed34845664ffbe5d693e8",
+      "match": true
+    }
+  },
+  "all_monitoring_match": true,
+  "excluded_exporters_unchanged": {
+    "618": true,
+    "622": true,
+    "611": true,
+    "616": true,
+    "610": true
+  }
+}

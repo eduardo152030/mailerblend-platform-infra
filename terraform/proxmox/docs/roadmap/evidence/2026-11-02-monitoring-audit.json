@@ -1,0 +1,1404 @@
+{
+  "observed_at": "2026-11-02T15:18:48.119464+01:00",
+  "mode": "read-only",
+  "production_changes": false,
+  "prometheus_ready": 200,
+  "alertmanager_ready": 200,
+  "grafana_health": 200,
+  "targets": [
+    {
+      "job": "alertmanager",
+      "service": null,
+      "instance": "alertmanager:9093",
+      "health": "up",
+      "scrape_pool": "alertmanager"
+    },
+    {
+      "job": "blackbox",
+      "service": "infra-pulpo",
+      "instance": "https://infra-pulpo.mailerblend.com/",
+      "health": "up",
+      "scrape_pool": "blackbox"
+    },
+    {
+      "job": "blackbox",
+      "service": "infra-alertmanager",
+      "instance": "http://192.168.1.110:9093/-/healthy",
+      "health": "up",
+      "scrape_pool": "blackbox"
+    },
+    {
+      "job": "blackbox",
+      "service": "edge-nucleotecnologico-collect",
+      "instance": "https://edge.nucleotecnologico.es/g/collect?v=2&en=page_view&tid=G-SVDYWQXM1W&cid=local-cli-test&dl=https://nucleotecnologico.es",
+      "health": "up",
+      "scrape_pool": "blackbox"
+    },
+    {
+      "job": "blackbox",
+      "service": "infra-doc",
+      "instance": "https://infra-doc.mailerblend.com/",
+      "health": "up",
+      "scrape_pool": "blackbox"
+    },
+    {
+      "job": "blackbox",
+      "service": "edge-nucleotecnologico-collect",
+      "instance": "https://edge.nucleotecnologico.es/g/collect?v=2&en=page_view&tid=G-SVDYWQXM1W&cid=blackbox-test&dl=https%3A%2F%2Fnucleotecnologico.es",
+      "health": "up",
+      "scrape_pool": "blackbox"
+    },
+    {
+      "job": "blackbox",
+      "service": "infra-eva-assistant-bot",
+      "instance": "https://infra-eva.mailerblend.com/",
+      "health": "up",
+      "scrape_pool": "blackbox"
+    },
+    {
+      "job": "blackbox",
+      "service": "internet",
+      "instance": "https://www.google.com/generate_204",
+      "health": "up",
+      "scrape_pool": "blackbox"
+    },
+    {
+      "job": "blackbox",
+      "service": "edge-mailerblend-collect",
+      "instance": "https://edge.mailerblend.com/g/collect?v=2&tid=G-TEST123&cid=555&t=page_view&en=test_ping",
+      "health": "up",
+      "scrape_pool": "blackbox"
+    },
+    {
+      "job": "blackbox",
+      "service": "svc01",
+      "instance": "https://infra-svc01.mailerblend.com/",
+      "health": "up",
+      "scrape_pool": "blackbox"
+    },
+    {
+      "job": "blackbox",
+      "service": "infra-prometheus",
+      "instance": "http://192.168.1.110:9090/-/healthy",
+      "health": "up",
+      "scrape_pool": "blackbox"
+    },
+    {
+      "job": "blackbox",
+      "service": "internet",
+      "instance": "https://www.google.com/generate_204",
+      "health": "up",
+      "scrape_pool": "blackbox"
+    },
+    {
+      "job": "blackbox_exporter",
+      "service": null,
+      "instance": "192.168.1.116:9115",
+      "health": "up",
+      "scrape_pool": "blackbox_exporter"
+    },
+    {
+      "job": "cadvisor",
+      "service": "svc01",
+      "instance": "192.168.1.112:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-composable-crm",
+      "instance": "192.168.1.118:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-nucleoedge",
+      "instance": "192.168.1.114:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-pulpo",
+      "instance": "192.168.1.119:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-blackbox",
+      "instance": "192.168.1.116:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-eva-assistant-bot",
+      "instance": "192.168.1.122:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-gestoria",
+      "instance": "192.168.1.123:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-grafana",
+      "instance": "192.168.1.111:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-hola",
+      "instance": "192.168.1.113:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-mailerblend-edge",
+      "instance": "192.168.1.115:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-excraper",
+      "instance": "192.168.1.120:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-orbit",
+      "instance": "192.168.1.117:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-project-gestion",
+      "instance": "192.168.1.121:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "cadvisor",
+      "service": "infra-prom",
+      "instance": "192.168.1.110:8085",
+      "health": "up",
+      "scrape_pool": "cadvisor"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-orbit",
+      "instance": "192.168.1.117:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-composable-crm",
+      "instance": "192.168.1.118:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-gestoria",
+      "instance": "192.168.1.123:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-nucleoedge",
+      "instance": "192.168.1.114:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-prom",
+      "instance": "192.168.1.110:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-pulpo",
+      "instance": "192.168.1.119:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-blackbox",
+      "instance": "192.168.1.116:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-eva-assistant-bot",
+      "instance": "192.168.1.122:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-excraper",
+      "instance": "192.168.1.120:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-grafana",
+      "instance": "192.168.1.111:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-hola",
+      "instance": "192.168.1.113:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-mailerblend-edge",
+      "instance": "192.168.1.115:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "infra-project-gestion",
+      "instance": "192.168.1.121:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "node_exporter",
+      "service": "svc01",
+      "instance": "192.168.1.112:9100",
+      "health": "up",
+      "scrape_pool": "node"
+    },
+    {
+      "job": "prometheus",
+      "service": null,
+      "instance": "127.0.0.1:9090",
+      "health": "up",
+      "scrape_pool": "prometheus"
+    }
+  ],
+  "node_cpu_count": [
+    {
+      "metric": {
+        "instance": "192.168.1.115:9100",
+        "service": "infra-mailerblend-edge"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.113:9100",
+        "service": "infra-hola"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.123:9100",
+        "service": "infra-gestoria"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.114:9100",
+        "service": "infra-nucleoedge"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.117:9100",
+        "service": "infra-orbit"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.116:9100",
+        "service": "infra-blackbox"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.119:9100",
+        "service": "infra-pulpo"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.110:9100",
+        "service": "infra-prom"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.121:9100",
+        "service": "infra-project-gestion"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.111:9100",
+        "service": "infra-grafana"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.120:9100",
+        "service": "infra-excraper"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.112:9100",
+        "service": "svc01"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.118:9100",
+        "service": "infra-composable-crm"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.122:9100",
+        "service": "infra-eva-assistant-bot"
+      },
+      "value": [
+        1793629128.466,
+        "4"
+      ]
+    }
+  ],
+  "node_memory_total": [
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.115:9100",
+        "job": "node_exporter",
+        "service": "infra-mailerblend-edge",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.113:9100",
+        "job": "node_exporter",
+        "service": "infra-hola",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.123:9100",
+        "job": "node_exporter",
+        "service": "infra-gestoria",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.114:9100",
+        "job": "node_exporter",
+        "service": "infra-nucleoedge",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.117:9100",
+        "job": "node_exporter",
+        "service": "infra-orbit",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.116:9100",
+        "job": "node_exporter",
+        "service": "infra-blackbox",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.119:9100",
+        "job": "node_exporter",
+        "service": "infra-pulpo",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.110:9100",
+        "job": "node_exporter",
+        "service": "infra-prom",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.121:9100",
+        "job": "node_exporter",
+        "service": "infra-project-gestion",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.111:9100",
+        "job": "node_exporter",
+        "service": "infra-grafana",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.120:9100",
+        "job": "node_exporter",
+        "service": "infra-excraper",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.112:9100",
+        "job": "node_exporter",
+        "service": "svc01",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.118:9100",
+        "job": "node_exporter",
+        "service": "infra-composable-crm",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_memory_MemTotal_bytes",
+        "instance": "192.168.1.122:9100",
+        "job": "node_exporter",
+        "service": "infra-eva-assistant-bot",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.47,
+        "16646774784"
+      ]
+    }
+  ],
+  "cadvisor_named_memory_series": [],
+  "cadvisor_all_memory_series": [
+    {
+      "metric": {
+        "instance": "192.168.1.111:8085",
+        "service": "infra-grafana"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.120:8085",
+        "service": "infra-excraper"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.123:8085",
+        "service": "infra-gestoria"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.110:8085",
+        "service": "infra-prom"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.114:8085",
+        "service": "infra-nucleoedge"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.117:8085",
+        "service": "infra-orbit"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.119:8085",
+        "service": "infra-pulpo"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.113:8085",
+        "service": "infra-hola"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.115:8085",
+        "service": "infra-mailerblend-edge"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.112:8085",
+        "service": "svc01"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.121:8085",
+        "service": "infra-project-gestion"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.116:8085",
+        "service": "infra-blackbox"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.118:8085",
+        "service": "infra-composable-crm"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.122:8085",
+        "service": "infra-eva-assistant-bot"
+      },
+      "value": [
+        1793629128.475,
+        "1"
+      ]
+    }
+  ],
+  "cadvisor_version": [
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "6f3f25ba",
+        "cadvisorVersion": "v0.49.1",
+        "instance": "192.168.1.111:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.18",
+        "service": "infra-grafana",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.120:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-excraper",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.123:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-gestoria",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.110:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-prom",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.114:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-nucleoedge",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.117:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-orbit",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.119:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-pulpo",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.113:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-hola",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.115:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-mailerblend-edge",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.112:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "svc01",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.121:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-project-gestion",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.116:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-blackbox",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.118:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-composable-crm",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "cadvisor_version_info",
+        "cadvisorRevision": "1a19abb0",
+        "cadvisorVersion": "v0.47.2",
+        "instance": "192.168.1.122:8085",
+        "job": "cadvisor",
+        "kernelVersion": "6.8.12-4-pve",
+        "osVersion": "Alpine Linux v3.16",
+        "service": "infra-eva-assistant-bot",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.478,
+        "1"
+      ]
+    }
+  ],
+  "node_version": [
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.25.3",
+        "instance": "192.168.1.115:9100",
+        "job": "node_exporter",
+        "revision": "654f19dee6a0c41de78a8d6d870e8c742cdb43b9",
+        "service": "infra-mailerblend-edge",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.10.2"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.25.3",
+        "instance": "192.168.1.113:9100",
+        "job": "node_exporter",
+        "revision": "654f19dee6a0c41de78a8d6d870e8c742cdb43b9",
+        "service": "infra-hola",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.10.2"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.26.1",
+        "instance": "192.168.1.123:9100",
+        "job": "node_exporter",
+        "revision": "0dd664dece3f8319f6bec5a221acd2c7ad13a23d",
+        "service": "infra-gestoria",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.11.1"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.25.3",
+        "instance": "192.168.1.114:9100",
+        "job": "node_exporter",
+        "revision": "654f19dee6a0c41de78a8d6d870e8c742cdb43b9",
+        "service": "infra-nucleoedge",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.10.2"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.25.3",
+        "instance": "192.168.1.117:9100",
+        "job": "node_exporter",
+        "revision": "654f19dee6a0c41de78a8d6d870e8c742cdb43b9",
+        "service": "infra-orbit",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.10.2"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.25.3",
+        "instance": "192.168.1.116:9100",
+        "job": "node_exporter",
+        "revision": "654f19dee6a0c41de78a8d6d870e8c742cdb43b9",
+        "service": "infra-blackbox",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.10.2"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.25.3",
+        "instance": "192.168.1.119:9100",
+        "job": "node_exporter",
+        "revision": "654f19dee6a0c41de78a8d6d870e8c742cdb43b9",
+        "service": "infra-pulpo",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.10.2"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.25.3",
+        "instance": "192.168.1.110:9100",
+        "job": "node_exporter",
+        "revision": "654f19dee6a0c41de78a8d6d870e8c742cdb43b9",
+        "service": "infra-prom",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.10.2"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.26.1",
+        "instance": "192.168.1.121:9100",
+        "job": "node_exporter",
+        "revision": "14fddfc75281ab900df5945fb3dd7fcea14d7801",
+        "service": "infra-project-gestion",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.11.0"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.25.3",
+        "instance": "192.168.1.111:9100",
+        "job": "node_exporter",
+        "revision": "654f19dee6a0c41de78a8d6d870e8c742cdb43b9",
+        "service": "infra-grafana",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.10.2"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.25.3",
+        "instance": "192.168.1.120:9100",
+        "job": "node_exporter",
+        "revision": "654f19dee6a0c41de78a8d6d870e8c742cdb43b9",
+        "service": "infra-excraper",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.10.2"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.25.3",
+        "instance": "192.168.1.112:9100",
+        "job": "node_exporter",
+        "revision": "654f19dee6a0c41de78a8d6d870e8c742cdb43b9",
+        "service": "svc01",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.10.2"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.25.3",
+        "instance": "192.168.1.118:9100",
+        "job": "node_exporter",
+        "revision": "654f19dee6a0c41de78a8d6d870e8c742cdb43b9",
+        "service": "infra-composable-crm",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.10.2"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "node_exporter_build_info",
+        "branch": "HEAD",
+        "goarch": "amd64",
+        "goos": "linux",
+        "goversion": "go1.26.1",
+        "instance": "192.168.1.122:9100",
+        "job": "node_exporter",
+        "revision": "0dd664dece3f8319f6bec5a221acd2c7ad13a23d",
+        "service": "infra-eva-assistant-bot",
+        "source": "inventory",
+        "tags": "unknown",
+        "version": "1.11.1"
+      },
+      "value": [
+        1793629128.481,
+        "1"
+      ]
+    }
+  ],
+  "phase2_alerts": [],
+  "telegram_failed": [
+    {
+      "metric": {},
+      "value": [
+        1793629128.486,
+        "56"
+      ]
+    }
+  ],
+  "telegram_new_failures_10m": [
+    {
+      "metric": {},
+      "value": [
+        1793629128.488,
+        "0"
+      ]
+    }
+  ],
+  "eva_free_ratio": [
+    {
+      "metric": {
+        "device": "/dev/mapper/pve-vm--622--disk--0",
+        "fstype": "ext4",
+        "instance": "192.168.1.122:9100",
+        "job": "node_exporter",
+        "mountpoint": "/",
+        "service": "infra-eva-assistant-bot",
+        "source": "inventory"
+      },
+      "value": [
+        1793629128.491,
+        "0.34148043851429943"
+      ]
+    }
+  ],
+  "current_alerts": [
+    {
+      "metric": {
+        "__name__": "ALERTS",
+        "alertname": "CollectEndpointDown",
+        "alertstate": "firing",
+        "category": "analytics",
+        "instance": "https://edge.nucleotecnologico.es/g/collect",
+        "job": "blackbox",
+        "probe_type": "collect",
+        "service": "edge-nucleotecnologico-collect",
+        "severity": "critical"
+      },
+      "value": [
+        1793629128.493,
+        "1"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "NoInternetConnectivity",
+      "health": "ok"
+    },
+    {
+      "name": "PublicUrlDown",
+      "health": "ok"
+    },
+    {
+      "name": "CollectEndpointDown",
+      "health": "ok"
+    },
+    {
+      "name": "InternalEndpointDown",
+      "health": "ok"
+    },
+    {
+      "name": "SSLCertExpiringSoon",
+      "health": "ok"
+    },
+    {
+      "name": "SSLCertExpiringVerySoon",
+      "health": "ok"
+    },
+    {
+      "name": "HostOutOfService",
+      "health": "ok"
+    },
+    {
+      "name": "HostDiskFilling",
+      "health": "ok"
+    },
+    {
+      "name": "HostLowMemory",
+      "health": "ok"
+    },
+    {
+      "name": "HostMemoryFillingFast",
+      "health": "ok"
+    },
+    {
+      "name": "HostHighCpuUsage",
+      "health": "ok"
+    },
+    {
+      "name": "ExporterDown",
+      "health": "ok"
+    },
+    {
+      "name": "AlertmanagerDeliveryErrors",
+      "health": "ok"
+    }
+  ]
+}

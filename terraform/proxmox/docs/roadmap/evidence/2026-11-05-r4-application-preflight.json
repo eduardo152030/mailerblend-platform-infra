@@ -1,0 +1,31 @@
+{
+  "mode": "read-only; no target modifications",
+  "checks": {
+    "617": {
+      "ok": true,
+      "checks": {
+        "status": 200,
+        "read_only_application_checks": [
+          {
+            "endpoint": "http://192.168.1.117:18088/healthz",
+            "status": 403
+          },
+          {
+            "container": "analytics-ingest-gateway",
+            "status": 200
+          }
+        ]
+      }
+    },
+    "615": {
+      "ok": false,
+      "http_status": 503,
+      "endpoint": "http://127.0.0.1:18092/healthy"
+    },
+    "614": {
+      "ok": false,
+      "http_status": 503,
+      "endpoint": "http://127.0.0.1:8091/healthy"
+    }
+  }
+}

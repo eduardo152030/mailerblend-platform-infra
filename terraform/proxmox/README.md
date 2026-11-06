@@ -2,7 +2,10 @@
 
 Infraestructura **declarativa, reproducible y extensible** para Mailerblend, basada en **Proxmox + Terraform + Docker**, con observabilidad integrada (**Prometheus, Alertmanager, Grafana**) y **auto‑discovery** desde inventario.
 
-> Estado: **Startup‑grade**. No homelab. Todo se crea, destruye y recrea sin pasos manuales.
+> Estado operativo y trabajo pendiente: [Roadmap central](docs/roadmap/ROADMAP.md)
+> y [CURRENT-STATUS](docs/roadmap/CURRENT-STATUS.md). Las capacidades descritas
+> como objetivos no acreditan que todo esté desplegado o aceptado. Antes de ejecutar
+> comandos, revisar la fase y el alcance autorizado.
 
 ---
 
@@ -215,30 +218,38 @@ make status
 
 ## 🚀 Roadmap
 
-- Edge-router (TLS + subdominios)
-- Alertmanager receivers (Slack / Email / Webhook)
-- CI/CD (GitHub Actions)
-- Backups Proxmox / offsite
-- Migración futura a cloud (sin romper decisiones)
+El seguimiento oficial está en [docs/roadmap/ROADMAP.md](docs/roadmap/ROADMAP.md).
+Para continuar otro día, abrir [CURRENT-STATUS](docs/roadmap/CURRENT-STATUS.md) y
+[DECISIONS](docs/roadmap/DECISIONS.md). Las reglas de trabajo están en [AGENTS.md](AGENTS.md).
 
+Fase 3 aceptada con dispensa de UAT; fase activa: **4 — Exporters & Monitoring Coverage**.
+Los tres Journal 624/626/625 tienen exporters aceptados. La integración incremental
+CPU P0 y R1 CT 613 están preparados, no desplegados: ver
+[estado actual](docs/roadmap/CURRENT-STATUS.md) e
+[integración](docs/roadmap/INCREMENTAL-INTEGRATION.md). F4 exige 17 cadenas completas.
+`make deploy-all` es una operación global con Terraform, no un comando de diagnóstico
+ni el procedimiento del piloto de F4.
 
+## Referencia del stack de monitoring
 
-# Mailerblend Platform Infra (Proxmox / Terraform)
+- `infra-prom` (Prometheus + Alertmanager): `192.168.1.110`.
+- `infra-grafana` (Grafana): `192.168.1.111`.
+- `node-exporter` por CT: puerto `9100`.
+- `cadvisor` por CT: puerto `8085`.
 
-## Monitoring stack (Phase 2)
-Services:
-- `infra-prom` (Prometheus + Alertmanager) -> `192.168.1.110`
-- `infra-grafana` (Grafana) -> `192.168.1.111`
-- `node-exporter` (per CT) -> port `9100`
-- `cadvisor` (per CT) -> port `8085`
+Prometheus usa file_sd generado desde `inventory/services/*.yml`. Para generar
+catálogos localmente, sin desplegar:
 
-## Inventory-driven targets
-Prometheus discovers targets via file_sd generated from `inventory/services/*.yml`.
-
-Generate targets:
 ```bash
 ./scripts/gen-prom-targets.py
+```
 
+## Ideas históricas pendientes de priorización
+
+Edge-router (TLS/subdominios), otros receivers (Slack/Email/Webhook), CI/CD,
+backups Proxmox/offsite y migración futura a cloud constaban en el README previo.
+Su existencia no implica aprobación ni ejecución; la planificación efectiva y
+las dependencias se registran en el roadmap central.
 
 ---
 

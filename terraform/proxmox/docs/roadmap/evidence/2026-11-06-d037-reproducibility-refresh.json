@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "framework_revision": "framework-347ef93c2fca",
+  "two_renders_identical": true,
+  "reviewed_d036_revision_identical": true,
+  "files": {
+    "cadvisor-containerd.yml": "434dd333e486b448e5048b0c25782939d9db0a11d2f194038969c83f294978f2",
+    "cadvisor-limits.yml": "9c529e1d379cf0a8e4e58afbb32c9d58e4539303eec0bba03c7edaa8bdfcfe61",
+    "cadvisor.yml": "271acec1c85ccdcc0393249fce94ebc23c597adee112b8389a999a5529430bce",
+    "cpu-alignment.py": "e4f57f64b558fb825557c93c3e187ef489244813e9b4c746e1439aaa38d4c2cb",
+    "memory-alignment.py": "3ab436325807cad97893abc0d3ff65f50574faea9d00f15e0d681398c753542f",
+    "node-cgroup.sh": "db1c2f4d00eb69555970ca7f36f1c03de7e99305c3b79944cfd374e0af9ba4ec",
+    "node-cgroup.yml": "4f4445212b5d30a733a0c31fff9abd69c7b28cb043c487f8b279f5b7c6dac29b",
+    "node-limits.yml": "45f12f707542a3fccf4e51ae89a58d94ff8410f44eef0292ebd6fa2587e90e6d",
+    "node.yml": "26dc623c2649d87d723abab23576ed429337dac2b57f1b2342b5b81ead3a7cb2",
+    "observe.py": "ff294a9bffc20ca54dacf9210d68c95b7352ff2aef781f301e15b6f3beb11f62",
+    "pilot.py": "eac2c51bd9eed9125bab4a942cc6a6a0eff1f29d29dfbfcfdee7da39ea4ae2ad",
+    "sample.py": "150fa44925e2a023ba887a759baea29741d5e425397835215220830b3a5cbe1a"
+  },
+  "fresh_audit_time": "2026-11-06T15:07:23.587533+00:00"
+}

@@ -1,0 +1,50 @@
+{
+  "changes(node_memory_MemTotal_bytes{service=\"infra-project-gestion\",cpu_contract=\"lxc_cgroup_v1\"}[1h])": [
+    {
+      "metric": {
+        "cpu_contract": "lxc_cgroup_v1",
+        "instance": "192.168.1.121:9100",
+        "job": "node_exporter",
+        "service": "infra-project-gestion",
+        "source": "inventory",
+        "vmid": "621"
+      },
+      "value": [
+        1793661388.941,
+        "2"
+      ]
+    }
+  ],
+  "min_over_time(node_memory_MemTotal_bytes{service=\"infra-project-gestion\",cpu_contract=\"lxc_cgroup_v1\"}[1h])": [
+    {
+      "metric": {
+        "cpu_contract": "lxc_cgroup_v1",
+        "instance": "192.168.1.121:9100",
+        "job": "node_exporter",
+        "service": "infra-project-gestion",
+        "source": "inventory",
+        "vmid": "621"
+      },
+      "value": [
+        1793661388.944,
+        "2147483648"
+      ]
+    }
+  ],
+  "max_over_time(node_memory_MemTotal_bytes{service=\"infra-project-gestion\",cpu_contract=\"lxc_cgroup_v1\"}[1h])": [
+    {
+      "metric": {
+        "cpu_contract": "lxc_cgroup_v1",
+        "instance": "192.168.1.121:9100",
+        "job": "node_exporter",
+        "service": "infra-project-gestion",
+        "source": "inventory",
+        "vmid": "621"
+      },
+      "value": [
+        1793661388.946,
+        "16646774784"
+      ]
+    }
+  ]
+}

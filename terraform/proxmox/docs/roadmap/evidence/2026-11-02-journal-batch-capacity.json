@@ -1,0 +1,46 @@
+{
+  "observed_at": "2026-11-02T18:53:55.233689+00:00",
+  "mode": "read-only",
+  "pve_backup_free_bytes": 1458964901888,
+  "services": [
+    {
+      "ct": 625,
+      "cpu_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=2820412872\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=1109045738",
+      "runtime": {
+        "docker_root_dirs_exist": {
+          "/var/lib/docker": true,
+          "/var/lib/containerd": true
+        },
+        "images": {
+          "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3": {
+            "cached": false
+          },
+          "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a": {
+            "cached": false
+          }
+        },
+        "original_image_size_bytes": 33756591
+      }
+    },
+    {
+      "ct": 626,
+      "cpu_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=2147410240\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=765519172",
+      "runtime": {
+        "docker_root_dirs_exist": {
+          "/var/lib/docker": true,
+          "/var/lib/containerd": true
+        },
+        "images": {
+          "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3": {
+            "cached": false
+          },
+          "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a": {
+            "cached": false
+          }
+        },
+        "original_image_size_bytes": 33756591
+      }
+    }
+  ],
+  "operator_backup_free_bytes": 981839536128
+}

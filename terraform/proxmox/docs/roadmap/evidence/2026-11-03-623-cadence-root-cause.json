@@ -1,0 +1,25 @@
+{
+  "observed_utc": "2026-11-03T10:20:37.894090+00:00",
+  "ct": 623,
+  "finding": "Confirmed configuration/freshness contract mismatch: dynamic housekeeping defaulttrue can increase base30s to max60s; default jitter1 adds up to another60s. Thus advertised max_housekeeping_interval60s is not a wall-clock maximum and samples may exceed90s.",
+  "recorded_idle_container_timestamp_gap_seconds": 113.635,
+  "specific_failed_sample_attribution": "Exact original failed sample absent; test-nginx is consistent with recorded before/after timestamps, not asserted as uniquely proven.",
+  "source_version": "v0.60.6",
+  "sources": [
+    "https://github.com/google/cadvisor/blob/v0.60.6/lib/manager/manager.go#L66",
+    "https://github.com/google/cadvisor/blob/v0.60.6/lib/manager/container.go#L107",
+    "https://github.com/google/cadvisor/blob/v0.60.6/lib/manager/container.go#L253"
+  ],
+  "proposal": [
+    "--allow_dynamic_housekeeping=false",
+    "--max_housekeeping_interval=30s",
+    "--jitter_factor=0",
+    "--initial_splay_factor=0"
+  ],
+  "proposal_builder": "scripts/prepare-623-cadence.py",
+  "thresholds_relaxed": false,
+  "deployed": false,
+  "closure_status": "BLOCKED_ROLLED_BACK",
+  "reason_not_deployed": "D030 prohibits changes to other LXC. Full per-CT integration/rollback/Telegram acceptance needs coordinated configuration writes on CT610; no partial deployment attempted. Previous automatic authorization suspended.",
+  "production_after_closure": "Verified original exporters and unchanged Odoo/PostgreSQL/test-nginx; stopped candidates preserved."
+}

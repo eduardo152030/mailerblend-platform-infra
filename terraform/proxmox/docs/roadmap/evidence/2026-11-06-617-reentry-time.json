@@ -1,0 +1,12 @@
+{
+  "run": "integration-20261106T100830Z",
+  "started_at_utc": "2026-11-06T10:08:30.206313+00:00",
+  "scope": "D033 CT617 only; minimal Prom610 configuration and recovery; no CT615 or other exporters",
+  "status": "CLOSED_BLOCKED_ROLLED_BACK",
+  "finished_at_utc": "2026-11-06T10:16:32.287763+00:00",
+  "elapsed_seconds": 482.081,
+  "elapsed_minutes": 8.0,
+  "result": "CT617 not accepted; held-name collision before new exporter creation",
+  "observation600s_executed": false,
+  "watch900s_executed": false
+}

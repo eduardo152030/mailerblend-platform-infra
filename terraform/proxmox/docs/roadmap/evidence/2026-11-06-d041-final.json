@@ -1,0 +1,369 @@
+{
+  "observed_at_utc": "2026-11-06T19:59:44.950701+00:00",
+  "decision": "D-041",
+  "accepted_total": 17,
+  "blocked": [],
+  "pending": [],
+  "cts": [
+    {
+      "ct": 617,
+      "result": "DONE",
+      "seconds": 322.078,
+      "initial": {
+        "samples": 7,
+        "seconds": 180.14034083300066,
+        "initial_seconds_required": 180,
+        "initial_minimum_samples": 7,
+        "sha256": "d69fd084031983846d853d2bb83f8809f801e1cdc4cca1bce338e797fe158aed"
+      },
+      "cpu_ram_containers": 4,
+      "new_oom": {
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "application_and_resource_fingerprints_unchanged": true,
+      "application_checks": {
+        "application_health": "endpoints_available",
+        "read_only_application_checks": [
+          {
+            "endpoint": "http://192.168.1.117:18088/healthz",
+            "status": 403
+          },
+          {
+            "container": "analytics-ingest-gateway",
+            "status": 200
+          }
+        ],
+        "status": 200
+      },
+      "versions": {
+        "node": "1.10.2",
+        "cadvisor": "v0.60.6"
+      },
+      "archives": [
+        {
+          "name": "exporters-before.tar",
+          "sha256": "94c0798bf340a7b1e1a181010a3f9cc4012463f50254f17405fc2d0050f83289",
+          "readable": true
+        },
+        {
+          "name": "exporters-after.tar.gz",
+          "sha256": "5b4f0e73663d7010879fa8cec64d705d1f79b53df26a1345f47dc29add13bc54",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-before.tar",
+          "sha256": "09ab5e384501f6f1cab82b05d20d7312a6ed6ee3556ea77b2eafc30243c04132",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-after.tar.gz",
+          "sha256": "5018c5f8a9b0fed4e4beacb8799ff2bd71010cf000028677b916b0fec1fbf51d",
+          "readable": true
+        }
+      ],
+      "idempotence_verified": true,
+      "recovery_procedure": {
+        "available": true,
+        "prior_real_rollback": "D037 CT61211",
+        "unchanged_operation_bodies": [
+          "rollback",
+          "stop",
+          "unchanged"
+        ],
+        "current_backup_verified": true,
+        "rehearsed_this_ct": false
+      },
+      "telegram": {
+        "firing_and_resolved_accepted_by_api": false,
+        "human_receipt_confirmed": false,
+        "attempts_delta": 0,
+        "failures_delta": 0,
+        "delivery_test": "Unchanged channel verified D039; no new delivery test; no new errors"
+      },
+      "run": "integration-20261106T191534617Z",
+      "source_inputs_verified": 12
+    },
+    {
+      "ct": 618,
+      "result": "DONE",
+      "seconds": 499.22,
+      "initial": {
+        "samples": 11,
+        "seconds": 300.13123608800015,
+        "initial_seconds_required": 300,
+        "initial_minimum_samples": 11,
+        "sha256": "a7e8d2021b65bcfd0f95966df20fa1adfc10c93fa716dd3e343a3d6ec3394a71"
+      },
+      "cpu_ram_containers": 7,
+      "new_oom": {
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "application_and_resource_fingerprints_unchanged": true,
+      "application_checks": {
+        "application_health": "endpoints_available",
+        "read_only_application_checks": [
+          {
+            "endpoint": "http://192.168.1.118:8080/",
+            "status": 200
+          },
+          {
+            "endpoint": "http://192.168.1.118:18088/health",
+            "status": 200
+          },
+          {
+            "endpoint": "http://192.168.1.118:18088/ready",
+            "status": 200
+          }
+        ],
+        "status": 200
+      },
+      "versions": {
+        "node": "1.10.2",
+        "cadvisor": "v0.60.6"
+      },
+      "archives": [
+        {
+          "name": "exporters-before.tar",
+          "sha256": "7619a6da3070c5e2bd46ef9d70493421cb7ba6c2cbd52eb6e15fc8b43376576f",
+          "readable": true
+        },
+        {
+          "name": "exporters-after.tar.gz",
+          "sha256": "6f70af4ea49ab48d556965031e380d27cbd57cd59d55a1a013abe0584430b6b6",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-before.tar",
+          "sha256": "0cd9dc9bb196913b1deb388b66722bcf2d95dd3d1160a00f888fd38335aac319",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-after.tar.gz",
+          "sha256": "d7eb3e2997de4c7d1f31aea6c106ff3056424998f6d712ad46b820929a10acad",
+          "readable": true
+        }
+      ],
+      "idempotence_verified": true,
+      "recovery_procedure": {
+        "available": true,
+        "prior_real_rollback": "D037 CT61211",
+        "unchanged_operation_bodies": [
+          "rollback",
+          "stop",
+          "unchanged"
+        ],
+        "current_backup_verified": true,
+        "rehearsed_this_ct": false
+      },
+      "telegram": {
+        "firing_and_resolved_accepted_by_api": false,
+        "human_receipt_confirmed": false,
+        "attempts_delta": 0,
+        "failures_delta": 0,
+        "delivery_test": "Unchanged channel verified D039; no new delivery test; no new errors"
+      },
+      "run": "integration-20261106T191534618Z",
+      "source_inputs_verified": 12,
+      "cadvisor_ram_bracket_width_max_seconds": 0.12297701835632324,
+      "configured_memory_capture_interval_seconds": 0.1
+    },
+    {
+      "ct": 615,
+      "result": "DONE",
+      "seconds": 332.264,
+      "initial": {
+        "samples": 7,
+        "seconds": 180.1217134610015,
+        "initial_seconds_required": 180,
+        "initial_minimum_samples": 7,
+        "sha256": "9eaddbd9878f179e433ca4655f7d92b1974056ab047d146afcfe0035354a1ae3"
+      },
+      "cpu_ram_containers": 4,
+      "new_oom": {
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "application_and_resource_fingerprints_unchanged": true,
+      "application_checks": {
+        "application_health": "PRE_EXISTING_HTTP_503",
+        "read_only_application_checks": [
+          {
+            "endpoint": "http://127.0.0.1:18092/healthy",
+            "status": 503
+          },
+          {
+            "endpoint": "http://127.0.0.1:18091/healthy",
+            "status": 503
+          }
+        ],
+        "status": 200
+      },
+      "versions": {
+        "node": "1.10.2",
+        "cadvisor": "v0.60.6"
+      },
+      "archives": [
+        {
+          "name": "exporters-before.tar",
+          "sha256": "c68ed7f7dce5c022758dc4e7d77f684b9b802cc798895c495bc3f354944e0219",
+          "readable": true
+        },
+        {
+          "name": "exporters-after.tar.gz",
+          "sha256": "2dafdc0587e2bcdcc8a0bc5f367a0347fc98c664ed4d87c758ca81cd4b70ff88",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-before.tar",
+          "sha256": "703bfa6c02c5843e7dfb416ac04f111626d12fc0e4f03eef32750b77d4b8b5e1",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-after.tar.gz",
+          "sha256": "0edb32b2ad68a09cd3228051b4f06b0fc7b6360f6946881135f11a4faa8e7ebb",
+          "readable": true
+        }
+      ],
+      "idempotence_verified": true,
+      "recovery_procedure": {
+        "available": true,
+        "prior_real_rollback": "D037 CT61211",
+        "unchanged_operation_bodies": [
+          "rollback",
+          "stop",
+          "unchanged"
+        ],
+        "current_backup_verified": true,
+        "rehearsed_this_ct": false
+      },
+      "telegram": {
+        "firing_and_resolved_accepted_by_api": false,
+        "human_receipt_confirmed": false,
+        "attempts_delta": 0,
+        "failures_delta": 0,
+        "delivery_test": "Unchanged channel verified D039; no new delivery test; no new errors"
+      },
+      "run": "integration-20261106T191534615Z",
+      "source_inputs_verified": 12
+    },
+    {
+      "ct": 614,
+      "result": "DONE",
+      "seconds": 376.615,
+      "initial": {
+        "samples": 7,
+        "seconds": 180.12867742199887,
+        "initial_seconds_required": 180,
+        "initial_minimum_samples": 7,
+        "sha256": "d188ef06e796af5d6a8f511a35a9a1ce09f75b9ce147c01660c91dc7064628c8"
+      },
+      "cpu_ram_containers": 4,
+      "new_oom": {
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "application_and_resource_fingerprints_unchanged": true,
+      "application_checks": {
+        "application_health": "PRE_EXISTING_HTTP_503",
+        "read_only_application_checks": [
+          {
+            "endpoint": "http://127.0.0.1:8091/healthy",
+            "status": 503
+          },
+          {
+            "endpoint": "http://127.0.0.1:8092/healthy",
+            "status": 503
+          }
+        ],
+        "status": 200
+      },
+      "versions": {
+        "node": "1.10.2",
+        "cadvisor": "v0.60.6"
+      },
+      "archives": [
+        {
+          "name": "exporters-before.tar",
+          "sha256": "dfee0829614f97175828d01753ae0ec8bff072b1407396fc484263f6a91f3c89",
+          "readable": true
+        },
+        {
+          "name": "exporters-after.tar.gz",
+          "sha256": "03f442247ade8e7a926956055a6616eb0ff740f9d6f425f8dcdb69c3f3e07095",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-before.tar",
+          "sha256": "4fb4bd9930f4f565ab87ce8e237cbc614ba21dccdc32b13aac8d9f4695e6a17b",
+          "readable": true
+        },
+        {
+          "name": "monitoring/integration-after.tar.gz",
+          "sha256": "501b1d6c2ff478b51c6e6427b9db8dfbfbc3bec37b0125f4a68fb14ee154b46c",
+          "readable": true
+        }
+      ],
+      "idempotence_verified": true,
+      "recovery_procedure": {
+        "available": true,
+        "prior_real_rollback": "D037 CT61211",
+        "unchanged_operation_bodies": [
+          "rollback",
+          "stop",
+          "unchanged"
+        ],
+        "current_backup_verified": true,
+        "rehearsed_this_ct": false
+      },
+      "telegram": {
+        "firing_and_resolved_accepted_by_api": false,
+        "human_receipt_confirmed": false,
+        "attempts_delta": 0,
+        "failures_delta": 0,
+        "delivery_test": "Unchanged channel verified D039; no new delivery test; no new errors"
+      },
+      "run": "integration-20261106T191534614Z",
+      "source_inputs_verified": 12
+    }
+  ],
+  "archives_verified": 16,
+  "accepted_chain_issues": {
+    "624": [],
+    "626": [],
+    "625": [],
+    "613": [],
+    "621": [],
+    "620": [],
+    "619": [],
+    "623": [],
+    "61211": [],
+    "622": [],
+    "611": [],
+    "616": [],
+    "610": [],
+    "617": [],
+    "618": [],
+    "615": [],
+    "614": []
+  },
+  "targets_up": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "telegram_final": {
+    "alertmanager_notifications_total": 132.0,
+    "alertmanager_notifications_failed_total": 56.0
+  },
+  "pre_rollout_historical_node_series_accessible": 17,
+  "production_changes_scope": "Only617/618/615/614 exporters and minimal Prom configuration; no app/data/resource changes;615/614 keep pre-existing HTTP503",
+  "alertmanager_and_telegram_private_files_unchanged": true,
+  "private_files_compared": 2,
+  "previous13_runtime_evidence": "docs/roadmap/evidence/2026-11-06-d041-accepted-unchanged.json"
+}

@@ -1,0 +1,10 @@
+{
+  "disabled_rule_only": true,
+  "rule_removed": true,
+  "unknown_health_observed": true,
+  "bad_health_observed": false,
+  "polls": 10,
+  "telegram_attempts_delta": 0.0,
+  "telegram_failures_delta": 0.0,
+  "post_watch_probe_serialized_with_transaction": true
+}

@@ -1,0 +1,128 @@
+{
+  "ct": 624,
+  "pilot_technical_result": "PASS",
+  "full_phase4_complete": false,
+  "started_at": "2026-11-02T17:06:09.759983+01:00",
+  "observation_samples": 21,
+  "observation_loop_seconds": 600.943,
+  "validated_sample_span_seconds": 7531.309110403061,
+  "additional_final_sample": true,
+  "memory_total_bytes": 536870912.0,
+  "cpu_capacity_cores": 1.0,
+  "cpu_source": "cgroup_v2, read-only existing /host/sys mount",
+  "native_cpu_time_series_disabled": true,
+  "cpu_max_absolute_lag_seconds": 0.2565500000000611,
+  "memory_available_min_bytes": 285143040,
+  "node_available_vs_proc_max_error_bytes": 4173824.0,
+  "ct_memory_current_peak_bytes": 505688064,
+  "ct_swap_peak_bytes": 52137984,
+  "memory_events_first": {
+    "low": 0,
+    "high": 1093,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "memory_events_final": {
+    "low": 0,
+    "high": 1094,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "memory_psi_max_percent": 0.0,
+  "journal_web_http": 200,
+  "journal_web_body_sha256": "60348bc45c198808658817deb563935e53a88748c1d42d89b998b31357aa9dc2",
+  "applications_unchanged": true,
+  "rollback_exercised_with_original_container": true,
+  "final_idempotence": {
+    "same_ids_started_at": true,
+    "apply_exit_code": 0,
+    "check_exit_code": 0,
+    "applications_verified_unchanged": true
+  },
+  "exporters": {
+    "node_exporter": {
+      "id": "35f870b9040141529b13ecf76e728318b000c97fc1e33b756ec032e436726757",
+      "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+      "started_at": "2026-11-02T16:04:37.826058931Z",
+      "restarts": 0,
+      "memory_limit_bytes": 50331648,
+      "cpu_quota_cores": 0.2,
+      "docker_memory_usage_peak_bytes": 9203712,
+      "docker_memory_usage_final_bytes": 7254016,
+      "max_mean_cpu_percent_per_sampling_interval": 0.3577020372810298
+    },
+    "cadvisor": {
+      "id": "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af",
+      "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "started_at": "2026-11-02T16:04:39.364223922Z",
+      "restarts": 0,
+      "memory_limit_bytes": 134217728,
+      "cpu_quota_cores": 0.5,
+      "docker_memory_usage_peak_bytes": 23093248,
+      "docker_memory_usage_final_bytes": 22118400,
+      "max_mean_cpu_percent_per_sampling_interval": 0.20708240776798545
+    }
+  },
+  "docker_comparisons": [
+    {
+      "name": "node_exporter",
+      "cadvisor_memory_bytes": 8290304.0,
+      "docker_memory_bytes": 7254016,
+      "cgroup_memory_bytes": 8257536,
+      "cadvisor_cpu_seconds": 3.436484,
+      "docker_cpu_seconds": 3.445127,
+      "cgroup_cpu_seconds": 3.480987
+    },
+    {
+      "name": "cadvisor",
+      "cadvisor_memory_bytes": 23674880.0,
+      "docker_memory_bytes": 22118400,
+      "cgroup_memory_bytes": 22183936,
+      "cadvisor_cpu_seconds": 8.421799,
+      "docker_cpu_seconds": 8.431711,
+      "cgroup_cpu_seconds": 8.447069
+    },
+    {
+      "name": "infra-journal-web-web-1",
+      "cadvisor_memory_bytes": 2097152.0,
+      "docker_memory_bytes": 2097152,
+      "cgroup_memory_bytes": 2097152,
+      "cadvisor_cpu_seconds": 3.678208,
+      "docker_cpu_seconds": 3.678208,
+      "cgroup_cpu_seconds": 3.678347
+    },
+    {
+      "name": "test-nginx",
+      "cadvisor_memory_bytes": 606208.0,
+      "docker_memory_bytes": 606208,
+      "cgroup_memory_bytes": 606208,
+      "cadvisor_cpu_seconds": 0.061853,
+      "docker_cpu_seconds": 0.061853,
+      "cgroup_cpu_seconds": 0.061853
+    }
+  ],
+  "node_cpu_seconds_final": 9435.621587,
+  "ct_cgroup_cpu_seconds_final": 9435.764042,
+  "node_cpu_delta_during_observation_seconds": 6.274854000001142,
+  "ct_cpu_delta_during_observation_seconds": 6.265953,
+  "continuous_observation_seconds": 600.943,
+  "continuous_observation_ended_at": "2026-11-02T17:16:09.746164+01:00",
+  "final_point_check_at": "2026-11-02T19:11:41.069093+01:00",
+  "later_point_check_gap_seconds": 6931.322928905487,
+  "continuous_observation_note": "21 periodic samples over ten minutes, followed by a later independent check; no continuous observation is claimed during the gap.",
+  "swap_bytes_first_observation": 52137984,
+  "swap_bytes_last_observation": 52137984,
+  "swap_note": "Residual swap is reported, not assumed to be zero or attributed to the pilot without a pre-pilot swap baseline.",
+  "rollback_note": "Original container/image identities restored and original process observed running; application identities/configuration and HTTP body verified unchanged; legacy v0.47.2 retains its pre-existing Docker API limitations.",
+  "strict_freshness_revalidation_passed": true,
+  "owner_technical_acceptance": {
+    "accepted": true,
+    "date": "2026-11-02",
+    "decision": "D-017",
+    "scope": "CT624 technical pilot only; no rollout authorization"
+  }
+}

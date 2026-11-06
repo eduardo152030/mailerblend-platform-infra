@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "scope": "RAM prediction source qualification only",
+  "forecast_lookback": "1h",
+  "forecast_horizon": "4h",
+  "for": "15m",
+  "thresholds_or_routes_changed": false,
+  "backup_before_sha256": "e109aa365833d86ad1f7cf4c55f80f9f3e715fc5c7a41b0a1e1fea71ef914acb",
+  "after_archive": {
+    "sha256": "a220f55408ac14e1a8f05da554588d3c6aa3bbfc9b02ec258c3e44c385f9985e",
+    "bytes": 6851,
+    "offhost_verified": true
+  },
+  "actual_rollback_verified": true,
+  "idempotence_verified": true,
+  "prometheus_alertmanager_container_ids_unchanged": true,
+  "blackbox_preserved": 11,
+  "telegram_failures_total": 56.0
+}

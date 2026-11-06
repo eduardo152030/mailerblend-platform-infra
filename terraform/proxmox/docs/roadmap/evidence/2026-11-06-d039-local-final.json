@@ -1,0 +1,12 @@
+{
+  "syntax": "PASS",
+  "targeted_tests_passed": 25,
+  "tests": "5critical-adapter +13skip-classifier +7legacy-runner; unchanged metric suite not repeated",
+  "local_links_checked": 182,
+  "missing_links": [],
+  "new_secret_signatures_found": false,
+  "git_diff_check": "PASS",
+  "policy_closed": true,
+  "remaining_rollout_processes": 0,
+  "commit_push_performed": false
+}

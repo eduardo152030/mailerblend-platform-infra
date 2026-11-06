@@ -1,0 +1,142 @@
+{
+  "observed_at": "2026-11-02T21:42:25.207319+00:00",
+  "mode": "read-only",
+  "services": [
+    {
+      "ct": 621,
+      "proxmox": {
+        "hostname": "infra-project-gestion",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512"
+      },
+      "resources": {
+        "memory.max": "2147483648",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3044118\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=2810486",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "1-2"
+      },
+      "runtime": {
+        "mem_available_kib": 1970728,
+        "free_bytes": 7807561728,
+        "containerd_socket": true,
+        "ct_cgroup_namespace": "cgroup:[4026535769]",
+        "containers": [
+          {
+            "name": "focalboard",
+            "id": "f7fd71cb630b4e2d1858b4f4fc65d39cdbe06078f59157b0e4688fe29d5e4490",
+            "image_id": "sha256:d04be04895523d1c4fec75cbe7d5bb82987455d8deb3a795fea42eadfc28449c",
+            "running": true,
+            "started_at": "2026-09-17T20:44:33.9795019Z",
+            "restarts": 0,
+            "health": null
+          },
+          {
+            "name": "node_exporter",
+            "id": "648fd4d19de300038ee804741f9ef7170dbb7c109f645cd2dcb11af7effbe80e",
+            "image_id": "sha256:d375b27b61ea3233524bb12ce5f2de05bdc80cbce4c6806a45617d4f5bc7b1b1",
+            "running": true,
+            "started_at": "2026-09-17T20:44:33.970993096Z",
+            "restarts": 0,
+            "health": null,
+            "privileged": false,
+            "cgroupns": "private",
+            "pid_mode": "host"
+          },
+          {
+            "name": "cadvisor",
+            "id": "582a4733cd7bd22883118bdb8d65164b1873d1c9bc4ebc40562a0366faa161cc",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "running": true,
+            "started_at": "2026-09-17T20:44:33.976237193Z",
+            "restarts": 0,
+            "health": "healthy",
+            "privileged": true,
+            "cgroupns": "private",
+            "pid_mode": ""
+          }
+        ],
+        "node_version": "1.11.0"
+      },
+      "ct_namespace_distinct_from_pve": true
+    },
+    {
+      "ct": 620,
+      "proxmox": {
+        "hostname": "infra-excraper",
+        "cores": "2",
+        "memory": "2048",
+        "swap": "512"
+      },
+      "resources": {
+        "memory.max": "2147483648",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=8213798\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=8022927",
+        "cpu.max": "max 100000",
+        "cpuset.cpus.effective": "1-2"
+      },
+      "runtime": {
+        "mem_available_kib": 1884068,
+        "free_bytes": 4516020224,
+        "containerd_socket": true,
+        "ct_cgroup_namespace": "cgroup:[4026535820]",
+        "containers": [
+          {
+            "name": "infra-excraper-linkedin-worker-1",
+            "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+            "image_id": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+            "running": true,
+            "started_at": "2026-09-17T20:44:10.776598641Z",
+            "restarts": 0,
+            "health": null
+          },
+          {
+            "name": "infra-excraper-signals-worker-1",
+            "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+            "image_id": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+            "running": true,
+            "started_at": "2026-09-17T20:44:10.77412796Z",
+            "restarts": 0,
+            "health": null
+          },
+          {
+            "name": "cadvisor",
+            "id": "d6171836b995f3ee98f6e4005b340f07cec100a91ebb684892d0e24293ae32d0",
+            "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+            "running": true,
+            "started_at": "2026-09-17T20:44:10.77475113Z",
+            "restarts": 0,
+            "health": "healthy",
+            "privileged": true,
+            "cgroupns": "private",
+            "pid_mode": ""
+          },
+          {
+            "name": "node_exporter",
+            "id": "9e3a9bbe406e9ab4b9ef7f10aea2564fd5da1626aa0af1896fc111c565f6c99a",
+            "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+            "running": true,
+            "started_at": "2026-09-17T20:44:10.738340895Z",
+            "restarts": 0,
+            "health": null,
+            "privileged": false,
+            "cgroupns": "private",
+            "pid_mode": "host"
+          },
+          {
+            "name": "infra-excraper-redis-1",
+            "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+            "image_id": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+            "running": true,
+            "started_at": "2026-09-17T20:44:10.798360464Z",
+            "restarts": 0,
+            "health": "healthy"
+          }
+        ],
+        "node_version": "1.10.2"
+      },
+      "ct_namespace_distinct_from_pve": true
+    }
+  ]
+}
