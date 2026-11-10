@@ -1,0 +1,1 @@
+[{"location": ["/.well-known/acme-challenge/ "], "upstreams": [], "rewrite": []}, {"location": ["= /healthy ", "^~ /g/collect ", "^~ /collect ", "^~ /gtm/ ", "/ "], "upstreams": ["http://sgtm_serving", "http://sgtm_serving", "http://sgtm_serving", "http://sgtm_preview", "http://sgtm_serving", "http://sgtm_serving"], "rewrite": []}]

@@ -1,0 +1,101 @@
+{
+  "containers": [
+    {
+      "name": "mailerblend-sgtm-serving",
+      "id": "a5a253823717c289330c6c139a33f1f41271b12566fe8625f12155b3c9067561",
+      "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+      "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+      "project": "infra-mailerblend-edge",
+      "compose_files": "/opt/infra-mailerblend-edge/docker-compose.yml",
+      "service": "sgtm",
+      "age_days": 50.06,
+      "running": true,
+      "health": "unhealthy",
+      "healthcheck": {
+        "Test": [
+          "CMD",
+          "curl",
+          "-fsS",
+          "http://localhost:8080/healthy"
+        ],
+        "Interval": 30000000000,
+        "Timeout": 5000000000,
+        "Retries": 3
+      },
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "",
+            "HostPort": "18091"
+          }
+        ]
+      },
+      "mounts": [],
+      "entrypoint": [
+        "/nodejs/bin/node"
+      ],
+      "healthz": 503,
+      "native_checker_exit": 1,
+      "server_age_30d_diagnostic": 500,
+      "server_age_60d_diagnostic": 200,
+      "config_structurally_valid": true,
+      "config_sha256": "b4e08425b7c2318795421fca7cd9440b4b99423573dab64c87eb243e0e68c069",
+      "preview_url": "https://edge.mailerblend.com",
+      "preview_mode": null
+    },
+    {
+      "name": "mailerblend-sgtm-preview",
+      "id": "329efa4bf868c0fd46afd9f0a15d0344249a9af322175a2d8c2d6347fa7aaf26",
+      "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+      "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+      "project": "infra-mailerblend-edge",
+      "compose_files": "/opt/infra-mailerblend-edge/docker-compose.yml",
+      "service": "sgtm_preview",
+      "age_days": 50.06,
+      "running": true,
+      "health": "unhealthy",
+      "healthcheck": {
+        "Test": [
+          "CMD",
+          "curl",
+          "-fsS",
+          "http://localhost:8080/healthy"
+        ],
+        "Interval": 30000000000,
+        "Timeout": 5000000000,
+        "Retries": 3
+      },
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "",
+            "HostPort": "18092"
+          }
+        ]
+      },
+      "mounts": [],
+      "entrypoint": [
+        "/nodejs/bin/node"
+      ],
+      "healthz": 503,
+      "native_checker_exit": 1,
+      "server_age_30d_diagnostic": 500,
+      "server_age_60d_diagnostic": 200,
+      "config_structurally_valid": true,
+      "config_sha256": "b4e08425b7c2318795421fca7cd9440b4b99423573dab64c87eb243e0e68c069",
+      "preview_url": null,
+      "preview_mode": "true"
+    }
+  ],
+  "compose_service_names": [
+    "sgtm",
+    "sgtm_preview"
+  ],
+  "active_compose_sha256": "fa4b1f283c5b99e189f45395a1cb45ad0d595fdaabda6d003cf510086803eff7",
+  "overlay_exists": false,
+  "public_healthz": {
+    "https://edge.mailerblend.com/healthz": 503,
+    "https://edge.mailerblend.com/preview/healthz": 503
+  },
+  "observed_at_utc": "2026-11-06T22:16:27.773334+00:00"
+}

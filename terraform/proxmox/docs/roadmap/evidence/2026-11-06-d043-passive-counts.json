@@ -1,0 +1,38 @@
+{
+  "all_vhosts_collect_counts": [
+    {
+      "method": "HEAD",
+      "status": "200",
+      "count": 2246
+    },
+    {
+      "method": "HEAD",
+      "status": "400",
+      "count": 1
+    },
+    {
+      "method": "OPTIONS",
+      "status": "400",
+      "count": 1
+    },
+    {
+      "method": "GET",
+      "status": "400",
+      "count": 1
+    },
+    {
+      "method": "POST",
+      "status": "400",
+      "count": 1
+    }
+  ],
+  "nucleo_attributed_counts": [
+    {
+      "method": "HEAD",
+      "status": "200",
+      "count": 2246
+    }
+  ],
+  "bounded_last_lines": 10000,
+  "cannot_attribute_unlabelled_requests_to_nucleo": true
+}

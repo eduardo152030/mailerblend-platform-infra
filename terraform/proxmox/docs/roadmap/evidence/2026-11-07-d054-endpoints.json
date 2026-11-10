@@ -1,0 +1,59 @@
+{
+  "endpoints": [
+    {
+      "probe_id": "grafana-internal-health",
+      "url": "http://192.168.1.111:3010/api/health",
+      "status": 200,
+      "identity_patterns_pass": true,
+      "sha256": "15f07a94258fc02e4c7018145fb6a1e1638b7c92671320b1f3814083df0bd18f",
+      "vantage": "CT616"
+    },
+    {
+      "probe_id": "orbit-public-health",
+      "url": "https://edge.nucleotecnologico.es/orbit/healthz",
+      "status": 200,
+      "identity_patterns_pass": true,
+      "sha256": "2689367b205c16ce32ed4200942b8b8b1e262dfc70d9bc9fbc77c49699a4f1df",
+      "vantage": "CT616"
+    },
+    {
+      "probe_id": "excraper-linkedin-health",
+      "url": "http://192.168.1.120:3000/health",
+      "status": 200,
+      "identity_patterns_pass": true,
+      "sha256": "48134e26078662d999e7d370d2d772f1d642afc9bca98637c7e5d776d0c163bf",
+      "vantage": "CT616"
+    },
+    {
+      "probe_id": "excraper-signals-health",
+      "url": "http://192.168.1.120:3001/health",
+      "status": 200,
+      "identity_patterns_pass": true,
+      "sha256": "aec41793474a8aca6b114adba44788d994e3d8c07489b4eb4493684604db1ceb",
+      "vantage": "CT616"
+    },
+    {
+      "probe_id": "journal-web-availability",
+      "url": "http://192.168.1.124:8090/",
+      "status": 200,
+      "identity_patterns_pass": true,
+      "sha256": "60348bc45c198808658817deb563935e53a88748c1d42d89b998b31357aa9dc2",
+      "vantage": "CT616"
+    },
+    {
+      "probe_id": "journal-api-availability",
+      "url": "http://192.168.1.126:3000/health",
+      "status": 200,
+      "identity_patterns_pass": true,
+      "sha256": "648296f6e8d390262ca71fc7c48259682c03f59525593675eb067e8e8aeb79ec",
+      "vantage": "CT616"
+    }
+  ],
+  "orbit_public_proxy_mapping": [
+    {
+      "proxy_pass": [
+        "http://192.168.1.117:18088/healthz"
+      ]
+    }
+  ]
+}

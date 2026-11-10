@@ -1,0 +1,63 @@
+{
+  "probe_success": [
+    {
+      "probe_id": "nucleo-collect-blackbox",
+      "value": "1",
+      "time": 1793998462.786
+    },
+    {
+      "probe_id": "nucleo-collect-local-client",
+      "value": "1",
+      "time": 1793998462.786
+    }
+  ],
+  "probe_http_status_code": [
+    {
+      "probe_id": "nucleo-collect-blackbox",
+      "value": "200",
+      "time": 1793998462.788
+    },
+    {
+      "probe_id": "nucleo-collect-local-client",
+      "value": "200",
+      "time": 1793998462.788
+    }
+  ],
+  "probe_http_ssl": [
+    {
+      "probe_id": "nucleo-collect-blackbox",
+      "value": "1",
+      "time": 1793998462.791
+    },
+    {
+      "probe_id": "nucleo-collect-local-client",
+      "value": "1",
+      "time": 1793998462.791
+    }
+  ],
+  "probe_duration_seconds": [
+    {
+      "probe_id": "nucleo-collect-blackbox",
+      "value": "0.087261993",
+      "time": 1793998462.793
+    },
+    {
+      "probe_id": "nucleo-collect-local-client",
+      "value": "0.08050491",
+      "time": 1793998462.793
+    }
+  ],
+  "probe_http_redirects": [
+    {
+      "probe_id": "nucleo-collect-blackbox",
+      "value": "0",
+      "time": 1793998462.795
+    },
+    {
+      "probe_id": "nucleo-collect-local-client",
+      "value": "0",
+      "time": 1793998462.795
+    }
+  ],
+  "collect_alerts": []
+}

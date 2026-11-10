@@ -1,0 +1,144 @@
+{
+  "run": "sgtm-615-d048-20261106T221856Z",
+  "started_at_utc": "2026-11-06T22:19:02.688871+00:00",
+  "result": "DONE",
+  "steps": [
+    "snapshot",
+    "install",
+    "apply-preview",
+    "check-preview",
+    "apply-main",
+    "check-main",
+    "idempotence",
+    "final"
+  ],
+  "monitoring_before": {
+    "targets_up": {
+      "node_exporter": 17,
+      "cadvisor": 17,
+      "blackbox": 11
+    },
+    "prometheus_alertmanager_ready": true,
+    "blackbox_success": 1,
+    "blackbox_http_status": [
+      200
+    ],
+    "blackbox_sample_times": [
+      1794003516.061
+    ],
+    "telegram": {
+      "alertmanager_notifications_total": 132.0,
+      "alertmanager_notifications_failed_total": 56.0
+    }
+  },
+  "pve_before": {
+    "resources": {
+      "hostname": "infra-mailerblend-edge",
+      "cores": "2",
+      "memory": "2048",
+      "swap": "512",
+      "net0": "name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:EB:F7:90,ip=192.168.1.115/24,type=veth"
+    },
+    "events": {
+      "low": "0",
+      "high": "0",
+      "max": "0",
+      "oom": "0",
+      "oom_kill": "0",
+      "oom_group_kill": "0"
+    }
+  },
+  "service_state": {
+    "steps": [
+      "snapshot_verified",
+      "health_only_candidate_verified",
+      "apply-preview_started",
+      "apply-preview_completed",
+      "preview_healthy",
+      "apply-main_started",
+      "apply-main_completed",
+      "serving_healthy",
+      "idempotence_verified"
+    ],
+    "backup_sha256": "ccaa003cc5cdb3191e4b200424722f3bb6c075c6ec2d6ec7dede6a97ca7fd8d3",
+    "image_ids": [
+      "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba"
+    ],
+    "sgtm_preview": {
+      "id": "0f156b3c08899b29835a0ebac74af7cf608d4e812569062909464811eff97699",
+      "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+      "health": "healthy",
+      "local_healthz": 200,
+      "public_healthz": 200,
+      "restarts": 0,
+      "startup_errors": false
+    },
+    "sgtm": {
+      "id": "77104947f79b26d4e49f10e657492b65f135463ce865cb556f3b7376cb53fe00",
+      "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+      "health": "healthy",
+      "local_healthz": 200,
+      "public_healthz": 200,
+      "restarts": 0,
+      "startup_errors": false
+    },
+    "overlay_sha256": "fd28a96d58c1abf7a49388735f9cd2cea9b6d2b0df439a2b72bb405388039a56",
+    "idempotence_verified": true,
+    "result": "DONE"
+  },
+  "backup": {
+    "local_path": "/home/jainer/.local/share/mailerblend-recovery/sgtm615/sgtm-615-d048-20261106T221856Z/backup.tar",
+    "pve_path": "/mnt/storage/mailerblend-recovery/sgtm-615-d048-20261106T221856Z/backup.tar",
+    "ct_path": "/opt/infra-mailerblend-edge/.runtime/sgtm-615-d048-20261106T221856Z/backup.tar",
+    "sha256": "ccaa003cc5cdb3191e4b200424722f3bb6c075c6ec2d6ec7dede6a97ca7fd8d3",
+    "bytes": 119859200,
+    "offhost_verified": true,
+    "archive_readable": true
+  },
+  "monitoring_transition_retries": 0,
+  "monitoring_after": {
+    "targets_up": {
+      "node_exporter": 17,
+      "cadvisor": 17,
+      "blackbox": 11
+    },
+    "prometheus_alertmanager_ready": true,
+    "blackbox_success": 1,
+    "blackbox_http_status": [
+      200
+    ],
+    "blackbox_sample_times": [
+      1794003606.061
+    ],
+    "telegram": {
+      "alertmanager_notifications_total": 132.0,
+      "alertmanager_notifications_failed_total": 56.0
+    }
+  },
+  "pve_after": {
+    "resources": {
+      "hostname": "infra-mailerblend-edge",
+      "cores": "2",
+      "memory": "2048",
+      "swap": "512",
+      "net0": "name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:EB:F7:90,ip=192.168.1.115/24,type=veth"
+    },
+    "events": {
+      "low": "0",
+      "high": "0",
+      "max": "0",
+      "oom": "0",
+      "oom_kill": "0",
+      "oom_group_kill": "0"
+    }
+  },
+  "oom_deltas": {
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "duration_seconds": 68.444,
+  "overlay_path": "/opt/infra-mailerblend-edge/healthcheck.native.yml",
+  "no_image_pull_or_update": true,
+  "no_automatic_restarts_installed": true
+}

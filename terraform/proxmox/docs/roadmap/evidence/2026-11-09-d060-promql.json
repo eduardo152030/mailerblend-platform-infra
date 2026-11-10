@@ -1,0 +1,7019 @@
+{
+  "timestamp_utc": "2026-11-09T16:37:08Z",
+  "result": "PASS",
+  "ct_count": 17,
+  "query_count": 663,
+  "checks": [
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624",
+            "service": "infra-journal-web"
+          },
+          "value": [
+            1794242222.316,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242222.32,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242222.323,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242222.334,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242222.358,
+            "0.5667200000001079"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242222.362,
+            "38.469696044921875"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242222.365,
+            "12.010491124766121"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242222.368,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242222.552,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242222.976,
+            "4564309"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242222.991,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242223.055,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "624"
+          },
+          "value": [
+            1794242223.06,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "624",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "624",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625",
+            "service": "infra-journal-db"
+          },
+          "value": [
+            1794242222.316,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.32,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.323,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.334,
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.36,
+            "1.1042175925925861"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.363,
+            "11.712455749511719"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.366,
+            "11.901309308342556"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.374,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.454,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.792,
+            "4564303"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.839,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.904,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "625"
+          },
+          "value": [
+            1794242222.911,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "625",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "625",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626",
+            "service": "infra-journal-api"
+          },
+          "value": [
+            1794242222.316,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.319,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.322,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.337,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.358,
+            "0.28247925925926315"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.361,
+            "11.814498901367188"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.364,
+            "11.706411967325314"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.367,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.461,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.786,
+            "4564290"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.819,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.95,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "626"
+          },
+          "value": [
+            1794242222.968,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "626",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "626",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613",
+            "service": "infra-hola"
+          },
+          "value": [
+            1794242222.317,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242222.319,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242222.322,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242222.35,
+            "-2"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242222.366,
+            "0.37962999999999064"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242222.382,
+            "24.4110107421875"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242222.612,
+            "25.183769634942433"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242222.639,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242222.724,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242223.061,
+            "171544"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242223.072,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242223.11,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "613"
+          },
+          "value": [
+            1794242223.115,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "613",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "613",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621",
+            "service": "infra-project-gestion"
+          },
+          "value": [
+            1794242223.139,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.142,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.145,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.155,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.182,
+            "0.259950555555406"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.185,
+            "6.4357757568359375"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.19,
+            "26.94276768284878"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.193,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.231,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.487,
+            "4564348"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.511,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.627,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "621"
+          },
+          "value": [
+            1794242223.638,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "621",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "621",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620",
+            "service": "infra-excraper"
+          },
+          "value": [
+            1794242223.172,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.178,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.181,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.187,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.215,
+            "1.2130155555550355"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.22,
+            "15.26641845703125"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.226,
+            "58.348498234425826"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.231,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.269,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.57,
+            "4564353"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.593,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.637,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "620"
+          },
+          "value": [
+            1794242223.642,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "620",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "620",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619",
+            "service": "infra-pulpo"
+          },
+          "value": [
+            1794242223.214,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.219,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.224,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.232,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.252,
+            "1.9616618518517097"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.257,
+            "34.5123291015625"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.263,
+            "59.30524724497229"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.281,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.346,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.647,
+            "4564359"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.657,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.696,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "619"
+          },
+          "value": [
+            1794242223.702,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "619",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "619",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623",
+            "service": "infra-gestoria"
+          },
+          "value": [
+            1794242223.793,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242223.795,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242223.798,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242223.803,
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242223.819,
+            "1.991975000000147"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242223.823,
+            "14.524555206298828"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242223.826,
+            "19.43795852463547"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242223.829,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242223.871,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242224.131,
+            "4564351"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242224.142,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242224.181,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "623"
+          },
+          "value": [
+            1794242224.185,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "623",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "623",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211",
+            "service": "svc01"
+          },
+          "value": [
+            1794242223.799,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242223.803,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242223.806,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242223.812,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242223.828,
+            "0.6772038271608634"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242223.837,
+            "4.376983642578125"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242223.843,
+            "18.500759576906532"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242223.85,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242223.893,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242224.152,
+            "4564303"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242224.163,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242224.201,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "61211"
+          },
+          "value": [
+            1794242224.206,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "61211",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "61211",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622",
+            "service": "infra-eva-assistant-bot"
+          },
+          "value": [
+            1794242224.233,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.236,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.238,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.245,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.27,
+            "1.6084431481478398"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.273,
+            "22.821807861328125"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.278,
+            "66.67069222347922"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.281,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.32,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.496,
+            "617391"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.508,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.553,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "622"
+          },
+          "value": [
+            1794242224.558,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "622",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 9,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 9,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 9,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 9,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 9,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "622",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611",
+            "service": "infra-grafana"
+          },
+          "value": [
+            1794242224.334,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242224.337,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242224.339,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242224.345,
+            "-2"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242224.361,
+            "3.175526296296017"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242224.364,
+            "27.63932788645038"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242225.298,
+            "51.034860157365294"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242225.303,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242225.344,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242225.589,
+            "4564410"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242225.61,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242225.652,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "611"
+          },
+          "value": [
+            1794242225.655,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "611",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "611",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616",
+            "service": "infra-blackbox"
+          },
+          "value": [
+            1794242224.558,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.563,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.566,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.572,
+            "-2"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.59,
+            "0.8045759259254772"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.593,
+            "25.75225830078125"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.596,
+            "25.473980630940783"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.599,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.636,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.884,
+            "4564394"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.896,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.963,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "616"
+          },
+          "value": [
+            1794242224.967,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "616",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "616",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610",
+            "service": "infra-prom"
+          },
+          "value": [
+            1794242224.683,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242224.686,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242224.689,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242224.695,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242224.738,
+            "1.9723331481482431"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242224.741,
+            "21.4111328125"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242224.744,
+            "79.40089083110965"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242224.751,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242224.79,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242225.021,
+            "4564412"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242225.041,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242225.121,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "610"
+          },
+          "value": [
+            1794242225.126,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "610",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 6,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 6,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 6,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 6,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 6,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "610",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617",
+            "service": "infra-orbit"
+          },
+          "value": [
+            1794242224.963,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242224.966,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242224.972,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242224.978,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242224.993,
+            "0.7428688888884845"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242224.996,
+            "43.854522705078125"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242224.999,
+            "55.987001177832326"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242225.002,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242225.044,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242225.258,
+            "4564391"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242225.271,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242225.312,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "617"
+          },
+          "value": [
+            1794242225.318,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "617",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "617",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618",
+            "service": "infra-composable-crm"
+          },
+          "value": [
+            1794242225.319,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.324,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.328,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.339,
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.355,
+            "6.126941225273184"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.357,
+            "31.617609659830727"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.361,
+            "51.42957916354778"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.363,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.405,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.653,
+            "626532"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.664,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.715,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "618"
+          },
+          "value": [
+            1794242225.917,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "618",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 7,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 7,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 7,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 7,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 7,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 3,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "618",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615",
+            "service": "infra-mailerblend-edge"
+          },
+          "value": [
+            1794242225.653,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.655,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.66,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.667,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.684,
+            "0.8262140740731008"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.687,
+            "13.814353942871094"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.691,
+            "43.23400111089669"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.694,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.732,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.907,
+            "4564399"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.918,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.953,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "615"
+          },
+          "value": [
+            1794242225.957,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "615",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "615",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "A",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614",
+            "service": "infra-nucleoedge"
+          },
+          "value": [
+            1794242226.025,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "B",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.027,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "C",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.03,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "D",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.036,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "E",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.05,
+            "0.8820100000000954"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "F",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.052,
+            "15.723419189453125"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "G",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.057,
+            "56.17379465947572"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "H",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.06,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "I",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.096,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "J",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.27,
+            "4564402"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "K",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.281,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "L",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.313,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "LXC \u00b7 informaci\u00f3n y salud",
+      "ref": "M",
+      "series": 1,
+      "samples": [
+        {
+          "metric": {
+            "ct_id": "614"
+          },
+          "value": [
+            1794242226.317,
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "ct_id": "614",
+      "panel": "CPU asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "RAM asignada",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Disco ra\u00edz \u00b7 capacidad",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Identidad e IP del LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "ref": "B",
+      "series": 1,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "A",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "B",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "C",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "D",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Docker \u00b7 contenedores activos del LXC",
+      "ref": "E",
+      "series": 4,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "B",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "C",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+      "ref": "D",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "ref": "A",
+      "series": 2,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Readiness \u00b7 componentes esenciales",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "A",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "B",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Monitoring \u00b7 targets y frescura",
+      "ref": "C",
+      "series": 5,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Alertas activas \u00b7 CT $lxc",
+      "ref": "A",
+      "series": 0,
+      "samples": []
+    },
+    {
+      "ct_id": "614",
+      "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+      "ref": "A",
+      "series": 1,
+      "samples": []
+    }
+  ],
+  "history": [
+    {
+      "ct_id": "614",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "series": 1
+    },
+    {
+      "ct_id": "614",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "series": 1
+    },
+    {
+      "ct_id": "614",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "series": 1
+    },
+    {
+      "ct_id": "614",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "series": 1
+    },
+    {
+      "ct_id": "614",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "series": 1
+    },
+    {
+      "ct_id": "614",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "series": 2
+    },
+    {
+      "ct_id": "614",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "series": 2
+    },
+    {
+      "ct_id": "615",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "series": 1
+    },
+    {
+      "ct_id": "615",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "series": 1
+    },
+    {
+      "ct_id": "615",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "series": 1
+    },
+    {
+      "ct_id": "615",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "series": 1
+    },
+    {
+      "ct_id": "615",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "series": 1
+    },
+    {
+      "ct_id": "615",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "series": 1
+    },
+    {
+      "ct_id": "615",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "series": 1
+    },
+    {
+      "ct_id": "618",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "series": 1
+    },
+    {
+      "ct_id": "618",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "series": 1
+    },
+    {
+      "ct_id": "618",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "series": 1
+    },
+    {
+      "ct_id": "618",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "series": 1
+    },
+    {
+      "ct_id": "618",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "series": 1
+    },
+    {
+      "ct_id": "618",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "series": 0
+    },
+    {
+      "ct_id": "618",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "series": 0
+    },
+    {
+      "ct_id": "613",
+      "panel": "CPU \u00b7 hist\u00f3rico LXC",
+      "series": 1
+    },
+    {
+      "ct_id": "613",
+      "panel": "RAM \u00b7 hist\u00f3rico LXC",
+      "series": 1
+    },
+    {
+      "ct_id": "613",
+      "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+      "series": 1
+    },
+    {
+      "ct_id": "613",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "series": 1
+    },
+    {
+      "ct_id": "613",
+      "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+      "series": 1
+    },
+    {
+      "ct_id": "613",
+      "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+      "series": 0
+    },
+    {
+      "ct_id": "613",
+      "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+      "series": 0
+    }
+  ],
+  "cross_lxc_data": false
+}

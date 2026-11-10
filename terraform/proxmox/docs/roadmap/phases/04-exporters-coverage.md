@@ -1,9 +1,9 @@
 > D041: **DONE coberturaexporters17/17**, sinbloqueadosderollout.
-> Complementos,alertas/dashboards/seguridad aún pendientes; [cierre](../EXPORTERS-D041-CLOSURE.md).
+> Complementos abiertos; F5 aceptada, Fleet F6 desplegado y seguridad F7 pendiente; [cierre](../EXPORTERS-D041-CLOSURE.md).
 
 # Fase 4. Exporters & Monitoring Coverage
 
-Estado: **DONE — coberturaexporters17/17; complementosheredados abiertos**. Actualizado: 2026-11-06 (Europe/Madrid).
+Estado: **DONE — coberturaexporters17/17; complementosheredados abiertos**. Actualizado: 2026-11-09 (Europe/Madrid).
 [Roadmap](../ROADMAP.md) · [Estado actual](../CURRENT-STATUS.md) · [Decisiones](../DECISIONS.md)
 
 ## Objetivo
@@ -12,7 +12,7 @@ Conseguir métricas correctas y cobertura explícita de los 17 servicios, con fu
 
 ## Alcance y dependencias
 
-Node Exporter/LXCFS, cAdvisor/Docker/cgroup v2, Journal, métricas de Grafana y separación de disponibilidad. Sin cambios de aplicaciones o recursos Proxmox no revisados.
+Node Exporter/LXCFS, cAdvisor/Docker/cgroup del LXC, Journal, métricas de Grafana y separación de disponibilidad. Sin cambios de aplicaciones o recursos Proxmox no revisados.
 
 Dependencias: F3 aceptada; inventario real y fuentes de gestión; aprobación posterior de piloto/rollout. Las alertas/dashboards de F5/F6 dependen de esta calidad.
 
@@ -21,13 +21,13 @@ Dependencias: F3 aceptada; inventario real y fuentes de gestión; aprobación po
 | ID | Tarea | Estado | Evidencia / pendiente |
 |---|---|---|---|
 | F4-01 | Auditar los 17 CT, targets y fuentes reales | DONE | Snapshot de solo lectura; límites LXCFS vs /proc Docker; API Docker 400 para v1.41 |
-| F4-02 | Corregir fuente CPU/RAM de Node Exporter | DONE | 17fuentesLXC/cgroup/LXCFS verificadasD041 |
-| F4-03 | Recuperar métricas individuales cAdvisor | DONE | 17cAdvisor0.60.6,métricasDockerindividuales verificadas |
-| F4-04 | Completar Journal: Node, cAdvisor, web/API/TCP DB | IN PROGRESS | Tres Journal con exporters validados; API/Web/pg_isready correctos. Discovery/sondas globales pendientes |
-| F4-05 | Recoger métricas del propio Grafana | IN PROGRESS | /metrics real 200; job preparado, no cargado |
-| F4-06 | Separar host PVE, LXC, Docker y aplicación | IN PROGRESS | Matriz/semántica y labels preparados; falta fuente explícita del nodo y aceptación de contratos restantes |
+| F4-02 | Corregir fuente CPU/RAM de Node Exporter | DONE | 17 fuentesLXC/cgroup/LXCFS verificadasD041 |
+| F4-03 | Recuperar métricas individuales cAdvisor | DONE | 17 cAdvisor0.60.6,métricasDockerindividuales verificadas |
+| F4-04 | Completar Journal: Node, cAdvisor, web/API/readiness DB | DONE | ExportersD041; sondasweb/API D054 y pg_isready periódicoD057. No certifica integridad SQL ni discovery automático |
+| F4-05 | Recoger métricas del propio Grafana | TODO | /metrics conocido; job ausente en lecturaD059. Sonda HTTP GrafanaD054 es otro contrato |
+| F4-06 | Separar host PVE, LXC, Docker y aplicación | IN PROGRESS | MétricasLXC/Docker desplegadas; PVEestado/uptimeCT D056 y saludF6. Observabilidad completa del host y contratos restantes pendientes |
 | F4-07 | Aprobar y ejecutar piloto CT 624; validar estabilidad/idempotencia | DONE | Aceptado técnicamente por el propietario D-017; ocho criterios cumplidos, rollback y segunda aplicación sin cambios; ver PILOT-624 |
-| F4-08 | Corregir healthchecks heredados con contratos verificados | TODO | Budibase, API CRM, Focalboard; no modificar imágenes/aplicaciones por inferencia |
+| F4-08 | Corregir healthchecks heredados con contratos verificados | DONE | D051: Budibase/API CRM/Focalboard corregidos y validados, sin cambiar imagen/datos; UAT aparte |
 | F4-09 | Cerrar aceptación 17/17 con evidencia de producción | DONE | 17/17aceptados porperfilesD040/D041;evidenciafinalproducción |
 | F4-10 | Compatibilidad CPU e integración incremental | DONE | ContratosCPU e integración17/17;sin fallbackfísico |
 | F4-11 | Preparar y ejecutar lote Journal API/DB CT 626→625 | DONE | PASS técnico ambos; 600,960/601,019 s, backups previos/posteriores, rollback y segunda aplicación reales. Accepted por propietario D-020; integración CPU P0 verificada; ver JOURNAL-EXECUTION |
@@ -57,7 +57,13 @@ Candidatos Compose, imágenes fijadas, catálogos generados, pruebas, informe t�
 4. Grafana job up=1 y build/process metrics; tres Journal con exporters y sondas cuyo contrato esté identificado. TCP PostgreSQL no se acepta como integridad SQL.
 5. Diferenciar caída del collector, del LXC, del contenedor y del endpoint. Fuente del host PVE documentada; si falta, conservar tarea abierta, no inventarla a partir de LXC.
 6. Sin nuevos OOM/PSI ni regresiones CRM/EVA; imágenes/datos de aplicaciones intactos, rollback verificable y segunda aplicación sin recreaciones.
-7. Cada CT exige cadena Exporter→Prometheus→Reglas→AM→Telegram verificada, no solo exporters; no avanzar al siguiente sin integración. Revisión/aceptación del propietario tras piloto/rollout. No cumplidos globalmente; los ocho criterios del piloto CT 624 están superados.
+7. Cada CT exige cadena Exporter→Prometheus→Reglas→AM→Telegram verificada, no solo exporters; no avanzar al siguiente sin integración. Revisión/aceptación del propietario tras piloto/rollout. Cobertura/integración global cerradaD041; no atribuir recepción humana nueva a cada CT. Cadena globalF5 recibida y aceptadaD050. Complementos4/5 permanecen separados del cierreexporters.
+
+## Seguimiento vigente D059
+
+17/17 Node/cAdvisor UP,18 Blackbox UP; Journal funcional periódico y saludFleet
+resueltosD054/D057, healthchecks D051. JobGrafana sigue ausente y hostPVE completo
+no aceptado. [Evidencia](../evidence/2026-11-09-d059-documentation-audit.json).
 
 ## Evidencias y referencias
 
@@ -76,6 +82,11 @@ Candidatos Compose, imágenes fijadas, catálogos generados, pruebas, informe t�
 
 - [Integración incremental](../INCREMENTAL-INTEGRATION.md), [R1 preparado](../R1-613.md), [estados IaC](../../../services/common/exporter-migration.yml).
 
+
+## Historial de ejecución — sustituido por D041 y seguimientos posteriores
+
+Los estados y permisos siguientes corresponden a sus fechas; no son el estado
+vigente ni autorizan reejecuciones. Consultar [CURRENT-STATUS](../CURRENT-STATUS.md).
 
 ### Seguimiento 2026-11-03 08:38 CET — recuperación CT 619 pendiente
 
@@ -111,7 +122,7 @@ ni eventos max en esas muestras. Hipótesis de desfase de caché pendiente de de
 
 Regla temporal retirada y checkpoint coordinado restaurado; originales activos,
 candidatos128/256 y Node conservados detenidos. n8n/PostgreSQL disponibles. Seis
-cadenas previas revalidadas por API tras rollback;17Node/17cAdvisor/11Blackbox.
+cadenas previas revalidadas por API tras rollback;17 Node/17 cAdvisor/11Blackbox.
 CT623 y posteriores sin iniciar; R6 excluido. No hubo commits/push. La prueba
 Telegram de619 no se declara aceptada por fallar la ventana; ninguna recepción
 humana nueva atribuida. D-025/D-028 conservan alcance, sin aprobar otros recursos.

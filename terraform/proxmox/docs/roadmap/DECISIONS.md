@@ -713,7 +713,7 @@ Resultado D039 — 2026-11-06 19:46 CET:622/611/616/610DONE,13/17;618BLOCKED/ROL
 seguro porRAMvolátil.617/615/614sinintervención;4BLOCKED/0PENDINGsinintentar.
 600s/21cadaDONE,84muestras;16backups verificados;idempotencia;AM/Telegram/históricos
 conservados.Observadorexterno61023/23PASS. TelegramporloteR6/R7API+4/0fallosnuevos.
-Métricas/thresholds sin cambios;25testspertinentesPASS. Tiempo:81.3min.
+Métricas/thresholds sin cambios;25testspertinentesPASS. Tiempo:12.4min.
 PolíticaCOMPLETED/permisosvacíos. Sinapp/DB/recursosPVE/volúmenes,Tfapply,commit/push.
 [Consolidado](CRITICAL-D039-EXECUTION.md). Recuperación617→618 espropuesta,noautorización.
 
@@ -763,7 +763,7 @@ ResultadoD041 — 2026-11-06 21:08 CET:617/618/615/614DONE,17/17coberturaexporte
 615/614siguen503,sinregresión;noapphealthy.617heldcorregido conidentidadporrun;
 CRMcapturaRAM0,1s/bracketmáximo0,123s,sin ampliar tolerancias.13previos yProm/AM
 intactos;17/17/11UP,17cadenas. CanalD039sin cambios/erroresnuevos,sin entrega nueva.
-24testsafectadosPASS. Tiempo:58.1min. [Cierre](EXPORTERS-D041-CLOSURE.md).
+24testsafectadosPASS. Tiempo:12.4min. [Cierre](EXPORTERS-D041-CLOSURE.md).
 Cierre especifico decoberturaexporters;no certificaalertasfor/dashboards/seguridad
 ni complementosheredados aúnnoejecutados. PolíticaCOMPLETED/permisosvacíos,sinotroCT,
 sinTerraformapply/commit/push. RevisiónF5espropuesta,noautorizacióndeproducción.
@@ -785,3 +785,478 @@ preservados fuera de seguimiento. Secretos históricos requieren rotación; no
 revocados por eliminación de archivos. F7-01 DONE solo monitorización, F7 global
 IN PROGRESS; aplicaciones ajenas pendientes. Sin producción.
 [Informe](GIT-CONSOLIDATION-D042.md), [evidencia](evidence/2026-11-06-git-consolidation.json).
+
+### D-043 — diagnóstico614sGTM/Preview yBlackbox, sololectura
+
+Propietario autoriza inspecciónCompose/envsaneado/comunicación/proxy/EdgeRouter/
+rutaspúblicas ymétodosHTTP, sin enviar eventosGA4válidos. PrepararIaCmínima,noaplicar.
+Sinproducción/reinicios/imágenes/GoogleCloud/DNS/router/commit/push. Configs ylogs
+se filtran antes de cualquier salida; nuncaCONTAINER_CONFIG,auth ni datosdeeventos.
+F4cobertura17/17conservada; investigación deapp/sondaINC005 yF5, no nuevo rollout.
+
+ResultadoD043 — 2026-11-06 22:05 CET:diagnóstico ypreparaciónDONE,remediación NOaplicada.
+503real dehealthbootstrapcaducado,configmainfuncional/refresco<5min,Previewenred
+alcanzable;curlDockerinexistente essegundodefecto. Mismoid/env/auth válido,sinvalores
+publicados enartefactos. Blackboxactual200,alertahistóricaHTTP0el2nov;HEADnoescausa
+acreditada. Overlayhealthcheckvalidado,nuevasprobes opcionalesdeferred,noactivas.
+SiguientepasorequiereautorizarrecreaciónPreview→mainmismaimagen/env,sincambios
+proxy/EdgeRouter/DNS/GCloud. GA4endtoendnocertificado;noeventosválidosdeprueba.
+[Informe](CT614-SGTM-D043.md).Sincommit/push/nuevosreinicios.
+
+### D-044 — recuperacióncontrolada614Preview→sGTMautorizada
+
+Propietario autoriza backupverificadodelComposeACTIVO eimágenes/config/secretos,
+healthcheckNode nativo enIaC,recrear SOLOPreview,exigir/healthz200antes derecrear
+SOLOprincipal. Mismasimágenes/env/secretos/puertos/recursos. NoComposehistóricorepo,
+Nginx/EdgeRouter/DNS/GCloud/sondasBlackbox/pull/build ni otrosCT. Fallo detienesecuencia
+yrecuperaconfiguración/imagen previstas; conservabackups. Validar saludarranque,
+dominiopúblico/Blackbox/Prom/AM e idempotencia. Investigar/documentar prevención de
+caducidad,sin implementarcron/timers/reiniciosautomáticos. Sincommit/push.
+
+
+### D-044 — cierre de recuperación CT 614
+
+## D-044 — CT 614 recuperado — DONE
+
+Preview y sGTM healthy; `/healthz` local y público HTTP 200. Healthcheck Node
+aplicado mediante overlay sobre Compose activo; misma imagen, variables, puertos
+y recursos. Backups privados verificados en CT/PVE/fuera del host, idempotencia
+PASS y sin nuevos OOM. Prom/AM disponibles: 17 Node/17 cAdvisor/11 Blackbox UP;
+sondas collect nuevas HTTP 200 y sin incremento de errores Telegram.
+Hubo reintentos por defectos del script: 7 recreaciones Preview y 4 principal,
+incluidos rollbacks; corregidos y registrados. No cambios de proxy/DNS/Cloud/sondas.
+F4 exporters conserva 17/17. Prevención de caducidad semanal solo propuesta;
+no timers ni reinicios automáticos instalados. Sin commit/push.
+[Resultado, riesgos y recuperación](CT614-SGTM-D044-RECOVERY.md).
+Siguiente paso: revisar mantenimiento periódico; no ejecución automática adicional.
+
+### D-045 — Issue sGTM e inventario operativo IaC (autorizado)
+
+Alcance: buscar/crear/actualizar Issue de recurrencia CT 614; descubrir por lectura
+los 17 LXC, generar fichas Notes y Markdown desde inventario versionado. Aplicación
+Terraform autorizada únicamente si el plan completo cambia descripciones; cualquier
+cambio adicional exige detener apply y consultar. No reinicios, recursos, apps,
+contenedores, DNS/proxy, secretos, commits ni pushes. Preservar cambios EVA/Journal/
+Gestoría y notas útiles. F4 cobertura 17/17 conservada; documentación transversal F7.
+
+### D-045 — resultado y propuesta pendiente
+
+## D-045 — inventario IaC preparado; Notes BLOCKED por tags
+
+Issue sGTM creada: [#1](https://github.com/eduardo152030/mailerblend-platform-infra/issues/1),
+sin automatizar reinicios. Inventario de 17 LXC generado desde recursos declarados,
+metadatos funcionales y observaciones PVE/Docker/Nginx fechadas. Campos no
+confirmados explícitos; fichas Markdown y Notes comparten fuente y plantilla.
+9 pruebas PASS, schema/referencias/secretos y Terraform fmt/validate PASS.
+Plan completo: 17 updates de **description y tags**, sin creación/destrucción;
+**NO apply**, conforme al límite autorizado. Todas las Notes de producción siguen
+originales. 17/17 boot IDs, configuración PVE comprobada e identidades/arranques/
+reinicios de todos los contenedores sin cambios. Trabajo previo preservado.
+F4 exporters conserva cierre 17/17; documentación transversal F7 en curso.
+[Inventario](../inventory/LXC-INVENTORY.md), [operación y bloqueo](../inventory/README.md),
+[evidencia](evidence/2026-11-06-d045-result.json). Sin commit/push.
+Siguiente paso requiere autorización: conservar tags reales mediante override
+propuesto existente y generar nuevo plan estrictamente de Notes antes de aplicar.
+
+La propuesta `inventory/notes-preserve-tags.proposed.tfvars.json` NO está autorizada
+ni aplicada todavía. Usa el override de tags existente, no ignore_changes ni -target.
+No aceptar ni aplicar el plan actual que incluye cambios de etiquetas.
+
+### D-046 — Notes exclusivamente CT 614 (autorizado)
+
+El propietario sustituye el alcance global D045: consultar solo CT614 y el bloque
+Nginx de su dominio; preparar/aplicar únicamente description de CT614 si el plan
+lo confirma. Preservar tags actuales, recursos, aplicaciones y contenedores. Se usa
+plan dirigido al recurso CT614 para no refrescar/investigar otros LXC; no supone
+permiso para aplicar otros recursos ni para el plan global anterior. Sin commits/push.
+
+### D-046 — cierre
+
+## D-046 — Notes CT 614 aplicadas — DONE
+
+Trabajo limitado a infra-nucleoedge y lectura de su ruta Nginx. Serving/Preview
+healthy y healthz local/público 200. Notes específicas en formato Purpose,
+Environment, Network, Applications, Dependencies, Monitoring, IaC y Known Issues;
+fuente versionada `services/infra-nucleoedge/NOTES.md`, integrada en generador y
+plantilla Terraform. Production confirmado por propietario. Sin secretos.
+Plan dirigido: 1 update de description de CT614; tags conservados por var-file
+acotado. Apply PASS, Notes exactas verificadas y segundo plan sin cambios.
+Configuración PVE salvo description, boot ID, contenedores y Compose intactos;
+estado de otros recursos Terraform idéntico, sin investigar otros LXC.
+11 tests, generación, fmt/validate y diff-check PASS. Sin commit/push.
+[Fuente y procedimiento](../../services/infra-nucleoedge/NOTES-IAC.md),
+[evidencia](evidence/2026-11-06-d046-result.json).
+D045 global sigue sin aplicar: solo CT614 tiene Notes nuevas. F4 exporters17/17
+no reabierto; F7 documental en curso. Siguiente: revisión por propietario, sin
+continuación automática ni nuevos cambios autorizados.
+
+### D-047 — ficha individual de CT614
+
+Autorizado inventario técnico exclusivo CT614, consultas de lectura a sus
+dependencias directas Nginx/Prometheus/Blackbox y resumen Notes mediante IaC.
+Sin cambios de apps, tags, recursos, DNS/Nginx ni reinicios; cualquier aplicación
+de Notes exige plan exclusivo description CT614. No eventos GA4 ni secretos.
+Documentar discrepancias, backups verificables y límites funcionales; sin commit/push.
+
+### D-047 — cierre
+
+## D-047 — ficha individual CT614 y Notes — DONE
+
+[Inventario técnico principal](../inventory/614-LXC-INVENTORY.md): secciones A–L,
+diagrama Mermaid, arquitectura/rutas, versiones por métricas/digest, operaciones,
+backups y límites. El inventario general solo enlaza su ficha; no duplica CT614.
+Lectura limitada a CT614 y sus dependencias directas Nginx/Prometheus/Blackbox.
+Confirmado: 2 CPU, 2048 MiB, Ubuntu22.04.5, rootfs10G; Serving/Preview healthy,
+healthz local/público200. Node1.10.2:9100, cAdvisorv0.60.6:8085, targets UP y dos
+probes collect200. `/orbit/healthz` y `/orbit/ingest` son rutas exactas a CT617;
+no se consultó ese CT. DNS/TLS actuales documentados, sin cambios.
+Discrepancias documentadas: disco16GiB declarado/10Greal, Compose histórico distinto,
+labels monitorización diferentes; no corregidas. GA4 y prevención automática pendientes.
+Notes resumidas aplicadas por plan exclusivo description614, tags conservados;
+verificación exacta y segundo plan cero cambios. Boot/contenedores/Compose/Nginx y
+estado Terraform de otros recursos intactos.12tests y validaciones locales PASS.
+Sin eventosGA4, reinicios, recreaciones, secretos, commits ni pushes.
+[Evidencia](evidence/2026-11-06-d047-result.json). F4exporters17/17 conservado;
+F7 documental en curso. Siguiente: revisión del propietario; ejecución detenida,
+sin avance automático a otro LXC.
+
+### D-048 — recuperación CT615 autorizada
+
+Propietario autoriza reutilizar D044 en CT615 si el preflight confirma misma causa
+y ausencia de diferencias materiales: Compose ACTIVO, backup verificado antes de
+modificar, misma imagen/config/env/secretos/puertos/montajes/recursos; checker Node,
+Preview antes de Serving, salud200, cobertura y OOM/idempotencia. No otros LXC,
+Nginx/DNS/Cloud ni reinicios automáticos, eventosGA4, commits o pushes. Issue#1
+revisada; prevenir sus errores de orquestación y contar todas las recreaciones.
+
+### D-048 — cierre de recuperación CT615
+
+## D-048 — CT615 sGTM recuperado — DONE
+
+Preview y Serving healthy; healthz18092/18091 y público200. Caducidad del bootstrap
+con alta confianza:50días, configuración válida/igual y diagnóstico de edad coherente.
+Checker Node sobre Compose ACTIVO; mismo digest/env/secretos/puertos/montajes/recursos.
+**1 recreación Preview + 1 Serving**, cero adicionales; segunda aplicación sin
+recreaciones, OOMdeltas0 y sin errores graves de arranque detectados.
+Recuperador D044 reutilizado con perfil615; Nginx Preview usa `/gtm/` con cabecera
+de selección, no `/preview/`. Ruta y parámetros conservados, sin cambiar Nginx.
+Backups CT/PVE/externo verificados antes de intervenir.17Node/17cAdvisor/11BlackboxUP,
+Prom/AM ready, sonda Mailerblend frescaHTTP200; Telegram132/56 sin errores nuevos.
+21tests pertinentesPASS. Ejecución productiva68.444s; sin vigilancia redundante.
+[Procedimiento/evidencias](CT615-SGTM-D048-RECOVERY.md). No otrosLXC modificados,
+Terraformapply, reiniciosautomáticos, eventosGA4, commits ni pushes.
+F4exporters17/17 conservado; el503 preexistente de615 queda resuelto (sustituye
+estado de salud histórico D041). GA4endtoend/prevención Issue#1 pendientes.
+Inventario local actualizado; Notes615 generadas NOaplicadas a Proxmox.
+Siguiente: revisión del propietario; ejecución detenida, sin otroLXC autorizado.
+
+### D-049 — inventario individual y Notes CT615 autorizados
+
+Propietario autoriza ficha técnica específica, consultas breves de lectura a CT615
+y dependencias directas (Nginx/DNS/monitorización), diagrama y Notes IaC. Aplicar
+solo si plan dirigido cambia exclusivamente description CT615; preservar tags y
+todos los otros atributos. Evaluar ampliación necesaria de Issue#1 sin duplicados.
+No apps/contenedores/recursos/Nginx/DNS/certificados, reinicios, commits ni pushes.
+
+### D-049 — cierre
+
+## D-049 — ficha individual y Notes CT615 — DONE
+
+[Ficha técnica principal](../inventory/615-LXC-INVENTORY.md) A–L y Mermaid de rutas
+reales. Sitio Mailerblend HTTPS200 verificado; envío navegador/GA4 pendiente.
+Nginx: collect/healthy/fallback Serving, `/gtm/` selecciona Preview por cabeceras;
+no se copió `/preview/` de CT614. Serving/Preview healthy, salud local/pública200;
+Node1.10.2:9100/cAdvisorv0.60.6:8085 up1, sonda collect1/HTTP200, Prom/AM ready.
+Clasificación prod por tags; 2CPU/2048MiB/Ubuntu22.04.5, disco10G real/16GiB declarado.
+Compose local conserva curl histórico; activo usa overlay Node. Discrepancias
+solo documentadas. Backups D048 presentes; no nueva restauración ni eventosGA4.
+[Notes IaC](../../services/infra-mailerblend-edge/NOTES.md) aplicadas: plan dirigido
+solo description615, tags intactos; lectura exacta y segundo plan cero cambios.
+Boot/contenedores/Compose/Nginx y estado Terraform de otros recursos sin cambios.
+14tests locales y controles de generación/fmt/validate/enlaces PASS. Issue#1 ampliada
+con segundo caso615/perfil Preview, sin duplicados ni automatizar reinicios.
+[Evidencia](evidence/2026-11-06-d049-result.json),
+[operación Notes](../../services/infra-mailerblend-edge/NOTES-IAC.md).
+F4 exporters17/17 conservado; F7 documental en curso. Sin commit/push.
+Siguiente: revisión del propietario; ejecución detenida, no avanzar a otroLXC.
+
+### D-050 — Fase 5 autorizada
+
+2026-11-06 (Europe/Madrid). Solicitud vigente autoriza optimizar reglas, rutas,
+inhibiciones y Telegram mediante IaC; aplicar exclusivamente configuración de
+Prometheus/Alertmanager tras validación, backup y revisión de diff. Ensayo
+FIRING/RESOLVED autorizado sin incidencia real ni eventos Analytics. Regresión de
+monitorización/notificaciones exige restaurar. No apps/recursos/LXC/commit/push.
+Sustituye la prohibición histórica de ensayos F5 en este alcance.
+
+### D-050 — ejecución y aceptación de Fase 5
+
+2026-11-07 (Europe/Madrid). Solicitud vigente ejecutada exclusivamente sobre
+configuración Prometheus/Alertmanager. Umbrales y rutas concretos en
+[PHASE5-D050-EXECUTION](PHASE5-D050-EXECUTION.md), evidencia
+[resultado](evidence/2026-11-07-d050-result.json). CPU física retirada de alerting;
+CPU aceptada F4 no modificada. Nuevos pares RAM/disco/TLS e inhibición por recurso;
+no inhibición de apps independientes por CT. Recargas con backup y rollback;
+primera aplicación revertida por gate prematuro unknown, sin errores de evaluación
+ni notificación, después corregido. Segunda aplicación idéntica sin recargas.
+Ensayo real exporter→Prometheus→reglas→AM→Telegram, API132→134 sin errores nuevos.
+El propietario confirma explícitamente «Recibidos ambos y claros» para FIRING y
+RESOLVED y lectura móvil. F5 DONE — Accepted; no dispensa UAT. Ensayo retirado.
+Tres unhealthy CRM/EVA preexistentes se monitorizan, no se reparan ni aceptan como
+saludables. Sin aplicaciones/exporters/recursos/volúmenes/reiniciosLXC/commit/push.
+
+Propuestas separadas, NO aprobadas por este cierre: nuevas sondas HTTP específicas
+Grafana/CRM, corrección de healthchecks CRM/EVA y revisión del AM extra heredado.
+Fase 6 requiere alcance/autorización; no la habilita automáticamente este cierre.
+
+### D-051 — corrección acotada CRM/EVA autorizada
+
+2026-11-07 (Europe/Madrid). Solicitud explícita: «revisa y soluciona estas 3 alarmas».
+Alcance: focalboard CT622, budibase-app y crm-api CT618. Diagnosticar checks y salud
+real; corregir mediante IaC con backup, rollback y validación. Recreación mínima
+solo si es necesaria para aplicar sus healthchecks; preservar imágenes, variables,
+datos/volúmenes, recursos y otros contenedores. No cambios de reglas para ocultar
+los fallos, upgrades, DB/esquemas, recursos PVE, commits/push ni avance F6.
+
+### D-051 — cierre técnico
+
+2026-11-07 16:08 CET. Los tres checks corregidos mediante IaC y aplicados con las
+imágenes/env/datos/recursos/redes originales. Backups/restauración staging y
+idempotencia verificadas. Tres health1 y cero alarmas objetivo FIRING, Prom/AM
+READY y17/17/11 conservados; sin modificar reglas ni ocultar series antiguas.
+API1/Focalboard2/Budibase1 candidatos; rollback Focalboard y rechazos preservados.
+Incidencia API SIGTERM durante arranque y comparaciones de serialización corregidas
+en validador documentadas en [informe](HEALTHCHECKS-D051-EXECUTION.md).
+DONE técnico sin nueva UAT funcional ni dispensa extendida; no se certifica parada
+SIGTERM bajo cualquier carga. No commits/push ni intervención F6. Propuestas de
+revisión de parada API y UAT permanecen separadas, sin ejecución automática.
+
+### D-052 — dashboard principal F6 autorizado
+
+2026-11-07 16:22 CET. Solicitud del propietario autoriza implementar, validar y desplegar por
+IaC exclusivamente «Proxmox · LXC Fleet Overview» en CT611, con datos reales de
+Prometheus. Preservar dashboards/datasource/usuarios/volumen existentes. Sin apps,
+reglas/umbrales F5, Telegram, recursos, reinicios LXC ni commits/push. F6 global
+no se declara completada. F6-01/03/05 en curso; F6-02 solo correcciones necesarias
+confirmadas por runtime. Validación visual y persistencia se reportarán separadas.
+Acceso SSH estricto y Prometheus comprobados; Grafana12.3.1 operativo en3010,
+autenticación inicial401. Pendiente acceso existente para API/UI; no resetear claves.
+Siguiente: construir consultas/JSON, validar, backup y despliegue acotado.
+
+### D-052 — cierre técnico
+
+2026-11-07 16:36 CET (Europe/Madrid). Dashboard principal provisionado en CT611 con datasource
+Prometheus existente: tabla17CT, KPIs17/17Node,17/17cAdvisor,11/11Blackbox,
+CPU/RAM/discoLXC, filtros Service/LXC, alertas y diagnóstico Docker.26consultas
+reales/9porproxyGrafana PASS;12casos sintéticos y navegador/filtros/rango/enlace
+PASS;segunda aplicación cero escrituras/recargas/reinicios.7dashboards/2datasources
+conservados, backup CT/fueraPVE y restore-check SQLite/config PASS. Tres retornos
+preventivos por metadatos versión/ordenMounts; comparadores corregidos, contenido
+ajeno intacto. Cero restarts/recreaciones; providers antiguos duplicados pendientes.
+11CT sinsondaasociada siguenUNKNOWN, Dockerhealthy no acredita disponibilidad.
+Descripción/tiempoactivo enlazados aPrometheus; sinhistorialRESOLVED. Grafanadinámico,
+file_sd requierealtaIaC explícita; no discoveryPVE afirmado. F6 globalINPROGRESS;
+aceptaciónvisual propietario y recreaciónreal no realizadas. Sinapps/reglasF5/
+Telegram/CT610/recursos/commits/push. Tiempo: 17.4min desde primera lecturaProm.
+[Informe](PHASE6-D052-EXECUTION.md), [resultado](evidence/2026-11-07-d052-result.json),
+[dashboard](http://192.168.1.111:3010/d/proxmox-lxc-fleet/proxmox-c2b7-lxc-fleet-overview?theme=dark).
+Siguiente: revisiónvisual propietario y alcance del próximo dashboard, sinavanceautomático.
+
+### D-053 — auditoría Application Health, solo lectura
+
+2026-11-07 16:56 CET (Europe/Madrid). Solicitud del propietario autoriza auditar los11UNKNOWN
+de Fleet Overview: runtime Docker/systemd, endpoints seguros de lectura, métricas
+y sondas existentes. Sin cambios de Prometheus/Grafana/Docker/apps ni reinicios,
+recreaciones, commits o push. GET de salud y pg_isready diagnóstico, sin ingesta,
+login de negocio ni consultas SQL. Solo script/evidencias/documentación locales.
+F6-03 auditoría en curso; propuestas requieren revisión, no autorización de aplicación.
+
+### D-053 — resultado y propuestas pendientes
+
+2026-11-07 17:00 CET (Europe/Madrid). Fase 6 IN PROGRESS. Consulta desplegada y runtime
+confirman UNKNOWN en CT611/613/616/617/618/620/621/623/624/625/626: ninguno tiene
+probe Blackbox asociada. Propuesta: 618 reutiliza readiness D051 por consultas;
+617/620/624/626 necesitan 5 targets HTTP en total; 621/623/625 requieren contrato
+específico; 611/616 se proponen N/A de monitorización y 613 requiere decisión de
+ciclo de vida (demo ausente, no declarar N/A automáticamente). Categorías y totales
+son propuestas, no cambios aceptados. Orbit público healthz200 desde CT616; directo
+403. Focalboard621 ping devuelve el mismo HTML que raíz; no prueba API healthy.
+Odoo623 loopback200, 8080 solo Nginx de prueba; PostgreSQL625 pg_isready0 sin métrica
+periódica. Salud Docker de CRM es readiness, no disponibilidad externa certificada.
+Auditoría de lectura, sin configuración/recargas/reinicios/recreaciones/commits/push;
+solo script, evidencia y documentación locales. Los 11 UNKNOWN se conservan.
+[Informe](PHASE6-D053-APPLICATION-HEALTH-AUDIT.md),
+[evidencia](evidence/2026-11-07-d053-audit.json),
+[conservación](evidence/2026-11-07-d053-final.json).
+Siguiente: revisión del propietario; ninguna implementación autorizada.
+
+### D-054 — autorización vigente
+
+2026-11-07 17:04 CET. Petición autoriza señales de monitorización611/616, readinessCRM618,
+sondasOrbit617/dosworkers620/Journal624+626 y columnaUptime dinámica; soloIaC de
+monitorización, sin apps/exporters/recursos/reinicios/umbralesF5/commits/push.
+Preparación incluye módulosBlackbox mínimos en616 con validación de respuesta y
+recarga controlada sin reinicio, necesarios para identidad funcional de sondas.
+Se preservan11sondas existentes. Backup/rollback coordinado610/611/616 antes de
+aplicar. node_boot_time_seconds observado común alhost, rechazado; no fuentePVE
+publicada. UptimeUNKNOWN hasta fuenteLXC fiable, sin collector nuevo ni fallback.
+F6INPROGRESS; otrasetapas excluidas. Siguiente: validar candidatos y aplicar alcance.
+
+### D-054 — cierre técnico y límite de Uptime
+
+2026-11-07 17:15 CET (Europe/Madrid). Application Health UNKNOWN11→4:613/621/623/625
+conservados.611/616 NOT APPLICABLE como negocio con Monitoring Health real;618
+HEALTHY(readiness), sin disponibilidad pública certificada.617/620/624/626 con
+sondas funcionales verificadas. Seis sondas nuevas incluida Grafana:11anteriores
+preservadas,17BlackboxUP/success1;17Node/17cAdvisor conservados. Regla/umbralesF5,
+apps, imágenes, identidades y siete dashboards ajenos intactos. Backups CT/fueraPVE,
+restore-check, promtool/parserBlackbox,26casos sintéticos,28consultas y navegador
+PASS. Segunda aplicación0escrituras/recargas/reinicios. Sin commits/push.
+Columna Uptime dinámica añadida,17filas UNKNOWN: node_boot_time_seconds refleja
+arranqueHOST, rechazado por comparación con API PVE17CT. node_time es reloj;
+no métrica LXC/PVE publicada. No se afirma uptime real completado; requiere fuente
+fiable y alcance separado. No Docker/exporter como sustituto. F6INPROGRESS;
+EtapaA DONE técnico, aceptación visual propietario pendiente. Tiempo:12.4min.
+[Informe](PHASE6-D054-STAGE-A-EXECUTION.md), [resultado](evidence/2026-11-07-d054-result.json).
+Siguiente: revisión visual y autorización de fuente uptime; no EtapaB ni otrosCT.
+
+### D-055 — diagnóstico autorizado y propuesta sin aprobar
+
+2026-11-07 17:24 CET (Europe/Madrid). Diagnóstico/preparación DONE, ejecución BLOCKED por
+aprobación según petición: no exporter/métricasPVE ni identidadAPI de sololectura.
+TokenTerraform heredaPVEAdmin, no reutilizado. Propuesta concreta: exporterupstream
+3.11.0fijadopordigest, único contenedor no-root en610/redProm existente; resources/
+status y métricasuptime/info/up porCT, sin listasVMID. Requiere usuario/token nuevos
+PVEAuditor en/, privsep=1 y archivo secreto privado. TLS/CA desde610PASS; Compose,
+promtool y8casos sintéticosPASS. Soloartefactos locales, nada aplicado:17uptimes
+siguenUNKNOWN. Fuente admin puntual previa no equivale a monitorización desplegada.
+Sin permisos nuevos, recargas/reinicios/apps/recursos/reglasF5/commits/push.
+[Propuesta](PHASE6-D055-UPTIME-PROPOSAL.md),
+[evidencia](evidence/2026-11-07-d055-preparation.json).
+F6INPROGRESS. Siguiente: aprobación explícita de identidad de lectura y despliegue
+acotado; no usar SSHroot periódico ni credencialTerraform para evitarla.
+
+### D-056 — D055 aprobado para ejecución
+
+2026-11-07 17:29 CET. Propietario aprueba D055: usuario prometheus-uptime@pve y tokenexclusivo
+uptime, privsep=1, exclusivamentePVEAuditor usuario/token en/, verificaciónefectiva,
+secreto privado fueraGit y TLSactivo. ExporterúnicoIaC en610, Prometheus/Grafana
+porrecarga/polling sinreiniciarLXC/apps/servicios existentes ni recursos/F5/commit/push.
+Validar17uptimes frentePVE, descubrimiento y segundaaplicación. Detener si permisos
+adicionales. D055 deja deestar pendiente en estealcance; no habilitaotrasetapas.
+Siguiente: backup, creaciónacotada/validaciónpermisos yTLS, arranque soloexporternuevo.
+
+D056 ajuste de implementación: imagenupstream3.11.0 usaPython3.14 y rechazaCA PVE
+por extensiónkeyUsage ausente. No se cambiaCA, flagsTLS ni permisos. Mismo paquete
+3.11.0 sobrePython3.12 soportado, basefijadapordigest, Dockerfileversionado. Solo se
+sustituye el nuevoexporter nointegrado, preservando imagen/contenedor fallido para
+diagnóstico. Sin reiniciarservicios preexistentes ni tocarrecursosPVE/apps.
+
+### D-056 — cierre técnico Uptime
+
+2026-11-07 17:43 CET (Europe/Madrid). 17/17uptimes reales enGrafana desdeAPI Proxmox;26LXC
+API descubiertos sin listasVMID, filtrados a17monitorizados porinventario dinámico.
+Exportercentral3.11.0 en610 no-root, capacidadesvacías/rootfsRO/redProm privada.
+Usuario/tokenpropios exclusivamentePVEAuditor, privsep=1; seis privilegiosAudit
+verificados, secreto0400fueraGit, TLS/CA activo, sin credencialTerraform.
+Comparación17CT conPVE y611/618/624status/current: máximo11.0s (<45s).
+Prometheus/GrafanaIaC, previos17Node/17cAdvisor/17Blackbox, reglasF5/umbrales/apps/
+identidades/sietedashboards conservados; sin reinicios deLXC/apps/serviciosprevios.
+Segundaaplicación0escrituras/recargas/recreaciones. Inicial upstreamPython3.14 rechazó
+CA porkeyUsage; mismoexporter sobrePython3.12soportado, base+depsfijadas, TLSsinbypass.
+Soloexporternuevo sustituido; candidatoimagen/contenedorretenidos. No rollbackProm.
+UptimeDONE técnico; F6INPROGRESS y aceptaciónvisual propietario pendiente. Tiempo:17.1min.
+[Informe](PHASE6-D056-UPTIME-EXECUTION.md), [resultado](evidence/2026-11-07-d056-result.json).
+Sin recursosPVE, reglasF5, apps, commits/push. Siguiente: revisiónvisual; noEtapaB.
+
+### D-057 — alcance autorizado
+
+2026-11-07 18:08 CET. Solicitud autoriza monitorización IaC613/621/623/625 y consolidación
+Infrastructure/Application/Monitoring/Overall para17CT, STOPPED solo desdePVE.
+613DEMO confirmado, verificar appausente antes deN/A.621/ping real JSON7.10;
+623Odoo local+PG y625pg_isready mediante checks de lectura y textfileNodeexistente.
+Timers locales root usan accesoDocker yaadministrado, sin nuevo usuario/rol/ACL;
+pg_isready como usuario postgres existente y escritura métricas como nobody.
+Sin cambiar apps/DB/passwords/healthchecks/recursos/F5 ni reinicios/commit/push.
+Backup/rollback acotado y validación/idempotencia; no otras etapas. F6INPROGRESS.
+Siguiente: comprobar checks, preparar candidatos y desplegar monitorización.
+
+### D-057 — reanudación y cierre técnico 2026-11-09
+
+La petición vigente confirma el mismo alcance de salud de17CT; no amplía a apps,
+DB, recursos ni otras fases. Nueva línea base privada, backups y evidencias
+separadas del07nov; collectors existentes verificados sin cambios. Desplegados
+sonda621 y dashboard consolidado con STOPPED exclusivamente PVE;17filas/ceroUNKNOWN,
+18Blackbox/17Node/17cAdvisor y F5 conservados, idempotenciaPASS.
+[Informe](PHASE6-D057-COMPLETE-HEALTH.md). DONE técnico del alcance, no aceptación
+visual ni cierre globalF6. Propuestas/pendientes de otras vistas/providers/UAT
+no se autorizan por este cierre. Ejecución detenida, sin commit/push.
+
+### D-058 — simplificación visual autorizada
+
+2026-11-09. Petición explícita autoriza quitar Environment y el panel Componentes
+Docker del Fleet desplegado y de IaC. Solo presentación en611, sin otras fases,
+reinicios ni commits/push.
+
+### D-058 — cierre técnico
+
+Environment y panel Componentes Docker retirados del generador y dashboard
+provisionado611. Solo presentación, backup verificado, API e idempotenciaPASS;
+cero recargas/reinicios, otras siete vistas y datasources conservados. Sin commit/
+push. F6 global IN PROGRESS, pendiente revisión visual del propietario.
+
+### D-059 — revisión documental autorizada
+
+2026-11-09 (Europe/Madrid). El propietario solicita contrastar y actualizar la
+documentación al estado real. Alcance: lecturas de APIs/archivos, consolidación
+del roadmap/estado/fichas y manual Fleet, conservación del historial/evidencias.
+Sin despliegues, reinicios, recursos, cambios de aplicaciones, commits ni push.
+Tarea documental transversal F7-09, con actualización de F1–F6 según evidencias.
+
+### D-059 — cierre de revisión documental
+
+2026-11-09 (Europe/Madrid). Roadmap/estado consolidados, fichas F1–F7 y manualFleet
+alineados con evidencias D041–D058 y lectura actual de APIs. Historial íntegro
+conservado en archivos separados; no se reescriben pruebas originales ni se
+extiende dispensa UAT. F6/F7 IN PROGRESS; jobGrafana y demás pendientes explícitos.
+[Informe](DOCUMENTATION-D059-REVIEW.md),
+[evidencia](evidence/2026-11-09-d059-documentation-audit.json).
+Solo documentación y consultas, sin producción/commits/push. Propuestas futuras
+siguen sin autorizar; siguiente paso revisión visual y alcance F6 específico.
+
+### D-060 — implementación final y cierre F6 autorizados
+
+2026-11-09 (Europe/Madrid). Solicitud autoriza completar Fleet y LXC Details,
+navegación bidireccional, provisioning IaC, comprobación visual/consultas/
+idempotencia/persistencia y cierre F6 si cumple los once criterios nuevos.
+Cambios productivos limitados a provisioning Grafana y sondas necesarias/seguras;
+sin recursosLXC, apps/DB/secretos/reglas/Telegram, commits/push. Aplicaciones y
+pendientes F7 quedan separados. Se permite continuar tareas independientes ante
+bloqueo funcional. No exige nueva UAT de negocio ni perfección cosmética para cerrar.
+
+### D-060 — cierre Fase 6 DONE
+
+2026-11-10 (Europe/Madrid). Implementación/navegador09nov y revisión/ensayoaislado
+final10nov acreditan los once criterios autorizados. Fleet y LXC Details enlazados,
+17CT, uptimePVE real, salud coherente, nueve dashboards IaC y siete modelos/carpetas
+anteriores conservados. Providers únicos y mounts efectivos en recetaCompose;
+mismaimagen fijada, sin recreación deGrafana activo. Idempotencia0escrituras/recargas/
+reinicios. Producción17Node/17cAdvisor/18BlackboxUP, sin FIRING/PENDING; F5intacta.
+[Informe](PHASE6-D060-CLOSURE.md), [resultado](evidence/2026-11-10-d060-result.json).
+DONE por criteriosD060; no se afirma UAT ni aceptaciónvisual humana no registrada.
+La dispensaF3 no se amplía. Límites de señales y documentaciónlocal explícitos.
+F7 y complementosF4/aplicaciones pendientes, propuestas no autorizadas por cierre.
+Ejecución detenida; sin commits/push, apps/DB/recursos/secretos/F5/Telegram alterados.
+
+### D-061 — F7.1 y F7.4 autorizados
+
+2026-11-10 (Europe/Madrid). Petición autoriza auditar, seleccionar, validar,
+crear commits coherentes y push normal SSH de infraestructura/monitorización F4–F6,
+documentación y nuevo flujo IaC. Conservar cambios funcionales EVA/Gestoría/Journal
+fuera del commit, salvo artefactos de monitorización inequívocos. No force/historial.
+F7.4 prepara alta reutilizable sobre Terraform/inventario actuales, Notes, ficha,
+exporters/targets/alertas y Grafana, con fixture/mocks y plan revisable. Sin crear CT,
+apply productivo, cambios de recursos/apps/DNS/credenciales ni reservas IP.
+7.2 Security Hardening y7.3 Disaster Recovery OUT OF SCOPE por decisión, no DONE.
+Numeración del propietario7.4 no es la tarea histórica F7-04(secretos). Fase7 global
+no se declara desplegada:7.4 solo READY FOR FIRST REAL PROVISIONING TEST tras pruebas.

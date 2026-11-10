@@ -1,0 +1,373 @@
+[
+  {
+    "ct": 109,
+    "data": {
+      "relevant_proxy_directives": [
+        "listen 80;",
+        "server_name edge.nucleotecnologico.es;",
+        "listen 443 ssl http2;",
+        "server_name edge.nucleotecnologico.es;",
+        "proxy_read_timeout     60s;",
+        "proxy_set_header Host              $host;",
+        "proxy_set_header X-Real-IP         $remote_addr;",
+        "proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;",
+        "proxy_set_header X-Forwarded-Proto $scheme;",
+        "location ^~ /preview/ {",
+        "rewrite ^/preview/(.*)$ /$1 break;",
+        "proxy_pass http://192.168.1.114:8092;",
+        "location = /preview {",
+        "location = /orbit/healthz {",
+        "proxy_pass http://192.168.1.117:18088/healthz;",
+        "access_log /var/log/nginx/access.log sgtm;",
+        "location = /orbit/ingest {",
+        "proxy_pass http://192.168.1.117:18088/ingest;",
+        "access_log /var/log/nginx/access.log sgtm;",
+        "location / {",
+        "proxy_pass http://192.168.1.114:8091;"
+      ],
+      "counts": {
+        "/var/log/nginx/access.log": {
+          "method_path_status": [],
+          "ga4_shaped_requests": [],
+          "upstream_counts": {},
+          "bounded_last_lines": 10000
+        }
+      }
+    }
+  },
+  {
+    "ct": 614,
+    "data": {
+      "files": [
+        {
+          "path": "/app/health_checker_bin.js",
+          "bytes": 743
+        },
+        {
+          "path": "/app/server_bin.js",
+          "bytes": 5767
+        },
+        {
+          "path": "/app/node_modules/bignumber.js",
+          "bytes": 4096
+        },
+        {
+          "path": "/app/node_modules/big.js",
+          "bytes": 4096
+        },
+        {
+          "path": "/app/node_modules/strip-ansi-cjs/index.js",
+          "bytes": 154
+        },
+        {
+          "path": "/app/node_modules/strip-ansi-cjs/node_modules/ansi-regex/index.js",
+          "bytes": 350
+        },
+        {
+          "path": "/app/node_modules/@isaacs/fs-minipass/dist/commonjs/index.js",
+          "bytes": 12791
+        },
+        {
+          "path": "/app/node_modules/@isaacs/fs-minipass/dist/esm/index.js",
+          "bytes": 12129
+        },
+        {
+          "path": "/app/node_modules/@isaacs/cliui/build/lib/index.js",
+          "bytes": 10100
+        },
+        {
+          "path": "/app/node_modules/string_decoder/lib/string_decoder.js",
+          "bytes": 9465
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/remote.js",
+          "bytes": 4785
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/index.js",
+          "bytes": 1173
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/pipeline.js",
+          "bytes": 1114
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/fetch.js",
+          "bytes": 3947
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/options.js",
+          "bytes": 1688
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/cache/key.js",
+          "bytes": 430
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/cache/index.js",
+          "bytes": 1792
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/cache/entry.js",
+          "bytes": 16421
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/cache/policy.js",
+          "bytes": 4527
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/cache/errors.js",
+          "bytes": 284
+        },
+        {
+          "path": "/app/node_modules/is-stream/index.js",
+          "bytes": 677
+        },
+        {
+          "path": "/app/node_modules/cacheable-lookup/source/index.js",
+          "bytes": 9887
+        },
+        {
+          "path": "/app/node_modules/eastasianwidth/eastasianwidth.js",
+          "bytes": 12067
+        },
+        {
+          "path": "/app/node_modules/bignumber.js/bignumber.js",
+          "bytes": 89684
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/retry.js",
+          "bytes": 6429
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/gaxios.js",
+          "bytes": 20573
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/index.js",
+          "bytes": 2120
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/interceptor.js",
+          "bytes": 944
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/common.js",
+          "bytes": 7060
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/util.js",
+          "bytes": 759
+        },
+        {
+          "path": "/app/node_modules/unique-filename/lib/index.js",
+          "bytes": 202
+        },
+        {
+          "path": "/app/node_modules/path-key/index.js",
+          "bytes": 415
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/text.js",
+          "bytes": 14468
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/RGI_Emoji.js",
+          "bytes": 12976
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/index.js",
+          "bytes": 15735
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/es2015/text.js",
+          "bytes": 15796
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/es2015/RGI_Emoji.js",
+          "bytes": 14024
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/es2015/index.js",
+          "bytes": 17405
+        },
+        {
+          "path": "/app/node_modules/arrify/index.js",
+          "bytes": 305
+        },
+        {
+          "path": "/app/node_modules/lru-cache/index.js",
+          "bytes": 8186
+        },
+        {
+          "path": "/app/health_checker_bin.js",
+          "bytes": 743
+        },
+        {
+          "path": "/app/server_bin.js",
+          "bytes": 5767
+        },
+        {
+          "path": "/app/node_modules/bignumber.js",
+          "bytes": 4096
+        },
+        {
+          "path": "/app/node_modules/big.js",
+          "bytes": 4096
+        },
+        {
+          "path": "/app/node_modules/strip-ansi-cjs/index.js",
+          "bytes": 154
+        },
+        {
+          "path": "/app/node_modules/strip-ansi-cjs/node_modules/ansi-regex/index.js",
+          "bytes": 350
+        },
+        {
+          "path": "/app/node_modules/@isaacs/fs-minipass/dist/commonjs/index.js",
+          "bytes": 12791
+        },
+        {
+          "path": "/app/node_modules/@isaacs/fs-minipass/dist/esm/index.js",
+          "bytes": 12129
+        },
+        {
+          "path": "/app/node_modules/@isaacs/cliui/build/lib/index.js",
+          "bytes": 10100
+        },
+        {
+          "path": "/app/node_modules/string_decoder/lib/string_decoder.js",
+          "bytes": 9465
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/remote.js",
+          "bytes": 4785
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/index.js",
+          "bytes": 1173
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/pipeline.js",
+          "bytes": 1114
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/fetch.js",
+          "bytes": 3947
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/options.js",
+          "bytes": 1688
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/cache/key.js",
+          "bytes": 430
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/cache/index.js",
+          "bytes": 1792
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/cache/entry.js",
+          "bytes": 16421
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/cache/policy.js",
+          "bytes": 4527
+        },
+        {
+          "path": "/app/node_modules/make-fetch-happen/lib/cache/errors.js",
+          "bytes": 284
+        },
+        {
+          "path": "/app/node_modules/is-stream/index.js",
+          "bytes": 677
+        },
+        {
+          "path": "/app/node_modules/cacheable-lookup/source/index.js",
+          "bytes": 9887
+        },
+        {
+          "path": "/app/node_modules/eastasianwidth/eastasianwidth.js",
+          "bytes": 12067
+        },
+        {
+          "path": "/app/node_modules/bignumber.js/bignumber.js",
+          "bytes": 89684
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/retry.js",
+          "bytes": 6429
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/gaxios.js",
+          "bytes": 20573
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/index.js",
+          "bytes": 2120
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/interceptor.js",
+          "bytes": 944
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/common.js",
+          "bytes": 7060
+        },
+        {
+          "path": "/app/node_modules/gaxios/build/src/util.js",
+          "bytes": 759
+        },
+        {
+          "path": "/app/node_modules/unique-filename/lib/index.js",
+          "bytes": 202
+        },
+        {
+          "path": "/app/node_modules/path-key/index.js",
+          "bytes": 415
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/text.js",
+          "bytes": 14468
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/RGI_Emoji.js",
+          "bytes": 12976
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/index.js",
+          "bytes": 15735
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/es2015/text.js",
+          "bytes": 15796
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/es2015/RGI_Emoji.js",
+          "bytes": 14024
+        },
+        {
+          "path": "/app/node_modules/emoji-regex/es2015/index.js",
+          "bytes": 17405
+        },
+        {
+          "path": "/app/node_modules/arrify/index.js",
+          "bytes": 305
+        },
+        {
+          "path": "/app/node_modules/lru-cache/index.js",
+          "bytes": 8186
+        }
+      ],
+      "bootstrap_urls": [
+        "https://www.googletagmanager.com/static/serverjs/latest/server_bootstrap.js",
+        "https://www.googletagmanager.com/static/serverjs/server_bootstrap.js"
+      ],
+      "signals": [],
+      "image_digest": [
+        "gcr.io/cloud-tagging-10302018/gtm-cloud-image@sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba"
+      ]
+    }
+  }
+]

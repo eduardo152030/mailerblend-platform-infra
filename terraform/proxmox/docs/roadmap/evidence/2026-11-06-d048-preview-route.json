@@ -1,0 +1,1 @@
+{"public_preview_health_path": "/gtm/healthz", "nginx_routes": [{"location": "^~ /gtm/", "upstreams": ["http://sgtm_preview", "http://sgtm_serving"]}], "native_public_status_before": 502}

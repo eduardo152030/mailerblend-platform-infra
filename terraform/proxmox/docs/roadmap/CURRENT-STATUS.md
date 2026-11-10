@@ -1,68 +1,83 @@
 # Estado actual del proyecto
 
-## D-042 — consolidación Git — 2026-11-06T21:20:11+01:00
+Actualizado: **2026-11-10 (Europe/Madrid)**. Cierre D-060.
+[Roadmap](ROADMAP.md) · [Decisiones](DECISIONS.md) · [Informe F6](PHASE6-D060-CLOSURE.md).
 
-F7-01 DONE para IaC de monitorización curada: push normal SSH confirmado de cinco
-commits nuevos y cuatro previos; origin/main y main iguales en `44c0e8b` tras ese
-push (0ahead/0behind). Cierre documental separado, con verificación final en sesión.
-425 rutas versionadas en el push principal,230 tests y validadores Prom/AM PASS;
-cero hallazgos de secretos nuevos en selección/historial saliente. Respaldo privado
-verificado. Árbol no limpio: EVA funcional y aplicaciones Gestoría/Journal
-conservadas fuera del alcance; secretos/estado locales ignorados. F7 global
-IN PROGRESS, F7-04 y rotación de secretos históricos pendientes; F4exporters17/17
-conservado, no nueva validación productiva. Sin despliegues ni reinicios.
-[Informe](GIT-CONSOLIDATION-D042.md), [evidencia](evidence/2026-11-06-git-consolidation.json).
-Siguiente paso: rotación de secretos históricos y revisión separada de cambios
-de aplicaciones; F5/F6 y complementos siguen pendientes.
+## D-061 — Git y preparación de altas — IN PROGRESS
 
-## D-041 cerrado — 2026-11-06 21:08 CET
+Autorizados commits/push normal de infraestructura/monitorización y preparación
+local7.4; sustituye prohibición de publicación del cierreD060 en este alcance.
+7.2/7.3 OUT OF SCOPE, no DONE. Backup privado Git previo verificado; rama main,
+índice vacío y cambios ajenos preservados. Sin CT nuevos ni cambios productivos.
+7.4 READY FOR FIRST REAL PROVISIONING TEST: dos planes mock, Notes/fichas,
+exporters Docker/opcional, verificador y runbook preparados. Siguiente: publicar
+la selección validada y comprobar sincronización; primer alta real no realizada.
 
-**Cobertura de exporters Fase4: DONE —17/17 LXC aceptados técnicamente.**
-617/618/615/614DONE;180/300/180/180s,32muestrasCPU/RAM/Docker válidas,
-backups/idempotencia yno nuevosOOM/reinicios.13aceptadosprevios intactos,sinrepetir.
-615/614siguenHTTP503preexistente: monitorizaciónaceptada,aplicacionesNOsaludables.
-CRM3.27.4/DB/datos/duplicadosdetenidos/recursosconservados. Sinrelajartolerancias.
-17Node/17cAdvisor/11BlackboxUP;17cadenas;Prom/AM yconfig/secretoTelegramintactos;
-0erroresnuevosTelegram,canalD039reutilizado,sin nuevaentrega niconfirmaciónhumana.
-16backups y12inputs/CT verificados.24testspertinentesPASS. Tiempo:58.1min.
-0BLOCKED/0PENDING deexporters; incidencias deapps ycomplementosheredados abiertos.
-AlertasF5,dashboardsF6,seguridadF7 NOcompletados. VigilanciaProm/AMcontinúa;
-sin atribuir `for` no probado. PolíticaCOMPLETED/permisosvacíos;ejecución detenida.
-SinTerraformapply,commit/push niborrados. [Cierre](EXPORTERS-D041-CLOSURE.md),
-[prueba17/17](evidence/2026-11-06-d041-final.json). Próximo: revisión/alcanceF5,
-sin ejecución automática ni nuevoCT.
+## Fase actual
 
-## Estado real
+**Fase 6. Grafana & Dashboards — DONE**, conforme a los once criterios autorizados
+D-060. Fases1–5 conservan sus cierres y límites de aceptación. **Fase7 IN PROGRESS**
+con alcance D061:7.1 publicación y7.4 preparación;7.2/7.3 OUT OF SCOPE, no DONE.
 
-17DONE:624/626/625/613/621/620/619/623/61211/622/611/616/610/617/618/615/614.
-0BLOCKED deexporters,0PENDING derollout.615/614 mantienen503 yalertas;noapphealthy.
-Losproblemas deaplicación no reabren retrospectivamente laaceptación de métricas.
+Fleet Overview y LXC Details están desplegados, enlazados en ambos sentidos y
+verificados en navegador. Los nueve dashboards son IaC, incluidos siete anteriores
+preservados con UID, modelo y carpeta. Providers duplicados resueltos; receta
+Compose con tres mounts efectivos e imagen actual fijada por digest.
+Environment y tabla Componentes Docker no reaparecen en Fleet; Docker sí está en Details.
 
-## Hitos conservados
+## Producción comprobada
 
-F1 y F2 DONE. Journal624/626/625 aceptados técnicamente por propietario.
-**F3 DONE — Accepted with UAT Waiver:** verificaciones técnicas y restauraciones
-pasaron; CRM/EVA operativos según comprobaciones. UAT manual no ejecutada y dispensada
-por propietario; no demuestra todos los flujos funcionales. Ver
-[PHASE2-EXECUTION](../../services/infra-prom/PHASE2-EXECUTION.md).
-CRM/EVA no fueron modificados durante este lote.
+Lectura **10 nov08:08 CET**:17/17 Node,17/17cAdvisor,18/18 Blackbox y exporter PVE UP;
+sondas success1, tres checks periódicos Odoo/PG con resultado1, sin FIRING/PENDING.
+Reglas F5 y catálogo de targets idénticos a baseline D060. Grafana disponible y
+nueve dashboards provisionados. Salud consolidada de17 CT sin UNKNOWN y uptime real.
+[Resultado](evidence/2026-11-10-d060-result.json).
 
-## Pendientes heredados
+CT 613 sin app de negocio verificada; Application N/A, sin exención por DEMO.
+CT 621 ping JSONFocalboard; CT 623 Odoo8069+PG y CT 625 pg_isready periódicos; CT 618 readiness CRM.
+CT 611/616 N/A solo como negocio; Monitoring real. STOPPED solo desde PVE.
 
-| ID | Pendiente | Seguimiento |
+## Validación y persistencia
+
+Implementación/navegador09 nov:34 escenarios,663 consultas instantáneas/28 históricas,
+654 frames reales, filtros y navegación CT/rango, sin errores. Uptime comparado con PVE
+para17 CT, máximo20 s. Revisión10 nov y reaplicación final sin escrituras/recargas/
+reinicios; sin cambios en Grafana activo ni reglas/targets.
+
+Persistencia probada por arranque aislado del candidato exacto y SQLite consistente,
+misma imagen, red none/sin puertos; nueve modelos cargados y carpetas conservadas.
+Ensayo detenido y preservado. No recreación de Grafana productivo ni nueva UAT de apps.
+[Ensayo final](evidence/2026-11-10-d060-recreation-replay-final-20261110.json).
+Backups CT/fuera PVE y originales conservados, sin commits/push.
+
+## Pendientes externos a F6
+
+| Estado | Pendiente | Límite / siguiente acción |
 |---|---|---|
-| INC-001 | Healthcheck Budibase y Redis externo | F4-08 TODO |
-| INC-002 | Healthcheck API CRM usa wget ausente | F4-08 TODO |
-| INC-003 | Healthcheck Focalboard usa curl ausente | F4-08 TODO |
-| INC-004 | Digest diario EVA, crontab/apk heredados | F7-07 TODO |
-| INC-005 | Nucleotecnológico / CollectEndpointDown, RCA pendiente | Conservar sus dos sondas; no dar por reparado |
-| R-001 | CoberturaLXC17/17cerrada; fuentePVE explícita aún pendiente | ComplementoF4 |
-| R-002 | Promoción global del contrato CPU y compatibilidad dashboards | F4-10/13 pendiente, F6 |
-| R-003 | Secretos/estado/hardening heredados | F7 TODO, no corregidos por Journal |
-| R-004 | Árbol Git amplio pendiente de commits curados | F7-01, [WORK-AUDIT](WORK-AUDIT.md) |
+| TODO | F4-05: scrape propio Grafana | Job aún ausente; sonda HTTP no lo sustituye |
+| IN PROGRESS | F4-06: observabilidad completa del host | Estado/uptime CT resueltos; host físico completo no aceptado |
+| TODO | F7: secretos históricos/estado Terraform, SSH/TLS global, CI/herramientas y DR continuo | No resueltos por snapshots o cierre de dashboards |
+| TODO | Digest EVA, prevenciónsGTM, UAT/GA4 y deriva inventario/discos | Requieren alcance específico; no certificados por HTTP/readiness |
+| TODO | Consolidación Git posterior a D042 | Árbol conserva cambios propios/ajenos; publicación autorizada exclusivamente por D061 |
 
-Roadmap y decisiones siguen como fuente central; secretos y backups privados fuera de Git.
+Límites representados:sin contador fiable de reinicios Docker; capacidad del filesystem
+en vez decuota PVE/Terraform; descripción decontrato dealerta con evaluación enlazada
+a Prometheus; inventarioslocales sin hospedaje web. No quedan componentes esenciales
+pendientes dentro de los once criterios F6. Aceptación visual humana no se inventa;
+D060 autoriza el cierre tras comprobaciones objetivas y de navegador.
 
-Cierre final: 2026-11-05 22:04 CET. Tiempo transcurrido registrado: 58.9 minutos (incluye observaciones y recuperación). 31 pruebas de regresión PASS; enlaces locales y `git diff --check` PASS; Prometheus/Alertmanager ready HTTP200; sin procesos activos de rollout. Sin commit/push.
+## Autorización y siguiente paso
 
-CierreD032: 2026-11-06 10:56 CET. Tiempo registrado: 39.1min. Enlaces locales, secreto-signaturas y `git diff --check` PASS; sin commit/push/staging. [Validación local](evidence/2026-11-06-617-local-validation.json).
+La solicitud D060 autorizó provisioning Grafana y sondas necesarias; no se requirieron
+sondas nuevas. Se preservan apps/DB/recursos/secretos/F5/Telegram por alcance.
+D061 autoriza commits/push normal de la selección curada y preparación local de
+altas, no crear CT ni desplegar servicios. No `deploy-all`, reinicios, recursos,
+apps/DNS/credenciales ni borrado de backups. La prohibición de publicar deD060
+queda sustituida solo en el alcanceD061. [InformeF7](PHASE7-D061-EXECUTION.md).
+
+## Historial
+
+[Revisión anterior D059](DOCUMENTATION-D059-REVIEW.md),
+[historial previo](CURRENT-STATUS-HISTORY.md),
+[decisiones](DECISIONS.md). Los informes originales conservan sus fechas/evidencias;
+no reutilizar siguientes pasos históricos como permisos actuales.

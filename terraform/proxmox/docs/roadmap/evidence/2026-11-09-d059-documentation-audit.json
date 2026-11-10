@@ -1,0 +1,1285 @@
+{
+  "observed_at": "2026-11-09T10:09:01.685893+01:00",
+  "scope": "D059 read-only documentation audit",
+  "targets_by_job": [
+    {
+      "metric": {
+        "job": "cadvisor"
+      },
+      "value": [
+        1794215341.589,
+        "17"
+      ]
+    },
+    {
+      "metric": {
+        "job": "prometheus"
+      },
+      "value": [
+        1794215341.589,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "job": "alertmanager"
+      },
+      "value": [
+        1794215341.589,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "job": "blackbox_exporter"
+      },
+      "value": [
+        1794215341.589,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "job": "blackbox"
+      },
+      "value": [
+        1794215341.589,
+        "18"
+      ]
+    },
+    {
+      "metric": {
+        "job": "node_exporter"
+      },
+      "value": [
+        1794215341.589,
+        "17"
+      ]
+    },
+    {
+      "metric": {
+        "job": "pve_uptime"
+      },
+      "value": [
+        1794215341.589,
+        "1"
+      ]
+    }
+  ],
+  "targets_up_by_job": [
+    {
+      "metric": {
+        "job": "cadvisor"
+      },
+      "value": [
+        1794215341.592,
+        "17"
+      ]
+    },
+    {
+      "metric": {
+        "job": "prometheus"
+      },
+      "value": [
+        1794215341.592,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "job": "alertmanager"
+      },
+      "value": [
+        1794215341.592,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "job": "blackbox_exporter"
+      },
+      "value": [
+        1794215341.592,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "job": "blackbox"
+      },
+      "value": [
+        1794215341.592,
+        "18"
+      ]
+    },
+    {
+      "metric": {
+        "job": "node_exporter"
+      },
+      "value": [
+        1794215341.592,
+        "17"
+      ]
+    },
+    {
+      "metric": {
+        "job": "pve_uptime"
+      },
+      "value": [
+        1794215341.592,
+        "1"
+      ]
+    }
+  ],
+  "firing": [],
+  "pending": [],
+  "rules": {
+    "alerting": 26,
+    "recording": 34,
+    "unhealthy": []
+  },
+  "grafana_health": {
+    "database": "ok",
+    "version": "12.3.1",
+    "commit": "3a1c80ca7ce612f309fdc99338dd3c5e486339be"
+  },
+  "fleet": {
+    "provisioned": true,
+    "panels": [
+      "LXC monitorizados",
+      "Node Exporter",
+      "cAdvisor",
+      "Blackbox \u00b7 sondas",
+      "Alertas FIRING",
+      "LXC health \u00b7 priorizaci\u00f3n por estado",
+      "CPU Usage by LXC",
+      "Memory Usage by LXC",
+      "Disk Usage by LXC",
+      "Active alerts \u00b7 FIRING / PENDING",
+      "Cobertura y navegaci\u00f3n"
+    ],
+    "dashboard_count": 8,
+    "columns": {
+      "Value #B": "Node Exporter",
+      "Value #C": "cAdvisor",
+      "Value #D": "Application Health",
+      "Value #E": "CPU Usage (%)",
+      "Value #F": "RAM Usage (%)",
+      "Value #G": "Disk Usage (%)",
+      "Value #H": "Active Alerts",
+      "Value #I": "Overall Status",
+      "Value #J": "Uptime",
+      "Value #K": "Monitoring Health",
+      "Value #L": "LXC State",
+      "Value #M": "Infrastructure Health",
+      "ct_id": "CT ID",
+      "service": "Service Name"
+    }
+  },
+  "prometheus_ready": 200,
+  "alertmanager_ready": 200,
+  "health_table": {
+    "A": [
+      {
+        "metric": {
+          "ct_id": "624",
+          "service": "infra-journal-web"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "625",
+          "service": "infra-journal-db"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "626",
+          "service": "infra-journal-api"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "613",
+          "service": "infra-hola"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "621",
+          "service": "infra-project-gestion"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "620",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "619",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "623",
+          "service": "infra-gestoria"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "61211",
+          "service": "svc01"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "622",
+          "service": "infra-eva-assistant-bot"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "611",
+          "service": "infra-grafana"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "616",
+          "service": "infra-blackbox"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "610",
+          "service": "infra-prom"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "617",
+          "service": "infra-orbit"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "618",
+          "service": "infra-composable-crm"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "615",
+          "service": "infra-mailerblend-edge"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "614",
+          "service": "infra-nucleoedge"
+        },
+        "value": [
+          1794215342.196,
+          "0"
+        ]
+      }
+    ],
+    "D": [
+      {
+        "metric": {
+          "ct_id": "613"
+        },
+        "value": [
+          1794215342.202,
+          "-2"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "623"
+        },
+        "value": [
+          1794215342.202,
+          "2"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "625"
+        },
+        "value": [
+          1794215342.202,
+          "2"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "611"
+        },
+        "value": [
+          1794215342.202,
+          "-2"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "616"
+        },
+        "value": [
+          1794215342.202,
+          "-2"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "618"
+        },
+        "value": [
+          1794215342.202,
+          "2"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "620"
+        },
+        "value": [
+          1794215342.202,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "622"
+        },
+        "value": [
+          1794215342.202,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "619"
+        },
+        "value": [
+          1794215342.202,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "614"
+        },
+        "value": [
+          1794215342.202,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "610"
+        },
+        "value": [
+          1794215342.202,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "615"
+        },
+        "value": [
+          1794215342.202,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "61211"
+        },
+        "value": [
+          1794215342.202,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "626"
+        },
+        "value": [
+          1794215342.202,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "624"
+        },
+        "value": [
+          1794215342.202,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "617"
+        },
+        "value": [
+          1794215342.202,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "621"
+        },
+        "value": [
+          1794215342.202,
+          "1"
+        ]
+      }
+    ],
+    "I": [
+      {
+        "metric": {
+          "ct_id": "624"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "625"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "626"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "613"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "621"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "620"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "619"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "623"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "61211"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "622"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "611"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "616"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "610"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "617"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "618"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "615"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "614"
+        },
+        "value": [
+          1794215342.252,
+          "0"
+        ]
+      }
+    ],
+    "J": [
+      {
+        "metric": {
+          "ct_id": "610"
+        },
+        "value": [
+          1794215342.453,
+          "4537502"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "611"
+        },
+        "value": [
+          1794215342.453,
+          "4537499"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "61211"
+        },
+        "value": [
+          1794215342.453,
+          "4537393"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "613"
+        },
+        "value": [
+          1794215342.453,
+          "144654"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "614"
+        },
+        "value": [
+          1794215342.453,
+          "4537492"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "615"
+        },
+        "value": [
+          1794215342.453,
+          "4537488"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "616"
+        },
+        "value": [
+          1794215342.453,
+          "4537484"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "617"
+        },
+        "value": [
+          1794215342.453,
+          "4537480"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "618"
+        },
+        "value": [
+          1794215342.453,
+          "599621"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "619"
+        },
+        "value": [
+          1794215342.453,
+          "4537469"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "620"
+        },
+        "value": [
+          1794215342.453,
+          "4537464"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "621"
+        },
+        "value": [
+          1794215342.453,
+          "4537458"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "622"
+        },
+        "value": [
+          1794215342.453,
+          "590481"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "623"
+        },
+        "value": [
+          1794215342.453,
+          "4537441"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "624"
+        },
+        "value": [
+          1794215342.453,
+          "4537420"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "625"
+        },
+        "value": [
+          1794215342.453,
+          "4537413"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "626"
+        },
+        "value": [
+          1794215342.453,
+          "4537400"
+        ]
+      }
+    ],
+    "K": [
+      {
+        "metric": {
+          "ct_id": "624"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "625"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "626"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "613"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "621"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "620"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "619"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "623"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "61211"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "622"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "611"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "616"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "610"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "617"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "618"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "615"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "614"
+        },
+        "value": [
+          1794215342.483,
+          "1"
+        ]
+      }
+    ],
+    "L": [
+      {
+        "metric": {
+          "ct_id": "610"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "611"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "61211"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "613"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "614"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "615"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "616"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "617"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "618"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "619"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "620"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "621"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "622"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "623"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "624"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "625"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "626"
+        },
+        "value": [
+          1794215342.526,
+          "1"
+        ]
+      }
+    ],
+    "M": [
+      {
+        "metric": {
+          "ct_id": "624"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "625"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "626"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "613"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "621"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "620"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "619"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "623"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "61211"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "622"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "611"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "616"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "610"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "617"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "618"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "615"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      },
+      {
+        "metric": {
+          "ct_id": "614"
+        },
+        "value": [
+          1794215342.533,
+          "0"
+        ]
+      }
+    ]
+  }
+}

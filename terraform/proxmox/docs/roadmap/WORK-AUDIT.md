@@ -1,5 +1,11 @@
 # Auditoría del trabajo acumulado
 
+> Nota de vigencia D059,2026-11-09: este archivo conserva antecedentes fechados.
+> Estado actual en [CURRENT-STATUS](CURRENT-STATUS.md). Rolloutexporters17/17
+> cerradoD041;503de614/615resueltosD044/D048, healthchecksD051corregidos,
+> F5aceptadaD050 yFleetF6desplegadoD052–D058. No reutilizar permisos ni siguientes
+> pasos históricos como autorizaciónactual. Seguridad/CI/DRsiguenpendientesF7.
+
 Fecha: 2026-11-02, Europe/Madrid. Se revisaron README, Makefile, inventario, scripts,
 Compose, reglas, catálogos, provisioning y los runbooks anteriores. No había AGENTS.md
 aplicable en esta raíz ni sus ancestros inspeccionados; se añade para mantener las

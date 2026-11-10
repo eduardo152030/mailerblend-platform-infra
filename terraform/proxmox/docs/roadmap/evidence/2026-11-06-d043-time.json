@@ -1,0 +1,7 @@
+{
+  "started_at_utc": "2026-11-06T20:45:52.291364+00:00",
+  "scope": "Read-only CT614,publicroute,router/monitoring;localIaCpreparation only",
+  "status": "DIAGNOSED_PREPARED_NOT_APPLIED",
+  "completed_at_utc": "2026-11-06T21:06:17.911019+00:00",
+  "elapsed_seconds": 1225.62
+}

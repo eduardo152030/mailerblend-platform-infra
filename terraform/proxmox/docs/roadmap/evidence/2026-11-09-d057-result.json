@@ -1,0 +1,80 @@
+{
+  "timestamp_utc": "2026-11-09T08:42:36.071258+00:00",
+  "elapsed_minutes": 3.5,
+  "idempotence": {
+    "writes": 0,
+    "reloads": 0,
+    "restarts": 0,
+    "result": "PASS"
+  },
+  "checks": {
+    "prometheus_ready": "Prometheus Server is Ready.",
+    "functional_freshness": [
+      {
+        "metric": {
+          "component": "odoo",
+          "cpu_contract": "lxc_cgroup_v1",
+          "ct_id": "623",
+          "exported_service": "infra-gestoria",
+          "health_source": "functional_readonly",
+          "instance": "192.168.1.123:9100",
+          "job": "node_exporter",
+          "service": "infra-gestoria",
+          "source": "inventory",
+          "vmid": "623"
+        },
+        "value": [
+          1794213756.008,
+          "10.030210971832275"
+        ]
+      },
+      {
+        "metric": {
+          "component": "postgres",
+          "cpu_contract": "lxc_cgroup_v1",
+          "ct_id": "623",
+          "exported_service": "infra-gestoria",
+          "health_source": "functional_readonly",
+          "instance": "192.168.1.123:9100",
+          "job": "node_exporter",
+          "service": "infra-gestoria",
+          "source": "inventory",
+          "vmid": "623"
+        },
+        "value": [
+          1794213756.008,
+          "9.907164812088013"
+        ]
+      },
+      {
+        "metric": {
+          "component": "postgres",
+          "cpu_contract": "lxc_cgroup_v1",
+          "ct_id": "625",
+          "exported_service": "infra-journal-db",
+          "health_source": "functional_readonly",
+          "instance": "192.168.1.125:9100",
+          "job": "node_exporter",
+          "service": "infra-journal-db",
+          "source": "inventory",
+          "vmid": "625"
+        },
+        "value": [
+          1794213756.008,
+          "14.759032964706421"
+        ]
+      }
+    ],
+    "firing": [],
+    "pending": []
+  },
+  "browser": {
+    "default_real_data": true,
+    "real_uptime_duration_rendered": true,
+    "empty_alerts_explicit": true,
+    "component_diagnostics_rendered": true,
+    "lxc_filter_and_one_hour_range": true,
+    "service_filter": true,
+    "ct_table_navigation": true
+  }
+}

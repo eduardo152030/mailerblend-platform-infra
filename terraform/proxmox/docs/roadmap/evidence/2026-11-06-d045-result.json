@@ -1,0 +1,152 @@
+{
+  "decision": "D-045",
+  "completed_at_utc": "2026-11-06T21:48:44.271444+00:00",
+  "issue_url": "https://github.com/eduardo152030/mailerblend-platform-infra/issues/1",
+  "inventory_records": 17,
+  "local_tests_passed": 9,
+  "terraform_validate": "PASS",
+  "terraform_fmt": "PASS",
+  "terraform_plan": "17 in-place updates: description and tags only",
+  "terraform_apply_executed": false,
+  "notes_applied": false,
+  "status": "BLOCKED pending authorization to preserve existing tags and replan notes only",
+  "production_checks": [
+    {
+      "ct": 610,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 611,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 613,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 614,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 615,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 616,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 617,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 618,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 619,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 620,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 621,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 622,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 623,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 624,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 625,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 626,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    },
+    {
+      "ct": 61211,
+      "lxc_running": true,
+      "boot_id_unchanged": true,
+      "selected_pve_configuration_unchanged": true,
+      "notes_unchanged": true,
+      "all_container_identity_start_restart_status_image_unchanged": true
+    }
+  ],
+  "protected_previous_work": "EVA sync_service.py and Gestoria/Journal directories not modified by this task"
+}

@@ -1,0 +1,89 @@
+{
+  "observed_at_utc": "2026-11-06T21:47:38.969198+00:00",
+  "source": "CT109 nginx -T (filtered server_name/proxy_pass only)",
+  "routes": [
+    {
+      "server_names": [
+        "app.tradeintuit.com"
+      ],
+      "proxy_upstreams": [
+        "http://192.168.1.124:8090",
+        "http://192.168.1.126:3000"
+      ]
+    },
+    {
+      "server_names": [
+        "infra-doc.mailerblend.com"
+      ],
+      "proxy_upstreams": [
+        "http://192.168.1.60:3000"
+      ]
+    },
+    {
+      "server_names": [
+        "edge.mailerblend.com"
+      ],
+      "proxy_upstreams": [
+        "http://sgtm_preview",
+        "http://sgtm_serving"
+      ]
+    },
+    {
+      "server_names": [
+        "edge.nucleotecnologico.es"
+      ],
+      "proxy_upstreams": [
+        "http://192.168.1.114:8091",
+        "http://192.168.1.114:8092",
+        "http://192.168.1.117:18088"
+      ]
+    },
+    {
+      "server_names": [
+        "infra-eva.mailerblend.com"
+      ],
+      "proxy_upstreams": [
+        "http://192.168.1.122:8001"
+      ]
+    },
+    {
+      "server_names": [
+        "infra-focalboard.mailerblend.com"
+      ],
+      "proxy_upstreams": [
+        "http://192.168.1.122:8002"
+      ]
+    },
+    {
+      "server_names": [
+        "infra-pulpo.mailerblend.com"
+      ],
+      "proxy_upstreams": [
+        "http://192.168.1.119:15678"
+      ]
+    },
+    {
+      "server_names": [
+        "infra-svc01.mailerblend.com"
+      ],
+      "proxy_upstreams": [
+        "http://192.168.1.118:18088",
+        "http://192.168.1.118:8080"
+      ]
+    }
+  ],
+  "upstream_groups": [
+    {
+      "name": "sgtm_serving",
+      "servers": [
+        "192.168.1.115:18091"
+      ]
+    },
+    {
+      "name": "sgtm_preview",
+      "servers": [
+        "192.168.1.115:18092"
+      ]
+    }
+  ]
+}

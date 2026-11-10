@@ -1,0 +1,42 @@
+{
+  "user": "prometheus-uptime@pve",
+  "token_id": "prometheus-uptime@pve!uptime",
+  "privsep": 1,
+  "acl": [
+    {
+      "path": "/",
+      "propagate": 1,
+      "roleid": "PVEAuditor",
+      "type": "user",
+      "ugid": "prometheus-uptime@pve"
+    },
+    {
+      "path": "/",
+      "propagate": 1,
+      "roleid": "PVEAuditor",
+      "type": "token",
+      "ugid": "prometheus-uptime@pve!uptime"
+    }
+  ],
+  "user_effective": {
+    "/": {
+      "Datastore.Audit": 1,
+      "Mapping.Audit": 1,
+      "Pool.Audit": 1,
+      "SDN.Audit": 1,
+      "Sys.Audit": 1,
+      "VM.Audit": 1
+    }
+  },
+  "token_effective": {
+    "/": {
+      "Datastore.Audit": 1,
+      "Mapping.Audit": 1,
+      "Pool.Audit": 1,
+      "SDN.Audit": 1,
+      "Sys.Audit": 1,
+      "VM.Audit": 1
+    }
+  },
+  "read_only_verified": true
+}

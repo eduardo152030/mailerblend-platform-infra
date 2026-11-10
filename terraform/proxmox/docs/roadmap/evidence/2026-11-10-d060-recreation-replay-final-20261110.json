@@ -1,0 +1,32 @@
+{
+  "health": {
+    "database": "ok",
+    "version": "12.3.1",
+    "commit": "3a1c80ca7ce612f309fdc99338dd3c5e486339be"
+  },
+  "uid_count": 9,
+  "isolated_network": true,
+  "published_ports": false,
+  "image_matches_production": true,
+  "actual_production_recreation": false,
+  "timestamp_utc": "2026-11-10T07:08:17Z",
+  "result": "PASS",
+  "candidate_hashes": {
+    "config/provisioning/dashboards/default.yml": "c2e23a669ee090cc856a5794dba54e4d11793fa75f4902c478e47736456a7da2",
+    "config/provisioning/dashboards/provider.yml": "e71f2e7b46d1867dec9c945af91596dd4456a979c62dee67040696086dddebc0",
+    "config/provisioning/fleet-assets/proxmox-lxc-fleet.json": "774a0ca07825af618e7014abacd4293b8c823fbe89cfe4ce4f3db5775f73e70b",
+    "config/provisioning/fleet-assets/proxmox-lxc-details.json": "ce85a45c7b716f8f04044eebae777ce7c651a8725a2c5c62d8065a78038ca68a",
+    "config/provisioning/legacy-assets/87e2edb4-2ddb-4719-912b-33c8e065ffb1.json": "4fea7d360e88cdc1c6881ae2ab0593fb8a79d035e043d125e9e5906ecb17799c",
+    "config/provisioning/legacy-assets/Docker_cAdvisor_Slim_Mailerblend_v6_REIMPORTABLE.json": "665ca96fecc4ddea0fbeedecdc8bb2464223b053889189d0640c27220643b697",
+    "config/provisioning/legacy-assets/Infra/Node_Exporter_Slim.json": "8c36fc2b82080fe5c9e1ecc9ee709ec64d9917607d35b4898280e05e942145b4",
+    "config/provisioning/legacy-assets/Infra/node-exporter-full.json": "c2a5d696f29badcb4b8dee0bccebff0eb86f41ed952b2c4edf271b0e86725747",
+    "config/provisioning/legacy-assets/adr6986.json": "251d101c1d3bef55679ba28a5e5cb1c420387ce408eeead503d6279773c7a172",
+    "config/provisioning/legacy-assets/nt_lead_analytics.json": "cfa5909616b0d9a50c15519ca60b514bca966a7ab16d781c116f3c8cb718c8d7",
+    "config/provisioning/legacy-assets/prometheus-2-stats.json": "4c172987b397059214e0d49fca9e29257b55bea2754032e34a19c574951e5cbb",
+    "docker-compose.yml": "e8cdf552895908c58cd31d5c18d7891e6fbeeb6d6ca6fb2fa7ad49f410c7ce40"
+  },
+  "restored_legacy_dashboards": 7,
+  "new_dashboards_provisioned": 2,
+  "test_container_stopped_and_retained": true,
+  "production_unchanged": true
+}

@@ -1,0 +1,9 @@
+{
+  "compose_config_only": true,
+  "services": [
+    "sgtm",
+    "sgtm_preview"
+  ],
+  "images_ports_environment_resources_unchanged": true,
+  "no_production_files_written": true
+}

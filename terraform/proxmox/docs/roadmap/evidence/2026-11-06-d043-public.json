@@ -1,0 +1,32 @@
+{
+  "observed_at": 1793998041.3891408,
+  "dns_ipv4": [
+    "79.156.8.245"
+  ],
+  "http": [
+    {
+      "path": "/",
+      "status": 400,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes_sampled": 0,
+      "server": "nginx/1.18.0 (Ubuntu)",
+      "content_type": null
+    },
+    {
+      "path": "/healthy",
+      "status": 503,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes_sampled": 0,
+      "server": "nginx/1.18.0 (Ubuntu)",
+      "content_type": "text/plain"
+    },
+    {
+      "path": "/preview/healthy",
+      "status": 503,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes_sampled": 0,
+      "server": "nginx/1.18.0 (Ubuntu)",
+      "content_type": "text/plain"
+    }
+  ]
+}

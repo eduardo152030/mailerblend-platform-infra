@@ -1,0 +1,26 @@
+{
+  "ct": 614,
+  "status": "DONE",
+  "verified_at_utc": "2026-11-06T21:58:24.997190+00:00",
+  "notes_exact_source": true,
+  "pve_changes_only": [
+    "description"
+  ],
+  "tags_unchanged": true,
+  "lxc_boot_unchanged": true,
+  "all_ct614_container_ids_starts_restarts_images_environment_and_hostconfig_unchanged": true,
+  "active_compose_files_unchanged": true,
+  "other_terraform_resource_state_unchanged": true,
+  "other_lxcs_queried": false,
+  "nginx_read_only_exception": "Only edge.nucleotecnologico.es routing on EdgeRouter",
+  "healthz": {
+    "http://127.0.0.1:8091/healthz": 200,
+    "http://127.0.0.1:8092/healthz": 200,
+    "https://edge.nucleotecnologico.es/healthz": 200,
+    "https://edge.nucleotecnologico.es/preview/healthz": 200
+  },
+  "notes_applied": "# Purpose\n\nServer-Side Google Tag Manager para Núcleo Tecnológico.\n\n## Environment\n\nProduction\n\n## Network\n\n- CT: 614 — infra-nucleoedge\n- IP: 192.168.1.114\n- Main domain: nucleotecnologico.es\n- Public URL: https://edge.nucleotecnologico.es\n- Nginx en EdgeRouter: `/` → `192.168.1.114:8091`; `/preview/` → `192.168.1.114:8092` (elimina el prefijo).\n\n## Applications\n\n- sGTM Serving — 8091 → 8080/tcp — Procesamiento de eventos.\n- sGTM Preview — 8092 → 8080/tcp — Depuración de eventos.\n\nImagen de ambos: `gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable`.\nSalud verificada el 06/11/2026: ambos healthy; GET `/healthz` local y público HTTP 200.\nHealthcheck Docker: `/nodejs/bin/node /app/health_checker_bin.js`.\nPreview público: https://edge.nucleotecnologico.es/preview/healthz\n\n## Dependencies\n\n- EdgeRouter / Nginx para acceso público y enrutamiento de Preview.\n- Google Tag Manager: configuración del contenedor y bootstrap remoto de Google.\n- Serving depende de sGTM Preview; Preview se ejecuta en modo de depuración.\n\n## Monitoring\n\n- Prometheus\n- Node Exporter\n- cAdvisor\n- Blackbox Exporter\n- Alertmanager / Telegram\n\n## Infrastructure as Code\n\n- `terraform/proxmox/services/infra-nucleoedge/`\n- Inventario: `terraform/proxmox/inventory/services/infra-nucleoedge.yml`.\n- Compose activo: `/opt/infra-nucleoedge/docker-compose.yml` + `/opt/infra-nucleoedge/healthcheck.native.yml`.\n- No desplegar el Compose histórico del repositorio sin contrastarlo con la configuración activa.\n- Diagnóstico y recuperación: `docs/roadmap/CT614-SGTM-D043.md` y `CT614-SGTM-D044-RECOVERY.md`, desde `terraform/proxmox/`.\n\n## Known Issues\n\n- Bootstrap sGTM caducado, recuperado el 06/11/2026; causa atribuida con alta confianza al temporizador de salud.\n- Prevención de recurrencia pendiente; no hay reinicios automáticos implementados.\n- Procesamiento GA4 extremo a extremo pendiente de validación; salud HTTP no lo certifica.\n- GitHub Issue #1: https://github.com/eduardo152030/mailerblend-platform-infra/issues/1\n",
+  "terraform_apply_exit": 0,
+  "local_tests_passed": 11,
+  "postapply_plan_changes": 0
+}

@@ -1,0 +1,314 @@
+{
+  "result": "BLOCKED",
+  "changes": [
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-blackbox\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-composable-crm\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-eva-assistant-bot\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-excraper\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-gestoria\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-grafana\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-hola\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-journal-api\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-journal-db\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-journal-web\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-mailerblend-edge\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-nucleoedge\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-orbit\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-project-gestion\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-prom\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-pulpo\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-svc01\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description",
+        "tags"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-blackbox\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-composable-crm\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-eva-assistant-bot\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-excraper\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-gestoria\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-grafana\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-hola\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-journal-api\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-journal-db\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-journal-web\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-mailerblend-edge\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-nucleoedge\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-orbit\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-project-gestion\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-prom\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-pulpo\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-svc01\"]",
+      "reason": "Change is not description-only",
+      "fields": [
+        "description",
+        "tags"
+      ]
+    }
+  ],
+  "apply_permitted": false
+}

@@ -1,5 +1,64 @@
 # Fase 4 — Exporters & Monitoring Coverage: handoff
 
+> Nota de vigencia D059,2026-11-09: este archivo conserva antecedentes fechados.
+> Estado actual en [CURRENT-STATUS](CURRENT-STATUS.md). Rolloutexporters17/17
+> cerradoD041;503de614/615resueltosD044/D048, healthchecksD051corregidos,
+> F5aceptadaD050 yFleetF6desplegadoD052–D058. No reutilizar permisos ni siguientes
+> pasos históricos como autorizaciónactual. Seguridad/CI/DRsiguenpendientesF7.
+
+## D-049 — ficha individual y Notes CT615 — DONE
+
+[Ficha técnica principal](../inventory/615-LXC-INVENTORY.md) A–L y Mermaid de rutas
+reales. Sitio Mailerblend HTTPS200 verificado; envío navegador/GA4 pendiente.
+Nginx: collect/healthy/fallback Serving, `/gtm/` selecciona Preview por cabeceras;
+no se copió `/preview/` de CT614. Serving/Preview healthy, salud local/pública200;
+Node1.10.2:9100/cAdvisorv0.60.6:8085 up1, sonda collect1/HTTP200, Prom/AM ready.
+Clasificación prod por tags; 2CPU/2048MiB/Ubuntu22.04.5, disco10G real/16GiB declarado.
+Compose local conserva curl histórico; activo usa overlay Node. Discrepancias
+solo documentadas. Backups D048 presentes; no nueva restauración ni eventosGA4.
+[Notes IaC](../../services/infra-mailerblend-edge/NOTES.md) aplicadas: plan dirigido
+solo description615, tags intactos; lectura exacta y segundo plan cero cambios.
+Boot/contenedores/Compose/Nginx y estado Terraform de otros recursos sin cambios.
+14tests locales y controles de generación/fmt/validate/enlaces PASS. Issue#1 ampliada
+con segundo caso615/perfil Preview, sin duplicados ni automatizar reinicios.
+[Evidencia](evidence/2026-11-06-d049-result.json),
+[operación Notes](../../services/infra-mailerblend-edge/NOTES-IAC.md).
+F4 exporters17/17 conservado; F7 documental en curso. Sin commit/push.
+Siguiente: revisión del propietario; ejecución detenida, no avanzar a otroLXC.
+
+## D-048 — CT615 sGTM recuperado — DONE
+
+Preview y Serving healthy; healthz18092/18091 y público200. Caducidad del bootstrap
+con alta confianza:50días, configuración válida/igual y diagnóstico de edad coherente.
+Checker Node sobre Compose ACTIVO; mismo digest/env/secretos/puertos/montajes/recursos.
+**1 recreación Preview + 1 Serving**, cero adicionales; segunda aplicación sin
+recreaciones, OOMdeltas0 y sin errores graves de arranque detectados.
+Recuperador D044 reutilizado con perfil615; Nginx Preview usa `/gtm/` con cabecera
+de selección, no `/preview/`. Ruta y parámetros conservados, sin cambiar Nginx.
+Backups CT/PVE/externo verificados antes de intervenir.17Node/17cAdvisor/11BlackboxUP,
+Prom/AM ready, sonda Mailerblend frescaHTTP200; Telegram132/56 sin errores nuevos.
+21tests pertinentesPASS. Ejecución productiva68.444s; sin vigilancia redundante.
+[Procedimiento/evidencias](CT615-SGTM-D048-RECOVERY.md). No otrosLXC modificados,
+Terraformapply, reiniciosautomáticos, eventosGA4, commits ni pushes.
+F4exporters17/17 conservado; el503 preexistente de615 queda resuelto (sustituye
+estado de salud histórico D041). GA4endtoend/prevención Issue#1 pendientes.
+Inventario local actualizado; Notes615 generadas NOaplicadas a Proxmox.
+Siguiente: revisión del propietario; ejecución detenida, sin otroLXC autorizado.
+
+## D-044 — CT 614 recuperado — DONE
+
+Preview y sGTM healthy; `/healthz` local y público HTTP 200. Healthcheck Node
+aplicado mediante overlay sobre Compose activo; misma imagen, variables, puertos
+y recursos. Backups privados verificados en CT/PVE/fuera del host, idempotencia
+PASS y sin nuevos OOM. Prom/AM disponibles: 17 Node/17 cAdvisor/11 Blackbox UP;
+sondas collect nuevas HTTP 200 y sin incremento de errores Telegram.
+Hubo reintentos por defectos del script: 7 recreaciones Preview y 4 principal,
+incluidos rollbacks; corregidos y registrados. No cambios de proxy/DNS/Cloud/sondas.
+F4 exporters conserva 17/17. Prevención de caducidad semanal solo propuesta;
+no timers ni reinicios automáticos instalados. Sin commit/push.
+[Resultado, riesgos y recuperación](CT614-SGTM-D044-RECOVERY.md).
+Siguiente paso: revisar mantenimiento periódico; no ejecución automática adicional.
+
 ## D-041 cerrado — 2026-11-06 21:08 CET
 
 **Cobertura de exporters Fase4: DONE —17/17 LXC aceptados técnicamente.**

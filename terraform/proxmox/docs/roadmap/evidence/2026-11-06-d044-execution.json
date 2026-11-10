@@ -1,0 +1,8 @@
+{
+  "run": "sgtm-614-d044-20261106T211230Z",
+  "started_at_utc": "2026-11-06T21:17:12.572686+00:00",
+  "result": "HALT",
+  "steps": [],
+  "failed_stage": "preflight",
+  "failure_type": "UnboundLocalError"
+}

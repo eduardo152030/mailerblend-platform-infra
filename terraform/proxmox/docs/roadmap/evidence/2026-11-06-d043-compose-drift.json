@@ -1,0 +1,21 @@
+{
+  "compose_matches_running": {
+    "sgtm": {
+      "image_reference_same": true,
+      "explicit_environment_equal": true,
+      "published_ports": [
+        "8091"
+      ],
+      "healthcheck_uses_missing_curl": true
+    },
+    "sgtm_preview": {
+      "image_reference_same": true,
+      "explicit_environment_equal": true,
+      "published_ports": [
+        "8092"
+      ],
+      "healthcheck_uses_missing_curl": true
+    }
+  },
+  "config_identity_comparison": {}
+}

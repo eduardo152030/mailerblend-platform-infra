@@ -1,0 +1,25 @@
+{
+  "timestamp_utc": "2026-11-07T16:13:50Z",
+  "components": [
+    {
+      "name": "crm-api",
+      "docker_id_matches": true,
+      "cgroup_id": "/system.slice/docker-605bd20580170f90af661ce947bf4e7c1913b69b7f0d688fd18bf3d576600597.scope",
+      "compose_service_matches": true,
+      "last_seen_age_seconds": 25.104000091552734,
+      "sample_age_seconds": 40.375,
+      "health": 1
+    },
+    {
+      "name": "budibase-app",
+      "docker_id_matches": true,
+      "cgroup_id": "/system.slice/docker-82becc9630f8ac02bfa0912381a1dbf2fdb670c1eee470db3eed4931e4547134.scope",
+      "compose_service_matches": true,
+      "last_seen_age_seconds": 25.104000091552734,
+      "sample_age_seconds": 30.675000190734863,
+      "health": 1
+    }
+  ],
+  "result": "PASS",
+  "public_availability_claimed": false
+}

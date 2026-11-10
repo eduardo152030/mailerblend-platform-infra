@@ -1,0 +1,143 @@
+{
+  "observed_at": 1793998707.0184376,
+  "native_health": [
+    {
+      "port": 8091,
+      "status": 503
+    },
+    {
+      "port": 8092,
+      "status": 503
+    }
+  ],
+  "read_only_bootstrap_diagnostics": [
+    {
+      "port": 8091,
+      "status": 500,
+      "field": "server_start_millis",
+      "age_threshold_millis": 2592000000,
+      "diagnostic_not_liveness": true
+    },
+    {
+      "port": 8091,
+      "status": 200,
+      "field": "server_start_millis",
+      "age_threshold_millis": 5184000000,
+      "diagnostic_not_liveness": true
+    },
+    {
+      "port": 8091,
+      "status": 200,
+      "field": "container_refresh_millis",
+      "age_threshold_millis": 300000,
+      "diagnostic_not_liveness": true
+    },
+    {
+      "port": 8091,
+      "status": 200,
+      "field": "container_refresh_millis",
+      "age_threshold_millis": 3600000,
+      "diagnostic_not_liveness": true
+    },
+    {
+      "port": 8091,
+      "status": 200,
+      "field": "container_refresh_millis",
+      "age_threshold_millis": 86400000,
+      "diagnostic_not_liveness": true
+    },
+    {
+      "port": 8092,
+      "status": 500,
+      "field": "server_start_millis",
+      "age_threshold_millis": 2592000000,
+      "diagnostic_not_liveness": true
+    },
+    {
+      "port": 8092,
+      "status": 200,
+      "field": "server_start_millis",
+      "age_threshold_millis": 5184000000,
+      "diagnostic_not_liveness": true
+    },
+    {
+      "port": 8092,
+      "status": 500,
+      "field": "container_refresh_millis",
+      "age_threshold_millis": 300000,
+      "diagnostic_not_liveness": true
+    },
+    {
+      "port": 8092,
+      "status": 500,
+      "field": "container_refresh_millis",
+      "age_threshold_millis": 3600000,
+      "diagnostic_not_liveness": true
+    },
+    {
+      "port": 8092,
+      "status": 500,
+      "field": "container_refresh_millis",
+      "age_threshold_millis": 86400000,
+      "diagnostic_not_liveness": true
+    }
+  ],
+  "startup": [
+    {
+      "name": "infra-nucleoedge-sgtm-1",
+      "started_at": "2026-09-17T20:43:37.34056289Z",
+      "image_startup_healthcheck_file": true,
+      "bootstrap_override_present": false,
+      "image_probe_enabled": null,
+      "error_class_counts": {},
+      "error_phrase_counts": {
+        "unauthorized": 0,
+        "permission denied": 0,
+        "invalid container": 0,
+        "failed to load": 0,
+        "failed to fetch": 0,
+        "expired": 0,
+        "unhealthy": 0,
+        "outdated": 0,
+        "timeout": 0,
+        "syntaxerror": 0,
+        "typeerror": 0,
+        "referenceerror": 0,
+        "ECONNREFUSED": 0,
+        "ENOTFOUND": 0,
+        "ECONNRESET": 0
+      },
+      "bootstrap_loader_uses_official_domain": true,
+      "normal_loader_uses_vm_evaluation": true,
+      "logs_total_lines": 500
+    },
+    {
+      "name": "infra-nucleoedge-sgtm_preview-1",
+      "started_at": "2026-09-17T20:43:37.350562172Z",
+      "image_startup_healthcheck_file": true,
+      "bootstrap_override_present": false,
+      "image_probe_enabled": null,
+      "error_class_counts": {},
+      "error_phrase_counts": {
+        "unauthorized": 0,
+        "permission denied": 0,
+        "invalid container": 0,
+        "failed to load": 0,
+        "failed to fetch": 0,
+        "expired": 0,
+        "unhealthy": 0,
+        "outdated": 0,
+        "timeout": 0,
+        "syntaxerror": 0,
+        "typeerror": 0,
+        "referenceerror": 0,
+        "ECONNREFUSED": 0,
+        "ENOTFOUND": 0,
+        "ECONNRESET": 0
+      },
+      "bootstrap_loader_uses_official_domain": true,
+      "normal_loader_uses_vm_evaluation": true,
+      "logs_total_lines": 27
+    }
+  ]
+}

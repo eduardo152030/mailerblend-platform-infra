@@ -1,0 +1,17 @@
+{
+  "completed_at_utc": "2026-11-06T22:22:55.669011+00:00",
+  "recovery_regression_tests": 21,
+  "tests_passed": true,
+  "recreation_counts": {
+    "sgtm_preview": 1,
+    "sgtm": 1
+  },
+  "source_sha256": {
+    "scripts/recover-sgtm-614.py": "b899884c64dabbcfdf1cb91af8c16fd113cfabcc5c6975a4a233ee4633586db3",
+    "tests/monitoring/test_sgtm_614_recovery.py": "5701d51ebc66e51e760df8b713cbfb03afb9a34ae9262cc113642b68373569b7",
+    "tests/monitoring/test_sgtm_615_recovery.py": "db61834a8768e4ba5f21ab77ba33d0f9fa228c804162b0c4b11df6b4178e59f6",
+    "services/infra-nucleoedge/proposals/d043/healthcheck.native.yml": "fd28a96d58c1abf7a49388735f9cd2cea9b6d2b0df439a2b72bb405388039a56"
+  },
+  "terraform_apply_executed": false,
+  "commits_or_pushes": false
+}

@@ -1,0 +1,6 @@
+{
+  "ssh_return_code": 255,
+  "identity_failure": true,
+  "command_unavailable": false,
+  "nat_lines": []
+}

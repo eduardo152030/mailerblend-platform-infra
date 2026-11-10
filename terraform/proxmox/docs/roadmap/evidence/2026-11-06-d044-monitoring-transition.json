@@ -1,0 +1,27 @@
+{
+  "window_start": "2026-11-06T21:20:50.788904+00:00",
+  "window_end_utc": "2026-11-06T21:21:43.075413+00:00",
+  "series": {
+    "probe_success": {
+      "count": 2,
+      "zero_windows": [
+        {
+          "probe_id": "nucleo-collect-local-client",
+          "service": "edge-nucleotecnologico-collect",
+          "job": "blackbox",
+          "first_observed_utc": "2026-11-06T21:21:17.789000+00:00",
+          "last_observed_utc": "2026-11-06T21:21:42.789000+00:00",
+          "points": 26
+        }
+      ]
+    },
+    "probe_http_status_code": {
+      "count": 2,
+      "zero_windows": []
+    },
+    "up": {
+      "count": 45,
+      "zero_windows": []
+    }
+  }
+}

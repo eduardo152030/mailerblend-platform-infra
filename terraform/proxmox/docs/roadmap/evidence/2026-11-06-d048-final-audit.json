@@ -1,0 +1,61 @@
+{
+  "forced_recreation_commands": {
+    "sgtm_preview": 1,
+    "sgtm": 1
+  },
+  "containers": [
+    {
+      "name": "mailerblend-sgtm-serving",
+      "id": "77104947f79b26d4e49f10e657492b65f135463ce865cb556f3b7376cb53fe00",
+      "image_unchanged": true,
+      "environment_unchanged": true,
+      "ports_unchanged": true,
+      "mounts_unchanged": true,
+      "health": "healthy",
+      "restarts": 0,
+      "oom_killed": false,
+      "healthcheck": {
+        "Test": [
+          "CMD",
+          "/nodejs/bin/node",
+          "/app/health_checker_bin.js"
+        ],
+        "Interval": 30000000000,
+        "Timeout": 10000000000,
+        "StartPeriod": 30000000000,
+        "Retries": 3
+      }
+    },
+    {
+      "name": "mailerblend-sgtm-preview",
+      "id": "0f156b3c08899b29835a0ebac74af7cf608d4e812569062909464811eff97699",
+      "image_unchanged": true,
+      "environment_unchanged": true,
+      "ports_unchanged": true,
+      "mounts_unchanged": true,
+      "health": "healthy",
+      "restarts": 0,
+      "oom_killed": false,
+      "healthcheck": {
+        "Test": [
+          "CMD",
+          "/nodejs/bin/node",
+          "/app/health_checker_bin.js"
+        ],
+        "Interval": 30000000000,
+        "Timeout": 10000000000,
+        "StartPeriod": 30000000000,
+        "Retries": 3
+      }
+    }
+  ],
+  "original_files_unchanged": true,
+  "local_healthz": {
+    "18091": 200,
+    "18092": 200
+  },
+  "public_serving_healthz": 200,
+  "public_preview_healthz": 200,
+  "native_overlay_sha256": "fd28a96d58c1abf7a49388735f9cd2cea9b6d2b0df439a2b72bb405388039a56",
+  "state_result": "DONE"
+}

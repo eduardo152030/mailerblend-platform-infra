@@ -1,0 +1,38 @@
+[
+  {
+    "url": "https://www.googletagmanager.com/static/serverjs/latest/server_bootstrap.js",
+    "bytes": 38072,
+    "sha256": "3b80865d9bd88e33b68aa8e0127ffa27d5924220f7e85341b9a39d47bad71b40",
+    "health_logic": [
+      {
+        "term": "/healthz",
+        "code": "T\")return!1;var c=L(a.url);if(!c)return!1;var d=c.pathname();return(d==null?0:d.endsWith(\"/healthz\"))||(d==null?0:d.endsWith(\"/healthy\"))?(c=K(c,\"servertype\"))&&c!==\"serverjs\"?M(a,b,500):Ma(a,b)?!0:Date.now()>Fa?M(a,b,503):M(a,b,200,\"ok\"):!1}\nfunction Ma(a,b){var c=a.headers[\"x"
+      },
+      {
+        "term": "/healthy",
+        "code": "urn!1;var d=c.pathname();return(d==null?0:d.endsWith(\"/healthz\"))||(d==null?0:d.endsWith(\"/healthy\"))?(c=K(c,\"servertype\"))&&c!==\"serverjs\"?M(a,b,500):Ma(a,b)?!0:Date.now()>Fa?M(a,b,503):M(a,b,200,\"ok\"):!1}\nfunction Ma(a,b){var c=a.headers[\"x-sgtm-healthz\"];if(!c)return!1;var d"
+      }
+    ],
+    "script_urls": [
+      "https://www.googletagmanager.com/static/serverjs/nodejs_modules/cacheable_lookup/v6_0_0/source/index.js"
+    ]
+  },
+  {
+    "url": "https://www.googletagmanager.com/static/serverjs/server_bootstrap.js",
+    "bytes": 38072,
+    "sha256": "3b80865d9bd88e33b68aa8e0127ffa27d5924220f7e85341b9a39d47bad71b40",
+    "health_logic": [
+      {
+        "term": "/healthz",
+        "code": "T\")return!1;var c=L(a.url);if(!c)return!1;var d=c.pathname();return(d==null?0:d.endsWith(\"/healthz\"))||(d==null?0:d.endsWith(\"/healthy\"))?(c=K(c,\"servertype\"))&&c!==\"serverjs\"?M(a,b,500):Ma(a,b)?!0:Date.now()>Fa?M(a,b,503):M(a,b,200,\"ok\"):!1}\nfunction Ma(a,b){var c=a.headers[\"x"
+      },
+      {
+        "term": "/healthy",
+        "code": "urn!1;var d=c.pathname();return(d==null?0:d.endsWith(\"/healthz\"))||(d==null?0:d.endsWith(\"/healthy\"))?(c=K(c,\"servertype\"))&&c!==\"serverjs\"?M(a,b,500):Ma(a,b)?!0:Date.now()>Fa?M(a,b,503):M(a,b,200,\"ok\"):!1}\nfunction Ma(a,b){var c=a.headers[\"x-sgtm-healthz\"];if(!c)return!1;var d"
+      }
+    ],
+    "script_urls": [
+      "https://www.googletagmanager.com/static/serverjs/nodejs_modules/cacheable_lookup/v6_0_0/source/index.js"
+    ]
+  }
+]

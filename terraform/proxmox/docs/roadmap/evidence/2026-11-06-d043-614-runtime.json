@@ -1,0 +1,214 @@
+{
+  "observed_at": 1793997953.6320565,
+  "containers": [
+    {
+      "name": "infra-nucleoedge-sgtm-1",
+      "id": "50831c52de70df000901eeb96e423bfe0cd9125a8ab5b4a00f0b3299352dade9",
+      "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+      "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+      "running": true,
+      "started_at": "2026-09-17T20:43:37.34056289Z",
+      "restarts": 0,
+      "health": "unhealthy",
+      "healthcheck": {
+        "Test": [
+          "CMD",
+          "curl",
+          "-fsS",
+          "http://localhost:8080/"
+        ],
+        "Interval": 30000000000,
+        "Timeout": 5000000000,
+        "Retries": 5
+      },
+      "image_healthcheck": {
+        "Test": [
+          "CMD",
+          "/nodejs/bin/node",
+          "/app/health_checker_bin.js"
+        ]
+      },
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8091"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8091"
+          }
+        ]
+      },
+      "networks": {
+        "infra-nucleoedge_default": {
+          "ip": "172.18.0.3",
+          "aliases": [
+            "infra-nucleoedge-sgtm-1",
+            "sgtm"
+          ]
+        }
+      },
+      "env_structure": {
+        "container_config_present": true,
+        "base64_valid": true,
+        "id_has_GTM_prefix": true,
+        "env_present": true,
+        "auth_present": true,
+        "port": "8080",
+        "run_as_preview": null,
+        "health_check_path": null,
+        "preview_url": "https://edge.nucleotecnologico.es/preview"
+      },
+      "root_files": {
+        "/bin/sh": false,
+        "/usr/bin/curl": false,
+        "/bin/curl": false,
+        "/nodejs/bin/node": true,
+        "/app/health_checker_bin.js": true,
+        "/app/server_bin.js": true
+      },
+      "compose_files": [
+        "/opt/infra-nucleoedge/docker-compose.yml"
+      ],
+      "compose_hashes": {
+        "/opt/infra-nucleoedge/docker-compose.yml": "f28b2d953a623ccba1a33c1121352b878314bd4ac63c6a04cdbcab6f1f12b995"
+      },
+      "log_signals": {
+        "error": 0,
+        "outdated": 0,
+        "invalid_config": 0,
+        "preview": 0,
+        "permission": 0,
+        "version": 0,
+        "healthy": 0
+      }
+    },
+    {
+      "name": "infra-nucleoedge-sgtm_preview-1",
+      "id": "63c7faa64ddf5fbf699182d58f818e09868be4e10439da673e523559d689035b",
+      "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+      "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+      "running": true,
+      "started_at": "2026-09-17T20:43:37.350562172Z",
+      "restarts": 0,
+      "health": "unhealthy",
+      "healthcheck": {
+        "Test": [
+          "CMD",
+          "curl",
+          "-fsS",
+          "http://localhost:8080/"
+        ],
+        "Interval": 30000000000,
+        "Timeout": 5000000000,
+        "Retries": 5
+      },
+      "image_healthcheck": {
+        "Test": [
+          "CMD",
+          "/nodejs/bin/node",
+          "/app/health_checker_bin.js"
+        ]
+      },
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8092"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8092"
+          }
+        ]
+      },
+      "networks": {
+        "infra-nucleoedge_default": {
+          "ip": "172.18.0.2",
+          "aliases": [
+            "infra-nucleoedge-sgtm_preview-1",
+            "sgtm_preview"
+          ]
+        }
+      },
+      "env_structure": {
+        "container_config_present": true,
+        "base64_valid": true,
+        "id_has_GTM_prefix": true,
+        "env_present": true,
+        "auth_present": true,
+        "port": "8080",
+        "run_as_preview": "true",
+        "health_check_path": null,
+        "preview_url": ""
+      },
+      "root_files": {
+        "/bin/sh": false,
+        "/usr/bin/curl": false,
+        "/bin/curl": false,
+        "/nodejs/bin/node": true,
+        "/app/health_checker_bin.js": true,
+        "/app/server_bin.js": true
+      },
+      "compose_files": [
+        "/opt/infra-nucleoedge/docker-compose.yml"
+      ],
+      "compose_hashes": {
+        "/opt/infra-nucleoedge/docker-compose.yml": "f28b2d953a623ccba1a33c1121352b878314bd4ac63c6a04cdbcab6f1f12b995"
+      },
+      "log_signals": {
+        "error": 9,
+        "outdated": 0,
+        "invalid_config": 0,
+        "preview": 0,
+        "permission": 0,
+        "version": 0,
+        "healthy": 0
+      }
+    }
+  ],
+  "same_container_config": true,
+  "http": [
+    {
+      "url": "http://127.0.0.1:8091/",
+      "method": "GET",
+      "status": 400,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "safe_body": "",
+      "content_type": null,
+      "server": null,
+      "allow": null
+    },
+    {
+      "url": "http://127.0.0.1:8091/healthy",
+      "method": "GET",
+      "status": 503,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "safe_body": "",
+      "content_type": "text/plain",
+      "server": null,
+      "allow": null
+    },
+    {
+      "url": "http://127.0.0.1:8092/",
+      "method": "GET",
+      "status": 404,
+      "body_sha256": "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5",
+      "safe_body": "Not Found",
+      "content_type": null,
+      "server": null,
+      "allow": null
+    },
+    {
+      "url": "http://127.0.0.1:8092/healthy",
+      "method": "GET",
+      "status": 503,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "safe_body": "",
+      "content_type": "text/plain",
+      "server": null,
+      "allow": null
+    }
+  ]
+}

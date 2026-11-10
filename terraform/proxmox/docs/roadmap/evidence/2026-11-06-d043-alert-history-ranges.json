@@ -1,0 +1,15 @@
+{
+  "sampling_step_seconds": 300,
+  "historical_firing_ranges": [
+    {
+      "first_observed_utc": "2026-11-02T09:16:16.183000+00:00",
+      "last_observed_utc": "2026-11-02T20:41:16.183000+00:00",
+      "sample_count": 138
+    },
+    {
+      "first_observed_utc": "2026-11-02T07:06:16.183000+00:00",
+      "last_observed_utc": "2026-11-02T09:06:16.183000+00:00",
+      "sample_count": 25
+    }
+  ]
+}

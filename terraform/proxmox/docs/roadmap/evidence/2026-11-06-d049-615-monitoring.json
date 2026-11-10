@@ -1,0 +1,295 @@
+{
+  "observed_at_utc": "2026-11-06T22:27:22.695789+00:00",
+  "queries": {
+    "probe_success{service=\"edge-mailerblend-collect\"}": [
+      {
+        "metric": {
+          "__name__": "probe_success",
+          "alert_target": "https://edge.mailerblend.com/g/collect",
+          "instance": "https://edge.mailerblend.com/g/collect",
+          "job": "blackbox",
+          "module": "http_collect_200",
+          "probe_id": "mailerblend-collect",
+          "probe_type": "collect",
+          "scope": "external",
+          "service": "edge-mailerblend-collect",
+          "source": "repository",
+          "tls_target": "https://edge.mailerblend.com"
+        },
+        "value": [
+          1794004041.957,
+          "1"
+        ]
+      }
+    ],
+    "probe_http_status_code{service=\"edge-mailerblend-collect\"}": [
+      {
+        "metric": {
+          "__name__": "probe_http_status_code",
+          "alert_target": "https://edge.mailerblend.com/g/collect",
+          "instance": "https://edge.mailerblend.com/g/collect",
+          "job": "blackbox",
+          "module": "http_collect_200",
+          "probe_id": "mailerblend-collect",
+          "probe_type": "collect",
+          "scope": "external",
+          "service": "edge-mailerblend-collect",
+          "source": "repository",
+          "tls_target": "https://edge.mailerblend.com"
+        },
+        "value": [
+          1794004041.958,
+          "200"
+        ]
+      }
+    ],
+    "ALERTS{service=\"edge-mailerblend-collect\"}": [],
+    "up{vmid=\"615\"}": [
+      {
+        "metric": {
+          "__name__": "up",
+          "cpu_contract": "lxc_cgroup_v1",
+          "instance": "192.168.1.115:9100",
+          "job": "node_exporter",
+          "service": "infra-mailerblend-edge",
+          "source": "inventory",
+          "vmid": "615"
+        },
+        "value": [
+          1794004041.959,
+          "1"
+        ]
+      }
+    ],
+    "lxc_cpu_capacity_cores{service=\"infra-mailerblend-edge\"}": [
+      {
+        "metric": {
+          "__name__": "lxc_cpu_capacity_cores",
+          "cpu_contract": "lxc_cgroup_v1",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "615",
+          "instance": "192.168.1.115:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-mailerblend-edge",
+          "source": "inventory",
+          "vmid": "615"
+        },
+        "value": [
+          1794004041.96,
+          "2"
+        ]
+      }
+    ],
+    "up{service=\"infra-mailerblend-edge\"}": [
+      {
+        "metric": {
+          "__name__": "up",
+          "instance": "192.168.1.115:8085",
+          "job": "cadvisor",
+          "service": "infra-mailerblend-edge",
+          "source": "inventory"
+        },
+        "value": [
+          1794004296.412,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "up",
+          "cpu_contract": "lxc_cgroup_v1",
+          "instance": "192.168.1.115:9100",
+          "job": "node_exporter",
+          "service": "infra-mailerblend-edge",
+          "source": "inventory",
+          "vmid": "615"
+        },
+        "value": [
+          1794004296.412,
+          "1"
+        ]
+      }
+    ],
+    "ALERTS{service=\"infra-mailerblend-edge\"}": []
+  },
+  "ct_backup": {
+    "path": "/opt/infra-mailerblend-edge/.runtime/sgtm-615-d048-20261106T221856Z/backup.tar",
+    "exists": true,
+    "bytes": 119859200
+  },
+  "config": {
+    "/opt/infra-prom/config/prometheus.yml": {
+      "global": {
+        "scrape_interval": "30s",
+        "evaluation_interval": "30s"
+      },
+      "scrape_configs": [
+        {
+          "job_name": "cadvisor",
+          "metrics_path": "/metrics",
+          "scheme": "http",
+          "file_sd_configs": [
+            {
+              "files": [
+                "/etc/prometheus/targets/cadvisor.json"
+              ]
+            }
+          ]
+        },
+        {
+          "job_name": "blackbox",
+          "metrics_path": "/probe",
+          "params": {
+            "module": [
+              "http_2xx"
+            ]
+          },
+          "file_sd_configs": [
+            {
+              "files": [
+                "/etc/prometheus/targets/blackbox.json"
+              ]
+            }
+          ],
+          "relabel_configs": [
+            {
+              "source_labels": [
+                "__address__"
+              ],
+              "regex": ".*EDGE_FQDN_PLACEHOLDER.*",
+              "action": "drop"
+            },
+            {
+              "source_labels": [
+                "__address__"
+              ],
+              "target_label": "__param_target"
+            },
+            {
+              "source_labels": [
+                "module"
+              ],
+              "target_label": "__param_module"
+            },
+            {
+              "target_label": "__address__",
+              "replacement": "192.168.1.116:9115"
+            },
+            {
+              "source_labels": [
+                "__param_target"
+              ],
+              "target_label": "instance"
+            }
+          ]
+        }
+      ],
+      "rule_files": [
+        "/etc/prometheus/rules/*.yml"
+      ]
+    },
+    "/opt/infra-prom/config/targets/node-exporter.json": [
+      {
+        "targets": [
+          "192.168.1.115:9100"
+        ],
+        "labels": {
+          "job": "node_exporter",
+          "source": "inventory",
+          "service": "infra-mailerblend-edge",
+          "cpu_contract": "lxc_cgroup_v1",
+          "vmid": "615"
+        }
+      }
+    ],
+    "/opt/infra-prom/config/targets/cadvisor.json": [
+      {
+        "targets": [
+          "192.168.1.115:8085"
+        ],
+        "labels": {
+          "job": "cadvisor",
+          "source": "inventory",
+          "service": "infra-mailerblend-edge"
+        }
+      }
+    ],
+    "/opt/infra-prom/config/targets/blackbox.json": [
+      {
+        "targets": [
+          "https://edge.mailerblend.com/g/collect"
+        ],
+        "labels": {
+          "job": "blackbox",
+          "module": "http_collect_200",
+          "probe_type": "collect",
+          "scope": "external",
+          "service": "edge-mailerblend-collect",
+          "source": "repository",
+          "probe_id": "mailerblend-collect",
+          "alert_target": "https://edge.mailerblend.com/g/collect",
+          "tls_target": "https://edge.mailerblend.com"
+        }
+      }
+    ],
+    "/opt/infra-prom/config/rules/blackbox-alerts.yml": {
+      "groups": [
+        {
+          "name": "blackbox-alerts",
+          "rules": [
+            {
+              "alert": "CollectEndpointDown",
+              "expr": "min by (job, service, probe_type, instance) (\n  label_replace(probe_success{job=\"blackbox\",probe_type=~\"collect|sgtm_collect\"}, \"instance\", \"$1\", \"alert_target\", \"(.+)\")\n) == 0",
+              "for": "2m",
+              "labels": {
+                "severity": "critical",
+                "category": "analytics"
+              },
+              "annotations": {
+                "summary": "Collect endpoint is DOWN",
+                "description": "/g/collect probe failed (HEAD expected 200/204).\ntarget={{ $labels.instance }}\nCheck edge routing, upstream, TLS, firewall.\n"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/opt/infra-blackbox/config/blackbox.yml": {
+      "modules": {
+        "http_collect_200": {
+          "prober": "http",
+          "timeout": "10s",
+          "http": {
+            "method": "HEAD",
+            "follow_redirects": false,
+            "preferred_ip_protocol": "ip4",
+            "ip_protocol_fallback": true,
+            "valid_http_versions": [
+              "HTTP/1.1",
+              "HTTP/2.0"
+            ],
+            "tls_config": {
+              "insecure_skip_verify": false
+            },
+            "valid_status_codes": [
+              200,
+              204
+            ]
+          }
+        }
+      }
+    }
+  },
+  "offhost_backup": {
+    "path": "/home/jainer/.local/share/mailerblend-recovery/sgtm615/sgtm-615-d048-20261106T221856Z/backup.tar",
+    "exists": true,
+    "bytes": 119859200
+  },
+  "pve_backup": {
+    "path": "/mnt/storage/mailerblend-recovery/sgtm-615-d048-20261106T221856Z/backup.tar",
+    "exists": true,
+    "bytes": 119859200
+  },
+  "backup_verified_at_utc": "2026-11-06T22:28:07.765750+00:00"
+}

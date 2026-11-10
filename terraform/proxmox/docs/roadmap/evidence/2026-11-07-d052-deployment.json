@@ -1,0 +1,21 @@
+{
+  "timestamp_utc": "2026-11-07T15:35:23Z",
+  "url": "http://192.168.1.111:3010/d/proxmox-lxc-fleet/proxmox-c2b7-lxc-fleet-overview?theme=dark",
+  "provisioned": true,
+  "old_dashboards_preserved": 7,
+  "datasources_unchanged": true,
+  "identity_unchanged": true,
+  "mounts_unchanged": true,
+  "files": {
+    "config/provisioning/dashboards/fleet.yml": "b9c3f3d578d8e02085dcf241cd05bfef5856b10e580b149aab1b3d41f328171f",
+    "config/provisioning/fleet-assets/proxmox-lxc-fleet.json": "579ee130f82b87db97e0a755175ed5e14584e5961a0476335d674b408538dc6f"
+  },
+  "backup_sha256": "1b79e13a9a81e80b986fb78af60a40a81147b07215af3226fa884dde2ae3b2c6",
+  "datasource_health": "OK",
+  "existing_dashboard_version_changes": {
+    "1c530db062f6": [
+      20,
+      31
+    ]
+  }
+}

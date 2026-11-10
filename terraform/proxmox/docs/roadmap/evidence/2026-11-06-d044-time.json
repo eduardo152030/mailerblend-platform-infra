@@ -1,0 +1,9 @@
+{
+  "run": "sgtm-614-d044-20261106T211230Z",
+  "started_at_utc": "2026-11-06T21:12:30.493304+00:00",
+  "status": "DONE",
+  "scope": "CT614 Preview then serving health recovery; activeCompose only; no image/config/network/monitoring changes beyond healthcheck",
+  "production_run": "sgtm-614-d044-20261106T211738Z",
+  "completed_at_utc": "2026-11-06T21:31:43.971002+00:00",
+  "elapsed_seconds": 1153.5
+}

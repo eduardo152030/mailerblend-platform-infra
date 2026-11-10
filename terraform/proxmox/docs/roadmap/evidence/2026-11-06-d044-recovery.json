@@ -1,0 +1,73 @@
+{
+  "run": "sgtm-614-d044-20261106T211738Z",
+  "started_at_utc": "2026-11-06T21:17:38.589213+00:00",
+  "result": "HALT",
+  "steps": [
+    "snapshot",
+    "install",
+    "apply-preview"
+  ],
+  "monitoring_before": {
+    "targets_up": {
+      "node_exporter": 17,
+      "cadvisor": 17,
+      "blackbox": 11
+    },
+    "prometheus_alertmanager_ready": true,
+    "blackbox_success": 2,
+    "blackbox_http_status": [
+      200,
+      200
+    ],
+    "blackbox_sample_times": [
+      1793999859.175,
+      1793999836.974
+    ],
+    "telegram": {
+      "alertmanager_notifications_total": 132.0,
+      "alertmanager_notifications_failed_total": 56.0
+    }
+  },
+  "pve_before": {
+    "resources": {
+      "hostname": "infra-nucleoedge",
+      "cores": "2",
+      "memory": "2048",
+      "swap": "512",
+      "net0": "name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:CB:64:18,ip=192.168.1.114/24,type=veth"
+    },
+    "events": {
+      "low": "0",
+      "high": "0",
+      "max": "0",
+      "oom": "0",
+      "oom_kill": "0",
+      "oom_group_kill": "0"
+    }
+  },
+  "service_state": {
+    "steps": [
+      "snapshot_verified",
+      "health_only_candidate_verified",
+      "apply-preview_started",
+      "apply-preview_completed"
+    ],
+    "backup_sha256": "776a8c4a69506d0f4e190dd08ee44c283568e30ffc073f9b13293f8fb39ffcb9",
+    "image_ids": [
+      "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba"
+    ],
+    "overlay_sha256": "fd28a96d58c1abf7a49388735f9cd2cea9b6d2b0df439a2b72bb405388039a56"
+  },
+  "backup": {
+    "local_path": "/home/jainer/.local/share/mailerblend-recovery/sgtm614/sgtm-614-d044-20261106T211738Z/backup.tar",
+    "pve_path": "/mnt/storage/mailerblend-recovery/sgtm-614-d044-20261106T211738Z/backup.tar",
+    "ct_path": "/opt/infra-nucleoedge/.runtime/sgtm-614-d044-20261106T211738Z/backup.tar",
+    "sha256": "776a8c4a69506d0f4e190dd08ee44c283568e30ffc073f9b13293f8fb39ffcb9",
+    "bytes": 119859200,
+    "offhost_verified": true,
+    "archive_readable": true
+  },
+  "failed_stage": "preview",
+  "failure_type": "AssertionError",
+  "recovery_failure_type": "AssertionError"
+}

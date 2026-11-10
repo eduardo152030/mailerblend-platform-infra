@@ -1,0 +1,164 @@
+{
+  "timestamp_utc": "2026-11-07T16:08:47Z",
+  "source": "PVE API and current Prometheus",
+  "host_uptime": 4389940.16,
+  "comparisons": [
+    {
+      "ct": "624",
+      "service": "infra-journal-web",
+      "pve_lxc_uptime_seconds": 4389843,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 97.33599996566772,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "625",
+      "service": "infra-journal-db",
+      "pve_lxc_uptime_seconds": 4389837,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 103.33599996566772,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "626",
+      "service": "infra-journal-api",
+      "pve_lxc_uptime_seconds": 4389824,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 116.33599996566772,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "613",
+      "service": "infra-hola",
+      "pve_lxc_uptime_seconds": 4389919,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 21.335999965667725,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "621",
+      "service": "infra-project-gestion",
+      "pve_lxc_uptime_seconds": 4389881,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 59.335999965667725,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "620",
+      "service": "infra-excraper",
+      "pve_lxc_uptime_seconds": 4389887,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 53.335999965667725,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "619",
+      "service": "infra-pulpo",
+      "pve_lxc_uptime_seconds": 4389893,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 47.335999965667725,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "623",
+      "service": "infra-gestoria",
+      "pve_lxc_uptime_seconds": 4389864,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 76.33599996566772,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "61211",
+      "service": "svc01",
+      "pve_lxc_uptime_seconds": 4389816,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 124.33599996566772,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "622",
+      "service": "infra-eva-assistant-bot",
+      "pve_lxc_uptime_seconds": 442904,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 3947036.3359999657,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "611",
+      "service": "infra-grafana",
+      "pve_lxc_uptime_seconds": 4389923,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 17.335999965667725,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "616",
+      "service": "infra-blackbox",
+      "pve_lxc_uptime_seconds": 4389907,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 33.335999965667725,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "610",
+      "service": "infra-prom",
+      "pve_lxc_uptime_seconds": 4389925,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 15.335999965667725,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "617",
+      "service": "infra-orbit",
+      "pve_lxc_uptime_seconds": 4389903,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 37.335999965667725,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "618",
+      "service": "infra-composable-crm",
+      "pve_lxc_uptime_seconds": 452045,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 3937895.3359999657,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "615",
+      "service": "infra-mailerblend-edge",
+      "pve_lxc_uptime_seconds": 4389912,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 28.335999965667725,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    },
+    {
+      "ct": "614",
+      "service": "infra-nucleoedge",
+      "pve_lxc_uptime_seconds": 4389915,
+      "node_inferred_uptime_seconds": 4389940.335999966,
+      "difference_seconds": 25.335999965667725,
+      "difference_vs_host_seconds": 0.175999965518713,
+      "boot_metric_rejected": true
+    }
+  ],
+  "node_time_is_wall_clock": true,
+  "node_boot_host_scoped_all_17": true,
+  "existing_lxc_or_pve_uptime_metrics": [],
+  "decision": "Uptime UNKNOWN; no verified LXC boot source; no Docker/exporter surrogate"
+}

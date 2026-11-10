@@ -1,0 +1,27 @@
+{
+  "decision": "D-049",
+  "ct": 615,
+  "status": "DONE",
+  "verified_at_utc": "2026-11-06T22:33:45.223813+00:00",
+  "individual_inventory": "docs/inventory/615-LXC-INVENTORY.md",
+  "notes_exact_source": true,
+  "only_pve_field_changed": "description",
+  "tags_and_other_pve_config_unchanged": true,
+  "lxc_boot_unchanged": true,
+  "all_containers_unchanged": true,
+  "compose_unchanged": true,
+  "nginx_unchanged": true,
+  "other_terraform_resource_state_unchanged": true,
+  "healthz": {
+    "http://192.168.1.115:18091/healthz": 200,
+    "http://192.168.1.115:18092/healthz": 200,
+    "https://edge.mailerblend.com/healthz": 200,
+    "https://edge.mailerblend.com/gtm/healthz": 200
+  },
+  "notes_applied": "# Purpose\n\nGoogle Tag Manager Server-Side para Mailerblend: recepción y procesamiento de solicitudes de tracking. Serving atiende tráfico; Preview permite depurar GTM.\n\n## Environment\n\nProduction — clasificación prod en inventario y Proxmox.\n\n## Network\n\n- CT 615 — infra-mailerblend-edge — IP 192.168.1.115\n- Main domain: mailerblend.com\n- Public URL: https://edge.mailerblend.com\n- EdgeRouter/Nginx termina TLS; Serving es el destino habitual.\n- `/gtm/` selecciona Preview si X-Gtm-Server-Preview o X-Gtm-Preview no están vacías; no usa `/preview/` como CT614.\n\n## Applications\n\n- sGTM Serving — mailerblend-sgtm-serving — 18091 → 8080/tcp.\n- sGTM Preview — mailerblend-sgtm-preview — 18092 → 8080/tcp.\n- Node Exporter 1.10.2 — 9100; cAdvisor v0.60.6 — 8085.\n- Salud: GET `/healthz` local en ambos; público `/healthz` (Serving), `/gtm/healthz` con cabecera de selección (Preview).\n\n## Dependencies\n\nProxmox/LXC, Docker, red interna, DNS, EdgeRouter/Nginx, TLS Let's Encrypt y configuración/bootstrap de Google Tag Manager. Serving depende de Preview.\n\n## Monitoring\n\nPrometheus recoge Node/cAdvisor. Blackbox HEAD `/g/collect` (200/204); Alertmanager → Telegram. Salud HTTP no certifica entrega GA4.\n\n## Infrastructure as Code\n\n`terraform/proxmox/services/infra-mailerblend-edge/`\nBase activa: `/opt/infra-mailerblend-edge/docker-compose.yml` + `healthcheck.native.yml`. Mantener ambos; no desplegar el checker curl histórico.\n\n## Documentation\n\n`docs/inventory/615-LXC-INVENTORY.md`, desde `terraform/proxmox/`.\nRecuperación: `docs/roadmap/CT615-SGTM-D048-RECOVERY.md`.\n\n## Known Issues\n\n- Recuperado el 06/11/2026: probable caducidad del bootstrap y checker curl incompatible. Node nativo aplicado; una recreación por servicio en D048.\n- Prevención automática y entrega GA4 extremo a extremo pendientes.\n- Disco real 10 GiB frente a 16 GiB declarados; discrepancia documentada, sin corregir.\n- Issue #1: https://github.com/eduardo152030/mailerblend-platform-infra/issues/1\n",
+  "apply_exit_code": 0,
+  "postapply_plan_changes": 0,
+  "local_tests_passed": 14,
+  "issue_updated": "https://github.com/eduardo152030/mailerblend-platform-infra/issues/1",
+  "no_commit_or_push": true
+}

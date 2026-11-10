@@ -1,0 +1,4 @@
+{
+  "nginx_has_HEAD_specific_rule": false,
+  "nginx_has_return_200_rule": false
+}

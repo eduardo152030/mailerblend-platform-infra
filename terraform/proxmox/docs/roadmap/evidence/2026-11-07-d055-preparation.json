@@ -1,0 +1,17 @@
+{
+  "mode": "local preparation and read-only audit",
+  "existing_pve_metrics": 0,
+  "existing_pve_exporters": 0,
+  "existing_readonly_identity": false,
+  "existing_terraform_token_admin_not_reused": true,
+  "exporter_version": "3.11.0",
+  "exporter_digest": "sha256:290756c34fd13e1d9972b8e64344d49a15ab99dd0053b29d9716f1ca4ae4c069",
+  "compose_syntax": "PASS",
+  "promtool_job_and_8_cases": "PASS",
+  "tls_from_ct610": {
+    "tls_verified": true,
+    "status_without_credentials": 401
+  },
+  "deployed": false,
+  "permission_required": "dedicated read-only user/token PVEAuditor at / with privilege separation"
+}

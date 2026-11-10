@@ -1,0 +1,32 @@
+[
+  {
+    "name": "infra-nucleoedge-sgtm-1",
+    "configuration_structure": {
+      "base64_and_query_parse_valid": true,
+      "exactly_one_id_env_auth": true,
+      "gtm_id_shape_valid": true,
+      "env_positive_integer": true,
+      "auth_nonempty": true
+    },
+    "override_variable_names": [
+      "PREVIEW_SERVER_URL"
+    ],
+    "startup_entrypoint_is_node": true,
+    "startup_script_is_official_server": true
+  },
+  {
+    "name": "infra-nucleoedge-sgtm_preview-1",
+    "configuration_structure": {
+      "base64_and_query_parse_valid": true,
+      "exactly_one_id_env_auth": true,
+      "gtm_id_shape_valid": true,
+      "env_positive_integer": true,
+      "auth_nonempty": true
+    },
+    "override_variable_names": [
+      "RUN_AS_PREVIEW_SERVER"
+    ],
+    "startup_entrypoint_is_node": true,
+    "startup_script_is_official_server": true
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "decision": "D-047",
+  "ct": 614,
+  "status": "DONE",
+  "verified_at_utc": "2026-11-06T22:12:53.781128+00:00",
+  "individual_inventory": "docs/inventory/614-LXC-INVENTORY.md",
+  "notes_exact_source": true,
+  "only_pve_field_changed": "description",
+  "tags_resources_and_other_pve_config_unchanged": true,
+  "lxc_boot_unchanged": true,
+  "all_containers_unchanged": true,
+  "compose_unchanged": true,
+  "nginx_unchanged": true,
+  "other_terraform_resources_unchanged": true,
+  "healthz": {
+    "http://192.168.1.114:8091/healthz": 200,
+    "http://192.168.1.114:8092/healthz": 200,
+    "https://edge.nucleotecnologico.es/healthz": 200,
+    "https://edge.nucleotecnologico.es/preview/healthz": 200
+  },
+  "no_ga4_test_events_sent": true,
+  "no_restart_or_recreation": true,
+  "local_tests_passed": 12,
+  "notes_applied": "# Purpose\n\nServer-Side Google Tag Manager para Núcleo Tecnológico.\n\n## Environment\n\nProduction\n\n## Network\n\n- CT 614 — infra-nucleoedge — IP 192.168.1.114\n- Main domain: nucleotecnologico.es\n- Public URL: https://edge.nucleotecnologico.es\n- Nginx en EdgeRouter: `/` → Serving; `/preview/` → Preview, elimina el prefijo.\n- `/orbit/healthz` y `/orbit/ingest` pertenecen a CT617, no a este LXC.\n\n## Applications\n\n- sGTM Serving — 8091 → 8080/tcp — Procesamiento de tracking.\n- sGTM Preview — 8092 → 8080/tcp — Depuración GTM.\n- Node Exporter 1.10.2 — 9100; cAdvisor v0.60.6 — 8085.\n- Salud nativa: GET `/healthz`; Preview público: `/preview/healthz`. Esperado HTTP200.\n\n## Dependencies\n\nProxmox/LXC, Docker, red interna, DNS, EdgeRouter/Nginx, TLS Let's Encrypt y Google Tag Manager. Serving depende de Preview.\n\n## Monitoring\n\nPrometheus → Alertmanager / Telegram; Node Exporter y cAdvisor; Blackbox HEAD `/g/collect` (200/204). Estas sondas no certifican entrega GA4 ni toda la salud del bootstrap.\n\n## Infrastructure as Code\n\n- `terraform/proxmox/services/infra-nucleoedge/`\n- Inventario: `terraform/proxmox/inventory/services/infra-nucleoedge.yml`.\n- Compose activo: `/opt/infra-nucleoedge/docker-compose.yml` + `healthcheck.native.yml`.\n- No desplegar el Compose histórico sin contrastarlo con el activo.\n\n## Documentation\n\n`docs/inventory/614-LXC-INVENTORY.md`, desde `terraform/proxmox/`: arquitectura, configuración, diagnóstico y recuperación.\n\n## Known Issues\n\n- Bootstrap recuperado el 06/11/2026 tras probable caducidad; healthcheck Node nativo aplicado. Prevención automática pendiente.\n- Disco real 10 GiB, declarado 16 GiB; discrepancia documentada, sin corregir.\n- Entrega GA4 extremo a extremo pendiente de validación.\n- GitHub Issue #1: https://github.com/eduardo152030/mailerblend-platform-infra/issues/1\n",
+  "apply_exit_code": 0,
+  "postapply_plan_changes": 0
+}

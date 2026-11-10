@@ -1,0 +1,6 @@
+{
+  "container": "infra-journal-db-db-1",
+  "read_only_check": "pg_isready -q -h 127.0.0.1 -p 5432",
+  "exit_code": 0,
+  "auth_sql_integrity_verified": false
+}

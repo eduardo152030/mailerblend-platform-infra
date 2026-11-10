@@ -1,0 +1,96 @@
+[
+  {
+    "ct": "617",
+    "runtime": [
+      {
+        "container": "orbit-gateway-proxy",
+        "process_names": [],
+        "access_control": [
+          "listen 8080;",
+          "allow 192.168.1.71;",
+          "deny all;",
+          "location /healthz {",
+          "location /ingest {"
+        ],
+        "upstreams": [
+          "http://ingest-gateway:8080/healthz",
+          "http://ingest-gateway:8080/ingest"
+        ]
+      },
+      {
+        "container": "analytics-ingest-gateway",
+        "process_names": []
+      }
+    ]
+  },
+  {
+    "ct": "621",
+    "runtime": [
+      {
+        "container": "focalboard",
+        "process_names": []
+      }
+    ]
+  },
+  {
+    "ct": "617",
+    "url": "http://127.0.0.1:18088/healthz",
+    "vantage": "CT617 loopback",
+    "status": 403
+  },
+  {
+    "ct": "621",
+    "url": "http://192.168.1.121:8081/",
+    "vantage": "CT616",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "sha256": "cec0328cb9179643f9330d36702e7514c87f3497d2bc38bbffe7c99959d10c96",
+    "read_bytes": 463,
+    "title": "Focalboard"
+  },
+  {
+    "ct": "621",
+    "url": "http://192.168.1.121:8081/api/v2/ping",
+    "vantage": "CT616",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "sha256": "cec0328cb9179643f9330d36702e7514c87f3497d2bc38bbffe7c99959d10c96",
+    "read_bytes": 463,
+    "title": "Focalboard"
+  },
+  {
+    "ct": "621",
+    "url": "http://192.168.1.121:8081/api/v2/config",
+    "vantage": "CT616",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "sha256": "cec0328cb9179643f9330d36702e7514c87f3497d2bc38bbffe7c99959d10c96",
+    "read_bytes": 463,
+    "title": "Focalboard"
+  },
+  {
+    "ct": "621",
+    "url": "http://192.168.1.121:8081/api/v2/version",
+    "vantage": "CT616",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "sha256": "cec0328cb9179643f9330d36702e7514c87f3497d2bc38bbffe7c99959d10c96",
+    "read_bytes": 463,
+    "title": "Focalboard"
+  },
+  {
+    "ct": "621",
+    "url": "http://192.168.1.121:8081/api/v2/health",
+    "vantage": "CT616",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "sha256": "cec0328cb9179643f9330d36702e7514c87f3497d2bc38bbffe7c99959d10c96",
+    "read_bytes": 463,
+    "title": "Focalboard"
+  },
+  {
+    "ct": "623",
+    "external8069": "not_reachable",
+    "error_type": "URLError"
+  }
+]

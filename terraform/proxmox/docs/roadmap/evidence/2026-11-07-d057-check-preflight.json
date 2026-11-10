@@ -1,0 +1,30 @@
+{
+  "623": {
+    "service": "infra-gestoria",
+    "checks": [
+      {
+        "component": "odoo",
+        "value": 1,
+        "timestamp": 1794071340.49978,
+        "duration": 0.06843328475952148
+      },
+      {
+        "component": "postgres",
+        "value": 1,
+        "timestamp": 1794071340.6842124,
+        "duration": 0.18443059921264648
+      }
+    ]
+  },
+  "625": {
+    "service": "infra-journal-db",
+    "checks": [
+      {
+        "component": "postgres",
+        "value": 1,
+        "timestamp": 1794071341.8359683,
+        "duration": 0.11050939559936523
+      }
+    ]
+  }
+}

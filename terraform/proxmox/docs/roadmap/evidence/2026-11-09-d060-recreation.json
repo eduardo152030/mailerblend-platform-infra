@@ -1,0 +1,18 @@
+{
+  "health": {
+    "database": "ok",
+    "version": "12.3.1",
+    "commit": "3a1c80ca7ce612f309fdc99338dd3c5e486339be"
+  },
+  "uid_count": 9,
+  "isolated_network": true,
+  "published_ports": false,
+  "image_matches_production": true,
+  "actual_production_recreation": false,
+  "timestamp_utc": "2026-11-09T16:35:29Z",
+  "result": "PASS",
+  "restored_legacy_dashboards": 7,
+  "new_dashboards_provisioned": 2,
+  "test_container_stopped_and_retained": true,
+  "production_unchanged": true
+}

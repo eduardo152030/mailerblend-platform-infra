@@ -1,0 +1,59 @@
+{
+  "steps": [
+    "snapshot_verified",
+    "health_only_candidate_verified",
+    "apply-preview_started",
+    "apply-preview_completed"
+  ],
+  "containers": [
+    {
+      "name": "infra-nucleoedge-sgtm_preview-1",
+      "same_id": false,
+      "same_image": true,
+      "running": true,
+      "health": "starting",
+      "restarts": 0,
+      "config_diff_keys": [],
+      "host_diff": [
+        {
+          "key": "Dns",
+          "before_type": "list",
+          "after_type": "NoneType",
+          "before": [],
+          "after": null
+        },
+        {
+          "key": "DnsSearch",
+          "before_type": "list",
+          "after_type": "NoneType",
+          "before": [],
+          "after": null
+        }
+      ],
+      "current_healthcheck_test": [
+        "CMD",
+        "curl",
+        "-fsS",
+        "http://localhost:8080/"
+      ]
+    },
+    {
+      "name": "infra-nucleoedge-sgtm-1",
+      "same_id": true,
+      "same_image": true,
+      "running": true,
+      "health": "unhealthy",
+      "restarts": 0,
+      "config_diff_keys": [],
+      "host_diff": [],
+      "current_healthcheck_test": [
+        "CMD",
+        "curl",
+        "-fsS",
+        "http://localhost:8080/"
+      ]
+    }
+  ],
+  "8091": 503,
+  "8092": 200
+}

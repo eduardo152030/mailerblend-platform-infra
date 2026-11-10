@@ -1,0 +1,134 @@
+{
+  "decision": "D-050",
+  "phase": "Fase 5. Alerting Optimization",
+  "status": "DONE — Accepted",
+  "finished_madrid": "2026-11-07T13:48:19.541644+01:00",
+  "start_reference": "Primera lectura del adjunto, atime conservado",
+  "started_madrid": "2026-11-07T13:30:53.235765+01:00",
+  "total_elapsed_minutes": 17.44,
+  "baseline_to_final_minutes": 13.55,
+  "alert_rules": 26,
+  "recording_entries": 34,
+  "total_entries": 60,
+  "new_alerts": 12,
+  "retained_modified_alerts": 14,
+  "removed_alerts": [
+    "HostMemoryFillingFast"
+  ],
+  "counts_up": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 11
+  },
+  "all_rule_health_ok": true,
+  "prometheus_ready": true,
+  "alertmanager_ready": true,
+  "targets_and_identity_unchanged": true,
+  "active_matches_reviewed_sha256": true,
+  "temporary_test_removed": true,
+  "idempotent_second_application_no_writes_no_reload": true,
+  "backup": {
+    "ct_and_offhost_sha256": "46ea94feda97a314a87fd8f571230c9538ce15ac7d7e9c36f8cce03ba7de9eb2",
+    "archive_restored_to_staging_and_files_compared": true,
+    "private_locations_preserved": true
+  },
+  "initial_preventive_rollback": {
+    "reason": "unknown before first evaluation; validator corrected to wait two cycles and stop on lastError",
+    "baseline_hashes_restored": true,
+    "evaluation_and_notification_errors_in_window": 0
+  },
+  "telegram_chain": {
+    "source": "lxc:cpu_usage:percent{ct_id=\"610\"}, controlled rule >=0/for30s, then <0",
+    "firing": {
+      "rule_state": "firing",
+      "sent": 133.0,
+      "failed": 56.0,
+      "time": 1794055335.567711
+    },
+    "resolved": {
+      "rule_state": "inactive",
+      "sent": 134.0,
+      "failed": 56.0,
+      "time": 1794055455.1518488
+    },
+    "human_confirmation": {
+      "time": 1794055476.0866935,
+      "firing_received": true,
+      "resolved_received": true,
+      "mobile_messages_clear": true,
+      "source": "Respuesta explícita del propietario: Recibidos ambos y claros"
+    }
+  },
+  "validation": {
+    "promtool_config_rules": true,
+    "fixture_suites": 4,
+    "fixture_cases": 52,
+    "amtool_config_templates": true,
+    "severity_and_fallback_route_tests": 4,
+    "isolated_real_am_inhibition_assertions": 15,
+    "input_selector_counts": {
+      "{__name__=\"lxc:cpu_inventory:expected\"}": 17,
+      "{job=\"node_exporter\",cpu_contract=\"lxc_cgroup_v1\",__name__=\"up\"}": 17,
+      "{job=\"cadvisor\",name!=\"\",name!~\"cadvisor|node_exporter\",__name__=\"container_health_state\"}": 40,
+      "{job=\"cadvisor\",name!=\"\",name!~\"cadvisor|node_exporter\",service=~\"infra-nucleoedge|infra-mailerblend-edge\",__name__=\"container_health_state\"}": 4,
+      "{job=\"node_exporter\",__name__=\"node_memory_MemAvailable_bytes\"}": 17,
+      "{job=\"cadvisor\",name!=\"\",__name__=\"container_last_seen\"}": 74,
+      "{job=\"node_exporter\",__name__=\"up\"}": 17,
+      "{job=\"node_exporter\",mountpoint=\"/\",fstype!~\"tmpfs|overlay|squashfs|aufs|ramfs\",__name__=\"node_filesystem_avail_bytes\"}": 17,
+      "{job=\"node_exporter\",mountpoint=\"/\",fstype!~\"tmpfs|overlay|squashfs|aufs|ramfs\",__name__=\"node_filesystem_size_bytes\"}": 17,
+      "{job=\"node_exporter\",__name__=\"node_memory_MemTotal_bytes\"}": 17,
+      "{__name__=\"lxc:cpu_usage:percent\"}": 17,
+      "{job=~\"cadvisor|blackbox_exporter|alertmanager|prometheus\",__name__=\"up\"}": 20,
+      "{__name__=\"alertmanager_notifications_failed_total\"}": 90,
+      "{job=\"blackbox\",__name__=\"up\"}": 11,
+      "{__name__=~\"prometheus_config_last_reload_successful|alertmanager_config_last_reload_successful\"}": 2,
+      "{__name__=\"prometheus_rule_evaluation_failures_total\"}": 10,
+      "{__name__=\"prometheus_notifications_errors_total\"}": 1,
+      "{__name__=\"prometheus_notifications_alertmanagers_discovered\"}": 1,
+      "{__name__=\"lxc:cpu_contract:expected\"}": 17,
+      "{__name__=\"app:container:expected\"}": 13,
+      "{job=\"blackbox\",probe_type=\"internet\",__name__=\"probe_success\"}": 2,
+      "{job=\"blackbox\",probe_type=\"public_url\",__name__=\"probe_success\"}": 4,
+      "{job=\"blackbox\",probe_type=~\"collect|sgtm_collect\",__name__=\"probe_success\"}": 3,
+      "{job=\"blackbox\",probe_type=~\"internal|edge\",__name__=\"probe_success\"}": 2,
+      "{job=\"blackbox\",__name__=\"probe_ssl_earliest_cert_expiry\"}": 9
+    },
+    "missing_inputs": [],
+    "local_links": true,
+    "git_diff_check": true,
+    "python_compile": true
+  },
+  "preexisting_unhealthy": [
+    {
+      "ct_id": "618",
+      "name": "budibase-app"
+    },
+    {
+      "ct_id": "618",
+      "name": "crm-api"
+    },
+    {
+      "ct_id": "622",
+      "name": "focalboard"
+    }
+  ],
+  "current_alert_states": [
+    [
+      "DockerContainerUnhealthy",
+      "firing",
+      3
+    ]
+  ],
+  "limits": [
+    "No new dedicated HTTP probes for Grafana/CRM; absence monitoring does not certify HTTP health",
+    "Additional preexisting Alertmanager retained, no cleanup",
+    "Canonical prometheus.yml differs from active preexisting baseline; generic deploy intentionally not run; alerting changes match source",
+    "Application healthcheck repairs and F6 are separate scopes"
+  ],
+  "no_apps_exporters_resources_lxc_restart_commit_push": true,
+  "final_notification_counts": {
+    "sent": 136.0,
+    "failed": 56.0
+  },
+  "final_notification_failure_delta": 0.0
+}

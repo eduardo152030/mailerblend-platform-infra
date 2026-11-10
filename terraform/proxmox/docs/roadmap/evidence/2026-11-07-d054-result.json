@@ -1,0 +1,172 @@
+{
+  "timestamp_utc": "2026-11-07T16:16:08Z",
+  "followup_madrid": "2026-11-07 17:16 CET",
+  "phase6": "IN PROGRESS",
+  "stage_a": "DONE technical; visual acceptance pending",
+  "uptime_column": "DONE safe rendering",
+  "real_lxc_uptime": "BLOCKED: no reliable published LXC metric; shared host boot rejected",
+  "unknown_initial": 11,
+  "unknown_final": 4,
+  "pending_ct": [
+    "613",
+    "621",
+    "623",
+    "625"
+  ],
+  "states": [
+    {
+      "ct": "610",
+      "service": "infra-prom",
+      "application_health": "HEALTHY",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "611",
+      "service": "infra-grafana",
+      "application_health": "NOT APPLICABLE",
+      "monitoring_health": "HEALTHY",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "613",
+      "service": "infra-hola",
+      "application_health": "UNKNOWN",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "UNKNOWN",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "614",
+      "service": "infra-nucleoedge",
+      "application_health": "HEALTHY",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "615",
+      "service": "infra-mailerblend-edge",
+      "application_health": "HEALTHY",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "616",
+      "service": "infra-blackbox",
+      "application_health": "NOT APPLICABLE",
+      "monitoring_health": "HEALTHY",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "617",
+      "service": "infra-orbit",
+      "application_health": "HEALTHY",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "618",
+      "service": "infra-composable-crm",
+      "application_health": "HEALTHY (readiness)",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "619",
+      "service": "infra-pulpo",
+      "application_health": "HEALTHY",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "620",
+      "service": "infra-excraper",
+      "application_health": "HEALTHY",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "621",
+      "service": "infra-project-gestion",
+      "application_health": "UNKNOWN",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "UNKNOWN",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "622",
+      "service": "infra-eva-assistant-bot",
+      "application_health": "HEALTHY",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "623",
+      "service": "infra-gestoria",
+      "application_health": "UNKNOWN",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "UNKNOWN",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "624",
+      "service": "infra-journal-web",
+      "application_health": "HEALTHY",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "625",
+      "service": "infra-journal-db",
+      "application_health": "UNKNOWN",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "UNKNOWN",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "626",
+      "service": "infra-journal-api",
+      "application_health": "HEALTHY",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    },
+    {
+      "ct": "61211",
+      "service": "svc01",
+      "application_health": "HEALTHY",
+      "monitoring_health": "NOT APPLICABLE",
+      "overall_status": "HEALTHY",
+      "uptime": "UNKNOWN"
+    }
+  ],
+  "blackbox_initial": 11,
+  "blackbox_final": 17,
+  "new_probes": 6,
+  "idempotence": {
+    "writes": 0,
+    "reloads": 0,
+    "restarts": 0
+  },
+  "synthetic_cases": 26,
+  "no_app_restart_recreate": true,
+  "rules_thresholds_unchanged": true,
+  "elapsed_minutes": 12.4,
+  "no_commit_push": true,
+  "local_links_checked": 194,
+  "deterministic_json": "PASS",
+  "credential_literal_scan": "PASS",
+  "local_iac_modules_catalog_match": "PASS",
+  "diff_check": "PASS"
+}

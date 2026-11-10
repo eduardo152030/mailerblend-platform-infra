@@ -1,0 +1,8 @@
+{
+  "checked_at": "2026-11-09T10:14:58.952353+01:00",
+  "documents": 18,
+  "local_links": 441,
+  "missing_links": 0,
+  "result": "PASS",
+  "production_actions": "read-only API queries; no configuration changes"
+}

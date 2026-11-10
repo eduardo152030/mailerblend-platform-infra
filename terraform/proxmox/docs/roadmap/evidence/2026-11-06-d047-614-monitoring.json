@@ -1,0 +1,312 @@
+{
+  "observed_at_utc": "2026-11-06T22:07:34.891689+00:00",
+  "queries": {
+    "probe_success{service=\"edge-nucleotecnologico-collect\"}": [
+      {
+        "metric": {
+          "__name__": "probe_success",
+          "alert_target": "https://edge.nucleotecnologico.es/g/collect",
+          "instance": "https://edge.nucleotecnologico.es/g/collect",
+          "job": "blackbox",
+          "module": "http_collect_200",
+          "probe_id": "nucleo-collect-blackbox",
+          "probe_type": "collect",
+          "scope": "external",
+          "service": "edge-nucleotecnologico-collect",
+          "source": "repository",
+          "tls_target": "https://edge.nucleotecnologico.es"
+        },
+        "value": [
+          1794002854.148,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "probe_success",
+          "alert_target": "https://edge.nucleotecnologico.es/g/collect",
+          "instance": "https://edge.nucleotecnologico.es/g/collect",
+          "job": "blackbox",
+          "module": "http_collect_200",
+          "probe_id": "nucleo-collect-local-client",
+          "probe_type": "collect",
+          "scope": "external",
+          "service": "edge-nucleotecnologico-collect",
+          "source": "repository",
+          "tls_target": "https://edge.nucleotecnologico.es"
+        },
+        "value": [
+          1794002854.148,
+          "1"
+        ]
+      }
+    ],
+    "probe_http_status_code{service=\"edge-nucleotecnologico-collect\"}": [
+      {
+        "metric": {
+          "__name__": "probe_http_status_code",
+          "alert_target": "https://edge.nucleotecnologico.es/g/collect",
+          "instance": "https://edge.nucleotecnologico.es/g/collect",
+          "job": "blackbox",
+          "module": "http_collect_200",
+          "probe_id": "nucleo-collect-blackbox",
+          "probe_type": "collect",
+          "scope": "external",
+          "service": "edge-nucleotecnologico-collect",
+          "source": "repository",
+          "tls_target": "https://edge.nucleotecnologico.es"
+        },
+        "value": [
+          1794002854.149,
+          "200"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "probe_http_status_code",
+          "alert_target": "https://edge.nucleotecnologico.es/g/collect",
+          "instance": "https://edge.nucleotecnologico.es/g/collect",
+          "job": "blackbox",
+          "module": "http_collect_200",
+          "probe_id": "nucleo-collect-local-client",
+          "probe_type": "collect",
+          "scope": "external",
+          "service": "edge-nucleotecnologico-collect",
+          "source": "repository",
+          "tls_target": "https://edge.nucleotecnologico.es"
+        },
+        "value": [
+          1794002854.149,
+          "200"
+        ]
+      }
+    ],
+    "ALERTS{service=\"edge-nucleotecnologico-collect\"}": [],
+    "up{vmid=\"614\"}": [
+      {
+        "metric": {
+          "__name__": "up",
+          "cpu_contract": "lxc_cgroup_v1",
+          "instance": "192.168.1.114:9100",
+          "job": "node_exporter",
+          "service": "infra-nucleoedge",
+          "source": "inventory",
+          "vmid": "614"
+        },
+        "value": [
+          1794002854.15,
+          "1"
+        ]
+      }
+    ],
+    "lxc_cpu_capacity_cores{service=\"infra-nucleoedge\"}": [
+      {
+        "metric": {
+          "__name__": "lxc_cpu_capacity_cores",
+          "cpu_contract": "lxc_cgroup_v1",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "614",
+          "instance": "192.168.1.114:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-nucleoedge",
+          "source": "inventory",
+          "vmid": "614"
+        },
+        "value": [
+          1794002854.151,
+          "2"
+        ]
+      }
+    ]
+  },
+  "ct_backup": {
+    "path": "/opt/infra-nucleoedge/.runtime/sgtm-614-d044-20261106T211738Z/backup.tar",
+    "exists": true,
+    "bytes": 119859200
+  },
+  "config": {
+    "/opt/infra-prom/config/prometheus.yml": {
+      "global": {
+        "scrape_interval": "30s",
+        "evaluation_interval": "30s"
+      },
+      "scrape_configs": [
+        {
+          "job_name": "cadvisor",
+          "metrics_path": "/metrics",
+          "scheme": "http",
+          "file_sd_configs": [
+            {
+              "files": [
+                "/etc/prometheus/targets/cadvisor.json"
+              ]
+            }
+          ]
+        },
+        {
+          "job_name": "blackbox",
+          "metrics_path": "/probe",
+          "params": {
+            "module": [
+              "http_2xx"
+            ]
+          },
+          "file_sd_configs": [
+            {
+              "files": [
+                "/etc/prometheus/targets/blackbox.json"
+              ]
+            }
+          ],
+          "relabel_configs": [
+            {
+              "source_labels": [
+                "__address__"
+              ],
+              "regex": ".*EDGE_FQDN_PLACEHOLDER.*",
+              "action": "drop"
+            },
+            {
+              "source_labels": [
+                "__address__"
+              ],
+              "target_label": "__param_target"
+            },
+            {
+              "source_labels": [
+                "module"
+              ],
+              "target_label": "__param_module"
+            },
+            {
+              "target_label": "__address__",
+              "replacement": "192.168.1.116:9115"
+            },
+            {
+              "source_labels": [
+                "__param_target"
+              ],
+              "target_label": "instance"
+            }
+          ]
+        }
+      ],
+      "rule_files": [
+        "/etc/prometheus/rules/*.yml"
+      ]
+    },
+    "/opt/infra-prom/config/targets/node-exporter.json": [
+      {
+        "targets": [
+          "192.168.1.114:9100"
+        ],
+        "labels": {
+          "job": "node_exporter",
+          "source": "inventory",
+          "service": "infra-nucleoedge",
+          "cpu_contract": "lxc_cgroup_v1",
+          "vmid": "614"
+        }
+      }
+    ],
+    "/opt/infra-prom/config/targets/cadvisor.json": [
+      {
+        "targets": [
+          "192.168.1.114:8085"
+        ],
+        "labels": {
+          "job": "cadvisor",
+          "source": "inventory",
+          "service": "infra-nucleoedge"
+        }
+      }
+    ],
+    "/opt/infra-prom/config/targets/blackbox.json": [
+      {
+        "targets": [
+          "https://edge.nucleotecnologico.es/g/collect"
+        ],
+        "labels": {
+          "job": "blackbox",
+          "module": "http_collect_200",
+          "probe_type": "collect",
+          "scope": "external",
+          "service": "edge-nucleotecnologico-collect",
+          "source": "repository",
+          "probe_id": "nucleo-collect-blackbox",
+          "alert_target": "https://edge.nucleotecnologico.es/g/collect",
+          "tls_target": "https://edge.nucleotecnologico.es"
+        }
+      },
+      {
+        "targets": [
+          "https://edge.nucleotecnologico.es/g/collect"
+        ],
+        "labels": {
+          "job": "blackbox",
+          "module": "http_collect_200",
+          "probe_type": "collect",
+          "scope": "external",
+          "service": "edge-nucleotecnologico-collect",
+          "source": "repository",
+          "probe_id": "nucleo-collect-local-client",
+          "alert_target": "https://edge.nucleotecnologico.es/g/collect",
+          "tls_target": "https://edge.nucleotecnologico.es"
+        }
+      }
+    ],
+    "/opt/infra-prom/config/rules/blackbox-alerts.yml": {
+      "groups": [
+        {
+          "name": "blackbox-alerts",
+          "rules": [
+            {
+              "alert": "CollectEndpointDown",
+              "expr": "min by (job, service, probe_type, instance) (\n  label_replace(probe_success{job=\"blackbox\",probe_type=~\"collect|sgtm_collect\"}, \"instance\", \"$1\", \"alert_target\", \"(.+)\")\n) == 0",
+              "for": "2m",
+              "labels": {
+                "severity": "critical",
+                "category": "analytics"
+              },
+              "annotations": {
+                "summary": "Collect endpoint is DOWN",
+                "description": "/g/collect probe failed (HEAD expected 200/204).\ntarget={{ $labels.instance }}\nCheck edge routing, upstream, TLS, firewall.\n"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/opt/infra-blackbox/config/blackbox.yml": {
+      "modules": {
+        "http_collect_200": {
+          "prober": "http",
+          "timeout": "10s",
+          "http": {
+            "method": "HEAD",
+            "follow_redirects": false,
+            "preferred_ip_protocol": "ip4",
+            "ip_protocol_fallback": true,
+            "valid_http_versions": [
+              "HTTP/1.1",
+              "HTTP/2.0"
+            ],
+            "tls_config": {
+              "insecure_skip_verify": false
+            },
+            "valid_status_codes": [
+              200,
+              204
+            ]
+          }
+        }
+      }
+    }
+  },
+  "offhost_backup": {
+    "path": "/home/jainer/.local/share/mailerblend-recovery/sgtm614/sgtm-614-d044-20261106T211738Z/backup.tar",
+    "exists": true,
+    "bytes": 119859200
+  }
+}

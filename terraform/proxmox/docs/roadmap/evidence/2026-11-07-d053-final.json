@@ -1,0 +1,93 @@
+{
+  "timestamp_utc": "2026-11-07T15:59:27Z",
+  "mode": "read-only",
+  "ct_checks": {
+    "611": {
+      "boot_id_unchanged": true,
+      "running_containers_unchanged": true,
+      "started_at_restart_count_unchanged": true
+    },
+    "613": {
+      "boot_id_unchanged": true,
+      "running_containers_unchanged": true,
+      "started_at_restart_count_unchanged": true
+    },
+    "616": {
+      "boot_id_unchanged": true,
+      "running_containers_unchanged": true,
+      "started_at_restart_count_unchanged": true
+    },
+    "617": {
+      "boot_id_unchanged": true,
+      "running_containers_unchanged": true,
+      "started_at_restart_count_unchanged": true
+    },
+    "618": {
+      "boot_id_unchanged": true,
+      "running_containers_unchanged": true,
+      "started_at_restart_count_unchanged": true
+    },
+    "620": {
+      "boot_id_unchanged": true,
+      "running_containers_unchanged": true,
+      "started_at_restart_count_unchanged": true
+    },
+    "621": {
+      "boot_id_unchanged": true,
+      "running_containers_unchanged": true,
+      "started_at_restart_count_unchanged": true
+    },
+    "623": {
+      "boot_id_unchanged": true,
+      "running_containers_unchanged": true,
+      "started_at_restart_count_unchanged": true
+    },
+    "624": {
+      "boot_id_unchanged": true,
+      "running_containers_unchanged": true,
+      "started_at_restart_count_unchanged": true
+    },
+    "625": {
+      "boot_id_unchanged": true,
+      "running_containers_unchanged": true,
+      "started_at_restart_count_unchanged": true
+    },
+    "626": {
+      "boot_id_unchanged": true,
+      "running_containers_unchanged": true,
+      "started_at_restart_count_unchanged": true
+    }
+  },
+  "config_hashes_unchanged": {
+    "610": true,
+    "611": true
+  },
+  "unknown_cts": [
+    "611",
+    "613",
+    "616",
+    "617",
+    "618",
+    "620",
+    "621",
+    "623",
+    "624",
+    "625",
+    "626"
+  ],
+  "counts_proposed": {
+    "grafana_readiness_only": 1,
+    "new_blackbox_lxcs": 4,
+    "new_blackbox_targets": 5,
+    "specific_checks_lxcs": 3,
+    "other_classification_lxcs": 3
+  },
+  "implementation_performed": false,
+  "reload_restart_recreate": 0,
+  "commit_push": false,
+  "result": "PASS",
+  "local_links_checked": 175,
+  "diff_check": "PASS",
+  "script_compile": "PASS",
+  "active_credential_literal_scan": "PASS"
+}

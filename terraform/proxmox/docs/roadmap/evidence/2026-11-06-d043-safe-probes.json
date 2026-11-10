@@ -1,0 +1,185 @@
+{
+  "observed_at": 1793998104.466318,
+  "local": {
+    "http": [
+      {
+        "port": 8091,
+        "method": "GET",
+        "path": "/healthz",
+        "status": 503,
+        "bytes": 0,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "allow": null
+      },
+      {
+        "port": 8091,
+        "method": "HEAD",
+        "path": "/healthz",
+        "status": 400,
+        "bytes": 0,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "allow": null
+      },
+      {
+        "port": 8091,
+        "method": "HEAD",
+        "path": "/g/collect",
+        "status": 400,
+        "bytes": 0,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "allow": null
+      },
+      {
+        "port": 8091,
+        "method": "OPTIONS",
+        "path": "/g/collect",
+        "status": 400,
+        "bytes": 0,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "allow": null
+      },
+      {
+        "port": 8091,
+        "method": "GET",
+        "path": "/g/collect",
+        "status": 400,
+        "bytes": 0,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "allow": null
+      },
+      {
+        "port": 8091,
+        "method": "POST",
+        "path": "/g/collect",
+        "status": 400,
+        "bytes": 0,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "allow": null
+      },
+      {
+        "port": 8092,
+        "method": "GET",
+        "path": "/healthz",
+        "status": 503,
+        "bytes": 0,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "allow": null
+      },
+      {
+        "port": 8092,
+        "method": "HEAD",
+        "path": "/healthz",
+        "status": 404,
+        "bytes": 0,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "allow": null
+      },
+      {
+        "port": 8092,
+        "method": "HEAD",
+        "path": "/g/collect",
+        "status": 404,
+        "bytes": 0,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "allow": null
+      },
+      {
+        "port": 8092,
+        "method": "OPTIONS",
+        "path": "/g/collect",
+        "status": 404,
+        "bytes": 9,
+        "body_sha256": "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5",
+        "allow": null
+      },
+      {
+        "port": 8092,
+        "method": "GET",
+        "path": "/g/collect",
+        "status": 404,
+        "bytes": 9,
+        "body_sha256": "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5",
+        "allow": null
+      },
+      {
+        "port": 8092,
+        "method": "POST",
+        "path": "/g/collect",
+        "status": 404,
+        "bytes": 9,
+        "body_sha256": "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5",
+        "allow": null
+      }
+    ],
+    "native_checks": [
+      {
+        "name": "infra-nucleoedge-sgtm-1",
+        "return_code": 1
+      },
+      {
+        "name": "infra-nucleoedge-sgtm_preview-1",
+        "return_code": 1
+      }
+    ]
+  },
+  "serving_to_preview": [
+    {
+      "url": "http://sgtm_preview:8080/healthz",
+      "status": 503
+    },
+    {
+      "url": "https://edge.nucleotecnologico.es/preview/healthz",
+      "status": 503
+    }
+  ],
+  "public": [
+    {
+      "method": "GET",
+      "path": "/healthz",
+      "status": 503,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "allow": null
+    },
+    {
+      "method": "GET",
+      "path": "/preview/healthz",
+      "status": 503,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "allow": null
+    },
+    {
+      "method": "HEAD",
+      "path": "/g/collect",
+      "status": 400,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "allow": null
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/g/collect",
+      "status": 400,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "allow": null
+    },
+    {
+      "method": "GET",
+      "path": "/g/collect",
+      "status": 400,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "allow": null
+    },
+    {
+      "method": "POST",
+      "path": "/g/collect",
+      "status": 400,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "allow": null
+    }
+  ]
+}

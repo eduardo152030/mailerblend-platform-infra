@@ -1,0 +1,6 @@
+{
+  "container_identity_image_startedat_restarts_unchanged": true,
+  "production_compose_unchanged": true,
+  "production_healthcheck_still_original": true,
+  "verified_at_utc": "2026-11-06T21:06:17.864400+00:00"
+}

@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-11-10T08:16:23.331509+01:00",
+  "result": "PASS",
+  "initial_execution_minutes_recorded_2026_11_09": 13.7,
+  "closure_minutes_recorded_2026_11_10": 8.4,
+  "inactive_interval_excluded": true,
+  "initial_preparation_before_baseline_timed": false,
+  "synthetic_scenarios_passed_2026_11_09": 34,
+  "instant_queries_passed": 663,
+  "range_queries_passed": 28,
+  "browser_frames_observed": 654,
+  "production_restarts": 0,
+  "commits_push": false,
+  "documents_checked": 14,
+  "local_links_checked": 295,
+  "missing_links": 0,
+  "final_candidate_matches_recreation_and_local_iac": true,
+  "ready": {
+    "prometheus": 200,
+    "alertmanager": 200
+  }
+}

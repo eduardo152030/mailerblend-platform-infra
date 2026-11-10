@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-11-07T16:24:59Z",
+  "deployment_performed": false,
+  "new_identity_or_permissions_created": false,
+  "production_targets_up": {
+    "node_exporter": 17,
+    "cadvisor": 17,
+    "blackbox": 17
+  },
+  "uptime_unknown": 17,
+  "proposed_query_fallback_live_validation": "17 UNKNOWN without source",
+  "firing_alerts": 0,
+  "pve_series": 0,
+  "approval_pending": true
+}

@@ -1,6 +1,6 @@
 # Fase 2. Telegram Alerting & Blackbox Deduplication
 
-Estado: **DONE**. Actualizado: 2026-11-02 (Europe/Madrid).
+Estado: **DONE**. Actualizado: 2026-11-09 (Europe/Madrid).
 [Roadmap](../ROADMAP.md) · [Estado actual](../CURRENT-STATUS.md) · [Decisiones](../DECISIONS.md)
 
 ## Objetivo
@@ -24,11 +24,11 @@ Dependencias: F1; bot/chat configurados; acceso saliente y configuración Alertm
 
 ## Implementación, validación, despliegue y aceptación
 
-Desplegada y aceptada. La propuesta F4 suma 3 Journal en otro catálogo (14 futuras sondas totales); no modifica las 11 peticiones base ni constituye un despliegue nuevo.
+Desplegada y aceptada. Las 11 sondas base se conservan; D054 añadió 6 y D057 otra: 18 sondas cargadas y UP en D059. Las incorporaciones posteriores no amplían por inferencia la aceptación histórica de F2.
 
 ## Riesgos
 
-Telegram depende de Internet; readiness no acredita entrega. El endpoint Nucleotecnológico sigue en incidente y no se oculta por deduplicación. La configuración de inhibición avanzada queda para F5.
+Telegram depende de Internet; readiness no acredita entrega. Los 503 de CT 614/615 se resolvieron en D044/D048; no se presentan como incidente actual. La inhibición avanzada fue desplegada y aceptada en F5/D050. Se conserva el riesgo de dependencia de Internet.
 
 ## Entregables
 

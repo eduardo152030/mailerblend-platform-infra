@@ -1,0 +1,160 @@
+[
+  {
+    "ct": 109,
+    "data": {
+      "hostname": "edge-router",
+      "listeners": [
+        "State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess",
+        "LISTEN 0      4096         0.0.0.0:8080      0.0.0.0:*          ",
+        "LISTEN 0      100        127.0.0.1:25        0.0.0.0:*          ",
+        "LISTEN 0      511          0.0.0.0:443       0.0.0.0:*          ",
+        "LISTEN 0      511          0.0.0.0:80        0.0.0.0:*          ",
+        "LISTEN 0      4096   127.0.0.53%lo:53        0.0.0.0:*          ",
+        "LISTEN 0      100            [::1]:25           [::]:*          ",
+        "LISTEN 0      4096            [::]:8080         [::]:*          ",
+        "LISTEN 0      511             [::]:443          [::]:*          ",
+        "LISTEN 0      4096               *:22              *:*          ",
+        "LISTEN 0      511             [::]:80           [::]:*          "
+      ],
+      "executables": [
+        "agetty",
+        "bash",
+        "containerd",
+        "containerd-shim-runc-v2",
+        "cron",
+        "dbus-daemon",
+        "docker-proxy",
+        "dockerd",
+        "master",
+        "nginx",
+        "pickup",
+        "python3.10",
+        "qmgr",
+        "rsyslogd",
+        "sleep",
+        "systemd",
+        "systemd-journald",
+        "systemd-logind",
+        "systemd-networkd",
+        "systemd-resolved",
+        "udevadm"
+      ],
+      "nginx_available": true,
+      "relevant_nginx_lines": [
+        "access_log /var/log/nginx/access.log;",
+        "# configuration file /etc/nginx/conf.d/sgtm_log_format.conf:",
+        "log_format sgtm '$remote_addr - $host \"$request\" $status '",
+        "'preview_hdr=\"$http_x_gtm_server_preview\"';",
+        "# serving: 192.168.1.115:18091",
+        "# preview : 192.168.1.115:18092 (for debug/preview paths only)",
+        "server 192.168.1.115:18091;",
+        "upstream sgtm_preview {",
+        "server 192.168.1.115:18092;",
+        "access_log /var/log/nginx/edge.mailerblend.com.access.log sgtm;",
+        "# \u2705 Collect endpoints must always go to serving AND must ignore preview headers",
+        "proxy_set_header x-gtm-server-preview \"\";",
+        "proxy_set_header x-gtm-preview \"\";",
+        "proxy_set_header x-gtm-server-preview \"\";",
+        "proxy_set_header x-gtm-preview \"\";",
+        "# \u2705 Preview/debug paths (route to preview only when headers exist)",
+        "set $use_preview 0;",
+        "if ($http_x_gtm_server_preview != \"\") { set $use_preview 1; }",
+        "if ($http_x_gtm_preview != \"\")        { set $use_preview 1; }",
+        "if ($use_preview = 1) { proxy_pass http://sgtm_preview; }",
+        "if ($use_preview = 0) { proxy_pass http://sgtm_serving; }",
+        "# configuration file /etc/nginx/sites-enabled/edge.nucleotecnologico.es.conf:",
+        "# Dominio: edge.nucleotecnologico.es",
+        "#   - Serving : 192.168.1.114:8091",
+        "#   - Preview : 192.168.1.114:8092",
+        "server_name edge.nucleotecnologico.es;",
+        "server_name edge.nucleotecnologico.es;",
+        "ssl_certificate     /etc/letsencrypt/live/edge.nucleotecnologico.es/fullchain.pem;",
+        "ssl_certificate_key /etc/letsencrypt/live/edge.nucleotecnologico.es/privkey.pem;",
+        "# --- Preview server (/preview) ---",
+        "# Quitamos el prefijo /preview antes de pasar al contenedor",
+        "location ^~ /preview/ {",
+        "rewrite ^/preview/(.*)$ /$1 break;",
+        "proxy_pass http://192.168.1.114:8092;",
+        "# Normaliza /preview -> /preview/",
+        "location = /preview {",
+        "return 301 /preview/;",
+        "access_log /var/log/nginx/access.log sgtm;",
+        "access_log /var/log/nginx/access.log sgtm;",
+        "proxy_pass http://192.168.1.114:8091;",
+        "access_log /var/log/nginx/infra-eva.mailerblend.com.access.log;",
+        "access_log /var/log/nginx/infra-focalboard.mailerblend.com.access.log;"
+      ],
+      "nginx_config_files": [
+        {
+          "path": "/etc/nginx/sites-available/edge.nucleotecnologico.es.conf",
+          "sha256": "31d6ed2b00e0bb7a746ad7e53e1a33f6c013ebe506cb50097e83796def8db3ac"
+        },
+        {
+          "path": "/etc/nginx/sites-available/edge.nucleotecnologico.es.conf.bak.2026-01-24_152834",
+          "sha256": "fcddfe9bb9b0218925064ef50d90ccd4838cb663d7d361dcab4261540f8a40f4"
+        },
+        {
+          "path": "/etc/nginx/sites-enabled/edge.nucleotecnologico.es.conf",
+          "sha256": "31d6ed2b00e0bb7a746ad7e53e1a33f6c013ebe506cb50097e83796def8db3ac"
+        }
+      ]
+    }
+  },
+  {
+    "ct": 614,
+    "data": {
+      "health_checker_bin.js": {
+        "size": 743,
+        "snippets": [
+          "require===\"function\"?require:function(){return{}})(\"process\");const g=Number(f.env.PORT)||8080,h=Number(f.env.HEALTH_CHECKER_TIMEOUT_IN_MILLIS)||5E3,k=Object.freeze([\"127.0.0.1\",\"::1\",\"localhost\"]);\nfunction l(d,e=[]){const m={host:d.splice(0,1)[0],path:\"/healthz\",port:g,timeout:h},c=a.get(m,b=>{b.statusCode===200&&f.exit(0);console.warn(`F"
+        ]
+      },
+      "server_bin.js": {
+        "size": 5767,
+        "snippets": [
+          "pServerSideError\";Error.captureStackTrace(this,L)}};const M=new Map([[400,J],[403,G],[404,D],[408,C],[500,L],[503,K]]);\nfunction N(a,b,c){const d=!!b.followRedirects,g=Number(b.maxRedirects),h=isNaN(g)?3:g;if(d&&h<0)return Promise.reject(Error(\"Too many redirects.\"));let p,E;return(new Promise((F,v)=>{var k=Number(b.timeout);let {t"
+        ]
+      },
+      "infra-nucleoedge-sgtm-1": {
+        "log_error_codes": [],
+        "well_known_errors": {
+          "ECONNRESET": 0,
+          "ETIMEDOUT": 0,
+          "ENOTFOUND": 0,
+          "certificate": 0,
+          "socket hang up": 0,
+          "403": 0,
+          "404": 0,
+          "503": 0,
+          "400": 0,
+          "invalid": 0,
+          "permission": 0,
+          "config": 0,
+          "version": 0,
+          "not found": 0,
+          "failed": 0
+        }
+      },
+      "infra-nucleoedge-sgtm_preview-1": {
+        "log_error_codes": [],
+        "well_known_errors": {
+          "ECONNRESET": 0,
+          "ETIMEDOUT": 0,
+          "ENOTFOUND": 0,
+          "certificate": 0,
+          "socket hang up": 0,
+          "403": 0,
+          "404": 0,
+          "503": 0,
+          "400": 0,
+          "invalid": 0,
+          "permission": 0,
+          "config": 0,
+          "version": 0,
+          "not found": 0,
+          "failed": 0
+        }
+      }
+    }
+  }
+]

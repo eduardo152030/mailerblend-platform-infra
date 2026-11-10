@@ -1,0 +1,153 @@
+[
+  {
+    "service": "infra-blackbox",
+    "ct": 616,
+    "tags_to_remove": [
+      "192.168.1.116"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-composable-crm",
+    "ct": 618,
+    "tags_to_remove": [
+      "192.168.1.118",
+      "parte_linkedin_stealth_sourcing"
+    ],
+    "tags_to_add": [
+      "Parte_LinkedIn_Stealth_Sourcing"
+    ]
+  },
+  {
+    "service": "infra-eva-assistant-bot",
+    "ct": 622,
+    "tags_to_remove": [
+      "192.168.1.122"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-excraper",
+    "ct": 620,
+    "tags_to_remove": [
+      "192.168.1.120",
+      "parte_linkedin_stealth_sourcing"
+    ],
+    "tags_to_add": [
+      "Parte_LinkedIn_Stealth_Sourcing"
+    ]
+  },
+  {
+    "service": "infra-gestoria",
+    "ct": 623,
+    "tags_to_remove": [
+      "192.168.1.123"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-grafana",
+    "ct": 611,
+    "tags_to_remove": [
+      "192.168.1.111"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-hola",
+    "ct": 613,
+    "tags_to_remove": [
+      "192.168.1.113"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-journal-api",
+    "ct": 626,
+    "tags_to_remove": [
+      "192.168.1.126"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-journal-db",
+    "ct": 625,
+    "tags_to_remove": [
+      "192.168.1.125"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-journal-web",
+    "ct": 624,
+    "tags_to_remove": [
+      "192.168.1.124"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-mailerblend-edge",
+    "ct": 615,
+    "tags_to_remove": [
+      "192.168.1.115"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-nucleoedge",
+    "ct": 614,
+    "tags_to_remove": [
+      "192.168.1.114"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-orbit",
+    "ct": 617,
+    "tags_to_remove": [
+      "192.168.1.117",
+      "nucleo-tecnologico"
+    ],
+    "tags_to_add": [
+      "Nucleo-tecnologico"
+    ]
+  },
+  {
+    "service": "infra-project-gestion",
+    "ct": 621,
+    "tags_to_remove": [
+      "192.168.1.121"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-prom",
+    "ct": 610,
+    "tags_to_remove": [
+      "192.168.1.110"
+    ],
+    "tags_to_add": []
+  },
+  {
+    "service": "infra-pulpo",
+    "ct": 619,
+    "tags_to_remove": [
+      "192.168.1.119",
+      "n8n",
+      "parte_linkedin_stealth_sourcing",
+      "server"
+    ],
+    "tags_to_add": [
+      "Parte_LinkedIn_Stealth_Sourcing",
+      "n8n server"
+    ]
+  },
+  {
+    "service": "infra-svc01",
+    "ct": 61211,
+    "tags_to_remove": [
+      "192.168.1.112"
+    ],
+    "tags_to_add": []
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "source": "https://www.googletagmanager.com/static/serverjs/latest/server_bootstrap.js",
+  "snippets": {
+    "Fa=": [
+      "E5*Math.random();let Ha=Date.now()+Ga;for(let a of Ea)a.start<Ha&&Ha<a.end&&(Ha+=12096E5);Fa=Ha;var Ia=0,Ja=0;const Ka=I(\"enable_probe_image_version\",\"Enable to turn on a healthz command that verifies the server is running the passed in version.\",\"ENABLE_PROBE_IMAGE_VERSION\");Ka.setSecret(!0);\nfunction La(a,b){if(a.method!==\"GET\")return!1;var c=L(a.url);if(!c)return!1;var d=c.pathname();return(d==null?0:d.endsWith(\"/healthz\"))||(d==null"
+    ],
+    "function La": [
+      "server is running the passed in version.\",\"ENABLE_PROBE_IMAGE_VERSION\");Ka.setSecret(!0);\nfunction La(a,b){if(a.method!==\"GET\")return!1;var c=L(a.url);if(!c)return!1;var d=c.pathname();return(d==null?0:d.endsWith(\"/healthz\"))||(d==null?0:d.endsWith(\"/healthy\"))?(c=K(c,\"servertype\"))&&c!==\"serverjs\"?M(a,b,500):Ma(a,b)?!0:Date.now()>Fa?M(a,b,503):M(a,b,200,\"ok\"):!1}\nfunction Ma(a,b){var c=a.headers[\"x-sgtm-healthz\"];if(!c)return!1;var d=c"
+    ],
+    "function Ma": [
+      "ype\"))&&c!==\"serverjs\"?M(a,b,500):Ma(a,b)?!0:Date.now()>Fa?M(a,b,503):M(a,b,200,\"ok\"):!1}\nfunction Ma(a,b){var c=a.headers[\"x-sgtm-healthz\"];if(!c)return!1;var d=c.split(\",\")[0].split(\"=\");c=d[0];if(Ka.get()&&c===\"probe_running_version\"){if(!/\\d+\\.\\d+\\.\\d+\\-\\d+/.test(d[1]))return M(a,b,400);let [g,f]=d[1].split(\"-\");var e;c=(e=global.sst_bootstrap_version)!=null?e:0;let [h,l,p]=g.split(\".\"),[t,v,G]=(global.sst_image_version||\"0.0.0\").sp"
+    ],
+    "setTimeout": [
+      "return(new Promise((l,p)=>{var t=Number(b.timeout),{timeoutCallbacks:v}=b;t>0&&(v=v||[],h=setTimeout(()=>{for(let r of v)r()},t));var G;(G=v)==null||G.push(()=>{var r;(r=f)==null||r.abort();p(new Pa(\"Request timed out.\"))});var u=Object.assign({},b);b.headers&&(u.headers=Object.assign({},b.headers));delete u.timeout;global.server_js_dev_only&&(u.headers||\n(u.headers={}),u.headers[\"X-Google-GFE-Frontline-Info\"]=\"ssl\");c&&(u.headers||(u.h",
+      "urn new (require(\"cacheable-lookup\"))}catch(a){}return new Promise(a=>z(function*(){var b=setTimeout(()=>void a(void 0),3E3);try{let d=yield Db();if(d){var c={exports:{}};Ab.runInThisContext(`(function () { return function (require, module) {${d}}; })();`,{timeout:1E3})(require,c);a(new c.exports)}else a(void 0)}catch(d){console.error(\"Error loading remote CacheableLookup script:\\n\",d),a(void 0)}finally{clearTimeout(b)}}()))}())};var Eb",
+      "f.forEach(l=>void c.delete(l))},3E4);return{V:(f,h,l)=>{var p=v=>{clearTimeout(t);h(v)},t=setTimeout(()=>{e.removeListener(f,p);l()},b*1E3);e.once(f,p)},da:(f,h)=>{c.has(f)||c.set(f,[]);c.get(f).push({expires:Date.now()+d,Y:h});e.listenerCount(f)&&e.emit(f,\ng(f))},ba:g}};function nc(a){return{preview:A(a,\"gtm_preview\").split(\":\").map(b=>b.split(\"=\")).filter(b=>b.length===2)}};function oc(a,b,c,d,e=\"\"){return(g,f)=>{e&&g.headers[\"x-sgtm-"
+    ],
+    "6048": [],
+    "2592": [],
+    "1728": [
+      "179507526E4,end:179619846E4},{start:179758086E4,end:179904966E4}];var Fa;const Ga=10368E5+1728E5*Math.random();let Ha=Date.now()+Ga;for(let a of Ea)a.start<Ha&&Ha<a.end&&(Ha+=12096E5);Fa=Ha;var Ia=0,Ja=0;const Ka=I(\"enable_probe_image_version\",\"Enable to turn on a healthz command that verifies the server is running the passed in version.\",\"ENABLE_PROBE_IMAGE_VERSION\");Ka.setSecret(!0);\nfunction La(a,b){if(a.method!==\"GET\")return!1;var c"
+    ]
+  }
+}

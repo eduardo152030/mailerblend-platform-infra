@@ -1,0 +1,17 @@
+{
+  "timestamp_utc": "2026-11-09T08:52:06Z",
+  "result": "PASS",
+  "environment_removed": true,
+  "docker_panel_removed": true,
+  "other_dashboards_preserved": 7,
+  "grafana_identity_unchanged": true,
+  "backup_ct_and_offhost_verified": true,
+  "writes": 1,
+  "reloads": 0,
+  "restarts": 0,
+  "second_application": {
+    "writes": 0,
+    "reloads": 0,
+    "restarts": 0
+  }
+}

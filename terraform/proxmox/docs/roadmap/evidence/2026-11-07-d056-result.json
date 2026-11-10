@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2026-11-07T16:46:23Z",
+  "followup_madrid": "2026-11-07 17:46 CET",
+  "uptime": "DONE technical, 17 real values",
+  "phase6": "IN PROGRESS",
+  "exporter": "prometheus-pve-exporter3.11.0 on Python3.12",
+  "monitored_lxc_uptimes": 17,
+  "api_lxc_discovered": 26,
+  "comparison_count": 17,
+  "max_difference_seconds": 11.0,
+  "token_role_only": "PVEAuditor",
+  "privsep": 1,
+  "tls_verified": true,
+  "existing_lxc_app_restarts": 0,
+  "existing_resources_rules_unchanged": true,
+  "idempotence": {
+    "writes": 0,
+    "reloads": 0,
+    "existing_restarts": 0,
+    "exporter_recreated": false
+  },
+  "elapsed_minutes": 17.1,
+  "new_exporter_initial_tls_replacement": 1,
+  "rejected_container_image_retained": true,
+  "commit_push": false,
+  "existing_pve_acl_unchanged": true,
+  "token_literal_in_exporter_logs": false,
+  "local_links_checked": 230,
+  "credential_literal_scan": "PASS",
+  "deterministic_generation": "PASS",
+  "canonical_prometheus_job_matches": "PASS",
+  "diff_check": "PASS"
+}

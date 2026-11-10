@@ -1,0 +1,46 @@
+{
+  "probe_http_status_code": [
+    {
+      "probe_id": "nucleo-collect-blackbox",
+      "sample_value_counts": {
+        "0": 139,
+        "200": 4
+      }
+    },
+    {
+      "probe_id": "nucleo-collect-local-client",
+      "sample_value_counts": {
+        "0": 139,
+        "200": 4
+      }
+    },
+    {
+      "probe_id": null,
+      "sample_value_counts": {
+        "0": 25
+      }
+    }
+  ],
+  "probe_success": [
+    {
+      "probe_id": "nucleo-collect-blackbox",
+      "sample_value_counts": {
+        "0": 139,
+        "1": 4
+      }
+    },
+    {
+      "probe_id": "nucleo-collect-local-client",
+      "sample_value_counts": {
+        "0": 139,
+        "1": 4
+      }
+    },
+    {
+      "probe_id": null,
+      "sample_value_counts": {
+        "0": 25
+      }
+    }
+  ]
+}

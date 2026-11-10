@@ -1,0 +1,10 @@
+{
+  "timestamp_utc": "2026-11-07T15:35:24Z",
+  "result": "PASS",
+  "execution_branch": "already_current_readonly_verify",
+  "configuration_writes": 0,
+  "provisioning_reloads": 0,
+  "restarts": 0,
+  "hashes_unchanged": true,
+  "identity_unchanged": true
+}

@@ -1,0 +1,465 @@
+{
+  "ct": 615,
+  "node": "pve",
+  "observed_at_utc": "2026-11-06T22:27:01.265448+00:00",
+  "status": "status: running",
+  "pve_config": {
+    "cores": "2",
+    "hostname": "infra-mailerblend-edge",
+    "memory": "2048",
+    "net0": "name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:EB:F7:90,ip=192.168.1.115/24,type=veth",
+    "ostype": "ubuntu",
+    "rootfs": "local-lvm:vm-615-disk-0,size=10G",
+    "swap": "512",
+    "tags": "192.168.1.115;infra;mailerblend;prod;sgtm"
+  },
+  "runtime": {
+    "boot_id": "b5dbc325-f121-4b8e-b885-304deb72f25a",
+    "containers": [
+      {
+        "name": "mailerblend-sgtm-serving",
+        "id": "77104947f79b26d4e49f10e657492b65f135463ce865cb556f3b7376cb53fe00",
+        "started_at": "2026-11-06T22:19:45.819052172Z",
+        "status": "running",
+        "health": "healthy",
+        "restarts": 0,
+        "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+        "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+        "ports": {
+          "8080/tcp": [
+            {
+              "HostIp": "",
+              "HostPort": "18091"
+            }
+          ]
+        },
+        "env_sha256": "211b3ad6d0f3e097928d7cee12336d2fe15d76584d83c094ab764cd493c73e2b",
+        "host_config_sha256": "b0bf6f13e34b90f531dd2c4ad9c2378895ce9f46614363a9a988986fb822e9e6",
+        "compose_files": "/opt/infra-mailerblend-edge/docker-compose.yml,/opt/infra-mailerblend-edge/healthcheck.native.yml",
+        "healthcheck": [
+          "CMD",
+          "/nodejs/bin/node",
+          "/app/health_checker_bin.js"
+        ]
+      },
+      {
+        "name": "mailerblend-sgtm-preview",
+        "id": "0f156b3c08899b29835a0ebac74af7cf608d4e812569062909464811eff97699",
+        "started_at": "2026-11-06T22:19:37.311335565Z",
+        "status": "running",
+        "health": "healthy",
+        "restarts": 0,
+        "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+        "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+        "ports": {
+          "8080/tcp": [
+            {
+              "HostIp": "",
+              "HostPort": "18092"
+            }
+          ]
+        },
+        "env_sha256": "3781380994a624634328abba0b8f21082401bf48710de516d40140b5bfc5aab2",
+        "host_config_sha256": "054777290b41510e987440214c9278c1c4ae353ebfde05f3a82550e07c6afa60",
+        "compose_files": "/opt/infra-mailerblend-edge/docker-compose.yml,/opt/infra-mailerblend-edge/healthcheck.native.yml",
+        "healthcheck": [
+          "CMD",
+          "/nodejs/bin/node",
+          "/app/health_checker_bin.js"
+        ]
+      },
+      {
+        "name": "cadvisor",
+        "id": "260a1a49d6d8f491ff18729768450f0df32847da7bff583baaf7f26862f8a2b1",
+        "started_at": "2026-11-06T19:31:30.476364079Z",
+        "status": "running",
+        "health": "healthy",
+        "restarts": 0,
+        "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_id": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "ports": {
+          "8080/tcp": [
+            {
+              "HostIp": "192.168.1.115",
+              "HostPort": "8085"
+            }
+          ]
+        },
+        "env_sha256": "1c24775fadba31bd348800df91e54a100f1b2e4936bd629e5a36e89c5c8f51f7",
+        "host_config_sha256": "8d355e7b88e92b359dc3e6b943bc502552c2661d39b29aa9ea3cf620681ec97e",
+        "compose_files": "/opt/exporter-phase4-pilot/integration-20261106T191534615Z-615/cadvisor.yml,/opt/exporter-phase4-pilot/integration-20261106T191534615Z-615/cadvisor-limits.yml,/opt/exporter-phase4-pilot/integration-20261106T191534615Z-615/cadvisor-containerd.yml"
+      },
+      {
+        "name": "node_exporter",
+        "id": "afdef6dc6d9415e23fc58cebcc9536db7ba5d729dd3a4ee6048b6f9f0414ae66",
+        "started_at": "2026-11-06T19:31:26.873157488Z",
+        "status": "running",
+        "health": null,
+        "restarts": 0,
+        "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "ports": {
+          "9100/tcp": [
+            {
+              "HostIp": "192.168.1.115",
+              "HostPort": "9100"
+            }
+          ]
+        },
+        "env_sha256": "1c24775fadba31bd348800df91e54a100f1b2e4936bd629e5a36e89c5c8f51f7",
+        "host_config_sha256": "ad74e9050cfd8c7e30d57220fcb88e0e034f5f0b9f56e1972a01b23a0c0435a2",
+        "compose_files": "/opt/exporter-phase4-pilot/integration-20261106T191534615Z-615/node.yml,/opt/exporter-phase4-pilot/integration-20261106T191534615Z-615/node-limits.yml,/opt/exporter-phase4-pilot/integration-20261106T191534615Z-615/node-cgroup.yml"
+      },
+      {
+        "name": "cadvisor-pre-phase4-615",
+        "id": "4d68b7f9ea901273ba4d32b3adf086b9a6202e1e3acd580c4604aa0b28f6a0d5",
+        "started_at": "2026-09-17T20:43:44.335528972Z",
+        "status": "exited",
+        "health": "unhealthy",
+        "restarts": 0,
+        "image": "gcr.io/cadvisor/cadvisor:v0.47.2",
+        "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "ports": {
+          "8080/tcp": [
+            {
+              "HostIp": "",
+              "HostPort": "8085"
+            }
+          ]
+        },
+        "env_sha256": "f1e40d47b7c8bae16fb9f6aaf3a86730e278f0aeb8af7d0742be3048529c718d",
+        "host_config_sha256": "a4471a7ca998436e42833a5b01e6b2916ab19dc1ca0b342e8be5af66446e7d95",
+        "compose_files": "/opt/common/cadvisor/docker-compose.yml"
+      },
+      {
+        "name": "node_exporter-pre-phase4-615",
+        "id": "bff6ff4970744064c4cfef67e0966f8d0f4309d964c91f71d057f551cfc3a6b5",
+        "started_at": "2026-09-17T20:43:44.329846385Z",
+        "status": "exited",
+        "health": null,
+        "restarts": 0,
+        "image": "prom/node-exporter:latest",
+        "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "ports": {
+          "9100/tcp": [
+            {
+              "HostIp": "",
+              "HostPort": "9100"
+            }
+          ]
+        },
+        "env_sha256": "1c24775fadba31bd348800df91e54a100f1b2e4936bd629e5a36e89c5c8f51f7",
+        "host_config_sha256": "9b0203c7baddd933c9308fa78e3f92332f513362bae7f9aadc1c0ab253061499",
+        "compose_files": "/opt/common/node-exporter/docker-compose.yml"
+      }
+    ],
+    "compose_services": {
+      "sgtm": {
+        "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+        "ports": [
+          {
+            "mode": "ingress",
+            "target": 8080,
+            "published": "18091",
+            "protocol": "tcp"
+          }
+        ],
+        "depends_on": [
+          "sgtm_preview"
+        ],
+        "container_config_present": true
+      },
+      "sgtm_preview": {
+        "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+        "ports": [
+          {
+            "mode": "ingress",
+            "target": 8080,
+            "published": "18092",
+            "protocol": "tcp"
+          }
+        ],
+        "depends_on": [],
+        "container_config_present": true
+      }
+    },
+    "config_equal": true,
+    "preview_mode": true,
+    "preview_url_matches": true,
+    "files_sha256": {
+      "/opt/infra-mailerblend-edge/docker-compose.yml": "fa4b1f283c5b99e189f45395a1cb45ad0d595fdaabda6d003cf510086803eff7",
+      "/opt/infra-mailerblend-edge/healthcheck.native.yml": "fd28a96d58c1abf7a49388735f9cd2cea9b6d2b0df439a2b72bb405388039a56"
+    },
+    "healthz": {
+      "http://127.0.0.1:18091/healthz": 200,
+      "http://127.0.0.1:18092/healthz": 200,
+      "https://edge.mailerblend.com/healthz": 200,
+      "https://edge.mailerblend.com/gtm/healthz": 200
+    }
+  },
+  "extra": {
+    "os": {
+      "PRETTY_NAME": "\"Ubuntu 22.04.5 LTS\"",
+      "NAME": "\"Ubuntu\"",
+      "VERSION_ID": "\"22.04\"",
+      "VERSION": "\"22.04.5 LTS (Jammy Jellyfish)\"",
+      "VERSION_CODENAME": "jammy",
+      "ID": "ubuntu",
+      "ID_LIKE": "debian",
+      "HOME_URL": "\"https://www.ubuntu.com/\"",
+      "SUPPORT_URL": "\"https://help.ubuntu.com/\"",
+      "BUG_REPORT_URL": "\"https://bugs.launchpad.net/ubuntu/\"",
+      "PRIVACY_POLICY_URL": "\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"",
+      "UBUNTU_CODENAME": "jammy"
+    },
+    "docker_version": "29.1.3",
+    "compose_version": "5.0.0",
+    "build_metrics": {
+      "node_exporter": [
+        "node_exporter_build_info{branch=\"HEAD\",goarch=\"amd64\",goos=\"linux\",goversion=\"go1.25.3\",revision=\"654f19dee6a0c41de78a8d6d870e8c742cdb43b9\",tags=\"unknown\",version=\"1.10.2\"} 1"
+      ],
+      "cadvisor": [
+        "cadvisor_version_info{cadvisorRevision=\"5bf5d43\",cadvisorVersion=\"v0.60.6\",dockerVersion=\"\",kernelVersion=\"6.8.12-4-pve\",osVersion=\"Alpine Linux v3.23\"} 1"
+      ]
+    },
+    "images": {
+      "mailerblend-sgtm-serving": {
+        "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+        "repo_digests": [
+          "gcr.io/cloud-tagging-10302018/gtm-cloud-image@sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba"
+        ],
+        "entrypoint": [
+          "/nodejs/bin/node"
+        ],
+        "cmd": "withheld",
+        "mounts": []
+      },
+      "mailerblend-sgtm-preview": {
+        "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+        "repo_digests": [
+          "gcr.io/cloud-tagging-10302018/gtm-cloud-image@sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba"
+        ],
+        "entrypoint": [
+          "/nodejs/bin/node"
+        ],
+        "cmd": "withheld",
+        "mounts": []
+      },
+      "cadvisor": {
+        "image_id": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "repo_digests": [
+          "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a"
+        ],
+        "entrypoint": [
+          "/usr/bin/entrypoint.sh"
+        ],
+        "cmd": [
+          "--listen_ip=0.0.0.0",
+          "--port=8080",
+          "--docker_only=true",
+          "--housekeeping_interval=30s",
+          "--global_housekeeping_interval=30s",
+          "--store_container_labels=false",
+          "--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service",
+          "--enable_metrics=cpu,memory,network,disk,diskIO",
+          "--disable_root_cgroup_stats=true",
+          "--profiling=false",
+          "--allow_dynamic_housekeeping=false",
+          "--max_housekeeping_interval=30s",
+          "--jitter_factor=0",
+          "--initial_splay_factor=0"
+        ],
+        "mounts": [
+          {
+            "source": "/var/lib/docker",
+            "destination": "/var/lib/docker",
+            "rw": false
+          },
+          {
+            "source": "/var/lib/containerd",
+            "destination": "/var/lib/containerd",
+            "rw": false
+          },
+          {
+            "source": "/var/run/docker.sock",
+            "destination": "/var/run/docker.sock",
+            "rw": false
+          },
+          {
+            "source": "/",
+            "destination": "/rootfs",
+            "rw": false
+          },
+          {
+            "source": "/run/containerd/containerd.sock",
+            "destination": "/run/containerd/containerd.sock",
+            "rw": false
+          },
+          {
+            "source": "/sys",
+            "destination": "/sys",
+            "rw": false
+          }
+        ]
+      },
+      "node_exporter": {
+        "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "repo_digests": [
+          "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3"
+        ],
+        "entrypoint": [
+          "/bin/sh",
+          "/opt/pilot-node-cgroup.sh"
+        ],
+        "cmd": [
+          "--path.rootfs=/host",
+          "--path.procfs=/host/proc",
+          "--path.sysfs=/host/sys",
+          "--collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/containerd/.+)($|/)",
+          "--no-collector.cpu",
+          "--collector.textfile.directory=/tmp/lxc-metrics"
+        ],
+        "mounts": [
+          {
+            "source": "/",
+            "destination": "/host",
+            "rw": false
+          },
+          {
+            "source": "/opt/exporter-phase4-pilot/integration-20261106T191534615Z-615/node-cgroup.sh",
+            "destination": "/opt/pilot-node-cgroup.sh",
+            "rw": false
+          }
+        ]
+      }
+    }
+  },
+  "nginx": {
+    "path": "/etc/nginx/sites-enabled/edge.mailerblend.com.conf",
+    "sha256": "e67d2169ff6f5aaa602a51eb51cae018e1a05be52f70b9d8cc48db22d4990997",
+    "listen": [
+      "80",
+      "443 ssl http2"
+    ],
+    "server_names": [
+      "edge.mailerblend.com",
+      "edge.mailerblend.com"
+    ],
+    "certificate": [
+      "/etc/letsencrypt/live/edge.mailerblend.com/fullchain.pem"
+    ],
+    "upstream_groups": [
+      {
+        "name": "sgtm_serving",
+        "servers": [
+          "192.168.1.115:18091"
+        ]
+      },
+      {
+        "name": "sgtm_preview",
+        "servers": [
+          "192.168.1.115:18092"
+        ]
+      }
+    ],
+    "routes": [
+      {
+        "location": "/.well-known/acme-challenge/",
+        "upstreams": [],
+        "routing_logic": []
+      },
+      {
+        "location": "= /healthy",
+        "upstreams": [
+          "http://sgtm_serving"
+        ],
+        "routing_logic": [
+          "proxy_pass http://sgtm_serving;"
+        ]
+      },
+      {
+        "location": "^~ /g/collect",
+        "upstreams": [
+          "http://sgtm_serving"
+        ],
+        "routing_logic": [
+          "proxy_pass http://sgtm_serving;"
+        ]
+      },
+      {
+        "location": "^~ /collect",
+        "upstreams": [
+          "http://sgtm_serving"
+        ],
+        "routing_logic": [
+          "proxy_pass http://sgtm_serving;"
+        ]
+      },
+      {
+        "location": "^~ /gtm/",
+        "upstreams": [
+          "http://sgtm_preview",
+          "http://sgtm_serving"
+        ],
+        "routing_logic": [
+          "set $use_preview 0;",
+          "if ($http_x_gtm_server_preview != \"\") { set $use_preview 1; }",
+          "if ($http_x_gtm_preview != \"\")        { set $use_preview 1; }",
+          "if ($use_preview = 1) { proxy_pass http://sgtm_preview; }",
+          "if ($use_preview = 0) { proxy_pass http://sgtm_serving; }"
+        ]
+      },
+      {
+        "location": "/",
+        "upstreams": [
+          "http://sgtm_serving"
+        ],
+        "routing_logic": [
+          "proxy_pass http://sgtm_serving;"
+        ]
+      }
+    ]
+  },
+  "dns_a": {
+    "edge.mailerblend.com": [
+      "79.156.8.245"
+    ],
+    "mailerblend.com": [
+      "108.157.128.106",
+      "108.157.128.12",
+      "108.157.128.33",
+      "108.157.128.42"
+    ]
+  },
+  "tls": {
+    "issuer": [
+      [
+        [
+          "countryName",
+          "US"
+        ]
+      ],
+      [
+        [
+          "organizationName",
+          "Let's Encrypt"
+        ]
+      ],
+      [
+        [
+          "commonName",
+          "YR1"
+        ]
+      ]
+    ],
+    "notBefore": "Sep 12 14:51:08 2026 GMT",
+    "notAfter": "Dec 11 14:51:07 2026 GMT",
+    "subjectAltName": [
+      [
+        "DNS",
+        "edge.mailerblend.com"
+      ]
+    ],
+    "validation": "CA and hostname verified"
+  }
+}

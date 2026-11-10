@@ -1,6 +1,6 @@
 # Fase 3. Infrastructure Recovery — CRM & EVA
 
-Estado: **DONE — Accepted with UAT Waiver**. Actualizado: 2026-11-02 (Europe/Madrid).
+Estado: **DONE — Accepted with UAT Waiver**. Actualizado: 2026-11-09 (Europe/Madrid).
 [Roadmap](../ROADMAP.md) · [Estado actual](../CURRENT-STATUS.md) · [Decisiones](../DECISIONS.md)
 
 ## Objetivo
@@ -29,7 +29,7 @@ Implementada, validada, desplegada y aceptada. La prueba manual adicional de log
 
 ## Riesgos
 
-Los OOM previos pudieron afectar operaciones antes del backup; no se certifican todos los flujos. Permanecen tres healthchecks incorrectos y el digest heredado; RAM CRM no se reduce automáticamente. Las copias no tienen purga automática.
+Los OOM previos pudieron afectar operaciones antes del backup; no se certifican todos los flujos. Los tres healthchecks heredados se corrigieron posteriormente bajo D051; permanece el digest heredado; RAM CRM no se reduce automáticamente. Las copias no tienen purga automática.
 
 ## Entregables
 
@@ -46,3 +46,9 @@ Verificaciones técnicas/automatizadas y restauraciones aisladas pasadas; servic
 - [STORAGE-PLAN EVA](../../../services/infra-eva-assistant-bot/recovery/STORAGE-PLAN.md).
 - [D-011](../DECISIONS.md).
 - [Revalidación de solo lectura](../evidence/2026-11-02-runtime-audit.json).
+
+## Seguimiento D051 (2026-11-07)
+
+[Corrección de los tres healthchecks](../HEALTHCHECKS-D051-EXECUTION.md): healthy
+y alertas resueltas con IaC, imagen/entorno/datos/recursos conservados. No es una
+repetición de recuperación F3 ni de su restauración DB; no amplía su dispensa UAT.

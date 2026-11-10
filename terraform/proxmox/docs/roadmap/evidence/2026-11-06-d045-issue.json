@@ -1,0 +1,17 @@
+{
+  "issue_url": "https://github.com/eduardo152030/mailerblend-platform-infra/issues/1",
+  "issue_number": 1,
+  "searches": [
+    "sGTM",
+    "614",
+    "bootstrap"
+  ],
+  "duplicates_found": false,
+  "labels": [
+    "enhancement"
+  ],
+  "other_requested_labels_exist": false,
+  "connector_create_status": 403,
+  "created_via": "existing gh authenticated access",
+  "automatic_restarts_implemented": false
+}

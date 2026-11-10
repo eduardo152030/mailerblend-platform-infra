@@ -1,0 +1,50 @@
+[
+  {
+    "ct": "621",
+    "runtime": [
+      {
+        "container": "focalboard",
+        "entrypoint_executable": "/opt/focalboard/bin/focalboard-server",
+        "pid1_executable": "/opt/focalboard/bin/focalboard-server",
+        "script_paths": []
+      }
+    ]
+  },
+  {
+    "ct": "624",
+    "runtime": [
+      {
+        "container": "infra-journal-web-web-1",
+        "entrypoint_executable": "/docker-entrypoint.sh",
+        "pid1_executable": "/usr/sbin/nginx",
+        "script_paths": []
+      }
+    ]
+  },
+  {
+    "ct": "626",
+    "runtime": [
+      {
+        "container": "infra-journal-api-api-1",
+        "entrypoint_executable": "docker-entrypoint.sh",
+        "pid1_executable": "/usr/local/bin/node",
+        "script_paths": [
+          "server.js"
+        ]
+      }
+    ]
+  },
+  {
+    "ct": "617",
+    "url": "http://192.168.1.117:18088/healthz",
+    "vantage": "audit workstation",
+    "status": 403
+  },
+  {
+    "ct": "617",
+    "url": "https://edge.nucleotecnologico.es/orbit/healthz",
+    "vantage": "audit workstation",
+    "status": 200,
+    "bytes": 2
+  }
+]

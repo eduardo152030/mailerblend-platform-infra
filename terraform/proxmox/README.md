@@ -1,11 +1,23 @@
 # Mailerblend Platform Infra (Proxmox)
 
-Infraestructura **declarativa, reproducible y extensible** para Mailerblend, basada en **Proxmox + Terraform + Docker**, con observabilidad integrada (**Prometheus, Alertmanager, Grafana**) y **auto‑discovery** desde inventario.
+Infraestructura **declarativa, reproducible y extensible** para Mailerblend, basada en **Proxmox + Terraform + Docker**, con observabilidad integrada (**Prometheus, Alertmanager, Grafana**) y catálogos Prometheus generados desde inventario YAML.
 
 > Estado operativo y trabajo pendiente: [Roadmap central](docs/roadmap/ROADMAP.md)
 > y [CURRENT-STATUS](docs/roadmap/CURRENT-STATUS.md). Las capacidades descritas
 > como objetivos no acreditan que todo esté desplegado o aceptado. Antes de ejecutar
 > comandos, revisar la fase y el alcance autorizado.
+
+Estado contrastado el **2026-11-10 (Europe/Madrid)**: 17 LXC monitorizados,
+17 Node/17 cAdvisor/18 Blackbox UP. F1–F6 cerradas en sus alcances; F7 IN PROGRESS.
+Fleet Overview y LXC Details desplegados, navegación bidireccional y nueve dashboards
+IaC. Las altas requieren publicar inventario/targets: no hay despliegue automático
+de exporters por aparecer un CT en Proxmox.
+[Cierre F6](docs/roadmap/PHASE6-D060-CLOSURE.md),
+[evidencia actual](docs/roadmap/evidence/2026-11-10-d060-result.json).
+
+Alta de nuevosCT: [NEW-LXC-PROVISIONING](docs/runbooks/NEW-LXC-PROVISIONING.md).
+D061 prepara el flujo con mocks sin Docker y con Docker; ninguna alta real aplicada.
+7.2SecurityHardening y7.3DisasterRecovery OUT OF SCOPE, no DONE.
 
 ---
 

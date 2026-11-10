@@ -1,0 +1,92 @@
+{
+  "services": [
+    {
+      "name": "infra-nucleoedge-sgtm_preview-1",
+      "id": "522527d1e4e493897b6de4ea875378f7b24cf16465f6a1d62d421b31084e43bd",
+      "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+      "environment_unchanged": true,
+      "health": "healthy",
+      "restarts": 0,
+      "oom_killed": false,
+      "healthcheck": {
+        "Test": [
+          "CMD",
+          "/nodejs/bin/node",
+          "/app/health_checker_bin.js"
+        ],
+        "Interval": 30000000000,
+        "Timeout": 10000000000,
+        "StartPeriod": 30000000000,
+        "Retries": 3
+      },
+      "compose_files": "/opt/infra-nucleoedge/docker-compose.yml,/opt/infra-nucleoedge/healthcheck.native.yml"
+    },
+    {
+      "name": "infra-nucleoedge-sgtm-1",
+      "id": "d65e5464709d59133038a5db253ef5c1d567d23d70be78278037d228deac0f62",
+      "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+      "environment_unchanged": true,
+      "health": "healthy",
+      "restarts": 0,
+      "oom_killed": false,
+      "healthcheck": {
+        "Test": [
+          "CMD",
+          "/nodejs/bin/node",
+          "/app/health_checker_bin.js"
+        ],
+        "Interval": 30000000000,
+        "Timeout": 10000000000,
+        "StartPeriod": 30000000000,
+        "Retries": 3
+      },
+      "compose_files": "/opt/infra-nucleoedge/docker-compose.yml,/opt/infra-nucleoedge/healthcheck.native.yml"
+    }
+  ],
+  "forced_recreation_commands": {
+    "sgtm_preview": 7,
+    "sgtm": 4
+  },
+  "base_compose_unchanged": true,
+  "overlay_sha256": "fd28a96d58c1abf7a49388735f9cd2cea9b6d2b0df439a2b72bb405388039a56",
+  "public_healthz": {
+    "https://edge.nucleotecnologico.es/healthz": 200,
+    "https://edge.nucleotecnologico.es/preview/healthz": 200
+  },
+  "monitoring": {
+    "targets_up": {
+      "node_exporter": 17,
+      "cadvisor": 17,
+      "blackbox": 11
+    },
+    "prometheus_alertmanager_ready": true,
+    "blackbox_success": 2,
+    "blackbox_http_status": [
+      200,
+      200
+    ],
+    "blackbox_sample_times": [
+      1794000429.175,
+      1794000406.974
+    ],
+    "telegram": {
+      "alertmanager_notifications_total": 132.0,
+      "alertmanager_notifications_failed_total": 56.0
+    }
+  },
+  "backup": {
+    "local_path": "/home/jainer/.local/share/mailerblend-recovery/sgtm614/sgtm-614-d044-20261106T211738Z/backup.tar",
+    "pve_path": "/mnt/storage/mailerblend-recovery/sgtm-614-d044-20261106T211738Z/backup.tar",
+    "ct_path": "/opt/infra-nucleoedge/.runtime/sgtm-614-d044-20261106T211738Z/backup.tar",
+    "sha256": "776a8c4a69506d0f4e190dd08ee44c283568e30ffc073f9b13293f8fb39ffcb9",
+    "bytes": 119859200,
+    "offhost_verified": true,
+    "archive_readable": true
+  },
+  "oom_deltas": {
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "no_automatic_restarts_installed": true
+}

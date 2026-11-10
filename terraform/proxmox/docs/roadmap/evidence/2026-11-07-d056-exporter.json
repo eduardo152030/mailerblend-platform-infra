@@ -1,0 +1,17 @@
+{
+  "timestamp_utc": "2026-11-07T16:37:06Z",
+  "lxc_uptime_series": 26,
+  "families": [
+    "pve_guest_info",
+    "pve_up",
+    "pve_uptime_seconds"
+  ],
+  "tls": {
+    "tls_verified": true,
+    "api_read_status": 200,
+    "lxc_discovered": 26,
+    "secret_mode": "0o400",
+    "token_readable_by_owner": true
+  },
+  "source": "central exporter /pve"
+}

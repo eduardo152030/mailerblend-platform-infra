@@ -1,0 +1,8 @@
+{
+  "tests_passed": 10,
+  "compose_candidate_validated_without_apply": true,
+  "new_sensitive_values_found": false,
+  "local_links_checked": 98,
+  "active_blackbox_catalog_config_rules_unchanged": true,
+  "no_commits_pushes": true
+}

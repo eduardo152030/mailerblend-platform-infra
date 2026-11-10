@@ -1,7 +1,22 @@
 # Fase 7. IaC Reliability, Security & Disaster Recovery
 
-Estado: **IN PROGRESS**. Actualizado: 2026-11-02 (Europe/Madrid).
+Estado: **IN PROGRESS**. Actualizado: 2026-11-10 (Europe/Madrid).
 [Roadmap](../ROADMAP.md) · [Estado actual](../CURRENT-STATUS.md) · [Decisiones](../DECISIONS.md)
+
+## Alcance vigente D061 — numeración del propietario
+
+| Subfase | Estado | Alcance |
+|---|---|---|
+| 7.1 Git Consolidation | IN PROGRESS | Consolidar y publicar cambios de infraestructura/monitorización F4–F6 y documentación |
+| 7.2 Security Hardening | OUT OF SCOPE | Decisión expresa; no DONE ni rotación de secretos históricos |
+| 7.3 Disaster Recovery | OUT OF SCOPE | Decisión expresa; no DONE ni política global DR nueva |
+| 7.4 Automated LXC Provisioning | READY FOR FIRST REAL PROVISIONING TEST | Flujo/fixtures/mocks preparados, sin creación ni aplicación real |
+
+[Informe D061](../PHASE7-D061-EXECUTION.md),
+[runbook de altas](../../runbooks/NEW-LXC-PROVISIONING.md).
+7.4 no equivale al ID históricoF7-04, que trata secretos. Las tareas históricas
+inferiores conservan sus antecedentes; no autorizan ejecutar7.2/7.3 en esta sesión.
+El cierreD042 solo cubría aquella publicación, no estos cambios posteriores.
 
 ## Objetivo
 
@@ -25,7 +40,7 @@ Dependencias: Inventario real, resultados F3/F4 y decisiones del propietario sob
 | F7-06 | Definir DR sostenido, retención, RPO/RTO y ensayos periódicos | TODO | Restauraciones F3 pasadas no equivalen a una política continua |
 | F7-07 | Corregir digest EVA y dependencia apk de su arranque | TODO | Heredados; requiere revisión funcional y aprobación de cualquier cambio de imagen/comando |
 | F7-08 | Revisar RAM temporal CRM y deriva de inventario/discos | TODO | No reducir ni aplicar Terraform general automáticamente |
-| F7-09 | Automatizar validación local/CI y continuidad del roadmap | TODO | Roadmap/AGENTS creados; falta integración de CI y política de commits |
+| F7-09 | Automatizar validación local/CI y continuidad del roadmap | IN PROGRESS | D059: documentación consolidada y APIs contrastadas; CI y política de commits pendientes |
 
 ## Implementación, validación, despliegue y aceptación
 
@@ -53,7 +68,7 @@ Herramientas instalables con versiones/checksums fuera de /tmp; pruebas CI; secr
 
 ## D-042 — consolidación Git
 
-2026-11-06 (Europe/Madrid). F7-01 IN PROGRESS, autorizado commit/push normal de
+Preparación histórica: 2026-11-06 (Europe/Madrid). F7-01 entonces IN PROGRESS, autorizado commit/push normal de
 cambios seguros. Respaldo privado verificado;230tests, validadores Prom/AM, enlaces
 y diff --check PASS. Estados/credenciales locales preservados y excluidos del
 índice; secretos históricos pendientes de rotación (F7-04 no DONE). Sin producción.
@@ -62,3 +77,20 @@ y diff --check PASS. Estados/credenciales locales preservados y excluidos del
 Cierre D042: push principal confirmado, main/origin iguales (0/0); F7-01 DONE
 solo para consolidación de monitorización. F7 global IN PROGRESS y F7-04 pendiente.
 Árbol residual preservado, sin aceptar cambios de aplicaciones. Ver evidencia D042.
+
+## Seguimiento D059
+
+F7 global IN PROGRESS; F7-01 DONE solo para el conjunto publicado D042. El árbol
+actual tiene trabajo posterior y cambios ajenos sin consolidar, sin nueva
+publicación ni sincronización remota afirmada. Documentación actualizada, APIs
+leídas y enlaces locales comprobados; no despliegues ni aceptación de seguridad/DR.
+[Informe](../DOCUMENTATION-D059-REVIEW.md). Siguiente: revisión F6 y autorización
+específica del pendiente elegido; sin commits/push.
+
+## Handoff D060 — F6 cerrada
+
+2026-11-10: F6DONE; nueve dashboards IaC, providers/mountsGrafana saneados ymisma
+imagen fijada enrecipe, sin recrear activo. Persistencia ensayadaaisladamente.
+Esto no cierra seguridad/secretos/CI/DR global ni publica el trabajo posteriorD042.
+[InformeF6](../PHASE6-D060-CLOSURE.md). Próximo: elegir yautorizar un pendienteF7;
+no intervención productiva ni commits/push autorizados por ese cierre.

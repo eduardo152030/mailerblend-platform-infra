@@ -1,0 +1,160 @@
+[
+  {
+    "ct": "611",
+    "url": "http://192.168.1.111:3010/api/health",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 200,
+    "content_type": "application/json; charset=UTF-8",
+    "read_bytes": 101,
+    "nginx_default_page": false,
+    "known_fields": {
+      "database": "ok"
+    }
+  },
+  {
+    "ct": "616",
+    "url": "http://192.168.1.116:9115/",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 200,
+    "content_type": "text/html",
+    "read_bytes": 42507,
+    "nginx_default_page": false
+  },
+  {
+    "ct": "617",
+    "url": "http://192.168.1.117:18088/healthz",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 403
+  },
+  {
+    "ct": "618",
+    "url": "http://192.168.1.118:18088/ready",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 200,
+    "content_type": "application/json",
+    "read_bytes": 11,
+    "nginx_default_page": false,
+    "known_fields": {
+      "db": "ok"
+    }
+  },
+  {
+    "ct": "618",
+    "url": "http://192.168.1.118:8080/api/system/status",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "read_bytes": 46,
+    "nginx_default_page": false,
+    "known_fields": {}
+  },
+  {
+    "ct": "620",
+    "url": "http://192.168.1.120:3000/health",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "read_bytes": 119,
+    "nginx_default_page": false,
+    "known_fields": {
+      "status": "healthy"
+    }
+  },
+  {
+    "ct": "620",
+    "url": "http://192.168.1.120:3001/health",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 200,
+    "content_type": "application/json",
+    "read_bytes": 169,
+    "nginx_default_page": false,
+    "known_fields": {
+      "status": "healthy"
+    }
+  },
+  {
+    "ct": "621",
+    "url": "http://192.168.1.121:8081/api/v2/ping",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "read_bytes": 463,
+    "nginx_default_page": false
+  },
+  {
+    "ct": "623",
+    "url": "http://192.168.1.123:8080/",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 200,
+    "content_type": "text/html",
+    "read_bytes": 615,
+    "nginx_default_page": true
+  },
+  {
+    "ct": "624",
+    "url": "http://192.168.1.124:8090/",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 200,
+    "content_type": "text/html",
+    "read_bytes": 1183,
+    "nginx_default_page": false
+  },
+  {
+    "ct": "626",
+    "url": "http://192.168.1.126:3000/health",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "read_bytes": 40,
+    "nginx_default_page": false,
+    "known_fields": {
+      "status": "ok"
+    }
+  },
+  {
+    "ct": "625",
+    "endpoint": "192.168.1.125:5432",
+    "protocol": "TCP",
+    "connected": true,
+    "sql_readiness_verified": false
+  },
+  {
+    "ct": "623",
+    "url": "http://127.0.0.1:8069/web/health",
+    "vantage": "CT623 loopback",
+    "method": "GET",
+    "status": 200,
+    "read_bytes": 18,
+    "content_type": "application/json",
+    "odoo_marker": false
+  },
+  {
+    "ct": "623",
+    "url": "http://127.0.0.1:8069/web/login",
+    "vantage": "CT623 loopback",
+    "method": "GET",
+    "status": 200,
+    "read_bytes": 4688,
+    "content_type": "text/html; charset=utf-8",
+    "odoo_marker": true
+  },
+  {
+    "ct": "617",
+    "url": "https://edge.nucleotecnologico.es/orbit/healthz",
+    "vantage": "CT616 Blackbox network namespace",
+    "method": "GET",
+    "status": 200,
+    "bytes": 2
+  }
+]

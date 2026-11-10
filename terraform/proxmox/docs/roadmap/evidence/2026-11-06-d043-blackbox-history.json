@@ -1,0 +1,22 @@
+{
+  "minimum_success_24h": [
+    {
+      "probe_id": "nucleo-collect-blackbox",
+      "value": "1"
+    },
+    {
+      "probe_id": "nucleo-collect-local-client",
+      "value": "1"
+    }
+  ],
+  "firing_observed_7d": [
+    {
+      "probe_id": null,
+      "value": "1"
+    },
+    {
+      "probe_id": null,
+      "value": "1"
+    }
+  ]
+}

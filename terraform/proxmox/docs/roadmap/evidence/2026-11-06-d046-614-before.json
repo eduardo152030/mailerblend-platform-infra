@@ -1,0 +1,215 @@
+{
+  "ct": 614,
+  "observed_at_utc": "2026-11-06T21:56:02.626706+00:00",
+  "status": "status: running",
+  "runtime": {
+    "boot_id": "d23b3c09-b921-4317-9e37-08877722f127",
+    "containers": [
+      {
+        "name": "infra-nucleoedge-sgtm-1",
+        "id": "d65e5464709d59133038a5db253ef5c1d567d23d70be78278037d228deac0f62",
+        "started_at": "2026-11-06T21:26:34.116186736Z",
+        "status": "running",
+        "health": "healthy",
+        "restarts": 0,
+        "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+        "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+        "ports": {
+          "8080/tcp": [
+            {
+              "HostIp": "",
+              "HostPort": "8091"
+            }
+          ]
+        },
+        "env_sha256": "dd459bec4197b4d61bf4a4e6bf4853ddff3779f9eb2729bd99d47e72506a433c",
+        "host_config_sha256": "1cc96cd41a7c88b72b1588c4ccf3c5fd26ebe5c3129176ef9b0af7a7909085f7",
+        "compose_files": "/opt/infra-nucleoedge/docker-compose.yml,/opt/infra-nucleoedge/healthcheck.native.yml",
+        "healthcheck": [
+          "CMD",
+          "/nodejs/bin/node",
+          "/app/health_checker_bin.js"
+        ]
+      },
+      {
+        "name": "infra-nucleoedge-sgtm_preview-1",
+        "id": "522527d1e4e493897b6de4ea875378f7b24cf16465f6a1d62d421b31084e43bd",
+        "started_at": "2026-11-06T21:26:25.754657088Z",
+        "status": "running",
+        "health": "healthy",
+        "restarts": 0,
+        "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+        "image_id": "sha256:16c407168e2089ef6ed6a43253be1294a2bf693dbdef98e05283ef1299dff8ba",
+        "ports": {
+          "8080/tcp": [
+            {
+              "HostIp": "",
+              "HostPort": "8092"
+            }
+          ]
+        },
+        "env_sha256": "8c249c14f3b91c9556fcdc1fc0b77b44c1a09e21dd76fe497c56a3dcca241f24",
+        "host_config_sha256": "7e23f9beb5e544789082907b82acf505e7d9a2e2cf72e4341598cf9653e16032",
+        "compose_files": "/opt/infra-nucleoedge/docker-compose.yml,/opt/infra-nucleoedge/healthcheck.native.yml",
+        "healthcheck": [
+          "CMD",
+          "/nodejs/bin/node",
+          "/app/health_checker_bin.js"
+        ]
+      },
+      {
+        "name": "cadvisor",
+        "id": "f798612c31daac404ad8594c1a04a906341621f3aabc4a4378e7c887fe1b01f5",
+        "started_at": "2026-11-06T19:37:19.426265335Z",
+        "status": "running",
+        "health": "healthy",
+        "restarts": 0,
+        "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "image_id": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "ports": {
+          "8080/tcp": [
+            {
+              "HostIp": "192.168.1.114",
+              "HostPort": "8085"
+            }
+          ]
+        },
+        "env_sha256": "1c24775fadba31bd348800df91e54a100f1b2e4936bd629e5a36e89c5c8f51f7",
+        "host_config_sha256": "1ba0eb1790a580118c77bdc7ef1785afa8de2922376d065cccf603336acfc96e",
+        "compose_files": "/opt/exporter-phase4-pilot/integration-20261106T191534614Z-614/cadvisor.yml,/opt/exporter-phase4-pilot/integration-20261106T191534614Z-614/cadvisor-limits.yml,/opt/exporter-phase4-pilot/integration-20261106T191534614Z-614/cadvisor-containerd.yml"
+      },
+      {
+        "name": "node_exporter",
+        "id": "f2f26d0194da9d5b5477750c451eb01fafb70eb7e9868bc867c759b46f83e812",
+        "started_at": "2026-11-06T19:37:15.884324228Z",
+        "status": "running",
+        "health": null,
+        "restarts": 0,
+        "image": "prom/node-exporter@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "ports": {
+          "9100/tcp": [
+            {
+              "HostIp": "192.168.1.114",
+              "HostPort": "9100"
+            }
+          ]
+        },
+        "env_sha256": "1c24775fadba31bd348800df91e54a100f1b2e4936bd629e5a36e89c5c8f51f7",
+        "host_config_sha256": "0a7fe2c309a7dadf5cf249c649b5ab4f946f162d1e1bca6bd6bb50fcc21959dd",
+        "compose_files": "/opt/exporter-phase4-pilot/integration-20261106T191534614Z-614/node.yml,/opt/exporter-phase4-pilot/integration-20261106T191534614Z-614/node-limits.yml,/opt/exporter-phase4-pilot/integration-20261106T191534614Z-614/node-cgroup.yml"
+      },
+      {
+        "name": "node_exporter-pre-phase4-614",
+        "id": "a21245ae78853df63cc70e89331e27f3a33fd3b1a72316fc4df6048e532a1d1b",
+        "started_at": "2026-09-17T20:43:37.323051518Z",
+        "status": "exited",
+        "health": null,
+        "restarts": 0,
+        "image": "prom/node-exporter:latest",
+        "image_id": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "ports": {
+          "9100/tcp": [
+            {
+              "HostIp": "",
+              "HostPort": "9100"
+            }
+          ]
+        },
+        "env_sha256": "1c24775fadba31bd348800df91e54a100f1b2e4936bd629e5a36e89c5c8f51f7",
+        "host_config_sha256": "9b0203c7baddd933c9308fa78e3f92332f513362bae7f9aadc1c0ab253061499",
+        "compose_files": "/opt/common/node-exporter/docker-compose.yml"
+      },
+      {
+        "name": "cadvisor-pre-phase4-614",
+        "id": "cdd635e6c550f71fe6aa58c5742ede7bb052c977cd3e8981a4f3d49da93764c8",
+        "started_at": "2026-09-17T20:43:37.332993314Z",
+        "status": "exited",
+        "health": "unhealthy",
+        "restarts": 0,
+        "image": "gcr.io/cadvisor/cadvisor:v0.47.2",
+        "image_id": "sha256:e6c562b5e983f13624898b5b6a902c71999580dc362022fc327c309234c485d7",
+        "ports": {
+          "8080/tcp": [
+            {
+              "HostIp": "",
+              "HostPort": "8085"
+            }
+          ]
+        },
+        "env_sha256": "f1e40d47b7c8bae16fb9f6aaf3a86730e278f0aeb8af7d0742be3048529c718d",
+        "host_config_sha256": "a4471a7ca998436e42833a5b01e6b2916ab19dc1ca0b342e8be5af66446e7d95",
+        "compose_files": "/opt/common/cadvisor/docker-compose.yml"
+      }
+    ],
+    "compose_services": {
+      "sgtm": {
+        "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+        "ports": [
+          {
+            "mode": "ingress",
+            "target": 8080,
+            "published": "8091",
+            "protocol": "tcp"
+          }
+        ],
+        "depends_on": [
+          "sgtm_preview"
+        ],
+        "container_config_present": true
+      },
+      "sgtm_preview": {
+        "image": "gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable",
+        "ports": [
+          {
+            "mode": "ingress",
+            "target": 8080,
+            "published": "8092",
+            "protocol": "tcp"
+          }
+        ],
+        "depends_on": [],
+        "container_config_present": true
+      }
+    },
+    "config_equal": true,
+    "preview_mode": true,
+    "preview_url_matches": true,
+    "files_sha256": {
+      "/opt/infra-nucleoedge/docker-compose.yml": "f28b2d953a623ccba1a33c1121352b878314bd4ac63c6a04cdbcab6f1f12b995",
+      "/opt/infra-nucleoedge/healthcheck.native.yml": "fd28a96d58c1abf7a49388735f9cd2cea9b6d2b0df439a2b72bb405388039a56"
+    },
+    "healthz": {
+      "http://127.0.0.1:8091/healthz": 200,
+      "http://127.0.0.1:8092/healthz": 200,
+      "https://edge.nucleotecnologico.es/healthz": 200,
+      "https://edge.nucleotecnologico.es/preview/healthz": 200
+    }
+  },
+  "domain_routes": [
+    {
+      "location": "^~ /preview/",
+      "upstream": [
+        "http://192.168.1.114:8092"
+      ],
+      "preview_prefix_rewrite": true
+    },
+    {
+      "location": "/",
+      "upstream": [
+        "http://192.168.1.114:8091"
+      ],
+      "preview_prefix_rewrite": false
+    }
+  ],
+  "pve_config": {
+    "cores": "2",
+    "description": "Managed by Terraform - Service: infra-nucleoedge",
+    "hostname": "infra-nucleoedge",
+    "memory": "2048",
+    "net0": "name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:CB:64:18,ip=192.168.1.114/24,type=veth",
+    "rootfs": "local-lvm:vm-614-disk-0,size=10G",
+    "swap": "512",
+    "tags": "192.168.1.114;infra;nucleo;prod;sgtm"
+  }
+}

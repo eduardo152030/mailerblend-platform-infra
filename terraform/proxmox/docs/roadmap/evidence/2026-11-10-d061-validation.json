@@ -1,0 +1,148 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "terraform-fmt",
+      "returncode": 0
+    },
+    {
+      "name": "terraform-validate",
+      "returncode": 0
+    },
+    {
+      "name": "notes-generation",
+      "returncode": 0
+    },
+    {
+      "name": "all-selected-json-yaml-python",
+      "returncode": 0
+    },
+    {
+      "name": "prometheus-rules",
+      "returncode": 0
+    },
+    {
+      "name": "prometheus-config",
+      "returncode": 0
+    },
+    {
+      "name": "alertmanager-config",
+      "returncode": 0
+    },
+    {
+      "name": "prometheus-rule-fixtures",
+      "returncode": 0
+    },
+    {
+      "name": "test_d051_healthchecks.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_fleet_contract.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_lxc_details.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_phase5_routing.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_phase6_complete_health.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_phase6_stage_a.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_pve_uptime_proposal.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_sgtm_614_proposal.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_sgtm_614_recovery.py",
+      "returncode": 0
+    },
+    {
+      "name": "test_sgtm_615_recovery.py",
+      "returncode": 0
+    },
+    {
+      "name": "inventory-tests",
+      "returncode": 0
+    },
+    {
+      "name": "provisioning-tests",
+      "returncode": 0
+    },
+    {
+      "name": "compose-0",
+      "returncode": 0
+    },
+    {
+      "name": "compose-1",
+      "returncode": 0
+    },
+    {
+      "name": "compose-2",
+      "returncode": 0
+    },
+    {
+      "name": "compose-3",
+      "returncode": 0
+    },
+    {
+      "name": "compose-4",
+      "returncode": 0
+    },
+    {
+      "name": "compose-5",
+      "returncode": 0
+    },
+    {
+      "name": "compose-6",
+      "returncode": 0
+    },
+    {
+      "name": "compose-files",
+      "count": 7,
+      "returncode": 0
+    }
+  ],
+  "production_tests_repeated": false,
+  "infrastructure_created": false,
+  "examples": {
+    "native-validated": {
+      "result": "PASS",
+      "ct_id": 9991,
+      "status": "READY FOR FIRST REAL PROVISIONING TEST",
+      "terraform_test": "mock_provider, command=plan",
+      "plan": "1 add, 0 change, 0 destroy (mock)",
+      "production_calls": false,
+      "infrastructure_created": false,
+      "real_first_test": "NOT PERFORMED",
+      "log": "validation.log",
+      "reviewable_plan": "plan.mock.txt"
+    },
+    "docker-validated": {
+      "result": "PASS",
+      "ct_id": 9992,
+      "status": "READY FOR FIRST REAL PROVISIONING TEST",
+      "terraform_test": "mock_provider, command=plan",
+      "plan": "1 add, 0 change, 0 destroy (mock)",
+      "production_calls": false,
+      "infrastructure_created": false,
+      "real_first_test": "NOT PERFORMED",
+      "log": "validation.log",
+      "reviewable_plan": "plan.mock.txt"
+    }
+  },
+  "observed_at_utc": "2026-11-10T08:20:13.265771+00:00",
+  "security_scope": "7.2/7.3 OUT OF SCOPE; basic new-commit secret audit only"
+}

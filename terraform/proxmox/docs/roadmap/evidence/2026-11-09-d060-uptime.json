@@ -1,0 +1,180 @@
+{
+  "timestamp_utc": "2026-11-09T16:38:27Z",
+  "comparison_count": 17,
+  "comparisons": [
+    {
+      "ct_id": "610",
+      "name": "infra-prom",
+      "prometheus_uptime_seconds": 4564481.0,
+      "pve_uptime_seconds": 4564501,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "611",
+      "name": "infra-grafana",
+      "prometheus_uptime_seconds": 4564479.0,
+      "pve_uptime_seconds": 4564499,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "61211",
+      "name": "svc01",
+      "prometheus_uptime_seconds": 4564372.0,
+      "pve_uptime_seconds": 4564392,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "613",
+      "name": "infra-hola",
+      "prometheus_uptime_seconds": 171634.0,
+      "pve_uptime_seconds": 171654,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "614",
+      "name": "infra-nucleoedge",
+      "prometheus_uptime_seconds": 4564471.0,
+      "pve_uptime_seconds": 4564491,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "615",
+      "name": "infra-mailerblend-edge",
+      "prometheus_uptime_seconds": 4564468.0,
+      "pve_uptime_seconds": 4564488,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "616",
+      "name": "infra-blackbox",
+      "prometheus_uptime_seconds": 4564463.0,
+      "pve_uptime_seconds": 4564483,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "617",
+      "name": "infra-orbit",
+      "prometheus_uptime_seconds": 4564460.0,
+      "pve_uptime_seconds": 4564480,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "618",
+      "name": "infra-composable-crm",
+      "prometheus_uptime_seconds": 626601.0,
+      "pve_uptime_seconds": 626621,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "619",
+      "name": "infra-pulpo",
+      "prometheus_uptime_seconds": 4564449.0,
+      "pve_uptime_seconds": 4564469,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "620",
+      "name": "infra-excraper",
+      "prometheus_uptime_seconds": 4564443.0,
+      "pve_uptime_seconds": 4564463,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "621",
+      "name": "infra-project-gestion",
+      "prometheus_uptime_seconds": 4564438.0,
+      "pve_uptime_seconds": 4564458,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "622",
+      "name": "infra-eva-assistant-bot",
+      "prometheus_uptime_seconds": 617460.0,
+      "pve_uptime_seconds": 617480,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "623",
+      "name": "infra-gestoria",
+      "prometheus_uptime_seconds": 4564421.0,
+      "pve_uptime_seconds": 4564440,
+      "difference_seconds": 19.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "624",
+      "name": "infra-journal-web",
+      "prometheus_uptime_seconds": 4564400.0,
+      "pve_uptime_seconds": 4564419,
+      "difference_seconds": 19.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "625",
+      "name": "infra-journal-db",
+      "prometheus_uptime_seconds": 4564393.0,
+      "pve_uptime_seconds": 4564413,
+      "difference_seconds": 20.0,
+      "status": "running"
+    },
+    {
+      "ct_id": "626",
+      "name": "infra-journal-api",
+      "prometheus_uptime_seconds": 4564380.0,
+      "pve_uptime_seconds": 4564400,
+      "difference_seconds": 20.0,
+      "status": "running"
+    }
+  ],
+  "independent_current_endpoint": {
+    "611": {
+      "uptime": 4564500,
+      "status": "running"
+    },
+    "618": {
+      "uptime": 626623,
+      "status": "running"
+    },
+    "624": {
+      "uptime": 4564423,
+      "status": "running"
+    }
+  },
+  "max_absolute_difference_seconds": 20.0,
+  "allowed_freshness_seconds": 45,
+  "all_api_lxc_discovered": 26,
+  "monitored_dashboard_lxc": 17,
+  "ct_list_hardcoded_in_collector": false,
+  "new_lxc_test": "synthetic new 9999 passes generated unchanged query; all actual API LXC appear without per-CT config",
+  "actual_lxc_restart_performed": false,
+  "exporter_security": {
+    "image_id": "sha256:a90dd89d9df7c85e91f55fc33acfdf83d10764626251403fe38b352fd9623069",
+    "running": true,
+    "restart_count": 0,
+    "user": "65534:65534",
+    "read_only": true,
+    "cap_drop": [
+      "ALL"
+    ],
+    "security_opt": [
+      "no-new-privileges:true"
+    ],
+    "ports_published": {},
+    "secret_mode": "0o400",
+    "secret_owner": 65534
+  },
+  "result": "PASS"
+}

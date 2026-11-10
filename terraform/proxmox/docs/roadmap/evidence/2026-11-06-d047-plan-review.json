@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "changes": [
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-nucleoedge\"]",
+      "actions": [
+        "update"
+      ],
+      "fields": [
+        "description"
+      ]
+    }
+  ],
+  "issues": [],
+  "apply_permitted": true
+}

@@ -1,0 +1,172 @@
+{
+  "decision": "D-051",
+  "status": "DONE — corrección técnica",
+  "time_madrid": "2026-11-07T16:08:28.460648+01:00",
+  "containers": {
+    "crm-api": {
+      "name": "crm-api",
+      "healthy": true,
+      "image_id_unchanged": true,
+      "env_resources_mounts_networks_unchanged": true,
+      "other_containers_unchanged": true,
+      "original_stopped_preserved": true,
+      "idempotent": true,
+      "id": "605bd20580170f90af661ce947bf4e7c1913b69b7f0d688fd18bf3d576600597"
+    },
+    "budibase-app": {
+      "name": "budibase-app",
+      "healthy": true,
+      "image_id_unchanged": true,
+      "env_resources_mounts_networks_unchanged": true,
+      "other_containers_unchanged": true,
+      "original_stopped_preserved": true,
+      "idempotent": true,
+      "id": "82becc9630f8ac02bfa0912381a1dbf2fdb670c1eee470db3eed4931e4547134"
+    },
+    "focalboard": {
+      "name": "focalboard",
+      "healthy": true,
+      "image_id_unchanged": true,
+      "env_resources_mounts_networks_unchanged": true,
+      "other_containers_unchanged": true,
+      "original_stopped_preserved": true,
+      "idempotent": true,
+      "id": "a73c793aa727932ba556fd223834a0f904b1a93e8e2ead42fc4d8904e8bea1a4"
+    }
+  },
+  "http": {
+    "crm-ready": {
+      "http": 200,
+      "db": "ok"
+    },
+    "crm-health": {
+      "http": 200
+    },
+    "focalboard-ping": {
+      "http": 200
+    },
+    "focalboard-ui": {
+      "http": 200
+    },
+    "budibase-status": {
+      "http": 200,
+      "health": {
+        "passing": true
+      },
+      "version": "3.27.4"
+    }
+  },
+  "cadvisor_health": [
+    {
+      "instance": "192.168.1.118:8085",
+      "name": "crm-api",
+      "service": "infra-composable-crm",
+      "health": 1.0
+    },
+    {
+      "instance": "192.168.1.122:8085",
+      "name": "focalboard",
+      "service": "infra-eva-assistant-bot",
+      "health": 1.0
+    },
+    {
+      "instance": "192.168.1.118:8085",
+      "name": "budibase-app",
+      "service": "infra-composable-crm",
+      "health": 1.0
+    }
+  ],
+  "targeted_prometheus_alerts": 0,
+  "targeted_am_firing": 0,
+  "prometheus_and_alertmanager_ready": true,
+  "targets_up": {
+    "cadvisor": 17,
+    "prometheus": 1,
+    "alertmanager": 1,
+    "blackbox_exporter": 1,
+    "blackbox": 11,
+    "node_exporter": 17
+  },
+  "backups": {
+    "crm-api": {
+      "config_sha256": "cbbec244bbbfc11388669d94934b4a25be613651fe9044fc855299bf1017e0a8",
+      "config_offhost_restore_verified": true,
+      "data_sha256": "84ff92691f909a05b224e1c56abb4864f01b4f8e3c854e4bb4c7baf1d3f6d652",
+      "data_offhost_restore_verified": true,
+      "config_bytes": 153600,
+      "data_bytes": 10240
+    },
+    "budibase-app": {
+      "config_sha256": "2227b9d76df326553fc8c388aeec6fea19a560d4d1343f6906fdcadbf27f5285",
+      "config_offhost_restore_verified": true,
+      "data_sha256": "83d12fee73dc792bbbaa9a37455740775b0e9215cbfef4a5e18c40fb3bab8765",
+      "data_offhost_restore_verified": true,
+      "config_bytes": 184320,
+      "data_bytes": 10168320
+    },
+    "focalboard": {
+      "config_sha256": "68ba0f0f0174204d4f0ac13c3739f809a8e95b54478f021b5c31fb1041d09fff",
+      "config_offhost_restore_verified": true,
+      "data_sha256": "00161ab6bebf6ea94941a0c9ab03724f4c444187d5603d09d1b0edd705e6a920",
+      "data_offhost_restore_verified": true,
+      "config_bytes": 235520,
+      "data_bytes": 10240
+    }
+  },
+  "tests": {
+    "health_and_invariant_cases": 16,
+    "passed": true,
+    "local_links": true,
+    "python_compile": true,
+    "overlay_generation_idempotent": true,
+    "git_diff_check": true
+  },
+  "candidate_creations": {
+    "crm-api": 1,
+    "focalboard": 2,
+    "budibase-app": 1
+  },
+  "originals_preserved_stopped": true,
+  "other_containers_unchanged_excluding_sequentially_accepted_peers": true,
+  "image_env_resources_data_mounts_and_networks_preserved": true,
+  "rules_and_thresholds_unchanged": true,
+  "notifications": {
+    "sent": [
+      {
+        "metric": {},
+        "value": [
+          1794064108.487,
+          "137"
+        ]
+      }
+    ],
+    "failed": [
+      {
+        "metric": {},
+        "value": [
+          1794064108.489,
+          "56"
+        ]
+      }
+    ],
+    "new_failures_30m": [
+      {
+        "metric": {},
+        "value": [
+          1794064108.491,
+          "0"
+        ]
+      }
+    ]
+  },
+  "resolved_human_receipt_confirmed": false,
+  "incidents": [
+    "API empty DNS null/[] false mismatch; preventive graceful rollback timed out120s during startup; same healthy candidate reconciled and idempotent",
+    "Focalboard first candidate rolled back for raw Binds/Mounts API representation; same effective mounts; isolated d051b retry passed; rejected candidate/backups retained"
+  ],
+  "remaining_observations": [
+    "No new functional login/business UAT; prior F3 waiver not extended",
+    "API SIGTERM termination during startup not certified; no forced kill or application-code change"
+  ],
+  "no_commits_or_push": true
+}

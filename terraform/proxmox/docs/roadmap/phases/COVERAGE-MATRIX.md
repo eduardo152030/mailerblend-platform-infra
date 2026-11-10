@@ -1,5 +1,12 @@
 # Matriz de cobertura — estadoD041
 
+ActualizaciónD059,2026-11-09:17/17exportersaceptadosD041 yactualmenteUP,
+18 Blackbox UP; Journal funcional periódicoD054/D057 yhealthchecks D051resueltos.
+Estado/uptimeCT desdePVE D056. ScrapeGrafanaausente; hostcompleto pendiente.
+[Estado vigente](../CURRENT-STATUS.md), [evidencia](../evidence/2026-11-09-d059-documentation-audit.json).
+Las tablas inferiores fechadasD025/D021sonhistóricas; sus pendientes fueron
+sustituidos porD041yD051–D058. La coberturaexportersno certificaUATdenegocio.
+
 Registro validado:17/17. CoberturaexportersDONE; complementosabiertos. [Ejecución](../AUTONOMOUS-EXECUTION.md).
 
 | CT | Estado | Evidencia |
@@ -88,5 +95,5 @@ una métrica como garantía de exclusividad si proviene de un subsistema compart
 ## Integración real de CPU — D-021
 
 Fuente fiable integrada y cadena recibida:624/626/625/613, **4/17**.
-Los otros13 conservan CPUlegacy no verificada. Prometheus17Node/17CAD/11Blackbox;
+Los otros13 conservan CPUlegacy no verificada. Prometheus17 Node/17CAD/11Blackbox;
 Grafana0/1 y sondasJournal pendientes. Ver [ejecución](../P0-R1-EXECUTION.md).

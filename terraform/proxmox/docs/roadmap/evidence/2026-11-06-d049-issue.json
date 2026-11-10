@@ -1,0 +1,9 @@
+{
+  "url": "https://github.com/eduardo152030/mailerblend-platform-infra/issues/1",
+  "title": "[Monitoring] CT 614 \u2014 Prevent sGTM bootstrap health expiration",
+  "updated": true,
+  "duplicate_created": false,
+  "reason": "La prevenci\u00f3n debe incluir la segunda instancia afectada y su enrutamiento Preview distinto",
+  "scope_added": "CT615 D048; one recreation per service; no automatic restarts",
+  "updated_via": "gh existing authorized access; connector update returned403"
+}
