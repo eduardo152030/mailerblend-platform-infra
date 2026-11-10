@@ -14,6 +14,6 @@ output "services" {
       dns      = s.dns
       storage  = s.storage
       template = s.template_vmid
-    }
+    } if contains(keys(proxmox_virtual_environment_container.svc), k)
   }
 }

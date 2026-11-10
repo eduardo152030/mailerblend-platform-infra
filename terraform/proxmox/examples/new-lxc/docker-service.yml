@@ -1,0 +1,45 @@
+# Fictional TEST-NET-2, never apply/reserve.
+service:
+  name: example-docker
+  vmid: 9992
+  ip: 198.51.100.22/24
+resources:
+  cpu: 1
+  memory: 512
+  disk_gb: 8
+os:
+  template_vmid: 106
+  name: "Ubuntu 22.04 LXC template \u2014 PENDING VERIFICATION"
+network:
+  gateway: 198.51.100.1
+  dns:
+  - 198.51.100.1
+  bridge: vmbr0
+storage:
+  name: local-lvm
+tags:
+- infra
+- test
+- example
+monitoring:
+  docker: true
+  node_exporter: true
+  blackbox:
+  - url: http://198.51.100.22:8080/health
+    module: lxc_9992_health
+    contract: Declared example health endpoint; response and application NOT DEPLOYED
+    body_regex: '"status"\s*:\s*"ok"'
+provisioning:
+  environment: test
+  purpose: Fictional Docker service for offline provisioning validation
+  applications:
+  - name: example-http
+    runtime: docker
+    ports:
+    - 8080/tcp (private, planned)
+  dependencies: []
+  domains: []
+  owner: PENDING VERIFICATION
+  backup: "PENDING VERIFICATION \u2014 select policy before real provisioning"
+  known_issues:
+  - Example only; no IP reserved, CT or application deployed

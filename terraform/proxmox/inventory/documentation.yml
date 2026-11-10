@@ -1,0 +1,365 @@
+schema_version: 1
+services:
+  infra-blackbox:
+    function: Sondas HTTP externas de disponibilidad
+    environment: Not verified
+    category: Observabilidad
+    project: infra-blackbox
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      blackbox-exporter: 'Blackbox Exporter: comprobación de endpoints'
+    declared_dependencies: {}
+    runbook: docs/roadmap/CRITICAL-D039-EXECUTION.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-blackbox'
+  infra-composable-crm:
+    function: CRM componible con interfaz Budibase y API
+    environment: Not verified
+    category: Aplicación
+    project: infra-composable-crm
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      budibase-app: Interfaz CRM Budibase 3.27.4 recuperada
+      crm-api: API del CRM
+      budibase-redis: Caché y coordinación Budibase
+      budibase-couchdb: Persistencia Budibase
+      supabase-db: PostgreSQL del CRM
+    declared_dependencies:
+      budibase-app:
+      - redis
+      - couchdb
+      budibase-worker:
+      - redis
+      - couchdb
+    runbook: services/infra-composable-crm/recovery/RECOVERY.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-composable-crm'
+  infra-eva-assistant-bot:
+    function: Asistente EVA con API, tareas programadas y Focalboard
+    environment: Not verified
+    category: Aplicación
+    project: infra-eva-assistant-bot
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      eva-api: API del asistente EVA
+      eva-scheduler: Tareas programadas
+      eva-sync: Sincronización EVA/Focalboard
+      eva-cron-digest: Resúmenes periódicos
+      postgres: Persistencia PostgreSQL
+      focalboard: Tableros de trabajo
+      docker-cleanup: Mantenimiento Docker existente; no ejecutado aquí
+    declared_dependencies:
+      eva-api:
+      - postgres
+      eva-scheduler:
+      - postgres
+      eva-sync:
+      - postgres
+      - focalboard
+      eva-cron-digest:
+      - eva-api
+      focalboard:
+      - postgres
+    runbook: services/infra-eva-assistant-bot/recovery/STORAGE-PLAN.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-eva-assistant-bot'
+  infra-excraper:
+    function: Workers LinkedIn y señales con Redis
+    environment: Not verified
+    category: Automatización
+    project: infra-excraper
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      linkedin-worker: Worker LinkedIn; alcance funcional Pending documentation
+      signals-worker: Procesamiento de señales; alcance funcional Pending documentation
+      redis: Cola/caché compartida
+    declared_dependencies:
+      linkedin-worker:
+      - redis
+      signals-worker:
+      - redis
+    runbook: docs/roadmap/R2-621-620.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-excraper'
+  infra-gestoria:
+    function: Gestoría con Odoo y PostgreSQL
+    environment: Not verified
+    category: Aplicación
+    project: infra-gestoria
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      odoo: Gestión empresarial Odoo 17
+      db: Persistencia de Odoo
+    declared_dependencies:
+      odoo:
+      - db
+    runbook: docs/roadmap/PHASE4-HANDOFF.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-gestoria'
+  infra-grafana:
+    function: Visualización de métricas con Grafana
+    environment: Not verified
+    category: Observabilidad
+    project: infra-grafana
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      grafana: Dashboards y consulta de métricas
+    declared_dependencies: {}
+    runbook: docs/roadmap/CRITICAL-D039-EXECUTION.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-grafana'
+  infra-hola:
+    function: Servicio demo hola declarado; aplicación no observada en ejecución
+    environment: Not verified
+    category: Demostración
+    project: infra-hola
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications: {}
+    declared_dependencies: {}
+    runbook: docs/roadmap/R1-613.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    - Compose declara hola, pero no se observó su contenedor activo
+    legacy_notes: 'Managed by Terraform - Service: infra-hola'
+  infra-journal-api:
+    function: API de Journal TradeIntuit
+    environment: Not verified
+    category: Aplicación
+    project: TradeIntuit Journal
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      api: API del Journal; contratos funcionales Pending documentation
+    declared_dependencies: {}
+    runbook: docs/roadmap/JOURNAL-EXECUTION.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-journal-api'
+  infra-journal-db:
+    function: PostgreSQL de Journal TradeIntuit
+    environment: Not verified
+    category: Base de datos
+    project: TradeIntuit Journal
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      db: Persistencia PostgreSQL del Journal
+    declared_dependencies: {}
+    runbook: docs/roadmap/JOURNAL-EXECUTION.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-journal-db'
+  infra-journal-web:
+    function: Interfaz web de Journal TradeIntuit
+    environment: Not verified
+    category: Aplicación
+    project: TradeIntuit Journal
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      web: Interfaz web mediante Nginx
+    declared_dependencies: {}
+    runbook: docs/roadmap/JOURNAL-EXECUTION.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-journal-web'
+  infra-mailerblend-edge:
+    function: Google Tag Manager Server-Side de Mailerblend
+    environment: Production (tag prod declarado y observado)
+    category: Analítica
+    project: infra-mailerblend-edge
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      sgtm: Procesamiento sGTM Serving
+      sgtm_preview: Depuración sGTM Preview
+    declared_dependencies:
+      sgtm:
+      - sgtm_preview
+    runbook: docs/inventory/615-LXC-INVENTORY.md
+    functional_status: Salud nativa recuperada D048 (06/11/2026); entrega GA4 extremo
+      a extremo Not verified
+    pending:
+    - Responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-mailerblend-edge'
+  infra-nucleoedge:
+    function: Google Tag Manager Server-Side de Núcleo Tecnológico
+    environment: Production
+    category: Analítica
+    project: infra-nucleoedge
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      sgtm: Procesamiento sGTM Serving
+      sgtm_preview: Depuración sGTM Preview
+    declared_dependencies:
+      sgtm:
+      - sgtm_preview
+    runbook: docs/roadmap/CT614-SGTM-D044-RECOVERY.md
+    functional_status: Salud nativa recuperada D044; entrega GA4 extremo a extremo
+      Not verified
+    pending:
+    - Responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-nucleoedge'
+  infra-orbit:
+    function: Pasarela de ingestión de analítica y proxy de acceso
+    environment: Not verified
+    category: Analítica
+    project: infra-orbit
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      ingest-gateway: Recepción de solicitudes; entrega final Not verified
+      orbit-gateway-proxy: Proxy Nginx de acceso a ingest-gateway
+    declared_dependencies:
+      orbit-gateway-proxy:
+      - ingest-gateway
+    runbook: docs/roadmap/EXPORTERS-D041-CLOSURE.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-orbit'
+  infra-project-gestion:
+    function: Gestión de proyectos con Focalboard
+    environment: Not verified
+    category: Aplicación
+    project: infra-project-gestion
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      focalboard: Tableros de gestión de proyectos
+    declared_dependencies: {}
+    runbook: docs/roadmap/R2-621-620.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-project-gestion'
+  infra-prom:
+    function: Recolección de métricas y enrutamiento de alertas
+    environment: Not verified
+    category: Observabilidad
+    project: infra-prom
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      prometheus: Series temporales y evaluación de reglas
+      alertmanager: Agrupación y envío de alertas Telegram
+      eloquent_ganguly: 'Not verified: Alertmanager adicional sin puertos publicados'
+    declared_dependencies: {}
+    runbook: services/infra-prom/PHASE2-EXECUTION.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-prom'
+  infra-pulpo:
+    function: Automatización de flujos con n8n
+    environment: Not verified
+    category: Automatización
+    project: infra-pulpo
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      n8n: Editor y ejecución de flujos
+      postgres: Persistencia de n8n
+    declared_dependencies:
+      n8n:
+      - postgres
+    runbook: docs/roadmap/PHASE4-HANDOFF.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    legacy_notes: 'Managed by Terraform - Service: infra-pulpo'
+  infra-svc01:
+    function: Plataforma NocoDB con PostgreSQL
+    environment: Not verified
+    category: Aplicación
+    project: svc01
+    lifecycle: En servicio (LXC en ejecución; aceptación funcional independiente)
+    code_repository: https://github.com/eduardo152030/mailerblend-platform-infra
+    application_repository: Not verified
+    applications:
+      nocodb: Interfaz de gestión de datos NocoDB
+      db: Persistencia PostgreSQL de NocoDB
+    declared_dependencies:
+      nocodb:
+      - db
+    runbook: docs/roadmap/CT61211-D037-EXECUTION.md
+    functional_status: 'Not verified: esta tarea no certifica funcionalidad de negocio'
+    pending:
+    - Entorno y responsable operativo por confirmar
+    - Repositorio de aplicación independiente por confirmar
+    - Prueba funcional y dependencias externas pendientes
+    - README histórico atribuye infra-svc01.mailerblend.com a NocoDB, pero Nginx observado
+      lo dirige a CT 618; no atribuir dominio a CT 61211
+    legacy_notes: 'Managed by Terraform - Service: svc01'

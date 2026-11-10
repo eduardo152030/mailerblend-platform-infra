@@ -12,3 +12,7 @@ tags:
   - mailerblend
   - sgtm
   - prod
+
+documentation:
+  notes_file: services/infra-mailerblend-edge/NOTES.md
+  inventory_file: docs/inventory/615-LXC-INVENTORY.md

@@ -12,3 +12,7 @@ tags:
   - nucleo
   - sgtm
   - prod
+
+documentation:
+  notes_file: services/infra-nucleoedge/NOTES.md
+  inventory_file: docs/inventory/614-LXC-INVENTORY.md

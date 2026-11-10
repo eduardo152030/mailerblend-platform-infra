@@ -10,7 +10,7 @@ resource "proxmox_virtual_environment_container" "svc" {
 
   node_name     = var.node_name
   vm_id         = each.value.vmid
-  description   = "Managed by Terraform - Service: ${each.value.name}"
+  description   = local.lxc_descriptions[each.key]
   start_on_boot = true
   tags          = lookup(var.recovery_preserve_service_tags, each.key, each.value.tags)
 
@@ -18,8 +18,8 @@ resource "proxmox_virtual_environment_container" "svc" {
   unprivileged = false # <--- Obligatorio para Grafana/Docker sin errores de kernel
 
   features {
-    nesting = true
-    keyctl  = true
+    nesting = each.value.docker
+    keyctl  = each.value.docker
   }
 
   # Clone from CT template
@@ -30,6 +30,11 @@ resource "proxmox_virtual_environment_container" "svc" {
   }
 
   lifecycle {
+    precondition {
+      condition     = local.lxc_notes_fresh && length(local.lxc_notes_input) == length(local.services) && toset(keys(local.lxc_notes_input)) == toset(keys(local.services))
+      error_message = "LXC notes are stale or incomplete. Run python3 scripts/generate-lxc-inventory.py and review all service records."
+    }
+
     ignore_changes = [
       clone, # Evita que cambie/destruya los LXC si actualizas la plantilla base
       disk,  # Evita errores de API al intentar encoger discos en Proxmox

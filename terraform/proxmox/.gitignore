@@ -32,3 +32,6 @@ terraform.tfvars
 *Zone.Identifier
 services/infra-gestoria/compose/config/odoo.conf
 services/infra-composable-crm/recovery/plan.json
+
+# D061: real environment files remain local; examples are reviewed separately.
+**/.env
