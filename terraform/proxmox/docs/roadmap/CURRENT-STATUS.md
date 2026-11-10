@@ -3,21 +3,23 @@
 Actualizado: **2026-11-10 (Europe/Madrid)**. Cierre D-060.
 [Roadmap](ROADMAP.md) · [Decisiones](DECISIONS.md) · [Informe F6](PHASE6-D060-CLOSURE.md).
 
-## D-061 — Git y preparación de altas — IN PROGRESS
+## D-061 — cierre del alcance solicitado
 
-Autorizados commits/push normal de infraestructura/monitorización y preparación
-local7.4; sustituye prohibición de publicación del cierreD060 en este alcance.
-7.2/7.3 OUT OF SCOPE, no DONE. Backup privado Git previo verificado; rama main,
-índice vacío y cambios ajenos preservados. Sin CT nuevos ni cambios productivos.
-7.4 READY FOR FIRST REAL PROVISIONING TEST: dos planes mock, Notes/fichas,
-exporters Docker/opcional, verificador y runbook preparados. Siguiente: publicar
-la selección validada y comprobar sincronización; primer alta real no realizada.
+**7.1 Git Consolidation: DONE.** Cinco commits principales publicados por SSH
+normal, sin force; main/origin sincronizados0/0. Cierre documental separado.
+**7.4: READY FOR FIRST REAL PROVISIONING TEST.** Flujo sobre módulo/inventario
+existentes, dos fixtures con/sinDocker, Notes/ficha, exporters/targets/candidatos
+preparados y dos planes mock1alta/0cambios/0destrucciones. Ningún CT creado.
+**7.2 Security Hardening y7.3 Disaster Recovery: OUT OF SCOPE**, no DONE.
+Cambios ajenos y secretos/estado/backups locales conservados fuera del commit.
+[Informe](PHASE7-D061-EXECUTION.md), [Git](evidence/2026-11-10-d061-git-published.json),
+[runbook](../runbooks/NEW-LXC-PROVISIONING.md).
 
 ## Fase actual
 
 **Fase 6. Grafana & Dashboards — DONE**, conforme a los once criterios autorizados
 D-060. Fases1–5 conservan sus cierres y límites de aceptación. **Fase7 IN PROGRESS**
-con alcance D061:7.1 publicación y7.4 preparación;7.2/7.3 OUT OF SCOPE, no DONE.
+con alcance D061:7.1 publicada y7.4 preparada;7.2/7.3 OUT OF SCOPE, no DONE.
 
 Fleet Overview y LXC Details están desplegados, enlazados en ambos sentidos y
 verificados en navegador. Los nueve dashboards son IaC, incluidos siete anteriores
@@ -58,7 +60,7 @@ Backups CT/fuera PVE y originales conservados, sin commits/push.
 | IN PROGRESS | F4-06: observabilidad completa del host | Estado/uptime CT resueltos; host físico completo no aceptado |
 | TODO | F7: secretos históricos/estado Terraform, SSH/TLS global, CI/herramientas y DR continuo | No resueltos por snapshots o cierre de dashboards |
 | TODO | Digest EVA, prevenciónsGTM, UAT/GA4 y deriva inventario/discos | Requieren alcance específico; no certificados por HTTP/readiness |
-| TODO | Consolidación Git posterior a D042 | Árbol conserva cambios propios/ajenos; publicación autorizada exclusivamente por D061 |
+| DONE | Consolidación Git curada D061 | Publicada; cambios funcionales ajenos conservados fuera del commit |
 
 Límites representados:sin contador fiable de reinicios Docker; capacidad del filesystem
 en vez decuota PVE/Terraform; descripción decontrato dealerta con evaluación enlazada
@@ -70,8 +72,8 @@ D060 autoriza el cierre tras comprobaciones objetivas y de navegador.
 
 La solicitud D060 autorizó provisioning Grafana y sondas necesarias; no se requirieron
 sondas nuevas. Se preservan apps/DB/recursos/secretos/F5/Telegram por alcance.
-D061 autoriza commits/push normal de la selección curada y preparación local de
-altas, no crear CT ni desplegar servicios. No `deploy-all`, reinicios, recursos,
+D061 completado: publicación curada y preparación local, sin crear CT ni desplegar
+servicios. Ejecución detenida. El primer ensayo real requiere un CT y alcance aprobados. No `deploy-all`, reinicios, recursos,
 apps/DNS/credenciales ni borrado de backups. La prohibición de publicar deD060
 queda sustituida solo en el alcanceD061. [InformeF7](PHASE7-D061-EXECUTION.md).
 
@@ -81,3 +83,12 @@ queda sustituida solo en el alcanceD061. [InformeF7](PHASE7-D061-EXECUTION.md).
 [historial previo](CURRENT-STATUS-HISTORY.md),
 [decisiones](DECISIONS.md). Los informes originales conservan sus fechas/evidencias;
 no reutilizar siguientes pasos históricos como permisos actuales.
+
+## Preparado frente a desplegado en D061
+
+Compatibilidad sinDocker en regla de ausencia y dashboards es código preparado,
+no recargado en producción. Los17actuales mantienen el despliegueD060/F5 intacto.
+El primer CTsinDocker exige autorización e integración coordinada de ese cambio.
+Bootstrap/recibo son candidatos locales; estabilidad, segunda aplicación real y
+cadena end-to-end no están probadas por mocks. Siguiente: autorización específica
+del primer alta real. Sin hardening/DR global ni rotación histórica.

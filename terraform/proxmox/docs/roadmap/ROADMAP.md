@@ -15,14 +15,14 @@ se conservan en [DECISIONS](DECISIONS.md).
 | [4. Exporters & Monitoring Coverage](phases/04-exporters-coverage.md) | DONE — cobertura exporters 17/17 | Rollout cerrado D041; CPU LXC/cgroup, RAM LXCFS y cAdvisor por CT. Complementos abiertos en ficha, sin reabrir rollout |
 | [5. Alerting Optimization](phases/05-alerting-optimization.md) | DONE — Accepted | D050: 26 alertas y 34 entradas de grabación; cadena real recibida y clara, rollback e idempotencia verificados |
 | [6. Grafana & Dashboards](phases/06-grafana-dashboards.md) | DONE | D060: Fleet y LXC Details desplegados, navegación y17 CT verificados; nueve dashboards IaC, persistencia aislada e idempotencia PASS |
-| [7. IaC Reliability, Security & Disaster Recovery](phases/07-iac-security-dr.md) | IN PROGRESS | D061:7.1 publicación en curso;7.4 READY FOR FIRST REAL PROVISIONING TEST;7.2/7.3 OUT OF SCOPE, no DONE |
+| [7. IaC Reliability, Security & Disaster Recovery](phases/07-iac-security-dr.md) | IN PROGRESS | D061:7.1 DONE publicada;7.4 READY FOR FIRST REAL PROVISIONING TEST;7.2/7.3 OUT OF SCOPE, no DONE |
 
 DONE se refiere al alcance acreditado. Un test local no prueba un despliegue;
 un despliegue no equivale a aceptación ni a UAT de negocio.
 
 ## Intervención vigente D061
 
-Autorizados commits/push normal y preparación local de altas sobre el móduloIaC
+Completadas publicacióncurada7.1 y preparación local7.4 sobre el móduloIaC
 existente. No crear CT, aplicar Terraform, modificar producción, recursos/apps/DNS/
 credenciales. 7.2/7.3 OUT OF SCOPE por decisión, no aceptadas como completadas.
 7.4 preparada con dos mocks (Docker/nativo), Notes/ficha y planes1create/0update/
@@ -82,3 +82,6 @@ desplegado y aceptado. Actualizar ficha, roadmap y estado con evidencias fechada
 riesgos y siguiente paso. Documentación en español, seguimiento Europe/Madrid,
 marcas UTC históricas identificadas. Conservar historial y backups; comprobar
 links/diff y excluir secretos/cambios ajenos de cualquier futuro commit.
+
+[Publicación D061](evidence/2026-11-10-d061-git-published.json): cinco commits
+principales enmain, sincronización0/0; cierre documental adicional. Sin primeralta real.

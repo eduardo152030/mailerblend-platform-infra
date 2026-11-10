@@ -122,3 +122,12 @@ no se atribuye al ensayo aislado: datasource/consultas se comprobaron en producc
 [Provisioning oficial Grafana](https://grafana.com/docs/grafana/latest/administration/provisioning/).
 Pendientes F7/host/Grafanajob/aplicaciones en
 [CURRENT-STATUS](../../docs/roadmap/CURRENT-STATUS.md), sin ejecutarlos por estecierre.
+
+## Preparación D061 — sin despliegue nuevo
+
+7.4 añade compatibilidad de cAdvisor opcional mediante la métrica declarada
+`lxc:cadvisor:required=0`, y exclusión de falsa ausenciaDocker. Código/JSON fuente
+preparados y versionados, no recargados en producción duranteD061. El despliegue
+aceptadoD060 sigue en servicio. Primera integración nativa requiere alcance y
+baseline/rollback coordinado, sin editarJSON por cadaCT. Ver
+[runbook de altas](../../docs/runbooks/NEW-LXC-PROVISIONING.md).

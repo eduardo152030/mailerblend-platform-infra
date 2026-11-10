@@ -1,0 +1,60 @@
+{
+  "observed_at_utc": "2026-11-10T08:23:20.804833+00:00",
+  "branch": "main",
+  "baseline": "7deba1cc8cfa7740ba8f8bd1d99e3fc2887d7ca9",
+  "published_head": "4bd0feceaec1d60e5d2759857ba97d4c820c8e3b",
+  "origin_main": "4bd0feceaec1d60e5d2759857ba97d4c820c8e3b",
+  "ahead": 0,
+  "behind": 0,
+  "commits": [
+    {
+      "sha": "5dfcce346f1bf60f90af7ffc6bf67b73101f5ce4",
+      "subject": "feat(iac): prepare reproducible LXC provisioning and generated notes"
+    },
+    {
+      "sha": "31308da1c915279e000c7a1d3ab5b8f0dc37fc80",
+      "subject": "feat(monitoring): finalize alerting, functional checks and PVE uptime"
+    },
+    {
+      "sha": "1c09bd301dd58fe3c438f88a1b208a56910b3c4f",
+      "subject": "feat(grafana): provision Fleet and LXC Details with preserved legacy dashboards"
+    },
+    {
+      "sha": "b765b6ad357d24bb69eb46080ef0b792a5e848f5",
+      "subject": "feat(tooling): add guarded monitoring recovery and provisioning validation"
+    },
+    {
+      "sha": "4bd0feceaec1d60e5d2759857ba97d4c820c8e3b",
+      "subject": "docs: consolidate phase evidence and new LXC provisioning runbook"
+    }
+  ],
+  "push": "normal SSH, no force",
+  "new_credentials": 0,
+  "verified_sha256_false_positives": 1,
+  "excluded_application_entries": [
+    "terraform/proxmox/services/infra-eva-assistant-bot/compose/api/sync_service.py",
+    "terraform/proxmox/services/infra-gestoria/compose/addons/account-financial-reporting/",
+    "terraform/proxmox/services/infra-gestoria/compose/addons/account-financial-tools/",
+    "terraform/proxmox/services/infra-gestoria/compose/addons/account-reconcile/",
+    "terraform/proxmox/services/infra-gestoria/compose/addons/l10n-spain/",
+    "terraform/proxmox/services/infra-gestoria/compose/addons/reporting-engine/",
+    "terraform/proxmox/services/infra-gestoria/compose/addons/server-ux/",
+    "terraform/proxmox/services/infra-gestoria/compose/docker-compose.yml",
+    "terraform/proxmox/services/infra-gestoria/readm.md",
+    "terraform/proxmox/services/infra-gestoria/verifactu-test/verifactu.crt",
+    "terraform/proxmox/services/infra-journal-api/compose/Dockerfile",
+    "terraform/proxmox/services/infra-journal-api/compose/docker-compose.yml",
+    "terraform/proxmox/services/infra-journal-db/compose/docker-compose.yml",
+    "terraform/proxmox/services/infra-journal-web/compose/dist/assets/index-C2ROb03y.css",
+    "terraform/proxmox/services/infra-journal-web/compose/dist/favicon.ico",
+    "terraform/proxmox/services/infra-journal-web/compose/dist/index.html",
+    "terraform/proxmox/services/infra-journal-web/compose/dist/placeholder.svg",
+    "terraform/proxmox/services/infra-journal-web/compose/dist/robots.txt",
+    "terraform/proxmox/services/infra-journal-web/compose/docker-compose.yml",
+    "terraform/proxmox/services/infra-journal-web/compose/nginx/default.conf"
+  ],
+  "excluded_content_preserved": true,
+  "staged_files": 0,
+  "infrastructure_created": false,
+  "services_modified": false
+}

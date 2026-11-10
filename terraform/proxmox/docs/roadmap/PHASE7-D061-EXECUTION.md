@@ -7,7 +7,9 @@ propietario distinta de las tareas históricasF7-04(secretos)/F7-06(DR).
 
 ## 7.1 — consolidación
 
-Estado: **IN PROGRESS**, pendiente de publicar la selección validada.
+Estado: **DONE**. Cinco commits principales publicados por SSH normal; main y
+origin/main sincronizados0/0 en checkpoint `4bd0feceaec1d60e5d2759857ba97d4c820c8e3b`.
+El registro de cierre se publica en un commit documental separado, sin reescrituras.
 Rama main, upstream origin/main y remoto SSH
 `git@github.com:eduardo152030/mailerblend-platform-infra.git` verificados por fetch
 con BatchMode, known_hosts del propietario y StrictHostKeyChecking=yes.
@@ -90,5 +92,38 @@ idempotencia delbootstrap, integración, estabilidad y cadena real. El mock no a
 nada de eso. Los endpoints de ejemplo son contratos declarados, no servicios vivos.
 No se desplegaron apps ni se reservóIP, cambióDNS, aplicóTerraform o modificórecursos.
 
-Siguiente: publicar commits normales de la selección y verificar origin/main;
-después, alta real de unCT específico solo tras nueva autorización.
+Publicación principal completada y verificada. Siguiente: alta real de un CT
+específico solo tras nueva autorización.
+
+## Commits principales publicados
+
+| Commit | Grupo |
+|---|---|
+| `5dfcce346f1b` | feat(iac): prepare reproducible LXC provisioning and generated notes |
+| `31308da1c915` | feat(monitoring): finalize alerting, functional checks and PVE uptime |
+| `1c09bd301dd5` | feat(grafana): provision Fleet and LXC Details with preserved legacy dashboards |
+| `b765b6ad357d` | feat(tooling): add guarded monitoring recovery and provisioning validation |
+| `4bd0feceaec1` | docs: consolidate phase evidence and new LXC provisioning runbook |
+
+[Evidencia Git publicada](evidence/2026-11-10-d061-git-published.json).
+El HEAD final incluye el commit de cierre posterior; consultar `git log`/`rev-parse`
+y la confirmación final de sincronización. No hay autorreferencia del hash del
+propio documento.20rutas ajenas conservadas, algunas directorios; ninguna borrada.
+Índice vacío tras la entrega principal. El árbol no se declara limpio: contiene
+los cambios funcionales excluidos y sus archivosignorados originales.
+
+Validación:28grupos PASS,7modelosCompose,14testsInventario y6testsProvisioning,
+fixturesPrometheus y regresiones relevantes de cambios publicados. Dos pruebas
+Terraform efectivamente ejecutadas con mocks, cada una1alta/0cambios/0destrucciones.
+651enlaces comprobados contra el checkout final disponible; sin referencias a
+archivos de aplicaciones excluidos. Único hallazgoGitleaks:SHA256 verificado,0credenciales
+nuevas. Fuentes/planes/artefactos de prueba no son despliegues ni aceptación real.
+
+7.1 DONE;7.4 READY FOR FIRST REAL PROVISIONING TEST;7.2/7.3 OUT OF SCOPE.
+Siguiente: autorización deun CTreal específico y alcance de integración para probar
+creación/plantilla/instalación/observación/idempotencia/cadena. No ejecutar nada
+productivo por este cierre. No se reservóIP, modificóDNS ni alterórecursos/credenciales.
+Ejecución detenida tras sincronización y comprobación final.
+
+Tiempo registrado desde el respaldo verificado: **36.8min**. Lectura inicial
+previa fuera de ese cronómetro. [Cierre/tiempos](evidence/2026-11-10-d061-closure.json).

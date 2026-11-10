@@ -1,0 +1,17 @@
+{
+  "observed_at_utc": "2026-11-10T08:27:10.620621+00:00",
+  "scope_7_1": "DONE",
+  "scope_7_4": "READY FOR FIRST REAL PROVISIONING TEST",
+  "scope_7_2": "OUT OF SCOPE",
+  "scope_7_3": "OUT OF SCOPE",
+  "elapsed_minutes_since_verified_backup": 36.8,
+  "initial_reading_before_backup_timed": false,
+  "production_infrastructure_created": false,
+  "production_services_modified": false,
+  "terraform_apply_executed": false,
+  "dns_ip_reservations": false,
+  "new_credentials_detected": 0,
+  "excluded_application_paths_preserved": true,
+  "principal_published_head": "4bd0feceaec1d60e5d2759857ba97d4c820c8e3b",
+  "closure_documentation_commit": "published separately after principal checkpoint; final HEAD from git rev-parse"
+}

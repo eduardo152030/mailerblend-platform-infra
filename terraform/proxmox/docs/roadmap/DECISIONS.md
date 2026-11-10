@@ -1260,3 +1260,19 @@ apply productivo, cambios de recursos/apps/DNS/credenciales ni reservas IP.
 7.2 Security Hardening y7.3 Disaster Recovery OUT OF SCOPE por decisión, no DONE.
 Numeración del propietario7.4 no es la tarea histórica F7-04(secretos). Fase7 global
 no se declara desplegada:7.4 solo READY FOR FIRST REAL PROVISIONING TEST tras pruebas.
+
+### D-061 — cierre y publicación del alcance solicitado
+
+2026-11-10 (Europe/Madrid).7.1 DONE: cinco commits curados publicados porSSHnormal,
+main/origin0ahead/0behind en4bd0fec; cierre documental adicional. Índice vacío y
+cambios funcionalesEVA/Gestoría/Journal intactos fuera delcommit.0credenciales nuevas
+según escaneo y revisión; único falso positivo SHA256 cotejado con fuente.
+7.4 READY FOR FIRST REAL PROVISIONING TEST: flujo reutiliza módulo/inventario,
+Notes/ficha conPENDINGVERIFICATION, exporters nativos/cAdvisoropcional y targets/
+reglas/variables preparados; dos planes mock1create/0update/0destroy efectivos.
+7.2/7.3 OUT OF SCOPE por decisión, noDONE; numeración distinta deF7-04histórica.
+No nuevosCT, applyreal, reservasIP, DNS, recursos, apps ni credenciales modificados.
+Compatibilidad nodocker solo preparada/versionada, no aplicada al despliegueF5/F6.
+[Informe](PHASE7-D061-EXECUTION.md), [publicación](evidence/2026-11-10-d061-git-published.json).
+Ejecución detenida. Próximo: permiso específico del primerCTreal ysu integración,
+no concedido por este cierre. No force, reescritura, borrado de ramas/tags/backups.

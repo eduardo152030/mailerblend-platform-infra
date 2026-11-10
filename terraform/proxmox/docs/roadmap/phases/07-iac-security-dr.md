@@ -7,7 +7,7 @@ Estado: **IN PROGRESS**. Actualizado: 2026-11-10 (Europe/Madrid).
 
 | Subfase | Estado | Alcance |
 |---|---|---|
-| 7.1 Git Consolidation | IN PROGRESS | Consolidar y publicar cambios de infraestructura/monitorización F4–F6 y documentación |
+| 7.1 Git Consolidation | DONE | D061: cinco commits principales publicados, origin/main sincronizado; cierre documental separado |
 | 7.2 Security Hardening | OUT OF SCOPE | Decisión expresa; no DONE ni rotación de secretos históricos |
 | 7.3 Disaster Recovery | OUT OF SCOPE | Decisión expresa; no DONE ni política global DR nueva |
 | 7.4 Automated LXC Provisioning | READY FOR FIRST REAL PROVISIONING TEST | Flujo/fixtures/mocks preparados, sin creación ni aplicación real |
@@ -94,3 +94,12 @@ imagen fijada enrecipe, sin recrear activo. Persistencia ensayadaaisladamente.
 Esto no cierra seguridad/secretos/CI/DR global ni publica el trabajo posteriorD042.
 [InformeF6](../PHASE6-D060-CLOSURE.md). Próximo: elegir yautorizar un pendienteF7;
 no intervención productiva ni commits/push autorizados por ese cierre.
+
+## Cierre D061
+
+2026-11-10:7.1 DONE, publicación normal SSH verificada;7.4 READY FOR FIRST REAL
+PROVISIONING TEST, con mocksDocker/nativo ysin creación real.7.2/7.3 OUT OF SCOPE
+por decisión, nunca DONE. Los estados históricos de deuda no autorizan ejecutarlas.
+No nuevosCT/apps/DNS/recursos ni despliegues productivos; cambios funcionales ajenos
+conservados. Próximo: definir yautorizar primerCTreal, no ejecutado por este cierre.
+[Informe](../PHASE7-D061-EXECUTION.md), [Git](../evidence/2026-11-10-d061-git-published.json).

@@ -217,3 +217,7 @@ Notes/fichas y compatibilidad preparados. Ningún nuevoCT ni servicio desplegado
 Primer ensayo real, acceso/plantilla/cgroups, idempotencia delbootstrap y aceptación
 end-to-end siguen pendientes hasta que el propietario autorice un CT concreto.
 [Estado y decisiones](../roadmap/CURRENT-STATUS.md).
+
+Referencia primaria: [mocks de Terraform](https://developer.hashicorp.com/terraform/language/tests/mocking).
+El mock sustituye al proveedor y no acredita una creación real ni las propiedades
+de una plantilla concreta.
