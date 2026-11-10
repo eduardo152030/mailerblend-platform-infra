@@ -47,11 +47,9 @@ tests:
     exp_samples:
     - labels: '{}'
       value: 1
-  - expr: count(ALERTS{alertstate="firing",alertname="HostHighCpuUsage"})
+  - expr: ALERTS{alertstate="firing",alertname="HostHighCpuUsage"}
     eval_time: 12m
-    exp_samples:
-    - labels: '{}'
-      value: 1
+    exp_samples: []
   - expr: lxc:cpu_usage:percent
     eval_time: 12m
     exp_samples: []
@@ -70,7 +68,8 @@ tests:
     exp_samples:
     - labels: '{}'
       value: 1
-  - expr: ALERTS{alertstate="firing",alertname=~"HostHighCpuUsage|LxcCpuCollectorInvalid"} or lxc:cpu_migration:pending
+  - expr: ALERTS{alertstate="firing",alertname=~"HostHighCpuUsage|LxcCpuCollectorInvalid"}
+      or lxc:cpu_migration:pending
     eval_time: 12m
     exp_samples: []
 - name: wrong vmid emits one collector alert not duplicate missing target
@@ -120,6 +119,7 @@ tests:
     exp_samples:
     - labels: '{}'
       value: 1
-  - expr: ALERTS{alertstate="firing",alertname=~"HostHighCpuUsage|LxcCpuTargetMissing"} or lxc:cpu_migration:pending
+  - expr: ALERTS{alertstate="firing",alertname=~"HostHighCpuUsage|LxcCpuTargetMissing"}
+      or lxc:cpu_migration:pending
     eval_time: 12m
     exp_samples: []

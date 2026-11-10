@@ -1,0 +1,21 @@
+services:
+  sgtm_preview:
+    healthcheck:
+      test:
+      - CMD
+      - /nodejs/bin/node
+      - /app/health_checker_bin.js
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+  sgtm:
+    healthcheck:
+      test:
+      - CMD
+      - /nodejs/bin/node
+      - /app/health_checker_bin.js
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s

@@ -1,0 +1,54 @@
+"""Check actual Budibase topology; use URL credentials without exposing them in argv/logs."""
+import base64
+import json
+import os
+import subprocess
+import urllib.parse
+import urllib.request
+
+
+def get(url, auth=False):
+    u = urllib.parse.urlsplit(url)
+    host = u.hostname + (':' + str(u.port) if u.port else '')
+    req = urllib.request.Request(urllib.parse.urlunsplit((u.scheme, host, u.path, u.query, '')))
+    if auth and u.username:
+        credential = urllib.parse.unquote(u.username) + ':' + urllib.parse.unquote(u.password or '')
+        req.add_header('Authorization', 'Basic ' + base64.b64encode(credential.encode()).decode())
+    with urllib.request.urlopen(req, timeout=1.5) as response:
+        if response.status != 200:
+            raise RuntimeError('HTTP dependency failed')
+        return response.read(65536)
+
+
+def check():
+    for url in ['http://127.0.0.1/', 'http://127.0.0.1:4001/health', 'http://127.0.0.1:4002/health']:
+        get(url)
+    if json.loads(get('http://127.0.0.1/api/system/status'))['health']['passing'] is not True:
+        raise RuntimeError('Budibase status failed')
+    couch = urllib.parse.urlsplit(os.environ['COUCH_DB_URL'])
+    if json.loads(get(urllib.parse.urlunsplit((couch.scheme, couch.netloc, '/_up', '', '')), True)).get('status') != 'ok':
+        raise RuntimeError('CouchDB status failed')
+    redis = os.environ['REDIS_URL']
+    redis = urllib.parse.urlsplit(redis if '://' in redis else 'redis://' + redis)
+    if redis.scheme not in ['redis', 'rediss']:
+        raise RuntimeError('Unknown Redis scheme')
+    env = dict(os.environ)
+    env['REDISCLI_AUTH'] = urllib.parse.unquote(redis.password or env.get('REDIS_PASSWORD', ''))
+    args = ['redis-cli', '--no-auth-warning', '-h', redis.hostname, '-p', str(redis.port or 6379)]
+    if redis.username:
+        args += ['--user', urllib.parse.unquote(redis.username)]
+    if redis.scheme == 'rediss':
+        args += ['--tls']
+    pong = subprocess.run(args + ['ping'], env=env, capture_output=True, text=True, timeout=2)
+    if pong.returncode != 0 or pong.stdout.strip() != 'PONG':
+        raise RuntimeError('Redis status failed')
+    subprocess.run(['nginx', '-t', '-q'], check=True, capture_output=True, timeout=2)
+
+
+if __name__ == '__main__':
+    try:
+        check()
+    except Exception:
+        # Exceptions can contain credential-bearing URLs; never emit them.
+        print('Budibase healthcheck failed; check HTTP/backend/worker/CouchDB/Redis/Nginx privately')
+        raise SystemExit(1)

@@ -1,0 +1,111 @@
+rule_files:
+- ../../services/infra-prom/config/rules/infra-hosts.yml
+- ../../services/infra-prom/config/rules/infra-containers.yml
+- ../../services/infra-prom/config/rules/monitoring-health.yml
+- ../../services/infra-prom/config/rules/container-availability.yml
+evaluation_interval: 30s
+tests:
+- name: Memory warning and critical are persistent, not transient
+  interval: 30s
+  input_series:
+  - series: node_memory_MemAvailable_bytes{job="node_exporter",service="test",instance="node"}
+    values: 5x24 50x4
+  - series: node_memory_MemTotal_bytes{job="node_exporter",service="test",instance="node"}
+    values: 100x30
+  promql_expr_test:
+  - expr: ALERTS{alertstate="firing",alertname=~"HostLowMemory|HostMemoryPressure"}
+    eval_time: 4m
+    exp_samples: []
+  - expr: count(ALERTS{alertstate="firing",alertname=~"HostLowMemory|HostMemoryPressure"})
+    eval_time: 11m
+    exp_samples:
+    - labels: '{}'
+      value: 2
+  - expr: ALERTS{alertstate="firing",alertname=~"HostLowMemory|HostMemoryPressure"}
+    eval_time: 14m
+    exp_samples: []
+- name: Disk critical at 5 percent, warning at 15, recovery clears both
+  interval: 30s
+  input_series:
+  - series: node_filesystem_avail_bytes{job="node_exporter",service="test",instance="node",mountpoint="/",fstype="ext4"}
+    values: 4x24 40x4
+  - series: node_filesystem_size_bytes{job="node_exporter",service="test",instance="node",mountpoint="/",fstype="ext4"}
+    values: 100x30
+  promql_expr_test:
+  - expr: ALERTS{alertstate="firing",alertname="HostDiskAlmostFull"}
+    eval_time: 4m
+    exp_samples: []
+  - expr: count(ALERTS{alertstate="firing",alertname=~"HostDiskFilling|HostDiskAlmostFull"})
+    eval_time: 11m
+    exp_samples:
+    - labels: '{}'
+      value: 2
+  - expr: ALERTS{alertstate="firing",alertname=~"HostDiskFilling|HostDiskAlmostFull"}
+    eval_time: 14m
+    exp_samples: []
+- name: Health minus one is unknown; persistent unhealthy is warning and sGTM critical
+  interval: 30s
+  input_series:
+  - series: lxc:cpu_inventory:expected{service="infra-nucleoedge",ct_id="614",instance="node"}
+    values: 1x24
+  - series: container_health_state{job="cadvisor",service="infra-nucleoedge",name="serving",instance="cadvisor",container_label_com_docker_compose_service="sgtm"}
+    values: -1x4 0x14 1x6
+  promql_expr_test:
+  - expr: ALERTS{alertstate="firing",alertname=~"SgtmHealthFailed|DockerContainerUnhealthy"}
+    eval_time: 2m
+    exp_samples: []
+  - expr: count(ALERTS{alertstate="firing",alertname="SgtmHealthFailed",ct_id="614"})
+    eval_time: 5m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: count(ALERTS{alertstate="firing",alertname="DockerContainerUnhealthy",ct_id="614"})
+    eval_time: 8m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertstate="firing",alertname=~"SgtmHealthFailed|DockerContainerUnhealthy"}
+    eval_time: 11m
+    exp_samples: []
+- name: Missing metrics never become zero or silence
+  interval: 30s
+  input_series:
+  - series: lxc:cpu_inventory:expected{service="test",ct_id="613",instance="node"}
+    values: 1x10
+  promql_expr_test:
+  - expr: count(ALERTS{alertstate="firing",alertname=~"LxcMemoryMetricsMissing|LxcDockerMetricsMissing"})
+    eval_time: 3m
+    exp_samples:
+    - labels: '{}'
+      value: 2
+- name: Essential exporter persistent failure remains critical
+  interval: 30s
+  input_series:
+  - series: up{job="cadvisor",service="test",instance="cadvisor"}
+    values: 0x2 1x4 0x8
+  promql_expr_test:
+  - expr: ALERTS{alertstate="firing",alertname="ExporterDown"}
+    eval_time: 2m
+    exp_samples: []
+  - expr: count(ALERTS{alertstate="firing",alertname="ExporterDown",severity="critical",service="test"})
+    eval_time: 6m
+    exp_samples:
+    - labels: '{}'
+      value: 1
+- name: Expected Serving absent alerts, presence clears without requiring an outage
+  interval: 30s
+  input_series:
+  - series: container_last_seen{job="cadvisor",service="infra-nucleoedge",name="infra-nucleoedge-sgtm-1",instance="cadvisor"}
+    values: _ _ _ _ _ _ 1x6
+  promql_expr_test:
+  - expr: ALERTS{alertstate="firing",alertname="ApplicationContainerMissing",name="infra-nucleoedge-sgtm-1"}
+    eval_time: 1m
+    exp_samples: []
+  - expr: count(ALERTS{alertstate="firing",alertname="ApplicationContainerMissing",name="infra-nucleoedge-sgtm-1"})
+    eval_time: 2m30s
+    exp_samples:
+    - labels: '{}'
+      value: 1
+  - expr: ALERTS{alertstate="firing",alertname="ApplicationContainerMissing",name="infra-nucleoedge-sgtm-1"}
+    eval_time: 5m
+    exp_samples: []

@@ -1,0 +1,13 @@
+services:
+  focalboard:
+    healthcheck:
+      test:
+      - CMD
+      - /bin/bash
+      - -ec
+      - 'exec 3<>/dev/tcp/127.0.0.1/8000; printf "GET /api/v2/ping HTTP/1.0\r\nHost: localhost\r\nConnection: close\r\n\r\n"
+        >&3; IFS= read -r -t 3 status <&3; [[ "$$status" == HTTP/1.[01]\ 200\ * ]]'
+      interval: 15s
+      timeout: 5s
+      start_period: 10s
+      retries: 5

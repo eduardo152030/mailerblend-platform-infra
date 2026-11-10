@@ -1,0 +1,14 @@
+groups:
+- name: sgtm_runtime_health_proposal
+  rules:
+  - alert: SgtmRuntimeUnhealthy
+    expr: probe_success{job="blackbox",service="infra-nucleoedge",probe_type="sgtm_health"}
+      == 0
+    for: 2m
+    labels:
+      severity: critical
+      category: availability
+    annotations:
+      summary: sGTM runtime health is DOWN
+      description: 'GET nativo de salud no devuelve200: {{ $labels.alert_target }}.
+        Revisar runtime/caducidad yconectividad. No equivale auna prueba de entregaGA4.'

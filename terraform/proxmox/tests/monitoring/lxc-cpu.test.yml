@@ -373,8 +373,9 @@ tests:
   - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
     values: 0+10x40
   - series: lxc_cpu_capacity_cores{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
-    values: +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf
-      +Inf +Inf +Inf +Inf +Inf +Inf +Inf
+    values: +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf
+      +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf
+      +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf
   - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
     values: 1x40
   - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
@@ -399,7 +400,9 @@ tests:
   - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
     values: '0x40'
   - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
-    values: NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+    values: NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+      NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+      NaN NaN NaN NaN
   - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
     values: 0+20x40
   - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
@@ -662,8 +665,9 @@ tests:
   - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
     values: '0x40'
   - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
-    values: +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf
-      +Inf +Inf +Inf +Inf +Inf +Inf +Inf
+    values: +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf
+      +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf
+      +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf +Inf
   - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
     values: 0+20x40
   - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
@@ -704,7 +708,9 @@ tests:
   - series: lxc_cpu_collector_success{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
     values: 1x40
   - series: lxc_cpu_collector_timestamp_seconds{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
-    values: NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+    values: NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+      NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+      NaN NaN NaN NaN
   promql_expr_test:
   - expr: lxc:cpu_usage:percent
     eval_time: 19m
@@ -817,7 +823,8 @@ tests:
   - series: node_textfile_scrape_error{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1"}
     values: '0x40'
   - series: lxc_cpu_usage_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
-    values: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 10 _ _
+    values: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+      _ _ _ 10 _ _
   - series: lxc_cpu_user_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
     values: 0+20x40
   - series: lxc_cpu_system_seconds_total{job="node_exporter",instance="192.0.2.125:9100",service="infra-journal-db",vmid="625",cpu_contract="lxc_cgroup_v1",ct_id="625",resource_scope="lxc",cpu_source="cgroup_v2"}
