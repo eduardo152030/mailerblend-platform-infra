@@ -1,0 +1,501 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 7,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-bigquery-datasource",
+        "uid": "cfbd97mwbkx6ob"
+      },
+      "description": "\"Este panel segmenta las visitas de usuarios reales según su sistema operativo, utilizando el análisis del User Agent capturado en el servidor. A diferencia de las herramientas convencionales, este gráfico ofrece una visibilidad total del entorno tecnológico del usuario, eliminando el ruido de bots y sistemas de monitoreo para reflejar fielmente la cuota de mercado entre dispositivos móviles (iOS/Android) y escritorio (Windows/Mac)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "footer": {
+              "reducers": []
+            },
+            "hideFrom": {
+              "viz": false
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-bigquery-datasource",
+            "uid": "cfbd97mwbkx6ob"
+          },
+          "editorMode": "code",
+          "format": 1,
+          "location": "",
+          "project": "nt-serverside-analytics",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  CASE \r\n    WHEN user_agent LIKE '%Windows%' THEN 'Windows'\r\n    WHEN user_agent LIKE '%Android%' THEN 'Android'\r\n    WHEN user_agent LIKE '%iPhone%' THEN 'iPhone'\r\n    WHEN user_agent LIKE '%Macintosh%' THEN 'Mac'\r\n    ELSE 'Otros'\r\n  END AS metric,\r\n  count(*) AS value\r\nFROM `nt-serverside-analytics.analytics_raw.v_analytics_ready`\r\nWHERE $__timeFilter(event_time)\r\n  AND user_agent NOT LIKE '%Blackbox%'\r\nGROUP BY 1",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Distribución por Sistema Operativo",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-bigquery-datasource",
+        "uid": "cfbd97mwbkx6ob"
+      },
+      "description": "Lista las 10 URLs más visitadas por usuarios reales, excluyendo sistemas de monitoreo automático",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "footer": {
+              "reducers": []
+            },
+            "hideFrom": {
+              "viz": false
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-bigquery-datasource",
+            "uid": "cfbd97mwbkx6ob"
+          },
+          "editorMode": "code",
+          "format": 1,
+          "location": "",
+          "project": "nt-serverside-analytics",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  url AS Pagina,\r\n  count(*) AS Visitas,\r\n  count(DISTINCT session_id) AS Sesiones\r\nFROM `nt-serverside-analytics.analytics_raw.v_analytics_ready`\r\nWHERE $__timeFilter(event_time)\r\n  AND user_agent NOT LIKE '%Blackbox%'\r\n  AND event_name IN ($event_filter)\r\nGROUP BY 1\r\nORDER BY 2 DESC\r\nLIMIT 15",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Ranking de Contenido",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-bigquery-datasource",
+        "uid": "cfbd97mwbkx6ob"
+      },
+      "description": "Muestra el idioma configurado en los navegadores de los usuarios, lo que sirve como proxy para la procedencia geográfica y cultural",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 3,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "never",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-bigquery-datasource",
+            "uid": "cfbd97mwbkx6ob"
+          },
+          "editorMode": "code",
+          "format": 1,
+          "location": "",
+          "project": "nt-serverside-analytics",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  IFNULL(language, 'Desconocido') AS Idioma,\r\n  count(*) AS Total\r\nFROM `nt-serverside-analytics.analytics_raw.v_analytics_ready`\r\nWHERE $__timeFilter(event_time)\r\n  AND user_agent NOT LIKE '%Blackbox%'\r\n  AND event_name IN ($event_filter)\r\nGROUP BY 1\r\nORDER BY 2 DESC",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Distribución por Idioma del Navegador",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-bigquery-datasource",
+        "uid": "cfbd97mwbkx6ob"
+      },
+      "description": "Este panel visualiza el tráfico entrante en tiempo real, diferenciando mediante el User Agent entre interacciones de usuarios humanos y sistemas de monitoreo automatizados (Blackbox Exporter). Utiliza la vista procesada en BigQuery para normalizar los timestamps y asegurar que el análisis se centra exclusivamente en el comportamiento del tráfico legítimo de la web",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-bigquery-datasource",
+            "uid": "cfbd97mwbkx6ob"
+          },
+          "editorMode": "code",
+          "format": 1,
+          "location": "",
+          "project": "nt-serverside-analytics",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  event_time AS time,\r\n  count(*) AS total_visitas,\r\n  CASE \r\n    WHEN user_agent LIKE '%Blackbox%' THEN 'Bot (Monitoring)'\r\n    ELSE 'Humano'\r\n  END AS categoria\r\nFROM `nt-serverside-analytics.analytics_raw.v_analytics_ready`\r\nWHERE $__timeFilter(event_time)\r\n  AND event_name IN ($event_filter)\r\nGROUP BY 1, 3\r\nORDER BY 1",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Distribución de Tráfico: Usuarios Reales vs. Bots",
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 42,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "test_final_segundos",
+          "value": "test_final_segundos"
+        },
+        "datasource": {
+          "type": "grafana-bigquery-datasource",
+          "uid": "cfbd97mwbkx6ob"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Tipo de Evento",
+        "multi": true,
+        "name": "event_filter",
+        "options": [],
+        "query": {
+          "dataset": "analytics_raw",
+          "editorMode": "code",
+          "format": 1,
+          "location": "",
+          "project": "nt-serverside-analytics",
+          "rawQuery": true,
+          "rawSql": "SELECT DISTINCT event_name FROM `nt-serverside-analytics.analytics_raw.v_analytics_ready`",
+          "refId": "tempvar",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "nucleo tecnologico test",
+  "uid": "adr6986",
+  "version": 11,
+  "weekStart": ""
+}
