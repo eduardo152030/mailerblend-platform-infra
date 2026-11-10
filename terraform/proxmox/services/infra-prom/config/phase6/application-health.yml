@@ -1,0 +1,86 @@
+# D054: additive patch against verified runtime; preserve all existing jobs/targets/modules.
+file_sd_path: /etc/prometheus/targets/application-health-stage-a.json
+scrape_job: blackbox
+targets:
+  - service: infra-grafana
+    vmid: '611'
+    url: http://192.168.1.111:3010/api/health
+    module: f6_grafana
+    probe_id: grafana-internal-health
+    signal: monitoring
+  - service: infra-orbit
+    vmid: '617'
+    url: https://edge.nucleotecnologico.es/orbit/healthz
+    module: f6_orbit
+    probe_id: orbit-public-health
+    signal: public_liveness
+  - service: infra-excraper
+    vmid: '620'
+    url: http://192.168.1.120:3000/health
+    module: f6_linkedin
+    probe_id: excraper-linkedin-health
+    signal: worker_liveness
+  - service: infra-excraper
+    vmid: '620'
+    url: http://192.168.1.120:3001/health
+    module: f6_signals
+    probe_id: excraper-signals-health
+    signal: worker_liveness
+  - service: infra-journal-web
+    vmid: '624'
+    url: http://192.168.1.124:8090/
+    module: http_2xx_strict
+    probe_id: journal-web-availability
+    signal: frontend_availability
+  - service: infra-journal-api
+    vmid: '626'
+    url: http://192.168.1.126:3000/health
+    module: f6_journal_api
+    probe_id: journal-api-availability
+    signal: api_liveness
+modules:
+  f6_grafana:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes: [200]
+      fail_if_body_not_matches_regexp: ['"database"\s*:\s*"ok"']
+  f6_orbit:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes: [200]
+      fail_if_body_not_matches_regexp: ['^ok\s*$']
+  f6_linkedin:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes: [200]
+      fail_if_body_not_matches_regexp: ['"status"\s*:\s*"healthy"', '"service"\s*:\s*"linkedin-worker"']
+  f6_signals:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes: [200]
+      fail_if_body_not_matches_regexp: ['"status"\s*:\s*"healthy"', '"service"\s*:\s*"signals-worker"']
+  f6_journal_api:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes: [200]
+      fail_if_body_not_matches_regexp: ['"status"\s*:\s*"ok"']

@@ -1,0 +1,92 @@
+[
+  {
+    "targets": [
+      "http://192.168.1.111:3010/api/health"
+    ],
+    "labels": {
+      "service": "infra-grafana",
+      "vmid": "611",
+      "module": "f6_grafana",
+      "probe_id": "grafana-internal-health",
+      "probe_type": "internal",
+      "scope": "internal",
+      "health_signal": "monitoring",
+      "source": "phase6_iac"
+    }
+  },
+  {
+    "targets": [
+      "https://edge.nucleotecnologico.es/orbit/healthz"
+    ],
+    "labels": {
+      "service": "infra-orbit",
+      "vmid": "617",
+      "module": "f6_orbit",
+      "probe_id": "orbit-public-health",
+      "probe_type": "public_url",
+      "scope": "external",
+      "health_signal": "public_liveness",
+      "source": "phase6_iac"
+    }
+  },
+  {
+    "targets": [
+      "http://192.168.1.120:3000/health"
+    ],
+    "labels": {
+      "service": "infra-excraper",
+      "vmid": "620",
+      "module": "f6_linkedin",
+      "probe_id": "excraper-linkedin-health",
+      "probe_type": "internal",
+      "scope": "internal",
+      "health_signal": "worker_liveness",
+      "source": "phase6_iac"
+    }
+  },
+  {
+    "targets": [
+      "http://192.168.1.120:3001/health"
+    ],
+    "labels": {
+      "service": "infra-excraper",
+      "vmid": "620",
+      "module": "f6_signals",
+      "probe_id": "excraper-signals-health",
+      "probe_type": "internal",
+      "scope": "internal",
+      "health_signal": "worker_liveness",
+      "source": "phase6_iac"
+    }
+  },
+  {
+    "targets": [
+      "http://192.168.1.124:8090/"
+    ],
+    "labels": {
+      "service": "infra-journal-web",
+      "vmid": "624",
+      "module": "http_2xx_strict",
+      "probe_id": "journal-web-availability",
+      "probe_type": "internal",
+      "scope": "internal",
+      "health_signal": "frontend_availability",
+      "source": "phase6_iac"
+    }
+  },
+  {
+    "targets": [
+      "http://192.168.1.126:3000/health"
+    ],
+    "labels": {
+      "service": "infra-journal-api",
+      "vmid": "626",
+      "module": "f6_journal_api",
+      "probe_id": "journal-api-availability",
+      "probe_type": "internal",
+      "scope": "internal",
+      "health_signal": "api_liveness",
+      "source": "phase6_iac"
+    }
+  }
+]

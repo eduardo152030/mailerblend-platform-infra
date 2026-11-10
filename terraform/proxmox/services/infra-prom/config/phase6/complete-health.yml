@@ -1,0 +1,25 @@
+# D057: only the remaining HTTP probe. PG/Odoo local checks reuse Node textfiles.
+file_sd_path: /etc/prometheus/targets/application-health-complete.json
+scrape_job: blackbox
+targets:
+  - service: infra-project-gestion
+    vmid: '621'
+    url: http://192.168.1.121:8081/ping
+    module: f6_focalboard_ping
+    probe_id: focalboard-project-gestion-ping
+    signal: api_metadata
+modules:
+  f6_focalboard_ping:
+    prober: http
+    timeout: 5s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes: [200]
+      headers:
+        Accept: application/json
+      fail_if_body_not_matches_regexp:
+        - '"version"\s*:\s*"7\.10\.0"'
+        - '"db_type"\s*:\s*"sqlite3"'
+        - '"sku"\s*:\s*"personal_server"'

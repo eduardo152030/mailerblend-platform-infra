@@ -1,0 +1,10 @@
+max by (ct_id) (
+  (
+    pve_uptime_seconds{job="pve_uptime",ct_id!=""} >= 0
+    and (pve_uptime_seconds{job="pve_uptime",ct_id!=""} < Inf)
+    and on(job,instance,id,ct_id) (pve_up{job="pve_uptime"} == 1)
+    and (time() - timestamp(pve_uptime_seconds{job="pve_uptime",ct_id!=""}) <= 45)
+    and on(job,instance) (up{job="pve_uptime"} == 1)
+  )
+  and on(ct_id) (count by(ct_id)(pve_uptime_seconds{job="pve_uptime",ct_id!=""}) == 1)
+)

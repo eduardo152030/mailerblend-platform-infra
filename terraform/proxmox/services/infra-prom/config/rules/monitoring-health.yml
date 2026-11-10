@@ -1,19 +1,94 @@
 groups:
-  - name: monitoring_health
-    rules:
-      - alert: ExporterDown
-        expr: up{job=~"cadvisor|blackbox|blackbox_exporter|alertmanager|prometheus"} == 0
-        for: 2m
-        labels:
-          severity: critical
-        annotations:
-          summary: 'Monitoring target unavailable: {{ $labels.job }}'
-          description: 'Unable to scrape {{ $labels.instance }} for over 2 minutes. Check exporter, host and network.'
-      - alert: AlertmanagerDeliveryErrors
-        expr: increase(alertmanager_notifications_failed_total[10m]) > 0
-        for: 1m
-        labels:
-          severity: warning
-        annotations:
-          summary: 'Alertmanager notification delivery failed'
-          description: 'Check receiver connectivity and credentials. Delivery failures occurred in the last 10 minutes.'
+- name: monitoring_health
+  rules:
+  - alert: ExporterDown
+    expr: up{job=~"cadvisor|blackbox_exporter|alertmanager|prometheus"} == 0
+    for: 2m
+    labels:
+      severity: critical
+      service: '{{ if $labels.service }}{{ $labels.service }}{{ else }}{{ $labels.job
+        }}{{ end }}'
+    annotations:
+      summary: 'Monitoring target unavailable: {{ $labels.job }}'
+      description: Unable to scrape {{ $labels.instance }} for over 2 minutes. Check
+        exporter, host and network.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
+  - alert: AlertmanagerDeliveryErrors
+    expr: increase(alertmanager_notifications_failed_total[10m]) > 0
+    for: 1m
+    labels:
+      severity: warning
+      service: infra-alertmanager
+    annotations:
+      summary: Alertmanager notification delivery failed
+      description: Check receiver connectivity and credentials. Delivery failures
+        occurred in the last 10 minutes.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
+  - alert: BlackboxScrapeFailed
+    expr: up{job="blackbox"} == 0
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      summary: 'Sin resultado de sonda: {{ $labels.service }}'
+      description: Prometheus no obtiene métricas de la sonda durante 2m. Revisar
+        Blackbox; no interpretar como aplicación saludable.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
+  - alert: MonitoringReloadFailed
+    expr: '{__name__=~"prometheus_config_last_reload_successful|alertmanager_config_last_reload_successful"}
+      == 0'
+    for: 1m
+    labels:
+      severity: critical
+      service: '{{ $labels.job }}'
+    annotations:
+      summary: 'Recarga de configuración fallida: {{ $labels.job }}'
+      description: La última recarga no fue válida; configuración anterior posiblemente
+        activa.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
+  - alert: PrometheusRuleEvaluationFailed
+    expr: sum by (instance,job) (increase(prometheus_rule_evaluation_failures_total[5m]))
+      > 0
+    for: 2m
+    labels:
+      severity: critical
+      service: infra-prometheus
+    annotations:
+      summary: Error al evaluar reglas
+      description: 'Evaluaciones fallidas en 5m: {{ printf "%.0f" $value }}. Revisar
+        reglas y series.'
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
+  - alert: PrometheusNotificationErrors
+    expr: increase(prometheus_notifications_errors_total[5m]) > 0
+    for: 2m
+    labels:
+      severity: critical
+      service: infra-prometheus
+    annotations:
+      summary: Prometheus no entrega alertas a Alertmanager
+      description: 'Errores de envío en 5m: {{ printf "%.0f" $value }}.'
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
+  - alert: PrometheusAlertmanagerMissing
+    expr: prometheus_notifications_alertmanagers_discovered < 1
+    for: 2m
+    labels:
+      severity: critical
+      service: infra-prometheus
+    annotations:
+      summary: Prometheus sin Alertmanager
+      description: Ningún Alertmanager descubierto durante 2m.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts

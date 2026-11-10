@@ -1,3 +1,56 @@
-# Disabled: individual Docker metrics/labels are not exposed reliably.
-# See local .rollback baseline; exporter availability remains monitored.
-groups: []
+groups:
+- name: container_health
+  rules:
+  - alert: DockerContainerUnhealthy
+    expr: (min by (instance, service, name, container_label_com_docker_compose_service)
+      (container_health_state{job="cadvisor",name!="",name!~"cadvisor|node_exporter"})
+      * on(service) group_left(ct_id) max by(service,ct_id) (lxc:cpu_inventory:expected))
+      == 0
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: 'Docker unhealthy: {{ $labels.name }}'
+      description: Healthcheck no saludable durante 5m. Componente {{ $labels.container_label_com_docker_compose_service
+        }}. Estado {{ $value }} (healthy=1; sin check=-1).
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
+  - alert: SgtmHealthFailed
+    expr: (min by (instance, service, name, container_label_com_docker_compose_service)
+      (container_health_state{job="cadvisor",name!="",name!~"cadvisor|node_exporter",service=~"infra-nucleoedge|infra-mailerblend-edge"})
+      * on(service) group_left(ct_id) max by(service,ct_id) (lxc:cpu_inventory:expected))
+      == 0
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      summary: 'sGTM /healthz no saludable: {{ $labels.name }}'
+      description: Check nativo /healthz fallido durante 2m en Serving/Preview. Revisar
+        bootstrap caducado y dependencia; exporter UP no prueba salud de aplicación.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
+  - alert: LxcMemoryMetricsMissing
+    expr: lxc:cpu_inventory:expected unless on(service) node_memory_MemAvailable_bytes{job="node_exporter"}
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: 'LXC sin métricas RAM: {{ $labels.service }}'
+      description: Inventario esperado sin MemAvailable durante 2m. No interpretar
+        ausencia como cero.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
+  - alert: LxcDockerMetricsMissing
+    expr: (lxc:cpu_inventory:expected unless on(service) container_last_seen{job="cadvisor",name!=""}) unless on(service) (lxc:cadvisor:required == 0)
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: 'LXC sin métricas Docker: {{ $labels.service }}'
+      description: Inventario esperado sin contenedores identificados durante 2m.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts

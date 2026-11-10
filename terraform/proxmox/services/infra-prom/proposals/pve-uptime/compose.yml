@@ -1,0 +1,49 @@
+# D055 PROPOSAL ONLY: no deployment before read-only identity approval.
+services:
+  pve-exporter:
+    image: prompve/prometheus-pve-exporter@sha256:290756c34fd13e1d9972b8e64344d49a15ab99dd0053b29d9716f1ca4ae4c069
+    container_name: pve-uptime-exporter
+    user: '65534:65534'
+    read_only: true
+    restart: unless-stopped
+    init: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    command:
+      - --web.listen-address=0.0.0.0:9221
+      - --collector.status
+      - --no-collector.version
+      - --no-collector.node
+      - --collector.resources
+      - --no-collector.cluster
+      - --no-collector.backup-info
+      - --no-collector.qdevice
+      - --no-collector.config
+      - --no-collector.replication
+      - --no-collector.subscription
+      - --no-collector.pve-api-metrics
+      - --no-collector.target-metrics
+    environment:
+      PVE_USER: prometheus-uptime@pve
+      PVE_TOKEN_NAME: uptime
+      PVE_TOKEN_VALUE_FILE: /run/secrets/pve_token
+      PVE_VERIFY_SSL: 'true'
+      REQUESTS_CA_BUNDLE: /run/pve/pve-root-ca.pem
+      PYTHONDONTWRITEBYTECODE: '1'
+    volumes:
+      - /opt/infra-pve-uptime/.runtime/pve-root-ca.pem:/run/pve/pve-root-ca.pem:ro
+    secrets:
+      - pve_token
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=8m
+    networks:
+      monitoring:
+        aliases: [pve-uptime-exporter]
+    # No published port, Docker socket, host filesystem or privileged mode.
+networks:
+  monitoring:
+    external: true
+    name: infra-prom_default
+secrets:
+  pve_token:
+    file: /opt/infra-pve-uptime/.runtime/pve_token

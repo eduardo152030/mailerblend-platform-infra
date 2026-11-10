@@ -1,0 +1,13 @@
+# Approved application contracts; not a global/manual fleet CT list.
+infra-gestoria:
+  checks:
+    - name: odoo
+      kind: odoo_http
+    - name: postgres
+      kind: postgres
+      container: infra-gestoria-db-1
+infra-journal-db:
+  checks:
+    - name: postgres
+      kind: postgres
+      container: infra-journal-db-db-1

@@ -8,58 +8,82 @@ groups:
       severity: critical
       source: prometheus
     annotations:
-      summary: "Node Exporter no disponible en {{ $labels.service }} ({{ $labels.instance }})"
-      description: "node_exporter no responde desde hace más de 2 minutos."
-
+      summary: Node Exporter no disponible en {{ $labels.service }} ({{ $labels.instance
+        }})
+      description: node_exporter no responde desde hace más de 2 minutos.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
 - name: host_resources
   rules:
-  # Disco casi lleno (root) - filtra FS no reales
   - alert: HostDiskFilling
-    expr: |
-      (
-        node_filesystem_avail_bytes{job="node_exporter",mountpoint="/",fstype!~"tmpfs|overlay|squashfs|aufs|ramfs"} /
-        node_filesystem_size_bytes{job="node_exporter",mountpoint="/",fstype!~"tmpfs|overlay|squashfs|aufs|ramfs"}
-      ) * 100 < 15
+    expr: "(\n  node_filesystem_avail_bytes{job=\"node_exporter\",mountpoint=\"/\"\
+      ,fstype!~\"tmpfs|overlay|squashfs|aufs|ramfs\"} /\n  node_filesystem_size_bytes{job=\"\
+      node_exporter\",mountpoint=\"/\",fstype!~\"tmpfs|overlay|squashfs|aufs|ramfs\"\
+      }\n) * 100 < 15\n"
     for: 10m
     labels:
       severity: warning
+      resource: disk
     annotations:
-      summary: "Disco casi lleno en {{ $labels.instance }}"
-      description: 'Queda menos del 15% libre en /. Valor actual: {{ printf "%.2f" $value }}%.'
-
-  # Memoria baja (disponible real)
+      summary: Disco casi lleno en {{ $labels.instance }}
+      description: 'Queda menos del 15% libre en /. Valor actual: {{ printf "%.2f"
+        $value }}%.'
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
   - alert: HostLowMemory
-    expr: (node_memory_MemAvailable_bytes{job="node_exporter"} / node_memory_MemTotal_bytes{job="node_exporter"}) * 100 < 10
+    expr: (node_memory_MemAvailable_bytes{job="node_exporter"} / node_memory_MemTotal_bytes{job="node_exporter"})
+      * 100 < 10
     for: 5m
     labels:
       severity: critical
+      resource: memory
     annotations:
-      summary: "Memoria crítica en {{ $labels.instance }}"
+      summary: Memoria crítica en {{ $labels.instance }}
       description: 'RAM disponible <10%. Valor actual: {{ printf "%.2f" $value }}%.'
-
-  # Predicción de RAM agotada (4h)
-  - alert: HostMemoryFillingFast
-    expr: (predict_linear(node_memory_MemAvailable_bytes{job="node_exporter"}[1h], 4 * 3600) < 0) and on (job, instance, service, cpu_contract, vmid) (changes(node_memory_MemTotal_bytes{job="node_exporter"}[1h]) == 0) and on (job, instance, service, cpu_contract, vmid) (up{job="node_exporter"} == 1)
-    for: 15m
-    labels:
-      severity: warning
-    annotations:
-      summary: "Predicción: RAM agotada en {{ $labels.instance }}"
-      description: "Basado en 1h de datos, la RAM se agotará en <4h."
-
-  # CPU alta sostenida
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
   - alert: HostHighCpuUsage
-    expr: |
-      (
-        (100 - avg without(cpu,mode) (rate(node_cpu_seconds_total{job="node_exporter",mode="idle"}[5m])) * 100)
-        unless on (job, instance, service) up{job="node_exporter",cpu_contract="lxc_cgroup_v1"}
-        unless on (job, instance, service) lxc:cpu_inventory:expected
-      ) > 90
-      or
-      lxc:cpu_usage:percent > 90
+    expr: lxc:cpu_usage:percent > 90
     for: 10m
     labels:
       severity: warning
     annotations:
-      summary: "CPU alta en {{ $labels.instance }}"
-      description: 'Uso CPU >90% durante 10m. Valor actual: {{ printf "%.2f" $value }}%.{{ if ne $labels.resource_scope "lxc" }} Fuente legacy compartida; CPU LXC sin validar.{{ end }}'
+      summary: CPU alta en {{ $labels.instance }}
+      description: 'Uso CPU LXC >90% durante 10m. Valor actual: {{ printf "%.2f" $value
+        }}%.'
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
+  - alert: HostMemoryPressure
+    expr: (node_memory_MemAvailable_bytes{job="node_exporter"} / node_memory_MemTotal_bytes{job="node_exporter"})
+      * 100 < 20
+    for: 10m
+    labels:
+      severity: warning
+      resource: memory
+    annotations:
+      summary: RAM disponible reducida en {{ $labels.service }}
+      description: 'RAM disponible <20% durante 10m. Valor: {{ printf "%.2f" $value
+        }}%.'
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
+  - alert: HostDiskAlmostFull
+    expr: "(\n  node_filesystem_avail_bytes{job=\"node_exporter\",mountpoint=\"/\"\
+      ,fstype!~\"tmpfs|overlay|squashfs|aufs|ramfs\"} /\n  node_filesystem_size_bytes{job=\"\
+      node_exporter\",mountpoint=\"/\",fstype!~\"tmpfs|overlay|squashfs|aufs|ramfs\"\
+      }\n) * 100 < 5\n"
+    for: 5m
+    labels:
+      severity: critical
+      resource: disk
+    annotations:
+      summary: Disco crítico en {{ $labels.service }}
+      description: 'Espacio libre en / <5% durante 5m. Valor: {{ printf "%.2f" $value
+        }}%.'
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts

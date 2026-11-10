@@ -1,0 +1,17 @@
+[
+  {
+    "targets": [
+      "http://192.168.1.121:8081/ping"
+    ],
+    "labels": {
+      "service": "infra-project-gestion",
+      "vmid": "621",
+      "module": "f6_focalboard_ping",
+      "probe_id": "focalboard-project-gestion-ping",
+      "probe_type": "internal",
+      "scope": "internal",
+      "health_signal": "api_metadata",
+      "source": "phase6_iac"
+    }
+  }
+]

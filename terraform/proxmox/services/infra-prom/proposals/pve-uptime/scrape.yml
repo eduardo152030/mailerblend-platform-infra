@@ -1,0 +1,21 @@
+# Append this single job to verified active config after approval and promtool.
+job_name: pve_uptime
+scrape_interval: 30s
+scrape_timeout: 15s
+metrics_path: /pve
+params:
+  target: ['192.168.1.100']
+  module: [default]
+  cluster: ['1']
+  node: ['0']
+static_configs:
+  - targets: ['pve-uptime-exporter:9221']
+metric_relabel_configs:
+  - source_labels: [__name__, id]
+    separator: ';'
+    regex: '(pve_uptime_seconds|pve_up|pve_guest_info);lxc/[0-9]+'
+    action: keep
+  - source_labels: [id]
+    regex: 'lxc/([0-9]+)'
+    target_label: ct_id
+    replacement: '$1'

@@ -1,4 +1,4 @@
-# Local candidate; not deployed. Prometheus freshness: scrape 30s + writer 5s + margin 10s.
+# CPU contract accepted in D041. Prometheus freshness: scrape 30s + writer 5s + margin 10s.
 groups:
 - name: lxc_cpu_contract
   interval: 30s
@@ -43,6 +43,8 @@ groups:
       severity: warning
       source: prometheus
     annotations:
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{ end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
       summary: CPU LXC no fiable en {{ $labels.instance }}
       description: Contrato lxc_cgroup_v1 ausente, antiguo, inválido o con identidad incorrecta; no interpretar ausencia como CPU cero.
 

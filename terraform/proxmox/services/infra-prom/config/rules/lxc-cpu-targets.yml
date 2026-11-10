@@ -8,5 +8,7 @@ groups:
       severity: warning
       source: prometheus
     annotations:
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{ end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
       summary: 'Target CPU corregido ausente: {{ $labels.service }}'
       description: 'El CT migrado no tiene un target Node con su contrato esperado; comprobar discovery, no interpretar ausencia como cero.'

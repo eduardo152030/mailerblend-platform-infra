@@ -5,46 +5,124 @@ modules:
     http:
       method: GET
       follow_redirects: true
-      preferred_ip_protocol: "ip4"
+      preferred_ip_protocol: ip4
       ip_protocol_fallback: true
-      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      valid_http_versions:
+      - HTTP/1.1
+      - HTTP/2.0
       tls_config:
         insecure_skip_verify: false
-      valid_status_codes: [200, 204, 301, 302]
-
+      valid_status_codes:
+      - 200
+      - 204
+      - 301
+      - 302
   http_2xx_strict:
     prober: http
     timeout: 10s
     http:
       method: GET
       follow_redirects: false
-      preferred_ip_protocol: "ip4"
+      preferred_ip_protocol: ip4
       ip_protocol_fallback: true
       tls_config:
         insecure_skip_verify: false
-      valid_status_codes: [200, 204]
-
-  # ✅ Para GA4 collect: probamos availability sin enviar evento real
-  # HEAD suele responder 200 y evita 400 por payload.
+      valid_status_codes:
+      - 200
+      - 204
   http_collect_200:
     prober: http
     timeout: 10s
     http:
       method: HEAD
       follow_redirects: false
-      preferred_ip_protocol: "ip4"
+      preferred_ip_protocol: ip4
       ip_protocol_fallback: true
-      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      valid_http_versions:
+      - HTTP/1.1
+      - HTTP/2.0
       tls_config:
         insecure_skip_verify: false
-      valid_status_codes: [200, 204]
-
+      valid_status_codes:
+      - 200
+      - 204
   tcp_connect:
     prober: tcp
     timeout: 5s
-
   icmp:
     prober: icmp
     timeout: 3s
     icmp:
-      preferred_ip_protocol: "ip4"
+      preferred_ip_protocol: ip4
+  f6_grafana:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes:
+      - 200
+      fail_if_body_not_matches_regexp:
+      - '"database"\s*:\s*"ok"'
+  f6_orbit:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes:
+      - 200
+      fail_if_body_not_matches_regexp:
+      - ^ok\s*$
+  f6_linkedin:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes:
+      - 200
+      fail_if_body_not_matches_regexp:
+      - '"status"\s*:\s*"healthy"'
+      - '"service"\s*:\s*"linkedin-worker"'
+  f6_signals:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes:
+      - 200
+      fail_if_body_not_matches_regexp:
+      - '"status"\s*:\s*"healthy"'
+      - '"service"\s*:\s*"signals-worker"'
+  f6_journal_api:
+    prober: http
+    timeout: 10s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes:
+      - 200
+      fail_if_body_not_matches_regexp:
+      - '"status"\s*:\s*"ok"'
+  f6_focalboard_ping:
+    prober: http
+    timeout: 5s
+    http:
+      method: GET
+      follow_redirects: false
+      preferred_ip_protocol: ip4
+      valid_status_codes:
+      - 200
+      headers:
+        Accept: application/json
+      fail_if_body_not_matches_regexp:
+      - '"version"\s*:\s*"7\.10\.0"'
+      - '"db_type"\s*:\s*"sqlite3"'
+      - '"sku"\s*:\s*"personal_server"'

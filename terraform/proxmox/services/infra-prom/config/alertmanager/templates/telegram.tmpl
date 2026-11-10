@@ -1,16 +1,14 @@
 {{ define "telegram.message" }}
 {{ if eq .Status "firing" }}🔴 <b>FIRING</b>{{ else }}🟢 <b>RESOLVED</b>{{ end }}
-{{ range $i, $a := .Alerts }}{{ if lt $i 5 }}
-<b>{{ $a.Labels.alertname }}</b> — {{ if eq $a.Labels.severity "critical" }}Critical{{ else if eq $a.Labels.severity "warning" }}Warning{{ else }}Info{{ end }}
-Status: {{ $a.Status | toUpper }}
-Host/service: {{ if $a.Labels.service }}{{ $a.Labels.service }}{{ else }}{{ $a.Labels.instance }}{{ end }}
-Instance: {{ $a.Labels.instance }}
-Exporter/job: {{ $a.Labels.job }}
-{{ if $a.Annotations.summary }}{{ $a.Annotations.summary }}{{ end }}
-{{ if $a.Annotations.description }}{{ $a.Annotations.description }}{{ end }}
-Started (UTC): {{ $a.StartsAt.UTC.Format "2006-01-02 15:04:05 MST" }}
-{{ if eq $a.Status "resolved" }}Resolved (UTC): {{ $a.EndsAt.UTC.Format "2006-01-02 15:04:05 MST" }}{{ end }}
-Incident: {{ $a.Fingerprint }}
+{{ range $i, $a := .Alerts }}{{ if lt $i 4 }}
+<b>{{ $a.Labels.severity | toUpper }} · {{ $a.Labels.service }}</b>
+{{ if $a.Annotations.ct_id }}CT {{ $a.Annotations.ct_id }} · {{ end }}{{ if $a.Labels.name }}{{ $a.Labels.name }}{{ end }}
+{{ $a.Annotations.summary }}
+{{ $a.Annotations.description }}
+{{ if $a.Annotations.value }}Valor: {{ $a.Annotations.value }}{{ end }}{{ if $a.Annotations.threshold }} · Umbral: {{ $a.Annotations.threshold }}{{ end }}
+Inicio: {{ $a.StartsAt | tz "Europe/Madrid" | date "02/01 15:04:05 MST" }}
+{{ if eq $a.Status "resolved" }}Fin: {{ $a.EndsAt | tz "Europe/Madrid" | date "02/01 15:04:05 MST" }} · Duración: {{ $a.EndsAt.Sub $a.StartsAt | humanizeDuration }}{{ end }}
+{{ if $a.Annotations.dashboard_url }}<a href="{{ $a.Annotations.dashboard_url }}">Ver monitorización</a>{{ end }}
 {{ end }}{{ end }}
-Alerts in group: {{ len .Alerts }} (showing up to 5; full details in Alertmanager).
+{{ if gt (len .Alerts) 4 }}Grupo: {{ len .Alerts }} alertas; se muestran 4.{{ end }}
 {{ end }}

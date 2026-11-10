@@ -1,10 +1,10 @@
-# Aggregate variants into one logical incident; keep raw probe series for diagnosis.
 groups:
 - name: blackbox-alerts
   rules:
   - alert: NoInternetConnectivity
-    expr: "min by (job, service, probe_type, instance) (\n  label_replace(probe_success{job=\"blackbox\",probe_type=\"\
-      internet\"}, \"instance\", \"$1\", \"alert_target\", \"(.+)\")\n) == 0"
+    expr: "min by (job, service, probe_type, instance) (\n  label_replace(probe_success{job=\"\
+      blackbox\",probe_type=\"internet\"}, \"instance\", \"$1\", \"alert_target\"\
+      , \"(.+)\")\n) == 0"
     for: 2m
     labels:
       severity: critical
@@ -18,9 +18,13 @@ groups:
         Check WAN, DNS, routing/NAT, ISP.
 
         '
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
   - alert: PublicUrlDown
-    expr: "min by (job, service, probe_type, instance) (\n  label_replace(probe_success{job=\"blackbox\",probe_type=\"\
-      public_url\"}, \"instance\", \"$1\", \"alert_target\", \"(.+)\")\n) == 0"
+    expr: "min by (job, service, probe_type, instance) (\n  label_replace(probe_success{job=\"\
+      blackbox\",probe_type=\"public_url\"}, \"instance\", \"$1\", \"alert_target\"\
+      , \"(.+)\")\n) == 0"
     for: 2m
     labels:
       severity: critical
@@ -34,50 +38,68 @@ groups:
         Check DNS, reverse proxy, app, firewall.
 
         '
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
   - alert: CollectEndpointDown
-    expr: "min by (job, service, probe_type, instance) (\n  label_replace(probe_success{job=\"blackbox\",probe_type=~\"\
-      collect|sgtm_collect\"}, \"instance\", \"$1\", \"alert_target\", \"(.+)\")\n) == 0"
+    expr: "min by (job, service, probe_type, instance) (\n  label_replace(probe_success{job=\"\
+      blackbox\",probe_type=~\"collect|sgtm_collect\"}, \"instance\", \"$1\", \"alert_target\"\
+      , \"(.+)\")\n) == 0"
     for: 2m
     labels:
       severity: critical
       category: analytics
     annotations:
       summary: Collect endpoint is DOWN
-      description: '/g/collect probe failed (HEAD expected 200/204).
-
-        target={{ $labels.instance }}
-
-        Check edge routing, upstream, TLS, firewall.
-
-        '
+      description: Sonda HEAD de collect fallida durante 2m (esperado 200/204); revisar
+        TLS, proxy y aplicación. No certifica Serving/Preview /healthz.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
   - alert: InternalEndpointDown
-    expr: "min by (job, service, probe_type, instance) (\n  label_replace(probe_success{job=\"blackbox\",probe_type=~\"\
-      internal|edge\"}, \"instance\", \"$1\", \"alert_target\", \"(.+)\")\n) == 0"
+    expr: "min by (job, service, probe_type, instance) (\n  label_replace(probe_success{job=\"\
+      blackbox\",probe_type=~\"internal|edge\"}, \"instance\", \"$1\", \"alert_target\"\
+      , \"(.+)\")\n) == 0"
     for: 2m
     labels:
       severity: critical
     annotations:
       summary: Internal endpoint unavailable
       description: Endpoint {{ $labels.instance }} has failed for over 2 minutes.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
   - alert: SSLCertExpiringSoon
-    expr: "(min by (job, service, instance) (\n  label_replace(probe_ssl_earliest_cert_expiry{job=\"blackbox\"},\
-      \ \"instance\", \"$1\", \"tls_target\", \"(.+)\")\n) - time()) < 14 * 24 * 3600"
+    expr: "(min by (job, service, instance) (\n  label_replace(probe_ssl_earliest_cert_expiry{job=\"\
+      blackbox\"}, \"instance\", \"$1\", \"tls_target\", \"(.+)\")\n) - time()) <\
+      \ 14 * 24 * 3600"
     for: 30m
     labels:
       severity: warning
       category: tls
+      resource: tls
     annotations:
       summary: SSL certificate expiring soon (<14d)
-      description: 'TLS cert for target={{ $labels.instance }} expires in less than 14 days.
+      description: 'TLS cert for target={{ $labels.instance }} expires in less than
+        14 days.
 
         '
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts
   - alert: SSLCertExpiringVerySoon
-    expr: "(min by (job, service, instance) (\n  label_replace(probe_ssl_earliest_cert_expiry{job=\"blackbox\"},\
-      \ \"instance\", \"$1\", \"tls_target\", \"(.+)\")\n) - time()) < 7 * 24 * 3600"
+    expr: "(min by (job, service, instance) (\n  label_replace(probe_ssl_earliest_cert_expiry{job=\"\
+      blackbox\"}, \"instance\", \"$1\", \"tls_target\", \"(.+)\")\n) - time()) <\
+      \ 7 * 24 * 3600"
     for: 15m
     labels:
       severity: critical
       category: tls
+      resource: tls
     annotations:
       summary: SSL certificate expiring VERY soon (<7d)
-      description: TLS cert for target={{ $labels.instance }} expires in less than 7 days.
+      description: TLS cert for target={{ $labels.instance }} expires in less than
+        7 days.
+      ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
+        end }}'
+      dashboard_url: http://192.168.1.110:9090/alerts

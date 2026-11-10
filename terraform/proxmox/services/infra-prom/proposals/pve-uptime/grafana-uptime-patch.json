@@ -1,0 +1,10 @@
+{
+  "proposal_only": true,
+  "dashboard_uid": "proxmox-lxc-fleet",
+  "panel_id": 6,
+  "refId": "J",
+  "expr": "((max by (ct_id) (\n  (\n    pve_uptime_seconds{job=\"pve_uptime\",ct_id!=\"\"} >= 0\n    and (pve_uptime_seconds{job=\"pve_uptime\",ct_id!=\"\"} < Inf)\n    and on(job,instance,id,ct_id) (pve_up{job=\"pve_uptime\"} == 1)\n    and (time() - timestamp(pve_uptime_seconds{job=\"pve_uptime\",ct_id!=\"\"}) <= 45)\n    and on(job,instance) (up{job=\"pve_uptime\"} == 1)\n  )\n  and on(ct_id) (count by(ct_id)(pve_uptime_seconds{job=\"pve_uptime\",ct_id!=\"\"}) == 1)\n)) and on(ct_id) (0*(max by(ct_id,service)(label_replace(up{job=\"node_exporter\",vmid=~\"${lxc:regex}\",service=~\"${service:regex}\"},\"ct_id\",\"$1\",\"vmid\",\"(.+)\")) or max by(ct_id,service)(lxc:cpu_inventory:expected{ct_id=~\"${lxc:regex}\",service=~\"${service:regex}\"})))) or (max by(ct_id)(0*(max by(ct_id,service)(label_replace(up{job=\"node_exporter\",vmid=~\"${lxc:regex}\",service=~\"${service:regex}\"},\"ct_id\",\"$1\",\"vmid\",\"(.+)\")) or max by(ct_id,service)(lxc:cpu_inventory:expected{ct_id=~\"${lxc:regex}\",service=~\"${service:regex}\"})))-1)",
+  "unit": "dtdhms",
+  "unknown_value": -1,
+  "expected_scope": "existing dynamic monitored LXC inventory; no manual CT list"
+}

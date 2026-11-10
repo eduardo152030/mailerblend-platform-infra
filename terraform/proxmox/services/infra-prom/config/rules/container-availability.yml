@@ -1,3 +1,105 @@
-# Disabled: individual Docker metrics/labels are not exposed reliably.
-# See local .rollback baseline; exporter availability remains monitored.
-groups: []
+groups:
+- name: essential_containers
+  rules:
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.121:8085
+      service: infra-project-gestion
+      name: focalboard
+      ct_id: '621'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.122:8085
+      service: infra-eva-assistant-bot
+      name: eva-api
+      ct_id: '622'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.122:8085
+      service: infra-eva-assistant-bot
+      name: focalboard
+      ct_id: '622'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.111:8085
+      service: infra-grafana
+      name: grafana
+      ct_id: '611'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.116:8085
+      service: infra-blackbox
+      name: infra-blackbox
+      ct_id: '616'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.110:8085
+      service: infra-prom
+      name: alertmanager
+      ct_id: '610'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.110:8085
+      service: infra-prom
+      name: prometheus
+      ct_id: '610'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.118:8085
+      service: infra-composable-crm
+      name: budibase-app
+      ct_id: '618'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.118:8085
+      service: infra-composable-crm
+      name: crm-api
+      ct_id: '618'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.114:8085
+      service: infra-nucleoedge
+      name: infra-nucleoedge-sgtm-1
+      ct_id: '614'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.114:8085
+      service: infra-nucleoedge
+      name: infra-nucleoedge-sgtm_preview-1
+      ct_id: '614'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.115:8085
+      service: infra-mailerblend-edge
+      name: mailerblend-sgtm-preview
+      ct_id: '615'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.115:8085
+      service: infra-mailerblend-edge
+      name: mailerblend-sgtm-serving
+      ct_id: '615'
+  - alert: ApplicationContainerMissing
+    expr: app:container:expected unless on(service,name) container_last_seen{job="cadvisor",name!=""}
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      ct_id: '{{ $labels.ct_id }}'
+      summary: 'Contenedor esencial ausente: {{ $labels.name }}'
+      description: Sin métricas de este contenedor esperado durante 2m; revisar estado
+        Docker. No equivale a una prueba HTTP.
+      dashboard_url: http://192.168.1.110:9090/alerts
