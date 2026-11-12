@@ -1,0 +1,85 @@
+qwen-tts compiled capabilities:
+  build:            unknown · SIMD=portable · src=unknown · Nov 11 2026 14:19:13
+  active flags:     none (every default of this build)
+[FLAGS] v=1 pid=1
+  arch:             x86-64
+  matvec + attn:    AVX2 (2-row fused, FMA)
+  int8 dot:         widen->FMA (AVX2; no VNNI)
+  bf16 dot:         widen->FMA (no AVX-512-BF16)
+  rms/bf16-conv:    AVX2
+  matvec threads:   pthread pool (4 threads)
+  BLAS (prefill):   OpenBLAS
+  runtime cpu:      sse2 avx avx2 fma
+  lever (x86):      AVX2 only (no VNNI) — int8 via widen+FMA; bandwidth-bound, batching helps
+  kernel selection (shape 2048x2048, asked to the dispatcher):
+    B=1  (CLI, server c=1) matvec: bf16 -> NEON/scalar 2-row fused | int8 -> AVX2 FMA widen/dequant | q4_0 -> AVX2 unpack/dequant FMA
+    B=2  (server c>=2)    matmat: bf16 -> fixed-B twin | int8 -> int8 AVX2 maddubs | q4_0 -> q4   AVX2 maddubs
+    B=4                   matmat: bf16 -> fixed-B twin | int8 -> int8 AVX2 maddubs | q4_0 -> q4   AVX2 maddubs
+    B=8                   matmat: bf16 -> fixed-B twin | int8 -> int8 AVX2 maddubs | q4_0 -> q4   AVX2 maddubs
+    B=16                  matmat: bf16 -> fixed-B twin | int8 -> int8 AVX2 maddubs | q4_0 -> q4   AVX2 maddubs
+qwen-tts kernel self-test (matvec correctness vs f32 reference)
+qwen-tts compiled capabilities:
+  build:            unknown · SIMD=portable · src=unknown · Nov 11 2026 14:19:13
+  active flags:     none (every default of this build)
+[FLAGS] v=1 pid=1
+  arch:             x86-64
+  matvec + attn:    AVX2 (2-row fused, FMA)
+  int8 dot:         widen->FMA (AVX2; no VNNI)
+  bf16 dot:         widen->FMA (no AVX-512-BF16)
+  rms/bf16-conv:    AVX2
+  matvec threads:   pthread pool (4 threads)
+  BLAS (prefill):   OpenBLAS
+  runtime cpu:      sse2 avx avx2 fma
+  lever (x86):      AVX2 only (no VNNI) — int8 via widen+FMA; bandwidth-bound, batching helps
+  kernel selection (shape 2048x2048, asked to the dispatcher):
+    B=1  (CLI, server c=1) matvec: bf16 -> NEON/scalar 2-row fused | int8 -> AVX2 FMA widen/dequant | q4_0 -> AVX2 unpack/dequant FMA
+    B=2  (server c>=2)    matmat: bf16 -> fixed-B twin | int8 -> int8 AVX2 maddubs | q4_0 -> q4   AVX2 maddubs
+    B=4                   matmat: bf16 -> fixed-B twin | int8 -> int8 AVX2 maddubs | q4_0 -> q4   AVX2 maddubs
+    B=8                   matmat: bf16 -> fixed-B twin | int8 -> int8 AVX2 maddubs | q4_0 -> q4   AVX2 maddubs
+    B=16                  matmat: bf16 -> fixed-B twin | int8 -> int8 AVX2 maddubs | q4_0 -> q4   AVX2 maddubs
+  (run with QWEN_NO_VNNI=1 / QWEN_NO_SDOT=1 / QWEN_NO_AMX=1 to test the fallback path)
+
+  [avx2-int8-emulated-dot] signed/widening extreme dot: PASS (got=196480 ref=196480)
+  [avx2-int8-emulated-dot] quantized adversarial GEMV: max_abs=2.28e-07 PASS
+  [avx2-q4-emulated-dot] nibble/extreme/tail parity: max_abs=1.19e-07 invalid-tail=rejected PASS
+  [3072x1024] matmat(B=8) vs B*matvec: L2_rel=1.93e-07  PASS
+  [3072x1024] bf16 max_rel=9.67e-04 OK | int8 rel_L2=1.71e-07 OK | argmax OK (ref=2090 got=2090)
+  [3072x1024] matmat_int8(B=8) vs B*matvec_int8: L2_rel=3.82e-03  PASS
+  [3072x1024] matvec_q4_0 vs dequant ref: rel_L2=1.70e-07  PASS
+  [3072x1024] matmat_q4_0(B=8) vs B*matvec_q4_0: L2_rel=3.82e-03  PASS
+  [2048x1024] matmat(B=8) vs B*matvec: L2_rel=2.00e-07  PASS
+  [2048x1024] bf16 max_rel=2.59e-04 OK | int8 rel_L2=1.73e-07 OK | argmax OK (ref=860 got=860)
+  [2048x1024] matmat_int8(B=8) vs B*matvec_int8: L2_rel=3.96e-03  PASS
+  [2048x1024] matvec_q4_0 vs dequant ref: rel_L2=1.70e-07  PASS
+  [2048x1024] matmat_q4_0(B=8) vs B*matvec_q4_0: L2_rel=3.95e-03  PASS
+  [ 257x 320] matmat(B=8) vs B*matvec: L2_rel=1.40e-07  PASS
+  [ 257x320 ] bf16 max_rel=4.35e-04 OK | int8 rel_L2=1.31e-07 OK | argmax OK (ref=10 got=10)
+  [ 257x 320] matmat_int8(B=8) vs B*matvec_int8: L2_rel=4.05e-03  PASS
+  [ 257x 320] matvec_q4_0 vs dequant ref: rel_L2=1.35e-07  PASS
+  [ 257x 320] matmat_q4_0(B=8) vs B*matvec_q4_0: L2_rel=4.05e-03  PASS
+  [conv1d_int8 ch= 96 k=7 dil=1] vs integer ref: rel_L2=0.00e+00 max_abs=0.00e+00  PASS
+  [conv1d_int8 ch=192 k=7 dil=3] vs integer ref: rel_L2=0.00e+00 max_abs=0.00e+00  PASS
+  [conv1d_int8 ch=384 k=7 dil=9] vs integer ref: rel_L2=0.00e+00 max_abs=0.00e+00  PASS
+  [conv1d_int8 ch=768 k=1 dil=1] vs integer ref: rel_L2=0.00e+00 max_abs=0.00e+00  PASS
+  [convt_stack in= 192 out= 96 k=16 stride=8 len=16] vs per-tap reference, two units: max|diff|/max|ref| 7.84e-08  PASS
+  [convt_stack in= 192 out= 96 k=16 stride=8 len= 5] vs per-tap reference, two units: max|diff|/max|ref| 7.70e-08  PASS
+  [convt_stack in= 192 out= 96 k=16 stride=8 len= 1] vs per-tap reference, two units: max|diff|/max|ref| 8.29e-08  PASS
+  [convt_stack in=  96 out= 48 k=10 stride=5 len=16] vs per-tap reference, two units: max|diff|/max|ref| 6.09e-08  PASS
+  [convt_stack in=  96 out= 48 k=10 stride=5 len= 5] vs per-tap reference, two units: max|diff|/max|ref| 5.60e-08  PASS
+  [convt_stack in=  96 out= 48 k=10 stride=5 len= 1] vs per-tap reference, two units: max|diff|/max|ref| 8.10e-08  PASS
+  [convt_stack in=  48 out= 24 k= 8 stride=4 len=16] vs per-tap reference, two units: max|diff|/max|ref| 4.58e-08  PASS
+  [convt_stack in=  48 out= 24 k= 8 stride=4 len= 5] vs per-tap reference, two units: max|diff|/max|ref| 5.10e-08  PASS
+  [convt_stack in=  48 out= 24 k= 8 stride=4 len= 1] vs per-tap reference, two units: max|diff|/max|ref| 5.77e-08  PASS
+  [convt_stack in=  24 out= 12 k= 6 stride=3 len=16] vs per-tap reference, two units: max|diff|/max|ref| 6.85e-08  PASS
+  [convt_stack in=  24 out= 12 k= 6 stride=3 len= 5] vs per-tap reference, two units: max|diff|/max|ref| 3.43e-08  PASS
+  [convt_stack in=  24 out= 12 k= 6 stride=3 len= 1] vs per-tap reference, two units: max|diff|/max|ref| 3.19e-08  PASS
+  [convt_stack in=   8 out=  8 k= 2 stride=1 len=16] vs per-tap reference, two units: max|diff|/max|ref| 1.68e-08  PASS
+  [convt_stack in=   8 out=  8 k= 2 stride=1 len= 5] vs per-tap reference, two units: max|diff|/max|ref| 3.42e-08  PASS
+  [convt_stack in=   8 out=  8 k= 2 stride=1 len= 1] vs per-tap reference, two units: max|diff|/max|ref| 6.41e-08  PASS
+  [quant_rows] SIMD/scalar parity: n/a, this build has no SIMD quantiser (8 cases skipped)
+  [attn_bf16kv rows=24 seq_k= 64 q_off= 40 heads=16/8  hd=128] block vs per-row: bit-identical  PASS
+  [attn_bf16kv rows=48 seq_k=137 q_off= 89 heads=16/2  hd=128] block vs per-row: bit-identical  PASS
+  [attn_bf16kv rows=17 seq_k= 17 q_off=  0 heads= 8/8  hd= 64] block vs per-row: bit-identical  PASS
+  [attn_bf16kv rows= 1 seq_k=200 q_off=199 heads=16/4  hd=128] block vs per-row: bit-identical  PASS
+
+SELF-TEST PASSED (0 cases failed)

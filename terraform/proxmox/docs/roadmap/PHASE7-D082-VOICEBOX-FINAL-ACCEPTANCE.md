@@ -89,6 +89,11 @@ privado coordinado ymodelos fijados. No confundir larecuperación de aplicación
 unensayoDR completo delhost. Elrunbook distingue restaurar imagen/configuración de
 restaurar datos; nunca revertirBD para deshacer un cambio decódigo.
 
+La captura final D082 incluye además el estado aceptado completo: **117archivos,
+6WAV y1referencia**, conSQLite restaurado yla filaD081 completed/57,36s
+comprobada. Copia privada fueraPVE; [recibo](evidence/2026-11-12-d082-accepted-backup.json).
+Receta versionada `release-d082/backup-accepted.py`; no se publican susdatos.
+
 ## Git, privacidad y validaciones
 
 Rama `main`, upstream `origin/main`, remotoGitHub configurado
@@ -112,7 +117,8 @@ librerías enproducción para satisfacer tests de la estación local.
 
 ## Commits y publicación
 
-Pendiente de completar con los commits revisados yel reciboGitHub. No se declara
+Commit funcional local: `b55a7f99480017fffcbeff4a3106115d65ee10ea`.
+Pendiente de completar con el reciboGitHub ylos commits documentales. No se declara
 publicado por haber preparado uncommit local. La entrega requiere push normal,
 confirmación deSHA remoto ysin commits locales deeste cierre pendientes.
 

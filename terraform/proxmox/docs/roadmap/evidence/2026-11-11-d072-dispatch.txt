@@ -1,0 +1,64 @@
+[DISPATCH] v=1 pid=1 isa_class=x86_avx2 build=unknown simd=portable src=unknown
+  feature                            compiled supported env                            resolved   reason
+  matvec.int8.avx2-emulated-dot-gemv yes      yes       QWEN_AVX2_INT8_GEMV=unset      OFF        default OFF; set QWEN_AVX2_INT8_GEMV=1 for A/B
+  matvec.q4.avx2-emulated-dot-gemv   yes      yes       QWEN_AVX2_Q4_GEMV=unset        OFF        default OFF; set QWEN_AVX2_Q4_GEMV=1 for A/B
+  talker.prefill.matmat_bf16         no       no        QWEN_PREFILL_MATMAT=unset      OFF        no bf16 matmat unit -> f32 convert + SGEMM (BLAS) prefill
+  talker.prefill.f32_blas_fallback   yes      yes       -                              ON         bf16->f32 weight convert (single-threaded) + SGEMM on the TTFA path
+  talker.prefill.slice               yes      -         QWEN_PREFILL_SLICE=unset       OFF        monolithic inline prefill (product default)
+  talker.prefix_cache                yes      -         QWEN_PREFIX_CACHE=unset        ON         default ON; QWEN_PREFIX_CACHE=0 disables
+  cp.prefill2                        yes      -         QWEN_CP_PREFILL2=unset         OFF        opt-in on this ISA, env unset
+  cp.precision                       -        -         QWEN_CP_PREC=unset             follows    follows --int8/--int4 of the Talker
+  decoder.batch                      yes      -         QWEN_DECODER_BATCH=unset       OFF        unset here; the SERVER sets it to 1 at start unless the env says 0
+  decoder.int8                       no       no        QWEN_SD_INT8=unset             OFF        opt-in on this ISA (measured slower on the first frame elsewhere)
+  decoder.res1_v2                    no       no        QWEN_SD_RES1_V2=unset          OFF        opt-in (QWEN_SD_RES1_V2=1); off: the residual convs run on the im2col panel kernel (v1 int8 where the square/768 shape allows, f32 otherwise)
+  decoder.pre_up_bf16                yes      no        QWEN_SD_BF16_PREUP=unset       OFF        default OFF; f32 decoder pre-transformer path remains the control
+  decoder.multislot                  no       no        QWEN_SD_MULTISLOT=unset        OFF        default OFF; requires QWEN_SD_INT8=1, QWEN_SD_RES1_V2=1 and a shape-compatible lane cohort
+  decoder.convt_stack                yes      yes       QWEN_SD_CONVT_STACK=unset      OFF        opt-in (QWEN_SD_CONVT_STACK=1); off: per-tap GEMMs + scatter + full-length intermediate
+  decoder.glue_fused                 no       no        QWEN_SD_GLUE=unset             OFF        opt-in (QWEN_SD_GLUE=1, needs QWEN_SD_RES1_V2=1); off: the control residual unit
+  decoder.mode                       yes      yes       QWEN_DECODER_BATCH=unset       per-item-fp32 resolved decoder leaf: ragged AMX only when batch+exact-stream+AMX decoder support all hold; otherwise per-item
+  decoder.design_d                   no       no        QWEN_SD_AMX_D=unset            OFF        Design-D unavailable or not requested; decoder uses its resolved fallback
+  decoder.fused_residual             no       no        QWEN_SD_FUSED_RESIDUAL=unset   OFF        not active; ordinary projection plus residual/fallback remains available
+  decoder.stream_strip               yes      no        QWEN_SD_STREAM_STRIP=unset     OFF        warm strip unavailable or not requested
+  prepack.amx                        no       no        QWEN_AMX_PREPACK=unset         OFF        opt-in; parent packs, prefork workers inherit
+  prepack.vnni                       no       -         QWEN_VNNI_PREPACK=unset        OFF        opt-in; int8 only; REJECTED 2026-09-03 on Zen5 (+1.1% Talker, +3.5% CP, +1.4 GB)
+  matvec.int8.native                 no       no        -                              OFF        NO integer GEMV in this build: B=1 runs the f32 fused twin
+  matmat.int8.family                 -        -         -                              see reason int8 AVX2 maddubs (probe B=4 4096x4096)
+  matmat.q4.family                   -        -         -                              see reason q4   AVX2 maddubs (probe B=4 4096x4096)
+  matmat.bf16.family                 -        -         -                              see reason bf16 fixed-B twin (no bf16 GEMM gate on this build) (probe B=4 4096x4096)
+  matmat.int8.batch_ceiling          -        -         -                              16         largest B the int8 matmat family accepts; --batch-size above it falls back to one GEMV per slot, silently
+  matvec.q4.native                   no       no        -                              OFF        NO q4 GEMV in this build: B=1 runs the f32 fused twin
+  kleidi.enabled                     no       no        QWEN_NO_KLEIDI=unset           OFF        not compiled (needs an i8mm target)
+  pool.spin                          -        -         QWEN_POOL_SPIN=unset           4096       compiled default 4096
+  pool.narrow                        -        -         QWEN_POOL_NARROW=unset         OFF        clamp workers to nt-1 (main thread also works)
+  blas.owned_effective               no       no        QWEN_BLAS_OWN=unset            OFF        BLAS runs its own team by request
+  decoder.pool                       -        -         QWEN_SD_POOL=unset             private    requested=unset resolved=private; decoder raises its own worker team
+  decoder.lane                       yes      -         QWEN_SD_LANE_SPLIT=unset       OFF        off: the decoder runs inline on the frame loop (QWEN_SD_LANE_SPLIT=N reserves the last N cpus of the worker mask for a private decoder team)
+  pool.nested_dispatch               -        -         -                              OFF        a task on the pool must run nested work inline
+  pool.concurrent_submit             -        -         -                              ON         two threads may submit at once
+  pool.submit_priority               -        -         QWEN_PREFILL_LOW_MS=unset      ON         a submitter can step aside for the frame loop (LOW)
+  pool.threads                       -        -         -                              4          matvec threads in this process (-j)
+  region.int8_runner                 -        -         -                              OFF        none: no in-region int8 runner in this build (needs VNNI or AMX; Arm wiring open)
+  region.team                        -        -         -                              4          holdable team: a region can keep its workers between phases
+  region.cp                          -        -         QWEN_CP_REGION=unset           see reason CP transformer step as one parallel region; needs int8 weights (no q4), B in 2..16 and the runner above. QWEN_CP_REGION=0 restores the dispatched path
+  region.cp_frame                    -        -         QWEN_CP_FRAME_REGION=unset     see reason all 16 CP steps in one pool entry; also needs the batched heads
+  region.cp_batch_head               -        -         QWEN_CP_BATCH_HEAD=unset       see reason MTP projection and lm_heads once for all active slots
+  region.talker                      -        -         QWEN_TK_REGION=unset           see reason batched Talker step as one parallel region, same conditions as region.cp. QWEN_TK_REGION=0 restores the dispatched path
+[DISPATCH-GATE] v=1 rows=15 (resolved by qwen_mm_use at B=min_b; min_b/rows/cols = resolved(compiled))
+  gate               kernel                   compiled supported on   min_b     min_rows      min_cols      switch                 reason
+  gate.bf16.bfmmla   bf16 BFMMLA (arm)        no       no        -    2(2)      0(0)          0(0)          QWEN_NO_BFMMLA         not compiled
+  gate.bf16.avx512   bf16 AVX-512 dpbf16      no       no        -    1(1)      0(0)          0(0)          QWEN_NO_BF16_MATMUL    not compiled
+  gate.int8.amx      int8 AMX tiles           no       no        -    3(3)      32(32)        64(64)        QWEN_NO_AMX_INT8       not compiled
+  gate.int8.vnni     int8 VNNI vpdpbusd       no       no        -    2(2)      0(0)          0(0)          QWEN_NO_VNNI           not compiled
+  gate.int8.avx2     int8 AVX2 maddubs        yes      yes       ON   2(2)      0(0)          0(0)          QWEN_NO_AVX2MM         default ON
+  gate.int8.smmla    int8 SMMLA (i8mm)        no       no        -    2(2)      0(0)          0(0)          QWEN_NO_SMMLA          not compiled
+  gate.int8.sdot_mm  int8 SDOT loop over B    no       no        -    2(2)      0(0)          0(0)          QWEN_INT8_SDOT_MM (opt-in) not compiled
+  gate.q4.vnni       q4   VNNI vpdpbusd       no       no        -    2(2)      0(0)          0(0)          QWEN_NO_VNNI           not compiled
+  gate.q4.avx2       q4   AVX2 maddubs        yes      yes       ON   2(2)      0(0)          0(0)          QWEN_NO_AVX2MM         default ON
+  gate.q4.smmla      q4   SMMLA (i8mm)        no       no        -    2(2)      0(0)          0(0)          QWEN_NO_SMMLA          not compiled
+  gate.bf16.amx      bf16 AMX tiles           no       no        -    4(4)      32(32)        32(32)        QWEN_NO_AMX_BF16       not compiled
+  gate.q4.amx        q4   AMX tiles           no       no        -    4(4)      32(32)        32(32)        QWEN_NO_AMX_Q4         not compiled
+  gate.q4.kleidi     q4   KleidiAI (arm)      no       no        -    1(1)      0(0)          0(0)          QWEN_NO_KLEIDI         not compiled
+  gate.int8.kleidi   int8 KleidiAI GEMM       no       no        -    1(1)      0(0)          0(0)          QWEN_NO_KLEIDI         not compiled
+  gate.bf16.kleidi   bf16 KleidiAI GEMM       no       no        -    1(1)      0(0)          0(0)          QWEN_NO_KLEIDI         not compiled
+sha256:03dadc9a464031613f05080d0d860749fe4a696bd5d0583da41d93edf226a305
+04f4bce57f28449bb485e5ec9d6acf80d846851b1e08ffa9f885878241318de6  qwen_tts
