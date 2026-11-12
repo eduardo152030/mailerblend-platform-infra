@@ -1,0 +1,19 @@
+{
+  "at_utc": "2026-11-12T07:15:07.458590+00:00",
+  "before_resources": {
+    "cores": "3",
+    "memory": "10240",
+    "swap": "2048"
+  },
+  "after_memory_bytes": 16106127360,
+  "after_swap_bytes": 2147483648,
+  "voicebox_identity": {
+    "id": "1c35e81571c979b89efc185a5074847bb5c5930b783027ea9d76ac45814ef457",
+    "image": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+    "started": "2026-11-12T07:01:37.552379895Z",
+    "restarts": 0,
+    "health": "healthy"
+  },
+  "restart": false,
+  "others_unchanged": true
+}

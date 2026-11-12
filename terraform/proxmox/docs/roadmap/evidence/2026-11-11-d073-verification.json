@@ -1,0 +1,103 @@
+{
+  "production": {
+    "id": "5820cbf6e02894f3566f9ca164aa18f89dfd3ea99c876b77d3fd6bd687fe3142",
+    "image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+    "started_at": "2026-11-11T09:46:28.70728525Z",
+    "restarts": 0,
+    "health": "healthy"
+  },
+  "stable_engines": [
+    {
+      "engine": "kokoro",
+      "last_real_inference": "D072",
+      "previous_real_inference": {
+        "result": "PASS",
+        "engine": "kokoro",
+        "sample_rate": 24000,
+        "audio_seconds": 2.58,
+        "generation_seconds": 8.744911596179008,
+        "process_peak_rss_bytes": 1374769152,
+        "owner_profile_used": false,
+        "preset_profile_created": false
+      },
+      "stored_wave_readable": true,
+      "wave": {
+        "seconds": 2.58,
+        "rate": 24000,
+        "frames": 61920
+      },
+      "new_inference_d073": false
+    },
+    {
+      "engine": "piper",
+      "last_real_inference": "D072",
+      "previous_real_inference": {
+        "result": "PASS",
+        "engine": "piper",
+        "sample_rate": 22050,
+        "audio_seconds": 2.1130158730158732,
+        "generation_seconds": 2.029311270453036,
+        "process_peak_rss_bytes": 416882688,
+        "owner_profile_used": false,
+        "preset_profile_created": false
+      },
+      "stored_wave_readable": true,
+      "wave": {
+        "seconds": 2.1130158730158732,
+        "rate": 22050,
+        "frames": 46592
+      },
+      "new_inference_d073": false
+    }
+  ],
+  "installed_versions": {
+    "kokoro": "0.9.4",
+    "piper-tts": "1.8.0"
+  },
+  "reference": {
+    "hash_preserved": true,
+    "mode": "0o644",
+    "uid": 999
+  },
+  "original": {
+    "hash_preserved": true,
+    "mode": "0o600",
+    "uid": 0
+  },
+  "piper_model_sha256": "234dc4cf0fdb53ccb76b9b2c4d7ef1330364762674c1b78c1b62d8608c528a54",
+  "read_only_verification": true,
+  "model_readiness": [
+    {
+      "model_name": "qwen-tts-0.6B",
+      "downloaded": true,
+      "loaded": false
+    },
+    {
+      "model_name": "kokoro",
+      "downloaded": true,
+      "loaded": false
+    },
+    {
+      "model_name": "piper-es-es",
+      "downloaded": true,
+      "loaded": false
+    }
+  ],
+  "voicebox_healthy": true,
+  "profile_uuid": "1fd00418-2a79-4178-883f-af6c3f5e07ee",
+  "active_jobs": 0,
+  "monitoring": {
+    "targets_up": 59,
+    "alerts": [
+      {
+        "name": "HostDiskFilling",
+        "vmid": "627",
+        "state": "firing"
+      }
+    ]
+  },
+  "pve_configurations_unchanged": 27,
+  "managed_other_lxc_unchanged": 17,
+  "new_generations": 0,
+  "cleanup_bytes": 0
+}

@@ -1,0 +1,7 @@
+{
+  "memory.current": "2681061376\n",
+  "memory.stat": "anon 178184192\nfile 2167517184\nkernel 334123008\nkernel_stack 2572288\npagetables 6631424\nsec_pagetables 0\npercpu 685488\nsock 4096\nvmalloc 647168\nshmem 208896\nzswap 0\nzswapped 0\nfile_mapped 112418816\nfile_dirty 45056\nfile_writeback 0\nswapcached 5267456\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 96210944\nactive_anon 83415040\ninactive_file 1033887744\nactive_file 1133420544\nunevictable 0\nslab_reclaimable 316290216\nslab_unreclaimable 6601552\nslab 322891768\nworkingset_refault_anon 29548\nworkingset_refault_file 9263904\nworkingset_activate_anon 17458\nworkingset_activate_file 5842732\nworkingset_restore_anon 17342\nworkingset_restore_file 840584\nworkingset_nodereclaim 199729\npgscan 25498149\npgsteal 24548874\npgscan_kswapd 23555245\npgscan_direct 1942009\npgscan_khugepaged 895\npgsteal_kswapd 22653612\npgsteal_direct 1894367\npgsteal_khugepaged 895\npgfault 433934188\npgmajfault 146145\npgrefill 4402652\npgactivate 86242\npgdeactivate 0\npglazyfree 0\npglazyfreed 0\nzswpin 0\nzswpout 0\nzswpwb 0\nthp_fault_alloc 10\nthp_collapse_alloc 0\nthp_swpout 0\nthp_swpout_fallback 0\n",
+  "memory.swap.current": "480182272\n",
+  "memory.pressure": "some avg10=0.00 avg60=0.03 avg300=0.03 total=12780929\nfull avg10=0.00 avg60=0.03 avg300=0.03 total=12234350\n",
+  "memory.events": "low 0\nhigh 0\nmax 115932\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

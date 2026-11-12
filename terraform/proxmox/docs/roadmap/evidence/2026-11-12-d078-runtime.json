@@ -1,0 +1,337 @@
+{
+  "effective_limits": {
+    "memory.current": "5662396416\n",
+    "memory.max": "10737418240\n",
+    "memory.high": "10653532160\n",
+    "memory.swap.max": "2147483648\n",
+    "memory.swap.current": "0\n",
+    "memory.events": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=34658\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=34554\n",
+    "cpu.max": "max 100000\n",
+    "cpuset.cpus.effective": "0-2\n"
+  },
+  "containers": [
+    {
+      "name": "/voicebox",
+      "image": "sha256:7c747589727a4d283ae5cc0b549b522d5d0cd4602572a032d5b846127382547b",
+      "status": "running",
+      "started_at": "2026-11-11T20:52:22.818005802Z",
+      "rss_limit": 6501171200,
+      "cpus": 3000000000
+    },
+    {
+      "name": "/cadvisor",
+      "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "status": "running",
+      "started_at": "2026-11-11T17:49:51.509428374Z",
+      "rss_limit": 0,
+      "cpus": 0
+    },
+    {
+      "name": "/test-nginx",
+      "image": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+      "status": "running",
+      "started_at": "2026-11-11T17:49:51.518926572Z",
+      "rss_limit": 0,
+      "cpus": 0
+    }
+  ],
+  "worker_sources": {
+    "runtime.py": "a752570acf07d517d821f8cdf06afaf5be0c480f6b13dc04d109b32d23e021fc",
+    "worker.py": "09bcc54336203e506df44ad38078948bd6afd2a5898bb66aed63eaf2fa0afc40",
+    "supervise.py": "a879ddfaf1786f4150007fa7bc6c04d8852bd22e54e1f1adc0062c1564e8f35b",
+    "checkpoint.py": "73cdcb816966cc446cc3a543d3493d6c76517a01229ecab33f109afd5532a0bc",
+    "guards.py": "f6131d19f6df527b4fa67671835b876828483b730dc9a8606e4677ea9e896b51",
+    "validation.py": "22c463ab1ac50eda2973d286038aa45b36e8c44bf5cd57d6f4513961ee27af78"
+  },
+  "ML_worker_sources_equal_to_D077": true,
+  "supervisor_differences_only": [
+    "ROOT job directory",
+    "production root label"
+  ],
+  "processes_current": [
+    {
+      "pid": 846587,
+      "name": "uvicorn",
+      "rss_bytes": 339247104,
+      "pss_bytes": 339234816,
+      "anon_bytes": 244760576,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35938,
+      "name": "dockerd",
+      "rss_bytes": 98471936,
+      "pss_bytes": 95686656,
+      "anon_bytes": 36700160,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35548,
+      "name": "containerd",
+      "rss_bytes": 59875328,
+      "pss_bytes": 58436608,
+      "anon_bytes": 24694784,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 38998,
+      "name": "cadvisor",
+      "rss_bytes": 39899136,
+      "pss_bytes": 39895040,
+      "anon_bytes": 15708160,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35524,
+      "name": "networkd-dispat",
+      "rss_bytes": 19972096,
+      "pss_bytes": 13440000,
+      "anon_bytes": 9326592,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35727,
+      "name": "unattended-upgr",
+      "rss_bytes": 22224896,
+      "pss_bytes": 14939136,
+      "anon_bytes": 8417280,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35604,
+      "name": "node_exporter",
+      "rss_bytes": 18956288,
+      "pss_bytes": 18952192,
+      "anon_bytes": 4980736,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 34607,
+      "name": "systemd-resolve",
+      "rss_bytes": 13770752,
+      "pss_bytes": 7992320,
+      "anon_bytes": 4468736,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 38882,
+      "name": "containerd-shim",
+      "rss_bytes": 12120064,
+      "pss_bytes": 7048192,
+      "anon_bytes": 4411392,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 846556,
+      "name": "containerd-shim",
+      "rss_bytes": 11784192,
+      "pss_bytes": 6745088,
+      "anon_bytes": 4182016,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 38860,
+      "name": "containerd-shim",
+      "rss_bytes": 11210752,
+      "pss_bytes": 6181888,
+      "anon_bytes": 3653632,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 31843,
+      "name": "systemd",
+      "rss_bytes": 11382784,
+      "pss_bytes": 5632000,
+      "anon_bytes": 2977792,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 39351,
+      "name": "nginx",
+      "rss_bytes": 3039232,
+      "pss_bytes": 1209344,
+      "anon_bytes": 2023424,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 39352,
+      "name": "nginx",
+      "rss_bytes": 2977792,
+      "pss_bytes": 1188864,
+      "anon_bytes": 2023424,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 39350,
+      "name": "nginx",
+      "rss_bytes": 3039232,
+      "pss_bytes": 1209344,
+      "anon_bytes": 2023424,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 38966,
+      "name": "nginx",
+      "rss_bytes": 5857280,
+      "pss_bytes": 4104192,
+      "anon_bytes": 1552384,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 34356,
+      "name": "systemd-udevd",
+      "rss_bytes": 6033408,
+      "pss_bytes": 2828288,
+      "anon_bytes": 1523712,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35533,
+      "name": "rsyslogd",
+      "rss_bytes": 5791744,
+      "pss_bytes": 2540544,
+      "anon_bytes": 1167360,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 39208,
+      "name": "docker-proxy",
+      "rss_bytes": 4743168,
+      "pss_bytes": 1760256,
+      "anon_bytes": 1126400,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 34402,
+      "name": "systemd-network",
+      "rss_bytes": 8622080,
+      "pss_bytes": 3070976,
+      "anon_bytes": 1122304,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 39140,
+      "name": "docker-proxy",
+      "rss_bytes": 4673536,
+      "pss_bytes": 1717248,
+      "anon_bytes": 1114112,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 34067,
+      "name": "systemd-journal",
+      "rss_bytes": 116428800,
+      "pss_bytes": 87054336,
+      "anon_bytes": 1101824,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 846647,
+      "name": "docker-proxy",
+      "rss_bytes": 4722688,
+      "pss_bytes": 1725440,
+      "anon_bytes": 1097728,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 39183,
+      "name": "docker-proxy",
+      "rss_bytes": 4628480,
+      "pss_bytes": 1668096,
+      "anon_bytes": 1073152,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35539,
+      "name": "systemd-logind",
+      "rss_bytes": 7528448,
+      "pss_bytes": 2092032,
+      "anon_bytes": 966656,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35354,
+      "name": "dbus-daemon",
+      "rss_bytes": 5021696,
+      "pss_bytes": 1698816,
+      "anon_bytes": 843776,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 36480,
+      "name": "master",
+      "rss_bytes": 4939776,
+      "pss_bytes": 1534976,
+      "anon_bytes": 688128,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 846744,
+      "name": "qmgr",
+      "rss_bytes": 7274496,
+      "pss_bytes": 2415616,
+      "anon_bytes": 675840,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 1696399,
+      "name": "pickup",
+      "rss_bytes": 7213056,
+      "pss_bytes": 2354176,
+      "anon_bytes": 659456,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35513,
+      "name": "lxc-iptag",
+      "rss_bytes": 3424256,
+      "pss_bytes": 1622016,
+      "anon_bytes": 397312,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35349,
+      "name": "cron",
+      "rss_bytes": 2596864,
+      "pss_bytes": 415744,
+      "anon_bytes": 233472,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35571,
+      "name": "agetty",
+      "rss_bytes": 2068480,
+      "pss_bytes": 233472,
+      "anon_bytes": 135168,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35572,
+      "name": "agetty",
+      "rss_bytes": 2068480,
+      "pss_bytes": 233472,
+      "anon_bytes": 135168,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 35574,
+      "name": "agetty",
+      "rss_bytes": 2064384,
+      "pss_bytes": 229376,
+      "anon_bytes": 131072,
+      "swap_bytes": 0
+    },
+    {
+      "pid": 2093394,
+      "name": "sleep",
+      "rss_bytes": 1687552,
+      "pss_bytes": 189440,
+      "anon_bytes": 94208,
+      "swap_bytes": 0
+    }
+  ],
+  "agent_journal_entries_in_failure_interval": 0,
+  "agent_journal_body": "No entries; jobs are logged to state/supervisor files, child stderr currently discarded",
+  "agent_status": "NRestarts=0\nMemoryCurrent=8392704\nActiveState=active\n"
+}

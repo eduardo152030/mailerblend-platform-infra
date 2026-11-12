@@ -1,0 +1,28 @@
+{
+  "at_utc": "2026-11-12T02:06:10.968884+00:00",
+  "PVE_configs_identical": 27,
+  "Voicebox_identity_image_start_restarts_health_unchanged": true,
+  "voicebox": {
+    "id": "b761544dfda2067a6e3cb65fef7333733860cec083a5e6f7ce78ce1fb0063ffe",
+    "image": "sha256:7c747589727a4d283ae5cc0b549b522d5d0cd4602572a032d5b846127382547b",
+    "started_at": "2026-11-11T20:52:22.818005802Z",
+    "restart_count": 0,
+    "health": "healthy"
+  },
+  "new_oom_host_and_all_ct": 0,
+  "profile_original_reference_transcript_verified": true,
+  "failed_job_states_and_events_unchanged": true,
+  "no_active_qwen_workers": true,
+  "inferences_executed_by_D078": 0,
+  "cache_reclaim_performed": false,
+  "production_changes": false,
+  "resource_or_guard_changes": false,
+  "no_file_deletions": true,
+  "proposal_policy_tests_passed": 6,
+  "no_commit_push": true,
+  "accepted_D077_checkpoint_intact": true,
+  "codes_shape": [
+    447,
+    16
+  ]
+}

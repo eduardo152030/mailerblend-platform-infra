@@ -1,0 +1,92 @@
+{
+  "per_stage": {
+    "unload_kokoro": {
+      "samples": 1,
+      "start_seconds": 3.45,
+      "end_seconds": 3.45,
+      "ct_memory_current_max_bytes": 1218748416,
+      "candidate_rss_max_bytes": 0,
+      "working_set_max_bytes": 1031507968,
+      "swap_max_bytes": 0,
+      "ct_cpu_seconds_delta": 0.0
+    },
+    "candidate_start": {
+      "samples": 3,
+      "start_seconds": 5.746,
+      "end_seconds": 9.438,
+      "ct_memory_current_max_bytes": 1592496128,
+      "candidate_rss_max_bytes": 316235776,
+      "working_set_max_bytes": 1399250944,
+      "swap_max_bytes": 0,
+      "ct_cpu_seconds_delta": 3.963339
+    },
+    "load": {
+      "samples": 56,
+      "start_seconds": 10.296,
+      "end_seconds": 23.544,
+      "ct_memory_current_max_bytes": 3291230208,
+      "candidate_rss_max_bytes": 1831112704,
+      "working_set_max_bytes": 3027111936,
+      "swap_max_bytes": 0,
+      "ct_cpu_seconds_delta": 7.51796
+    },
+    "short": {
+      "samples": 3287,
+      "start_seconds": 23.545,
+      "end_seconds": 624.012,
+      "ct_memory_current_max_bytes": 4527128576,
+      "candidate_rss_max_bytes": 3250225152,
+      "working_set_max_bytes": 3761270784,
+      "swap_max_bytes": 4096,
+      "ct_cpu_seconds_delta": 666.19745
+    }
+  },
+  "peak_sample": {
+    "elapsed_seconds": 621.798,
+    "phase": "short",
+    "ct_memory_current_bytes": 4527128576,
+    "ct_memory_peak_bytes": 4528623616,
+    "ct_inactive_file_bytes": 1444970496,
+    "ct_working_set_bytes": 3082158080,
+    "ct_swap_bytes": 4096,
+    "memory_events": {
+      "low": "0",
+      "high": "0",
+      "max": "0",
+      "oom": "0",
+      "oom_kill": "0",
+      "oom_group_kill": "0"
+    },
+    "ct_cpu_stat": {
+      "usage_usec": "689418799",
+      "user_usec": "662306302",
+      "system_usec": "27112496",
+      "core_sched.force_idle_usec": "0",
+      "nr_periods": "0",
+      "nr_throttled": "0",
+      "throttled_usec": "0",
+      "nr_bursts": "0",
+      "burst_usec": "0"
+    },
+    "VmHWM_bytes": 3250225152,
+    "VmRSS_bytes": 3250225152,
+    "RssAnon_bytes": 1195016192,
+    "RssFile_bytes": 2055208960,
+    "VmSwap_bytes": 0
+  },
+  "sample_interval_max_seconds": 2.401,
+  "cpu_seconds_observed": 680.135348,
+  "average_cpu_cores_observed": 1.0959990266887114,
+  "average_ct_allocated_cpu_percent": 36.53330088962372,
+  "samples_sha256": "99209fae91063d2cafed2717fcb06d18d9ca152d11794d3cf4d098e57e6016bf",
+  "raw_samples": "private recovery directory; no personal recordings",
+  "warnings": [
+    "flash-attn not installed; CPU uses prepared SDPA path; no CUDA dependency installed"
+  ],
+  "limitations": [
+    "no completed Qwen audio",
+    "no30or60second test",
+    "ten-minute deadline is a configured operational timeout, not a proof of memory exhaustion",
+    "observed window only; no claim of minute narration viability"
+  ]
+}

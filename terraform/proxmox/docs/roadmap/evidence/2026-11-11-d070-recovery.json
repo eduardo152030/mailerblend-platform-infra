@@ -1,0 +1,75 @@
+{
+  "observed_at_utc": "2026-11-11T08:50:51.819525+00:00",
+  "container": {
+    "id": "68ecf2b01961696f7db2f452a7450ae0a74abe27fd0658de8a4e170df03da8b4",
+    "image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+    "started_at": "2026-11-10T21:52:36.871048645Z",
+    "restarts": 0,
+    "oom_killed": false
+  },
+  "ct_uptime_seconds": 65714.13,
+  "windows": [
+    {
+      "cpu_ticks": 6276,
+      "memory": {
+        "VmHWM": "588984 kB",
+        "VmRSS": "240056 kB",
+        "VmSwap": "186240 kB"
+      },
+      "cgroup": {
+        "memory.current": "1718538240\n",
+        "memory.swap.current": "239165440\n",
+        "memory.events": "low 0\nhigh 0\nmax 113728\noom 0\noom_kill 0\noom_group_kill 0\n",
+        "cpu.stat": "usage_usec 6587162325\nuser_usec 4789155763\nsystem_usec 1798006562\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n"
+      },
+      "elapsed_seconds": 5.000621551647782,
+      "process_cpu_cores": 0.0019997514102431616,
+      "cgroup_cpu_cores": 0.0315602767315986
+    },
+    {
+      "cpu_ticks": 6276,
+      "memory": {
+        "VmHWM": "588984 kB",
+        "VmRSS": "240056 kB",
+        "VmSwap": "186240 kB"
+      },
+      "cgroup": {
+        "memory.current": "1718534144\n",
+        "memory.swap.current": "239165440\n",
+        "memory.events": "low 0\nhigh 0\nmax 113728\noom 0\noom_kill 0\noom_group_kill 0\n",
+        "cpu.stat": "usage_usec 6587185507\nuser_usec 4789170065\nsystem_usec 1798015442\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n"
+      },
+      "elapsed_seconds": 5.000646781176329,
+      "process_cpu_cores": 0.0,
+      "cgroup_cpu_cores": 0.004635800330321826
+    },
+    {
+      "cpu_ticks": 6276,
+      "memory": {
+        "VmHWM": "588984 kB",
+        "VmRSS": "240056 kB",
+        "VmSwap": "186240 kB"
+      },
+      "cgroup": {
+        "memory.current": "1718964224\n",
+        "memory.swap.current": "239165440\n",
+        "memory.events": "low 0\nhigh 0\nmax 113728\noom 0\noom_kill 0\noom_group_kill 0\n",
+        "cpu.stat": "usage_usec 6587225718\nuser_usec 4789196750\nsystem_usec 1798028967\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n"
+      },
+      "elapsed_seconds": 5.0006071627140045,
+      "process_cpu_cores": 0.0,
+      "cgroup_cpu_cores": 0.008041223533779063
+    }
+  ],
+  "result": "PASS",
+  "cancelled_generation": "d7ce3d31-fa43-4cd8-bd44-0b990ac53da2",
+  "generation_status": "failed",
+  "generation_error": "Generation cancelled",
+  "active_generations": 0,
+  "ct_restart": false,
+  "profiles": 1,
+  "references": 1,
+  "reference_and_original_bytes_preserved": true,
+  "other_pve_configs_unchanged": 26,
+  "pve_resources_changed": false
+}

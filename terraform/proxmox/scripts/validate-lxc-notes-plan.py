@@ -10,6 +10,8 @@ def descriptions():
  return {k:'# '+v['title']+'\n\n'+'\n\n'.join(v['sections'])+'\n' for k,v in d.items()}
 def review(plan,expected):
  issues=[];changes=[]
+ if plan.get('errored') or any(x.get('status') in ('fail','error') for x in plan.get('checks',[])):
+  issues.append({'reason':'Terraform plan failed; never authorize an incomplete saved plan'})
  for r in plan.get('resource_changes',[]):
   c=r['change'];actions=c['actions']
   if actions==['no-op']:continue

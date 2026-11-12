@@ -1,0 +1,12 @@
+{
+  "files": {
+    "supervise.py": "3998fc7240bfa18461399d5cad680af6dff457960be3ca98c9287f5dd29501cd",
+    "guards.py": "150e6c4d6d150ac7cecb2438b053a309f9c528d8987c173e7a6ceea02ed84349"
+  },
+  "ct_guard_gib": 14,
+  "ct_ram_gib": 15,
+  "worker_hard_gib": 9,
+  "worker_stop_gib": 8.2,
+  "app_recreated": false,
+  "agent_active": true
+}

@@ -1,0 +1,1024 @@
+{
+  "at_utc": "2026-11-11T14:43:08.450945+00:00",
+  "df": "Filesystem                         1B-blocks        Used  Available Use% Mounted on\n/dev/mapper/pve-vm--627--disk--0 52521566208 42243751936 7576682496  85% /\n",
+  "du": {
+    "/": "4096\t/home\n5947146240\t/srv\n200704\t/root\n16384\t/lost+found\n1835544576\t/usr\n19462766592\t/var\n4096\t/mnt\n4096\t/media\n40960\t/tmp\n4530176\t/etc\n14957502464\t/opt\n4096\t/boot\n42207768576\t/\n",
+    "/srv/voicebox": "126976\t/srv/voicebox/huggingface/xet\n2845560832\t/srv/voicebox/huggingface/hub\n2845691904\t/srv/voicebox/huggingface\n4034560\t/srv/voicebox/pilot-d067/data\n4038656\t/srv/voicebox/pilot-d067\n5361664\t/srv/voicebox/private-originals\n5820416\t/srv/voicebox/pilot-d068/piper-data03\n135168\t/srv/voicebox/pilot-d068/05-diagnostic-mixed\n4096\t/srv/voicebox/pilot-d068/diagnostic-bf16\n5824512\t/srv/voicebox/pilot-d068/piper-data02\n73728\t/srv/voicebox/pilot-d068/03-diagnostic-bf16\n5509120\t/srv/voicebox/pilot-d068/piper-data\n135168\t/srv/voicebox/pilot-d068/04-diagnostic-bf16\n65536\t/srv/voicebox/pilot-d068/preflight\n5836800\t/srv/voicebox/pilot-d068/piper-data04\n4096\t/srv/voicebox/pilot-d068/02-diagnostic-bf16\n23412736\t/srv/voicebox/pilot-d068\n241664\t/srv/voicebox/diagnostics-d072-stable\n75702272\t/srv/voicebox/pilot-d072/build\n28672\t/srv/voicebox/pilot-d072/jobs\n1204224\t/srv/voicebox/pilot-d072/private\n135782400\t/srv/voicebox/pilot-d072\n6193152\t/srv/voicebox/openvoice/jobs\n339501056\t/srv/voicebox/openvoice/models\n345698304\t/srv/voicebox/openvoice\n241664\t/srv/voicebox/diagnostics-d070\n1204224\t/srv/voicebox/data/profiles\n1433600\t/srv/voicebox/data/cache\n76775424\t/srv/voicebox/data/models\n12288\t/srv/voicebox/data/backends\n1298432\t/srv/voicebox/data/generations\n84340736\t/srv/voicebox/data\n241664\t/srv/voicebox/diagnostics-d071-stable\n2498478080\t/srv/voicebox/pilot-d066/huggingface\n3604480\t/srv/voicebox/pilot-d066/data\n2502086656\t/srv/voicebox/pilot-d066\n5947142144\t/srv/voicebox\n",
+    "/opt/voicebox": "77824\t/opt/voicebox/pilot-d071\n28672\t/opt/voicebox/pilot-d067\n724992\t/opt/voicebox/source/.github\n1470464\t/opt/voicebox/source/docs\n61440\t/opt/voicebox/source/.agents\n94208\t/opt/voicebox/source/scripts\n1613824\t/opt/voicebox/source/backend\n16384\t/opt/voicebox/source/data\n61440\t/opt/voicebox/source/web\n6516736\t/opt/voicebox/source/app\n32149504\t/opt/voicebox/source/tauri\n101335040\t/opt/voicebox/source/.git\n144392192\t/opt/voicebox/source\n32768\t/opt/voicebox/pilot-d069\n34193408\t/opt/voicebox/pilot-d068/piper\n20480\t/opt/voicebox/pilot-d068/release\n34267136\t/opt/voicebox/pilot-d068\n450490368\t/opt/voicebox/backups/d068-preserved-final\n330301440\t/opt/voicebox/backups/d064-before-catalog\n334630912\t/opt/voicebox/backups/d067-final\n450187264\t/opt/voicebox/backups/d068-final\n333508608\t/opt/voicebox/backups/d067-before\n334635008\t/opt/voicebox/backups/d068-before\n411410432\t/opt/voicebox/backups/d068-before-piper\n6770688\t/opt/voicebox/backups/d070-cancel\n329515008\t/opt/voicebox/backups/d063-after-tts\n458395648\t/opt/voicebox/backups/d069-before\n333516800\t/opt/voicebox/backups/d067-before-recreate\n332644352\t/opt/voicebox/backups/d064-before-memory3072\n2966126592\t/opt/voicebox/backups/d069-final\n333074432\t/opt/voicebox/backups/d066-before-qwen\n20480\t/opt/voicebox/backups/d069-acceptance\n330141696\t/opt/voicebox/backups/d063-final-2048\n86642688\t/opt/voicebox/backups/d071-before\n14709608448\t/opt/voicebox/backups\n34197504\t/opt/voicebox/d068-rollback/overlay\n34217984\t/opt/voicebox/d068-rollback\n8192\t/opt/voicebox/diagnostics-d072-stable\n12288\t/opt/voicebox/diagnostics-d070\n12288\t/opt/voicebox/diagnostics-d071-stable\n40960\t/opt/voicebox/pilot-d066\n14922801152\t/opt/voicebox\n",
+    "/var/lib": "4096\t/var/lib/docker/runtimes\n28672\t/var/lib/docker/volumes\n8192\t/var/lib/docker/rootfs\n81920\t/var/lib/docker/network\n1425408\t/var/lib/docker/containers\n14876672\t/var/lib/docker/buildkit\n8192\t/var/lib/docker/tmp\n8192\t/var/lib/docker/plugins\n4096\t/var/lib/docker/swarm\n16453632\t/var/lib/docker\n3592192\t/var/lib/command-not-found\n2346217472\t/var/lib/containerd/io.containerd.content.v1.content\n8192\t/var/lib/containerd/io.containerd.grpc.v1.introspection\n20480\t/var/lib/containerd/io.containerd.runtime.v2.task\n16405360640\t/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs\n4096\t/var/lib/containerd/io.containerd.snapshotter.v1.blockfile\n4096\t/var/lib/containerd/tmpmounts\n8192\t/var/lib/containerd/io.containerd.snapshotter.v1.native\n2981888\t/var/lib/containerd/io.containerd.metadata.v1.bolt\n4096\t/var/lib/containerd/io.containerd.snapshotter.v1.btrfs\n4096\t/var/lib/containerd/io.containerd.snapshotter.v1.erofs\n4096\t/var/lib/containerd/io.containerd.sandbox.controller.v1.shim\n18754621440\t/var/lib/containerd\n4096\t/var/lib/machines\n4096\t/var/lib/python\n32768\t/var/lib/polkit-1/localauthority\n36864\t/var/lib/polkit-1\n4096\t/var/lib/man-db\n12288\t/var/lib/update-manager\n45056\t/var/lib/ucf/cache\n102400\t/var/lib/ucf\n4096\t/var/lib/private\n36864\t/var/lib/PackageKit\n8192\t/var/lib/ubuntu-release-upgrader\n12288\t/var/lib/lxc-ssh-bootstrap\n4096\t/var/lib/apt/periodic\n8192\t/var/lib/apt/mirrors\n335990784\t/var/lib/apt/lists\n336019456\t/var/lib/apt\n4096\t/var/lib/dbus\n8192\t/var/lib/postfix\n720896\t/var/lib/usbutils\n4096\t/var/lib/portables\n4096\t/var/lib/dhcp\n4096\t/var/lib/update-notifier\n28672\t/var/lib/pam\n8192\t/var/lib/logrotate\n4096\t/var/lib/vim/addons\n8192\t/var/lib/vim\n4096\t/var/lib/misc\n4096\t/var/lib/sudo/lectured\n8192\t/var/lib/sudo\n20480\t/var/lib/dpkg/triggers\n4096\t/var/lib/dpkg/parts\n4096\t/var/lib/dpkg/updates\n192512\t/var/lib/dpkg/alternatives\n18563072\t/var/lib/dpkg/info\n92745728\t/var/lib/dpkg\n8192\t/var/lib/node_exporter/textfile\n12288\t/var/lib/node_exporter\n4096\t/var/lib/systemd/linger\n4096\t/var/lib/systemd/pstore\n155648\t/var/lib/systemd/catalog\n159744\t/var/lib/systemd/deb-systemd-helper-enabled\n32768\t/var/lib/systemd/deb-systemd-user-helper-enabled\n4096\t/var/lib/systemd/coredump\n4096\t/var/lib/systemd/deb-systemd-helper-masked\n4096\t/var/lib/systemd/timers\n372736\t/var/lib/systemd\n4096\t/var/lib/git\n4096\t/var/lib/unattended-upgrades\n7540736\t/var/lib/ubuntu-advantage/apt-esm\n7548928\t/var/lib/ubuntu-advantage\n20480\t/var/lib/emacsen-common/state\n24576\t/var/lib/emacsen-common\n19212431360\t/var/lib\n",
+    "/var/log": "4096\t/var/log/dist-upgrade\n4096\t/var/log/private\n360448\t/var/log/apt\n89792512\t/var/log/journal\n151552\t/var/log/unattended-upgrades\n97767424\t/var/log\n",
+    "/tmp": "8192\t/tmp/systemd-private-fe746a2f362a46bfbe38a0cf368f9401-systemd-resolved.service-6gOmWQ\n4096\t/tmp/.XIM-unix\n4096\t/tmp/.X11-unix\n8192\t/tmp/systemd-private-fe746a2f362a46bfbe38a0cf368f9401-systemd-logind.service-Ju178S\n4096\t/tmp/.font-unix\n4096\t/tmp/.Test-unix\n4096\t/tmp/.ICE-unix\n40960\t/tmp\n",
+    "/var/tmp": "8192\t/var/tmp/systemd-private-fe746a2f362a46bfbe38a0cf368f9401-systemd-logind.service-7eeV4C\n8192\t/var/tmp/systemd-private-fe746a2f362a46bfbe38a0cf368f9401-systemd-resolved.service-vNpWDX\n20480\t/var/tmp\n",
+    "/var/cache": "3846144\t/var/cache/debconf\n24576\t/var/cache/ldconfig\n4096\t/var/cache/private\n8192\t/var/cache/PackageKit\n142766080\t/var/cache/apt\n782336\t/var/cache/locate\n1970176\t/var/cache/man\n1388544\t/var/cache/apparmor\n150794240\t/var/cache\n"
+  },
+  "models": {
+    "kokoro": {
+      "/srv/voicebox/huggingface/hub/models--hexgrad--Kokoro-82M": {
+        "file_count": 13,
+        "apparent_bytes": 329308751,
+        "allocated_file_bytes": 329342976
+      }
+    },
+    "qwen_base": {
+      "/srv/voicebox/huggingface/hub/models--Qwen--Qwen3-TTS-12Hz-0.6B-Base": {
+        "file_count": 23,
+        "apparent_bytes": 2516101564,
+        "allocated_file_bytes": 2516152320
+      }
+    },
+    "qwen_cv": {
+      "/srv/voicebox/pilot-d066/huggingface/hub/models--Qwen--Qwen3-TTS-12Hz-0.6B-CustomVoice": {
+        "file_count": 25,
+        "apparent_bytes": 2498387597,
+        "allocated_file_bytes": 2498437120
+      }
+    },
+    "openvoice": {
+      "/srv/voicebox/openvoice/models": {
+        "file_count": 12,
+        "apparent_bytes": 339449276,
+        "allocated_file_bytes": 339484672
+      }
+    },
+    "piper": {
+      "/srv/voicebox/data/models/piper": {
+        "file_count": 3,
+        "apparent_bytes": 76760209,
+        "allocated_file_bytes": 76767232
+      }
+    }
+  },
+  "docker_layers_size": 18639819781,
+  "images": [
+    {
+      "Id": "sha256:03dadc9a464031613f05080d0d860749fe4a696bd5d0583da41d93edf226a305",
+      "RepoTags": [
+        "local/qwen-c:d072"
+      ],
+      "Size": 880144305,
+      "SharedSize": 154165248,
+      "Containers": 1
+    },
+    {
+      "Id": "sha256:70dd4896a1e8d4349c2a7c66f03623e992f092f0e435a1efc4b051e88bbe7d5e",
+      "RepoTags": [
+        "local/voicebox:openvoice-d071"
+      ],
+      "Size": 5360567499,
+      "SharedSize": 4062121984,
+      "Containers": 0
+    },
+    {
+      "Id": "sha256:5bd20f32e2bdd221f5db2e36a8288d8f46606df2cd467a51d97272cae425d19b",
+      "RepoTags": [
+        "local/voicebox-openvoice:d071"
+      ],
+      "Size": 3145176674,
+      "SharedSize": 154165248,
+      "Containers": 1
+    },
+    {
+      "Id": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+      "RepoTags": [
+        "local/voicebox:8af7efe62fab-personal-d069"
+      ],
+      "Size": 5348872308,
+      "SharedSize": 4062121984,
+      "Containers": 1
+    },
+    {
+      "Id": "sha256:c86ea2658d6ab7c02acf2b0a39fd483f17ca70b35d1471fce7010cec47358543",
+      "RepoTags": [
+        "local/voicebox:8af7efe62fab-piper-d068-r2"
+      ],
+      "Size": 5348783299,
+      "SharedSize": 4062048256,
+      "Containers": 1
+    },
+    {
+      "Id": "sha256:6719df35797586abda320a90e60c4e07be84e18f299524fd67e84606067854f0",
+      "RepoTags": [
+        "local/voicebox:8af7efe62fab-piper-d068"
+      ],
+      "Size": 5348783258,
+      "SharedSize": 4059983872,
+      "Containers": 1
+    },
+    {
+      "Id": "sha256:4de8a649d267fb9f4fa9d7049f264a1e6896718c7892f70706abb4a46d75430d",
+      "RepoTags": [
+        "local/voicebox:8af7efe62fab-bf16-sdpa-d066"
+      ],
+      "Size": 5181741427,
+      "SharedSize": 3967672320,
+      "Containers": 7
+    },
+    {
+      "Id": "sha256:7f2e6f7e6a2d09c77ebd35424a7641249e51b8ff0374bc9c4acb1f7393cfcd4c",
+      "RepoTags": [
+        "local/voicebox:8af7efe62fab-cpu-d063"
+      ],
+      "Size": 5181711107,
+      "SharedSize": 3967672320,
+      "Containers": 0
+    },
+    {
+      "Id": "sha256:5be5aaecb962a41567bc8041f1e9e3432cb085b037fe057f9a562630b2e4b370",
+      "RepoTags": [
+        "python:3.10-slim-bookworm"
+      ],
+      "Size": 203523102,
+      "SharedSize": 154165248,
+      "Containers": 0
+    },
+    {
+      "Id": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "RepoTags": [
+        "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a"
+      ],
+      "Size": 106632374,
+      "SharedSize": 0,
+      "Containers": 1
+    },
+    {
+      "Id": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+      "RepoTags": [
+        "nginx:alpine"
+      ],
+      "Size": 79813929,
+      "SharedSize": 0,
+      "Containers": 1
+    }
+  ],
+  "container_counts": {
+    "all": 16,
+    "running": 3
+  },
+  "containers": [
+    {
+      "id": "88ca4b5ccfe2e882cac7e22ab344b19a19bf792c68b82d77319f5489ebc0bad2",
+      "name": "/qwen-d072-short-int8",
+      "image": "sha256:03dadc9a464031613f05080d0d860749fe4a696bd5d0583da41d93edf226a305",
+      "status": "exited",
+      "log_bytes": 0
+    },
+    {
+      "id": "5820cbf6e02894f3566f9ca164aa18f89dfd3ea99c876b77d3fd6bd687fe3142",
+      "name": "/voicebox",
+      "image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+      "status": "running",
+      "log_bytes": 195681
+    },
+    {
+      "id": "4ca3033c9039aee8bb4d2d81497fb8606b9a90d00c61fe5fb9a0e5b6f0217f6b",
+      "name": "/voicebox-openvoice",
+      "image": "sha256:5bd20f32e2bdd221f5db2e36a8288d8f46606df2cd467a51d97272cae425d19b",
+      "status": "exited",
+      "log_bytes": 1794
+    },
+    {
+      "id": "f12067ca869f984b61e08d96d97e7354f5435611049a1bfbfc8f709f5ce539dd",
+      "name": "/voicebox-d068-piper-api-04",
+      "image": "sha256:c86ea2658d6ab7c02acf2b0a39fd483f17ca70b35d1471fce7010cec47358543",
+      "status": "exited",
+      "log_bytes": 7610
+    },
+    {
+      "id": "b3c2b784d9157a51251d72e1369054d408970ebfea0c7affc4218947708bbd48",
+      "name": "/voicebox-d068-piper-api-03",
+      "image": "sha256:6719df35797586abda320a90e60c4e07be84e18f299524fd67e84606067854f0",
+      "status": "exited",
+      "log_bytes": 6522
+    },
+    {
+      "id": "9e524dc0823739ac716cbfb8f428c45253a7c102e67bd9cd86bd0d68ea9a2f30",
+      "name": "/voicebox-d068-piper-api-02",
+      "image": "sha256:710c090d8d642930a54f9a9dc7143fc19a9edef3d1b420bb253c9c2491aa5b9d",
+      "status": "exited",
+      "log_bytes": 6523
+    },
+    {
+      "id": "b60f54a0f1f5ecae0045fa5837f54da4a842bcdc6cf9dcfca355c0d2c1ab0948",
+      "name": "/voicebox-d068-piper-api",
+      "image": "sha256:245fbc4d0ce05f2d38206ca4a90272acdf13e363549561e96d83a9103f8c6eac",
+      "status": "exited",
+      "log_bytes": 14565
+    },
+    {
+      "id": "073b240234f3b038341a25c83080d73aa35efe4e44da0be6ae8416bdac5a1af9",
+      "name": "/voicebox-d068-05-diagnostic-mixed",
+      "image": "sha256:4de8a649d267fb9f4fa9d7049f264a1e6896718c7892f70706abb4a46d75430d",
+      "status": "exited",
+      "log_bytes": 9548
+    },
+    {
+      "id": "af8262454b097fb73b56b029a7eb89a0493bc91b74c8150468eae0acb6becea8",
+      "name": "/voicebox-d068-04-diagnostic-bf16",
+      "image": "sha256:4de8a649d267fb9f4fa9d7049f264a1e6896718c7892f70706abb4a46d75430d",
+      "status": "exited",
+      "log_bytes": 11724
+    },
+    {
+      "id": "2e759efa8bcbb6d5483171a776464547bc43d54757006bb26be01966be65e744",
+      "name": "/voicebox-d068-03-diagnostic-bf16",
+      "image": "sha256:4de8a649d267fb9f4fa9d7049f264a1e6896718c7892f70706abb4a46d75430d",
+      "status": "exited",
+      "log_bytes": 8406
+    },
+    {
+      "id": "b1e1a8ad308b12d29f7092ce149f36832ecf48a804ade5259dc8e9a47f6e7be4",
+      "name": "/voicebox-d068-02-diagnostic-bf16",
+      "image": "sha256:4de8a649d267fb9f4fa9d7049f264a1e6896718c7892f70706abb4a46d75430d",
+      "status": "exited",
+      "log_bytes": 5369
+    },
+    {
+      "id": "742faf3c1914be25dff7e642e0ccdc2af2844ee4890954cf021775f39539f440",
+      "name": "/voicebox-d068-diagnostic-bf16",
+      "image": "sha256:4de8a649d267fb9f4fa9d7049f264a1e6896718c7892f70706abb4a46d75430d",
+      "status": "exited",
+      "log_bytes": 1866
+    },
+    {
+      "id": "40d167f003a19026035261abc902e4f735ed23bfad3efe03381d964455bcfc41",
+      "name": "/voicebox-qwen-pilot-d067",
+      "image": "sha256:4de8a649d267fb9f4fa9d7049f264a1e6896718c7892f70706abb4a46d75430d",
+      "status": "exited",
+      "log_bytes": 64331
+    },
+    {
+      "id": "6827870a000e6dd3ffbedd181e85c0372c5a05012260c63cbdeaf6d8104ee65f",
+      "name": "/voicebox-qwen-pilot-d066",
+      "image": "sha256:4de8a649d267fb9f4fa9d7049f264a1e6896718c7892f70706abb4a46d75430d",
+      "status": "exited",
+      "log_bytes": 9584
+    },
+    {
+      "id": "81c5c86257703e8bc4a51556e8ceab4052f588a6c7606f4f014bf8ce5f2db255",
+      "name": "/cadvisor",
+      "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+      "status": "running",
+      "log_bytes": 303259
+    },
+    {
+      "id": "7ac78088a4b9c34071dc5aa8ccd462dba7db0fdd8af25f66a82a1190663bbeb5",
+      "name": "/test-nginx",
+      "image": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14",
+      "status": "running",
+      "log_bytes": 76855
+    }
+  ],
+  "docker_volumes": {
+    "count": 0,
+    "bytes": 0
+  },
+  "build_cache": [
+    {
+      "ID": "vz5wfmecnxdgtv6mbf1zq0eho",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 2221535232,
+      "CreatedAt": "2026-11-10T10:36:47.366623023Z"
+    },
+    {
+      "ID": "m9a072v9q0f91hj8rosr0jb5s",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 29837,
+      "CreatedAt": "2026-11-10T19:06:50.038473061Z"
+    },
+    {
+      "ID": "ei75ylqvc2b7710m971q336qi",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 6267929,
+      "CreatedAt": "2026-11-11T14:19:29.505766235Z"
+    },
+    {
+      "ID": "cc9n4utgqdchqqwkkaowoc7bo",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 8192,
+      "CreatedAt": "2026-11-10T10:29:45.99744245Z"
+    },
+    {
+      "ID": "pry3g2uhchfmoluo5rbg499h9",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 4128,
+      "CreatedAt": "2026-11-11T14:19:02.623180776Z"
+    },
+    {
+      "ID": "io8ozb3d5jkxuirguplnk91nw",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 17758714,
+      "CreatedAt": "2026-11-11T09:08:24.279200887Z"
+    },
+    {
+      "ID": "pv2ejpcwgqbwwqltompg5jgpz",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 10956976,
+      "CreatedAt": "2026-11-11T09:30:37.812642536Z"
+    },
+    {
+      "ID": "yxvelzf4s39xc49b7o8yom63h",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 8192,
+      "CreatedAt": "2026-11-10T10:29:36.949780634Z"
+    },
+    {
+      "ID": "vnpkmjsn7luvj5i0sssnbetbh",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 16384,
+      "CreatedAt": "2026-11-11T09:30:18.569323641Z"
+    },
+    {
+      "ID": "sa60wjg6lv6fiqcm06zf8yljx",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 1923063,
+      "CreatedAt": "2026-11-10T10:38:44.527586155Z"
+    },
+    {
+      "ID": "onodw9o3mmfdvi2gi3mvw9z7b",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 183619542,
+      "CreatedAt": "2026-11-10T10:29:28.682175216Z"
+    },
+    {
+      "ID": "izf9jojw8vhnmxdmvzqhqbocc",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 160298852,
+      "CreatedAt": "2026-11-10T10:29:29.218533833Z"
+    },
+    {
+      "ID": "rex6zrysjqaamsn7reyjmv3er",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 559601,
+      "CreatedAt": "2026-11-11T09:30:12.196948462Z"
+    },
+    {
+      "ID": "igqfbnlbh5h0w49f2vcv6y2ge",
+      "Type": "source.local",
+      "InUse": false,
+      "Shared": false,
+      "Size": 4096,
+      "CreatedAt": "2026-11-10T19:06:45.637331521Z"
+    },
+    {
+      "ID": "3ae7a6z9mz6ejuutx0el17fzv",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 19148800,
+      "CreatedAt": "2026-11-10T10:30:49.935909146Z"
+    },
+    {
+      "ID": "p57xn6tjk145ua7ai9ygnumen",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 43065344,
+      "CreatedAt": "2026-11-11T09:30:17.153856177Z"
+    },
+    {
+      "ID": "jv2x6uuaf2fex563r7s8nh0ya",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 535971942,
+      "CreatedAt": "2026-11-11T14:19:01.144736985Z"
+    },
+    {
+      "ID": "sl0t5cr2uov16htt52rsdwm50",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 3942982472,
+      "CreatedAt": "2026-11-10T10:38:43.05516138Z"
+    },
+    {
+      "ID": "s3vhenkieyr5p28rloxhojrvp",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 34015,
+      "CreatedAt": "2026-11-10T10:38:45.92454603Z"
+    },
+    {
+      "ID": "7ef3vtw3e5ce8p01hd520bkjv",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 3342310,
+      "CreatedAt": "2026-11-11T09:08:24.143143074Z"
+    },
+    {
+      "ID": "zgd6mtif62swkdadnrxv6ysos",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 221184,
+      "CreatedAt": "2026-11-10T10:29:46.275130691Z"
+    },
+    {
+      "ID": "c8y5ng4p4puj2vsivznf7fi62",
+      "Type": "source.local",
+      "InUse": false,
+      "Shared": false,
+      "Size": 24576,
+      "CreatedAt": "2026-11-11T09:08:24.204881528Z"
+    },
+    {
+      "ID": "vxqizx2mgs78mqxz2tj1ki420",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 35799040,
+      "CreatedAt": "2026-11-11T09:30:11.41517174Z"
+    },
+    {
+      "ID": "iecwav88rnakc534ho6kdx44d",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 30357,
+      "CreatedAt": "2026-11-11T09:30:11.250225773Z"
+    },
+    {
+      "ID": "xa3hjqf59pvb382fc7wnxkmw8",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 42929318,
+      "CreatedAt": "2026-11-10T10:43:00.433656741Z"
+    },
+    {
+      "ID": "tfu156dm92c16g9joljhfqvcr",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 379080704,
+      "CreatedAt": "2026-11-11T09:30:30.110945043Z"
+    },
+    {
+      "ID": "4bd4pyd4hdd0nhkckehl579ko",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 8702231,
+      "CreatedAt": "2026-11-10T10:29:28.828547989Z"
+    },
+    {
+      "ID": "sr0qub7xu1ucpzv0lv8tit2rt",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 6217280,
+      "CreatedAt": "2026-11-10T10:29:28.913622494Z"
+    },
+    {
+      "ID": "wefuzeqs45zfb18h7f4o877d7",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 13233,
+      "CreatedAt": "2026-11-11T09:15:27.996777909Z"
+    },
+    {
+      "ID": "qdj9f4op8n66y83psh9cpdrow",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 886632448,
+      "CreatedAt": "2026-11-10T10:31:46.923464212Z"
+    },
+    {
+      "ID": "znt0p1t8svmh2b4ftdpp5782z",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 117563780,
+      "CreatedAt": "2026-11-10T10:29:28.771855521Z"
+    },
+    {
+      "ID": "x7rtyyixkmz84dqnthm8vmfdr",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 28249323,
+      "CreatedAt": "2026-11-11T09:08:24.05440883Z"
+    },
+    {
+      "ID": "unsi4ucvwqsoce23ydt0iui0g",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 20776,
+      "CreatedAt": "2026-11-10T10:29:29.024935204Z"
+    },
+    {
+      "ID": "gflyfzpl88hsudhu22u1me329",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 85310,
+      "CreatedAt": "2026-11-10T10:29:29.57099666Z"
+    },
+    {
+      "ID": "qsvfdye9j2pc23kmttkcz3oy8",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 8192,
+      "CreatedAt": "2026-11-10T10:30:51.542325848Z"
+    },
+    {
+      "ID": "i0m77cmavxvjkf7sv9i3iis2b",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 68762,
+      "CreatedAt": "2026-11-10T10:29:37.430526318Z"
+    },
+    {
+      "ID": "bjsvmdgfxurqb5uby8woo69do",
+      "Type": "source.local",
+      "InUse": false,
+      "Shared": false,
+      "Size": 8192,
+      "CreatedAt": "2026-11-11T09:15:26.430319086Z"
+    },
+    {
+      "ID": "piysbzhsgjytiixbnhu3ums6q",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 250,
+      "CreatedAt": "2026-11-11T09:08:24.367646318Z"
+    },
+    {
+      "ID": "t2hntshb853fcdq312mhhu252",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 16569,
+      "CreatedAt": "2026-11-10T10:29:29.401649069Z"
+    },
+    {
+      "ID": "c2mfn8kits4gwzgmutd5ctwyj",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 96340224,
+      "CreatedAt": "2026-11-10T19:06:49.827401935Z"
+    },
+    {
+      "ID": "54vwu56n1a25dpjog5toqhaez",
+      "Type": "source.local",
+      "InUse": false,
+      "Shared": false,
+      "Size": 34181120,
+      "CreatedAt": "2026-11-10T19:06:45.840425788Z"
+    },
+    {
+      "ID": "1aqzx89bu2nek6n7p8fup11ga",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 53520822,
+      "CreatedAt": "2026-11-10T10:29:29.093855973Z"
+    },
+    {
+      "ID": "vq68dkidcrug4fl2okhcf2qh0",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 18883,
+      "CreatedAt": "2026-11-10T19:28:58.040883883Z"
+    },
+    {
+      "ID": "039alvv69vqij5mff04cogfrm",
+      "Type": "source.local",
+      "InUse": false,
+      "Shared": false,
+      "Size": 8192,
+      "CreatedAt": "2026-11-11T14:18:23.271653914Z"
+    },
+    {
+      "ID": "urvgdoi2v7hia5zxqsynmd7w0",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 6524928,
+      "CreatedAt": "2026-11-10T10:29:46.567116409Z"
+    },
+    {
+      "ID": "npsywgtu46d918ewtarcocvhr",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 69632,
+      "CreatedAt": "2026-11-10T10:29:46.835453896Z"
+    },
+    {
+      "ID": "ia05deh12n2b09zy63ry71cr5",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 1175552,
+      "CreatedAt": "2026-11-10T10:36:51.232513637Z"
+    },
+    {
+      "ID": "ckx618zyxh8gf1z2h4g7vbuwl",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 131072,
+      "CreatedAt": "2026-11-11T09:30:18.050032507Z"
+    },
+    {
+      "ID": "csgmb5j530kcenivtgninhunz",
+      "Type": "source.local",
+      "InUse": false,
+      "Shared": false,
+      "Size": 4096,
+      "CreatedAt": "2026-11-11T14:18:23.465731272Z"
+    },
+    {
+      "ID": "o4cara27r6xgeip6ioq3hyk2m",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 18503,
+      "CreatedAt": "2026-11-11T09:30:11.517330789Z"
+    },
+    {
+      "ID": "rvkt9214mj3g5wznu9189ranw",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 12288,
+      "CreatedAt": "2026-11-10T10:30:50.386511689Z"
+    },
+    {
+      "ID": "tnbwgnly6upuc3zjvjbsxhngw",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 2737889,
+      "CreatedAt": "2026-11-10T19:28:58.801423266Z"
+    },
+    {
+      "ID": "2mh8fkh7p06mi15ld6pn8nd9r",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 68266998,
+      "CreatedAt": "2026-11-10T19:06:46.749777242Z"
+    },
+    {
+      "ID": "sady97ypkiftog9r78e3ygmt9",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 29922,
+      "CreatedAt": "2026-11-10T10:38:45.481070553Z"
+    },
+    {
+      "ID": "ukbakly9s718meud8uqj81953",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 35807232,
+      "CreatedAt": "2026-11-11T09:30:15.713045448Z"
+    },
+    {
+      "ID": "dm0nj6zng24s5yercokonuco7",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 6254592,
+      "CreatedAt": "2026-11-11T09:30:30.563477224Z"
+    },
+    {
+      "ID": "vp6u93en3eic8dmb5zlit4kq0",
+      "Type": "source.local",
+      "InUse": false,
+      "Shared": false,
+      "Size": 75698176,
+      "CreatedAt": "2026-11-11T14:18:23.703231014Z"
+    },
+    {
+      "ID": "juwdbj3w0h1m5w7y7fb7zm28v",
+      "Type": "source.local",
+      "InUse": false,
+      "Shared": false,
+      "Size": 4096,
+      "CreatedAt": "2026-11-11T09:15:27.312282433Z"
+    },
+    {
+      "ID": "r16egf3c0shmj7bknno8ww5go",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 37022,
+      "CreatedAt": "2026-11-10T10:38:45.243749413Z"
+    },
+    {
+      "ID": "1pczfrsrrlex72ci40ury5viy",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 636577432,
+      "CreatedAt": "2026-11-11T09:09:55.24556986Z"
+    },
+    {
+      "ID": "j1cvqqyceojspxorldhpijdfh",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 1006627428,
+      "CreatedAt": "2026-11-10T10:32:03.520527948Z"
+    },
+    {
+      "ID": "asrzxux8h9g0l1p65il73hbav",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 4128,
+      "CreatedAt": "2026-11-10T10:29:38.574683351Z"
+    },
+    {
+      "ID": "wniermlfecq2mvat4975fn01w",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 10952908,
+      "CreatedAt": "2026-11-10T10:38:44.833164998Z"
+    },
+    {
+      "ID": "m8t78kmnokn7u4k66r3wsnfa4",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 20624,
+      "CreatedAt": "2026-11-10T10:29:38.363806986Z"
+    },
+    {
+      "ID": "p4lpjueruejdj7kjeynldore6",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 16522,
+      "CreatedAt": "2026-11-10T10:29:29.656457164Z"
+    },
+    {
+      "ID": "jlsxnuvstoqzxvz7wegqiqrkm",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 134615498,
+      "CreatedAt": "2026-11-11T14:19:02.410637961Z"
+    },
+    {
+      "ID": "bmp44895rjk9a482c29s35mbw",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 1056,
+      "CreatedAt": "2026-11-11T09:15:27.92816974Z"
+    },
+    {
+      "ID": "gso88dg822qbaouurn2mdzyvv",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 12288,
+      "CreatedAt": "2026-11-11T09:30:17.370338815Z"
+    },
+    {
+      "ID": "g1gytgdrvtezcfqggij5y3ps1",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 28845,
+      "CreatedAt": "2026-11-10T10:29:37.921358275Z"
+    },
+    {
+      "ID": "m06hro4yqlgi3w5xmvtdba5ul",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 372482048,
+      "CreatedAt": "2026-11-10T10:30:41.593358441Z"
+    },
+    {
+      "ID": "ot4xcdddpy75s306lee56bx28",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": true,
+      "Size": 16632,
+      "CreatedAt": "2026-11-10T10:29:29.307032068Z"
+    },
+    {
+      "ID": "wdy9ouimdqccec56oo8joecru",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 12288,
+      "CreatedAt": "2026-11-11T09:30:17.572241086Z"
+    },
+    {
+      "ID": "y3w4g40it5ar3ravtm3jwq0wa",
+      "Type": "regular",
+      "InUse": false,
+      "Shared": false,
+      "Size": 168076,
+      "CreatedAt": "2026-11-11T09:30:38.031956235Z"
+    }
+  ],
+  "unused_unshared_cache_bytes": 4485183669,
+  "backups": [
+    {
+      "name": "d068-preserved-final",
+      "kind": "directory",
+      "allocated": 450490368
+    },
+    {
+      "name": "d064-before-catalog",
+      "kind": "directory",
+      "allocated": 330301440
+    },
+    {
+      "name": "d067-final.tar.gz",
+      "kind": "file",
+      "allocated": 309706752
+    },
+    {
+      "name": "d067-final",
+      "kind": "directory",
+      "allocated": 334630912
+    },
+    {
+      "name": "d068-before.tar.gz",
+      "kind": "file",
+      "allocated": 309706752
+    },
+    {
+      "name": "d068-final",
+      "kind": "directory",
+      "allocated": 450187264
+    },
+    {
+      "name": "d067-before",
+      "kind": "directory",
+      "allocated": 333508608
+    },
+    {
+      "name": "d068-before-sample-recovery.sqlite3",
+      "kind": "file",
+      "allocated": 196608
+    },
+    {
+      "name": "d068-before",
+      "kind": "directory",
+      "allocated": 334635008
+    },
+    {
+      "name": "d068-before-piper",
+      "kind": "directory",
+      "allocated": 411410432
+    },
+    {
+      "name": "d067-before-recreate.tar.gz",
+      "kind": "file",
+      "allocated": 308756480
+    },
+    {
+      "name": "d070-cancel",
+      "kind": "directory",
+      "allocated": 6770688
+    },
+    {
+      "name": "d063-after-tts",
+      "kind": "directory",
+      "allocated": 329515008
+    },
+    {
+      "name": "d068-final.tar.gz",
+      "kind": "file",
+      "allocated": 418930688
+    },
+    {
+      "name": "d069-before",
+      "kind": "directory",
+      "allocated": 458395648
+    },
+    {
+      "name": "d067-before-recreate",
+      "kind": "directory",
+      "allocated": 333516800
+    },
+    {
+      "name": "d063-final-2048.tar.gz",
+      "kind": "file",
+      "allocated": 305917952
+    },
+    {
+      "name": "d064-before-memory3072",
+      "kind": "directory",
+      "allocated": 332644352
+    },
+    {
+      "name": "d069-final",
+      "kind": "directory",
+      "allocated": 2966126592
+    },
+    {
+      "name": "d066-before-qwen.tar.gz",
+      "kind": "file",
+      "allocated": 308391936
+    },
+    {
+      "name": "d066-before-qwen",
+      "kind": "directory",
+      "allocated": 333074432
+    },
+    {
+      "name": "d068-before-piper.tar.gz",
+      "kind": "file",
+      "allocated": 380907520
+    },
+    {
+      "name": "d063-after-tts.tar.gz",
+      "kind": "file",
+      "allocated": 305377280
+    },
+    {
+      "name": "d069-final.tar.gz",
+      "kind": "file",
+      "allocated": 2475220992
+    },
+    {
+      "name": "d069-acceptance",
+      "kind": "directory",
+      "allocated": 20480
+    },
+    {
+      "name": "d068-preserved-final.tar.gz",
+      "kind": "file",
+      "allocated": 419205120
+    },
+    {
+      "name": "d064-before-memory3072.tar.gz",
+      "kind": "file",
+      "allocated": 308023296
+    },
+    {
+      "name": "d063-final-2048",
+      "kind": "directory",
+      "allocated": 330141696
+    },
+    {
+      "name": "d071-before",
+      "kind": "directory",
+      "allocated": 86642688
+    },
+    {
+      "name": "d067-before.tar.gz",
+      "kind": "file",
+      "allocated": 308760576
+    },
+    {
+      "name": "d064-before-catalog.tar.gz",
+      "kind": "file",
+      "allocated": 306049024
+    },
+    {
+      "name": "d069-before.tar.gz",
+      "kind": "file",
+      "allocated": 422440960
+    }
+  ]
+}

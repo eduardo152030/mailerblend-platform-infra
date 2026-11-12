@@ -1,0 +1,9 @@
+{
+  "checks": {
+    "voicebox_web_rendered": true,
+    "fleet_627_dynamic_selection": true,
+    "details_627_dynamic_selection": true
+  },
+  "query_errors": [],
+  "ct_id": 627
+}

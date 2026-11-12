@@ -1,0 +1,73 @@
+{
+  "status": "DIAGNOSIS_DONE_TRIAL_NOT_EXECUTED",
+  "time_madrid": "2026-11-10T14:11:40.171897+01:00",
+  "active_model": "Kokoro",
+  "current_ram_mib": 3072,
+  "cpu": "i5-6500 AVX2, no native BF16 acceleration",
+  "installed": {
+    "torch": "2.8.0+cpu",
+    "transformers": "4.57.3",
+    "qwen-tts": "0.1.1",
+    "accelerate": "1.12.0"
+  },
+  "current_fork_cpu_dtype": "float32",
+  "low_cpu_mem_usage_flag": "ignored by installed Transformers4.57.3",
+  "models_weight_lower_bounds": [
+    {
+      "model": "CustomVoice0.6B",
+      "fp32_weights_gib": 4.009701732546091,
+      "bf16_weights_gib": 2.0048508662730455,
+      "bf16_talker_fp32_codec_weights_gib": 2.3225388564169407
+    },
+    {
+      "model": "Base0.6B",
+      "fp32_weights_gib": 4.042686704546213,
+      "bf16_weights_gib": 2.0213433522731066,
+      "bf16_talker_fp32_codec_weights_gib": 2.3390313424170017
+    }
+  ],
+  "bf16_talker_kv_estimate_bytes": {
+    "1000": 114688000,
+    "1500": 172032000
+  },
+  "load_rss_actual": "NOT_MEASURED",
+  "minute_inference_memory_actual": "NOT_MEASURED",
+  "minute_generation_seconds_actual": "NOT_MEASURED",
+  "candidate": "BF16 CPU + SDPA + one model resident + chunks200, controlled4GiB trial",
+  "download_without_load_possible": true,
+  "kokoro_can_remain_on_disk": true,
+  "native_quantization_in_fork": false,
+  "tiny_dtype_operations": {
+    "torch": "2.8.0+cpu",
+    "cpu_capability": "AVX2",
+    "scope": "tiny synthetic operators only; NO model loaded",
+    "results": {
+      "torch.float32": {
+        "linear": "PASS",
+        "conv1d": "PASS",
+        "conv_transpose1d": "PASS",
+        "sdpa": "PASS",
+        "rms_norm": "PASS",
+        "elapsed_seconds": 0.005941106006503105
+      },
+      "torch.bfloat16": {
+        "linear": "PASS",
+        "conv1d": "PASS",
+        "conv_transpose1d": "PASS",
+        "sdpa": "PASS",
+        "rms_norm": "PASS",
+        "elapsed_seconds": 0.004315069876611233
+      },
+      "torch.float16": {
+        "linear": "PASS",
+        "conv1d": "PASS",
+        "conv_transpose1d": "PASS",
+        "sdpa": "PASS",
+        "rms_norm": "PASS",
+        "elapsed_seconds": 0.005926346406340599
+      }
+    },
+    "diagnostic_process_peak_rss_bytes": 228904960
+  },
+  "production_trial_or_cleanup_executed_after_latest_gate": false
+}

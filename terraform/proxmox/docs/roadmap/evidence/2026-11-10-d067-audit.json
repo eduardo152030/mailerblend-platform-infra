@@ -1,0 +1,66 @@
+{
+  "observed_at_utc": "2026-11-10T14:25:22.387910+00:00",
+  "config_hashes": {
+    "9618": "f181ce1e62e6897f535de1bfd8ce1323130b7364c8f56f3e3104b2f1162dfa45",
+    "620": "17ae5bd3e712ec2c58f7deb9d82fffd29d35fc40781ed720bac48ef99c75b534",
+    "621": "ac2bba7fe12cc7ee16701c418f1a46d7bfc48612a728673ddd81fa66edc22c40",
+    "622": "8192a357c960df3bafd3bb17565609605eb67830172f72d75d42311b37847620",
+    "623": "1c23ac15c980db51756aebb8720ecb626144984256d061a49a3724afda407b4c",
+    "624": "f945d65a129993d9007652b7cc85ce59beb7516fef3e394df3e422a6548ebc67",
+    "625": "cc82a509b23010e05edf3f4e1f5218734f24a26d0d04237dbe4d0f696c904e3d",
+    "626": "e03537f3c1c56d1c2ca2389400a93015d4ae3022d2386911ede74c53b3524dac",
+    "627": "96922cc6b5b57e4ba892745516a04e80be8c39c0041529a3047677c0b486b6e9",
+    "610": "aa31485ed2daa9b63bdc69af2b858e7d1652d49f82d67e0decacda15ddde81da",
+    "611": "5277b6c56d517cdb692786b33b93939cf7b68bd9a545eb2c4e5bec5f127c5079",
+    "613": "433d69cb350f48b86a4283c94ab00de2c9a7e5fa3a65f3e51c0ac4d156e459f9",
+    "614": "11aaa5f184b52aa23025946f380b01baa0f9fecd0566a1721d005f9c102a556b",
+    "615": "6d2f3c732171940a60b9643d474de1e2c7575a2f9caf03fe37a7baa67db32696",
+    "616": "78b47a37604ab91b26578282770156006c5866fbcc38b68903dff533bdc724b9",
+    "617": "8d81cd62fe44bb3b38893f6e456f1f5ae9919d2090d9f2b98c5d7c7e41a8510f",
+    "618": "10e59bf0523db1a24c9a5bbb9b54f8c43fff8a57b39aeeb03ffab0b5332c544f",
+    "619": "afb09985bd71bbbf57de67e46e1dc23e11ee89a630e10ead9156015c2a57f9c1",
+    "101": "17ca38e4106856c6517911d80726f0bc9b6fe3b007c2ee6b82514929e529e9c4",
+    "103": "be97bbc4a7967d3ba7fc2fac7947ec3142c5aeb7a28777a0e41f13213b326f21",
+    "104": "2aff6d2c47d308a227aca75f037ac6cc85c6b5ec6a81cc3d04775a6a2cf18f10",
+    "105": "9409ba1e5955b33bcfecf7a3765a802683f2c302d6c5015d5591a3a5e4ae6f9b",
+    "9622": "aef088f18c2faee1b2d3ffe7e7717c06e7588f45a46734c552b80fc4e15fadc6",
+    "106": "115491492177b31124a5c64a6c32516a8533b655cd992b41bc32c6c1b4687e9d",
+    "107": "8b7aa4a0d4e7a3ac56d1bf511a32c019ba60c00220a1862f54165c99517258ca",
+    "109": "4d2469e95fbed964ec208b4ec9ff6e3c71afd715e34d3417b3fe863b373bc65f",
+    "61211": "bb097efcf9463ccd540a1ade55eaffe5d6ea636688a3412ece60839a172c6e1c"
+  },
+  "resources": {
+    "memory": "3072",
+    "swap": "512",
+    "cores": "3",
+    "rootfs": "local-lvm:vm-627-disk-0,size=50G"
+  },
+  "containers": {
+    "voicebox": {
+      "image": "sha256:7f2e6f7e6a2d09c77ebd35424a7641249e51b8ff0374bc9c4acb1f7393cfcd4c",
+      "running": true,
+      "oom_killed": false,
+      "exit_code": 0
+    },
+    "voicebox-qwen-pilot-d067": {
+      "image": "sha256:4de8a649d267fb9f4fa9d7049f264a1e6896718c7892f70706abb4a46d75430d",
+      "running": false,
+      "oom_killed": false,
+      "exit_code": 137
+    }
+  },
+  "kernel_oom_records": [],
+  "loaded_models": [
+    "kokoro"
+  ],
+  "failed_short_generation": {
+    "id": "36e9000a-f876-48ca-a935-02b04ea459e4",
+    "status": "failed",
+    "audio_path": "",
+    "error": "Generation cancelled"
+  },
+  "other_pve_config_hashes_unchanged": 26,
+  "other_managed_lxc_unchanged": 17,
+  "monitoring_targets_identical_and_up": 59,
+  "result": "PASS"
+}

@@ -88,5 +88,20 @@
       "health_signal": "api_liveness",
       "source": "phase6_iac"
     }
+  },
+  {
+    "targets": [
+      "http://192.168.1.127:17493/health"
+    ],
+    "labels": {
+      "service": "infra-voicebox",
+      "vmid": "627",
+      "module": "voicebox_api_cpu",
+      "probe_id": "voicebox-api-health",
+      "probe_type": "internal",
+      "scope": "internal",
+      "health_signal": "api_liveness",
+      "source": "inventory"
+    }
   }
 ]

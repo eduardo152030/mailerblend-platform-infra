@@ -1,0 +1,47 @@
+{
+  "at_utc": "2026-11-11T14:23:49.775276+00:00",
+  "production": {
+    "id": "5820cbf6e02894f3566f9ca164aa18f89dfd3ea99c876b77d3fd6bd687fe3142",
+    "image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+    "started_at": "2026-11-11T09:46:28.70728525Z",
+    "health": "healthy",
+    "restarts": 0
+  },
+  "pilot": {
+    "running": false,
+    "pid": 0,
+    "oom_killed": false,
+    "exit_code": 137
+  },
+  "ct_cpu_cores_5s": 0.0024680676829820767,
+  "ct_memory": 3370291200,
+  "ct_swap": 64520192,
+  "ct_events": {
+    "low": "0",
+    "high": "0",
+    "max": "114423",
+    "oom": "0",
+    "oom_kill": "0",
+    "oom_group_kill": "0"
+  },
+  "host_pressure": "some avg10=2.85 avg60=1.96 avg300=1.50 total=2030938651003\nfull avg10=2.52 avg60=1.61 avg300=1.18 total=1834313340013\n",
+  "host_memory_available": 9664962560,
+  "pve_configs_unchanged": true,
+  "reference_original_preserved": true,
+  "api_health": {
+    "status": "healthy",
+    "model_loaded": false,
+    "model_downloaded": null,
+    "model_size": null,
+    "gpu_available": false,
+    "gpu_type": null,
+    "vram_used_mb": null,
+    "backend_type": "pytorch",
+    "backend_variant": "cpu",
+    "supports_rocm": false,
+    "gpu_compatibility_warning": null,
+    "cloud_enabled": false
+  },
+  "owner_profiles": 1,
+  "active_generations": 0
+}

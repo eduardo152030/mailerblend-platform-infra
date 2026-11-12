@@ -1,0 +1,29 @@
+{
+  "data": {
+    "at_utc": "2026-11-11T20:42:27.239275+00:00",
+    "archive": "/opt/voicebox/backups/d077-production-before.tar.gz",
+    "sha256": "dd8b18fc5a2c97504f386a1a2fa92732eb4641a74e171f8b411840fbbc2e5c29",
+    "files": 68,
+    "database_counts": {
+      "profiles": 1,
+      "profile_samples": 1,
+      "generations": 3
+    },
+    "original_image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+    "models_readonly_unchanged_not_duplicated": true
+  },
+  "restore_test": {
+    "outside_CT_verified": true,
+    "restore_test_integrity": "ok",
+    "manifest_files_verified": 68,
+    "sha256": "dd8b18fc5a2c97504f386a1a2fa92732eb4641a74e171f8b411840fbbc2e5c29"
+  },
+  "new_image": {
+    "sha256": "4b1e5d1931812d0214c55220a59ffbb6536481d73e6fda2fc3167081380f5fe3",
+    "bytes": 1279101739,
+    "outside_CT": true,
+    "image_id": "sha256:7c747589727a4d283ae5cc0b549b522d5d0cd4602572a032d5b846127382547b"
+  },
+  "old_image_preserved": true,
+  "no_models_backups_deleted": true
+}

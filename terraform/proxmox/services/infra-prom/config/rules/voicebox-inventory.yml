@@ -1,0 +1,15 @@
+groups:
+- name: provisioned_627
+  rules:
+  - record: lxc:cpu_inventory:expected
+    expr: vector(1)
+    labels:
+      job: node_exporter
+      instance: 192.168.1.127:9100
+      service: infra-voicebox
+      ct_id: '627'
+  - record: lxc:cadvisor:required
+    expr: vector(1)
+    labels:
+      service: infra-voicebox
+      ct_id: '627'

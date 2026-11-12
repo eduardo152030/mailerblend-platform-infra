@@ -1,0 +1,177 @@
+{
+  "before": {
+    "at_utc": "2026-11-12T07:07:07.158129+00:00",
+    "current": 6000422912,
+    "anon": 386854912,
+    "file": 5260390400,
+    "kernel": 353161216,
+    "swap": 0,
+    "psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n",
+    "events": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+  },
+  "resident_before": [
+    {
+      "file": "bb65663ea90e6b73104d038e69ead859cb6d4f04943a1d81085ce400e2cc0d52",
+      "resident_bytes": 885350400,
+      "size_bytes": 885347144
+    },
+    {
+      "file": "0d9ac6d75587faee8c382a97a2d5daee1110475f19c858181c18446ef7b424ca",
+      "resident_bytes": 141737984,
+      "size_bytes": 267053668
+    },
+    {
+      "file": "0dd1920dd89d710d9abcaf41e3603b4f4b4e9d961043b0a56c290b94e6d1151b",
+      "resident_bytes": 37933056,
+      "size_bytes": 37931264
+    },
+    {
+      "file": "3bd3fa6171dbce790b4d3f0943018d6f8d4ebe8d0e9b5d6beff35e3fa253006a",
+      "resident_bytes": 34099200,
+      "size_bytes": 34098166
+    },
+    {
+      "file": "37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41",
+      "resident_bytes": 29859840,
+      "size_bytes": 29856132
+    }
+  ],
+  "checks": {
+    "no_inference": true,
+    "no_active_queue": true,
+    "no_incompatible_operations": true,
+    "no_open_fds_or_mappings": true
+  },
+  "advice_calls": [
+    {
+      "path_in_CT627": "/var/lib/containerd/io.containerd.content.v1.content/blobs/sha256/bb65663ea90e6b73104d038e69ead859cb6d4f04943a1d81085ce400e2cc0d52",
+      "operation": "POSIX_FADV_DONTNEED",
+      "once": true
+    },
+    {
+      "path_in_CT627": "/var/lib/containerd/io.containerd.content.v1.content/blobs/sha256/0d9ac6d75587faee8c382a97a2d5daee1110475f19c858181c18446ef7b424ca",
+      "operation": "POSIX_FADV_DONTNEED",
+      "once": true
+    },
+    {
+      "path_in_CT627": "/var/lib/containerd/io.containerd.content.v1.content/blobs/sha256/0dd1920dd89d710d9abcaf41e3603b4f4b4e9d961043b0a56c290b94e6d1151b",
+      "operation": "POSIX_FADV_DONTNEED",
+      "once": true
+    },
+    {
+      "path_in_CT627": "/var/lib/containerd/io.containerd.content.v1.content/blobs/sha256/3bd3fa6171dbce790b4d3f0943018d6f8d4ebe8d0e9b5d6beff35e3fa253006a",
+      "operation": "POSIX_FADV_DONTNEED",
+      "once": true
+    },
+    {
+      "path_in_CT627": "/var/lib/containerd/io.containerd.content.v1.content/blobs/sha256/37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41",
+      "operation": "POSIX_FADV_DONTNEED",
+      "once": true
+    }
+  ],
+  "after_samples": [
+    {
+      "at_utc": "2026-11-12T07:07:07.833839+00:00",
+      "current": 4867223552,
+      "anon": 385634304,
+      "file": 4131409920,
+      "kernel": 350179328,
+      "swap": 0,
+      "psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n",
+      "events": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+    },
+    {
+      "at_utc": "2026-11-12T07:07:08.334293+00:00",
+      "current": 4867272704,
+      "anon": 385634304,
+      "file": 4131409920,
+      "kernel": 350179328,
+      "swap": 0,
+      "psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n",
+      "events": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+    },
+    {
+      "at_utc": "2026-11-12T07:07:08.834684+00:00",
+      "current": 4867538944,
+      "anon": 385949696,
+      "file": 4131409920,
+      "kernel": 350179328,
+      "swap": 0,
+      "psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n",
+      "events": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+    },
+    {
+      "at_utc": "2026-11-12T07:07:09.335169+00:00",
+      "current": 4867538944,
+      "anon": 385949696,
+      "file": 4131409920,
+      "kernel": 350179328,
+      "swap": 0,
+      "psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n",
+      "events": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+    },
+    {
+      "at_utc": "2026-11-12T07:07:09.835555+00:00",
+      "current": 4867538944,
+      "anon": 385949696,
+      "file": 4131409920,
+      "kernel": 350179328,
+      "swap": 0,
+      "psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n",
+      "events": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+    },
+    {
+      "at_utc": "2026-11-12T07:07:10.335966+00:00",
+      "current": 4867538944,
+      "anon": 385949696,
+      "file": 4131409920,
+      "kernel": 350179328,
+      "swap": 0,
+      "psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n",
+      "events": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+    }
+  ],
+  "after": {
+    "at_utc": "2026-11-12T07:07:10.335966+00:00",
+    "current": 4867538944,
+    "anon": 385949696,
+    "file": 4131409920,
+    "kernel": 350179328,
+    "swap": 0,
+    "psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n",
+    "events": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+  },
+  "resident_after": [
+    {
+      "file": "bb65663ea90e6b73104d038e69ead859cb6d4f04943a1d81085ce400e2cc0d52",
+      "resident_bytes": 0,
+      "size_bytes": 885347144
+    },
+    {
+      "file": "0d9ac6d75587faee8c382a97a2d5daee1110475f19c858181c18446ef7b424ca",
+      "resident_bytes": 0,
+      "size_bytes": 267053668
+    },
+    {
+      "file": "0dd1920dd89d710d9abcaf41e3603b4f4b4e9d961043b0a56c290b94e6d1151b",
+      "resident_bytes": 0,
+      "size_bytes": 37931264
+    },
+    {
+      "file": "3bd3fa6171dbce790b4d3f0943018d6f8d4ebe8d0e9b5d6beff35e3fa253006a",
+      "resident_bytes": 0,
+      "size_bytes": 34098166
+    },
+    {
+      "file": "37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41",
+      "resident_bytes": 0,
+      "size_bytes": 29856132
+    }
+  ],
+  "success": true,
+  "file_bytes_reclaimed_observed": 1128980480,
+  "current_bytes_recovered_observed": 1132883968,
+  "candidate_residency_reduced_bytes": 1128980480,
+  "files_and_images_unchanged": true,
+  "no_global_drop_caches": true
+}

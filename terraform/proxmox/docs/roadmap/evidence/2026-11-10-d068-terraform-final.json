@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "steps": [
+    {
+      "step": "notes",
+      "result": "PASS",
+      "changed_fields": [
+        "description"
+      ],
+      "scope": "CT627 only",
+      "added": 0,
+      "changed": 1,
+      "destroyed": 0
+    },
+    {
+      "step": "second-apply",
+      "result": "PASS",
+      "changed_fields": [],
+      "scope": "CT627 only",
+      "added": 0,
+      "changed": 0,
+      "destroyed": 0
+    }
+  ],
+  "memory_mib": 7168,
+  "other_lxc_changes": 0,
+  "replacements": 0
+}

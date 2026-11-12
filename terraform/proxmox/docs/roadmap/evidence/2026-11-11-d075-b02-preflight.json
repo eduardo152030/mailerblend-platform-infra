@@ -1,0 +1,9 @@
+{
+  "observed_seconds": 60.032048779539764,
+  "host_available_min_bytes": 9968799744,
+  "ct_swap_min": 431857664,
+  "ct_swap_max": 431886336,
+  "host_psi_full_avg10_max": 0.85,
+  "ct_psi_full_avg10_max": 0.0,
+  "passed": true
+}

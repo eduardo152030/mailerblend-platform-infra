@@ -1,0 +1,7 @@
+schema: 1
+policy: PERSONAL_ONLY_D069
+review_status: PREVIOUS_PRESETS_RETIRED_WITH_PRIVATE_BACKUP
+candidates: []
+selection_objectives:
+  identity: Owner real voice only; future profiles out of current scope
+historical_catalog: rollback/voices-catalog-d064.yml

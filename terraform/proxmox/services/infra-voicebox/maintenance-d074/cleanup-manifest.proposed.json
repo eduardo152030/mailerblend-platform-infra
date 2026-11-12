@@ -1,0 +1,1570 @@
+{
+  "decision": "D074",
+  "status": "PROPOSED_NOT_EXECUTED_APPROVAL_REQUIRED",
+  "target_ct": 627,
+  "entry_count": 105,
+  "potential_allocated_bytes": 12826994869,
+  "no_global_prune": true,
+  "excluded": [
+    "live Voicebox data/profile/reference/originals/history/audio/model caches",
+    "all images and all Docker containers",
+    "all compressed backup archives",
+    "D071-before, D070-cancel, D069-acceptance",
+    "D072/private and D072/jobs",
+    "all persistent volumes and live Compose/resources"
+  ],
+  "entries": [
+    {
+      "key": "cache:039alvv69vqij5mff04cogfrm",
+      "kind": "buildkit_cache_record",
+      "identifier": "039alvv69vqij5mff04cogfrm",
+      "allocated_bytes": 8192,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:3ae7a6z9mz6ejuutx0el17fzv",
+      "kind": "buildkit_cache_record",
+      "identifier": "3ae7a6z9mz6ejuutx0el17fzv",
+      "allocated_bytes": 19148800,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:4bd4pyd4hdd0nhkckehl579ko",
+      "kind": "buildkit_cache_record",
+      "identifier": "4bd4pyd4hdd0nhkckehl579ko",
+      "allocated_bytes": 8702231,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:54vwu56n1a25dpjog5toqhaez",
+      "kind": "buildkit_cache_record",
+      "identifier": "54vwu56n1a25dpjog5toqhaez",
+      "allocated_bytes": 34181120,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:bjsvmdgfxurqb5uby8woo69do",
+      "kind": "buildkit_cache_record",
+      "identifier": "bjsvmdgfxurqb5uby8woo69do",
+      "allocated_bytes": 8192,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:bmp44895rjk9a482c29s35mbw",
+      "kind": "buildkit_cache_record",
+      "identifier": "bmp44895rjk9a482c29s35mbw",
+      "allocated_bytes": 1056,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:c8y5ng4p4puj2vsivznf7fi62",
+      "kind": "buildkit_cache_record",
+      "identifier": "c8y5ng4p4puj2vsivznf7fi62",
+      "allocated_bytes": 24576,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:cc9n4utgqdchqqwkkaowoc7bo",
+      "kind": "buildkit_cache_record",
+      "identifier": "cc9n4utgqdchqqwkkaowoc7bo",
+      "allocated_bytes": 8192,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:ckx618zyxh8gf1z2h4g7vbuwl",
+      "kind": "buildkit_cache_record",
+      "identifier": "ckx618zyxh8gf1z2h4g7vbuwl",
+      "allocated_bytes": 131072,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:csgmb5j530kcenivtgninhunz",
+      "kind": "buildkit_cache_record",
+      "identifier": "csgmb5j530kcenivtgninhunz",
+      "allocated_bytes": 4096,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:dm0nj6zng24s5yercokonuco7",
+      "kind": "buildkit_cache_record",
+      "identifier": "dm0nj6zng24s5yercokonuco7",
+      "allocated_bytes": 6254592,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:gflyfzpl88hsudhu22u1me329",
+      "kind": "buildkit_cache_record",
+      "identifier": "gflyfzpl88hsudhu22u1me329",
+      "allocated_bytes": 85310,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:gso88dg822qbaouurn2mdzyvv",
+      "kind": "buildkit_cache_record",
+      "identifier": "gso88dg822qbaouurn2mdzyvv",
+      "allocated_bytes": 12288,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:ia05deh12n2b09zy63ry71cr5",
+      "kind": "buildkit_cache_record",
+      "identifier": "ia05deh12n2b09zy63ry71cr5",
+      "allocated_bytes": 1175552,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:iecwav88rnakc534ho6kdx44d",
+      "kind": "buildkit_cache_record",
+      "identifier": "iecwav88rnakc534ho6kdx44d",
+      "allocated_bytes": 30357,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:igqfbnlbh5h0w49f2vcv6y2ge",
+      "kind": "buildkit_cache_record",
+      "identifier": "igqfbnlbh5h0w49f2vcv6y2ge",
+      "allocated_bytes": 4096,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:izf9jojw8vhnmxdmvzqhqbocc",
+      "kind": "buildkit_cache_record",
+      "identifier": "izf9jojw8vhnmxdmvzqhqbocc",
+      "allocated_bytes": 160298852,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:juwdbj3w0h1m5w7y7fb7zm28v",
+      "kind": "buildkit_cache_record",
+      "identifier": "juwdbj3w0h1m5w7y7fb7zm28v",
+      "allocated_bytes": 4096,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:m06hro4yqlgi3w5xmvtdba5ul",
+      "kind": "buildkit_cache_record",
+      "identifier": "m06hro4yqlgi3w5xmvtdba5ul",
+      "allocated_bytes": 372482048,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:npsywgtu46d918ewtarcocvhr",
+      "kind": "buildkit_cache_record",
+      "identifier": "npsywgtu46d918ewtarcocvhr",
+      "allocated_bytes": 69632,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:o4cara27r6xgeip6ioq3hyk2m",
+      "kind": "buildkit_cache_record",
+      "identifier": "o4cara27r6xgeip6ioq3hyk2m",
+      "allocated_bytes": 18503,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:onodw9o3mmfdvi2gi3mvw9z7b",
+      "kind": "buildkit_cache_record",
+      "identifier": "onodw9o3mmfdvi2gi3mvw9z7b",
+      "allocated_bytes": 183619542,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:p4lpjueruejdj7kjeynldore6",
+      "kind": "buildkit_cache_record",
+      "identifier": "p4lpjueruejdj7kjeynldore6",
+      "allocated_bytes": 16522,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:p57xn6tjk145ua7ai9ygnumen",
+      "kind": "buildkit_cache_record",
+      "identifier": "p57xn6tjk145ua7ai9ygnumen",
+      "allocated_bytes": 43065344,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:pv2ejpcwgqbwwqltompg5jgpz",
+      "kind": "buildkit_cache_record",
+      "identifier": "pv2ejpcwgqbwwqltompg5jgpz",
+      "allocated_bytes": 10956976,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:qdj9f4op8n66y83psh9cpdrow",
+      "kind": "buildkit_cache_record",
+      "identifier": "qdj9f4op8n66y83psh9cpdrow",
+      "allocated_bytes": 886632448,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:qsvfdye9j2pc23kmttkcz3oy8",
+      "kind": "buildkit_cache_record",
+      "identifier": "qsvfdye9j2pc23kmttkcz3oy8",
+      "allocated_bytes": 8192,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:rex6zrysjqaamsn7reyjmv3er",
+      "kind": "buildkit_cache_record",
+      "identifier": "rex6zrysjqaamsn7reyjmv3er",
+      "allocated_bytes": 559601,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:rvkt9214mj3g5wznu9189ranw",
+      "kind": "buildkit_cache_record",
+      "identifier": "rvkt9214mj3g5wznu9189ranw",
+      "allocated_bytes": 12288,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:t2hntshb853fcdq312mhhu252",
+      "kind": "buildkit_cache_record",
+      "identifier": "t2hntshb853fcdq312mhhu252",
+      "allocated_bytes": 16569,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:tfu156dm92c16g9joljhfqvcr",
+      "kind": "buildkit_cache_record",
+      "identifier": "tfu156dm92c16g9joljhfqvcr",
+      "allocated_bytes": 379080704,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:tnbwgnly6upuc3zjvjbsxhngw",
+      "kind": "buildkit_cache_record",
+      "identifier": "tnbwgnly6upuc3zjvjbsxhngw",
+      "allocated_bytes": 2737889,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:ukbakly9s718meud8uqj81953",
+      "kind": "buildkit_cache_record",
+      "identifier": "ukbakly9s718meud8uqj81953",
+      "allocated_bytes": 35807232,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:unsi4ucvwqsoce23ydt0iui0g",
+      "kind": "buildkit_cache_record",
+      "identifier": "unsi4ucvwqsoce23ydt0iui0g",
+      "allocated_bytes": 20776,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:urvgdoi2v7hia5zxqsynmd7w0",
+      "kind": "buildkit_cache_record",
+      "identifier": "urvgdoi2v7hia5zxqsynmd7w0",
+      "allocated_bytes": 6524928,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:vnpkmjsn7luvj5i0sssnbetbh",
+      "kind": "buildkit_cache_record",
+      "identifier": "vnpkmjsn7luvj5i0sssnbetbh",
+      "allocated_bytes": 16384,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:vp6u93en3eic8dmb5zlit4kq0",
+      "kind": "buildkit_cache_record",
+      "identifier": "vp6u93en3eic8dmb5zlit4kq0",
+      "allocated_bytes": 75698176,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:vxqizx2mgs78mqxz2tj1ki420",
+      "kind": "buildkit_cache_record",
+      "identifier": "vxqizx2mgs78mqxz2tj1ki420",
+      "allocated_bytes": 35799040,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:vz5wfmecnxdgtv6mbf1zq0eho",
+      "kind": "buildkit_cache_record",
+      "identifier": "vz5wfmecnxdgtv6mbf1zq0eho",
+      "allocated_bytes": 2221535232,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:wdy9ouimdqccec56oo8joecru",
+      "kind": "buildkit_cache_record",
+      "identifier": "wdy9ouimdqccec56oo8joecru",
+      "allocated_bytes": 12288,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:wefuzeqs45zfb18h7f4o877d7",
+      "kind": "buildkit_cache_record",
+      "identifier": "wefuzeqs45zfb18h7f4o877d7",
+      "allocated_bytes": 13233,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:y3w4g40it5ar3ravtm3jwq0wa",
+      "kind": "buildkit_cache_record",
+      "identifier": "y3w4g40it5ar3ravtm3jwq0wa",
+      "allocated_bytes": 168076,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:yxvelzf4s39xc49b7o8yom63h",
+      "kind": "buildkit_cache_record",
+      "identifier": "yxvelzf4s39xc49b7o8yom63h",
+      "allocated_bytes": 8192,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "cache:zgd6mtif62swkdadnrxv6ysos",
+      "kind": "buildkit_cache_record",
+      "identifier": "zgd6mtif62swkdadnrxv6ysos",
+      "allocated_bytes": 221184,
+      "function": "Intermediate image build/source cache",
+      "dependencies": {
+        "in_use": false,
+        "shared_with_image": false,
+        "parents": []
+      },
+      "reason": "Not needed by running containers or retained images; no active build",
+      "recovery": "Rebuild from retained pinned recipes/sources; may require network; original cache ID not restorable",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d063-after-tts",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d063-after-tts",
+      "allocated_bytes": 329515008,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d063-after-tts.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/new-lxc/voicebox-d063/backup-after-1536.tar.gz",
+        "archive_sha256": "e4c10af51cad96c12817eb2102b1038867b0537fe5a51ed829e7d4e988d0df88",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "8177d8aa1a5f076e2d7d879fe9aab8ac269d48acd172c5096fb5d9a1886f47ee",
+        "entries": 51
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d063-final-2048",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d063-final-2048",
+      "allocated_bytes": 330141696,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d063-final-2048.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/new-lxc/voicebox-d063/backup-final-2048.tar.gz",
+        "archive_sha256": "dc738b318cc2ca7f3575a83781e0842fc8f4ff98630f4d74fd02fc96face49c3",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "2ba43cad86767a5c24c6e6a13fe67c82a22fbececcc7dbb777ef1e7288fcb4eb",
+        "entries": 53
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d064-before-catalog",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d064-before-catalog",
+      "allocated_bytes": 330301440,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d064-before-catalog.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d064/before-catalog.tar.gz",
+        "archive_sha256": "f36e550fc20d99c5111849181147257f64f10b87948246f84fa6669ce6e6ab2c",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "9ad13ea36987fc9631a3852c0163552d539d65431aa3d2f230c4f6ea19e191ac",
+        "entries": 55
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d064-before-memory3072",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d064-before-memory3072",
+      "allocated_bytes": 332644352,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d064-before-memory3072.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d064/before-memory3072.tar.gz",
+        "archive_sha256": "8e4da9164c6f50d46ebb6e597f49f0fbdd16cc3ae6599e13c6fd91aea26fd047",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "63c6cc3ad6edab5de91398309e980f72751cd782b0534b689c05e600d938c951",
+        "entries": 67
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d066-before-qwen",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d066-before-qwen",
+      "allocated_bytes": 333074432,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d066-before-qwen.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d066/before-qwen.tar.gz",
+        "archive_sha256": "5a4f2f9d7c49ea1f45772cacb86a4a3611b710bf564a6581355ba2d410d00441",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "9e7df6b59eb84b8bb613b32b9f258a1f3d3b29084eb7e7e2ee33bab5b9c805f6",
+        "entries": 68
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d067-before",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d067-before",
+      "allocated_bytes": 333508608,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d067-before.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d067/before.tar.gz",
+        "archive_sha256": "918456a7bf1016c85bd4572d26be2418386221f5501d483c3da274c14a985460",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "944d55e0696a953181a9bf04e0b1416d67c28be89e65c679e54b795e74113d9a",
+        "entries": 69
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d067-before-recreate",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d067-before-recreate",
+      "allocated_bytes": 333516800,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d067-before-recreate.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d067/before-recreate.tar.gz",
+        "archive_sha256": "f8c5c5766527763f2c03fdc5da864a066c1e527c91f2ba1a1e890ecd053e47df",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "6f339796d5f042910e5b380ffaab468257951334481d9e40bded919119f2ed6c",
+        "entries": 72
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d067-final",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d067-final",
+      "allocated_bytes": 334630912,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d067-final.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d067/final.tar.gz",
+        "archive_sha256": "1835532db90e731b434a8edd4115ab0fad362562110b854d0719ce3c36f9683f",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "944a4f87bb97ea730816f50335f7da7f61104a2cc3cf947d7eb765adc55195e9",
+        "entries": 75
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d068-before",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d068-before",
+      "allocated_bytes": 334635008,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d068-before.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d068/before.tar.gz",
+        "archive_sha256": "45cab1304be6dd838ebf18a8c65b177b41748c13ae73dae740f818be72bcf2ea",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "944a4f87bb97ea730816f50335f7da7f61104a2cc3cf947d7eb765adc55195e9",
+        "entries": 75
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d068-before-piper",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d068-before-piper",
+      "allocated_bytes": 411410432,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d068-before-piper.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d068/before-piper.tar.gz",
+        "archive_sha256": "f9c9311f2d879c9be6ac78751d4b150572bc035f2311acafe439ac0d7657febd",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "bd38ec5cae261f462726a4d057a280603a4ade5f2ce42e8162a5f73d0a64a47b",
+        "entries": 80
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d068-final",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d068-final",
+      "allocated_bytes": 450187264,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d068-final.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d068/final.tar.gz",
+        "archive_sha256": "1ea4bdb55406a459df29302be81c07e8b605e9d7de657190e8eff8194550b84e",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "0fced2590c0d544476cf2df49c3bf6db31c202dc77347d4c171f798e271763c6",
+        "entries": 117
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d068-preserved-final",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d068-preserved-final",
+      "allocated_bytes": 450490368,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d068-preserved-final.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d068/preserved-final.tar.gz",
+        "archive_sha256": "3ea7e797dd74daa89f90cfd0e78adcd5bbd8be857c2015e46deedf3424da6b7f",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "cb0c1ddded278e5511fbc71323eb1d038c9fdeb3a306353c7bcac81935e78d89",
+        "entries": 118
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d069-before",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d069-before",
+      "allocated_bytes": 458395648,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d069-before.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d069/before.tar.gz",
+        "archive_sha256": "416cab39066757005a69318d9bf5976a1c0b8b50b0d526b82c208895f00d2fc7",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "437336be601e23405cd44cc520116cb0b212f4e3df5f1edffe3dd047a0004343",
+        "entries": 175
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/opt/voicebox/backups/d069-final",
+      "kind": "expanded_backup_duplicate",
+      "identifier": "/opt/voicebox/backups/d069-final",
+      "allocated_bytes": 2966126592,
+      "function": "Expanded historical recovery snapshot, not live data",
+      "dependencies": {
+        "retain_ct_archive": "/opt/voicebox/backups/d069-final.tar.gz",
+        "retain_offhost_archive": "/home/jainer/.local/share/mailerblend-recovery/voicebox-d069/final.tar.gz",
+        "archive_sha256": "dc7dbe40be4d81ec09d511de42fde0c5349d8491e2814365c3043b7f5cf3de6a",
+        "tar_identical_to_expansion": true,
+        "regular_files_manifest_valid": true,
+        "sqlite_integrity": "ok",
+        "manifest_sha256": "96b91f9b581f93970e78b88dd786a31e3f8e2bb0eac87b1945df3f2f4b3b291f",
+        "entries": 193
+      },
+      "reason": "Byte-identical contents/modes/symlinks available in local compressed and SHA-verified offhost archive",
+      "recovery": "Restore snapshot from retained compressed archive; current live data untouched",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/srv/voicebox/pilot-d072/build",
+      "kind": "public_build_directory",
+      "identifier": "/srv/voicebox/pilot-d072/build",
+      "allocated_bytes": 75702272,
+      "apparent_bytes": null,
+      "sha256": null,
+      "function": "Public source Docker build context/archive D072",
+      "dependencies": "Not mounted by running Voicebox; exclude private/ and jobs/",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "Verified public source archive and build context outside CT627",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/srv/voicebox/pilot-d072/build.tar.gz",
+      "kind": "temporary_file",
+      "identifier": "/srv/voicebox/pilot-d072/build.tar.gz",
+      "allocated_bytes": 58822656,
+      "apparent_bytes": 58815488,
+      "sha256": "d952e340793de62b5ddd6e4fa7e54501fe99eeff2cd820c84819abd76dd8e1ee",
+      "function": "Public source Docker build context/archive D072",
+      "dependencies": "Not mounted by running Voicebox; exclude private/ and jobs/",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "Verified public source archive and build context outside CT627",
+      "status": "READY_FOR_OWNER_APPROVAL",
+      "offhost_same_sha256": true
+    },
+    {
+      "key": "path:/var/cache/apt/pkgcache.bin",
+      "kind": "temporary_file",
+      "identifier": "/var/cache/apt/pkgcache.bin",
+      "allocated_bytes": 71389184,
+      "apparent_bytes": 71386260,
+      "sha256": "96960b6631d3f3676a122ea5cc3ef490f5a84386591ed97f5992e06f9376210a",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/cache/apt/srcpkgcache.bin",
+      "kind": "temporary_file",
+      "identifier": "/var/cache/apt/srcpkgcache.bin",
+      "allocated_bytes": 71348224,
+      "apparent_bytes": 71345124,
+      "sha256": "e7b7dc974cbe729af47cb8a0d93b0bc505ac73a387c05d04c73cabf48e30336c",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_InRelease",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_InRelease",
+      "allocated_bytes": 131072,
+      "apparent_bytes": 128927,
+      "sha256": "1af383e6ad8667091ce8a7b014e11153d39cc6d85dd4f125c617c747d4ca56bd",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_main_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_main_binary-amd64_Packages",
+      "allocated_bytes": 21028864,
+      "apparent_bytes": 21028804,
+      "sha256": "ff06c59ca6bd70d1e236457656292afc51a97c1e17fe5916f3043a02b0091510",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_main_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_main_cnf_Commands-amd64",
+      "allocated_bytes": 61440,
+      "apparent_bytes": 58932,
+      "sha256": "c118797fb34a01a61c5e1181d91d9da1e13f2c794126b04c23568cdb1dca888c",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_main_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_main_i18n_Translation-en",
+      "allocated_bytes": 15749120,
+      "apparent_bytes": 15747295,
+      "sha256": "652bb847181c2d73c8b30588ff7b0d69018f25cc4b56a7ebfc665568c528cc57",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_multiverse_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_multiverse_binary-amd64_Packages",
+      "allocated_bytes": 593920,
+      "apparent_bytes": 593373,
+      "sha256": "13c35a38476f033131f20c8aeb18c2acd263fb93d563be7c0d2b09f023b76360",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_multiverse_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_multiverse_cnf_Commands-amd64",
+      "allocated_bytes": 4096,
+      "apparent_bytes": 2063,
+      "sha256": "62a69cbd4ddfdd09eef3c4168821e9c6587bb4dd62eab144b4f63c642ddd4d10",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_multiverse_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_multiverse_i18n_Translation-en",
+      "allocated_bytes": 167936,
+      "apparent_bytes": 163973,
+      "sha256": "c3c1cf4e5a691043cf71e321b0e370567df46cf6fa060cf512f705835c4fc683",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_restricted_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_restricted_binary-amd64_Packages",
+      "allocated_bytes": 38289408,
+      "apparent_bytes": 38285870,
+      "sha256": "9350a40193680293625bb05813d47aad6f0ddcc11b5182e3c949d6138d9a3592",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_restricted_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_restricted_cnf_Commands-amd64",
+      "allocated_bytes": 8192,
+      "apparent_bytes": 5042,
+      "sha256": "5ac6a559129ef4648a1054724479635b7d682ead7ecdb4295a9d43656fea9eb7",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_restricted_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_restricted_i18n_Translation-en",
+      "allocated_bytes": 25047040,
+      "apparent_bytes": 25042989,
+      "sha256": "8c1827b55e3b99b5ea201db397fc89cc2b0ca0125de89d2867e40a897ccf5313",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_universe_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_universe_binary-amd64_Packages",
+      "allocated_bytes": 6225920,
+      "apparent_bytes": 6225263,
+      "sha256": "9113efbbd366f19e22b0e246fb832bb1c58e679e5d2b5b3610b7fbf1a9e70949",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_universe_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_universe_cnf_Commands-amd64",
+      "allocated_bytes": 184320,
+      "apparent_bytes": 181931,
+      "sha256": "7eccef475c3daf745a6b0e3fb3ca645327fca440f8889a29f7104fcf4f73b684",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_universe_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-security_universe_i18n_Translation-en",
+      "allocated_bytes": 2662400,
+      "apparent_bytes": 2660685,
+      "sha256": "873f050a43de3fa23c292c9065986dfd5c509d05b0926354f2c2e67f9e715816",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_InRelease",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_InRelease",
+      "allocated_bytes": 131072,
+      "apparent_bytes": 128049,
+      "sha256": "990754f0bcabb8aa8fac97c70d4b645ae105ab69b71a4438d19b20b14052359e",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_main_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_main_binary-amd64_Packages",
+      "allocated_bytes": 22511616,
+      "apparent_bytes": 22511228,
+      "sha256": "477ed50ebcf7b5dc2ea916d2c2d98932915b1f6c87e2f44c7139605c9b727847",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_main_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_main_cnf_Commands-amd64",
+      "allocated_bytes": 77824,
+      "apparent_bytes": 77258,
+      "sha256": "e8af8186e6959d7be3877e169585e24a6f91c3c00e07127dfd97458bd8a9ab16",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_main_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_main_i18n_Translation-en",
+      "allocated_bytes": 16535552,
+      "apparent_bytes": 16534203,
+      "sha256": "c9e6446dfe9360781e690501b2b4ab8c53bcd8d2292be75a36b7d23c045b605e",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_multiverse_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_multiverse_binary-amd64_Packages",
+      "allocated_bytes": 622592,
+      "apparent_bytes": 621678,
+      "sha256": "d4d734fc98e63f620e5ef9bb58b944592eab29dfd472b72c9c49ff1d2ff9b0fe",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_multiverse_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_multiverse_cnf_Commands-amd64",
+      "allocated_bytes": 4096,
+      "apparent_bytes": 3115,
+      "sha256": "540f659251b6615eab9ec3bc28bbe871ab3fa606e3103d943de6d7d65066d34b",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_multiverse_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_multiverse_i18n_Translation-en",
+      "allocated_bytes": 180224,
+      "apparent_bytes": 176893,
+      "sha256": "2ba614a8354a5f52fc1dbdf4a3efe779887086096ceef993d43f431a7c338ad4",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_restricted_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_restricted_binary-amd64_Packages",
+      "allocated_bytes": 39866368,
+      "apparent_bytes": 39865693,
+      "sha256": "fece130afd5554cdd9f8b8e02a22a5300aed20f648131fdca50a2debf8f933bc",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_restricted_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_restricted_cnf_Commands-amd64",
+      "allocated_bytes": 8192,
+      "apparent_bytes": 4849,
+      "sha256": "9822f4c5f731f99855c9b60140b19d4dc42dda289dd39636dd26a315dc0eebf1",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_restricted_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_restricted_i18n_Translation-en",
+      "allocated_bytes": 26079232,
+      "apparent_bytes": 26076131,
+      "sha256": "96d281241303b5d111980a0dc1985cd7f52ad3552b7151021e9e6e860edf9aa6",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_universe_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_universe_binary-amd64_Packages",
+      "allocated_bytes": 7311360,
+      "apparent_bytes": 7308579,
+      "sha256": "f3aa6c841215796bcfab62f9287ed552be0d22421a57a3cde1d1fcdd4ac63bf9",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_universe_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_universe_cnf_Commands-amd64",
+      "allocated_bytes": 212992,
+      "apparent_bytes": 212240,
+      "sha256": "ca9a2b62636bf931f331fd91bc1bae53d9ee67885f519d0b5e32aca79932def8",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_universe_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy-updates_universe_i18n_Translation-en",
+      "allocated_bytes": 3145728,
+      "apparent_bytes": 3145071,
+      "sha256": "c299fcb3f1aa33ec4e2f8867cb0cd26bcd2a25ac9b5728aad856a2aef3fe14c1",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_InRelease",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_InRelease",
+      "allocated_bytes": 270336,
+      "apparent_bytes": 270087,
+      "sha256": "c14060cd8c6d625874dfcb9523a35a395bf4865c28b6b6a82569ef326fe92dc6",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_main_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_main_binary-amd64_Packages",
+      "allocated_bytes": 6782976,
+      "apparent_bytes": 6779186,
+      "sha256": "12ce0797a6ed39a1fee1321985976c6b78872a8fe4c7ef2fb712f2364c9839a3",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_main_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_main_cnf_Commands-amd64",
+      "allocated_bytes": 114688,
+      "apparent_bytes": 114508,
+      "sha256": "d1c041d2c93d90a9e8a4a7f33d2376390c57f55099ce3ccbc81c3d6df8cabb0b",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_main_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_main_i18n_Translation-en",
+      "allocated_bytes": 3084288,
+      "apparent_bytes": 3082013,
+      "sha256": "da1fd11a4333838516edc497adff11fa3a0d820f37d1943f3842debfadd696be",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_multiverse_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_multiverse_binary-amd64_Packages",
+      "allocated_bytes": 921600,
+      "apparent_bytes": 918002,
+      "sha256": "3493e180d952143ec601e4c833e54de709473bd636b6a3f6bb94e367e56f4abf",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_multiverse_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_multiverse_cnf_Commands-amd64",
+      "allocated_bytes": 32768,
+      "apparent_bytes": 29824,
+      "sha256": "8d2f757678b12d3752002d8bdd320d10b1b11652f4b2751763be059caedd965c",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_multiverse_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_multiverse_i18n_Translation-en",
+      "allocated_bytes": 503808,
+      "apparent_bytes": 499764,
+      "sha256": "40236ce2c2838a45da6045449aa1b7e05943db1ed1de65ba02578caade2cf087",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_restricted_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_restricted_binary-amd64_Packages",
+      "allocated_bytes": 917504,
+      "apparent_bytes": 915647,
+      "sha256": "b40bcc8340f4a2295e3daa158b7c50001642e843b3559907402c1b0da2d2459b",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_restricted_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_restricted_cnf_Commands-amd64",
+      "allocated_bytes": 4096,
+      "apparent_bytes": 3041,
+      "sha256": "06533990cd9e2a2e3dffdb39c5b268512dc674cbc2fd23a42a5fe0a54201ca74",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_restricted_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_restricted_i18n_Translation-en",
+      "allocated_bytes": 233472,
+      "apparent_bytes": 231426,
+      "sha256": "d3b34063b7e12225a8d84804b0570c9f4e0d7b3c1a068ec9a051a15857fc2ee8",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_universe_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_universe_binary-amd64_Packages",
+      "allocated_bytes": 64335872,
+      "apparent_bytes": 64332414,
+      "sha256": "6b8cc68643d18250ab297c4f6d427a8778b1d1534e1a3033fff0f221fa20a419",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_universe_cnf_Commands-amd64",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_universe_cnf_Commands-amd64",
+      "allocated_bytes": 1290240,
+      "apparent_bytes": 1287252,
+      "sha256": "425c508e22729d0e51e77ad0790738fc33b49a17ea682d3b1b89f852a9fd0529",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_universe_i18n_Translation-en",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_jammy_universe_i18n_Translation-en",
+      "allocated_bytes": 29839360,
+      "apparent_bytes": 29839306,
+      "sha256": "732c96993c158ddca7f76b13adbc39a8459cbdd78025db49cd5c60e573b91cb4",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/deb.nodesource.com_node%5f24.x_dists_nodistro_InRelease",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/deb.nodesource.com_node%5f24.x_dists_nodistro_InRelease",
+      "allocated_bytes": 12288,
+      "apparent_bytes": 12140,
+      "sha256": "1da69782c3fbc712dc48788da230eb923d646028dd37d7773a888de7105a1067",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/deb.nodesource.com_node%5f24.x_dists_nodistro_main_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/deb.nodesource.com_node%5f24.x_dists_nodistro_main_binary-amd64_Packages",
+      "allocated_bytes": 69632,
+      "apparent_bytes": 69471,
+      "sha256": "4dfb6f7af7ce1bc9a8313af9bd5937f64b856e799267f9fdb89c1eb42d85868c",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/download.docker.com_linux_ubuntu_dists_jammy_InRelease",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/download.docker.com_linux_ubuntu_dists_jammy_InRelease",
+      "allocated_bytes": 49152,
+      "apparent_bytes": 48475,
+      "sha256": "d58910c24e06b855de0fbb9098fcf4aea7a5778f934bea0dec8fbe1d902e8421",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    },
+    {
+      "key": "path:/var/lib/apt/lists/download.docker.com_linux_ubuntu_dists_jammy_stable_binary-amd64_Packages",
+      "kind": "temporary_file",
+      "identifier": "/var/lib/apt/lists/download.docker.com_linux_ubuntu_dists_jammy_stable_binary-amd64_Packages",
+      "allocated_bytes": 667648,
+      "apparent_bytes": 665467,
+      "sha256": "c8b2506e592bb139dc3af3b2f1fddd8b3caaa8d37f53daa9bd129fb4ba38aef1",
+      "function": "APT regenerated index/cache",
+      "dependencies": "No APT/dpkg active operation at removal; retain locks/directories",
+      "reason": "Regenerable non-production build/APT artifact; excludes lock/partial/private/jobs",
+      "recovery": "apt-get update or cache regeneration; no installed packages removed",
+      "status": "READY_FOR_OWNER_APPROVAL"
+    }
+  ]
+}

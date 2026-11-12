@@ -1,0 +1,31 @@
+{
+  "status": "PREPARED_ONLY_NO_DELETIONS",
+  "authorization_to_delete": false,
+  "profiles": [
+    {
+      "id": "5850a2d6-7349-4235-9e85-c3d92819281b",
+      "name": "ES experimental · Emma británica · candidata D064",
+      "preset_engine": "kokoro",
+      "preset_voice_id": "bf_emma",
+      "sample_generation_id": "ee2fe00b-62c7-4cf3-a4e5-e74393e96736"
+    },
+    {
+      "id": "6be85095-8500-44cb-8f62-bab88f475d95",
+      "name": "ES · Santa · candidato D064",
+      "preset_engine": "kokoro",
+      "preset_voice_id": "em_santa",
+      "sample_generation_id": "c98308bf-db33-4008-b14f-79ee5477c176"
+    },
+    {
+      "id": "7b6c34d0-861a-4001-ba37-aa6cb379b6e9",
+      "name": "ES · Dora · candidata D064",
+      "preset_engine": "kokoro",
+      "preset_voice_id": "ef_dora",
+      "sample_generation_id": "604dd48d-93f7-4ea8-8447-404a44908edf"
+    }
+  ],
+  "protected_profiles": [
+    "250f2938-c396-47e8-8b75-0bf9179d0252",
+    "285b5291-74b8-406d-b7fe-56c31c4e21cd"
+  ]
+}

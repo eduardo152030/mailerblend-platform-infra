@@ -1,0 +1,93 @@
+{
+  "at_utc": "2026-11-11T20:23:49.549053+00:00",
+  "all_PVE_configs_unchanged_count": 27,
+  "voicebox_unchanged": {
+    "id": "5820cbf6e02894f3566f9ca164aa18f89dfd3ea99c876b77d3fd6bd687fe3142",
+    "image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+    "started_at": "2026-11-11T17:49:51.550174682Z",
+    "restart_count": 0,
+    "health": "healthy"
+  },
+  "new_oom_host_and_all_ct": 0,
+  "log_counts": {
+    "checked_lines": 1839,
+    "error_or_traceback_lines": 0,
+    "http_5xx_lines": 0,
+    "contents_withheld": true
+  },
+  "reference_original_transcript_unchanged": true,
+  "runtime": {
+    "no_active_d077_workers": true,
+    "voicebox_healthy": true,
+    "productive_model_loaded": false,
+    "kokoro_piper": [
+      {
+        "name": "kokoro",
+        "downloaded": true,
+        "loaded": false
+      },
+      {
+        "name": "piper-es-es",
+        "downloaded": true,
+        "loaded": false
+      }
+    ],
+    "synthetic_checkpoint_files": [
+      {
+        "name": "COMMITTED.json",
+        "mode": "0o600",
+        "uid": 999,
+        "bytes": 128,
+        "sha256": "567673e3181fe0b3889f95eb4b3e9e02698a1ee3f3c822ab0fcc1d4ea0669fd2"
+      },
+      {
+        "name": "manifest.json",
+        "mode": "0o600",
+        "uid": 999,
+        "bytes": 413,
+        "sha256": "25e821637e798c67cf99d2d862e895146afe3c962d7d053d6ef9e55fc152941f"
+      },
+      {
+        "name": "codes.npy",
+        "mode": "0o600",
+        "uid": 999,
+        "bytes": 1664,
+        "sha256": "3be8301673f04005701ba4214703a6b67484b8ed9681f9e3f5b8300984dba33d"
+      }
+    ],
+    "synthetic_checkpoint_dir_mode": "0o700",
+    "source_revision": "src-53034d0df648aa30",
+    "no_wav_generated": true,
+    "real_checkpoint_exists": false,
+    "D076_checkpoint_artifacts": [],
+    "disk_available_bytes": 20420993024,
+    "local_exporters": {
+      "9100": 200,
+      "8085": 200
+    }
+  },
+  "transcript_confirmed_equal": true,
+  "no_production_changes": true,
+  "no_other_LXC_changes": true,
+  "no_commit_push": true,
+  "prometheus_ready_error": "URLError",
+  "grafana_database": "ok",
+  "source_final": {
+    "at_utc": "2026-11-11T20:23:50.651551+00:00",
+    "source_revision": "src-473f3d92283029df",
+    "source_sha256": {
+      "runtime.py": "a752570acf07d517d821f8cdf06afaf5be0c480f6b13dc04d109b32d23e021fc",
+      "worker.py": "09bcc54336203e506df44ad38078948bd6afd2a5898bb66aed63eaf2fa0afc40",
+      "supervise.py": "495cfcb66bfc6b021cce948066cf32b252b0e2c88467989a1cd61c3ef301279c",
+      "checkpoint.py": "73cdcb816966cc446cc3a543d3493d6c76517a01229ecab33f109afd5532a0bc",
+      "guards.py": "f6131d19f6df527b4fa67671835b876828483b730dc9a8606e4677ea9e896b51",
+      "validation.py": "22c463ab1ac50eda2973d286038aa45b36e8c44bf5cd57d6f4513961ee27af78"
+    },
+    "all_d077_containers_removed": true,
+    "no_audio": true,
+    "no_real_checkpoint": true,
+    "voicebox_healthy": true,
+    "no_productive_model_loaded": true
+  },
+  "all_d077_containers_removed": true
+}

@@ -1,0 +1,12 @@
+{
+  "official_package": "qwen-tts==0.1.1",
+  "torch": "2.8.0+cpu",
+  "transformers": "4.57.3",
+  "image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+  "installed_official_sources_sha256": {
+    "qwen_tts/core/models/modeling_qwen3_tts.py": "25c42656bcf810f06ef6bc1839bd7083f3c8cfedac3a147c4060b4262b1c96a0",
+    "qwen_tts/inference/qwen3_tts_model.py": "e1da450732857c1f5fe3e36ebab85db2f6dc6a48caaff6973f463384e30275e4"
+  },
+  "no_source_patches_to_official_package": true,
+  "instrumentation": "in-memory wrappers in isolated process; stages not reached beyond import"
+}

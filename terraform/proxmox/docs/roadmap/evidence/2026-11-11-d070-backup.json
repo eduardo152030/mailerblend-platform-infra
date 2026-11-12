@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "archive_sha256": "42dca61dd8f9f5aa6602aa6a2bab05cc7ba63131bf7e3d41016d4b3329224c0f",
+  "files_verified": 4,
+  "sqlite_integrity": "ok",
+  "owner_profiles": 1,
+  "copied_outside_pve": true,
+  "scope": "SQLite + owner reference/original/transcript; existing full D069 backups retained"
+}

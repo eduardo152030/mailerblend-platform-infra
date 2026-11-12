@@ -1,0 +1,33 @@
+identities:
+  personal:
+    requested_name: Eduardo — Mi Voz
+    profile_id: 1fd00418-2a79-4178-883f-af6c3f5e07ee
+    engine: qwen
+    model_size: 0.6B
+    status: ACCEPTED_PRODUCTION_D081
+    sample_id: 8840f5e1-990b-463e-b94e-e72beef61917
+    auditory_acceptance: ACCEPTED_BY_OWNER
+    sample_generation_id: 925f8b71-6ad7-46f0-a48a-ffa3881004ef
+    audio_url: http://192.168.1.127:17493/audio/925f8b71-6ad7-46f0-a48a-ffa3881004ef
+    audio_seconds: 6.4
+    generation_seconds: 106.86044136155397
+    accepted_at_utc: '2026-11-10T21:28:13.981487+00:00'
+    accepted_scope: 'First personal sample: likeness, natural accent and complete
+      requested text; long narration not tested'
+    historical_acceptance_scope: D069 short Qwen sample only; new QwenCPU disabled
+    openvoice_candidate:
+      status: NOT_ACCEPTED
+      owner_rejected_sample: 369ebd31-937b-4fe4-b21d-13ce48b972d6
+      owner_feedback: no esa no es mi voz
+      minute_trial: STOPPED_HOST_PSI_NO_COMPLETED_WAV
+      trading_sample: d4f63fe4-b63b-4675-9aab-9e5a14151e52
+    final_acceptance:
+      accepted_on: '2026-11-12'
+      scope: Continuous narration approximately one minute; voice and content accepted
+        by owner
+      generation_id: baa61a95-c7b4-4524-8229-aa697b941710
+      audio_seconds: 57.36
+      generation_seconds: 676.18
+      decision: D082
+      five_to_ten_minutes_validated: false
+policy: PERSONAL_ONLY_D069; additional identities require a future scope

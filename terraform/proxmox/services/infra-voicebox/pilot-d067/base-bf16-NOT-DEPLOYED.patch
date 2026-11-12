@@ -1,0 +1,18 @@
+--- a/backend/backends/pytorch_backend.py
++++ b/backend/backends/pytorch_backend.py
+@@ -110,11 +110,13 @@
+             tts_cache_dir = hf_constants.HF_HUB_CACHE
+ 
+             if self.device == "cpu":
++                if model_size != "0.6B":
++                    raise ValueError("Prepared CPU cloning candidate allows Base0.6B only")
+                 self.model = Qwen3TTSModel.from_pretrained(
+                     model_path,
+                     cache_dir=tts_cache_dir,
+-                    torch_dtype=torch.float32,
+-                    low_cpu_mem_usage=False,
++                    torch_dtype=torch.bfloat16,
++                    attn_implementation="sdpa",
+                 )
+             else:
+                 self.model = Qwen3TTSModel.from_pretrained(

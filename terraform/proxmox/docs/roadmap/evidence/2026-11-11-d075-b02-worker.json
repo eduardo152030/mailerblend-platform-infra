@@ -1,0 +1,48 @@
+{
+  "events": [
+    {
+      "elapsed": 2.820044755935669e-06,
+      "stage": "preflight_imports_cache",
+      "event": "start"
+    },
+    {
+      "elapsed": 5.749495251104236,
+      "stage": "preflight_imports_cache",
+      "event": "passed",
+      "path": "/tmp/numba",
+      "uid": 999,
+      "writable": true,
+      "free_bytes_before_import": 134217728,
+      "numba": "0.60.0",
+      "librosa": "0.11.0",
+      "imports_passed": true,
+      "persistent_data_written": false
+    },
+    {
+      "elapsed": 5.757928319275379,
+      "stage": "preflight_fp32",
+      "event": "passed",
+      "dtype": "torch.float32",
+      "intraop": 2,
+      "interop": 1
+    },
+    {
+      "elapsed": 5.758149301633239,
+      "stage": "load",
+      "event": "start"
+    },
+    {
+      "elapsed": 14.810198093764484,
+      "stage": "load",
+      "event": "end",
+      "seconds": 9.051840979605913
+    },
+    {
+      "elapsed": 14.830980395898223,
+      "stage": "reference_prompt",
+      "event": "start"
+    }
+  ],
+  "result": null,
+  "wav_exists": false
+}

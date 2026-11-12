@@ -1,0 +1,45 @@
+{
+  "state": "PROPOSAL_ONLY_NOT_EXECUTABLE",
+  "operation_proposed": "POSIX_FADV_DONTNEED on these CT627 immutable image blobs only",
+  "requires_owner_authorization": true,
+  "executed": false,
+  "not_guaranteed_to_reclaim_all_resident_pages": true,
+  "no_global_drop_caches": true,
+  "no_file_deletion": true,
+  "no_HF_reference_checkpoint_or_profile_paths": true,
+  "candidate_resident_bytes_max": 1128980480,
+  "candidates": [
+    {
+      "path_in_CT627": "/var/lib/containerd/io.containerd.content.v1.content/blobs/sha256/bb65663ea90e6b73104d038e69ead859cb6d4f04943a1d81085ce400e2cc0d52",
+      "size_bytes": 885347144,
+      "resident_bytes_observed": 885350400
+    },
+    {
+      "path_in_CT627": "/var/lib/containerd/io.containerd.content.v1.content/blobs/sha256/0d9ac6d75587faee8c382a97a2d5daee1110475f19c858181c18446ef7b424ca",
+      "size_bytes": 267053668,
+      "resident_bytes_observed": 141737984
+    },
+    {
+      "path_in_CT627": "/var/lib/containerd/io.containerd.content.v1.content/blobs/sha256/0dd1920dd89d710d9abcaf41e3603b4f4b4e9d961043b0a56c290b94e6d1151b",
+      "size_bytes": 37931264,
+      "resident_bytes_observed": 37933056
+    },
+    {
+      "path_in_CT627": "/var/lib/containerd/io.containerd.content.v1.content/blobs/sha256/3bd3fa6171dbce790b4d3f0943018d6f8d4ebe8d0e9b5d6beff35e3fa253006a",
+      "size_bytes": 34098166,
+      "resident_bytes_observed": 34099200
+    },
+    {
+      "path_in_CT627": "/var/lib/containerd/io.containerd.content.v1.content/blobs/sha256/37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41",
+      "size_bytes": 29856132,
+      "resident_bytes_observed": 29859840
+    }
+  ],
+  "conditions_before_future_action": [
+    "No inference/build/pull/save/export active",
+    "Verify exact same regular files and immutable content-store identities",
+    "Measure memory.current/anon/file/swap/PSI before and after",
+    "Proceed to any separately authorized inference only if measured headroom restored",
+    "Do not change any memory threshold or resource limit"
+  ]
+}

@@ -1,0 +1,11 @@
+[Unit]
+Description=Restringir Voicebox a la LAN autorizada
+After=docker.service
+Requires=docker.service
+PartOf=docker.service
+[Service]
+Type=oneshot
+ExecStart=/opt/voicebox/lan-only.sh
+RemainAfterExit=yes
+[Install]
+WantedBy=docker.service

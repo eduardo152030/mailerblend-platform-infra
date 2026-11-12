@@ -1276,3 +1276,767 @@ Compatibilidad nodocker solo preparada/versionada, no aplicada al despliegueF5/F
 [Informe](PHASE7-D061-EXECUTION.md), [publicación](evidence/2026-11-10-d061-git-published.json).
 Ejecución detenida. Próximo: permiso específico del primerCTreal ysu integración,
 no concedido por este cierre. No force, reescritura, borrado de ramas/tags/backups.
+
+### D-062 — bootstrap SSH futuro autorizado, solo implementación local
+
+2026-11-10 (Europe/Madrid). Solicitud permite inyectar clave pública durante alta,
+bootstrap inicial porpctexec si necesario, openssh-server y SSHsolo por clave tras
+probar acceso. No tocar17CTexistentes, crearCT, cambiarpasswords/SSHlocal del dueño,
+modificar producción ni commit/push. Fuente pública ~/.ssh/id_ed25519.pub; nunca
+leer/copiar/imprimir privada. Prioridadprovider: initialization.user_account.keys
+verificado en esquema bpg/proxmox0.94.0; revisar efecto enclone y conservar claves
+existentes con fase porconsola. Pruebas offline/nativas/mock sin afirmar acceso real.
+7.4 sigue pendiente de primer alta autorizada; 7.2 global continúa OUT OF SCOPE.
+
+
+D062 — resultado de implementación local: provider admite claves, pero su inyección
+en clone sustituye el bloque PVE heredado. Se implementa fusión aditiva por pct exec
+como ruta estándar; inyección opt-in exige conjunto completo revisado. No es permiso
+para modificar plantillas ni claves de los17. Acceso por clave antes y después de
+endurecer, SSH estricto con host keys obtenidas por consola confiable y rollback.
+Provisioner de creación mantiene plan dirigido1CT; fallo puede taintar ese CT:
+recuperación y revisión de estado obligatorias antes de reintentar, sin destroy.
+[Informe](PHASE7-D062-SSH.md). Implementación/pruebas locales DONE; primer ensayo
+real pendiente de autorización, no dispensa ni prueba realizada. No commit/push.
+Propuesto y pendiente: seleccionar CT/plantilla/red para ese ensayo; no aprobado.
+
+### D-063 — primer provisioning Voicebox autorizado y detenido
+
+2026-11-10 (Europe/Madrid). 7.4 **BLOCKED** antes de provisioning: CT627 libre,
+8,55GiB MemAvailable y4,18GiB swap ocupados; asignar mínimo8GiB deja0,55GiB
+de margen. Sin apply ni cambios productivos. Autorizado únicoCT con plan
+1create/0change/0destroy, SSHD062, Voicebox e integración aditiva de monitorización;
+sin tocar apps existentes/pipeline, exposición pública, commit/push.
+[Diagnóstico, revisión del fork y alternativas](PHASE7-D063-VOICEBOX.md).
+Siguiente: decidir capacidad (ampliación/otro nodo/liberación aprobada), revalidar
+y preparar plan real. No se declara desplegado ni aceptado.
+
+Las alternativas son propuestas, no permisos para modificar recursos existentes.
+
+### D-063 — recursos iniciales de plantilla aprobados
+
+2026-11-10 (Europe/Madrid). El propietario sustituye el mínimo inicial8GiB:
+autoriza comenzar con los recursos de la plantilla y valorar aumentos graduales
+según consumo real. CT106 comprobado:3vCPU,1080MiB RAM,512MiB swap,50GiB
+local-lvm. 7.4 **IN PROGRESS**; bloqueo previo de capacidad levantado para este
+presupuesto, sin afirmar viabilidad TTS hasta probarla. Se conserva alcance único
+CT627 y plan1create/0change/0destroy, sin cambios en los17CT existentes.
+Siguiente: preparar bundle, validar plan real y ejecutar alta autorizada.
+
+### D-063 — cierre técnico del primer provisioning real
+
+2026-11-10 (Europe/Madrid). Alcance627 completado: plantilla1080MiB, aumentos
+medidos1536→2048MiB conforme permiso expreso;3CPU/512swap/50GiB. Solo627 creado,
+memoria yNotes de627 actualizadas, sinreemplazos. BootstrapDSA recuperado antes de
+untaint delCTnuevo. Voicebox CPU/Kokoro español real,12,94s paraWAV6,46s.
+600s/21muestrasPASS,18Node/18cAdvisor/19Blackbox, ceroFIRING/PENDING;17configPVE
+y56targets previos idénticos. Reaplicaciones sin cambios/recreaciones/recargas.
+Backup restaurado aisladamente eimagen exacta archivada/verificada; no restore
+completo enotroLXC ni buildlimpio bit-a-bit afirmados. Notes/inventario/contratoAPI
+completos, pipeline intacto.7.4DONE técnico delprimeralta;F7globalINPROGRESS.
+SinUAT/escucha humana ni nuevoTelegram; sinextenderdispensas.7.2/7.3 OUTOFSCOPE.
+Sin commit/push. Propuestas no aprobadas por estecierre: otrospresets/motores,
+concurrencia, exposición con autenticación, integraciónpipeline yDRcontinuo.
+[Informe](PHASE7-D063-VOICEBOX.md), [resultado](evidence/2026-11-10-d063-result.json).
+
+### D-064 — mejora acotada Voicebox autorizada
+
+2026-11-10 (Europe/Madrid). Autorizado soloCT627: auditar perfiles/modelos, conservar
+Kokoro y sus perfiles, generar muestras comparables y evaluar Qwen dentro del límite
+máximo4GiB. Ampliaciones3/4GiB solo justificadas por medición/capacidad, con backup,
+rollback y reinicios documentados; no crear/reemplazar CT, tocar otrosLXC, reglas
+Prometheus, pipeline, exposiciónWAN ni commit/push. No aceptar acento/edad/calidad
+sin revisión auditiva del propietario. D063 conserva su cierre técnico previo.
+Primero distinguir error deperfil de disponibilidad/modelo y presupuestar tensores
+CPU antes de descargas/cargas. [Informe](PHASE7-D064-VOICES-QWEN.md).
+
+
+### D-064 — resultado de catálogo y ajuste medido a3GiB
+
+Cuatro candidatas generadas sin editar originalD063.18,4%RAMlibre yHostMemoryPressure
+PENDING justificaron escalón3072MiB permitido. Solo627memory/Notes, backup/restore
+previo, reinicio documentado ypersistencia/audio posteriorPASS. Reaplicación0/0/0,
+catálogo0perfiles/0generaciones,180s/7muestras,18/18/19UP ysinOOM. SinotrosCT/reglas/
+pipeline/commit/push. Alex aceptado porelpropietario; tres nuevascandidatas descartadas.
+
+### D-065 — diagnóstico previo obligatorio paraQwen optimizado
+
+Elpropietario pide separar descarga/carga/inferencia e investigarFP16/BF16/CPUquant
+con uso~60s. Exige presentar diagnóstico/recomendación antes de más cambios
+productivos. Por ello no se ejecutan limpieza, descarga/cargaQwen, nuevaimagen ni
+aumento4GiB. Localmente: diagnóstico deversión, operadores pequeños (no modelo),
+parche yplanBF16 preparados. low_cpu_mem_usage esignorado por4.57.3; pesosFP32 no
+descartan una rutaBF16 viable, todavía sin medir carga/inferencia real. Propuesta
+primerCustomVoice0.6B ydespuésBase0.6B, secuenciales; techo4GiB no ampliado.
+[Informe](PHASE7-D065-QWEN-OPTIMIZATION.md). AceptaciónAlex no implica edad/acento
+certificados, aceptaciónQwen ni dispensa extendida. Retirada solo3perfiles nuevos
+rechazados pendiente tras revisión, preservando originalD063,Alex ymuestras/backup.
+
+### D-066 — autorización explícita delpiloto CustomVoice0.6B
+
+2026-11-10 (Europe/Madrid). El propietario autoriza ejecutar únicamente elpiloto
+QwenCustomVoice0.6B BF16/SDPA deD065, backup antes de cambios, imagenoriginal
+conservada, unmodelo residente, máximo4096MiB deRAM627. Frasecorta primero y~60s
+solo si estable. MedirRSS/cgroup/swap/OOM/tiempo yconsumo máximo; parada yrollback
+automáticos si falla, memoria peligrosa oinestabilidad. ComprobarKokoro/Alex después.
+No QwenBase, no otrosLXC/pipeline/reglas generales, no commit/push. No borrar ningún
+perfil o muestra: presentarIDs exactos de las3rechazadas para retirada futura.
+[Informe](PHASE7-D066-QWEN-PILOT.md).
+
+#### Resultado de D-066 y propuesta pendiente
+
+Piloto autorizado ejecutado, sin ampliación por encima de 4096 MiB. Descarga y
+carga BF16/SDPA reales PASS; frase corta detenida por umbral preventivo de cgroup
+3,5 GiB, sin OOM y sin WAV Qwen completo; 60 s no ejecutados. Rollback automático
+y Kokoro/Alex posteriores PASS; CT627 vuelve a 3072 MiB. Dos intentos previos
+fallaron en preflight del supervisor antes de cargar Qwen y se corrigieron con
+rollback; no son fallos del modelo. Tres ciclos 3072→4096→3072 solo en CT627.
+
+**Propuesta, no aprobada ni ejecutada:** reducir procesos residentes y estudiar la
+memoria de inferencia/codec y páginas de archivo antes de otro piloto. La carga
+BF16 está demostrada; un minuto de narración en este hardware sigue sin demostrar.
+No promover la candidata, relajar el umbral, reintentar ni borrar perfiles bajo
+esta ejecución. [Informe y evidencias](PHASE7-D066-QWEN-PILOT.md).
+
+### D-067 — Qwen con 6 GiB y preparación de identidades — IN PROGRESS
+
+2026-11-10 (Europe/Madrid). Autorizado solo CT627: comprobar capacidad del host,
+backup/rollback, plan Terraform exclusivo y ampliación 3072→6144 MiB; 3 CPU,
+512 MiB swap y disco 50 GiB conservados. Piloto con candidata BF16/SDPA D066,
+corta→30 s→60 s; detener a 5,5 GiB, OOM, swap excesivo, inestabilidad o afección
+externa. Un modelo residente; imagen original y todos los datos conservados.
+Preparar candidatos masculino/femenino sin aceptación auditiva, clonación personal
+pendiente de grabaciones reales, contrato API sin integrar el pipeline. Qwen Base
+se evalúa separadamente, sin asumir memoria ni crear voz ficticia del propietario.
+No otros LXC, borrados, pipeline, commit ni push. [Informe](PHASE7-D067-QWEN-6G.md).
+
+#### Resultado de D-067 — medición y aceptación separadas
+
+Ensayo6 GiB ejecutado; cargaBF16/SDPA PASS, corta TIMEOUT600s sinWAV,30/60s no
+ejecutados. SinOOM ni corte de5,5 GiB; pico4,22 GiB incluida parada. Original
+restaurada automáticamente; retornoRAM exigió regenerar/revisar plan por cambios
+al manifiesto durante el ensayo. Final3072MiB; no afirmar rollback totalmente
+automático ni probar el fallback corregido por una recuperación manual.
+Kokoro/Alex/muestra masculina PASS tras recreaciónDocker;7IDs persistentes.
+FemeninaSerena solo registro experimental bloqueado, sinmuestra ni aceptación de
+acento/edad. Personal no creado; Base0.6B clonación investigada y parche preparado,
+no desplegado. Propuesta pendiente: diagnosticar terminación/rendimientoCPU antes
+de más pruebas; no ampliarRAM ni promover candidata por este cierre.
+Alcance no ejecutado permanece pendiente: audioQwen/30/60s, muestrafemenina y
+clonación real con grabaciones. [Informe](PHASE7-D067-QWEN-6G.md).
+
+Cierre D067:180s/7muestrasPASS, sinalertas; aplicaciónNotes solo627description,
+segundaTerraform0/0/0, mismoIDDocker, clienteAPIKokoro realPASS. Backupfinal
+restaurado fueraPVE39archivos/13audios. Ensayo/recuperación DONE conincidencias;
+aceptaciónQwen/femenina BLOCKED ypersonal pendiente, sin nuevaautorización inferida.
+
+### D-068 — 7 GiB, diagnóstico instrumentado y voces — IN PROGRESS
+
+2026-11-10 (Europe/Madrid). Autorizado solo CT627: comprobar capacidad/presión del
+host, backup/rollback y plan exclusivo para RAM3072→7168 MiB; CPU3,swap512 ydisco50
+sin cambios. Diagnosticar por etapas/progreso el timeout Qwen antes de repetir;
+comparar alternativas CPU seguras y validar mínima→15–30s→120–150palabras/~60s,
+solo si cada anterior termina. Un modelo TTS residente, umbral6,5GiB, OOM/swap/
+presiónhost/inestabilidad/sinprogreso vetan avance. Conservar imagenestable/datos,
+Kokoro/Alex y muestras. Preparar candidata femenina real yclonación personal sin
+vozficticia, terceros ni aceptación sin grabaciones delpropietario. No pipeline,
+otrosLXC, CPU/disco/swap, borrados, commit nipush. [Informe](PHASE7-D068-VOICEBOX.md).
+
+#### Resultado D-068 — implementación y aceptación separadas
+
+Ampliación autorizada3072→7168MiB solo627; CPU3/swap512/disco50 conservados.
+Un reinicio delCT, sin recreación. ProbesQwen con progreso real, parados porPSI/swap
+conOOM0; no se declara audioQwen validado ni causa completa de600s identificada.
+Se conserva7GiB por normalización de presión yobjetivo aprobado, conguard IaC;
+retornoRAM para inseguridad persistente. No se ampliaron umbrales niRAM para forzarQwen.
+
+Piper CPU es_ES añadido como motorAPI soportado, perfil femenino real ydosmuestras
+masculina/femenina. Base0.6B guardado contra ausencia dereferencias reales; código,
+privacidad,backup yprocedimiento preparados, sinmodelo/vozpersonal ni terceros.
+DockerCPU3/RAM6200/RAM+swap6600 conserva400MiBswap anterior, dentro de7GiB/512CT.
+OriginalD063 retenida; nuevaimagenR2 archivada/verificada yreceta reproducible.
+Serialización y409 reales, dobledeploysinreinicio; aceptacionesauditivas pendientes.
+Se detectó unoriginalD063 ausente yse restituyó debackup, UUID+metadatos+WAV,
+sinrollback totalDB ni pérdida de nuevosdatos; causa no determinada ysinDELETEemitido.
+[Informe](PHASE7-D068-VOICEBOX.md).
+
+**Propuesta pendiente, no ejecutada:** otro diagnósticoQwen aislando codec/atribución
+presión con presupuesto explícito. No aumentarRAM ni integrarPipeline por estecierre.
+La primera clonación requiere grabaciones reales yvalidación; noDONE ni dispensaUAT.
+
+Cierre técnico D068: Notes solo627description, segundaTerraform0/0/0, dobledeploy
+sinreinicio,31tests yobservación180s/7PASS. Backup definitivo trasrecuperación:
+72archivos/25audios;13originalesidénticos y12nuevoscompletos. OriginalausenteD063
+5385d04b recuperado selectivamente sinrollbackDB total; origen abierto yno ocultado.
+PiperR2 quedaoperativo, modelosTTSmáximo1 y409comprobado. Qwen sigueBLOCKED por
+seguridad, sinRTF/60s; clonaciónpersonal noDONE ysinperfil ficticio. No commits/push.
+
+
+### D-069 — Voicebox exclusivamente personal — IN PROGRESS
+
+El propietario autoriza conservar únicamente `Eduardo — Mi Voz`, inventariar y
+respaldar perfiles/muestras antes de retirar los ocho perfiles de usuario sobrantes.
+Catálogos integrados y motores se conservan. Grabación real autorizada: comprobar,
+copiar y verificar en almacenamiento privado persistente antes de retirar del árbol
+de documentación; nunca Git ni evidencias públicas. Transcripción existente confirmada
+exacta por el propietario. Prioridad Base0.6B, piloto controlado con límites D068 y
+texto solicitado; no validar semejanza sin escucha humana. Máximo7GiB, CPU3/swap512/
+disco50 sin cambios; solo627, backups/rollback y persistencia. No pipeline, commit/push.
+Nombre histórico del guard Base no reconoce el perfil real: corregir sin quitar
+validación de referencias. Modelos pesados alternativos: presentar antes de añadir.
+
+
+#### Resultado D-069 — primera clonación técnica, aceptación pendiente
+
+Se conserva únicamente Eduardo — Mi Voz (`1fd00418-2a79-4178-883f-af6c3f5e07ee`).
+Ocho perfiles retirados tras inventario presentado y backup restaurado; motores y
+catálogos integrados conservados. Grabación real preservada fuera Git y en volumen
+privado persistente, transcripción confirmada. Guard corregido por UUID, no eliminado;
+fallos previos0.6B por nombre antiguo y1.7B por tamaño rechazado, antes de inferencia.
+
+Base0.6B BF16/SDPA con codecFP32 produce WAV6,40s en106,86s; cgroup observado
+5,18GiB, HWM4,68GiB, swap+5,32MiB, OOM0. Texto solicitado y referencia real,
+sin nuevas cargas tras éxito. Imagen personal fijada, backup de imagen con29blobs
+verificados; rollbackR2 conservado. Reinicio preserva perfil/referencia/WAV y dos
+deploy sin recreación/reinicio. Notes solo627description, segundaTerraform0/0/0.
+No RAM/CPU/swap/disco, otrosLXC,pipeline,commit ni push.
+
+Clonación NO DONE: pendiente escuchar parecido, contenido pronunciado y acento.
+Una muestra6,4s no valida un minuto; no se extrapola rendimiento. Voces adicionales
+fuera del objetivo vigente; alternativas pesadas no instaladas ni autorizadas por
+este cierre. [Informe D069](PHASE7-D069-PERSONAL.md).
+
+
+D069 — aceptación humana posterior: el propietario escuchó la muestra925f8b71 y
+respondió «Sí, acepto la muestra» a la comprobación de parecido, acento y lectura
+íntegra. Perfil personal y primera clonación **DONE — Accepted**. Se sustituye la
+aceptación pendiente anterior únicamente para esta muestra; no para narración60s.
+El catálogo persistente yrecibo deaceptación se conservan además en backup privado
+suplementario, porque esta decisión llegó después del snapshot completo.
+
+
+### D-070 — cancelar generación larga y comparar alternativas CPU — IN PROGRESS
+
+El propietario autoriza diagnosticar y cancelar exclusivamente la generación activa
+de Eduardo — Mi Voz, sin reiniciar CT627 ni perder perfiles/grabaciones. No repetir
+pruebas largas Qwen. Conservar Kokoro/Piper y verificar CPU/RAM/swap/Voicebox después.
+Investigar clonación española CPU dentro de7GiB y presentar comparación antes de
+desplegar otro motor. No otrosLXC,pipeline,commit ni push. La aceptación D069 de
+la muestra corta no acredita narración larga; esta queda bloqueada según resultado.
+
+D070 — autorización adicional expresa: ante cancelaciónAPI que deja el hilo nativo
+consumiendoCPU, el propietario autoriza reiniciar únicamente el contenedorDocker
+Voicebox conservando imagen/perfiles/grabaciones/volúmenes. CT627 no se reinicia.
+No extender a nuevos motores ni otras generacionesQwen.
+
+
+#### Resultado D070 — recuperación y comparación DONE, narración larga BLOCKED
+
+Trabajo d7ce3d31 cancelado porAPI, pero asyncio.cancel no paraba el hilo inferente;
+CPU1,97núcleos ysinOOM. Con autorización adicional se reinició soloDockerVoicebox
+el10nov21:52:36UTC, mismoID eimagen, sinreiniciarCT. Verificado11nov: perfil y
+referencias/originales idénticos,healthy,cero trabajos activos,CPUenreposo,swapestable
+en ventana observada. Kokoro2,58s/8,09s yPiper2,11s/2,16s en helperssinred; sin
+perfiles nuevos ni otrosLXC. SnapshotSQLite+referencias restaurado fueraPVE; D069
+completo conservado. No nuevoQwen largo, motor, pipeline,commit ni push.
+
+Propuesta pendiente: piloto aislado OpenVoiceV2+MeloES conworker cancelable ytecho
+inicial3GiB, sin subirCT de7GiB; después evaluarXTTS si fidelidad insuficiente.
+Pesos verificados por metadata, RAM/tiempoCPU alternativos no medidos. No se
+considera esta comparación autorización de descarga/despliegue.
+[Informe yfuentes](PHASE7-D070-CPU-ALTERNATIVES.md).
+
+
+### D-071 — implementación OpenVoice V2 + MeloES autorizada — IN PROGRESS
+
+11nov2026,Europe/Madrid. SoloCT627,3CPU/7GiB/512MiBswap/50GiB sin ampliación.
+Autorizados revisión de código/licencias, implementaciónIaC y despliegue candidato,
+backup/rollback y pruebas progresivas de voz real del perfil existente. Máximo una
+inferencia, cola limitada, cancelación efectiva y timeout con liberación de recursos.
+Evaluar worker3GiB; QwenCPU no se utiliza. Integración mínimaVoicebox/UI ycontratoAPI,
+texto original separado de adaptación trader→tréider. No cambiar arquitectura del
+fork sustancialmente sin presentar plan, no pipeline,otrosLXC,commit nipush.
+Aceptación técnica exige minuto real ycancelación; fidelidad reservada al dueño.
+Si el candidato falla, rollback ypropuesta justificada, sin forzar recursos.
+
+
+### D-072 — Qwen C/BLAS aislado autorizado — IN PROGRESS
+
+11nov2026, Europe/Madrid. El propietario rechaza la voz OpenVoice D071
+(«no esa no es mi voz») y prioriza Qwen Base0.6B. Autoriza investigar y probar
+el repositorio gabriele-mastrapasqua/qwen3-tts, INT8 primero, referencia personal
+real e invariable; comparación INT4/BF16 solo viable y útil. Pruebas corta→15→30→60s
+solo tras WAV correcto previo, una generación, límites de tiempo/cancelación real,
+monitorización y comprobación de capacidad del host. CT627 permanece3vCPU/7GiB/
+512MiBswap. No CustomVoice para identidad, otrosLXC, pipeline, ampliación, commit
+ni push. No sustituir producción ni integrar definitivamente antes de aceptación
+auditiva. La prohibición histórica de QwenCPU se levanta solo para este piloto
+aislado. OpenVoice deja de ser la solución principal.
+
+D071: muestra369ebd31 rechazada; candidata restaurada a imagenD069, worker parado.
+Cancelación nativa probada0,423s, pero ensayo de minuto detenido por presiónPSI
+del host, sin WAV. No aceptación técnica de minuto ni aceptación de voz. Backups,
+perfiles, referencias y muestras conservados.
+
+
+#### Resultado D072 — piloto concluido por seguridad, sin WAV
+
+Base0.6B C/BLASAVX2 INT8 cargado5,738s, ICL referencia real24,883s. Corte123s
+porPSIfullhost sostenida (pico9,10%), no OOM ni umbralRAM:RSS3,697GiB,
+worker3,712GiB,CT5,094GiB. SinWAV: no comparaciónINT4/BF16 ni15/30/60s.
+Dockerpiloto parado3,406s/PID0; producciónD069healthy sin reinicios, perfiles y
+referencias/originales verificados. Kokoro/Piper generan después,59targetsUP.
+DiscoCT6277,1GiB libres,HostDiskFillingpending; no borrar ni limpiar sin alcance
+autorizado. ConfiguracionesPVE intactas, sin otrosLXC/pipeline/recursos/commit/push.
+
+Diagnóstico/piloto acotado DONE; objetivoQwen/narración BLOCKED sinaceptación.
+Propuesta no aprobada como producción: optimizar y atribuirPSI/espacio antes de
+otra carga, workerAPI cancelable si futuroWAV aceptado. No descartar porRAM ni
+promover por documentación. [Informe y evidencias](PHASE7-D072-QWEN-C.md).
+
+
+### D-073 — auditoría de capacidad de solo lectura autorizada — IN PROGRESS
+
+11nov2026, Europe/Madrid. Auditar memoria física/disponible/caché/swap/PSI/OOM
+del host, consumo porLXC yfueraLXC, almacenamientoCT627 y candidatos de limpieza
+con tamaños reales ydependencias de restauración. La intención inicial de recuperar
+disco queda concretada por la prohibición explícita posterior: **no eliminar nada,
+no limpieza automática ni cambios productivos**. No nuevas inferenciasQwen, otros
+LXC,pipeline,recursos,commit/push. Verificar producción/perfil/grabaciones y motores
+existentes sin modificarla. Crear PHASE7-D073-CAPACITY-AUDIT.md y detenerse para
+revisión; toda retirada/archivo/limpieza queda propuesta y pendiente de autorización.
+
+
+#### Resultado D073 — auditoría DONE; cambios no autorizados
+
+SinQwen ni limpieza. Host15,504GiB físicos,9,070disponibles; CT6273,556GiBcurrent
+incluye2,615GiBfilecache y0,539anon. Durante60s sininferencia: presiónhost5,67%
+con≥8,832GiB disponibles, stall1,189s/cAdvisor6181,190s yCT6270,000029s;
+cAdvisor618 límite128MiB,+4918max,0OOM nuevos. Identificadafuenteactual independiente
+deQwen; no atribución retrospectiva concluyenteD072. No modificarCT618 porD073.
+
+Disco7,056GiBlibres; A4,748GiB temporales/cache, B7,198GiB backups expandidos
+con tarhomónimo, condicionados a verificación/restore/retención. No son permiso
+de eliminación:0bytes borrados, sin archivar ni cambiar producción. K/Preadiness
+yWAVsD072verificados, no nueva inferencia; perfil/originales intactos.59UP,warning
+disco627FIRING;27configsPVE intactas, otros17CTgestionados sin cambios.
+
+Propuestas separadas no aprobadas: remediar límitecAdvisor618 y limpiezaacotadaA/B,
+optimizar memoriaQwen con palancasexperimentales solo en eventualpiloto autorizado;
+no ampliarRAM ni compraGPU sin evidencia. Detenido para revisión.
+[Informe y evidenciasD073](PHASE7-D073-CAPACITY-AUDIT.md).
+
+
+### D-074 — preparación de mantenimiento controlado — IN PROGRESS
+
+11nov2026, Europe/Madrid. El propietario quiere continuar Qwen y retirar lo
+innecesario de CT627, pero limita esta intervención a auditoría/preparación y exige
+aprobar la lista exacta antes de cualquier eliminación material. Verificar duplicados
+y copias externas, preservar voz/datos/modelos funcionales/rollback/volúmenes; nada
+de limpieza globalDocker. El apartadoCT618 autoriza inspeccionar cAdvisor y proponer
+límite porIaC, sin tocar recursos ni Budibase/CRM/API/otros contenedores. No se usa
+su presión como bloqueo automático del objetivoQwen, pero tampoco se omite la
+comprobación específica pedida. La parada final exige no ejecutar eliminación ni
+cambio de memoria; nuevas inferencias no se ejecutan en esta preparación. Validar
+Voicebox/Kokoro/Piper,perfil/originales,18LXC,OOM/alertas; sin commit/push.
+
+
+#### Resultado D074 — preparación DONE, ejecución BLOCKED a aprobación expresa
+
+Lista exacta105entradas/11,946GiB;44cacheIDs Sharedfalse/InUsefalse,47rutas
+APT/buildpúblico,14expansionesbackup. Manifiesto SHA256
+`d2396813e51c98e171052f0bc8765c69476467db53b098d89727954474fc8b00`.
+14parejas idénticasarchivo/permisos/symlink,14manifiestosválidos/SQLiteok y14copias
+externasSHAidéntico. Conservar ambas copiascomprimidas. Selectorcacheallowlist
+probado solo lectura, sinprune. Imágenes/contenedores/modelos/livevoice/audio/
+referencias/originales/volúmenes/rollback excluidos. 0eliminaciones/0cambiosmemoria.
+
+cAdvisor618healthy,reinicios0,OOMnuevo0,2880scrapes24hUP; +63eventosmax/10s.
+PropuestaIaC opcional local256MiBRAM/384MiBRAM+swap/CPU0,50; no aprobada ni aplicada.
+No requisito aQwen ni autorización de modificarBudibase/CRM/API o realizar rollout.
+Voicebox/perfil/originales preservados,K/PreadinessPASS,18LXC/59targetsUP,0alertas
+niOOMnuevos; aviso627discoFIRINGprevio. No reinicios,recursos,pipeline,commit/push.
+
+El propietario quiere continuar pruebasQwen; se conserva ese objetivo tras resolver
+la aprobación concreta de mantenimiento. No nueva inferencia durante preparación.
+Detenido antes de eliminación/memoria para revisar lista; aprobación de limpieza
+no se extendería aCT618 ni aotrosrecursos.
+[Informe](PHASE7-D074-CONTROLLED-MAINTENANCE.md) y[lista](PHASE7-D074-CLEANUP-LIST.md).
+
+
+### D-074 ejecución aprobada + segunda opinión Qwen Fase A — IN PROGRESS
+
+11nov2026,Europe/Madrid. El propietario autoriza eliminar únicamente105elementos
+del manifiesto SHA256d2396813e51c98e171052f0bc8765c69476467db53b098d89727954474fc8b00,
+tras revalidación, con espacioantes/después ypreservaciónVoicebox/Eduardo/originales,
+Prometheus/Grafana yalertas. ProhibidoCT618/cAdvisor/otrosLXC. Aprobación no incluye
+ningunaimagen/modelo/volumen/backupcomprimido ni recurso fueraallowlist.
+
+Autoriza además FaseA de diagnóstico hardware/PyTorch/C/memoria/referencia y
+microbenchmarkFP32/BF16 sin cargarQwen. La frase final «ejecutar generación Qwen
+todavía» se interpreta según el encabezado «Solo diagnóstico» y parada antesFaseB
+como no ejecutar generación todavía. No cambio de recursos/servicios, no alterar
+ni recortar original. Tabla dehipótesis/evidencias yprueba mínima propuesta, sin
+FaseB,commit/push. Se registra como D075-FaseA para seguimiento, sin ampliar alcance.
+
+
+#### Resultado D074 ejecutado / D075 Fase A — DONE; Fase B no iniciada
+
+Limpieza105/105 autorizados:61rutas+44cacheIDs; libre7,056→18,997GiB,+11,941GiB.
+No eliminaciones deimágenes/modelos/contenedores/backupscomprimidos/livevoice/volúmenes,
+niotrosIDs. 14tars externos SHA revalidados. Preflight paró antes de borrar por dos
+auxiliaresSQLite deauditoríaD074 (WAL0/SHM32KiB; soloextras derivados; DB/tars intactos);
+verificador corregido immutable. GuardAPT distinguió helperdeapagado inactivo ylocks
+libres; filtrosbooleanospresencia seleccionaban0cache, se terminó conallowlist44
+exacta yprevalidaciónShared/InUse/Size. No limpieza global ni ampliación de alcance.
+
+FaseA: microbenchmark PyTorch2.8+CPU real sinQwen, hilos2/interop1 solo enproceso
+diagnóstico225MiBRSS: BF16matrices10,48–146,33×/conv44,19× máslento. i5-6500AVX2
+sinBF16nativo; generaciónoficial hereda8192tokens, no overrideVoicebox; EOSpendiente.
+CINT8ambosTalker/CP por código/capsD072; mismoSHAupstream actual; D072312frames
+yúltimo50no runawaydemostrado. DecoderconcurrenteWAValfinal; referencia24,883s/
+425caracteres/formato/condicionamientoaudio+texto correctos, originalnoalterado.
+
+SwapCT413MiB traslecturabackups, cache3,192GiB/anon0,225/kernel0,365; noOOM ni
+swapoff/cacheclean/restart. 59UP/GrafanaPromPASS,0alertas/erroresproductivos nuevos,
+Voiceboximagen/ID/inicio/Eduardo/grabaciones preservados;27configsPVE intactas.
+NoCT618/cAdvisor/otrosLXC/recursos/pipeline/commit/push. ObjetivoQwen sigue vigente,
+pero esta FaseA termina antes deFaseB como pide propietario; no carga/generaciónQwen.
+Prueba mínima futura propuesta, no ejecutada. [Informe](PHASE7-D075-QWEN-HYPOTHESES-PHASE-A.md).
+
+
+### D075 Fase B — una inferencia oficial Base0.6B FP32 autorizada — IN PROGRESS
+
+Propietario autoriza una única prueba CPU/FP32/SDPA si compatible, texto «Hola, soy
+Eduardo.», referencia real/transcripción exacta, hilos basados enFaseA. Preflight
+memoria/swap/PSI/servicio/disco/exporters; presión significativa o swap activa creciente
+impide cargar. Modelo/proceso aislado cancelable, timeoutmáximo300s, tokenslimitados
+explícitos ycausaEOS/límite/timeout/error instrumentada; sin asumir token=frame.
+CT6273CPU/7GiB/512MiBswap sin cambios; no reinicio para liberar swap, no Voicebox
+productivo/otrosLXC/modelos/perfiles/grabaciones/pipeline/commit/push. No30/60s ni
+segunda prueba; informe ydetenerse. Seguridad de capacidad prevalece sobre cargar.
+
+
+#### Resultado D075B — F por preparación, único intento concluido sin carga
+
+Preflight60sPASS:hostmín9,345GiB,CTPSI0/swapestable412MiB;59UP/0jobs/disco19GiB.
+Un worker oficialCPUFP32/SDPA configurado64pasosnuevosTalker,2hilos/interop1,
+max300s, límitesguardados/RO/offline. Falló importación librosa/Numba por caché sin
+localizador: rootFSRO yNUMBA_CACHE_DIR no redirigido altmpfs. Error de preparación
+delpiloto reconocido, no QwenFP32 inviable. 0cargas depesos/generaciones/tokens/WAV;
+8,205sworker/14,326ssupervisor,RSSHWM483MiB,CTpico4,410GiB,swapnuevagua0,0OOM.
+
+ExitCode1/PID0/Runningfalse, sin hilosresiduales ni reinicio. Voicebox/Eduardo/
+referencia/originales/modelos conservados,27configsPVEintactas,otrosLXC/CT618sin
+cambios;59UP/GrafanaPromPASS/0alertas, sin recursos/pipeline/commit/push.
+No segunda prueba porlímite solicitado. Correccióncache delworker propuesta, no
+ejecutada; validarFP32 sigueBLOCKED, intentoacotadoDONEF. Detenido para revisión;
+no usar esta autorización ya consumida para repetir.
+[Informe](PHASE7-D075-QWEN-FP32-PHASE-B.md).
+
+
+### D075B — repetición02 FP32 ycorrecciónNumba autorizadas — IN PROGRESS
+
+Propietario autoriza una única repetición, exclusivamente NUMBA_CACHE_DIR=/tmp/numba
+enworkeraislado, conmkdir/escritura/espacio/importsNumba+librosa+backend comprobados
+antes decargar. Fallo de cualquierpreflight detiene sincarga. MantenerBase0.6B CPU
+FP32/SDPA, j2/interop1, texto «Hola, soy Eduardo.», referenciaexacta, cap64 ytimeout
+≤300s/guardas; no cambiar límitesCT6277GiB niVoicebox/CT618/otrosLXC/pipeline.
+No borrar datos/modelos ni30/60s, no segundo reintentoautomático/commit/push.
+Medir yclasificar etapa/progreso/tiempos/EOS/cap/recursos, proporcionarWAVsi existe,
+actualizarinforme ydetenerse alfinal. Autorización anterior no se reutiliza.
+
+
+#### Resultado repetición02 y autorización de umbrales graduales
+
+02: cachéNumba/tmpfs/importsPASS, cargaFP32 completada9,052s; referencia iniciada,
+sin tokens/WAV. CorteE por crecimiento swapCT observado32,445MiB frenteaguarda16,
+0OOM/PID0. Datos completos en evidenciaD075-b02; cierre documental interrumpido
+por nueva instrucción, se retoma antes de otraspruebas.
+
+Propietario confirma expresamente pruebas cortas ajustando solo umbrales de parada
+(swap,PSI,margenmemoria), manteniendo CT6273CPU/7GiB/512MiBswap, Voicebox yotros
+LXC sin cambios. No límites de recursos ni servicios productivos, ni pipeline,
+commit/push. Nuevoalcance sustituye parada de una prueba solo para estos ensayos
+graduales. Primer escalón: swapcrecimiento16→32MiB, techo absoluto480MiB para
+reservar32MiB; resto guardas idénticas. Si no queda margen previo oaparece OOM/
+inestabilidad, no iniciar/avanzar. Un trabajo simultáneo, máximo300s, texto corto
+original, Base0.6BFP32/SDPA,64pasos,j2/interop1,misma referencia. Máximo tres nuevos
+ensayos enesta intervención; no ejecutar más si basta el primero o si lo impide la
+seguridad. No30/60s. Cada escalón se documenta por separado, sin elevar límites
+para ocultar un fallo ni promover producción sin voz aceptada.
+
+
+Escalón03 completadoE: corteCTPSI≥1%/5s; acumuló solo0,245s destall en una
+ráfaga decarga yprácticamente0enlos5s siguientes, aunqueavg10 persistía1,36%.
+Swap+18,98MiB bajo32, sinOOM/PID0. Se permite escalón04 conPSICT2%/5s y
+PSIhost3%/10s, memoriaigual; techoabsolutoswap496MiB, reserva16MiB ycancelación
+inmediata solo delcgroupworker al cortar, sinCTswapoff/recursos/producción.
+Justificación: diferencias cortasmedidas, no presión continua; techofijo496 no se
+aumentará más enesta intervención. Preflight exige swap<480MiB sincrecimiento.
+Si se agota ese margen o apareceOOM/inestabilidad se detiene, sin forzar máspruebas.
+
+
+04: EOSreal14tokensTalker/13frames acústicos,8,950sTalker,decoderiniciado; Eal
+superarworker5,75GiB (pico5,841;anon4,269/file1,557GiB), CT6,451<6,6,0OOM.
+Último escalón05 cambia solo umbralworker5,75→5,85GiB, sin cambiarhardlimit6GiB,
+CT6,6/RSS5,6/PSICT2%/host3%/swap32MiB y496absoluto. Mantener≥153MiB hastalímite
+duro delworker; no suponer filecache instantáneamentelibre. Si superaeste margen
+o preflight no pasa, parar sin elevarotra vez. No nuevosensayos tras05enestecierre.
+
+
+05:EporPSIhost3%/10s; CTPSI2,1% transitorio2s ydesciende0,77%, sinpresiónlocal
+sostenida niOOM. Tokensnoalcanzados en05;04síEOS. Revisión justificada delmáximo
+autoimpuesto3: laautorización deldueño cubre umbralesgraduales/pruebascortas, nofija
+tres. Se amplía solo aunescalón06, PSIhost3→5%/10s; todasguardaslocales yrecursos
+idénticos05, capswap496/reserva16 ypreflight<480 no se elevan. No insistir si
+preflightfalla ni elevarmemoria/localPSI tras06. Se registra antes deejecutar; no
+cambia elalcancefuncional yse informaalpropietario.
+
+
+### D076 — nuevos recursos y narración55–60s autorizados — IN PROGRESS
+
+El propietario informa ampliaciónRAMfísica; autoriza CT6273CPU/10240MiBRAM/2048MiB
+swap yworkeraislado umbral8,2GiB/hard9GiB,swapcrecimiento128MiB/PSICT5%10s,
+OMP/MKL/TORCH_NUM_THREADS3. ObjetivoWAVcompleto55–60s trading conEduardo, Base0.6B
+FP32/SDPA aislado, sin reemplazarVoicebox/otrosLXC/pipeline,commit/push. Sustituye
+los máximos anteriores7GiB/512MiB yprohibición deensayo largo solo en este alcance.
+Laobservación06previa no lanzóworker06; se cancela eseescalón corto por nuevoalcance.
+
+Verificaciónhost:MemTotal33533042688B(~31,23GiB),disponible~21,9GiB; PSIglobalalto
+se registra, no se equipara a agotamiento físico sin atribución. CT627sigue7168/512.
+ProveedorBPG0.94 marca memorycomo rebootRequired; aplicar recursos en caliente
+mediante scriptversionado exclusivo627, conservarconfigprevia yreconciliarstateTF
+conrefresh-only. Planprevio revisado solo627memory/description; no applymutante que
+reinicie. CPU/disco conservados. Timeout previo300s: se pide autorización de900s
+para ellargo; hastarespuesta no exceder300. No reiniciarCT niVoicebox.
+
+### D076 — resultado del único ensayo y cierre condicionado
+
+Recursos10GiB/2GiB aplicados en caliente solo627,CPU3 conservada, Voicebox sin
+reinicio y datos privados intactos. Ensayo FP32/SDPA3hilos detenido por deadline300s
+con368 llamadas forward ysin WAV; no alcanzó decoder. Pico worker6,50GiB,CT7,78GiB,
+RSSHWM5,59GiB,swap0/PSICT0/OOMnuevo0. No se considera fallo por memoria ni bloqueo
+demostrado. Timeout900s propuesto, no aprobado todavía: no repetir automáticamente.
+Prometheus9090 inaccesible antes del piloto;36exporters directos responden, Grafana
+DB sana ydatasource falla. No modificar otrosLXC para repararlo. Fase7.4 IN PROGRESS,
+WAV BLOCKED por límite temporal pendiente de nueva autorización. InformeD076 enlazado
+en roadmap; sin commit/push.
+
+### D076 — autorización explícita de un nuevo ensayo hasta900s
+
+El propietario responde «Sí, máximo15minutos» a la ampliación temporal. Se autoriza
+un único intento02, conservando01 y sus evidencias, mismos recursos/guardas/texto/
+referencia/FP32/SDPA/3hilos. Registrar preflight actualizado antes de cargar pesos.
+No nuevos reintentos automáticos ni cambios productivos. Estado IN PROGRESS.
+
+### D076 — intento02 finalizado E; optimización del decoder solo propuesta
+
+La autorización máxima de900s se consumió en un único intento02, terminado a701,542s
+por RESOURCE_MEMORY_GUARD delCT (9,533GiB>9,5GiB), no por timeout ni OOM. Talker
+emitió EOS:813tokens/634,226s,812×16códigos; decoder inició pero no escribióWAV.
+Worker cgroup5,984GiB/RSS6,406GiB,CTanon5,906/file3,298GiB,swap0/PSIlocal0/OOM0.
+Cancelación cgroup.kill completa,PID0; Voicebox y originales intactos, configsPVE
+sin cambios. No repetición. El objetivo deaudio55–60s sigue BLOCKED.
+
+Código real ya usa chunked_decode300/context25; pública decode no expone chunk_size.
+Propuesta pendiente, no ejecutada: checkpoint privado de códigos yrecorte, liberar
+Talker antes delcodec ybloques120/context25. Sin ampliar recursos ni guardas.
+Kokoro/Piper descargados sin nueva síntesis;36endpoints responden (uno alreintentar
+lectura); Prometheus inaccesible desde antes, sin modificarlo. No otrosLXC/CT618/
+pipeline ni commit/push. Fase7.4 INPROGRESS, detenerse para revisión.
+
+### D077 — preparación autorizada de Talker y decoder separados
+
+11nov2026, Europe/Madrid. Propietario autoriza implementación, inspección de posibles
+checkpoints D076 y validación estática/imports/datos sintéticos, sin cargar Qwen ni
+generar audio. Dos procesos exclusivos, checkpoint privado persistente y atómico,
+checksum y metadatos de referencia/recorte/versiones. Primero preparar decoder300
+con separación de procesos; soporte120 experimental, no activar simultáneamente.
+Mantener CT6273CPU/10GiB/2GiBswap, workerhard9GiB, guardaCT9,5GiB y FP32/Base0.6B.
+No Voicebox productivo/otrosLXC/CT618/pipeline/borrados ni commit/push. Generación
+real posterior pendiente de autorización. Fase7.4/D077 IN PROGRESS.
+
+### D077 — preparación terminada; generación real pendiente
+
+Dos procesos implementados en pilot-d077: A intercepta antes de decodificar,
+persiste códigos completos y metadatos en NPY/JSON privados con commit atómico;
+B carga únicamente271 entradas decoder.*, sin Talker/encoder. Guardas y recursos
+conservados. Default300/context25;120 solo experimental, sin cambio automático.
+
+17 tests locales PASS; imports/versiones/cabeceras/layout meta y cargador con un
+peso ficticio PASS sin pesos Qwen; checkpoint sintético recuperado desde contenedor
+nuevo; cancelación padre+hijo con cgroup.kill, PID0/cgroup vacío y retirada del
+worker propio PASS. Primer import falló por symlinks HF aislados; montaje individual
+config/safetensors corregido y validado. Preparación idempotente y jobnarracion01
+listo; no checkpoint real recuperable D076, no carga de pesos ni WAV D077.
+
+Producción intacta: Voicebox misma imagen/ID/inicio/health, originales ytranscripción
+conservados;27 configsPVE sin cambios,0OOM nuevos, Kokoro/Piper descargados.
+CT627 sigue3CPU/10GiB/2GiBswap; no otrosLXC/CT618/pipeline ni commit/push.
+D077 preparación DONE; Fase7.4 INPROGRESS. Propuesta pendiente: ensayo A→B300 con
+presupuesto900s y guardas actuales; no afirmar memoria/calidad acústica sin medir.
+No ejecutarlo hasta autorización específica. Informe PHASE7-D077-CHECKPOINT-DECODER.
+
+### D077 — ensayo único autorizado con texto nuevo e integración productiva solicitada
+
+El propietario autoriza un único A→B300/context25, misma referencia Eduardo/Base0.6B
+FP32, checkpoint persistente y guardas actuales, sin reintentos ni repetir Talker
+si falla B. Nuevo texto literal de bienvenida/análisis trading sustituye únicamente
+el texto de generación en un job nuevo; no sobrescribir narracion01 previo.
+También solicita modificar Voicebox para dejar este flujo listo en producción.
+Registrar ampliación antes de ejecutarla: integración productiva autorizada solo
+CT627/Voicebox, con backup/rollback y validación técnica; preservar perfil/datos,
+Kokoro/Piper y límites3CPU/10GiB/2GiB. No otrosLXC/CT618/pipeline/commit/push.
+Primero probar motor aislado; si no produce WAV válido, detener despliegue dependiente.
+Aceptación auditiva del WAV sigue pendiente de escucha, no presumirla. IN PROGRESS.
+
+### D077 — integración productiva: supervisor externo dedicado a CT627
+
+Ensayo único A→B300 PASS técnico: EOS y checkpoint válido; WAV10,8s/24kHz/PCM16,
+183,04s total. UAT voz/texto pendiente de escucha. Para conservar las guardas físicas
+del host, la integración autorizada Voicebox requiere un agente systemd ligero en
+PVE, limitado en código a CT627: cola de archivos privada, sin puertos nuevos,
+sin Docker socket en Voicebox. El agente lanza supervisores A yB secuenciales con
+las guardas D077 existentes; cambiosPVE exclusivamente control de Voicebox/627,
+sin recursos ni intervención enotrosLXC. Registrar antes del despliegue.
+Adaptador Voicebox sin modelos residentes, conserva UI/API/historial/perfil;
+checkpoint ysalida privados, cancelación real, sin retry ni división automática
+del texto. Backup verificable, imagenoriginal yrollback antes de reemplazarapp.
+
+### D077 — resultado, aceptación y despliegue productivo
+
+Ensayo único bienvenida01 PASS: texto literal216caracteres; EOS136tokens/95,547s,
+checkpoint447×16, A finaliza antes B300/context25; WAV10,8s, total183,041s. Propietario
+confirma «Sí, voz y texto correctos». No120 ni Talker adicional. WAV publicado en
+historial Eduardo, URLaudio225c8772-6b09-52b0-9580-c0001fff4bcb, SHAidéntico.
+
+Voicebox productivo7c747589… conadaptador sin modelos, cola privada y agentePVE
+exclusivo627; guardas y recursos sin ampliar. Backup68archivos/restoreSQLitePASS,
+copia externa yambas imágenes conservadas. Primera sustitución pese asmokefallido
+porpermisos600/root se revirtió aimagenoriginal;COPYchown999 ygateruntimeUID999
+antes demutaciones corregidos. WAVimportado nuevo también pasó propietario999;
+no permisos deoriginales alterados. Finalhealthy,23tests runtimePASS, idempotente
+sin recreación y180s/7muestrasPASS;0OOM/swap/errores nuevos enventana final.
+
+Perfil/samples idénticos porhash de filas; historias3→4 solo porimportar elWAV
+aceptado, sinsegunda inferencia paraAPI. Pipeline/otrosLXC/CT618 intactos.
+D077 ejecución yproducción DONE técnico; Fase7.4 INPROGRESS. Calidad10,8s aceptada;
+55–60s yprimer recorrido real de nueva generación porUI/API aún sin repetir.
+Prometheus previo inaccesible no se intervino. Sin commit/push. InformeD077-PRODUCTION.
+
+### D078 — diagnóstico autorizado del primer fallo Qwen desde Voicebox
+
+Propietario limita el alcance a diagnóstico remoto de lectura y preparación local.
+Localizar job cuyo texto comienza por «El mercado cambia cada sesión…pre-market.»,
+verificar checkpoint real/EOS/tokens y métricas de memoria, y contrastar con D077.
+No inferencias, cambios de producción/recursos/guardas, borrados, otrosLXC ni pipeline.
+No commit/push. No reanudar ni repetir ningún trabajo; informe D078 y detenerse.
+Fase7.4 INPROGRESS; éxito aislado D077 no acredita recorrido UI/API real.
+
+### D078 — causa demostrada y corrección mínima propuesta, sin ejecutar
+
+12nov2026 Europe/Madrid. Prioridad aprobada: pico durante preparación de referencia,
+antes de investigar duración. Jobs86dde73b…/73a3755f… fallan26–27s de supervisión,
+sinreference_ready, generación ni checkpoint. Baselinefile D0773,311GiB→4,69–4,85;
+anon inicial≈0,35. CTalparar9,70–9,78,workerRSSmuestreado4,52–4,64;0swap/OOM,
+pero193+58high/reclaim. CódigoML igual, texto aún no usado; no es limitación de573
+caracteres. Observación delarchivadoD077 muestra subidafile4,319→4,846, baseline
+que reaparece enfallos. mincore actual:containerd1,409GiB, cinco blobs concretos
+1,051GiB candidatos a consejo DONTNEED. No se envió ningún consejo ni se purgó.
+
+Propuesta pendiente: reclamación selectiva y medición antes del siguiente ensayo
+continuo60s, conrecursos/guardas iguales, sin segmentar. Promptcache yloaderselectivo
+son mejoras posteriores separadas. No afirmar cuál fue elúltimobuffer encoder/spk
+sin nueva instrumentación. Cuantificación perfile esactual, nohistórica.
+
+Ningún jobtieneCP; B imposible. UIretry bloquea elpath existente ysobrescribe error
+original, mensajecheckpoint falso. Política local6testsPASS propone attempts nuevos
+explícitos oBsoloconCPverificado, nunca autorepetirA ni borrar originales. Diagnóstico
+DONE, corrección/inferencia no autorizadas. Fase7.4 INPROGRESS/narraciónBLOCKED.
+Informe PHASE7-D078-QWEN-DIAGNOSIS; no producción/otrosLXC/pipeline/commit/push.
+
+### D079 — corrección mínima y un único ensayo UI/API autorizados
+
+12nov2026, Europe/Madrid. Propietario acepta D078 y autoriza POSIX_FADV_DONTNEED
+solo sobre los cinco blobs del manifiesto, sin operaciones incompatibles; medir
+antes/después sin prometer recuperar1,05GiB. Autoriza desplegar preflight predictivo
+y corregir mensaje de checkpoint inexistente, conservando ambos intentos fallidos.
+Después de comprobaciones y margen suficiente, un único ensayo desde Voicebox con
+texto original573caracteres, Base0.6B/FP32/Eduardo/es/300-context25, A→checkpoint→B,
+presupuesto900s y guardas actuales. Si falla preflight o guarda: detener, sinretry.
+No recursos/otrosLXC/pipeline/borrados/commit/push. No caché reutilizable de referencia
+ni otro cambio estructural simultáneo. Fase7.4/D079 IN PROGRESS.
+
+### D079 — cierre técnico 12nov2026
+
+Corrección desplegada; reclamados1,051445GiB de file reales. Preflight rechaza
+inicial4,533GiB: proyección9,533>9,5GiB. Parada antes de cargar Qwen, cero
+inferencias nuevas. No ampliar autorización ni relajar reserva. Recursos intactos.
+Resultado y siguiente propuesta separados en [D079](PHASE7-D079-QWEN-CONTINUOUS.md).
+
+### D080 — recursos y ensayo continuo autorizados, IN PROGRESS
+
+12nov2026 Europe/Madrid. Propietario autoriza exclusivamente CT62715360MiB RAM,
+3CPU/2048MiBswap/disco50 sin cambios, guarda CT14GiB, workerhard9GiB y resto
+de parámetros intactos. Preflight físico, plan Terraform exclusivo627, backup y
+rollback, validación. Última instrucción autoriza continuar con un ensayo continuo
+del texto completo573caracteres, un WAV, A→checkpoint→B300/context25, sin R/A/B.
+Presupuesto900s y ausencia de retries automáticos conservados. No otrosLXC,
+pipeline, borrados ni commit/push. Procedimiento existente: resize en caliente
+versionado para evitar reboot del proveedor, reconciliación Terraform dirigida.
+
+### D080 — resultado y cierre de intervención
+
+12nov2026 Europe/Madrid. CT627 ampliado a15360MiB en caliente mediante receta
+versionada, tras plan exclusivo627 memory/description revisado; refresh-only
+reconciliado yplan final0cambios. CPU3/swap2048/disco50 intactos, sinrebootCT/app.
+GuardaCT14GiB, workerhard9GiB/stop8,2 ycontroles de swap/PSI/cancelación conservados.
+Un único POST573caracteres completó A→checkpoint→B: EOS358, códigos669×16,
+WAV28,56s,total362,182s. PicoCT8,612GiB, swap4KiB, OOM0; CPcopiado fueraCT y
+recuperado sinmodelo. No se afirman60s ni aceptación acústica. Otros17configPVE
+idénticos; Voiceboxhealthy, agenteactivo, workersfinalizados, datos protegidos
+intactos. Prometheus sigueinaccesible previamente; no intervenciónajena.
+Fase7.4 INPROGRESS: recursos ycaso573caracteres DONE técnicos, duración60s/UAT
+pendientes. Siguiente propuesto: escuchar ydespués ensayo contexto60s separado,
+sinretries automáticos ni cambios silenciosos. SinR/A/B,commit,push,borrados.
+[Informe D080](PHASE7-D080-QWEN-15G.md).
+
+### D081 — consolidación y ensayo único autorizados, IN PROGRESS
+
+12nov2026 Europe/Madrid. Propietario acepta D080 como referencia técnica funcional.
+Autoriza consolidar fuentes locales/IaC/docs/Notes/runbook, backups verificados
+y UI deVoicebox sin cambiar runtime ni reiniciar innecesariamente. Después de
+preflight, un único ensayo con texto literal adjunto, Base0.6B FP32/Eduardo/es/42,
+A→checkpoint→B300/context25, continuo, límite900s yguardasD080. Si excede1200
+caracteres: detener sin truncar. CT15GiB/3CPU/2GiBswap, guardaCT14GiB, worker9GiB
+yparada8,2 conservados. NoR/A/B, otrasLXC, Prometheus/Grafana/pipeline, borrados,
+commit ni push. No declarar calidad aceptada antes deescucha. Detener tras elensayo.
+
+### D081 — cierre de consolidación yensayo único
+
+12nov2026 Europe/Madrid. RuntimeD080 preservado, sinrestarts nirecreaciones.
+Backup externo103archivos/SQLite ydosimágenesOCI39blobs verificados; fuentes
+locales archivadas, deploy.sh reconoceD079 ydosreconciliaciones sinrecreación.
+UnclickUI1059caracteres exactos, jobbaa61a95…: EOS718,checkpoint1029×16,
+WAV57,36s,total676,180s, picoCT9,625GiB,swapmáx4KiB/PSI0/OOM0. No silencio
+ni cambio develocidad para forzar50–55. ASRlocal señala4variantespequeñas; voz
+ylectura literal pendientes deescucha. CPcopiado yrecuperado externamente.
+91archivosprotegidos,perfiles ymuestras intactos; no workersresiduales, apphealthy.
+PeticiónDELETEseparada delfallido73a3755f… antes delPOSTnuevo,autor noestablecido;
+carpeta/filarespaldada conservadas, no reinsertar automáticamente. Otros17config
+PVEidénticos; no Prometheus/Grafana/pipeline, R/A/B, recursos/modelos,commit/push.
+Fase7.4 INPROGRESS, consolidación yensayo DONE técnicos, UATpendiente. Detenido.
+[Informe D081](PHASE7-D081-QWEN-CONSOLIDATION.md).
+
+### D082 — aceptación definitiva y publicación autorizadas
+
+12 de noviembre de2026, Europe/Madrid. El propietario escuchó y aceptó voz y
+contenido del WAV D08157,36s: D081 ACCEPTED / PRODUCTION. Autoriza cierre
+formal, comprobación real sin inferencias/restarts, Notes627 ydocs finales,
+commits curados ypush normal aGitHub. Misma configuración D081, sin optimizaciones
+ni R/A/B. No datos privados/modelos/audios/backups/estados/secretos enGit.
+Preservar cambios ajenos; detener publicación si rama/remoto o diff no son seguros.
+Alcance aceptado≈unminuto, no5–10min; pronunciación hola pendiente, trader→tréider
+comprobado; texto fonéticoTTS separado del original destinado a subtítulos.
+Fase7.4 cierre IN PROGRESS hasta validaciones ypublicación; otrasfases intactas.

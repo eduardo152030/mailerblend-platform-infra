@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "terraform_fmt": "PASS",
+  "terraform_validate": "PASS",
+  "inventory_tests": 15,
+  "provisioning_tests": 16,
+  "python_compile": "PASS",
+  "shell_syntax": "PASS",
+  "git_diff_check": "PASS",
+  "local_links": "PASS",
+  "final_firing_or_pending_alerts": 0,
+  "api_client_real_generation": "PASS",
+  "limits": "No end-to-end retest of new automatic RAM-plan-refresh fallback; Base cloning not loaded; female has no sample"
+}

@@ -1,0 +1,124 @@
+{
+  "status": "FAIL",
+  "measurements": [
+    {
+      "elapsed_seconds": 0.12253301125019789,
+      "memory_current": 2602958848,
+      "swap": 53321728,
+      "cpu": "usage_usec 7468370539\nuser_usec 5510075582\nsystem_usec 1958294957\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "host_available": 9199788032,
+      "host_pressure": "some avg10=0.05 avg60=0.62 avg300=0.66 total=2030814945691\nfull avg10=0.05 avg60=0.57 avg300=0.55 total=1834204557405\n"
+    },
+    {
+      "elapsed_seconds": 2.1269854940474033,
+      "memory_current": 2752823296,
+      "swap": 53321728,
+      "cpu": "usage_usec 7470712947\nuser_usec 5512097361\nsystem_usec 1958615585\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "host_available": 9140510720,
+      "host_pressure": "some avg10=0.04 avg60=0.59 avg300=0.66 total=2030814946318\nfull avg10=0.04 avg60=0.55 avg300=0.55 total=1834204557449\n"
+    },
+    {
+      "elapsed_seconds": 4.130516706965864,
+      "memory_current": 2858102784,
+      "swap": 53321728,
+      "cpu": "usage_usec 7473096422\nuser_usec 5514072002\nsystem_usec 1959024419\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "host_available": 9020993536,
+      "host_pressure": "some avg10=0.03 avg60=0.57 avg300=0.65 total=2030814953031\nfull avg10=0.03 avg60=0.53 avg300=0.55 total=1834204563812\n"
+    },
+    {
+      "elapsed_seconds": 6.133944842964411,
+      "memory_current": 3417206784,
+      "swap": 53321728,
+      "cpu": "usage_usec 7475470372\nuser_usec 5516030164\nsystem_usec 1959440207\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "host_available": 8478089216,
+      "host_pressure": "some avg10=0.03 avg60=0.56 avg300=0.65 total=2030814967421\nfull avg10=0.03 avg60=0.51 avg300=0.54 total=1834204577138\n"
+    },
+    {
+      "elapsed_seconds": 8.137474394403398,
+      "memory_current": 3443761152,
+      "swap": 53321728,
+      "cpu": "usage_usec 7478743573\nuser_usec 5519148691\nsystem_usec 1959594881\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "host_available": 8463101952,
+      "host_pressure": "some avg10=0.56 avg60=0.64 avg300=0.66 total=2030815101005\nfull avg10=0.38 avg60=0.56 avg300=0.55 total=1834204674810\n"
+    },
+    {
+      "elapsed_seconds": 10.14118841663003,
+      "memory_current": 3582238720,
+      "swap": 53321728,
+      "cpu": "usage_usec 7482302416\nuser_usec 5522598207\nsystem_usec 1959704208\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "host_available": 8274071552,
+      "host_pressure": "some avg10=1.55 avg60=0.81 avg300=0.70 total=2030815278074\nfull avg10=1.04 avg60=0.67 avg300=0.58 total=1834204811053\n"
+    },
+    {
+      "elapsed_seconds": 12.144811934791505,
+      "memory_current": 3513679872,
+      "swap": 53321728,
+      "cpu": "usage_usec 7484887787\nuser_usec 5524711312\nsystem_usec 1960176475\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "host_available": 8342097920,
+      "host_pressure": "some avg10=2.90 avg60=1.08 avg300=0.76 total=2030815379383\nfull avg10=2.12 avg60=0.88 avg300=0.62 total=1834204887614\n"
+    }
+  ],
+  "label": "minute",
+  "generation_id": "785b09a6-ce2b-4e13-8483-53a08cd61156",
+  "reason": "Host safety stop",
+  "cancel": {
+    "message": "Generation cancelled; worker stopped"
+  },
+  "rollback": "PASS"
+}

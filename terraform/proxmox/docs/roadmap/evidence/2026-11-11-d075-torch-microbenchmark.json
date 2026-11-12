@@ -1,0 +1,155 @@
+{
+  "torch": "2.8.0+cpu",
+  "qwen_tts_package": "0.1.1",
+  "before_threads": {
+    "threads": 2,
+    "interop_threads": 4
+  },
+  "benchmark_threads": 2,
+  "benchmark_interop_threads": 1,
+  "cpu_capability": "AVX2",
+  "mkldnn_available": true,
+  "mkldnn_enabled": true,
+  "mkl_available": true,
+  "openmp_available": true,
+  "environment": {
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_WAIT_POLICY": null,
+    "KMP_AFFINITY": null,
+    "MKL_DYNAMIC": null,
+    "OMP_DYNAMIC": null
+  },
+  "parallel_info": "ATen/Parallel:\n\tat::get_num_threads() : 2\n\tat::get_num_interop_threads() : 1\nOpenMP 201511 (a.k.a. OpenMP 4.5)\n\tomp_get_max_threads() : 2\nIntel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n\tmkl_get_max_threads() : 2\nIntel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\nstd::thread::hardware_concurrency() : 4\nEnvironment variables:\n\tOMP_NUM_THREADS : 2\n\tMKL_NUM_THREADS : 2\nATen parallel backend: OpenMP\n",
+  "build_config": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=a1cb3cc05d46d198467bebbb6e8fba50a325d4e7, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.8.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+  "cpu_native_bf16": false,
+  "results": [
+    {
+      "operator": "mm",
+      "shape_MKN": [
+        1,
+        1024,
+        1024
+      ],
+      "seconds": {
+        "torch.float32": [
+          0.00020297057926654816,
+          0.0001871846616268158,
+          0.00019147340208292007,
+          0.0001338217407464981,
+          0.00010140892118215561
+        ],
+        "torch.bfloat16": [
+          0.001961630769073963,
+          0.0022924328222870827,
+          0.0019802218303084373,
+          0.0017601130530238152,
+          0.0018798531964421272
+        ]
+      },
+      "median_seconds": {
+        "torch.float32": 0.0001871846616268158,
+        "torch.bfloat16": 0.001961630769073963
+      },
+      "bf16_over_fp32": 10.479655501821004,
+      "relative_l2_error": 0.002826639683917165
+    },
+    {
+      "operator": "mm",
+      "shape_MKN": [
+        64,
+        1024,
+        1024
+      ],
+      "seconds": {
+        "torch.float32": [
+          0.0010288171470165253,
+          0.0010127807036042213,
+          0.0009404076263308525,
+          0.000972348265349865,
+          0.0009178174659609795
+        ],
+        "torch.bfloat16": [
+          0.12098720762878656,
+          0.11688243597745895,
+          0.11771418061107397,
+          0.11729094479233027,
+          0.11635329760611057
+        ]
+      },
+      "median_seconds": {
+        "torch.float32": 0.000972348265349865,
+        "torch.bfloat16": 0.11729094479233027
+      },
+      "bf16_over_fp32": 120.62647610126325,
+      "relative_l2_error": 0.0028719480615109205
+    },
+    {
+      "operator": "mm",
+      "shape_MKN": [
+        512,
+        512,
+        512
+      ],
+      "seconds": {
+        "torch.float32": [
+          0.0016586380079388618,
+          0.0016113603487610817,
+          0.0017106439918279648,
+          0.001630186103284359,
+          0.001799711026251316
+        ],
+        "torch.bfloat16": [
+          0.24971817154437304,
+          0.23770631849765778,
+          0.2427003923803568,
+          0.238577701151371,
+          0.2523083407431841
+        ]
+      },
+      "median_seconds": {
+        "torch.float32": 0.0016586380079388618,
+        "torch.bfloat16": 0.2427003923803568
+      },
+      "bf16_over_fp32": 146.3251120610416,
+      "relative_l2_error": 0.0028707743622362614
+    },
+    {
+      "operator": "conv1d",
+      "input_shape": [
+        1,
+        64,
+        256
+      ],
+      "weight_shape": [
+        64,
+        64,
+        3
+      ],
+      "seconds": {
+        "torch.float32": [
+          8.814316242933273e-05,
+          0.00011698063462972641,
+          6.72508031129837e-05,
+          6.555486470460892e-05,
+          6.501562893390656e-05
+        ],
+        "torch.bfloat16": [
+          0.0028290683403611183,
+          0.002879907377064228,
+          0.002972121350467205,
+          0.003060922957956791,
+          0.003186628222465515
+        ]
+      },
+      "median_seconds": {
+        "torch.float32": 6.72508031129837e-05,
+        "torch.bfloat16": 0.002972121350467205
+      },
+      "bf16_over_fp32": 44.194585237501734
+    }
+  ],
+  "rss_hwm_bytes": 235651072,
+  "model_loaded": false
+}

@@ -1,0 +1,33 @@
+{
+  "method": "fincore/mincore; no file data read and no cache eviction requested",
+  "scope": "CT627 only, regular files>=1MiB, inode deduplication",
+  "measurement_is_current_not_per_inode_history_at_failure": true,
+  "categories": {
+    "HF": {
+      "files_examined": 5,
+      "resident_bytes": 2515423232,
+      "file_bytes": 2843298262
+    },
+    "Docker": {
+      "files_examined": 361,
+      "resident_bytes": 350138368,
+      "file_bytes": 2653075838
+    },
+    "containerd": {
+      "files_examined": 1007,
+      "resident_bytes": 1512624128,
+      "file_bytes": 10236614697
+    },
+    "backups": {
+      "files_examined": 23,
+      "resident_bytes": 127254528,
+      "file_bytes": 7136077488
+    }
+  },
+  "ct_file_at_failures": [
+    4994052096,
+    5036048384
+  ],
+  "candidate_plan": "services/infra-voicebox/proposals/d078/cache-reclaim-plan.json",
+  "cgroup_charge_and_global_file_residency_not_additive": true
+}

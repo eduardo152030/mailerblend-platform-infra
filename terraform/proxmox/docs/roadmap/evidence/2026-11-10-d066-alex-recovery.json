@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "engine": "kokoro",
+  "preset": "em_alex",
+  "generation_id": "951cb9d1-af4f-4b27-afec-d16cb15d7a17",
+  "audio_url": "http://192.168.1.127:17493/audio/951cb9d1-af4f-4b27-afec-d16cb15d7a17",
+  "audio_seconds": 8.88,
+  "observed_generation_seconds": 14.225529670715332,
+  "sha256": "29b727abe8f8929c5c5dee528110ef72b932d5917a736078cc1660ce352f051f",
+  "all_production_profiles_preserved": true
+}

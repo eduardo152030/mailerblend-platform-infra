@@ -1,0 +1,67 @@
+{
+  "status": "PREPARED_NOT_EXECUTED_REQUIRES_OWNER_REVIEW",
+  "scope": "CT627 only; no other LXC, global monitoring rules, pipeline, commit or push",
+  "current_memory_mib": 3072,
+  "proposed_trial_ceiling_mib": 4096,
+  "download": {
+    "sequential": true,
+    "load_model": false,
+    "location": "/srv/voicebox/huggingface",
+    "first": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
+    "second": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+    "pin_revision_and_hashes": true,
+    "workers": 1
+  },
+  "load": {
+    "device": "cpu",
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "allow_models": [
+      "0.6B"
+    ],
+    "unload_kokoro_ram_first": true,
+    "keep_kokoro_files": true,
+    "baseline_rss_required": true,
+    "load_rss_cgroup_peak": "NOT_MEASURED"
+  },
+  "generate": {
+    "language": "es",
+    "concurrency": 1,
+    "pilot_audio_seconds": 10,
+    "pilot_timeout_seconds": 120,
+    "target_audio_seconds": 60,
+    "maximum_test_seconds": 900,
+    "max_chunk_chars": 200,
+    "no_personality_llm": true,
+    "record_rss_cgroup_swap_oom": true,
+    "codec_decode_chunk_frames_installed": 300,
+    "cpu_native_bf16_acceleration": false
+  },
+  "abort": {
+    "no_load_if_budget_insufficient": true,
+    "soft_stop_ct_memory_gib": 3.5,
+    "max_new_swap_mib": 64,
+    "oom_event": "stop and rollback; never treat as success",
+    "other_lxc_anomaly": "stop",
+    "nonfinite_audio_or_unsupported_op": "stop",
+    "memory_beyond_4096_mib": "NOT_AUTHORIZED"
+  },
+  "rollback": {
+    "image": "local/voicebox:8af7efe62fab-cpu-d063",
+    "original_image_id": "sha256:7f2e6f7e6a2d09c77ebd35424a7641249e51b8ff0374bc9c4acb1f7393cfcd4c",
+    "memory_mib": 3072,
+    "preserve_profiles_models_audios": true,
+    "verify_kokoro_alex_after_test": true
+  },
+  "cleanup_proposed": {
+    "keep_candidate": "alex",
+    "keep_original_profile_id": "285b5291-74b8-406d-b7fe-56c31c4e21cd",
+    "remove_only_candidates": [
+      "dora",
+      "santa",
+      "emma"
+    ],
+    "backup_and_sample_export_before_delete": true,
+    "execute_now": false
+  }
+}

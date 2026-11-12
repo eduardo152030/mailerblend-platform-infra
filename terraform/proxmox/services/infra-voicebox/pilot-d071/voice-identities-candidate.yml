@@ -1,0 +1,27 @@
+identities:
+  personal:
+    requested_name: Eduardo — Mi Voz
+    profile_id: 1fd00418-2a79-4178-883f-af6c3f5e07ee
+    engine: openvoice
+    model_size: default
+    status: CANDIDATE_PENDING_TECHNICAL_TRIAL
+    sample_id: 8840f5e1-990b-463e-b94e-e72beef61917
+    auditory_acceptance: PENDING_OWNER_LISTENING
+    sample_generation_id: 925f8b71-6ad7-46f0-a48a-ffa3881004ef
+    audio_url: http://192.168.1.127:17493/audio/925f8b71-6ad7-46f0-a48a-ffa3881004ef
+    audio_seconds: 6.4
+    generation_seconds: 106.86044136155397
+    accepted_at_utc: '2026-11-10T21:28:13.981487+00:00'
+    accepted_scope: 'First personal sample: likeness, natural accent and complete
+      requested text; long narration not tested'
+    previous_accepted_sample:
+      engine: qwen
+      auditory_acceptance: ACCEPTED_BY_OWNER
+      sample_generation_id: 925f8b71-6ad7-46f0-a48a-ffa3881004ef
+      audio_url: http://192.168.1.127:17493/audio/925f8b71-6ad7-46f0-a48a-ffa3881004ef
+      audio_seconds: 6.4
+      generation_seconds: 106.86044136155397
+      accepted_at_utc: '2026-11-10T21:28:13.981487+00:00'
+      accepted_scope: 'First personal sample: likeness, natural accent and complete
+        requested text; long narration not tested'
+policy: PERSONAL_ONLY_D069; additional identities require a future scope

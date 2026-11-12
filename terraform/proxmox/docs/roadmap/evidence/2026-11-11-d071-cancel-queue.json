@@ -1,0 +1,41 @@
+{
+  "status": "FAIL",
+  "first": "4bc703df-220c-4e84-b2b5-bd984694c58e",
+  "queued": "87a6594f-9656-476c-9330-a0fcba273ee8",
+  "third_request_http": 429,
+  "queued_cancel": {
+    "message": "Queued generation cancelled"
+  },
+  "worker_before_cancel": {
+    "id": "5b73b392-4a58-4348-8816-9ffd6d266b4b",
+    "pid": 365,
+    "stages": [
+      {
+        "stage": "melo_loaded",
+        "elapsed_seconds": 6.025180708616972,
+        "seconds": 1.1554670967161655
+      },
+      {
+        "stage": "source_synthesized",
+        "elapsed_seconds": 23.33570099528879,
+        "seconds": 17.310324602760375
+      },
+      {
+        "stage": "converter_loaded",
+        "elapsed_seconds": 24.41413501650095,
+        "seconds": 0.9099649367853999
+      },
+      {
+        "stage": "owner_embedding_extracted",
+        "elapsed_seconds": 25.191817891784012,
+        "seconds": 0.7773713571950793
+      }
+    ]
+  },
+  "running_cancel": {
+    "message": "Generation cancelled; worker stopped"
+  },
+  "cancel_seconds": 0.43184962682425976,
+  "reason": "",
+  "rollback": "PASS"
+}

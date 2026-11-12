@@ -1,0 +1,75 @@
+{
+  "at_utc": "2026-11-11T15:12:19.824231+00:00",
+  "configs_preserved": 27,
+  "managed_lxc_monitored": 18,
+  "targets_up": 59,
+  "jobs_count": {
+    "alertmanager": 1,
+    "blackbox": 19,
+    "blackbox_exporter": 1,
+    "cadvisor": 18,
+    "node_exporter": 18,
+    "prometheus": 1,
+    "pve_uptime": 1
+  },
+  "new_oom": 0,
+  "new_alerts": 0,
+  "remaining_alerts": [
+    {
+      "name": "HostDiskFilling",
+      "state": "firing",
+      "vmid": "627"
+    }
+  ],
+  "ct618_siblings_unchanged": true,
+  "voicebox_unchanged": true,
+  "owner_profile_and_recording_hashes_preserved": true,
+  "stable_engines_readiness": [
+    {
+      "engine": "kokoro",
+      "last_real_inference": "D072",
+      "previous_real_inference": {
+        "result": "PASS",
+        "engine": "kokoro",
+        "sample_rate": 24000,
+        "audio_seconds": 2.58,
+        "generation_seconds": 8.744911596179008,
+        "process_peak_rss_bytes": 1374769152,
+        "owner_profile_used": false,
+        "preset_profile_created": false
+      },
+      "stored_wave_readable": true,
+      "wave": {
+        "seconds": 2.58,
+        "rate": 24000,
+        "frames": 61920
+      },
+      "new_inference_d073": false
+    },
+    {
+      "engine": "piper",
+      "last_real_inference": "D072",
+      "previous_real_inference": {
+        "result": "PASS",
+        "engine": "piper",
+        "sample_rate": 22050,
+        "audio_seconds": 2.1130158730158732,
+        "generation_seconds": 2.029311270453036,
+        "process_peak_rss_bytes": 416882688,
+        "owner_profile_used": false,
+        "preset_profile_created": false
+      },
+      "stored_wave_readable": true,
+      "wave": {
+        "seconds": 2.1130158730158732,
+        "rate": 22050,
+        "frames": 46592
+      },
+      "new_inference_d073": false
+    }
+  ],
+  "new_inference": false,
+  "deletions": 0,
+  "resource_changes": 0,
+  "ct627_df": "Filesystem                         1B-blocks        Used  Available Use% Mounted on\n/dev/mapper/pve-vm--627--disk--0 52521566208 42244317184 7576117248  85% /\n"
+}

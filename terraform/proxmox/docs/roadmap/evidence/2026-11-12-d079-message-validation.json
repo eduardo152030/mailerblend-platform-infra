@@ -1,0 +1,14 @@
+{
+  "existing_job_rejections": [
+    {
+      "id": "86dde73b-fe39-498c-ba26-658bd7849f1c",
+      "message": "Este intento ya falló y no tiene checkpoint ni códigos acústicos. Reintentarlo requiere una nueva inferencia explícita con otro intento, después de resolver la causa original; no se repite Talker automáticamente."
+    },
+    {
+      "id": "73a3755f-5b19-4d33-aba3-79e43bf6d72b",
+      "message": "Este intento ya falló y no tiene checkpoint ni códigos acústicos. Reintentarlo requiere una nueva inferencia explícita con otro intento, después de resolver la causa original; no se repite Talker automáticamente."
+    }
+  ],
+  "old_files_unchanged": true,
+  "inference_run": false
+}

@@ -1,0 +1,7 @@
+{
+  "files_verified": 61,
+  "archive_sha256": "405bce57e4aea266fef96be1b2e9b51a4e0ee29a63d5404c36d1932676072ed9",
+  "outside_pve": true,
+  "no_commit_or_push": true,
+  "source_lock": "services/infra-voicebox/consolidation-d081/source-lock.json"
+}

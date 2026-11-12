@@ -1,0 +1,261 @@
+{
+  "at_utc": "2026-11-11T19:23:44.435044+00:00",
+  "global_oom_kill": 0,
+  "ct_events": {
+    "617": "low 0\nhigh 66\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "61211": "low 0\nhigh 0\nmax 160808\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "625": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "615": "low 0\nhigh 0\nmax 146\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "623": "low 0\nhigh 0\nmax 880800\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "104": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "613": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "621": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "611": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "109": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "618": "low 0\nhigh 0\nmax 1037902\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "626": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "107": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "616": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "624": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "105": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "614": "low 0\nhigh 0\nmax 146\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "622": "low 0\nhigh 0\nmax 182\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "103": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "620": "low 0\nhigh 0\nmax 7073\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "101": "low 0\nhigh 265\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "610": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "619": "low 0\nhigh 0\nmax 463795\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "627": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+  },
+  "voicebox": {
+    "id": "5820cbf6e02894f3566f9ca164aa18f89dfd3ea99c876b77d3fd6bd687fe3142",
+    "image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+    "started_at": "2026-11-11T17:49:51.550174682Z",
+    "restart_count": 0,
+    "health": "healthy"
+  },
+  "docker_cpu_controls": {
+    "cpu.max": "300000 100000\n",
+    "cpu.stat": "usage_usec 32853748\nuser_usec 26966532\nsystem_usec 5887216\ncore_sched.force_idle_usec 0\nnr_periods 10455\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "cpuset.cpus.effective": "0-2\n"
+  },
+  "log_counts": {
+    "checked_lines": 1394,
+    "error_or_traceback_lines": 0,
+    "http_5xx_lines": 0,
+    "contents_withheld": true
+  },
+  "pve_configs_unchanged_during_trial": true,
+  "other_lxc_unchanged": true,
+  "recordings_preserved": true,
+  "new_oom": 0,
+  "resources": {
+    "memory_max": "10737418240\n",
+    "swap_max": "2147483648\n",
+    "memory_current": "3730468864\n",
+    "swap_current": "0\n"
+  },
+  "exporter_endpoints": [
+    {
+      "ct": 620,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 620,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 614,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 614,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 622,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 622,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 619,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 619,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 610,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 610,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 623,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 623,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 615,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 615,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 618,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 618,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 625,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 625,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 61211,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 61211,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 626,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 626,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 621,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 621,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 617,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 617,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 616,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 616,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 611,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 611,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 624,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 624,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 627,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 627,
+      "kind": "cadvisor",
+      "http_status": 200
+    },
+    {
+      "ct": 613,
+      "kind": "node",
+      "http_status": 200
+    },
+    {
+      "ct": 613,
+      "kind": "cadvisor",
+      "http_status": 200
+    }
+  ],
+  "prometheus_available_before_and_after": false,
+  "grafana_baseline": {
+    "health": {
+      "database": "ok",
+      "version": "12.3.1",
+      "commit": "3a1c80ca7ce612f309fdc99338dd3c5e486339be"
+    },
+    "datasource_error": "HTTPError"
+  },
+  "central_monitoring_unhealthy_preexisting": true,
+  "terraform_validate": true,
+  "inventory_tests": 16,
+  "targeted_plan_idempotent": true,
+  "resource_application": "live pct set, Terraform refresh-only; no provider restart",
+  "no_commit_push": true,
+  "iac_final": {
+    "refresh_only_applied": true,
+    "targeted_plan_changes": 0,
+    "notes_description_synced": true,
+    "production_restart": false
+  }
+}

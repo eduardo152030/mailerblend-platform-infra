@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "scope": "CT627 description only",
+  "steps": [
+    {
+      "step": "notes-apply",
+      "added": 0,
+      "changed": 1,
+      "destroyed": 0
+    },
+    {
+      "step": "second-apply",
+      "added": 0,
+      "changed": 0,
+      "destroyed": 0
+    },
+    {
+      "step": "accepted-notes-apply",
+      "added": 0,
+      "changed": 1,
+      "destroyed": 0
+    },
+    {
+      "step": "accepted-second-apply",
+      "added": 0,
+      "changed": 0,
+      "destroyed": 0
+    }
+  ],
+  "resources_changed": false,
+  "failed_initial_plan_not_applied": true
+}

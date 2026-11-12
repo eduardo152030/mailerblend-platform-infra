@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "memory_mib": 3072,
+  "automatic_saved_plan_failed": true,
+  "failure_reason": "file manifest changed during trial; Terraform inconsistent file function result",
+  "recovery": "refreshed and reviewed scoped RAM-only plan applied; no other resources changed"
+}

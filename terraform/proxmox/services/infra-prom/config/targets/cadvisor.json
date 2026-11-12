@@ -202,5 +202,16 @@
       "vmid": "61211",
       "collector_scope": "lxc"
     }
+  },
+  {
+    "targets": [
+      "192.168.1.127:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "service": "infra-voicebox",
+      "vmid": "627",
+      "source": "inventory"
+    }
   }
 ]

@@ -73,8 +73,18 @@ def build(root=ROOT):
         if key not in meta:
             notes[key]=pending_notes(d,key)
             ct=s['vmid'];ip=s['ip'].split('/')[0]
-            summary.append(f'| {ct} | {s["name"]} | {d["provisioning"]["purpose"]} | {ip} | PENDING VERIFICATION | PENDING VERIFICATION | Declarado, no desplegado | docs/inventory/{ct}-LXC-INVENTORY.md |')
-            details.append(inventory_document(d,key))
+            receipt=d['provisioning'].get('verification')
+            state='Observado RUNNING; aceptación funcional: ver ficha' if receipt else 'Declarado, no desplegado'
+            notes_file=d.get('documentation',{}).get('notes_file')
+            if notes_file:
+                source=(root/notes_file).resolve()
+                assert source.is_relative_to(root.resolve()) and source.is_file(), 'Invalid Notes source'
+                raw=source.read_text();assert raw.startswith('# ') and '\n\n' in raw
+                header,body=raw.split('\n\n',1)
+                notes[key]={'title':header[2:],'sections':[body.rstrip()]}
+            inventory_file=d.get('documentation',{}).get('inventory_file',f'docs/inventory/{ct}-LXC-INVENTORY.md')
+            summary.append(f'| {ct} | {s["name"]} | {d["provisioning"]["purpose"]} | {ip} | Sin dominio declarado | Ver ficha | {state} | [{ct}-LXC-INVENTORY.md](../../{inventory_file}) |')
+            details.append('## '+notes[key]['title']+'\n\nFicha: ['+str(ct)+'-LXC-INVENTORY.md](../../'+inventory_file+').\n' if notes_file else inventory_document(d,key))
             continue
         m=meta[key];r=by_id[s['vmid']];cfg=r['config'];ip=s['ip'].split('/')[0]
         observed_ip=re.search(r'(?:^|,)ip=([^,]+)',cfg['net0'])
@@ -137,6 +147,7 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--check',action='store_true');ap.add_argument('--root',type=Path,default=ROOT);args=ap.parse_args();ROOT=args.root.resolve()
     notes,markdown=build(ROOT);outputs={ROOT/'inventory/generated/lxc-notes.json':json.dumps(notes,ensure_ascii=False,indent=2)+'\n',ROOT/'docs/inventory/LXC-INVENTORY.md':markdown}
     sources = [ROOT/'inventory/documentation.yml', ROOT/'inventory/lxc-observed.json', ROOT/'docs/inventory/routing-observed.json', ROOT/'inventory/defaults.yml', ROOT/'scripts/generate-lxc-inventory.py', ROOT/'scripts/lxc_provisioning.py', ROOT/'templates/lxc-notes.tftpl'] + sorted((ROOT/'inventory/services').glob('*.yml'))
+    sources += [ROOT/d['documentation']['notes_file'] for d in (read_yaml(p) for p in sorted((ROOT/'inventory/services').glob('*.yml'))) if d.get('documentation',{}).get('notes_file')]
     sources += [ROOT/d['documentation']['notes_file'] for d in (read_yaml(p) for p in sorted((ROOT/'inventory/services').glob('*.yml'))) if d.get('documentation',{}).get('notes_file')]
     sources += [ROOT/d['documentation']['inventory_file'] for d in (read_yaml(p) for p in sorted((ROOT/'inventory/services').glob('*.yml'))) if d.get('documentation',{}).get('inventory_file')]
     manifest = {str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}

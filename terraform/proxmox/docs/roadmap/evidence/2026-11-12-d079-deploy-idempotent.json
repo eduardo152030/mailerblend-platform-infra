@@ -1,0 +1,12 @@
+{
+  "scope": "CT627 Voicebox and dedicated PVE supervisor",
+  "candidate_runtime_UID999_passed": true,
+  "idempotent_no_recreate": true,
+  "status": "PASS",
+  "image_id": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+  "old_image_retained": true,
+  "container_id": "1c35e81571c979b89efc185a5074847bb5c5930b783027ea9d76ac45814ef457",
+  "started_at": "2026-11-12T07:01:37.552379895Z",
+  "healthy": true,
+  "supervisor_active": true
+}

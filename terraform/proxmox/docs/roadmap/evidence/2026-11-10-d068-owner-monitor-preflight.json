@@ -1,0 +1,6 @@
+{
+  "result": "PASS",
+  "main_process_cpu_counter_read": true,
+  "memory_cgroup_read": true,
+  "no_owner_recordings_or_model_loaded": true
+}

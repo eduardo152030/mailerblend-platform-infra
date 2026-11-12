@@ -1,0 +1,54 @@
+{
+  "at_utc": "2026-11-11T20:21:26.124308+00:00",
+  "prepared": {
+    "source_sha256": "473f3d92283029df5d51e4e00ea2ee6433058de6e2c26b282f8629307588a8cf",
+    "revision": "src-473f3d92283029df",
+    "new_revision": true,
+    "jobs": [
+      "synthetic01",
+      "imports01",
+      "cancel01"
+    ],
+    "no_model_loaded": true,
+    "production_changed": false
+  },
+  "second_application": {
+    "source_sha256": "473f3d92283029df5d51e4e00ea2ee6433058de6e2c26b282f8629307588a8cf",
+    "revision": "src-473f3d92283029df",
+    "new_revision": false,
+    "jobs": [
+      "synthetic01",
+      "imports01",
+      "cancel01"
+    ],
+    "no_model_loaded": true,
+    "production_changed": false
+  },
+  "files_sha256": {
+    "services/infra-voicebox/pilot-d077/worker.py": "09bcc54336203e506df44ad38078948bd6afd2a5898bb66aed63eaf2fa0afc40",
+    "services/infra-voicebox/pilot-d077/checkpoint.py": "73cdcb816966cc446cc3a543d3493d6c76517a01229ecab33f109afd5532a0bc",
+    "services/infra-voicebox/pilot-d077/guards.py": "f6131d19f6df527b4fa67671835b876828483b730dc9a8606e4677ea9e896b51",
+    "services/infra-voicebox/pilot-d077/supervise.py": "495cfcb66bfc6b021cce948066cf32b252b0e2c88467989a1cd61c3ef301279c",
+    "services/infra-voicebox/pilot-d077/validation.py": "22c463ab1ac50eda2973d286038aa45b36e8c44bf5cd57d6f4513961ee27af78",
+    "services/infra-voicebox/pilot-d077/run.py": "a4a2be6d46dd427f7031315fa48339ef2c994cd8815a40ca00ec5eaa6faf9c74",
+    "services/infra-voicebox/pilot-d077/runtime.py": "a752570acf07d517d821f8cdf06afaf5be0c480f6b13dc04d109b32d23e021fc",
+    "services/infra-voicebox/pilot-d077/prepare.py": "f1b6d9568f2dad7826317f80a25be9bf08ec5c1f7af90aa062d6078b5c0f3399",
+    "services/infra-voicebox/pilot-d077/trial.py": "5c67cf3d8f8daf00b5ddbf89e5652f4548425d290f6ee0006aebdcdba21a3cd6",
+    "tests/voicebox/test_d077.py": "eaf321a5277b0350a8ef53dbfebfb054acb26e02d19aa8e70b754cfa8e083b46"
+  },
+  "trial_plan": {
+    "plan_only": true,
+    "total_budget_seconds": 900,
+    "first_decoder_chunk": 300,
+    "stages": [
+      "Talker->atomic checkpoint->PID0/cgroup empty",
+      "decoder-only with remaining budget"
+    ],
+    "automatic_retry": false,
+    "automatic_chunk120": false
+  },
+  "talker_decoder_real_not_executed": true,
+  "D076_recoverable_checkpoint": false,
+  "sources_private_on_CT": true,
+  "job_prepared": "narracion01"
+}

@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "observed_at_utc": "2026-11-10T10:53:09.773465+00:00",
+  "ct_id": 627,
+  "engine": "kokoro",
+  "preset_voice_id": "ef_dora",
+  "language": "es",
+  "profile_id": "285b5291-74b8-406d-b7fe-56c31c4e21cd",
+  "generation_id": "005163a8-9721-4c8b-8f7b-bfd00b0a10d2",
+  "generation_seconds": 12.94,
+  "duration_seconds": 6.46,
+  "sample_rate": 24000,
+  "channels": 1,
+  "format": "WAV PCM16",
+  "bytes": 310124,
+  "sha256": "3f6cd945f4629ce1ae431421f26afb55b700c1f2e1a14d52cc001b0b8b979c0e",
+  "audio_url": "http://192.168.1.127:17493/audio/005163a8-9721-4c8b-8f7b-bfd00b0a10d2",
+  "cpu_seconds_during_test": 6.651050999999995,
+  "peak_sampled_ct_used_bytes": 1550123008.0,
+  "samples": 8,
+  "content_type": "audio/x-wav"
+}

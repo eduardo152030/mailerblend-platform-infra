@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "host_available_min_bytes": 23447146496,
+  "host_full_avg10_max": 10.71,
+  "ct_full_avg10_max": 0.0,
+  "ct_swap_growth_bytes": 0,
+  "local_exporters_http200": true,
+  "prometheus_available": false,
+  "central_monitoring_limitation_disclosed": true,
+  "deadline_initial_seconds": 300
+}

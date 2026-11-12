@@ -1,0 +1,82 @@
+schema: 1
+review_status: ALEX_ACCEPTED_OTHERS_REJECTED_PENDING_REMOVAL
+text: Hola, bienvenidos a nuestro canal. Hoy vamos a descubrir cómo funciona esta
+  tecnología y por qué puede cambiar nuestra forma de trabajar. Vamos a comenzar.
+selection_objectives:
+  accent: Español de España; pendiente de evaluación auditiva
+  intended_styles:
+  - Narración profesional
+  - Conversación natural
+  - Voz en off para vídeos
+  requested_segments:
+  - Femenina 25–35
+  - Femenina 35–45
+  - Masculina 25–35
+  - Masculina 35–45
+  limitation: Tres presets nativos españoles más Emma británica experimental en español;
+    acento y edad requieren escucha. No son cuatro voces peninsulares aceptadas.
+candidates:
+- key: dora
+  name: ES · Dora · candidata D064
+  engine: kokoro
+  preset_voice_id: ef_dora
+  language: es
+  source_gender: female
+  perceived_gender: PENDING_USER_LISTENING
+  perceived_age: UNKNOWN
+  peninsular_accent: UNVERIFIED
+  user_decision: REJECTED_PENDING_REMOVAL
+- key: alex
+  name: ES · Alex · candidato D064
+  engine: kokoro
+  preset_voice_id: em_alex
+  language: es
+  source_gender: male
+  perceived_gender: PENDING_USER_LISTENING
+  perceived_age: UNKNOWN
+  peninsular_accent: UNVERIFIED
+  user_decision: ACCEPTED
+- key: santa
+  name: ES · Santa · candidato D064
+  engine: kokoro
+  preset_voice_id: em_santa
+  language: es
+  source_gender: male
+  perceived_gender: PENDING_USER_LISTENING
+  perceived_age: UNKNOWN
+  peninsular_accent: UNVERIFIED
+  user_decision: REJECTED_PENDING_REMOVAL
+- key: emma
+  name: ES experimental · Emma británica · candidata D064
+  engine: kokoro
+  preset_voice_id: bf_emma
+  language: es
+  source_language: en-GB
+  source_gender: female
+  perceived_gender: PENDING_USER_LISTENING
+  perceived_age: UNKNOWN
+  peninsular_accent: UNVERIFIED_CROSS_LANGUAGE
+  experimental: true
+  user_decision: REJECTED_PENDING_REMOVAL
+qwen_prepared_not_applied:
+  engine: qwen_custom_voice
+  model_size: 0.6B
+  voice_type: preset
+  language: es
+  actual_supported_speakers:
+  - Vivian
+  - Serena
+  - Ryan
+  - Aiden
+  limitation: Idiomas nativos chino/inglés; español multilingüe no certifica acento
+    de España. Modelos no cargados por presupuesto CPU FP32 superior a 4GiB.
+user_review:
+  accepted: alex
+  accepted_scope: Voz aceptable según propietario; no edad explícita ni certificación
+    adicional de acento
+  rejected:
+  - dora
+  - santa
+  - emma
+  production_cleanup: PENDING_DIAGNOSIS_REVIEW; preserve D063 original and sample
+    evidence

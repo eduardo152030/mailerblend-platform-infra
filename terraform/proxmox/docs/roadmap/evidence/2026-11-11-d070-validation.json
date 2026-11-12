@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "scope": "D070 cancellation/recovery/research only",
+  "phase": "7.4 IN PROGRESS; long Qwen BLOCKED",
+  "cancelled_generation": "d7ce3d31-fa43-4cd8-bd44-0b990ac53da2",
+  "api_cancellation_did_not_stop_native_thread": true,
+  "service_only_restart_explicitly_authorized": true,
+  "ct_restarted": false,
+  "owner_data_preserved": true,
+  "cpu_recovered": true,
+  "oom": 0,
+  "existing_engines_short_audio_checks": [
+    "kokoro",
+    "piper"
+  ],
+  "new_engines_deployed": 0,
+  "alternative_weights_downloaded": 0,
+  "long_qwen_tests_repeated": 0,
+  "pipeline_changes": 0,
+  "other_lxc_config_changes": 0,
+  "local_links_json_pycompile_diff_check": "PASS",
+  "limitations": [
+    "No alternative runtime memory or minute generation benchmark",
+    "No new engine pilot authorized",
+    "Exact reason for prolonged autoregression not established beyond stage/CPU observations"
+  ],
+  "swap_note": "228.09MiB occupied; higher than initial77.14MiB; stable final15s+10s; CT PSI full0"
+}

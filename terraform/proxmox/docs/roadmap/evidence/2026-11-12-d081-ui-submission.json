@@ -1,0 +1,11 @@
+{
+  "single_ui_generate_click": true,
+  "post_count": 1,
+  "text_exact": true,
+  "chars": 1059,
+  "model_size": "0.6B",
+  "language": "es",
+  "job_id": "baa61a95-c7b4-4524-8229-aa697b941710",
+  "seed_request": null,
+  "effective_worker_seed": 42
+}

@@ -1,0 +1,39 @@
+{
+  "method": "offline local Whisper small CPU, no initial prompt, no CT627 model load",
+  "model_sha256": "9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794",
+  "asr_seconds": 19.296064370006206,
+  "expected_words": 163,
+  "asr_words": 164,
+  "normalized_words_identical": false,
+  "differences": [
+    {
+      "operation": "replace",
+      "expected": "cuesta",
+      "heard_by_asr": "cueste"
+    },
+    {
+      "operation": "replace",
+      "expected": "agotamiento",
+      "heard_by_asr": "agotamientos"
+    },
+    {
+      "operation": "replace",
+      "expected": "ininterrumpido",
+      "heard_by_asr": "ininterrumpidos"
+    },
+    {
+      "operation": "replace",
+      "expected": "separarlas",
+      "heard_by_asr": "separar la"
+    }
+  ],
+  "segments": 15,
+  "max_no_speech_probability": 0.875308632850647,
+  "wave_seconds": 57.36,
+  "rms": 0.09999998038740367,
+  "peak_abs": 0.57354736328125,
+  "silences_at_least_0_8s": 0,
+  "max_detected_silence_seconds": 0,
+  "acoustic_acceptance": "PENDING owner listening",
+  "limitation": "ASR is an independent indication, not proof of every word or vocal fidelity"
+}

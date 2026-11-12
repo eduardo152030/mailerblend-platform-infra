@@ -1,0 +1,24 @@
+{
+  "repo": "ResembleAI/Chatterbox-Multilingual-es-es",
+  "revision": "7262b364e3222ba9446c9289e7485eadc47ed902",
+  "license": "mit",
+  "files": [
+    {
+      "name": "grapheme_mtl_merged_expanded_v1.json",
+      "bytes": 69989
+    },
+    {
+      "name": "s3gen_v3.pt",
+      "bytes": 1056903694
+    },
+    {
+      "name": "s3gen_v3.safetensors",
+      "bytes": 1056381804
+    },
+    {
+      "name": "t3_es_es.safetensors",
+      "bytes": 2143990264
+    }
+  ],
+  "action": "metadata_only_no_weights_downloaded"
+}

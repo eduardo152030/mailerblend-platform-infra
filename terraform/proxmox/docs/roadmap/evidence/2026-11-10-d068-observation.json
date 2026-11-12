@@ -1,0 +1,127 @@
+{
+  "started_at_utc": "2026-11-10T19:57:02.410489+00:00",
+  "result": "PASS",
+  "duration_required_seconds": 180,
+  "samples": [
+    {
+      "index": 0,
+      "elapsed_seconds": 0.02,
+      "counts_up": {
+        "cadvisor": 18,
+        "prometheus": 1,
+        "alertmanager": 1,
+        "blackbox_exporter": 1,
+        "blackbox": 19,
+        "node_exporter": 18,
+        "pve_uptime": 1
+      },
+      "memory_available_percent": 76.49683271135602,
+      "alerts": 0,
+      "probes_success": 19,
+      "cpu_sources": 18
+    },
+    {
+      "index": 1,
+      "elapsed_seconds": 30.08,
+      "counts_up": {
+        "cadvisor": 18,
+        "prometheus": 1,
+        "alertmanager": 1,
+        "blackbox_exporter": 1,
+        "blackbox": 19,
+        "node_exporter": 18,
+        "pve_uptime": 1
+      },
+      "memory_available_percent": 76.14473615373883,
+      "alerts": 0,
+      "probes_success": 19,
+      "cpu_sources": 18
+    },
+    {
+      "index": 2,
+      "elapsed_seconds": 60.11,
+      "counts_up": {
+        "cadvisor": 18,
+        "prometheus": 1,
+        "alertmanager": 1,
+        "blackbox_exporter": 1,
+        "blackbox": 19,
+        "node_exporter": 18,
+        "pve_uptime": 1
+      },
+      "memory_available_percent": 76.2838636125837,
+      "alerts": 0,
+      "probes_success": 19,
+      "cpu_sources": 18
+    },
+    {
+      "index": 3,
+      "elapsed_seconds": 90.05,
+      "counts_up": {
+        "cadvisor": 18,
+        "prometheus": 1,
+        "alertmanager": 1,
+        "blackbox_exporter": 1,
+        "blackbox": 19,
+        "node_exporter": 18,
+        "pve_uptime": 1
+      },
+      "memory_available_percent": 76.2779780796596,
+      "alerts": 0,
+      "probes_success": 19,
+      "cpu_sources": 18
+    },
+    {
+      "index": 4,
+      "elapsed_seconds": 120.05,
+      "counts_up": {
+        "cadvisor": 18,
+        "prometheus": 1,
+        "alertmanager": 1,
+        "blackbox_exporter": 1,
+        "blackbox": 19,
+        "node_exporter": 18,
+        "pve_uptime": 1
+      },
+      "memory_available_percent": 76.30740574428013,
+      "alerts": 0,
+      "probes_success": 19,
+      "cpu_sources": 18
+    },
+    {
+      "index": 5,
+      "elapsed_seconds": 150.05,
+      "counts_up": {
+        "cadvisor": 18,
+        "prometheus": 1,
+        "alertmanager": 1,
+        "blackbox_exporter": 1,
+        "blackbox": 19,
+        "node_exporter": 18,
+        "pve_uptime": 1
+      },
+      "memory_available_percent": 76.27923148018974,
+      "alerts": 0,
+      "probes_success": 19,
+      "cpu_sources": 18
+    },
+    {
+      "index": 6,
+      "elapsed_seconds": 180.05,
+      "counts_up": {
+        "cadvisor": 18,
+        "prometheus": 1,
+        "alertmanager": 1,
+        "blackbox_exporter": 1,
+        "blackbox": 19,
+        "node_exporter": 18,
+        "pve_uptime": 1
+      },
+      "memory_available_percent": 76.30032130650112,
+      "alerts": 0,
+      "probes_success": 19,
+      "cpu_sources": 18
+    }
+  ],
+  "elapsed_seconds": 180.05
+}

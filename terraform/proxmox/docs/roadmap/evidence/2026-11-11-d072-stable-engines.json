@@ -1,0 +1,22 @@
+[
+  {
+    "result": "PASS",
+    "engine": "kokoro",
+    "sample_rate": 24000,
+    "audio_seconds": 2.58,
+    "generation_seconds": 8.744911596179008,
+    "process_peak_rss_bytes": 1374769152,
+    "owner_profile_used": false,
+    "preset_profile_created": false
+  },
+  {
+    "result": "PASS",
+    "engine": "piper",
+    "sample_rate": 22050,
+    "audio_seconds": 2.1130158730158732,
+    "generation_seconds": 2.029311270453036,
+    "process_peak_rss_bytes": 416882688,
+    "owner_profile_used": false,
+    "preset_profile_created": false
+  }
+]

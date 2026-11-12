@@ -1,0 +1,54 @@
+{
+  "source_revision": "8af7efe62fab8d33e2a5dfbedabaa45f68a5184f",
+  "backend_cpu_dtype": "torch.float32",
+  "low_cpu_mem_usage": false,
+  "ct_limit_authorized_gib": 4,
+  "measurements": [
+    {
+      "repo": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
+      "file": "model.safetensors",
+      "parameters_by_dtype": {
+        "BF16": 905788672
+      },
+      "fp32_parameter_bytes": 3623154688,
+      "header_bytes_read": 49232
+    },
+    {
+      "repo": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
+      "file": "speech_tokenizer/model.safetensors",
+      "parameters_by_dtype": {
+        "F32": 170557441
+      },
+      "fp32_parameter_bytes": 682229764,
+      "header_bytes_read": 63328
+    },
+    {
+      "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+      "file": "model.safetensors",
+      "parameters_by_dtype": {
+        "BF16": 1928677440
+      },
+      "fp32_parameter_bytes": 7714709760,
+      "header_bytes_read": 58864
+    },
+    {
+      "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+      "file": "speech_tokenizer/model.safetensors",
+      "parameters_by_dtype": {
+        "F32": 170557441
+      },
+      "fp32_parameter_bytes": 682229764,
+      "header_bytes_read": 63328
+    }
+  ],
+  "budget_type": "tensor-header lower bound; NOT observed model RAM",
+  "decision": "Current FP32 route exceeds4GiB; BF16 0.6B is a plausible unvalidated candidate, not ruled out",
+  "alternatives_proposed_not_applied": [
+    "Evaluate bfloat16 or quantized CPU backend in an isolated compatibility intervention",
+    "Use a separate GPU or higher-memory inference host",
+    "Raise limit only after explicit owner authorization; current 4GiB ceiling preserved"
+  ],
+  "transformers_4_57_3_low_cpu_mem_usage": "legacy flag ignored; changingFalse toTrue is not a memory optimization",
+  "optimized_model_load_rss": "NOT_MEASURED",
+  "optimized_inference_peak": "NOT_MEASURED"
+}

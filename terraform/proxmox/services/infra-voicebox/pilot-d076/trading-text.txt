@@ -1,0 +1,9 @@
+Antes de empezar una sesión de trading, conviene observar el contexto y ordenar las ideas. Un gráfico no cuenta toda la historia: también importan el comportamiento del precio, el volumen y las condiciones generales del mercado.
+
+En este ejemplo, el objetivo es construir un escenario claro, sin confundir una posibilidad con una certeza. Primero se identifican las zonas relevantes. Después se describe qué tendría que ocurrir para que la interpretación siga siendo válida y qué señales indicarían que necesita una revisión.
+
+El registro de cada decisión permite comparar lo que se esperaba con lo que realmente sucedió. Anotar las razones de una entrada, las dudas y las emociones ayuda a detectar patrones que, de otro modo, pueden pasar desapercibidos.
+
+Una operación aislada no explica por sí sola la calidad de un proceso. La revisión de varias sesiones aporta una perspectiva más útil y evita sacar conclusiones precipitadas.
+
+La disciplina consiste en mantener criterios comprensibles, reconocer la incertidumbre y aprender de los resultados. Al terminar la sesión, la pregunta principal no es solamente cuánto se ganó o se perdió, sino qué se hizo, por qué se hizo y qué conviene estudiar con más atención.

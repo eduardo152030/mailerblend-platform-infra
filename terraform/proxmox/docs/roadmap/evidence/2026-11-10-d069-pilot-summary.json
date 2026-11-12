@@ -1,0 +1,34 @@
+{
+  "status": "TECHNICAL_AUDIO_PASS_PENDING_OWNER_LISTENING",
+  "observed_at_utc": "2026-11-10T21:12:48.626786+00:00",
+  "generation_id": "925f8b71-6ad7-46f0-a48a-ffa3881004ef",
+  "audio_seconds": 6.4,
+  "generation_seconds": 106.86044136155397,
+  "sha256": "4a0ad668da8a5904b68fd50e320a4974b286d66481cd41b94ee1d628661ee9c9",
+  "audio_url": "http://192.168.1.127:17493/audio/925f8b71-6ad7-46f0-a48a-ffa3881004ef",
+  "stages": [
+    "\u001b[32mINFO\u001b[0m:     D069 stage=reference_prompt event=start",
+    "\u001b[32mINFO\u001b[0m:     D069 stage=reference_encode event=start",
+    "\u001b[32mINFO\u001b[0m:     D069 stage=reference_encode event=end seconds=2.866",
+    "\u001b[32mINFO\u001b[0m:     D069 stage=reference_prompt event=end seconds=23.852",
+    "\u001b[32mINFO\u001b[0m:     D069 stage=clone event=start",
+    "\u001b[32mINFO\u001b[0m:     D069 stage=tokens event=start",
+    "\u001b[32mINFO\u001b[0m:     D069 stage=tokens event=end seconds=41.268",
+    "\u001b[32mINFO\u001b[0m:     D069 stage=codec_decode event=start",
+    "\u001b[32mINFO\u001b[0m:     D069 stage=codec_decode event=end seconds=33.369",
+    "\u001b[32mINFO\u001b[0m:     D069 stage=clone event=end seconds=74.642"
+  ],
+  "elapsed_seconds": 126.53812967706472,
+  "audio_validation": {
+    "seconds": 6.4,
+    "rate": 24000,
+    "channels": 1,
+    "rms": 0.09999995833831277,
+    "clipped_fraction": 0.0,
+    "nonzero_fraction": 0.9984700520833333
+  },
+  "peak_cgroup_bytes": 5561266176,
+  "peak_rss_bytes": 5026299904,
+  "swap_growth_bytes": 5574656,
+  "peak_host_full_psi_avg10": 1.72
+}

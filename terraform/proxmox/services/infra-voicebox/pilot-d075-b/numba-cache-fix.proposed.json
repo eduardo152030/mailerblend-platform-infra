@@ -1,0 +1,19 @@
+{
+  "status": "PREPARED_NOT_EXECUTED",
+  "scope": "isolated FP32 diagnostic worker only",
+  "new_attempt_requires_authorization": true,
+  "environment_delta": {
+    "NUMBA_CACHE_DIR": "/tmp/numba"
+  },
+  "preserve": [
+    "read-only root filesystem",
+    "existing writable /tmp tmpfs",
+    "FP32 and SDPA request",
+    "model and reference mounts read-only",
+    "max_new_tokens=64",
+    "two intra-op threads and one inter-op thread",
+    "external hard cancellation before 300 seconds",
+    "existing CT627 resource limits"
+  ],
+  "not_applied_to_production": true
+}

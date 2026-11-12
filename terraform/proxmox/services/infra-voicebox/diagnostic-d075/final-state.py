@@ -1,0 +1,8 @@
+"""PVE read-only final config/OOM/CT627 CPU/runtime/log check. No other CT execution."""
+from pathlib import Path
+import subprocess,json,hashlib,datetime
+configs={p.stem:hashlib.sha256(p.read_bytes()).hexdigest() for p in Path('/etc/pve/lxc').glob('*.conf')};cg=Path('/sys/fs/cgroup/lxc/627');c=json.loads(subprocess.check_output(['pct','exec','627','--','docker','inspect','voicebox']))[0];dcg=next(cg.rglob('docker-'+c['Id']+'.scope'))
+code="""import subprocess,json,re
+s=subprocess.run(['docker','logs','--since','2026-11-11T15:00:00Z','--timestamps','voicebox'],capture_output=True,text=True,timeout=20);lines=(s.stdout+s.stderr).splitlines();print(json.dumps({'checked_lines':len(lines),'error_or_traceback_lines':sum(bool(re.search(r'\\bERROR\\b|Traceback',x)) for x in lines),'http_5xx_lines':sum(bool(re.search(r'HTTP/1.1. 5[0-9][0-9]',x)) for x in lines),'contents_withheld':True}))"""
+r={'at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'config_hashes':configs,'global_oom_kill':int(dict(x.split() for x in Path('/proc/vmstat').read_text().splitlines())['oom_kill']),'ct_events':{p.name:(p/'memory.events').read_text() for p in Path('/sys/fs/cgroup/lxc').iterdir() if p.name.isdigit() and (p/'memory.events').exists()},'voicebox':{'id':c['Id'],'image':c['Image'],'started_at':c['State']['StartedAt'],'restart_count':c['RestartCount'],'health':c['State']['Health']['Status']},'docker_cpu_controls':{k:(dcg/k).read_text() for k in ['cpu.max','cpu.stat','cpuset.cpus.effective']},'log_counts':json.loads(subprocess.check_output(['pct','exec','627','--','python3','-c',code]))}
+print(json.dumps(r))

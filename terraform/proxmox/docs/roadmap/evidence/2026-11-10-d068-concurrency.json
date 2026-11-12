@@ -1,0 +1,258 @@
+{
+  "result": "PASS",
+  "model_mutation_status": 409,
+  "jobs": [
+    {
+      "id": "1c24e3ed-873c-4e71-bdbf-cd9c656480fb",
+      "profile_id": "6ab4fe0a-5a4f-4dc0-9b84-71b5173edfeb",
+      "engine": "piper"
+    },
+    {
+      "id": "8e5e0555-fd3b-49ae-bc8e-43829a94ae97",
+      "profile_id": "916ce396-1b15-4621-b63c-5eaf49f03b74",
+      "engine": "kokoro"
+    }
+  ],
+  "samples": [
+    {
+      "elapsed": 0.014785932988161221,
+      "loaded": [],
+      "statuses": [
+        "loading_model",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 0.5336244459904265,
+      "loaded": [],
+      "statuses": [
+        "loading_model",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 1.0534343989857007,
+      "loaded": [],
+      "statuses": [
+        "loading_model",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 1.574512061983114,
+      "loaded": [
+        "piper-es-es"
+      ],
+      "statuses": [
+        "generating",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 2.0945965249848086,
+      "loaded": [
+        "piper-es-es"
+      ],
+      "statuses": [
+        "generating",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 2.9581436489825137,
+      "loaded": [],
+      "statuses": [
+        "completed",
+        "loading_model"
+      ]
+    },
+    {
+      "elapsed": 3.475517220009351,
+      "loaded": [],
+      "statuses": [
+        "completed",
+        "loading_model"
+      ]
+    },
+    {
+      "elapsed": 4.008907265000744,
+      "loaded": [],
+      "statuses": [
+        "completed",
+        "loading_model"
+      ]
+    },
+    {
+      "elapsed": 4.535537143005058,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 5.056718161009485,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 5.577354893001029,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 6.098228166985791,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 6.623532539990265,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 7.14867256701109,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 7.6699915420031175,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 8.196698494983139,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 8.722033102996647,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 9.250625640008366,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 9.777514198998688,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 10.305013139004586,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 10.824418848991627,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 11.345211637992179,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 11.870234539004741,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 12.389485785999568,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "generating"
+      ]
+    },
+    {
+      "elapsed": 12.91571784298867,
+      "loaded": [
+        "kokoro"
+      ],
+      "statuses": [
+        "completed",
+        "completed"
+      ]
+    }
+  ],
+  "max_simultaneous_loaded_tts_models": 1,
+  "elapsed": 12.915747421997366
+}

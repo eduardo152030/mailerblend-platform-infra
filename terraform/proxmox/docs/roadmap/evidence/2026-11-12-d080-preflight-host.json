@@ -1,0 +1,74 @@
+{
+  "samples": [
+    {
+      "mem": {
+        "MemTotal": 33533042688,
+        "MemAvailable": 22986735616,
+        "SwapTotal": 17179865088,
+        "SwapFree": 17003966464
+      },
+      "swap_io": {
+        "pswpin": 224915262,
+        "pswpout": 124164321,
+        "oom_kill": 0
+      },
+      "host_psi": "some avg10=8.15 avg60=11.64 avg300=11.74 total=5969601178\nfull avg10=7.08 avg60=10.18 avg300=10.28 total=5228374667\n",
+      "ct_current": 4856954880,
+      "ct_swap": 0,
+      "ct_psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n"
+    },
+    {
+      "mem": {
+        "MemTotal": 33533042688,
+        "MemAvailable": 22981378048,
+        "SwapTotal": 17179865088,
+        "SwapFree": 17002917888
+      },
+      "swap_io": {
+        "pswpin": 224915506,
+        "pswpout": 124165065,
+        "oom_kill": 0
+      },
+      "host_psi": "some avg10=6.67 avg60=11.26 avg300=11.66 total=5969608488\nfull avg10=5.80 avg60=9.85 avg300=10.21 total=5228381312\n",
+      "ct_current": 4856954880,
+      "ct_swap": 0,
+      "ct_psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n"
+    },
+    {
+      "mem": {
+        "MemTotal": 33533042688,
+        "MemAvailable": 23037808640,
+        "SwapTotal": 17179865088,
+        "SwapFree": 17002393600
+      },
+      "swap_io": {
+        "pswpin": 224915617,
+        "pswpout": 124165263,
+        "oom_kill": 0
+      },
+      "host_psi": "some avg10=5.46 avg60=10.89 avg300=11.58 total=5969611168\nfull avg10=4.75 avg60=9.52 avg300=10.14 total=5228383736\n",
+      "ct_current": 4856954880,
+      "ct_swap": 0,
+      "ct_psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n"
+    },
+    {
+      "mem": {
+        "MemTotal": 33533042688,
+        "MemAvailable": 23069155328,
+        "SwapTotal": 17179865088,
+        "SwapFree": 17002655744
+      },
+      "swap_io": {
+        "pswpin": 224915870,
+        "pswpout": 124165278,
+        "oom_kill": 0
+      },
+      "host_psi": "some avg10=4.47 avg60=10.54 avg300=11.50 total=5969612785\nfull avg10=3.89 avg60=9.21 avg300=10.07 total=5228385312\n",
+      "ct_current": 4856954880,
+      "ct_swap": 0,
+      "ct_psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n"
+    }
+  ],
+  "physical_margin_pass": true,
+  "remaining_available_if_ct_fills_new_limit": 11819982848
+}

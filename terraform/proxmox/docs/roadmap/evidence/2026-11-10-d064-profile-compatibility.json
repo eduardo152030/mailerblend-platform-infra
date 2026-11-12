@@ -1,0 +1,14 @@
+{
+  "result": "PASS static compatibility only",
+  "supported_real_speakers": [
+    "Vivian",
+    "Serena",
+    "Ryan",
+    "Aiden"
+  ],
+  "correct_engine": "qwen_custom_voice",
+  "voice_type": "preset",
+  "source_sha256": "2be6acba1dd28e5bfb8ebb15060686e2f6a5729cc0ea714c00973596774d1948",
+  "profiles_created": false,
+  "model_loaded": false
+}

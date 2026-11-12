@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "terraform_fmt": "PASS",
+  "terraform_validate": "PASS",
+  "inventory_tests": 15,
+  "provisioning_tests": 16,
+  "python_compile": "PASS",
+  "shell_syntax": "PASS",
+  "git_diff_check": "PASS",
+  "local_links": "PASS",
+  "real_api_samples": "Piper/Kokoro PASS",
+  "concurrency": "two completed; maximum1TTS; modelmutation409",
+  "data_restoration": "72files/25audio; old13hashes preserved",
+  "limits": [
+    "No Qwen complete audio or minute timing",
+    "No real owner recordings or cloning",
+    "Age/accent/voice quality pending owner review",
+    "Cause of original sample absence undetermined; recovered"
+  ]
+}

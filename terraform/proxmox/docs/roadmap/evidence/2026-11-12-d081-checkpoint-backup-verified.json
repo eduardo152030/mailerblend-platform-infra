@@ -1,0 +1,10 @@
+{
+  "recoverable_from_new_process": true,
+  "shape": [
+    1029,
+    16
+  ],
+  "dtype": "int64",
+  "eos": true,
+  "tar_sha256": "41d01860d4f288c433185169507f557cbfcf906c11950233414e1ad07e78ef50"
+}

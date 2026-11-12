@@ -1,0 +1,735 @@
+{
+  "events": [
+    {
+      "elapsed": 3.180999556207098e-06,
+      "stage": "preflight_imports_cache",
+      "event": "start"
+    },
+    {
+      "elapsed": 6.236548410999603,
+      "stage": "preflight_imports_cache",
+      "event": "passed",
+      "path": "/tmp/numba",
+      "uid": 999,
+      "writable": true,
+      "free_bytes_before_import": 134217728,
+      "numba": "0.60.0",
+      "librosa": "0.11.0",
+      "imports_passed": true,
+      "persistent_data_written": false
+    },
+    {
+      "elapsed": 6.247461580000163,
+      "stage": "preflight_fp32",
+      "event": "passed",
+      "dtype": "torch.float32",
+      "intraop": 3,
+      "interop": 1
+    },
+    {
+      "elapsed": 6.247694109999429,
+      "stage": "load",
+      "event": "start"
+    },
+    {
+      "elapsed": 8.86332848299935,
+      "stage": "load",
+      "event": "end",
+      "seconds": 2.6154599009996673
+    },
+    {
+      "elapsed": 8.871616585999618,
+      "stage": "model_configuration",
+      "event": "validated",
+      "parameter_dtypes": {
+        "main": {
+          "torch.float32": 478
+        },
+        "codec": {
+          "torch.float32": 400
+        }
+      },
+      "attention": "sdpa"
+    },
+    {
+      "elapsed": 8.875234413999351,
+      "stage": "reference_prompt",
+      "event": "start"
+    },
+    {
+      "elapsed": 18.2766583169996,
+      "stage": "reference_encode",
+      "event": "start"
+    },
+    {
+      "elapsed": 21.5715369239997,
+      "stage": "reference_encode",
+      "event": "end",
+      "seconds": 3.2945513089998713
+    },
+    {
+      "elapsed": 21.968523559999994,
+      "stage": "reference_prompt",
+      "event": "end",
+      "seconds": 13.093100793999838
+    },
+    {
+      "elapsed": 21.968971860999773,
+      "stage": "clone",
+      "event": "start",
+      "signature_max_new_tokens": "kwargs forwarded via _merge_generate_kwargs -> model.generate -> talker.generate"
+    },
+    {
+      "elapsed": 22.154361883000092,
+      "stage": "talker_generation",
+      "event": "start",
+      "max_new_tokens": 1024,
+      "eos_token_id": 2150
+    },
+    {
+      "elapsed": 22.15846580699963,
+      "stage": "prefill_forward",
+      "event": "start",
+      "positions": 322
+    },
+    {
+      "elapsed": 25.25477570699968,
+      "stage": "prefill_forward",
+      "event": "end",
+      "seconds": 3.096312474000115
+    },
+    {
+      "elapsed": 29.39325470299991,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 8
+    },
+    {
+      "elapsed": 35.02892103999966,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 16
+    },
+    {
+      "elapsed": 39.62189986700014,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 24
+    },
+    {
+      "elapsed": 44.73104454299937,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 32
+    },
+    {
+      "elapsed": 49.27445603999968,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 40
+    },
+    {
+      "elapsed": 55.88610210299976,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 48
+    },
+    {
+      "elapsed": 60.61431314499987,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 56
+    },
+    {
+      "elapsed": 67.44666620099997,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 64
+    },
+    {
+      "elapsed": 73.11956830799954,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 72
+    },
+    {
+      "elapsed": 80.69588095600011,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 80
+    },
+    {
+      "elapsed": 86.48272309599997,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 88
+    },
+    {
+      "elapsed": 92.11556532699979,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 96
+    },
+    {
+      "elapsed": 98.11490919199969,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 104
+    },
+    {
+      "elapsed": 103.83037036599944,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 112
+    },
+    {
+      "elapsed": 109.93926828499934,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 120
+    },
+    {
+      "elapsed": 116.3136375969998,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 128
+    },
+    {
+      "elapsed": 120.56603491399983,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 136
+    },
+    {
+      "elapsed": 126.45665471599932,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 144
+    },
+    {
+      "elapsed": 130.24696067900004,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 152
+    },
+    {
+      "elapsed": 135.01562095499958,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 160
+    },
+    {
+      "elapsed": 139.33562166999945,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 168
+    },
+    {
+      "elapsed": 144.2030271550002,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 176
+    },
+    {
+      "elapsed": 149.34960367299936,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 184
+    },
+    {
+      "elapsed": 154.05943755999942,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 192
+    },
+    {
+      "elapsed": 158.8375242000002,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 200
+    },
+    {
+      "elapsed": 164.22167823699965,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 208
+    },
+    {
+      "elapsed": 168.87229160900006,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 216
+    },
+    {
+      "elapsed": 175.14883190899945,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 224
+    },
+    {
+      "elapsed": 181.09651974400003,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 232
+    },
+    {
+      "elapsed": 187.7896547169994,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 240
+    },
+    {
+      "elapsed": 194.66127062399937,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 248
+    },
+    {
+      "elapsed": 200.91707286499968,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 256
+    },
+    {
+      "elapsed": 207.66264537999996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 264
+    },
+    {
+      "elapsed": 214.91798654299964,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 272
+    },
+    {
+      "elapsed": 220.6286555099996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 280
+    },
+    {
+      "elapsed": 227.4027474479999,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 288
+    },
+    {
+      "elapsed": 233.76301155300007,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 296
+    },
+    {
+      "elapsed": 240.9583512829995,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 304
+    },
+    {
+      "elapsed": 246.9905160239996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 312
+    },
+    {
+      "elapsed": 252.5565818539999,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 320
+    },
+    {
+      "elapsed": 257.8453676899999,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 328
+    },
+    {
+      "elapsed": 263.8166911620001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 336
+    },
+    {
+      "elapsed": 269.3097540689996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 344
+    },
+    {
+      "elapsed": 275.5356846519999,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 352
+    },
+    {
+      "elapsed": 279.6842260889998,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 360
+    },
+    {
+      "elapsed": 285.3428588179995,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 368
+    },
+    {
+      "elapsed": 289.7839713909998,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 376
+    },
+    {
+      "elapsed": 296.2370806259996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 384
+    },
+    {
+      "elapsed": 301.799561371,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 392
+    },
+    {
+      "elapsed": 308.6236646090001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 400
+    },
+    {
+      "elapsed": 314.50642296800015,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 408
+    },
+    {
+      "elapsed": 320.4029134779994,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 416
+    },
+    {
+      "elapsed": 327.75782488799996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 424
+    },
+    {
+      "elapsed": 336.4881048139996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 432
+    },
+    {
+      "elapsed": 344.39644848399985,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 440
+    },
+    {
+      "elapsed": 350.9624689309994,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 448
+    },
+    {
+      "elapsed": 358.3769545799996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 456
+    },
+    {
+      "elapsed": 365.1380470659997,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 464
+    },
+    {
+      "elapsed": 371.0447603189996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 472
+    },
+    {
+      "elapsed": 377.78665140700014,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 480
+    },
+    {
+      "elapsed": 383.968864984,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 488
+    },
+    {
+      "elapsed": 389.395192082,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 496
+    },
+    {
+      "elapsed": 395.55232520699974,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 504
+    },
+    {
+      "elapsed": 401.3558828569994,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 512
+    },
+    {
+      "elapsed": 408.0012398279996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 520
+    },
+    {
+      "elapsed": 413.68441971799984,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 528
+    },
+    {
+      "elapsed": 419.9380036599996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 536
+    },
+    {
+      "elapsed": 426.8383350889999,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 544
+    },
+    {
+      "elapsed": 433.2478059159994,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 552
+    },
+    {
+      "elapsed": 439.52594936700007,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 560
+    },
+    {
+      "elapsed": 446.71888954299993,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 568
+    },
+    {
+      "elapsed": 453.1545613009994,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 576
+    },
+    {
+      "elapsed": 459.35086972499994,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 584
+    },
+    {
+      "elapsed": 466.7847280629994,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 592
+    },
+    {
+      "elapsed": 473.6653718429998,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 600
+    },
+    {
+      "elapsed": 481.5995864769993,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 608
+    },
+    {
+      "elapsed": 488.05497814699993,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 616
+    },
+    {
+      "elapsed": 494.83090353699936,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 624
+    },
+    {
+      "elapsed": 500.14658063800016,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 632
+    },
+    {
+      "elapsed": 507.0477067109996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 640
+    },
+    {
+      "elapsed": 513.9056211970001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 648
+    },
+    {
+      "elapsed": 520.0668833270001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 656
+    },
+    {
+      "elapsed": 527.1817628979998,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 664
+    },
+    {
+      "elapsed": 533.2496968859996,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 672
+    },
+    {
+      "elapsed": 541.300578499,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 680
+    },
+    {
+      "elapsed": 547.8274716569995,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 688
+    },
+    {
+      "elapsed": 554.5576495770001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 696
+    },
+    {
+      "elapsed": 560.6231943049997,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 704
+    },
+    {
+      "elapsed": 566.7924581269999,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 712
+    },
+    {
+      "elapsed": 573.2691516750001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 720
+    },
+    {
+      "elapsed": 579.0828967440002,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 728
+    },
+    {
+      "elapsed": 585.5554642699999,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 736
+    },
+    {
+      "elapsed": 593.4669563480002,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 744
+    },
+    {
+      "elapsed": 600.6419518550001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 752
+    },
+    {
+      "elapsed": 606.8395056449999,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 760
+    },
+    {
+      "elapsed": 615.0152633769994,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 768
+    },
+    {
+      "elapsed": 622.3157479350002,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 776
+    },
+    {
+      "elapsed": 629.1321058449994,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 784
+    },
+    {
+      "elapsed": 636.8308710739993,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 792
+    },
+    {
+      "elapsed": 643.5292968180001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 800
+    },
+    {
+      "elapsed": 651.6814815540001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 808
+    },
+    {
+      "elapsed": 656.3807245050002,
+      "stage": "talker_generation",
+      "event": "end",
+      "seconds": 634.2260580449993,
+      "tokens": 813,
+      "eos": true,
+      "reason": "EOS"
+    },
+    {
+      "elapsed": 656.4035643749994,
+      "stage": "audio_codes",
+      "event": "ready",
+      "shapes": [
+        [
+          812,
+          16
+        ]
+      ]
+    },
+    {
+      "elapsed": 656.4041806999994,
+      "stage": "decode",
+      "event": "start"
+    }
+  ],
+  "result": null,
+  "wav_exists": false
+}

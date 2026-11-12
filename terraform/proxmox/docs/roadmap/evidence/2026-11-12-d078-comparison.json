@@ -1,0 +1,158 @@
+{
+  "GiB_bytes": 1073741824,
+  "runs": {
+    "D077": {
+      "baseline": {
+        "anon": 371961856,
+        "file": 3555639296,
+        "kernel": 255787008,
+        "active_file": 3266846720,
+        "inactive_file": 287465472
+      },
+      "baseline_current": 4183388160,
+      "peak": {
+        "ct_current": 8741584896,
+        "worker_current": 4465037312,
+        "rss_bytes": 4902780928,
+        "ct_swap": 0
+      },
+      "peak_ct_stat": {
+        "anon": 4834471936,
+        "file": 3557249024,
+        "kernel": 349863936,
+        "active_file": 3266990080,
+        "inactive_file": 287637504,
+        "file_dirty": 303104,
+        "file_mapped": 710475776
+      },
+      "peak_worker_stat": {
+        "anon": 4450455552,
+        "file": 1204224,
+        "kernel": 13377536
+      },
+      "other_anon_at_peak": 384016384,
+      "elapsed_supervisor": 130.10533841300094,
+      "cpu_mean_sampled_cores": 2.1013616473539174,
+      "cpu_peak_sampled_cores": 2.6910831353988303,
+      "ct_high_events_delta": 0,
+      "ct_oom_delta": 0,
+      "ct_swap_max": 0,
+      "ct_psi_full_avg10_max": 0.0,
+      "host_available_min": 18681008128,
+      "error": null,
+      "process_stopped": true
+    },
+    "73a3755f5b194d33aba379e43bf6d72b": {
+      "baseline": {
+        "anon": 388124672,
+        "file": 5038034944,
+        "kernel": 263417856,
+        "active_file": 3642544128,
+        "inactive_file": 1394163712
+      },
+      "baseline_current": 5689720832,
+      "peak": {
+        "ct_current": 10498834432,
+        "worker_current": 4769579008,
+        "rss_bytes": 4978479104,
+        "ct_swap": 0
+      },
+      "peak_ct_stat": {
+        "anon": 5147275264,
+        "file": 4994052096,
+        "kernel": 357507072,
+        "active_file": 3642863616,
+        "inactive_file": 1348567040,
+        "file_dirty": 573440,
+        "file_mapped": 490217472
+      },
+      "peak_worker_stat": {
+        "anon": 4754309120,
+        "file": 1409024,
+        "kernel": 13860864
+      },
+      "other_anon_at_peak": 392966144,
+      "elapsed_supervisor": 27.217044241999247,
+      "cpu_mean_sampled_cores": 1.1430122055823608,
+      "cpu_peak_sampled_cores": 2.10246369099177,
+      "ct_high_events_delta": 58,
+      "ct_oom_delta": 0,
+      "ct_swap_max": 0,
+      "ct_psi_full_avg10_max": 0.0,
+      "host_available_min": 18431500288,
+      "error": "CT_MEMORY_9_5_GIB",
+      "process_stopped": true,
+      "reference_ready": false,
+      "new_narration_tokens": 0,
+      "new_narration_EOS": false,
+      "checkpoint_exists": false,
+      "events": [
+        {
+          "elapsed": 5.816086098000596,
+          "stage": "load_talker_start"
+        },
+        {
+          "elapsed": 8.221680873999503,
+          "stage": "load_talker_end"
+        }
+      ]
+    },
+    "86dde73bfe39498cba26658bd7849f1c": {
+      "baseline": {
+        "anon": 375406592,
+        "file": 5204623360,
+        "kernel": 266342400,
+        "active_file": 3379150848,
+        "inactive_file": 1824145408
+      },
+      "baseline_current": 5846372352,
+      "peak": {
+        "ct_current": 10412417024,
+        "worker_current": 4642041856,
+        "rss_bytes": 4856332288,
+        "ct_swap": 0
+      },
+      "peak_ct_stat": {
+        "anon": 5018873856,
+        "file": 5036048384,
+        "kernel": 357416960,
+        "active_file": 3641970688,
+        "inactive_file": 1391456256,
+        "file_dirty": 495616,
+        "file_mapped": 486166528
+      },
+      "peak_worker_stat": {
+        "anon": 4627107840,
+        "file": 1216512,
+        "kernel": 13656064
+      },
+      "other_anon_at_peak": 391766016,
+      "elapsed_supervisor": 26.179327087000274,
+      "cpu_mean_sampled_cores": 1.153512525183256,
+      "cpu_peak_sampled_cores": 1.9430925349750603,
+      "ct_high_events_delta": 193,
+      "ct_oom_delta": 0,
+      "ct_swap_max": 0,
+      "ct_psi_full_avg10_max": 0.0,
+      "host_available_min": 18516434944,
+      "error": "CT_MEMORY_9_5_GIB",
+      "process_stopped": true,
+      "reference_ready": false,
+      "new_narration_tokens": 0,
+      "new_narration_EOS": false,
+      "checkpoint_exists": false,
+      "events": [
+        {
+          "elapsed": 5.454461390998404,
+          "stage": "load_talker_start"
+        },
+        {
+          "elapsed": 7.708264171998962,
+          "stage": "load_talker_end"
+        }
+      ]
+    }
+  },
+  "no_inference_executed": true,
+  "recovery": "No narration checkpoint in either failed job; Decoder-only recovery impossible"
+}

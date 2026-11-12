@@ -1,0 +1,7 @@
+{
+  "fork_revision": "8af7efe62fab8d33e2a5dfbedabaa45f68a5184f",
+  "base_image_id": "sha256:7f2e6f7e6a2d09c77ebd35424a7641249e51b8ff0374bc9c4acb1f7393cfcd4c",
+  "original_backend_sha256": "e53a7846465e679f399771b0bb85d7f82fce743e07194fd5fb5fa06bc9bcd503",
+  "candidate_backend_sha256": "9b2bc2ab27a83a750a6252c1a81478a3001cbdb6fe374bed8197d017128b6383",
+  "scope": "CustomVoice only; Base unchanged"
+}

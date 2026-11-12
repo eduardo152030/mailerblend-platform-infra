@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "host_available_min_bytes": 23228743680,
+  "ct_swap_growth_bytes": 0,
+  "ct_swap_initial_bytes": 0,
+  "ct_psi_max": 0.0,
+  "host_psi_max": 14.14,
+  "host_pswpin_delta_pages": 285323,
+  "host_pswpout_delta_pages": 157230,
+  "timeout_authorized_seconds": 900
+}

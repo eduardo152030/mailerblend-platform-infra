@@ -1,0 +1,317 @@
+{
+  "pairs": [
+    {
+      "name": "d063-after-tts",
+      "archive_bytes": 305375963,
+      "expanded_allocated_bytes": 329510912,
+      "status": "IDENTICAL",
+      "archive_sha256": "e4c10af51cad96c12817eb2102b1038867b0537fe5a51ed829e7d4e988d0df88",
+      "entries": 51,
+      "mismatches": 0,
+      "manifest_sha256": "8177d8aa1a5f076e2d7d879fe9aab8ac269d48acd172c5096fb5d9a1886f47ee",
+      "seconds": 5.9847412053495646
+    },
+    {
+      "name": "d063-final-2048",
+      "archive_bytes": 305916162,
+      "expanded_allocated_bytes": 330137600,
+      "status": "IDENTICAL",
+      "archive_sha256": "dc738b318cc2ca7f3575a83781e0842fc8f4ff98630f4d74fd02fc96face49c3",
+      "entries": 53,
+      "mismatches": 0,
+      "manifest_sha256": "2ba43cad86767a5c24c6e6a13fe67c82a22fbececcc7dbb777ef1e7288fcb4eb",
+      "seconds": 6.566441481001675
+    },
+    {
+      "name": "d064-before-catalog",
+      "archive_bytes": 306048149,
+      "expanded_allocated_bytes": 330297344,
+      "status": "IDENTICAL",
+      "archive_sha256": "f36e550fc20d99c5111849181147257f64f10b87948246f84fa6669ce6e6ab2c",
+      "entries": 55,
+      "mismatches": 0,
+      "manifest_sha256": "9ad13ea36987fc9631a3852c0163552d539d65431aa3d2f230c4f6ea19e191ac",
+      "seconds": 10.154535653069615
+    },
+    {
+      "name": "d064-before-memory3072",
+      "archive_bytes": 308022825,
+      "expanded_allocated_bytes": 332640256,
+      "status": "IDENTICAL",
+      "archive_sha256": "8e4da9164c6f50d46ebb6e597f49f0fbdd16cc3ae6599e13c6fd91aea26fd047",
+      "entries": 67,
+      "mismatches": 0,
+      "manifest_sha256": "63c6cc3ad6edab5de91398309e980f72751cd782b0534b689c05e600d938c951",
+      "seconds": 6.156653894111514
+    },
+    {
+      "name": "d066-before-qwen",
+      "archive_bytes": 308387494,
+      "expanded_allocated_bytes": 333070336,
+      "status": "IDENTICAL",
+      "archive_sha256": "5a4f2f9d7c49ea1f45772cacb86a4a3611b710bf564a6581355ba2d410d00441",
+      "entries": 68,
+      "mismatches": 0,
+      "manifest_sha256": "9e7df6b59eb84b8bb613b32b9f258a1f3d3b29084eb7e7e2ee33bab5b9c805f6",
+      "seconds": 7.243577932938933
+    },
+    {
+      "name": "d067-before",
+      "archive_bytes": 308753904,
+      "expanded_allocated_bytes": 333504512,
+      "status": "IDENTICAL",
+      "archive_sha256": "918456a7bf1016c85bd4572d26be2418386221f5501d483c3da274c14a985460",
+      "entries": 69,
+      "mismatches": 0,
+      "manifest_sha256": "944d55e0696a953181a9bf04e0b1416d67c28be89e65c679e54b795e74113d9a",
+      "seconds": 6.194377767853439
+    },
+    {
+      "name": "d067-before-recreate",
+      "archive_bytes": 308755176,
+      "expanded_allocated_bytes": 333512704,
+      "status": "IDENTICAL",
+      "archive_sha256": "f8c5c5766527763f2c03fdc5da864a066c1e527c91f2ba1a1e890ecd053e47df",
+      "entries": 72,
+      "mismatches": 0,
+      "manifest_sha256": "6f339796d5f042910e5b380ffaab468257951334481d9e40bded919119f2ed6c",
+      "seconds": 6.503470770083368
+    },
+    {
+      "name": "d067-final",
+      "archive_bytes": 309704366,
+      "expanded_allocated_bytes": 334626816,
+      "status": "IDENTICAL",
+      "archive_sha256": "1835532db90e731b434a8edd4115ab0fad362562110b854d0719ce3c36f9683f",
+      "entries": 75,
+      "mismatches": 0,
+      "manifest_sha256": "944a4f87bb97ea730816f50335f7da7f61104a2cc3cf947d7eb765adc55195e9",
+      "seconds": 6.40511604771018
+    },
+    {
+      "name": "d068-before",
+      "archive_bytes": 309704262,
+      "expanded_allocated_bytes": 334630912,
+      "status": "IDENTICAL",
+      "archive_sha256": "45cab1304be6dd838ebf18a8c65b177b41748c13ae73dae740f818be72bcf2ea",
+      "entries": 75,
+      "mismatches": 0,
+      "manifest_sha256": "944a4f87bb97ea730816f50335f7da7f61104a2cc3cf947d7eb765adc55195e9",
+      "seconds": 6.568418693728745
+    },
+    {
+      "name": "d068-before-piper",
+      "archive_bytes": 380902875,
+      "expanded_allocated_bytes": 411406336,
+      "status": "IDENTICAL",
+      "archive_sha256": "f9c9311f2d879c9be6ac78751d4b150572bc035f2311acafe439ac0d7657febd",
+      "entries": 80,
+      "mismatches": 0,
+      "manifest_sha256": "bd38ec5cae261f462726a4d057a280603a4ade5f2ce42e8162a5f73d0a64a47b",
+      "seconds": 7.673483703285456
+    },
+    {
+      "name": "d068-final",
+      "archive_bytes": 418925182,
+      "expanded_allocated_bytes": 450183168,
+      "status": "IDENTICAL",
+      "archive_sha256": "1ea4bdb55406a459df29302be81c07e8b605e9d7de657190e8eff8194550b84e",
+      "entries": 117,
+      "mismatches": 0,
+      "manifest_sha256": "0fced2590c0d544476cf2df49c3bf6db31c202dc77347d4c171f798e271763c6",
+      "seconds": 8.437435279600322
+    },
+    {
+      "name": "d068-preserved-final",
+      "archive_bytes": 419197274,
+      "expanded_allocated_bytes": 450486272,
+      "status": "IDENTICAL",
+      "archive_sha256": "3ea7e797dd74daa89f90cfd0e78adcd5bbd8be857c2015e46deedf3424da6b7f",
+      "entries": 118,
+      "mismatches": 0,
+      "manifest_sha256": "cb0c1ddded278e5511fbc71323eb1d038c9fdeb3a306353c7bcac81935e78d89",
+      "seconds": 12.628827434964478
+    },
+    {
+      "name": "d069-before",
+      "archive_bytes": 422436109,
+      "expanded_allocated_bytes": 458391552,
+      "status": "IDENTICAL",
+      "archive_sha256": "416cab39066757005a69318d9bf5976a1c0b8b50b0d526b82c208895f00d2fc7",
+      "entries": 175,
+      "mismatches": 0,
+      "manifest_sha256": "437336be601e23405cd44cc520116cb0b212f4e3df5f1edffe3dd047a0004343",
+      "seconds": 8.648383581079543
+    },
+    {
+      "name": "d069-final",
+      "archive_bytes": 2475214684,
+      "expanded_allocated_bytes": 2966122496,
+      "status": "IDENTICAL",
+      "archive_sha256": "dc7dbe40be4d81ec09d511de42fde0c5349d8491e2814365c3043b7f5cf3de6a",
+      "entries": 193,
+      "mismatches": 0,
+      "manifest_sha256": "96b91f9b581f93970e78b88dd786a31e3f8e2bb0eac87b1945df3f2f4b3b291f",
+      "seconds": 53.71114662941545
+    }
+  ],
+  "integrity": [
+    {
+      "name": "d063-after-tts",
+      "manifest_files": 23,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d063-final-2048",
+      "manifest_files": 25,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d064-before-catalog",
+      "manifest_files": 27,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d064-before-memory3072",
+      "manifest_files": 34,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d066-before-qwen",
+      "manifest_files": 35,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d067-before",
+      "manifest_files": 36,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d067-before-recreate",
+      "manifest_files": 36,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d067-final",
+      "manifest_files": 39,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d068-before",
+      "manifest_files": 39,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d068-before-piper",
+      "manifest_files": 42,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d068-final",
+      "manifest_files": 71,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d068-preserved-final",
+      "manifest_files": 72,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d069-before",
+      "manifest_files": 127,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "d069-final",
+      "manifest_files": 134,
+      "manifest_valid": true,
+      "sqlite_integrity": "ok"
+    }
+  ],
+  "offhost_verified": [
+    {
+      "relative_path": "voicebox-d067/final.tar.gz",
+      "bytes": 309704366,
+      "sha256": "1835532db90e731b434a8edd4115ab0fad362562110b854d0719ce3c36f9683f"
+    },
+    {
+      "relative_path": "voicebox-d067/before.tar.gz",
+      "bytes": 308753904,
+      "sha256": "918456a7bf1016c85bd4572d26be2418386221f5501d483c3da274c14a985460"
+    },
+    {
+      "relative_path": "voicebox-d067/before-recreate.tar.gz",
+      "bytes": 308755176,
+      "sha256": "f8c5c5766527763f2c03fdc5da864a066c1e527c91f2ba1a1e890ecd053e47df"
+    },
+    {
+      "relative_path": "voicebox-d069/final.tar.gz",
+      "bytes": 2475214684,
+      "sha256": "dc7dbe40be4d81ec09d511de42fde0c5349d8491e2814365c3043b7f5cf3de6a"
+    },
+    {
+      "relative_path": "voicebox-d069/before.tar.gz",
+      "bytes": 422436109,
+      "sha256": "416cab39066757005a69318d9bf5976a1c0b8b50b0d526b82c208895f00d2fc7"
+    },
+    {
+      "relative_path": "voicebox-d068/final.tar.gz",
+      "bytes": 418925182,
+      "sha256": "1ea4bdb55406a459df29302be81c07e8b605e9d7de657190e8eff8194550b84e"
+    },
+    {
+      "relative_path": "voicebox-d068/before.tar.gz",
+      "bytes": 309704262,
+      "sha256": "45cab1304be6dd838ebf18a8c65b177b41748c13ae73dae740f818be72bcf2ea"
+    },
+    {
+      "relative_path": "voicebox-d068/before-piper.tar.gz",
+      "bytes": 380902875,
+      "sha256": "f9c9311f2d879c9be6ac78751d4b150572bc035f2311acafe439ac0d7657febd"
+    },
+    {
+      "relative_path": "voicebox-d068/preserved-final.tar.gz",
+      "bytes": 419197274,
+      "sha256": "3ea7e797dd74daa89f90cfd0e78adcd5bbd8be857c2015e46deedf3424da6b7f"
+    },
+    {
+      "relative_path": "voicebox-d064/before-catalog.tar.gz",
+      "bytes": 306048149,
+      "sha256": "f36e550fc20d99c5111849181147257f64f10b87948246f84fa6669ce6e6ab2c"
+    },
+    {
+      "relative_path": "voicebox-d064/before-memory3072.tar.gz",
+      "bytes": 308022825,
+      "sha256": "8e4da9164c6f50d46ebb6e597f49f0fbdd16cc3ae6599e13c6fd91aea26fd047"
+    },
+    {
+      "relative_path": "voicebox-d066/before-qwen.tar.gz",
+      "bytes": 308387494,
+      "sha256": "5a4f2f9d7c49ea1f45772cacb86a4a3611b710bf564a6581355ba2d410d00441"
+    },
+    {
+      "relative_path": "new-lxc/voicebox-d063/backup-final-2048.tar.gz",
+      "bytes": 305916162,
+      "sha256": "dc738b318cc2ca7f3575a83781e0842fc8f4ff98630f4d74fd02fc96face49c3"
+    },
+    {
+      "relative_path": "new-lxc/voicebox-d063/backup-after-1536.tar.gz",
+      "bytes": 305375963,
+      "sha256": "e4c10af51cad96c12817eb2102b1038867b0537fe5a51ed829e7d4e988d0df88"
+    }
+  ],
+  "no_removals": true
+}

@@ -126,3 +126,14 @@ modules:
       - '"version"\s*:\s*"7\.10\.0"'
       - '"db_type"\s*:\s*"sqlite3"'
       - '"sku"\s*:\s*"personal_server"'
+  voicebox_api_cpu:
+    prober: http
+    timeout: 5s
+    http:
+      method: GET
+      valid_status_codes:
+      - 200
+      follow_redirects: false
+      fail_if_body_not_matches_regexp:
+      - '"status"\s*:\s*"healthy"'
+      - '"backend_variant"\s*:\s*"cpu"'

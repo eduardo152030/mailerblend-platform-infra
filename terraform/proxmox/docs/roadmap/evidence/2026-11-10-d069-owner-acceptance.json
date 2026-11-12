@@ -1,0 +1,16 @@
+{
+  "result": "ACCEPTED_BY_OWNER",
+  "profile_id": "1fd00418-2a79-4178-883f-af6c3f5e07ee",
+  "generation_id": "925f8b71-6ad7-46f0-a48a-ffa3881004ef",
+  "recorded_at_utc": "2026-11-10T21:28:13.981487+00:00",
+  "confirmation": "Sí, acepto la muestra",
+  "scope": [
+    "voice likeness",
+    "natural accent",
+    "complete requested text"
+  ],
+  "limits": [
+    "No long narration validation",
+    "No extrapolated minute generation performance"
+  ]
+}

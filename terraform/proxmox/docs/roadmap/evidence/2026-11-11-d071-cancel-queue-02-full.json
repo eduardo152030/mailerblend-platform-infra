@@ -1,0 +1,104 @@
+{
+  "status": "PASS",
+  "first": "d30b1c26-e427-4e62-a8a2-6b0154b3cf93",
+  "queued": "4b142aa7-f8ce-447c-978c-b7217fda7f88",
+  "third_request_http": 429,
+  "queued_cancel": {
+    "message": "Queued generation cancelled"
+  },
+  "worker_before_cancel": {
+    "id": "fda5bec7-b1d9-482c-ab94-426b7431aff8",
+    "pid": 20,
+    "stages": [
+      {
+        "stage": "melo_loaded",
+        "elapsed_seconds": 6.136012025177479,
+        "seconds": 1.0849645268172026
+      },
+      {
+        "stage": "source_synthesized",
+        "elapsed_seconds": 22.47866139188409,
+        "seconds": 16.3423827951774
+      },
+      {
+        "stage": "converter_loaded",
+        "elapsed_seconds": 23.49048037547618,
+        "seconds": 0.8445173297077417
+      },
+      {
+        "stage": "owner_embedding_extracted",
+        "elapsed_seconds": 24.391731107607484,
+        "seconds": 0.9009502874687314
+      }
+    ]
+  },
+  "running_cancel": {
+    "message": "Generation cancelled; worker stopped"
+  },
+  "cancel_seconds": 0.42326705157756805,
+  "after": {
+    "inference_pid_alive": false,
+    "worker_memory_current": 271015936,
+    "worker_memory_stat": {
+      "anon": "43601920",
+      "file": "225816576",
+      "kernel": "1556480",
+      "kernel_stack": "32768",
+      "pagetables": "237568",
+      "sec_pagetables": "0",
+      "percpu": "2448",
+      "sock": "0",
+      "vmalloc": "24576",
+      "shmem": "0",
+      "zswap": "0",
+      "zswapped": "0",
+      "file_mapped": "0",
+      "file_dirty": "8192",
+      "file_writeback": "0",
+      "swapcached": "0",
+      "anon_thp": "0",
+      "file_thp": "0",
+      "shmem_thp": "0",
+      "inactive_anon": "0",
+      "active_anon": "43601920",
+      "inactive_file": "220270592",
+      "active_file": "5545984",
+      "unevictable": "0",
+      "slab_reclaimable": "974824",
+      "slab_unreclaimable": "254288",
+      "slab": "1229112",
+      "workingset_refault_anon": "0",
+      "workingset_refault_file": "0",
+      "workingset_activate_anon": "0",
+      "workingset_activate_file": "0",
+      "workingset_restore_anon": "0",
+      "workingset_restore_file": "0",
+      "workingset_nodereclaim": "0",
+      "pgscan": "1664",
+      "pgsteal": "1664",
+      "pgscan_kswapd": "1664",
+      "pgscan_direct": "0",
+      "pgscan_khugepaged": "0",
+      "pgsteal_kswapd": "1664",
+      "pgsteal_direct": "0",
+      "pgsteal_khugepaged": "0",
+      "pgfault": "671878",
+      "pgmajfault": "98",
+      "pgrefill": "1",
+      "pgactivate": "0",
+      "pgdeactivate": "0",
+      "pglazyfree": "0",
+      "pglazyfreed": "0",
+      "zswpin": "0",
+      "zswpout": "0",
+      "zswpwb": "0",
+      "thp_fault_alloc": "0",
+      "thp_collapse_alloc": "0",
+      "thp_swpout": "0",
+      "thp_swpout_fallback": "0"
+    }
+  },
+  "service_container_ids_unchanged": true,
+  "service_started_at_unchanged": true,
+  "profiles": 1
+}

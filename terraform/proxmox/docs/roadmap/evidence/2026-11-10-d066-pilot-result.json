@@ -1,0 +1,64 @@
+{
+  "decision": "D066",
+  "started_utc": "2026-11-10T13:41:17.730735+00:00",
+  "result": "FAIL",
+  "stages": {
+    "load": {
+      "result": "PASS",
+      "api_load_seconds": 9.833334282971919
+    }
+  },
+  "threshold_bytes": 3758096384,
+  "threshold_swap_growth_bytes": 67108864,
+  "original_image": "sha256:7f2e6f7e6a2d09c77ebd35424a7641249e51b8ff0374bc9c4acb1f7393cfcd4c",
+  "baseline_original_rss": {
+    "VmHWM_bytes": 331452416,
+    "VmRSS_bytes": 331452416,
+    "RssAnon_bytes": 239177728,
+    "RssFile_bytes": 92274688,
+    "VmSwap_bytes": 0
+  },
+  "candidate_image": "sha256:4de8a649d267fb9f4fa9d7049f264a1e6896718c7892f70706abb4a46d75430d",
+  "load_facts": {
+    "load_seconds": 3.8093838412314653,
+    "main_parameters": {
+      "torch.bfloat16": 402
+    },
+    "codec_parameters": {
+      "torch.bfloat16": 400
+    },
+    "attention": "sdpa",
+    "device": "cpu"
+  },
+  "failure_phase": "short",
+  "error": "HALT: CT memory.current exceeds3.5GiB safety threshold",
+  "other_target_checks": 3,
+  "samples": 89,
+  "maxima": {
+    "ct_memory_current_bytes": 3800338432,
+    "ct_memory_peak_bytes": 3803488256,
+    "ct_inactive_file_bytes": 1199546368,
+    "ct_working_set_bytes": 2809376768,
+    "ct_swap_bytes": 4096,
+    "VmHWM_bytes": 2682695680,
+    "VmRSS_bytes": 2682695680,
+    "RssAnon_bytes": 943902720,
+    "RssFile_bytes": 1771700224,
+    "VmSwap_bytes": 0
+  },
+  "elapsed_seconds": 28.7552390685305,
+  "oom_events_final": {
+    "low": "0",
+    "high": "0",
+    "max": "0",
+    "oom": "0",
+    "oom_kill": "0",
+    "oom_group_kill": "0"
+  },
+  "original_restored": {
+    "image": "sha256:7f2e6f7e6a2d09c77ebd35424a7641249e51b8ff0374bc9c4acb1f7393cfcd4c",
+    "kokoro_loaded": true,
+    "pilot_stopped": true,
+    "profiles_original_data_untouched": true
+  }
+}

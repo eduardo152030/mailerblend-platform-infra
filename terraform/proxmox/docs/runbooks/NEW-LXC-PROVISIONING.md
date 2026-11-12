@@ -1,9 +1,11 @@
 # Alta de un LXC mediante IaC
 
-Estado: **READY FOR FIRST REAL PROVISIONING TEST**, D061, 2026-11-10.
-Preparación local probada con mocks; ninguna creación real ni despliegue autorizado
-en esta intervención. El primer CT requiere autorización explícita de identidad,
-IP/recursos/plantilla, exporters y acceso exacto a sockets si usa Docker.
+Estado: **primer provisioning real CT627 PASS**, D063, 2026-11-10.
+Los apartados D061/D062 conservan su contexto histórico; el alcance vigente de cada
+intervención se consulta siempre en CURRENT-STATUS.
+D063 probó un único CT real:627 Voicebox, con creación, SSH, aplicación ymonitorización.
+Cada futura alta requiere autorización específica de identidad, IP/recursos/plantilla,
+exporters y acceso exacto a sockets si usa Docker. No reutilizar el permiso627.
 
 ## 1. Declaración y preparación
 
@@ -29,6 +31,11 @@ python3 scripts/new-lxc.py prepare \
 python3 scripts/new-lxc.py validate \
   --bundle "$HOME/.local/share/mailerblend-recovery/new-lxc/example-01"
 ```
+
+La preparación lee por defecto únicamente `~/.ssh/id_ed25519.pub`; otra fuente
+pública se selecciona con `--ssh-public-key /ruta/propietario.pub`. Rechaza entradas
+privadas y symlinks. La identidad privada permanece local y solo OpenSSH la utiliza
+para firmar; una identidad cifrada debe estar disponible en el agente, sin prompts.
 
 El bundle contiene copia de los mismos `.tf`, inventario existente más el candidato,
 Notes/manifiesto/ficha, configuración systemd/CPU, cAdvisor si Docker, targets y reglas
@@ -62,11 +69,16 @@ El ejemplo no acredita esas propiedades del CT106. No hay llamadas PVE en mocks.
 
 Usar una declaración real fuera de `inventory/services` y preparar otro bundle.
 Comprobar disponibilidad de CTID/IP mediante lecturas de Proxmox y red; no reservar
-ni tocar DNS sin ese alcance. Verificar previamente la claveSSH de PVE y del nuevo
-acceso; nunca keyscan como prueba, checking=no ni known_hosts=/dev/null.
+ni tocar DNS sin ese alcance. Verificar previamente la clave SSH de PVE en `~/.ssh/known_hosts`. El bootstrap
+obtiene las claves públicas del host nuevo mediante ese canal confiable y `pct exec`,
+y crea su propio `bundle/ssh/known_hosts`; nunca keyscan como prueba, checking=no
+ni known_hosts=/dev/null. Requiere acceso root/pct ya autorizado en PVE y Python3
+en la plantilla Debian/Ubuntu con systemd. No modifica la configuración SSH local.
 
 Copiar únicamente la nueva declaración y su ficha del bundle al inventario real,
-con revisión del diff. No copiar su `.terraform`, estado ni todo el módulo sobre
+con revisión del diff. Conservar su bloque `provisioning.ssh.enabled: true`.
+El `-var-file` privado vincula exclusivamente el servicio nuevo con su bootstrap.
+No copiar su `.terraform`, estado ni todo el módulo sobre
 producción. Regenerar Notes con el generador existente: conserva los registros
 observados anteriores y añade el nuevo como PENDING VERIFICATION.
 
@@ -78,6 +90,7 @@ python3 scripts/generate-lxc-inventory.py
 terraform fmt -check
 terraform validate
 terraform plan -input=false -parallelism=1 \
+  -var-file="$PLAN_DIR/terraform/ssh-bootstrap.auto.tfvars.json" \
   -target="proxmox_virtual_environment_container.svc[\"$SERVICE\"]" \
   -out="$PLAN_DIR/create.tfplan"
 terraform show -no-color "$PLAN_DIR/create.tfplan" > "$PLAN_DIR/create.review.txt"
@@ -99,7 +112,9 @@ certificación de hardening; no se desactiva SSH/TLS para superar bloqueos nuevo
 terraform apply -parallelism=1 "$PLAN_DIR/create.tfplan"
 ```
 
-Verificar el nuevo CT por API/servidor: identidad, RUNNING, IP, recursos y rootfs.
+El provisioner de creación ejecuta automáticamente el bootstrap SSH siguiente;
+Terraform solo continúa tras su PASS. No ejecuta este paso en los CT existentes.
+Después, verificar el nuevo CT por API/servidor: identidad, RUNNING, IP, recursos y rootfs.
 No reiniciar otros CT/apps. El bootstrap preparado instala únicamente Node Exporter
 nativo1.10.2 con SHA256 oficial, productor CPU cgroup textfile y unidades systemd.
 Si Docker está declarado, requiere Docker/containerd ya disponibles en la plantilla;
@@ -199,6 +214,71 @@ su `description`, sin recursos/tags/apps; conservar el plan y lectura posterior.
 Marcar aceptación/estado en `exporter-migration.yml` únicamente después de estabilidad,
 segunda aplicación y cadena requeridas. No “DONE” por tener archivos locales.
 
+## SSH automático del nuevo CT (D062)
+
+El provider bpg/proxmox0.94.0 permite `initialization.user_account.keys`, incluso
+al clonar. Estos campos son ForceNew. Proxmox sustituye el bloque PVE de claves
+heredadas al recibir un conjunto nuevo; por eso el flujo de clones usa por defecto
+una fusión aditiva mediante `pct exec`, antes de necesitar SSH en el contenedor.
+La opción `lxc_ssh_public_keys` exige `provisioning.ssh.provider_key_set_complete: true`
+y el conjunto completo revisado de claves legítimas de la plantilla; no activarla
+sobre un CT ya creado ni suministrar solo una clave sin revisar las heredadas.
+
+El controlador comprueba identidad/IP/RUNNING del CT elegido y excluye los17 IDs
+actuales. Dentro del CT instala `openssh-server` si falta, genera sus host keys
+localmente y añade la clave pública: `/root/.ssh`0700, `authorized_keys`0600,
+propietario root. Conserva claves/opciones legítimas y elimina duplicados de la
+misma clave con iguales opciones. Si una clave existente tiene restricciones que
+impiden el acceso, bloquea el alta en lugar de eliminarlas.
+
+Primero habilita clave pública manteniendo los métodos de contraseña efectivos
+existentes. Valida `sshd -t`, recarga/inicia `ssh.service` y comprueba por SSH estricto:
+`ssh -o BatchMode=yes -o PreferredAuthentications=publickey root@<IP> true`
+(el controlador también fija identidad, host key, puerto22 y prohíbe fallback).
+Solo tras ese PASS aplica la política final gestionada:
+
+```text
+PermitRootLogin prohibit-password
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PubkeyAuthentication yes
+```
+
+Anteponer un Include exacto al archivo principal garantiza la precedencia global
+de `/etc/ssh/sshd_config.d/00-lxc-bootstrap.conf`; no sustituye líneas mediante sed.
+El resto de configuración se conserva. Comprueba sintaxis y valores efectivos con
+`sshd -T -C` para la conexión root y repite la conexión por clave tras recargar.
+Los Match incompatibles bloquean y restauran, no se reescriben indiscriminadamente.
+`without-password` es el nombre normalizado equivalente de OpenSSH.
+
+La configuración anterior y el estado quedan en `/var/lib/lxc-ssh-bootstrap/`0700
+dentro del CT. Ante fallo de los gates restaura los archivos anteriores, valida y
+recarga, conservando la clave añadida. Nunca toca contraseña ni consola Proxmox.
+Si falla la propia restauración, detenerse y recuperar por consola; no destruir.
+El recibo privado `bundle/ssh/verified.json` solo aparece después del acceso real.
+Segunda aplicación DONE comprueba configuración/acceso, sin reescrituras ni recarga.
+Docker no interviene en este bootstrap.
+
+**Fallo del provisioner:** Terraform puede dejar el nuevo CT tainted. No repetir
+apply automáticamente: un reemplazo destruiría el CT. Inspeccionar por consola/API,
+conservarlo y sus datos, corregir la causa y reejecutar únicamente:
+
+```sh
+python3 scripts/bootstrap-new-lxc-ssh.py --execute --node pve \
+  --config "$PLAN_DIR/ssh/bootstrap.json"
+```
+
+Tras PASS, revisar el estado Terraform y retirar la marca tainted exclusivamente
+del CT recién creado (`terraform untaint` de su dirección exacta), con autorización
+de recuperación y comprobación posterior del plan sin reemplazos. No ejecutar
+destroy/recreate para resolver SSH. Una aplicación normal sin cambios no vuelve a
+ejecutar el provisioner; la comprobación anterior permite revisar idempotencia.
+
+Fuentes: [provider0.94.0](https://github.com/bpg/terraform-provider-proxmox/blob/v0.94.0/docs/resources/virtual_environment_container.md),
+[implementación del provider](https://github.com/bpg/terraform-provider-proxmox/blob/v0.94.0/proxmoxtf/resource/container/container.go),
+[gestión de claves Proxmox](https://github.com/proxmox/pve-container/blob/master/src/PVE/LXC/Setup/Base.pm),
+[precedencia OpenSSH](https://man.openbsd.org/sshd_config).
+
 ## 10. Rollback si falla el alta
 
 Antes de publicar monitorización, conservar backup y catálogos/modelos previos.
@@ -210,7 +290,7 @@ borrar discos automáticamente. Eliminación o cambio de recursos requiere aprob
 separada y verificación de datos/backups. Sin autorización, dejar el alta BLOCKED y
 explicar qué gate falló. RPO/RTO/retención global quedan fuera del alcanceD061.
 
-## 11. Estado de esta entrega
+## 11. Estado de la entrega D061/D062 — histórico
 
 7.4 READY FOR FIRST REAL PROVISIONING TEST: flujo, artifacts, mocks, plan revisable,
 Notes/fichas y compatibilidad preparados. Ningún nuevoCT ni servicio desplegado.
@@ -221,3 +301,44 @@ end-to-end siguen pendientes hasta que el propietario autorice un CT concreto.
 Referencia primaria: [mocks de Terraform](https://developer.hashicorp.com/terraform/language/tests/mocking).
 El mock sustituye al proveedor y no acredita una creación real ni las propiedades
 de una plantilla concreta.
+
+## 12. Gate de capacidad observado en D063
+
+Antes de reservar identidad o aplicar, contrastar API PVE con MemAvailable, swap,
+presión de memoria y espacio del almacenamiento destino. MemFree o la suma de
+límites LXC no bastan para acreditar margen. Un límite de8GiB no reserva RAM física;
+no usar sobreasignación para eludir los requisitos del propietario.
+[D063](../roadmap/PHASE7-D063-VOICEBOX.md): primer alta detenida por riesgo de
+capacidad, sin creación real ni prueba de bootstrap.
+
+## 13. Lecciones del primer alta real D063
+
+[CT627 Voicebox](../roadmap/PHASE7-D063-VOICEBOX.md) creó1recurso sin alterar otros.
+Comenzó con recursos reales de plantilla por instrucción del propietario; los
+aumentos1080→1536→2048MiB se justificaron con saturación y margenRAM medidos.
+Elprovider0.94 reinicia elCT al cambiar memoria; registrar esa interrupción del
+servicio nuevo. Descripción/Notes solas no requieren reboot según código yensayo.
+
+- Plantillas antiguas pueden contener hostkeysDSA. El selector ahora conserva los
+  archivos y solo confía en tipos admitidos. Fallo deprovisioner no justifica destruir:
+  se recuperó bootstrap porconsola, se verificó acceso ydespués se retiró taint solo627.
+- La automatizaciónPVE añadeIP como tag ydevuelve orden estable. Solo las nuevas
+  altasSSH normalizan esos tags enIaC; las expresiones legadas siguen intactas.
+- Servicios nuevos observados necesitan Notes propias y estadoRUNNING enlazado a
+  recibo; no mantener «no desplegado» después de una verificación real.
+- Adoptar elcatálogo vivo antes de añadir targets: conservar etiquetas reales de los
+  anteriores. El diffGit puede reflejar deriva anterior sin modificar targets vivos.
+- Contenedores auxiliares sin servidor no deben heredar healthcheckHTTP de una
+  imagen de aplicación. No confundir series antiguas con fallo permanente ni cambiar
+  umbrales para esconderlas. Esperar/verificar su desaparición antes de aceptación.
+- ReglasDockerLAN basadas en conntrack deben distinguir direcciónORIGINAL para
+  no bloquear respuestas. Probar desde elcliente real además de loopback.
+- BackupsHF contienen enlaces relativos internos. Restaurar con destinos confinados
+  y hashes; nunca resolver errores delparser mediante extracción permisiva.
+- Imagen exacta archivada ybloqueada porID/hash permite reproducir runtime aun
+  cuando elDockerfileupstream conserva rangos de dependencias. No afirmar rebuild
+  idéntico sin un lock completo y un ensayo independiente.
+
+D063:16testsprovisioning/15inventarioPASS, segundaaplicación0/0/0, estabilidad600s/21,
+web/API/TTS/persistencia/restoreaislado yGrafanadinámicoPASS. Las autorizaciones de
+627 no seextienden aotrosCT, exposiciónWAN, pipeline ni fases7.2/7.3.

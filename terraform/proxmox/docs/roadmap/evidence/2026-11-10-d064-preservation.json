@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "original_profile_unchanged": true,
+  "all_four_sample_hashes_preserved_after_reboot": true,
+  "other_lxc_pve_configs_identical": 17,
+  "ct627_only_memory_notes_changed": true,
+  "current_ram_mib": 3072,
+  "coverage_up": {
+    "cadvisor": 18,
+    "prometheus": 1,
+    "alertmanager": 1,
+    "blackbox_exporter": 1,
+    "blackbox": 19,
+    "node_exporter": 18,
+    "pve_uptime": 1
+  },
+  "oom_events_current_cgroup": {
+    "low": "0",
+    "high": "0",
+    "max": "1115",
+    "oom": "0",
+    "oom_kill": "0",
+    "oom_group_kill": "0"
+  },
+  "qwen_models_loaded_or_downloaded": false,
+  "latest_user_gate": "No additional production changes before diagnosis review"
+}

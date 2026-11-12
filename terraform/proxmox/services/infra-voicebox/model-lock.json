@@ -1,0 +1,56 @@
+{
+  "repo": "hexgrad/Kokoro-82M",
+  "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+  "files": [
+    {
+      "rfilename": "config.json",
+      "size": 2351,
+      "lfs": null
+    },
+    {
+      "rfilename": "kokoro-v1_0.pth",
+      "size": 327212226,
+      "lfs": {
+        "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+        "size": 327212226,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "voices/ef_dora.pt",
+      "size": 523420,
+      "lfs": {
+        "sha256": "d9d69b0f8a2b87a345f269d89639f89dfbd1a6c9da0c498ae36dd34afcf35530",
+        "size": 523420,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "voices/em_alex.pt",
+      "size": 523420,
+      "lfs": {
+        "sha256": "5eac53f767c3f31a081918ba531969aea850bed18fe56419b804d642c6973431",
+        "size": 523420,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "voices/em_santa.pt",
+      "size": 523430,
+      "lfs": {
+        "sha256": "aa8620cb96cec705823efca0d956a63e158e09ad41aca934d354b7f0778f63cb",
+        "size": 523430,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "voices/bf_emma.pt",
+      "size": 523420,
+      "lfs": {
+        "sha256": "d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701",
+        "size": 523420,
+        "pointerSize": 131
+      }
+    }
+  ]
+}

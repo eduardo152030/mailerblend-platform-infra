@@ -1,0 +1,39 @@
+{
+  "identities": {
+    "personal": {
+      "requested_name": "Eduardo — Personal Voice",
+      "profile_id": null,
+      "engine": "qwen",
+      "model_size": "0.6B",
+      "status": "AWAITING_OWNER_RECORDINGS_AND_BASE_VALIDATION",
+      "voice_type": "cloned"
+    },
+    "male_es": {
+      "requested_name": "ES Male — Narrator",
+      "profile_id": "916ce396-1b15-4621-b63c-5eaf49f03b74",
+      "status": "TECHNICAL_SAMPLE_PASS",
+      "auditory_acceptance": "PENDING",
+      "engine": "kokoro",
+      "preset_voice_id": "em_alex",
+      "sample": {
+        "identity": "male_es",
+        "profile_id": "916ce396-1b15-4621-b63c-5eaf49f03b74",
+        "generation_id": "597aaabb-5688-4df1-bd1c-18d9c6144afd",
+        "audio_url": "http://192.168.1.127:17493/audio/597aaabb-5688-4df1-bd1c-18d9c6144afd",
+        "audio_seconds": 8.88,
+        "generation_seconds_observed": 6.045684156997595,
+        "sha256": "29b727abe8f8929c5c5dee528110ef72b932d5917a736078cc1660ce352f051f"
+      }
+    },
+    "female_es": {
+      "requested_name": "ES Female — Narrator",
+      "profile_id": "7e127dfb-8e46-42c4-8b26-c88d0c7c65ae",
+      "status": "BLOCKED_QWEN_PILOT_TIMEOUT_NO_SAMPLE",
+      "auditory_acceptance": "PENDING",
+      "engine": "qwen_custom_voice",
+      "preset_voice_id": "Serena",
+      "model_size": "0.6B",
+      "operational": false
+    }
+  }
+}

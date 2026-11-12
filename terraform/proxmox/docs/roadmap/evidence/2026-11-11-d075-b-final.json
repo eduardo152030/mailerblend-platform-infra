@@ -1,0 +1,137 @@
+{
+  "at_utc": "2026-11-11T16:12:31.830249+00:00",
+  "global_oom_kill": 6,
+  "ct_events": {
+    "617": "low 0\nhigh 2313\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "61211": "low 0\nhigh 0\nmax 584\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "625": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "615": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "623": "low 0\nhigh 0\nmax 14466\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "104": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "613": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "621": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "611": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "109": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "618": "low 0\nhigh 0\nmax 10391295\noom 1\noom_kill 1\noom_group_kill 0\n",
+    "626": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "107": "low 0\nhigh 1013\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "616": "low 0\nhigh 385\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "624": "low 0\nhigh 1485\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "105": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "614": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "622": "low 0\nhigh 0\nmax 13\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "103": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "620": "low 0\nhigh 0\nmax 242\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "101": "low 0\nhigh 229\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "610": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "619": "low 0\nhigh 0\nmax 36272\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "627": "low 0\nhigh 0\nmax 115932\noom 0\noom_kill 0\noom_group_kill 0\n"
+  },
+  "voicebox": {
+    "id": "5820cbf6e02894f3566f9ca164aa18f89dfd3ea99c876b77d3fd6bd687fe3142",
+    "image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+    "started_at": "2026-11-11T09:46:28.70728525Z",
+    "restart_count": 0,
+    "health": "healthy"
+  },
+  "docker_cpu_controls": {
+    "cpu.max": "300000 100000\n",
+    "cpu.stat": "usage_usec 127959708\nuser_usec 105786514\nsystem_usec 22173193\ncore_sched.force_idle_usec 0\nnr_periods 50198\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "cpuset.cpus.effective": "0-2\n"
+  },
+  "log_counts": {
+    "checked_lines": 452,
+    "error_or_traceback_lines": 0,
+    "http_5xx_lines": 0,
+    "contents_withheld": true
+  },
+  "pve_configurations_unchanged": 27,
+  "other_managed_lxc_unchanged": 17,
+  "reference_original_preserved": true,
+  "targets_up": 59,
+  "monitoring_jobs": {
+    "alertmanager": 1,
+    "blackbox": 19,
+    "blackbox_exporter": 1,
+    "cadvisor": 18,
+    "node_exporter": 18,
+    "prometheus": 1,
+    "pve_uptime": 1
+  },
+  "alerts": [],
+  "new_oom": 0,
+  "grafana": {
+    "health": {
+      "database": "ok",
+      "version": "12.3.1",
+      "commit": "3a1c80ca7ce612f309fdc99338dd3c5e486339be"
+    },
+    "datasource_health": {
+      "details": {
+        "application": "Prometheus",
+        "features": {
+          "rulerApiEnabled": false
+        }
+      },
+      "message": "Successfully queried the Prometheus API.",
+      "status": "OK"
+    },
+    "query": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "up",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.127:17493/health",
+              "job": "blackbox",
+              "module": "voicebox_api_cpu",
+              "probe_id": "voicebox-api-health",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-voicebox",
+              "source": "inventory",
+              "vmid": "627"
+            },
+            "value": [
+              1794413549.823,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.127:8085",
+              "job": "cadvisor",
+              "service": "infra-voicebox",
+              "source": "inventory",
+              "vmid": "627"
+            },
+            "value": [
+              1794413549.823,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.127:9100",
+              "job": "node_exporter",
+              "service": "infra-voicebox",
+              "source": "inventory",
+              "vmid": "627"
+            },
+            "value": [
+              1794413549.823,
+              "1"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "no_productive_restart_or_resource_changes": true
+}

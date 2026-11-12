@@ -1,0 +1,14 @@
+{
+  "openvoice": {
+    "revision": "74a1d147b17a8c3092dd5430504bd83ef6c7eb23",
+    "url": "https://codeload.github.com/myshell-ai/OpenVoice/tar.gz/74a1d147b17a8c3092dd5430504bd83ef6c7eb23",
+    "sha256": "a0bc7e5b2968ab7f8898d237b2b36f7de46710cbc3901f97dff29781eeae8abd",
+    "license": "MIT"
+  },
+  "melo": {
+    "revision": "209145371cff8fc3bd60d7be902ea69cbdb7965a",
+    "url": "https://codeload.github.com/myshell-ai/MeloTTS/tar.gz/209145371cff8fc3bd60d7be902ea69cbdb7965a",
+    "sha256": "ceb9a1a636522fee6489c8496ef5b6b9b3b8c1e8441f402eea00d8a17fbe52b8",
+    "license": "MIT"
+  }
+}

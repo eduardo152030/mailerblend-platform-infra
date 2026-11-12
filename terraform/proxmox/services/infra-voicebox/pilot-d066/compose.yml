@@ -1,0 +1,29 @@
+services:
+  qwen-pilot:
+    image: local/voicebox:8af7efe62fab-bf16-sdpa-d066
+    container_name: voicebox-qwen-pilot-d066
+    restart: 'no'
+    network_mode: host
+    command: [uvicorn, 'backend.main:app', --host, 127.0.0.1, --port, '17494']
+    environment:
+      HF_HUB_OFFLINE: '1'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      VOICEBOX_CLOUD_ENABLED: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      NUMBA_CACHE_DIR: /app/data/cache/numba
+    volumes:
+      - /srv/voicebox/pilot-d066/data:/app/data
+      - /srv/voicebox/pilot-d066/huggingface:/home/voicebox/.cache/huggingface
+    cpus: 2
+    mem_limit: 3300m
+    memswap_limit: 3300m
+    healthcheck:
+      test: [CMD, python, -c, "import json,urllib.request; assert json.load(urllib.request.urlopen('http://127.0.0.1:17494/health',timeout=3))['status']=='healthy'"]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
+      retries: 2
+    logging:
+      driver: json-file
+      options: {max-size: 10m, max-file: '3'}

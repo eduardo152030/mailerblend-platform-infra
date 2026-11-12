@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "archive_bytes": 1206316979,
+  "archive_sha256": "4d34b1c1d6ebd83a98d8621ef332d5a7fb3ab0d1db34eef04c161e27ddf32373",
+  "files": 25,
+  "oci_blobs_sha256_verified": 22,
+  "image_tag": "local/voicebox:8af7efe62fab-cpu-d063",
+  "validation": "image export complete, manifest and every OCI blob verified; no load into existing runtime"
+}

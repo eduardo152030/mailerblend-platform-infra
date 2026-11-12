@@ -1,0 +1,32 @@
+{
+  "attempt": "02",
+  "authorization": "Owner explicitly approved maximum15minutes",
+  "at_recorded_utc": "2026-11-11T19:35:32.336575+00:00",
+  "timeout_seconds": 900,
+  "reference_sha256": "7b388a917fb98bdf6b251454e04e7adc511faec42d21797f103ce539fc167dd4",
+  "transcript_owner_verified": true,
+  "model": "Qwen3-TTS-12Hz-0.6B-Base",
+  "snapshot": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "dtype": "float32",
+  "attention": "sdpa",
+  "cpu_threads": 3,
+  "ct_memory_gib": 10,
+  "ct_swap_gib": 2,
+  "worker_memory_hard_gib": 9,
+  "worker_memory_stop_gib": 8.2,
+  "worker_swap_allowed_bytes": 0,
+  "ct_swap_growth_stop_mib": 128,
+  "ct_psi_full_avg10_stop_percent": 5,
+  "ct_psi_required_seconds": 10,
+  "max_new_tokens": 1024,
+  "seed": 42,
+  "worker_name": "qwen-d076-fp32-long-02",
+  "sources_sha256": {
+    "infer.py": "ff3619bffcff09ec228c31734d27c24e841574f9d3a1617ffb444b464acc3dd1",
+    "supervise.py": "ff2c28f1ffea62479970c6bffb4c3b3e7646e754572c87fed146acc7d0cd0ff2",
+    "trading-text.txt": "78e62625b860555114ec9f754e45b45907eb3c3a89daae9dec7491bff0641cd6"
+  },
+  "command": "PILOT_TIMEOUT_SECONDS=900 PILOT_ATTEMPT=02 python3 - < services/infra-voicebox/pilot-d076/supervise.py (executed on PVE through strict SSH)",
+  "voicebox_modified": false,
+  "other_lxc_modified": false
+}

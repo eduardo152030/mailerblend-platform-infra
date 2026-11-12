@@ -1,0 +1,15 @@
+{
+  "targets": 59,
+  "all_up": true,
+  "alerts": 1,
+  "other_lxc_configurations_unchanged": true,
+  "original_reference_verified": true,
+  "production_image_unchanged": true,
+  "disk_warning": {
+    "alertname": "HostDiskFilling",
+    "state": "pending",
+    "vmid": "627",
+    "free_percent": 14.426,
+    "df_free_gib_rounded": 7.1
+  }
+}

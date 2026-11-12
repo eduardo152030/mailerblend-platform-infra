@@ -1,0 +1,7 @@
+{
+  "reconciliations": 2,
+  "no_recreation": true,
+  "health": "healthy",
+  "image": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+  "isolated_d079_branch_supported": true
+}

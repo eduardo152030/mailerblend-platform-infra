@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "timestamp_utc": "2026-11-10T11:02:32.322010+00:00",
+  "existing_pve_configs_unchanged": 17,
+  "old_targets_identical": 56,
+  "new_targets_only_627": 3,
+  "rules_existing_preserved": true,
+  "all_rule_health": "ok",
+  "coverage": {
+    "node_exporter": 18,
+    "cadvisor": 18,
+    "blackbox": 19
+  }
+}

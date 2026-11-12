@@ -1,0 +1,91 @@
+{
+  "image": "local/voicebox:qwen-isolated-d079",
+  "image_id": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+  "git_revision": "8af7efe62fab8d33e2a5dfbedabaa45f68a5184f",
+  "base_image_id": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+  "integration": "d079-isolated",
+  "dockerfile_path": "production-d079/Dockerfile",
+  "dockerfile_sha256": "40badbace0550320219b95c78af6dccc86c6eed03b80b5564ea831013b07ee07",
+  "overlay": "D079 predictive admission and accurate missing-checkpoint error; ML/reference/guards unchanged",
+  "overlay_files": {
+    "production-d079/Dockerfile": "40badbace0550320219b95c78af6dccc86c6eed03b80b5564ea831013b07ee07",
+    "production-d079/patch.py": "4f7202985471ad4f148ec37f5381a9912a723a94e4ab88d28e298c6f0a83c65b",
+    "production-d079/isolated_backend.py": "33226a0b56b0fe856ed2c86290cd5e1d65080b8efafae9a797ca26f6f030687f",
+    "production-d079/d077_contract.py": "e30e0367d4bf17b87b1ce5b8237eec9f51e628d382d3b50b52a5631da04f7450"
+  },
+  "persistent_files": {
+    "models/piper/MODEL_CARD": "05d80690fb21967f301e69a86c61b3c2320002f941a0d7f9423c805ae653b59f",
+    "models/piper/es_ES-sharvard-medium.onnx": "234dc4cf0fdb53ccb76b9b2c4d7ef1330364762674c1b78c1b62d8608c528a54",
+    "models/piper/es_ES-sharvard-medium.onnx.json": "1910940c6b480e0f7cbce5e0da45c8cbe2557ccbfd86a5d22cda141a3b65f521"
+  },
+  "rollback": {
+    "image": "local/voicebox:qwen-isolated-d077",
+    "image_id": "sha256:7c747589727a4d283ae5cc0b549b522d5d0cd4602572a032d5b846127382547b",
+    "git_revision": "8af7efe62fab8d33e2a5dfbedabaa45f68a5184f",
+    "base_image_id": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+    "integration": "d077-isolated",
+    "dockerfile_path": "production-d077/Dockerfile",
+    "dockerfile_sha256": "40badbace0550320219b95c78af6dccc86c6eed03b80b5564ea831013b07ee07",
+    "overlay": "D077 Qwen Base0.6B FP32 isolated Talker/checkpoint/decoder300-context25; PVE supervisor627; no Docker socket in app",
+    "overlay_files": {
+      "production-d077/Dockerfile": "40badbace0550320219b95c78af6dccc86c6eed03b80b5564ea831013b07ee07",
+      "production-d077/patch.py": "4f7202985471ad4f148ec37f5381a9912a723a94e4ab88d28e298c6f0a83c65b",
+      "production-d077/isolated_backend.py": "6ec1595c21a04f59b25834882b7687e80a6474da8c9eae81bbd4569f35f1ccfd",
+      "production-d077/d077_contract.py": "e30e0367d4bf17b87b1ce5b8237eec9f51e628d382d3b50b52a5631da04f7450"
+    },
+    "persistent_files": {
+      "models/piper/MODEL_CARD": "05d80690fb21967f301e69a86c61b3c2320002f941a0d7f9423c805ae653b59f",
+      "models/piper/es_ES-sharvard-medium.onnx": "234dc4cf0fdb53ccb76b9b2c4d7ef1330364762674c1b78c1b62d8608c528a54",
+      "models/piper/es_ES-sharvard-medium.onnx.json": "1910940c6b480e0f7cbce5e0da45c8cbe2557ccbfd86a5d22cda141a3b65f521"
+    },
+    "rollback": {
+      "image": "local/voicebox:8af7efe62fab-personal-d069",
+      "image_id": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+      "git_revision": "8af7efe62fab8d33e2a5dfbedabaa45f68a5184f",
+      "dockerfile_sha256": "f78a7430c534a6e4dd49ce5192b8339d62531828d333132fa341848e174aa38a",
+      "archive_sha256": "bfea29a8e30e006022575d27fdc4d19188ea0fde79295b72eb81caf6abbef628",
+      "archive_bytes": 1279021236,
+      "base_image_id": "sha256:7f2e6f7e6a2d09c77ebd35424a7641249e51b8ff0374bc9c4acb1f7393cfcd4c",
+      "overlay": "D069 real owner UUID/reference/file guard + Base stage timings; personal-only; BF16 SDPA codecFP32",
+      "overlay_files": {
+        "pilot-d068/piper/apply-patches.py": "a4d64609c5b9dcabb4a57662e4484937ad82d29319388d1883416653fcdd8235",
+        "pilot-d068/piper/Dockerfile": "cbcd5f4e5d80f4a48183c6130be89fba6903d3ca52888d29f81b45e221762aa5",
+        "pilot-d068/piper/model-lock.json": "a5b1caea519a00843a21b7f20694c1250f54b045ec880d004123834b222ed35c",
+        "pilot-d068/piper/wheels-lock.json": "232a65e0477907e52c4408588722b99612cba5ea8d53de02a37e63a09b99be4f",
+        "pilot-d068/piper/piper_backend.py": "4c5e1ce4d3757b1e8c6187c0db2e7fc488baa4c5677c64af5db4a6e9dc78a1cd",
+        "pilot-d068/piper/wheels/piper_tts-1.8.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl": "25b4d3f31ff70c8fa7151908e00aaa5650cbdf16bca8fcf21299f3941b89a7d3",
+        "pilot-d068/piper/wheels/pathvalidate-3.3.1-py3-none-any.whl": "5263baab691f8e1af96092fa5137ee17df5bdfbd6cff1fcac4d6ef4bc2e1735f",
+        "pilot-d069/apply.py": "722cf2b01bfc22a0cfa90676ae669c5a882c201070b181b4643f02ebf883b8bb",
+        "pilot-d069/Dockerfile": "b08b4e0c18fcb179023131c3f03a77c84bb0eec38f8ebe735ee09c29e45ecdb6",
+        "pilot-d069/personal-config.py": "e4e9e59fed3d8f46c17cfc862af030246bb20f8b8d7892e09a86a2d1282ff1a9",
+        "pilot-d069/pilot.py": "e44522278b2ce76dbc8504b024d5ebeeeb07c050812d858830773731b7d2965f",
+        "pilot-d069/compose-pilot.yml": "dd8d78ccf475b6693d1bb68cdc1efbce375cbc0935651573bbf0796c1dd6a0b7"
+      },
+      "persistent_files": {
+        "models/piper/MODEL_CARD": "05d80690fb21967f301e69a86c61b3c2320002f941a0d7f9423c805ae653b59f",
+        "models/piper/es_ES-sharvard-medium.onnx": "234dc4cf0fdb53ccb76b9b2c4d7ef1330364762674c1b78c1b62d8608c528a54",
+        "models/piper/es_ES-sharvard-medium.onnx.json": "1910940c6b480e0f7cbce5e0da45c8cbe2557ccbfd86a5d22cda141a3b65f521"
+      },
+      "parent_image_id": "sha256:c86ea2658d6ab7c02acf2b0a39fd483f17ca70b35d1471fce7010cec47358543"
+    },
+    "archive_sha256": "4b1e5d1931812d0214c55220a59ffbb6536481d73e6fda2fc3167081380f5fe3",
+    "archive_bytes": 1279101739
+  },
+  "archive_status": "D081 verified combined app D079 and worker D069 OCI archive outside PVE",
+  "runtime_policy": {
+    "decision": "D080",
+    "ct_memory_mib": 15360,
+    "ct_swap_mib": 2048,
+    "ct_cores": 3,
+    "ct_stop_gib": 14,
+    "worker_hard_gib": 9,
+    "worker_stop_gib": 8.2,
+    "guard_source_sha256": "150e6c4d6d150ac7cecb2438b053a309f9c528d8987c173e7a6ceea02ed84349"
+  },
+  "archive_sha256": "b6fe07c13bcbc9091cbcc7626f38dbb9db8a73dfbd4402981ee7d15d1a259b43",
+  "archive_bytes": 1279369082,
+  "archive_includes_image_ids": [
+    "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+    "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b"
+  ]
+}

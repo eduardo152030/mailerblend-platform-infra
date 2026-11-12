@@ -1,0 +1,40 @@
+services:
+  voicebox:
+    image: local/voicebox:8af7efe62fab-cpu-d063
+    build:
+      context: ./source
+      dockerfile: ../Dockerfile.cpu
+    container_name: voicebox
+    restart: unless-stopped
+    ports:
+    - 192.168.1.127:17493:17493
+    volumes:
+    - /srv/voicebox/data:/app/data
+    - /srv/voicebox/huggingface:/home/voicebox/.cache/huggingface
+    environment:
+      VOICEBOX_CLOUD_ENABLED: 'false'
+      LOG_LEVEL: info
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      NUMBA_CACHE_DIR: /app/data/cache/numba
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      HF_HUB_OFFLINE: '1'
+    cpus: 3
+    mem_limit: 1600m
+    memswap_limit: 2000m
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import json,urllib.request; d=json.load(urllib.request.urlopen('http://127.0.0.1:17493/health',timeout=5));
+        assert d['status']=='healthy'
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s

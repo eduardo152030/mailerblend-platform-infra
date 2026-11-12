@@ -1,0 +1,24 @@
+[
+  {
+    "address": "proxmox_virtual_environment_container.svc[\"infra-voicebox\"]",
+    "actions": [
+      "update"
+    ],
+    "fields": [
+      "description",
+      "memory"
+    ],
+    "before_memory": [
+      {
+        "dedicated": 10240,
+        "swap": 2048
+      }
+    ],
+    "after_memory": [
+      {
+        "dedicated": 15360,
+        "swap": 2048
+      }
+    ]
+  }
+]

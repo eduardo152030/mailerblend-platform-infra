@@ -1,0 +1,22 @@
+{
+  "instrumentation_attempt01": {
+    "failure": "wrong facts filename d067 instead of immutable image d066",
+    "qwen_loaded": true,
+    "generation_started": false,
+    "rollback": "PASS3072"
+  },
+  "wrapper_preflight02": {
+    "failure": "argparse variable overwritten by Terraform args list; no remote supervisor start",
+    "finally_failed": true,
+    "memory_mib_at_detection": 6144,
+    "recovery": "manual reconciliation verified6144 + reviewed3072rollback; corrected cli variable; resumed attempt02 without reboot or generation repeat"
+  },
+  "saved_ram_rollback": {
+    "automatic_result": "FAIL",
+    "failure": "Terraform file() inconsistent because manifest edited during trial",
+    "service_restore": "PASS automatically",
+    "resource_recovery": "PASS through refreshed scope-reviewed plan executed by operator agent",
+    "local_fix": "wrapper prepares and re-reviews a fresh RAM-only plan if saved apply fails",
+    "local_fix_end_to_end_retested": false
+  }
+}

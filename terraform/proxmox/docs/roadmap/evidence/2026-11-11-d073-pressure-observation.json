@@ -1,0 +1,33 @@
+{
+  "seconds": 60.03082135505974,
+  "samples": 31,
+  "host_available_min": 9483448320,
+  "host_full_avg10_min": 0.03,
+  "host_full_avg10_max": 5.67,
+  "host_full_seconds_delta": 1.188891,
+  "vmstat_delta": {
+    "pswpin": 15079,
+    "pswpout": 71,
+    "allocstall_normal": 0,
+    "pgmajfault": 23053,
+    "pgscan_kswapd": 0,
+    "pgscan_direct": 0,
+    "oom_kill": 0
+  },
+  "groups": {
+    "627": {
+      "pressure_full_seconds_delta": 2.9e-05,
+      "memory_min": 4393107456,
+      "memory_max": 4396445696,
+      "max_events_delta": 0,
+      "oom_delta": 0
+    },
+    "618_cadvisor": {
+      "pressure_full_seconds_delta": 1.18987,
+      "memory_min": 133083136,
+      "memory_max": 134217728,
+      "max_events_delta": 4918,
+      "oom_delta": 0
+    }
+  }
+}

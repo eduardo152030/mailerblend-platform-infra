@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-10",
+  "timezone": "Europe/Madrid",
+  "decision": "D-062",
+  "scope": "future provisioning only, local implementation",
+  "implementation": "DONE LOCAL",
+  "deployment": "NOT PERFORMED",
+  "acceptance": "PENDING VERIFICATION",
+  "tests": {
+    "provisioning": 15,
+    "inventory": 14,
+    "terraform_mock_native": "PASS 1 add/0 change/0 destroy",
+    "terraform_mock_docker": "PASS 1 add/0 change/0 destroy",
+    "terraform_validate": "PASS",
+    "terraform_fmt": "PASS",
+    "notes_freshness": "PASS",
+    "openssh_parser": "PASS sshd -t and -T -C, OpenSSH 8.9p1 extracted locally; no daemon",
+    "gitleaks": "PASS",
+    "local_links": "PASS 152 references",
+    "git_diff_check": "PASS"
+  },
+  "production_calls": false,
+  "lxc_created": false,
+  "existing_ct_ssh_modified": false,
+  "owner_private_key_read_or_copied": false,
+  "commit_push": false,
+  "risks": [
+    "Real CT installation/access/idempotence/rollback not yet tested",
+    "Creation provisioner failure may taint new CT: recover, review state and never blindly reapply replacement"
+  ],
+  "next": "Explicit authorization of first real CT test"
+}

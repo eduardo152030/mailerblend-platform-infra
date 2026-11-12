@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "before": {
+    "id": "68ecf2b01961696f7db2f452a7450ae0a74abe27fd0658de8a4e170df03da8b4",
+    "started_at": "2026-11-10T21:19:44.419298544Z",
+    "restarts": 0
+  },
+  "after": {
+    "id": "68ecf2b01961696f7db2f452a7450ae0a74abe27fd0658de8a4e170df03da8b4",
+    "started_at": "2026-11-10T21:19:44.419298544Z",
+    "restarts": 0
+  },
+  "runs": [
+    {
+      "result": "PASS",
+      "container_unchanged": true
+    },
+    {
+      "result": "PASS",
+      "container_unchanged": true
+    }
+  ]
+}

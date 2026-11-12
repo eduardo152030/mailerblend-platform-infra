@@ -1,0 +1,9 @@
+{
+  "prometheus": {
+    "error": "URLError"
+  },
+  "grafana": {
+    "status": 200,
+    "body": "{\n  \"database\": \"ok\",\n  \"version\": \"12.3.1\",\n  \"commit\": \"3a1c80ca7ce612f309fdc99338dd3c5e486339be\"\n}"
+  }
+}

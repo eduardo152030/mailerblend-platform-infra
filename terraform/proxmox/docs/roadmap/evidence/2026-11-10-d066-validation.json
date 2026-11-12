@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "terraform_fmt": "PASS",
+  "terraform_validate": "PASS",
+  "inventory_tests": 15,
+  "provisioning_tests": 16,
+  "python_compile": "PASS",
+  "restore_shell_syntax": "PASS",
+  "local_links": "PASS",
+  "git_diff_check": "PASS",
+  "terraform_scoped_second_apply": {
+    "added": 0,
+    "changed": 0,
+    "destroyed": 0
+  },
+  "scope": "local validation and scoped CT627 idempotence; no new model trial"
+}

@@ -1,0 +1,194 @@
+{
+  "status": "completed",
+  "job_id": "baa61a95-c7b4-4524-8229-aa697b941710",
+  "continuous": true,
+  "single_ui_submission": true,
+  "text_chars": 1059,
+  "text_sha256": "a29d9c360200ef3277ea5a6f7ccbeff03cf763deef9df32373fb7ee7b10c413c",
+  "model": {
+    "attention": "sdpa",
+    "id": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+    "precision": "float32",
+    "snapshot": "5d83992436eae1d760afd27aff78a71d676296fc"
+  },
+  "backend": {
+    "image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+    "sources": {
+      "core/tokenizer_12hz/configuration_qwen3_tts_tokenizer_v2.py": "9e30c24394b00cb0366d7da3482b7436468acc1cd3da1a6fe614a1d34653a5e3",
+      "core/tokenizer_12hz/modeling_qwen3_tts_tokenizer_v2.py": "844e8dd8c0182ef9c6463c874631c22ef3c5a4fd1899dd657016164cc5379628",
+      "inference/qwen3_tts_model.py": "e1da450732857c1f5fe3e36ebab85db2f6dc6a48caaff6973f463384e30275e4",
+      "inference/qwen3_tts_tokenizer.py": "ac2d855022a1bd21d33ab7b267ec952eef71f81d3f8d969a306139ff1a929515"
+    },
+    "versions": {
+      "accelerate": "1.12.0",
+      "numpy": "1.26.4",
+      "qwen-tts": "0.1.1",
+      "safetensors": "0.8.0",
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.3"
+    }
+  },
+  "generation": {
+    "eos_emitted": true,
+    "sequence_tokens": 718,
+    "seconds": 540.1308246539993,
+    "seed": 42,
+    "max_new_tokens": 1024,
+    "language": "Spanish"
+  },
+  "checkpoint": {
+    "verified": true,
+    "shape": [
+      1029,
+      16
+    ],
+    "dtype": "int64",
+    "codes_sha256": "2e23f85843bd6c2f9d66ed4631264ba7c6d42f82788386d97c971fc0968f4b7b",
+    "reference_frames": 312,
+    "generated_frames": 717,
+    "manifest_sha256": "0b2bab868a85671e23d9b5304b10384800ba44d837a87684e32b99552e02a77a"
+  },
+  "talker_release": {
+    "container_id": "a00a6746ca3bb6ff41e21943a54018950af8bda2400d79256c0e248fe56c80d0",
+    "pid": 0,
+    "running": false,
+    "cgroup_empty": true,
+    "checkpoint_verified": true,
+    "manifest_sha256": "0b2bab868a85671e23d9b5304b10384800ba44d837a87684e32b99552e02a77a"
+  },
+  "talker": {
+    "checkpoint_verified": true,
+    "decoder_called": false,
+    "elapsed_seconds": 563.1807420549958,
+    "eos_emitted": true,
+    "rss_hwm_bytes": 6004088832,
+    "success": true
+  },
+  "decoder": {
+    "chunk_steps": 300,
+    "elapsed_seconds": 89.0898638449944,
+    "encoder_loaded": false,
+    "frames": 1376640,
+    "left_context_steps": 25,
+    "reference_cut_samples": 599040,
+    "rss_hwm_bytes": 2723844096,
+    "sample_rate": 24000,
+    "seconds": 57.36,
+    "success": true,
+    "talker_loaded": false,
+    "wav_sha256": "ee715445de5c817200d9be19825e5a5d6e1934be8c051ee73b805a8c6e0e38c2"
+  },
+  "total_seconds": 676.1796972751617,
+  "wav": {
+    "seconds": 57.36,
+    "frames": 1376640,
+    "rate": 24000,
+    "channels": 1,
+    "sample_width": 2,
+    "bytes": 2753324,
+    "sha256": "6da5f689b7c939ef069c8ede664888ed42fa31bd0d0f3f15e2f03ff9dccc014c",
+    "url": "http://192.168.1.127:17493/audio/baa61a95-c7b4-4524-8229-aa697b941710"
+  },
+  "measurements": {
+    "talker": {
+      "elapsed": 575.4559024150003,
+      "success": true,
+      "peak_ct": 10334625792,
+      "peak_rss": 5128278016,
+      "peak_worker": 4714606592,
+      "peak_ct_anon": 5065228288,
+      "peak_ct_file": 5254254592,
+      "peak_ct_kernel": 432533504,
+      "peak_swap": 4096,
+      "peak_ct_psi": 0.0,
+      "min_host_available": 18072371200,
+      "oom_delta": 0,
+      "ct_events_before": {
+        "low": 0,
+        "high": 251,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_events_after": {
+        "low": 0,
+        "high": 251,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "cpu_seconds": 1319.156941
+    },
+    "decoder": {
+      "elapsed": 99.22128799499478,
+      "success": true,
+      "peak_ct": 7829901312,
+      "peak_rss": 2723655680,
+      "peak_worker": 2175746048,
+      "peak_ct_anon": 2471436288,
+      "peak_ct_file": 4933718016,
+      "peak_ct_kernel": 427638784,
+      "peak_swap": 0,
+      "peak_ct_psi": 0.0,
+      "min_host_available": 20252389376,
+      "oom_delta": 0,
+      "ct_events_before": {
+        "low": 0,
+        "high": 251,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_events_after": {
+        "low": 0,
+        "high": 251,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "cpu_seconds": 187.539936
+    }
+  },
+  "cleanup": {
+    "talker": {
+      "container_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-11-12T07:38:48.749806846Z",
+        "FinishedAt": "2026-11-12T07:48:13.500047972Z"
+      },
+      "worker_cgroup_empty": true,
+      "owned_container_removed": true
+    },
+    "decoder": {
+      "container_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-11-12T07:48:24.239012307Z",
+        "FinishedAt": "2026-11-12T07:49:54.485524952Z"
+      },
+      "worker_cgroup_empty": true,
+      "owned_container_removed": true
+    }
+  },
+  "quality_acceptance": "PENDING user listening",
+  "target_50_55_seconds": "Actual57.36s; no text changes, padding or speed adjustment"
+}

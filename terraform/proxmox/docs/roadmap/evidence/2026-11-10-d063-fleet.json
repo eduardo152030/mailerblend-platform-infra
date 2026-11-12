@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "fleet_rows": 18,
+  "all_infrastructure_and_overall_healthy": true,
+  "all_monitoring_healthy": true,
+  "all_uptimes_present": true,
+  "application_unknown": 0,
+  "pve_627_uptime_delta_seconds": 30.0,
+  "fleet_627": {
+    "A": "0",
+    "B": "1",
+    "C": "1",
+    "D": "1",
+    "E": "4.7401761728395115",
+    "F": "54.83818054199219",
+    "G": "38.892075958101636",
+    "H": "0",
+    "I": "0",
+    "J": "1101",
+    "K": "1",
+    "L": "1",
+    "M": "0"
+  },
+  "dashboard_json_modified": false
+}

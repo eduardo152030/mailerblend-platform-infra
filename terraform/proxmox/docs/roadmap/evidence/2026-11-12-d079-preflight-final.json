@@ -1,0 +1,23 @@
+{
+  "initial_ct_bytes": 4866977792,
+  "anon": 385392640,
+  "file": 4131414016,
+  "kernel": 350171136,
+  "expected_increment_bytes": 4831838208,
+  "safety_margin_bytes": 536870912,
+  "guard_bytes": 10200547328,
+  "projected_with_margin_bytes": 10235686912,
+  "passed": false,
+  "inferences_started": 0,
+  "swap": 0,
+  "psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41846\n",
+  "preservation": {
+    "files_checked": 78,
+    "files_unchanged": false,
+    "profiles_rows_unchanged": true,
+    "sample_rows_unchanged": true,
+    "history_rows_unchanged": true,
+    "only_changed_file": "qwen-jobs/agent-heartbeat.json (expected live heartbeat)",
+    "protected_files_unchanged": true
+  }
+}

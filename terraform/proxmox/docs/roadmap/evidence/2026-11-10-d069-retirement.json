@@ -1,0 +1,68 @@
+{
+  "result": "PASS",
+  "preserved_profile": "1fd00418-2a79-4178-883f-af6c3f5e07ee",
+  "retired_profiles": [
+    "250f2938-c396-47e8-8b75-0bf9179d0252",
+    "285b5291-74b8-406d-b7fe-56c31c4e21cd",
+    "5850a2d6-7349-4235-9e85-c3d92819281b",
+    "6ab4fe0a-5a4f-4dc0-9b84-71b5173edfeb",
+    "6be85095-8500-44cb-8f62-bab88f475d95",
+    "7b6c34d0-861a-4001-ba37-aa6cb379b6e9",
+    "7e127dfb-8e46-42c4-8b26-c88d0c7c65ae",
+    "916ce396-1b15-4621-b63c-5eaf49f03b74"
+  ],
+  "standalone_exports": [
+    {
+      "profile_id": "250f2938-c396-47e8-8b75-0bf9179d0252",
+      "bytes": 2037293,
+      "files": 6,
+      "sha256": "405695501ab8e43b586c4b10ac9624776d3498408992ce70b33d1c55a1b3726a"
+    },
+    {
+      "profile_id": "285b5291-74b8-406d-b7fe-56c31c4e21cd",
+      "bytes": 940654,
+      "files": 4,
+      "sha256": "f163d580807f5ea32cd9d600fcf903aac916aae158ca389023f2d649758c72cf"
+    },
+    {
+      "profile_id": "5850a2d6-7349-4235-9e85-c3d92819281b",
+      "bytes": 380936,
+      "files": 1,
+      "sha256": "16cf5d494a2bcadd9fa88cbe10d2933aae1de8a1173865d61736efbafcf7c69f"
+    },
+    {
+      "profile_id": "6ab4fe0a-5a4f-4dc0-9b84-71b5173edfeb",
+      "bytes": 1744089,
+      "files": 5,
+      "sha256": "8252ef78f7243a10c127d6706e6e03c777ddecfa5cc90c7c38bfe3ad6f2eb16c"
+    },
+    {
+      "profile_id": "6be85095-8500-44cb-8f62-bab88f475d95",
+      "bytes": 380849,
+      "files": 1,
+      "sha256": "07306494c41022d19ba07de0a24e1fe98c5901862e0bef3a83ccf1ee0ea5d40f"
+    },
+    {
+      "profile_id": "7b6c34d0-861a-4001-ba37-aa6cb379b6e9",
+      "bytes": 730965,
+      "files": 2,
+      "sha256": "a61d110fe80d5815d51369b37ea281b09d55172b03e7478c9ab0326f6cc223fd"
+    },
+    {
+      "profile_id": "7e127dfb-8e46-42c4-8b26-c88d0c7c65ae",
+      "bytes": 567,
+      "files": 0,
+      "sha256": "569f12383f5347a3e38909fe919b5b72774a1f0cca1e277f64816c585047473e"
+    },
+    {
+      "profile_id": "916ce396-1b15-4621-b63c-5eaf49f03b74",
+      "bytes": 2059584,
+      "files": 6,
+      "sha256": "3870bac7e724603aff0dbf14971cdf8fdb15964968f180ad792b39618899184c"
+    }
+  ],
+  "backup": "d069-before.tar.gz",
+  "owner_reference_preserved": true,
+  "engine_uninstalls": 0,
+  "integrated_catalog_changes": 0
+}

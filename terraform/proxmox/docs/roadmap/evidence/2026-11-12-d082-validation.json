@@ -1,0 +1,15 @@
+{
+  "runtime-tests.log": {
+    "passed": 36
+  },
+  "provisioning-tests.log": {
+    "passed": 16
+  },
+  "inventory-tests-final.log": {
+    "passed": 16
+  },
+  "terraform_validate": "PASS",
+  "local_md_links": "PASS",
+  "privacy_scan": "PASS; two negative synthetic fixtures reviewed",
+  "no_model_loaded_for_tests": true
+}

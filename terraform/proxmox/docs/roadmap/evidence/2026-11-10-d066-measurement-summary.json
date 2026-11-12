@@ -1,0 +1,64 @@
+{
+  "per_stage": {
+    "candidate_start": {
+      "samples": 3,
+      "start_seconds": 5.741,
+      "end_seconds": 9.431,
+      "ct_memory_current_max_bytes": 1587007488,
+      "candidate_rss_max_bytes": 315269120,
+      "working_set_max_bytes": 1393917952,
+      "swap_max_bytes": 0
+    },
+    "load": {
+      "samples": 56,
+      "start_seconds": 10.251,
+      "end_seconds": 23.682,
+      "ct_memory_current_max_bytes": 3109052416,
+      "candidate_rss_max_bytes": 1831522304,
+      "working_set_max_bytes": 2809376768,
+      "swap_max_bytes": 4096
+    },
+    "short": {
+      "samples": 29,
+      "start_seconds": 23.683,
+      "end_seconds": 28.712,
+      "ct_memory_current_max_bytes": 3800338432,
+      "candidate_rss_max_bytes": 2682695680,
+      "working_set_max_bytes": 2626428928,
+      "swap_max_bytes": 4096
+    },
+    "unload_kokoro": {
+      "samples": 1,
+      "start_seconds": 3.521,
+      "end_seconds": 3.521,
+      "ct_memory_current_max_bytes": 1209802752,
+      "candidate_rss_max_bytes": 0,
+      "working_set_max_bytes": 1022853120,
+      "swap_max_bytes": 0
+    }
+  },
+  "peak_sample": {
+    "elapsed_seconds": 28.712,
+    "phase": "short",
+    "ct_memory_current_bytes": 3800338432,
+    "ct_memory_peak_bytes": 3803488256,
+    "ct_inactive_file_bytes": 1173909504,
+    "ct_working_set_bytes": 2626428928,
+    "ct_swap_bytes": 4096,
+    "memory_events": {
+      "low": "0",
+      "high": "0",
+      "max": "0",
+      "oom": "0",
+      "oom_kill": "0",
+      "oom_group_kill": "0"
+    },
+    "VmHWM_bytes": 2682695680,
+    "VmRSS_bytes": 2682695680,
+    "RssAnon_bytes": 910995456,
+    "RssFile_bytes": 1771700224,
+    "VmSwap_bytes": 0
+  },
+  "sample_interval_max_seconds": 2.594000000000001,
+  "limits": "sampled until safety stop; no claim of completed generation"
+}

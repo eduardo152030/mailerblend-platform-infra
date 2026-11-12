@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "before": {
+    "id": "b59bb4eb26eb3a5b651d6ab8003ada92c95529a4d339711af1e1ddb07c1205ec",
+    "started": "2026-11-10T19:37:31.945281845Z",
+    "restarts": 0,
+    "image": "sha256:c86ea2658d6ab7c02acf2b0a39fd483f17ca70b35d1471fce7010cec47358543"
+  },
+  "after_each": [
+    {
+      "id": "b59bb4eb26eb3a5b651d6ab8003ada92c95529a4d339711af1e1ddb07c1205ec",
+      "started": "2026-11-10T19:37:31.945281845Z",
+      "restarts": 0,
+      "image": "sha256:c86ea2658d6ab7c02acf2b0a39fd483f17ca70b35d1471fce7010cec47358543"
+    },
+    {
+      "id": "b59bb4eb26eb3a5b651d6ab8003ada92c95529a4d339711af1e1ddb07c1205ec",
+      "started": "2026-11-10T19:37:31.945281845Z",
+      "restarts": 0,
+      "image": "sha256:c86ea2658d6ab7c02acf2b0a39fd483f17ca70b35d1471fce7010cec47358543"
+    }
+  ],
+  "no_recreate_no_restart": true
+}

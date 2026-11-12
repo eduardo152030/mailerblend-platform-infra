@@ -1,0 +1,12 @@
+{
+  "result": "PASS_WITH_SWAP_OCCUPANCY",
+  "recorded_at_utc": "2026-11-11T08:54:02.625329+00:00",
+  "duration_seconds": 10,
+  "ct_swap_before_bytes": 239165440,
+  "ct_swap_after_bytes": 239165440,
+  "ct_memory_full_psi_avg10": 0.0,
+  "host_memory_full_psi_avg10_after": 1.13,
+  "host_available_kib_after": 8891904,
+  "ct_oom": 0,
+  "scope": "Read-only after engine helpers; global host activity is not attributed to CT627"
+}

@@ -1,0 +1,28 @@
+{
+  "result": {
+    "stages": {},
+    "generation_end": null,
+    "model_dtype": "float32",
+    "text": "Hola, soy Eduardo.",
+    "max_new_tokens": 64,
+    "seed": 42,
+    "thread_budget": {
+      "intraop": 2,
+      "interop": 1
+    },
+    "classification": "F",
+    "error_type": "RuntimeError",
+    "error": "cannot cache function '__o_fold': no locator available for file '/usr/local/lib/python3.12/site-packages/librosa/core/notation.py'",
+    "total_seconds": 8.204836257733405,
+    "rss_hwm_bytes": 506544128
+  },
+  "events": [
+    {
+      "elapsed": 8.204401327297091,
+      "stage": "failure",
+      "event": "error",
+      "error_type": "RuntimeError"
+    }
+  ],
+  "wav_exists": false
+}

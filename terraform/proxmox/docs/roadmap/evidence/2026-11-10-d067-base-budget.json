@@ -1,0 +1,30 @@
+{
+  "repo": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "revision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "measurements": [
+    {
+      "file": "model.safetensors",
+      "parameters_by_dtype": {
+        "BF16": 914643008
+      },
+      "fp32_bytes": 3658572032,
+      "bf16_bytes": 1829286016,
+      "header_bytes_read": 58256
+    },
+    {
+      "file": "speech_tokenizer/model.safetensors",
+      "parameters_by_dtype": {
+        "F32": 170557441
+      },
+      "fp32_bytes": 682229764,
+      "bf16_bytes": 341114882,
+      "header_bytes_read": 63328
+    }
+  ],
+  "fp32_weights_bytes": 4340801796,
+  "bf16_weights_bytes": 2170400898,
+  "load_rss": "NOT_MEASURED",
+  "inference_peak": "NOT_MEASURED",
+  "backend_installed": "CPU FP32; BF16 patch D066 only affects CustomVoice",
+  "next_gate": "separate BF16 Base candidate and real recordings; no Base load in D067"
+}

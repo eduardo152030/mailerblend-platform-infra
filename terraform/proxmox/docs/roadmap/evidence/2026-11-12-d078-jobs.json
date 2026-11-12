@@ -1,0 +1,132 @@
+{
+  "matches": [
+    {
+      "job_id": "73a3755f5b194d33aba379e43bf6d72b",
+      "request": {
+        "profile_id": "1fd00418-2a79-4178-883f-af6c3f5e07ee",
+        "seed": 42,
+        "language": "es",
+        "model_size": "0.6B"
+      },
+      "text_sha256": "c09d243905eac563e8379e6bc496a32347f3c1dc445ed577e8240baacfc47972",
+      "text_characters": 573,
+      "state": {
+        "status": "failed",
+        "phase": "talker",
+        "started_at": 1794432020.3692942,
+        "job": "73a3755f5b194d33aba379e43bf6d72b",
+        "error": "talker: CT_MEMORY_9_5_GIB",
+        "finished_at": 1794432048.8170297,
+        "checkpoint_preserved": false
+      },
+      "files": [
+        {
+          "name": "text.txt",
+          "bytes": 584,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:20:20.187977+00:00"
+        },
+        {
+          "name": "cancel.flag",
+          "bytes": 0,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:20:49.030022+00:00"
+        },
+        {
+          "name": "state.json",
+          "bytes": 220,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:20:48.816021+00:00"
+        },
+        {
+          "name": "talker-supervisor.json",
+          "bytes": 57891,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:20:47.661020+00:00"
+        },
+        {
+          "name": "events.jsonl",
+          "bytes": 120,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:20:33.584998+00:00"
+        },
+        {
+          "name": "request.json",
+          "bytes": 749,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:20:20.187977+00:00"
+        }
+      ]
+    },
+    {
+      "job_id": "86dde73bfe39498cba26658bd7849f1c",
+      "request": {
+        "profile_id": "1fd00418-2a79-4178-883f-af6c3f5e07ee",
+        "seed": 42,
+        "language": "es",
+        "model_size": "0.6B"
+      },
+      "text_sha256": "c09d243905eac563e8379e6bc496a32347f3c1dc445ed577e8240baacfc47972",
+      "text_characters": 573,
+      "state": {
+        "status": "failed",
+        "phase": "talker",
+        "started_at": 1794431944.8947988,
+        "job": "86dde73bfe39498cba26658bd7849f1c",
+        "error": "talker: CT_MEMORY_9_5_GIB",
+        "finished_at": 1794431972.2767017,
+        "checkpoint_preserved": false
+      },
+      "files": [
+        {
+          "name": "text.txt",
+          "bytes": 584,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:19:04.750860+00:00"
+        },
+        {
+          "name": "cancel.flag",
+          "bytes": 0,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:19:32.404903+00:00"
+        },
+        {
+          "name": "state.json",
+          "bytes": 220,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:19:32.275903+00:00"
+        },
+        {
+          "name": "talker-supervisor.json",
+          "bytes": 57399,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:19:31.140901+00:00"
+        },
+        {
+          "name": "events.jsonl",
+          "bytes": 120,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:19:17.245879+00:00"
+        },
+        {
+          "name": "request.json",
+          "bytes": 749,
+          "mode": "0o600",
+          "mtime_utc": "2026-11-11T21:19:04.750860+00:00"
+        }
+      ]
+    }
+  ],
+  "history": [
+    [
+      "73a3755f-5b19-4d33-aba3-79e43bf6d72b",
+      "failed",
+      "Trabajo Qwen ya existente; se conserva el checkpoint y no se repite Talker automáticamente",
+      "qwen",
+      "0.6B",
+      "1fd00418-2a79-4178-883f-af6c3f5e07ee",
+      "2026-11-11 21:20:20.063565",
+      573
+    ]
+  ]
+}

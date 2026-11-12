@@ -1,0 +1,608 @@
+{
+  "measurements": [
+    {
+      "elapsed": 2.7851861072704196,
+      "ct_current": 4438372352,
+      "ct_swap": 431857664,
+      "ct_memory_stat": {
+        "anon": 342155264,
+        "file": 3628941312,
+        "kernel": 463994880,
+        "file_dirty": 405504,
+        "inactive_file": 2772901888,
+        "active_file": 855732224
+      },
+      "ct_cpu": {
+        "usage_usec": 8622867324,
+        "user_usec": 6278176263,
+        "system_usec": 2344691060,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "ct_events": {
+        "low": 0,
+        "high": 0,
+        "max": 115932,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=12468402\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11946709\n",
+      "host_pressure": "some avg10=0.44 avg60=0.43 avg300=0.44 total=2030995193945\nfull avg10=0.35 avg60=0.33 avg300=0.35 total=1834363086296\n",
+      "host_available": 9793347584,
+      "vmstat": {
+        "pswpin": 85681812,
+        "pswpout": 57404904,
+        "oom_kill": 6
+      },
+      "worker_current": 126906368,
+      "worker_swap": 0,
+      "worker_memory_stat": {
+        "anon": 124092416,
+        "file": 16384,
+        "kernel": 2568192
+      },
+      "worker_cpu": {
+        "usage_usec": 932832,
+        "user_usec": 757864,
+        "system_usec": 174967,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 10,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "worker_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "worker_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+      "rss_bytes": 231784448
+    },
+    {
+      "elapsed": 3.980374419130385,
+      "ct_current": 4503519232,
+      "ct_swap": 431857664,
+      "ct_memory_stat": {
+        "anon": 395476992,
+        "file": 3628986368,
+        "kernel": 475983872,
+        "file_dirty": 409600,
+        "inactive_file": 2772901888,
+        "active_file": 855777280
+      },
+      "ct_cpu": {
+        "usage_usec": 8624236029,
+        "user_usec": 6279268597,
+        "system_usec": 2344967431,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "ct_events": {
+        "low": 0,
+        "high": 0,
+        "max": 115932,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=12468452\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11946759\n",
+      "host_pressure": "some avg10=0.36 avg60=0.42 avg300=0.44 total=2030995199024\nfull avg10=0.29 avg60=0.31 avg300=0.34 total=1834363089489\n",
+      "host_available": 9783242752,
+      "vmstat": {
+        "pswpin": 85681815,
+        "pswpout": 57404904,
+        "oom_kill": 6
+      },
+      "worker_current": 180662272,
+      "worker_swap": 0,
+      "worker_memory_stat": {
+        "anon": 177729536,
+        "file": 16384,
+        "kernel": 2875392
+      },
+      "worker_cpu": {
+        "usage_usec": 2089282,
+        "user_usec": 1797732,
+        "system_usec": 291550,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 22,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "worker_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "worker_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+      "rss_bytes": 289443840
+    },
+    {
+      "elapsed": 5.194145772606134,
+      "ct_current": 4536037376,
+      "ct_swap": 431857664,
+      "ct_memory_stat": {
+        "anon": 427802624,
+        "file": 3628986368,
+        "kernel": 476123136,
+        "file_dirty": 409600,
+        "inactive_file": 2772901888,
+        "active_file": 855777280
+      },
+      "ct_cpu": {
+        "usage_usec": 8625447436,
+        "user_usec": 6280320425,
+        "system_usec": 2345127010,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "ct_events": {
+        "low": 0,
+        "high": 0,
+        "max": 115932,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=12468452\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11946759\n",
+      "host_pressure": "some avg10=0.36 avg60=0.42 avg300=0.44 total=2030995215572\nfull avg10=0.29 avg60=0.31 avg300=0.34 total=1834363099350\n",
+      "host_available": 9734184960,
+      "vmstat": {
+        "pswpin": 85681819,
+        "pswpout": 57404904,
+        "oom_kill": 6
+      },
+      "worker_current": 213184512,
+      "worker_swap": 0,
+      "worker_memory_stat": {
+        "anon": 210055168,
+        "file": 16384,
+        "kernel": 3018752
+      },
+      "worker_cpu": {
+        "usage_usec": 3278360,
+        "user_usec": 2834105,
+        "system_usec": 444254,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 34,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "worker_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "worker_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+      "rss_bytes": 325926912
+    },
+    {
+      "elapsed": 6.396978039294481,
+      "ct_current": 4599615488,
+      "ct_swap": 431857664,
+      "ct_memory_stat": {
+        "anon": 490561536,
+        "file": 3628990464,
+        "kernel": 476868608,
+        "file_dirty": 409600,
+        "inactive_file": 2772901888,
+        "active_file": 855777280
+      },
+      "ct_cpu": {
+        "usage_usec": 8626741747,
+        "user_usec": 6281454583,
+        "system_usec": 2345287164,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "ct_events": {
+        "low": 0,
+        "high": 0,
+        "max": 115932,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=12468452\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11946759\n",
+      "host_pressure": "some avg10=0.29 avg60=0.40 avg300=0.43 total=2030995215572\nfull avg10=0.23 avg60=0.30 avg300=0.34 total=1834363099350\n",
+      "host_available": 9590947840,
+      "vmstat": {
+        "pswpin": 85681821,
+        "pswpout": 57404904,
+        "oom_kill": 6
+      },
+      "worker_current": 276709376,
+      "worker_swap": 0,
+      "worker_memory_stat": {
+        "anon": 272773120,
+        "file": 20480,
+        "kernel": 3756032
+      },
+      "worker_cpu": {
+        "usage_usec": 4545971,
+        "user_usec": 3948705,
+        "system_usec": 597266,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 46,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "worker_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "worker_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+      "rss_bytes": 413745152
+    },
+    {
+      "elapsed": 7.630480855703354,
+      "ct_current": 4546715648,
+      "ct_swap": 431857664,
+      "ct_memory_stat": {
+        "anon": 555339776,
+        "file": 3510730752,
+        "kernel": 477413376,
+        "file_dirty": 520192,
+        "inactive_file": 2637549568,
+        "active_file": 872869888
+      },
+      "ct_cpu": {
+        "usage_usec": 8627904089,
+        "user_usec": 6282469902,
+        "system_usec": 2345434186,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "ct_events": {
+        "low": 0,
+        "high": 0,
+        "max": 115932,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=12468620\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11946927\n",
+      "host_pressure": "some avg10=0.24 avg60=0.39 avg300=0.43 total=2030995224164\nfull avg10=0.19 avg60=0.29 avg300=0.34 total=1834363105424\n",
+      "host_available": 9515278336,
+      "vmstat": {
+        "pswpin": 85681825,
+        "pswpout": 57404904,
+        "oom_kill": 6
+      },
+      "worker_current": 350875648,
+      "worker_swap": 0,
+      "worker_memory_stat": {
+        "anon": 337272832,
+        "file": 9105408,
+        "kernel": 4296704
+      },
+      "worker_cpu": {
+        "usage_usec": 5613273,
+        "user_usec": 4912111,
+        "system_usec": 701162,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 58,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "worker_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "worker_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=184\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=184\n",
+      "rss_bytes": 509034496
+    },
+    {
+      "elapsed": 8.855393809266388,
+      "ct_current": 4836454400,
+      "ct_swap": 431857664,
+      "ct_memory_stat": {
+        "anon": 1263472640,
+        "file": 3089911808,
+        "kernel": 479948800,
+        "file_dirty": 524288,
+        "inactive_file": 1970368512,
+        "active_file": 1119109120
+      },
+      "ct_cpu": {
+        "usage_usec": 8629046514,
+        "user_usec": 6283188133,
+        "system_usec": 2345858381,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "ct_events": {
+        "low": 0,
+        "high": 0,
+        "max": 115932,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=12469547\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11947854\n",
+      "host_pressure": "some avg10=0.24 avg60=0.39 avg300=0.43 total=2030995244069\nfull avg10=0.19 avg60=0.29 avg300=0.34 total=1834363124625\n",
+      "host_available": 9029234688,
+      "vmstat": {
+        "pswpin": 85681825,
+        "pswpout": 57404905,
+        "oom_kill": 6
+      },
+      "worker_current": 1416544256,
+      "worker_swap": 0,
+      "worker_memory_stat": {
+        "anon": 1045925888,
+        "file": 363696128,
+        "kernel": 6836224
+      },
+      "worker_cpu": {
+        "usage_usec": 6733003,
+        "user_usec": 5622838,
+        "system_usec": 1110165,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 70,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "worker_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "worker_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1097\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=1097\n",
+      "rss_bytes": 1571897344
+    },
+    {
+      "elapsed": 10.07857269141823,
+      "ct_current": 4878258176,
+      "ct_swap": 431857664,
+      "ct_memory_stat": {
+        "anon": 1986400256,
+        "file": 2406555648,
+        "kernel": 482508800,
+        "file_dirty": 524288,
+        "inactive_file": 916062208,
+        "active_file": 1490137088
+      },
+      "ct_cpu": {
+        "usage_usec": 8630041940,
+        "user_usec": 6283744022,
+        "system_usec": 2346297917,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "ct_events": {
+        "low": 0,
+        "high": 0,
+        "max": 115932,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=12471686\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11949994\n",
+      "host_pressure": "some avg10=0.37 avg60=0.41 avg300=0.43 total=2030995260958\nfull avg10=0.34 avg60=0.32 avg300=0.34 total=1834363141105\n",
+      "host_available": 8317546496,
+      "vmstat": {
+        "pswpin": 85681826,
+        "pswpout": 57404905,
+        "oom_kill": 6
+      },
+      "worker_current": 2504052736,
+      "worker_swap": 0,
+      "worker_memory_stat": {
+        "anon": 1768783872,
+        "file": 725508096,
+        "kernel": 9412608
+      },
+      "worker_cpu": {
+        "usage_usec": 7700985,
+        "user_usec": 6168211,
+        "system_usec": 1532773,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 82,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "worker_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "worker_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3302\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=3302\n",
+      "rss_bytes": 2655993856
+    },
+    {
+      "elapsed": 11.55588461831212,
+      "ct_current": 5246033920,
+      "ct_swap": 465879040,
+      "ct_memory_stat": {
+        "anon": 2641154048,
+        "file": 2172456960,
+        "kernel": 424259584,
+        "file_dirty": 524288,
+        "inactive_file": 803033088,
+        "active_file": 1368952832
+      },
+      "ct_cpu": {
+        "usage_usec": 8631094829,
+        "user_usec": 6284281177,
+        "system_usec": 2346813652,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "ct_events": {
+        "low": 0,
+        "high": 0,
+        "max": 115932,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_pressure": "some avg10=0.54 avg60=0.09 avg300=0.02 total=12540936\nfull avg10=0.54 avg60=0.09 avg300=0.02 total=12019165\n",
+      "host_pressure": "some avg10=2.30 avg60=0.75 avg300=0.50 total=2030995524837\nfull avg10=2.09 avg60=0.63 avg300=0.41 total=1834363386134\n",
+      "host_available": 7559081984,
+      "vmstat": {
+        "pswpin": 85681853,
+        "pswpout": 57420827,
+        "oom_kill": 6
+      },
+      "worker_current": 3529826304,
+      "worker_swap": 0,
+      "worker_memory_stat": {
+        "anon": 2457538560,
+        "file": 1060163584,
+        "kernel": 12124160
+      },
+      "worker_cpu": {
+        "usage_usec": 8706560,
+        "user_usec": 6695651,
+        "system_usec": 2010908,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 97,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "worker_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "worker_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=56574\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=56549\n",
+      "rss_bytes": 3664461824
+    }
+  ],
+  "classification": "E",
+  "timeout_max_seconds": 300,
+  "soft_external_deadline": 295,
+  "baseline": {
+    "elapsed": 2.7082860469818115e-06,
+    "ct_current": 4232863744,
+    "ct_swap": 431857664,
+    "ct_memory_stat": {
+      "anon": 208420864,
+      "file": 3628482560,
+      "kernel": 392929280,
+      "file_dirty": 303104,
+      "inactive_file": 2772783104,
+      "active_file": 855486464
+    },
+    "ct_cpu": {
+      "usage_usec": 8620662195,
+      "user_usec": 6276904218,
+      "system_usec": 2343757977,
+      "core_sched.force_idle_usec": 0,
+      "nr_periods": 0,
+      "nr_throttled": 0,
+      "throttled_usec": 0,
+      "nr_bursts": 0,
+      "burst_usec": 0
+    },
+    "ct_events": {
+      "low": 0,
+      "high": 0,
+      "max": 115932,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "ct_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=12468383\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=11946690\n",
+    "host_pressure": "some avg10=0.54 avg60=0.45 avg300=0.44 total=2030995193533\nfull avg10=0.43 avg60=0.34 avg300=0.35 total=1834363086163\n",
+    "host_available": 9870569472,
+    "vmstat": {
+      "pswpin": 85681806,
+      "pswpout": 57404904,
+      "oom_kill": 6
+    }
+  },
+  "at_utc": "2026-11-11T16:21:22.264039+00:00",
+  "reason": "RESOURCE_SWAP_AVAILABLE_GUARD",
+  "stop_seconds": 3.531440525315702,
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 137,
+    "Error": "",
+    "StartedAt": "2026-11-11T16:21:23.241972372Z",
+    "FinishedAt": "2026-11-11T16:21:38.937934171Z"
+  },
+  "elapsed_total": 18.61141170375049
+}

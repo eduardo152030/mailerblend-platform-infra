@@ -1,0 +1,3 @@
+# Unified patches require a single-space marker for empty context lines.
+# Preserve their syntax while retaining whitespace checks for actual source files.
+services/infra-voicebox/**/*.patch whitespace=-blank-at-eol

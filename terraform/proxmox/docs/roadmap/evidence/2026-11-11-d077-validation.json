@@ -1,0 +1,40 @@
+{
+  "local_unittests_passed": 17,
+  "py_compile_passed": true,
+  "synthetic_recovery_new_process_passed": true,
+  "actual_imports_passed": true,
+  "initial_import_failure": "HF relative symlinks broken when binding only tokenizer subdirectory; fixed by individual config/weights read-only mounts",
+  "meta_layout": {
+    "all_tensors_meta": true,
+    "decoder_tensors": 271,
+    "forward_called": false,
+    "weights_loaded": false
+  },
+  "decoder_load_synthetic_only": {
+    "encoder_never_read": true,
+    "nonpersistent_buffers_cpu": true,
+    "real_model_weights_loaded": false,
+    "synthetic_weight_only": true
+  },
+  "chunk_markers": {
+    "results": {
+      "120": {
+        "chunks": 6,
+        "context": 25,
+        "markers_preserved": true
+      },
+      "300": {
+        "chunks": 3,
+        "context": 25,
+        "markers_preserved": true
+      }
+    },
+    "structural_only_not_acoustic_equivalence": true
+  },
+  "model_weights_loaded": false,
+  "audio_generated": false,
+  "real_acoustic_equivalence_established": false,
+  "cancel_parent_and_child_passed": true,
+  "no_real_checkpoint": true,
+  "no_inference_authorized": true
+}

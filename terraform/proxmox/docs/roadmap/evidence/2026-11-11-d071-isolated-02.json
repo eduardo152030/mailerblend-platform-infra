@@ -1,0 +1,324 @@
+{
+  "status": "TECHNICAL_PASS",
+  "measurements": [
+    {
+      "elapsed": 2.1927948351949453,
+      "memory_current": 2701737984,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7109832131\nuser_usec 5206938791\nsystem_usec 1902893340\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 9448988672,
+      "host_pressure": "some avg10=0.42 avg60=0.60 avg300=1.06 total=2030805301302\nfull avg10=0.36 avg60=0.50 avg300=0.82 total=1834196475210\n"
+    },
+    {
+      "elapsed": 4.326469144783914,
+      "memory_current": 2864939008,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7112222941\nuser_usec 5208924233\nsystem_usec 1903298708\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 9297989632,
+      "host_pressure": "some avg10=0.34 avg60=0.58 avg300=1.05 total=2030805304353\nfull avg10=0.29 avg60=0.49 avg300=0.81 total=1834196477959\n"
+    },
+    {
+      "elapsed": 6.433316657319665,
+      "memory_current": 2987515904,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7114445519\nuser_usec 5210852538\nsystem_usec 1903592981\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 9169756160,
+      "host_pressure": "some avg10=0.28 avg60=0.56 avg300=1.04 total=2030805304353\nfull avg10=0.24 avg60=0.47 avg300=0.81 total=1834196477959\n"
+    },
+    {
+      "elapsed": 8.542406311258674,
+      "memory_current": 3597303808,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7117085683\nuser_usec 5213087429\nsystem_usec 1903998254\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8647176192,
+      "host_pressure": "some avg10=0.23 avg60=0.54 avg300=1.03 total=2030805305080\nfull avg10=0.20 avg60=0.45 avg300=0.80 total=1834196478574\n"
+    },
+    {
+      "elapsed": 10.719725787639618,
+      "memory_current": 3617574912,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7120586732\nuser_usec 5216354154\nsystem_usec 1904232578\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8550891520,
+      "host_pressure": "some avg10=0.19 avg60=0.52 avg300=1.03 total=2030805306053\nfull avg10=0.16 avg60=0.44 avg300=0.80 total=1834196479358\n"
+    },
+    {
+      "elapsed": 13.090263152495027,
+      "memory_current": 3861766144,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7124474545\nuser_usec 5220041031\nsystem_usec 1904433513\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8335986688,
+      "host_pressure": "some avg10=0.12 avg60=0.49 avg300=1.01 total=2030805311658\nfull avg10=0.10 avg60=0.41 avg300=0.78 total=1834196481167\n"
+    },
+    {
+      "elapsed": 15.266338021494448,
+      "memory_current": 3862753280,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7127076153\nuser_usec 5222564820\nsystem_usec 1904511333\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8226578432,
+      "host_pressure": "some avg10=0.10 avg60=0.47 avg300=1.00 total=2030805311659\nfull avg10=0.08 avg60=0.40 avg300=0.78 total=1834196481168\n"
+    },
+    {
+      "elapsed": 17.449098396115005,
+      "memory_current": 4101173248,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7131486339\nuser_usec 5226706409\nsystem_usec 1904779929\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8027455488,
+      "host_pressure": "some avg10=0.08 avg60=0.46 avg300=1.00 total=2030805311659\nfull avg10=0.07 avg60=0.38 avg300=0.77 total=1834196481168\n"
+    },
+    {
+      "elapsed": 19.73769774939865,
+      "memory_current": 4191252480,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7135746726\nuser_usec 5230830981\nsystem_usec 1904915745\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8009072640,
+      "host_pressure": "some avg10=0.06 avg60=0.44 avg300=0.99 total=2030805311815\nfull avg10=0.05 avg60=0.37 avg300=0.77 total=1834196481317\n"
+    },
+    {
+      "elapsed": 22.025289496406913,
+      "memory_current": 4217032704,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7139390223\nuser_usec 5234343462\nsystem_usec 1905046761\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8038064128,
+      "host_pressure": "some avg10=0.05 avg60=0.43 avg300=0.98 total=2030805311815\nfull avg10=0.04 avg60=0.36 avg300=0.76 total=1834196481317\n"
+    },
+    {
+      "elapsed": 24.13431606348604,
+      "memory_current": 4218589184,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7141961330\nuser_usec 5236853017\nsystem_usec 1905108313\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8038215680,
+      "host_pressure": "some avg10=0.04 avg60=0.41 avg300=0.98 total=2030805312101\nfull avg10=0.03 avg60=0.35 avg300=0.76 total=1834196481363\n"
+    },
+    {
+      "elapsed": 26.248539517633617,
+      "memory_current": 3471519744,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7144959921\nuser_usec 5239681149\nsystem_usec 1905278772\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8740093952,
+      "host_pressure": "some avg10=0.03 avg60=0.40 avg300=0.97 total=2030805312105\nfull avg10=0.03 avg60=0.33 avg300=0.75 total=1834196481367\n"
+    },
+    {
+      "elapsed": 28.358567781746387,
+      "memory_current": 4091977728,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7147724924\nuser_usec 5242157327\nsystem_usec 1905567596\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8286076928,
+      "host_pressure": "some avg10=0.03 avg60=0.39 avg300=0.96 total=2030805312105\nfull avg10=0.02 avg60=0.32 avg300=0.75 total=1834196481367\n"
+    },
+    {
+      "elapsed": 30.50958351045847,
+      "memory_current": 4283424768,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7151952581\nuser_usec 5246197285\nsystem_usec 1905755295\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8150364160,
+      "host_pressure": "some avg10=0.02 avg60=0.37 avg300=0.96 total=2030805312180\nfull avg10=0.02 avg60=0.31 avg300=0.74 total=1834196481376\n"
+    },
+    {
+      "elapsed": 32.66161594539881,
+      "memory_current": 4316913664,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7155059049\nuser_usec 5249210273\nsystem_usec 1905848776\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8109232128,
+      "host_pressure": "some avg10=0.02 avg60=0.36 avg300=0.95 total=2030805320042\nfull avg10=0.01 avg60=0.30 avg300=0.74 total=1834196484113\n"
+    },
+    {
+      "elapsed": 34.824674534611404,
+      "memory_current": 4320878592,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7157768107\nuser_usec 5251869396\nsystem_usec 1905898711\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 8144232448,
+      "host_pressure": "some avg10=0.01 avg60=0.34 avg300=0.94 total=2030805320940\nfull avg10=0.01 avg60=0.28 avg300=0.72 total=1834196484129\n"
+    },
+    {
+      "elapsed": 37.09054647758603,
+      "memory_current": 3002695680,
+      "swap": 424157184,
+      "events": {
+        "low": "0",
+        "high": "0",
+        "max": "113861",
+        "oom": "0",
+        "oom_kill": "0",
+        "oom_group_kill": "0"
+      },
+      "cpu": "usage_usec 7161400559\nuser_usec 5255303850\nsystem_usec 1906096708\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "host_available": 9321762816,
+      "host_pressure": "some avg10=0.01 avg60=0.32 avg300=0.93 total=2030805320940\nfull avg10=0.00 avg60=0.27 avg300=0.72 total=1834196484129\n"
+    }
+  ],
+  "worker_job_id": "d935fc58-5540-4859-b7fe-aefe8cb001a3",
+  "job": {
+    "profile_id": "1fd00418-2a79-4178-883f-af6c3f5e07ee",
+    "request_id": "d935fc58-5540-4859-b7fe-aefe8cb001a3",
+    "parent_generation_id": null,
+    "timeout_seconds": 180,
+    "id": "d935fc58-5540-4859-b7fe-aefe8cb001a3",
+    "status": "completed",
+    "created_at": 1794389216.7960002,
+    "started_at": 1794389216.796639,
+    "pid": null,
+    "peak_container_bytes": 1603072000,
+    "result": {
+      "audio_seconds": 7.3723356009070296,
+      "sample_rate": 22050,
+      "elapsed_seconds": 34.005491006188095,
+      "process_peak_rss_bytes": 1657012224,
+      "stages": [
+        {
+          "stage": "melo_loaded",
+          "elapsed_seconds": 6.157736683264375,
+          "seconds": 0.7641727654263377
+        },
+        {
+          "stage": "source_synthesized",
+          "elapsed_seconds": 23.726740023121238,
+          "seconds": 17.568807092495263
+        },
+        {
+          "stage": "converter_loaded",
+          "elapsed_seconds": 24.811105517670512,
+          "seconds": 0.9413842111825943
+        },
+        {
+          "stage": "owner_embedding_extracted",
+          "elapsed_seconds": 25.599407970905304,
+          "seconds": 0.7880056640133262
+        },
+        {
+          "stage": "converted",
+          "elapsed_seconds": 33.98701998684555,
+          "seconds": 8.387398392893374
+        }
+      ]
+    },
+    "finished_at": 1794389251.7471073
+  }
+}

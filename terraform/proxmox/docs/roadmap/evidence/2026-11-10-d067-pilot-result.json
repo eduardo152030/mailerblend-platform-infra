@@ -1,0 +1,73 @@
+{
+  "decision": "D067",
+  "started_utc": "2026-11-10T14:06:37.809643+00:00",
+  "result": "FAIL",
+  "stages": {
+    "load": {
+      "result": "PASS",
+      "api_load_seconds": 9.842643313109875
+    }
+  },
+  "threshold_bytes": 5905580032,
+  "threshold_swap_growth_bytes": 67108864,
+  "original_image": "sha256:7f2e6f7e6a2d09c77ebd35424a7641249e51b8ff0374bc9c4acb1f7393cfcd4c",
+  "baseline_original_rss": {
+    "VmHWM_bytes": 331960320,
+    "VmRSS_bytes": 331960320,
+    "RssAnon_bytes": 239423488,
+    "RssFile_bytes": 92536832,
+    "VmSwap_bytes": 0
+  },
+  "candidate_image": "sha256:4de8a649d267fb9f4fa9d7049f264a1e6896718c7892f70706abb4a46d75430d",
+  "load_facts": {
+    "load_seconds": 3.8743036007508636,
+    "main_parameters": {
+      "torch.bfloat16": 402
+    },
+    "codec_parameters": {
+      "torch.bfloat16": 400
+    },
+    "attention": "sdpa",
+    "device": "cpu"
+  },
+  "failure_phase": "short",
+  "error": "HALT: generation deadline short",
+  "other_target_checks": 62,
+  "samples": 3347,
+  "maxima": {
+    "ct_memory_current_bytes": 4527128576,
+    "ct_memory_peak_bytes": 4529487872,
+    "ct_inactive_file_bytes": 1444974592,
+    "ct_working_set_bytes": 3761270784,
+    "ct_swap_bytes": 4096,
+    "VmHWM_bytes": 3250225152,
+    "VmRSS_bytes": 3250225152,
+    "RssAnon_bytes": 1195016192,
+    "RssFile_bytes": 2055208960,
+    "VmSwap_bytes": 0
+  },
+  "elapsed_seconds": 624.0165880573913,
+  "oom_events_final": {
+    "low": "0",
+    "high": "0",
+    "max": "0",
+    "oom": "0",
+    "oom_kill": "0",
+    "oom_group_kill": "0"
+  },
+  "post_stop_memory_peak_bytes": 4532015104,
+  "post_stop_oom_events": {
+    "low": "0",
+    "high": "0",
+    "max": "480",
+    "oom": "0",
+    "oom_kill": "0",
+    "oom_group_kill": "0"
+  },
+  "original_restored": {
+    "image": "sha256:7f2e6f7e6a2d09c77ebd35424a7641249e51b8ff0374bc9c4acb1f7393cfcd4c",
+    "kokoro_loaded": true,
+    "pilot_stopped": true,
+    "profiles_original_data_untouched": true
+  }
+}

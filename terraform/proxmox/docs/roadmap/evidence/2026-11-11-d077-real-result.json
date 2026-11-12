@@ -1,0 +1,89 @@
+{
+  "job": "bienvenida01",
+  "single_inference_attempt": true,
+  "no_retry": true,
+  "total_seconds": 183.04137118500148,
+  "model": "Qwen3-TTS-12Hz-0.6B-Base",
+  "precision": "float32",
+  "attention": "sdpa",
+  "reference_confirmed_unchanged": true,
+  "text": "Hola, soy Eduardo. Bienvenidos a un nuevo análisis de trading. Hoy vamos a revisar el mercado y buscar oportunidades de entrada. Recuerda que una buena gestión del riesgo es fundamental para proteger nuestro capital.",
+  "user_acceptance": "Sí, voz y texto correctos",
+  "user_acceptance_scope": "This exact10.8second sample, not55–60second narration",
+  "generation_seconds": 95.54676698900039,
+  "sequence_tokens_including_EOS": 136,
+  "eos": true,
+  "reference_frames": 312,
+  "generated_frames": 135,
+  "checkpoint_shape": [
+    447,
+    16
+  ],
+  "checkpoint_code_sha256": "1bea2045af2439beccf0c0bb8577301b6f989e14d5a3e075bd0df41a26681e80",
+  "checkpoint_external_copy_bytes": 81920,
+  "decoder_chunk": 300,
+  "decoder_context": 25,
+  "real_API_second_inference_run": false,
+  "metrics": {
+    "talker": {
+      "worker": {
+        "checkpoint_verified": true,
+        "decoder_called": false,
+        "elapsed_seconds": 118.69299447799858,
+        "eos_emitted": true,
+        "rss_hwm_bytes": 6004621312,
+        "success": true
+      },
+      "supervisor_seconds": 130.10533841300094,
+      "peak_bytes": {
+        "ct_current": 8741584896,
+        "worker_current": 4465037312,
+        "rss_bytes": 4902780928,
+        "ct_swap": 0,
+        "worker_swap": 0
+      },
+      "new_oom_ct": 0,
+      "pid_after": 0,
+      "cgroup_empty": true,
+      "owned_container_removed": true,
+      "cpu": {
+        "peak_cores": 2.6910831353988303,
+        "mean_sampled_cores": 2.1013616473539174,
+        "cpu_seconds": 251.669847
+      }
+    },
+    "decoder": {
+      "worker": {
+        "chunk_steps": 300,
+        "elapsed_seconds": 42.07770492399868,
+        "encoder_loaded": false,
+        "frames": 259200,
+        "left_context_steps": 25,
+        "reference_cut_samples": 599040,
+        "rss_hwm_bytes": 2443853824,
+        "sample_rate": 24000,
+        "seconds": 10.8,
+        "success": true,
+        "talker_loaded": false,
+        "wav_sha256": "881542af39639c5fbc82802206c4bd039ed76cd60d94a86c1cb2cea8deac8517"
+      },
+      "supervisor_seconds": 52.437839504000294,
+      "peak_bytes": {
+        "ct_current": 6077108224,
+        "worker_current": 1797193728,
+        "rss_bytes": 2437402624,
+        "ct_swap": 0,
+        "worker_swap": 0
+      },
+      "new_oom_ct": 0,
+      "pid_after": 0,
+      "cgroup_empty": true,
+      "owned_container_removed": true,
+      "cpu": {
+        "peak_cores": 2.7932093957151833,
+        "mean_sampled_cores": 1.8988690078931543,
+        "cpu_seconds": 81.219878
+      }
+    }
+  }
+}

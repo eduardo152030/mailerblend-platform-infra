@@ -1,0 +1,42 @@
+{
+  "result": "PASS",
+  "docker_recreation_preserved_profiles": 7,
+  "profile_ids": [
+    "250f2938-c396-47e8-8b75-0bf9179d0252",
+    "285b5291-74b8-406d-b7fe-56c31c4e21cd",
+    "5850a2d6-7349-4235-9e85-c3d92819281b",
+    "6be85095-8500-44cb-8f62-bab88f475d95",
+    "7b6c34d0-861a-4001-ba37-aa6cb379b6e9",
+    "7e127dfb-8e46-42c4-8b26-c88d0c7c65ae",
+    "916ce396-1b15-4621-b63c-5eaf49f03b74"
+  ],
+  "old_profiles_unchanged": 5,
+  "samples": [
+    {
+      "identity": "alex",
+      "profile_id": "250f2938-c396-47e8-8b75-0bf9179d0252",
+      "generation_id": "912e1490-43d1-4ef6-9907-7005587e1c3e",
+      "audio_url": "http://192.168.1.127:17493/audio/912e1490-43d1-4ef6-9907-7005587e1c3e",
+      "audio_seconds": 8.88,
+      "generation_seconds_observed": 14.16956299499725,
+      "sha256": "29b727abe8f8929c5c5dee528110ef72b932d5917a736078cc1660ce352f051f"
+    },
+    {
+      "identity": "male_es",
+      "profile_id": "916ce396-1b15-4621-b63c-5eaf49f03b74",
+      "generation_id": "597aaabb-5688-4df1-bd1c-18d9c6144afd",
+      "audio_url": "http://192.168.1.127:17493/audio/597aaabb-5688-4df1-bd1c-18d9c6144afd",
+      "audio_seconds": 8.88,
+      "generation_seconds_observed": 6.045684156997595,
+      "sha256": "29b727abe8f8929c5c5dee528110ef72b932d5917a736078cc1660ce352f051f"
+    }
+  ],
+  "filecheck": {
+    "preserved_file_hashes": 25,
+    "sqlite_integrity": "ok"
+  },
+  "image": "sha256:7f2e6f7e6a2d09c77ebd35424a7641249e51b8ff0374bc9c4acb1f7393cfcd4c",
+  "new_container": "2a953e73202a5100823e38a2784e8a8357838e852974ea59ab5d85492d9912c7",
+  "compose_second_application": "NO_RECREATE_NO_RESTART",
+  "original_volumes_preserved": true
+}

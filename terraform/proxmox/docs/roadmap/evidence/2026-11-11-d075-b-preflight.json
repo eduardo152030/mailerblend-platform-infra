@@ -1,0 +1,19 @@
+{
+  "status": "PASS_BOUNDED_ATTEMPT_ONLY",
+  "host_available_min_bytes": 10033930240,
+  "ct_swap_growth_bytes": -12288,
+  "current_inference_jobs": 0,
+  "targets_up": 59,
+  "budget": {
+    "weight_fp32_gib": 4.043,
+    "worker_hard_gib": 6,
+    "worker_memory_stop_gib": 5.75,
+    "rss_stop_gib": 5.6,
+    "ct_stop_gib": 6.6,
+    "swap_growth_stop_mib": 16,
+    "host_psi_full_10s_stop": 2,
+    "ct_psi_full_5s_stop": 1,
+    "timeout_seconds": 300
+  },
+  "uncertainty": "Reference, codec and loading transients may exceed operational guard; stop classified E, never raise limits"
+}

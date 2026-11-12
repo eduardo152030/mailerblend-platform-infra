@@ -1,0 +1,34 @@
+{
+  "config_hashes_unchanged": true,
+  "global_oom_unchanged": true,
+  "events_changes": {
+    "61211": {
+      "before": "low 0\nhigh 0\nmax 1394100\noom 0\noom_kill 0\noom_group_kill 0\n",
+      "after": "low 0\nhigh 0\nmax 1431722\noom 0\noom_kill 0\noom_group_kill 0\n"
+    },
+    "623": {
+      "before": "low 0\nhigh 0\nmax 7137317\noom 0\noom_kill 0\noom_group_kill 0\n",
+      "after": "low 0\nhigh 0\nmax 7321988\noom 0\noom_kill 0\noom_group_kill 0\n"
+    },
+    "618": {
+      "before": "low 0\nhigh 0\nmax 8275269\noom 0\noom_kill 0\noom_group_kill 0\n",
+      "after": "low 0\nhigh 0\nmax 8495465\noom 0\noom_kill 0\noom_group_kill 0\n"
+    },
+    "620": {
+      "before": "low 0\nhigh 0\nmax 54855\noom 0\noom_kill 0\noom_group_kill 0\n",
+      "after": "low 0\nhigh 0\nmax 56217\noom 0\noom_kill 0\noom_group_kill 0\n"
+    },
+    "619": {
+      "before": "low 0\nhigh 0\nmax 3661540\noom 0\noom_kill 0\noom_group_kill 0\n",
+      "after": "low 0\nhigh 0\nmax 3756575\noom 0\noom_kill 0\noom_group_kill 0\n"
+    }
+  },
+  "voicebox": {
+    "id": "1c35e81571c979b89efc185a5074847bb5c5930b783027ea9d76ac45814ef457",
+    "image": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+    "started_at": "2026-11-12T07:01:37.552379895Z",
+    "restart_count": 0,
+    "health": "healthy"
+  },
+  "no_inference_started": true
+}

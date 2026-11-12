@@ -1,0 +1,10 @@
+{
+  "history_registered": true,
+  "same_profile": true,
+  "exact_requested_text": true,
+  "download_sha256_matches": true,
+  "unsupported_model_rejected_before_inference": true,
+  "audio_url": "http://192.168.1.127:17493/audio/225c8772-6b09-52b0-9580-c0001fff4bcb",
+  "new_inference_for_validation": false,
+  "duration": 10.8
+}

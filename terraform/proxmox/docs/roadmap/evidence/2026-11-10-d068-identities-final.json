@@ -1,0 +1,70 @@
+{
+  "identities": {
+    "personal": {
+      "requested_name": "Eduardo — Personal Voice",
+      "profile_id": null,
+      "engine": "qwen",
+      "model_size": "0.6B",
+      "status": "AWAITING_OWNER_RECORDINGS",
+      "voice_type": "cloned",
+      "base_preparation": "CODE_INSTALLED_GUARD_VERIFIED; REAL_CLONING_VALIDATION_PENDING_OWNER_RECORDINGS"
+    },
+    "male_es": {
+      "requested_name": "ES Male — Narrator",
+      "profile_id": "916ce396-1b15-4621-b63c-5eaf49f03b74",
+      "status": "TECHNICAL_SAMPLE_PASS",
+      "auditory_acceptance": "PENDING",
+      "engine": "kokoro",
+      "preset_voice_id": "em_alex",
+      "sample": {
+        "identity": "male_es",
+        "profile_id": "916ce396-1b15-4621-b63c-5eaf49f03b74",
+        "generation_id": "43cee380-e68a-45d7-9080-65dd708c4889",
+        "audio_url": "http://192.168.1.127:17493/audio/43cee380-e68a-45d7-9080-65dd708c4889",
+        "audio_seconds": 7.56,
+        "generation_seconds_observed": 11.154935475438833,
+        "sample_rate": 24000,
+        "sha256": "d9e59c2b6b2e415a8df6d3cf492abf0966e507be9947c5936feb9ca005de5981",
+        "loaded_models": [
+          "kokoro"
+        ]
+      }
+    },
+    "female_es": {
+      "requested_name": "ES Female — Narrator · Piper es_ES",
+      "profile_id": "6ab4fe0a-5a4f-4dc0-9b84-71b5173edfeb",
+      "engine": "piper",
+      "preset_voice_id": "es_ES-sharvard-medium:F",
+      "status": "TECHNICAL_SAMPLE_PASS",
+      "auditory_acceptance": "PENDING_OWNER_LISTENING",
+      "source_language": "es_ES",
+      "source_gender": "female",
+      "apparent_age_and_accent": "PENDING_OWNER_LISTENING",
+      "sample": {
+        "identity": "female_es",
+        "profile_id": "6ab4fe0a-5a4f-4dc0-9b84-71b5173edfeb",
+        "generation_id": "6c6fa9a0-54f9-4182-ae9d-7d2efea7de71",
+        "audio_url": "http://192.168.1.127:17493/audio/6c6fa9a0-54f9-4182-ae9d-7d2efea7de71",
+        "audio_seconds": 7.244625850340136,
+        "generation_seconds_observed": 2.8297931691631675,
+        "sample_rate": 22050,
+        "sha256": "2d7e689304d2af7ba42c069d524419adf1b6cf48d15890a6661e5c84edbf1c00",
+        "loaded_models": [
+          "piper-es-es"
+        ]
+      }
+    }
+  },
+  "preserved_candidates": [
+    {
+      "requested_name": "ES Female — Narrator",
+      "profile_id": "7e127dfb-8e46-42c4-8b26-c88d0c7c65ae",
+      "status": "BLOCKED_QWEN_PILOT_TIMEOUT_NO_SAMPLE",
+      "auditory_acceptance": "PENDING",
+      "engine": "qwen_custom_voice",
+      "preset_voice_id": "Serena",
+      "model_size": "0.6B",
+      "operational": false
+    }
+  ]
+}

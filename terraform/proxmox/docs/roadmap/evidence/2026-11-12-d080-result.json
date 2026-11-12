@@ -1,0 +1,157 @@
+{
+  "status": "completed",
+  "job_id": "7f348e97-7721-4f4e-827d-cf7e1458c045",
+  "continuous": true,
+  "text_chars": 573,
+  "text_sha256": "d153c38d11e344ad877a72fd63e238055d7e7c3c836fc77d1b88c7fad2c06464",
+  "model": {
+    "attention": "sdpa",
+    "id": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+    "precision": "float32",
+    "snapshot": "5d83992436eae1d760afd27aff78a71d676296fc"
+  },
+  "backend": {
+    "image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+    "sources": {
+      "core/tokenizer_12hz/configuration_qwen3_tts_tokenizer_v2.py": "9e30c24394b00cb0366d7da3482b7436468acc1cd3da1a6fe614a1d34653a5e3",
+      "core/tokenizer_12hz/modeling_qwen3_tts_tokenizer_v2.py": "844e8dd8c0182ef9c6463c874631c22ef3c5a4fd1899dd657016164cc5379628",
+      "inference/qwen3_tts_model.py": "e1da450732857c1f5fe3e36ebab85db2f6dc6a48caaff6973f463384e30275e4",
+      "inference/qwen3_tts_tokenizer.py": "ac2d855022a1bd21d33ab7b267ec952eef71f81d3f8d969a306139ff1a929515"
+    },
+    "versions": {
+      "accelerate": "1.12.0",
+      "numpy": "1.26.4",
+      "qwen-tts": "0.1.1",
+      "safetensors": "0.8.0",
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.3"
+    }
+  },
+  "generation": {
+    "eos_emitted": true,
+    "sequence_tokens": 358,
+    "seconds": 251.07275025099807,
+    "seed": 42,
+    "max_new_tokens": 1024,
+    "language": "Spanish"
+  },
+  "checkpoint": {
+    "verified": true,
+    "shape": [
+      669,
+      16
+    ],
+    "dtype": "int64",
+    "codes_sha256": "74d7d1417532c01951217c31cbc9fe1be11544ed349fb116f6e483a0f77efa5f",
+    "reference_frames": 312,
+    "generated_frames": 357,
+    "manifest_sha256": "2d7ef63765acaa9ec81b95ea0d7f953c7a8315bfb585ba682beebd59a646a53c"
+  },
+  "talker_release": {
+    "container_id": "410f05144ec9efe3d2b77f14a91ab94db6e6544189c39d66babe05569e70b86a",
+    "pid": 0,
+    "running": false,
+    "cgroup_empty": true,
+    "checkpoint_verified": true,
+    "manifest_sha256": "2d7ef63765acaa9ec81b95ea0d7f953c7a8315bfb585ba682beebd59a646a53c"
+  },
+  "talker": {
+    "checkpoint_verified": true,
+    "decoder_called": false,
+    "elapsed_seconds": 274.6033785460022,
+    "eos_emitted": true,
+    "rss_hwm_bytes": 6004862976,
+    "success": true
+  },
+  "decoder": {
+    "chunk_steps": 300,
+    "elapsed_seconds": 63.45766383499722,
+    "encoder_loaded": false,
+    "frames": 685440,
+    "left_context_steps": 25,
+    "reference_cut_samples": 599040,
+    "rss_hwm_bytes": 2656780288,
+    "sample_rate": 24000,
+    "seconds": 28.56,
+    "success": true,
+    "talker_loaded": false,
+    "wav_sha256": "99ebe0e51047ce27971c619864e9d0401dae706f27e6ef993ce293cd740406a2"
+  },
+  "total_seconds": 362.1823389530182,
+  "wav": {
+    "seconds": 28.56,
+    "frames": 685440,
+    "rate": 24000,
+    "channels": 1,
+    "sample_width": 2,
+    "bytes": 1370924,
+    "sha256": "ad10f32754ca80bd0e0e4c32d951710b7fa42c4907c73a2c39fc8193e9eab511",
+    "url": "http://192.168.1.127:17493/audio/7f348e97-7721-4f4e-827d-cf7e1458c045"
+  },
+  "measurements": {
+    "talker": {
+      "elapsed": 286.5343844470044,
+      "success": true,
+      "peak_ct": 9247232000,
+      "peak_rss": 4992561152,
+      "peak_worker": 4665827328,
+      "peak_ct_anon": 5035954176,
+      "peak_ct_file": 4132466688,
+      "peak_ct_kernel": 434827264,
+      "peak_swap": 4096,
+      "peak_ct_psi": 0.36,
+      "min_host_available": 18055135232,
+      "oom_delta": 0,
+      "ct_events_before": {
+        "low": 0,
+        "high": 251,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_events_after": {
+        "low": 0,
+        "high": 251,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "cpu_seconds": 634.29541
+    },
+    "decoder": {
+      "elapsed": 74.2756391169969,
+      "success": true,
+      "peak_ct": 6572003328,
+      "peak_rss": 2588721152,
+      "peak_worker": 2126176256,
+      "peak_ct_anon": 2330984448,
+      "peak_ct_file": 3816828928,
+      "peak_ct_kernel": 425418752,
+      "peak_swap": 4096,
+      "peak_ct_psi": 0.0,
+      "min_host_available": 20431441920,
+      "oom_delta": 0,
+      "ct_events_before": {
+        "low": 0,
+        "high": 251,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "ct_events_after": {
+        "low": 0,
+        "high": 251,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "cpu_seconds": 128.762698
+    }
+  },
+  "quality_acceptance": "PENDING user listening",
+  "target_55_60_seconds": "NOT VALIDATED: actual28.56 seconds; no padding or rate change"
+}

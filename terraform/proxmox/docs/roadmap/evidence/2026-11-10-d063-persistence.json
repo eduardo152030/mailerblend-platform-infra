@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "controlled_restart": "docker restart voicebox; same persistent mounts",
+  "profile_preserved": "285b5291-74b8-406d-b7fe-56c31c4e21cd",
+  "audio_preserved": "aadf962c-01c8-4507-b289-e9ae63adac83",
+  "audio_sha256": "eff28fe07b5917e1e502bd749b7f5162c40f1164d66920d5b1b6be5b1e102586"
+}

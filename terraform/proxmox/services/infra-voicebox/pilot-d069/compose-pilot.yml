@@ -1,0 +1,5 @@
+services:
+  voicebox:
+    image: local/voicebox:8af7efe62fab-personal-d069
+    environment:
+      VOICEBOX_BASE_CPU_ENABLED: '1'

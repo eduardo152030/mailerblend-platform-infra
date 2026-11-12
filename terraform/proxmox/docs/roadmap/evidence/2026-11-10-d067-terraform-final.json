@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "notes_apply": "CT627descriptiononly",
+  "second_apply": {
+    "added": 0,
+    "changed": 0,
+    "destroyed": 0
+  },
+  "memory_mib": 3072
+}

@@ -1,0 +1,51 @@
+{
+  "result": "PASS",
+  "samples": [
+    {
+      "identity": "female_es",
+      "profile_id": "6ab4fe0a-5a4f-4dc0-9b84-71b5173edfeb",
+      "generation_id": "6c6fa9a0-54f9-4182-ae9d-7d2efea7de71",
+      "audio_url": "http://192.168.1.127:17493/audio/6c6fa9a0-54f9-4182-ae9d-7d2efea7de71",
+      "audio_seconds": 7.244625850340136,
+      "generation_seconds_observed": 2.8297931691631675,
+      "sample_rate": 22050,
+      "sha256": "2d7e689304d2af7ba42c069d524419adf1b6cf48d15890a6661e5c84edbf1c00",
+      "loaded_models": [
+        "piper-es-es"
+      ]
+    },
+    {
+      "identity": "male_es",
+      "profile_id": "916ce396-1b15-4621-b63c-5eaf49f03b74",
+      "generation_id": "43cee380-e68a-45d7-9080-65dd708c4889",
+      "audio_url": "http://192.168.1.127:17493/audio/43cee380-e68a-45d7-9080-65dd708c4889",
+      "audio_seconds": 7.56,
+      "generation_seconds_observed": 11.154935475438833,
+      "sample_rate": 24000,
+      "sha256": "d9e59c2b6b2e415a8df6d3cf492abf0966e507be9947c5936feb9ca005de5981",
+      "loaded_models": [
+        "kokoro"
+      ]
+    },
+    {
+      "identity": "alex",
+      "profile_id": "250f2938-c396-47e8-8b75-0bf9179d0252",
+      "generation_id": "692e2efb-5813-4ba8-8f51-b3f7942c3318",
+      "audio_url": "http://192.168.1.127:17493/audio/692e2efb-5813-4ba8-8f51-b3f7942c3318",
+      "audio_seconds": 7.56,
+      "generation_seconds_observed": 5.259177826344967,
+      "sample_rate": 24000,
+      "sha256": "d9e59c2b6b2e415a8df6d3cf492abf0966e507be9947c5936feb9ca005de5981",
+      "loaded_models": [
+        "kokoro"
+      ]
+    }
+  ],
+  "female_profile_id": "6ab4fe0a-5a4f-4dc0-9b84-71b5173edfeb",
+  "base_preflight_error": "{\"detail\":\"Real owner reference recordings required before loading Base\"}",
+  "profiles": 8,
+  "preexisting_profiles_preserved": 8,
+  "peak_ct_sampled_bytes": 4613804032,
+  "personal_guard": "BASE_NOT_LOADED_NO_OWNER_PROFILE_OR_WEIGHTS",
+  "elapsed": 31.412519251927733
+}

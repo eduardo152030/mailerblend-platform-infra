@@ -1,0 +1,72 @@
+{
+  "access_events": [
+    {
+      "at_utc": "2026-11-11T21:19:04.774931735Z",
+      "method": "POST",
+      "path": "/generate",
+      "status": 200
+    },
+    {
+      "at_utc": "2026-11-11T21:19:04.793022384Z",
+      "method": "GET",
+      "path": "/generate/86dde73b-fe39-498c-ba26-658bd7849f1c/status",
+      "status": 200
+    },
+    {
+      "at_utc": "2026-11-11T21:19:08.841765415Z",
+      "method": "GET",
+      "path": "/generate/86dde73b-fe39-498c-ba26-658bd7849f1c/status",
+      "status": 200
+    },
+    {
+      "at_utc": "2026-11-11T21:19:57.188257943Z",
+      "method": "POST",
+      "path": "/generate/86dde73b-fe39-498c-ba26-658bd7849f1c/retry",
+      "status": 200
+    },
+    {
+      "at_utc": "2026-11-11T21:19:57.206254398Z",
+      "method": "GET",
+      "path": "/generate/86dde73b-fe39-498c-ba26-658bd7849f1c/status",
+      "status": 200
+    },
+    {
+      "at_utc": "2026-11-11T21:20:14.617213147Z",
+      "method": "DELETE",
+      "path": "/history/86dde73b-fe39-498c-ba26-658bd7849f1c",
+      "status": 200
+    },
+    {
+      "at_utc": "2026-11-11T21:20:20.203756493Z",
+      "method": "POST",
+      "path": "/generate",
+      "status": 200
+    },
+    {
+      "at_utc": "2026-11-11T21:20:20.219995443Z",
+      "method": "GET",
+      "path": "/generate/73a3755f-5b19-4d33-aba3-79e43bf6d72b/status",
+      "status": 200
+    },
+    {
+      "at_utc": "2026-11-11T21:20:40.531176619Z",
+      "method": "GET",
+      "path": "/generate/73a3755f-5b19-4d33-aba3-79e43bf6d72b/status",
+      "status": 200
+    },
+    {
+      "at_utc": "2026-11-11T21:21:26.686162659Z",
+      "method": "POST",
+      "path": "/generate/73a3755f-5b19-4d33-aba3-79e43bf6d72b/retry",
+      "status": 200
+    },
+    {
+      "at_utc": "2026-11-11T21:21:26.728039002Z",
+      "method": "GET",
+      "path": "/generate/73a3755f-5b19-4d33-aba3-79e43bf6d72b/status",
+      "status": 200
+    }
+  ],
+  "error_count": 4,
+  "body_text_withheld": true
+}

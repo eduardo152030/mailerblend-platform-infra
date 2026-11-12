@@ -1,0 +1,291 @@
+{
+  "at_utc": "2026-11-11T19:45:05.509317+00:00",
+  "global_oom_kill": 0,
+  "ct_events": {
+    "617": "low 0\nhigh 66\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "61211": "low 0\nhigh 0\nmax 198782\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "625": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "615": "low 0\nhigh 0\nmax 147\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "623": "low 0\nhigh 0\nmax 1078597\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "104": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "613": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "621": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "611": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "109": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "618": "low 0\nhigh 0\nmax 1272896\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "626": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "107": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "616": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "624": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "105": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "614": "low 0\nhigh 0\nmax 146\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "622": "low 0\nhigh 0\nmax 182\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "103": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "620": "low 0\nhigh 0\nmax 8674\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "101": "low 0\nhigh 265\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "610": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "619": "low 0\nhigh 0\nmax 560926\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "627": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+  },
+  "voicebox": {
+    "id": "5820cbf6e02894f3566f9ca164aa18f89dfd3ea99c876b77d3fd6bd687fe3142",
+    "image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+    "started_at": "2026-11-11T17:49:51.550174682Z",
+    "restart_count": 0,
+    "health": "healthy"
+  },
+  "docker_cpu_controls": {
+    "cpu.max": "300000 100000\n",
+    "cpu.stat": "usage_usec 39472242\nuser_usec 32374026\nsystem_usec 7098216\ncore_sched.force_idle_usec 0\nnr_periods 12900\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "cpuset.cpus.effective": "0-2\n"
+  },
+  "log_counts": {
+    "checked_lines": 1587,
+    "error_or_traceback_lines": 0,
+    "http_5xx_lines": 0,
+    "contents_withheld": true
+  },
+  "PVE_configs_unchanged": true,
+  "reference_unchanged": true,
+  "private_original_unchanged": true,
+  "new_oom": 0,
+  "midrun_health": {
+    "at_utc": "2026-11-11T19:38:38.520660+00:00",
+    "health_status": "healthy",
+    "productive_model_loaded": false,
+    "profile_id": "1fd00418-2a79-4178-883f-af6c3f5e07ee",
+    "profile_name": "Eduardo \u2014 Mi Voz",
+    "profile_preserved": true
+  },
+  "resources_after_stop": {
+    "ct_memory_current_bytes": 4174581760,
+    "ct_swap_bytes": 0,
+    "ct_memory_stat": {
+      "anon": 378269696,
+      "file": 3541553152,
+      "kernel": 254754816
+    },
+    "ct_memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "ct_cpu_cores_after_stop": 0.008630141374290362,
+    "memory_max": 10737418240,
+    "swap_max": 2147483648,
+    "model_status": [
+      {
+        "model_name": "kokoro",
+        "loaded": false,
+        "downloaded": true
+      },
+      {
+        "model_name": "piper-es-es",
+        "loaded": false,
+        "downloaded": true
+      }
+    ],
+    "voicebox_healthy": true
+  },
+  "endpoints": {
+    "at_utc": "2026-11-11T19:46:28.650319+00:00",
+    "exporters": [
+      {
+        "kind": "node",
+        "service": "infra-blackbox",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-composable-crm",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-eva-assistant-bot",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-excraper",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-gestoria",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-grafana",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-hola",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-mailerblend-edge",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-nucleoedge",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-orbit",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-project-gestion",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-prom",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-pulpo",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "svc01",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-journal-web",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-journal-db",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-journal-api",
+        "http_status": 200
+      },
+      {
+        "kind": "node",
+        "service": "infra-voicebox",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-blackbox",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-composable-crm",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-eva-assistant-bot",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-excraper",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-gestoria",
+        "error": "TimeoutError"
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-grafana",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-hola",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-mailerblend-edge",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-nucleoedge",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-orbit",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-project-gestion",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-prom",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-pulpo",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "svc01",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-journal-web",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-journal-db",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-journal-api",
+        "http_status": 200
+      },
+      {
+        "kind": "cadvisor",
+        "service": "infra-voicebox",
+        "http_status": 200
+      }
+    ],
+    "prometheus": {
+      "error": "URLError"
+    },
+    "grafana": {
+      "status": 200,
+      "database": "ok"
+    },
+    "voicebox": {
+      "status": 200,
+      "health": "healthy"
+    },
+    "retry": {
+      "kind": "cadvisor",
+      "service": "infra-gestoria",
+      "at_utc": "2026-11-11T19:47:19.471142+00:00",
+      "reason": "Retry single read after initial8s timeout",
+      "http_status": 200
+    }
+  },
+  "no_additional_inference": true,
+  "kokoro_piper_downloaded_no_new_synthesis": true
+}

@@ -1,0 +1,19 @@
+{
+  "decision": "D082",
+  "status": "D081 ACCEPTED / PRODUCTION",
+  "accepted_on": "2026-11-12",
+  "timezone": "Europe/Madrid",
+  "source": "Owner explicit request attached to D082",
+  "voice_and_content_accepted": true,
+  "chars": 1059,
+  "continuous": true,
+  "wav_seconds": 57.36,
+  "generation_seconds": 676.18,
+  "eos": true,
+  "checkpoint_integrity": true,
+  "peak_ct_gib": 9.625,
+  "no_new_oom": true,
+  "audio_url_private_lan": "http://192.168.1.127:17493/audio/baa61a95-c7b4-4524-8229-aa697b941710",
+  "audio_published": false,
+  "five_to_ten_minutes_validated": false
+}

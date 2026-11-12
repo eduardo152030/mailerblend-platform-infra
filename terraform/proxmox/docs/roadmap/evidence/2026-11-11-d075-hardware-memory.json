@@ -1,0 +1,152 @@
+{
+  "lscpu": "{\n   \"lscpu\": [\n      {\n         \"field\": \"Architecture:\",\n         \"data\": \"x86_64\"\n      },{\n         \"field\": \"CPU op-mode(s):\",\n         \"data\": \"32-bit, 64-bit\"\n      },{\n         \"field\": \"Address sizes:\",\n         \"data\": \"39 bits physical, 48 bits virtual\"\n      },{\n         \"field\": \"Byte Order:\",\n         \"data\": \"Little Endian\"\n      },{\n         \"field\": \"CPU(s):\",\n         \"data\": \"4\"\n      },{\n         \"field\": \"On-line CPU(s) list:\",\n         \"data\": \"0-3\"\n      },{\n         \"field\": \"Vendor ID:\",\n         \"data\": \"GenuineIntel\"\n      },{\n         \"field\": \"BIOS Vendor ID:\",\n         \"data\": \"Intel(R) Corporation\"\n      },{\n         \"field\": \"Model name:\",\n         \"data\": \"Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz\"\n      },{\n         \"field\": \"BIOS Model name:\",\n         \"data\": \"Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz To Be Filled By O.E.M. CPU @ 3.2GHz\"\n      },{\n         \"field\": \"BIOS CPU family:\",\n         \"data\": \"205\"\n      },{\n         \"field\": \"CPU family:\",\n         \"data\": \"6\"\n      },{\n         \"field\": \"Model:\",\n         \"data\": \"94\"\n      },{\n         \"field\": \"Thread(s) per core:\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"Core(s) per socket:\",\n         \"data\": \"4\"\n      },{\n         \"field\": \"Socket(s):\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"Stepping:\",\n         \"data\": \"3\"\n      },{\n         \"field\": \"CPU(s) scaling MHz:\",\n         \"data\": \"93%\"\n      },{\n         \"field\": \"CPU max MHz:\",\n         \"data\": \"3600.0000\"\n      },{\n         \"field\": \"CPU min MHz:\",\n         \"data\": \"800.0000\"\n      },{\n         \"field\": \"BogoMIPS:\",\n         \"data\": \"6399.96\"\n      },{\n         \"field\": \"Flags:\",\n         \"data\": \"fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb pti ibrs ibpb stibp tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp vnmi\"\n      },{\n         \"field\": \"Virtualization:\",\n         \"data\": \"VT-x\"\n      },{\n         \"field\": \"L1d cache:\",\n         \"data\": \"128 KiB (4 instances)\"\n      },{\n         \"field\": \"L1i cache:\",\n         \"data\": \"128 KiB (4 instances)\"\n      },{\n         \"field\": \"L2 cache:\",\n         \"data\": \"1 MiB (4 instances)\"\n      },{\n         \"field\": \"L3 cache:\",\n         \"data\": \"6 MiB (1 instance)\"\n      },{\n         \"field\": \"NUMA node(s):\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"NUMA node0 CPU(s):\",\n         \"data\": \"0-3\"\n      },{\n         \"field\": \"Vulnerability Gather data sampling:\",\n         \"data\": \"Vulnerable: No microcode\"\n      },{\n         \"field\": \"Vulnerability Itlb multihit:\",\n         \"data\": \"KVM: Mitigation: VMX disabled\"\n      },{\n         \"field\": \"Vulnerability L1tf:\",\n         \"data\": \"Mitigation; PTE Inversion; VMX conditional cache flushes, SMT disabled\"\n      },{\n         \"field\": \"Vulnerability Mds:\",\n         \"data\": \"Vulnerable: Clear CPU buffers attempted, no microcode; SMT disabled\"\n      },{\n         \"field\": \"Vulnerability Meltdown:\",\n         \"data\": \"Mitigation; PTI\"\n      },{\n         \"field\": \"Vulnerability Mmio stale data:\",\n         \"data\": \"Vulnerable: Clear CPU buffers attempted, no microcode; SMT disabled\"\n      },{\n         \"field\": \"Vulnerability Reg file data sampling:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Retbleed:\",\n         \"data\": \"Mitigation; IBRS\"\n      },{\n         \"field\": \"Vulnerability Spec rstack overflow:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Spec store bypass:\",\n         \"data\": \"Vulnerable\"\n      },{\n         \"field\": \"Vulnerability Spectre v1:\",\n         \"data\": \"Mitigation; usercopy/swapgs barriers and __user pointer sanitization\"\n      },{\n         \"field\": \"Vulnerability Spectre v2:\",\n         \"data\": \"Mitigation; IBRS; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\"\n      },{\n         \"field\": \"Vulnerability Srbds:\",\n         \"data\": \"Vulnerable: No microcode\"\n      },{\n         \"field\": \"Vulnerability Tsx async abort:\",\n         \"data\": \"Vulnerable: Clear CPU buffers attempted, no microcode; SMT disabled\"\n      }\n   ]\n}\n",
+  "dmi_memory": {
+    "returncode": 0,
+    "filtered": [
+      "Maximum Capacity: 32 GB",
+      "Number Of Devices: 2",
+      "Size: 8 GB",
+      "Locator: DIMM1",
+      "Bank Locator: ChannelB",
+      "Type: DDR4",
+      "Speed: 2133 MT/s",
+      "Configured Memory Speed: 2133 MT/s",
+      "Size: 8 GB",
+      "Locator: DIMM3",
+      "Bank Locator: ChannelA",
+      "Type: DDR4",
+      "Speed: 2133 MT/s",
+      "Configured Memory Speed: 2133 MT/s"
+    ]
+  },
+  "before": {
+    "at_utc": "2026-11-11T15:43:32.352454+00:00",
+    "cgroup": {
+      "memory.current": "4063735808",
+      "memory.stat": "anon 241786880\nfile 3427241984\nkernel 391753728\nkernel_stack 2572288\npagetables 6631424\nsec_pagetables 0\npercpu 770160\nsock 4096\nvmalloc 647168\nshmem 212992\nzswap 0\nzswapped 0\nfile_mapped 102502400\nfile_dirty 385024\nfile_writeback 0\nswapcached 8192000\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 31240192\nactive_anon 213708800\ninactive_file 2735550464\nactive_file 691478528\nunevictable 0\nslab_reclaimable 373804256\nslab_unreclaimable 6602480\nslab 380406736\nworkingset_refault_anon 29297\nworkingset_refault_file 9218359\nworkingset_activate_anon 17369\nworkingset_activate_file 5825878\nworkingset_restore_anon 17253\nworkingset_restore_file 831301\nworkingset_nodereclaim 166622\npgscan 24567358\npgsteal 23649624\npgscan_kswapd 22666132\npgscan_direct 1900331\npgscan_khugepaged 895\npgsteal_kswapd 21794187\npgsteal_direct 1854542\npgsteal_khugepaged 895\npgfault 431409420\npgmajfault 142187\npgrefill 4252352\npgactivate 80420\npgdeactivate 0\npglazyfree 0\npglazyfreed 0\nzswpin 0\nzswpout 0\nzswpwb 0\nthp_fault_alloc 10\nthp_collapse_alloc 0\nthp_swpout 0\nthp_swpout_fallback 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.29 total=12455452\nfull avg10=0.00 avg60=0.00 avg300=0.29 total=11934716",
+      "memory.swap.current": "433086464",
+      "memory.swap.max": "536870912",
+      "memory.events": "low 0\nhigh 0\nmax 115932\noom 0\noom_kill 0\noom_group_kill 0",
+      "cpu.stat": "usage_usec 8557652276\nuser_usec 6244659881\nsystem_usec 2312992395\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000",
+      "cpuset.cpus.effective": "0-2",
+      "cpuset.mems.effective": "0"
+    },
+    "meminfo": "MemTotal:       16256616 kB\nMemFree:         1327328 kB\nMemAvailable:    9863664 kB\nBuffers:          463324 kB\nCached:          5431252 kB\nSwapCached:       550984 kB\nActive:          5221356 kB\nInactive:        5510044 kB\nActive(anon):    3602644 kB\nInactive(anon):  1314872 kB\nActive(file):    1618712 kB\nInactive(file):  4195172 kB\nUnevictable:       32392 kB\nMlocked:           32268 kB\nSwapTotal:      16777212 kB\nSwapFree:       10839548 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:              5932 kB\nWriteback:             0 kB\nAnonPages:       4720908 kB\nMapped:          1427228 kB\nShmem:             74420 kB\nKReclaimable:    3059148 kB\nSlab:            3674368 kB\nSReclaimable:    3059148 kB\nSUnreclaim:       615220 kB\nKernelStack:       74736 kB\nPageTables:       202452 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    24905520 kB\nCommitted_AS:   42114836 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      166644 kB\nVmallocChunk:          0 kB\nPercpu:            21792 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:     14336 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:      2048 kB\nFilePmdMapped:         0 kB\nUnaccepted:            0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:     1134184 kB\nDirectMap2M:    15519744 kB\nDirectMap1G:           0 kB",
+    "host_memory_pressure": "some avg10=0.04 avg60=0.27 avg300=0.62 total=2030979843767\nfull avg10=0.04 avg60=0.24 avg300=0.52 total=1834349431142",
+    "cpu_frequencies": {
+      "cpu3": {
+        "scaling_min_freq": "800000",
+        "scaling_governor": "performance",
+        "cpuinfo_max_freq": "3600000",
+        "scaling_cur_freq": "3420942",
+        "scaling_max_freq": "3600000",
+        "scaling_driver": "intel_pstate",
+        "cpuinfo_min_freq": "800000"
+      },
+      "cpu1": {
+        "scaling_min_freq": "800000",
+        "scaling_governor": "performance",
+        "cpuinfo_max_freq": "3600000",
+        "scaling_cur_freq": "3358022",
+        "scaling_max_freq": "3600000",
+        "scaling_driver": "intel_pstate",
+        "cpuinfo_min_freq": "800000"
+      },
+      "cpu2": {
+        "scaling_min_freq": "800000",
+        "scaling_governor": "performance",
+        "cpuinfo_max_freq": "3600000",
+        "scaling_cur_freq": "3358022",
+        "scaling_max_freq": "3600000",
+        "scaling_driver": "intel_pstate",
+        "cpuinfo_min_freq": "800000"
+      },
+      "cpu0": {
+        "scaling_min_freq": "800000",
+        "scaling_governor": "performance",
+        "cpuinfo_max_freq": "3600000",
+        "scaling_cur_freq": "3497074",
+        "scaling_max_freq": "3600000",
+        "scaling_driver": "intel_pstate",
+        "cpuinfo_min_freq": "800000"
+      }
+    },
+    "thermal_throttle": {
+      "/sys/devices/system/cpu/cpu3/thermal_throttle/core_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu3/thermal_throttle/package_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu1/thermal_throttle/core_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu1/thermal_throttle/package_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu2/thermal_throttle/core_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu2/thermal_throttle/package_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu0/thermal_throttle/core_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu0/thermal_throttle/package_throttle_count": "0"
+    }
+  },
+  "after": {
+    "at_utc": "2026-11-11T15:43:37.356103+00:00",
+    "cgroup": {
+      "memory.current": "4063731712",
+      "memory.stat": "anon 241786880\nfile 3427241984\nkernel 391749632\nkernel_stack 2572288\npagetables 6631424\nsec_pagetables 0\npercpu 770160\nsock 4096\nvmalloc 647168\nshmem 212992\nzswap 0\nzswapped 0\nfile_mapped 102506496\nfile_dirty 45056\nfile_writeback 0\nswapcached 8192000\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 31240192\nactive_anon 213708800\ninactive_file 2735550464\nactive_file 691478528\nunevictable 0\nslab_reclaimable 373803400\nslab_unreclaimable 6601984\nslab 380405384\nworkingset_refault_anon 29297\nworkingset_refault_file 9218359\nworkingset_activate_anon 17369\nworkingset_activate_file 5825878\nworkingset_restore_anon 17253\nworkingset_restore_file 831301\nworkingset_nodereclaim 166622\npgscan 24567358\npgsteal 23649624\npgscan_kswapd 22666132\npgscan_direct 1900331\npgscan_khugepaged 895\npgsteal_kswapd 21794187\npgsteal_direct 1854542\npgsteal_khugepaged 895\npgfault 431410551\npgmajfault 142187\npgrefill 4252352\npgactivate 80420\npgdeactivate 0\npglazyfree 0\npglazyfreed 0\nzswpin 0\nzswpout 0\nzswpwb 0\nthp_fault_alloc 10\nthp_collapse_alloc 0\nthp_swpout 0\nthp_swpout_fallback 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.29 total=12455452\nfull avg10=0.00 avg60=0.00 avg300=0.28 total=11934716",
+      "memory.swap.current": "433086464",
+      "memory.swap.max": "536870912",
+      "memory.events": "low 0\nhigh 0\nmax 115932\noom 0\noom_kill 0\noom_group_kill 0",
+      "cpu.stat": "usage_usec 8557677828\nuser_usec 6244677005\nsystem_usec 2313000823\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "max 100000",
+      "cpuset.cpus.effective": "0-2",
+      "cpuset.mems.effective": "0"
+    },
+    "meminfo": "MemTotal:       16256616 kB\nMemFree:         1302996 kB\nMemAvailable:    9844416 kB\nBuffers:          463464 kB\nCached:          5436172 kB\nSwapCached:       551032 kB\nActive:          5219172 kB\nInactive:        5515844 kB\nActive(anon):    3597216 kB\nInactive(anon):  1318836 kB\nActive(file):    1621956 kB\nInactive(file):  4197008 kB\nUnevictable:       32392 kB\nMlocked:           32268 kB\nSwapTotal:      16777212 kB\nSwapFree:       10839548 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:              6008 kB\nWriteback:             0 kB\nAnonPages:       4719464 kB\nMapped:          1430612 kB\nShmem:             74420 kB\nKReclaimable:    3059152 kB\nSlab:            3674396 kB\nSReclaimable:    3059152 kB\nSUnreclaim:       615244 kB\nKernelStack:       74720 kB\nPageTables:       202432 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    24905520 kB\nCommitted_AS:   42114812 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      166660 kB\nVmallocChunk:          0 kB\nPercpu:            21792 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:     14336 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:      2048 kB\nFilePmdMapped:         0 kB\nUnaccepted:            0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:     1134184 kB\nDirectMap2M:    15519744 kB\nDirectMap1G:           0 kB",
+    "host_memory_pressure": "some avg10=0.03 avg60=0.25 avg300=0.61 total=2030979858369\nfull avg10=0.03 avg60=0.22 avg300=0.51 total=1834349445389",
+    "cpu_frequencies": {
+      "cpu3": {
+        "scaling_min_freq": "800000",
+        "scaling_governor": "performance",
+        "cpuinfo_max_freq": "3600000",
+        "scaling_cur_freq": "3454362",
+        "scaling_max_freq": "3600000",
+        "scaling_driver": "intel_pstate",
+        "cpuinfo_min_freq": "800000"
+      },
+      "cpu1": {
+        "scaling_min_freq": "800000",
+        "scaling_governor": "performance",
+        "cpuinfo_max_freq": "3600000",
+        "scaling_cur_freq": "1029527",
+        "scaling_max_freq": "3600000",
+        "scaling_driver": "intel_pstate",
+        "cpuinfo_min_freq": "800000"
+      },
+      "cpu2": {
+        "scaling_min_freq": "800000",
+        "scaling_governor": "performance",
+        "cpuinfo_max_freq": "3600000",
+        "scaling_cur_freq": "1198846",
+        "scaling_max_freq": "3600000",
+        "scaling_driver": "intel_pstate",
+        "cpuinfo_min_freq": "800000"
+      },
+      "cpu0": {
+        "scaling_min_freq": "800000",
+        "scaling_governor": "performance",
+        "cpuinfo_max_freq": "3600000",
+        "scaling_cur_freq": "3583888",
+        "scaling_max_freq": "3600000",
+        "scaling_driver": "intel_pstate",
+        "cpuinfo_min_freq": "800000"
+      }
+    },
+    "thermal_throttle": {
+      "/sys/devices/system/cpu/cpu3/thermal_throttle/core_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu3/thermal_throttle/package_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu1/thermal_throttle/core_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu1/thermal_throttle/package_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu2/thermal_throttle/core_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu2/thermal_throttle/package_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu0/thermal_throttle/core_throttle_count": "0",
+      "/sys/devices/system/cpu/cpu0/thermal_throttle/package_throttle_count": "0"
+    }
+  }
+}

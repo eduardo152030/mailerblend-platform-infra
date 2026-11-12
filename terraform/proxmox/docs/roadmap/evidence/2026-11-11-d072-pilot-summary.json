@@ -1,0 +1,39 @@
+{
+  "status": "STOPPED",
+  "limits": {
+    "worker_bytes": 5368709120,
+    "ct_stop_bytes": 6710886400.0,
+    "swap_growth_stop_bytes": 67108864,
+    "host_available_min_bytes": 1610612736.0,
+    "host_psi_stop": "full avg10>=2% sustained 10s",
+    "timeout_seconds": 240
+  },
+  "reason": "Host sustained PSI safety stop",
+  "stop_seconds": 3.4060888402163982,
+  "elapsed": 127.66179244685918,
+  "peaks": {
+    "rss_bytes": 3969597440,
+    "worker_memory": 3985432576,
+    "ct_memory": 5469765632,
+    "ct_swap": 64667648,
+    "host_full_avg10": 9.1
+  },
+  "minimum_host_available": 7219187712,
+  "cpu_cores_peak": 1.8463895392380372,
+  "cancellation_verified": {
+    "running": false,
+    "pid": 0,
+    "oom_killed": false,
+    "exit_code": 137
+  },
+  "wav_produced": false,
+  "stage_metrics": {
+    "model_load_seconds": 5.738,
+    "reference_codes_frames": 303,
+    "prefill_positions": 467,
+    "prefill_seconds": 6.357,
+    "last_reported_frame": 50,
+    "last_reported_encoded_audio_seconds": 4.0,
+    "decoded_audio_seconds": null
+  }
+}

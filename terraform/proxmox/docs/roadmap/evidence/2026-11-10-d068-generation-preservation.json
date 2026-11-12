@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "original13_audio_files_identical": true,
+  "original_generation_files": 13,
+  "new_recorded_generation_ids_verified": 12,
+  "all_new_completed": true,
+  "restored_original_id": "5385d04b-49fa-4b0f-a001-1cebaf55b854",
+  "full_db_rollback": false
+}

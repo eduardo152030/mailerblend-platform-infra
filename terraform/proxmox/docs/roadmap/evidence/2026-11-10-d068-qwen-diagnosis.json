@@ -1,0 +1,117 @@
+{
+  "result": "BLOCKED_SAFETY_STOPS_NO_VALIDATED_AUDIO",
+  "trials": [
+    {
+      "attempt": "04",
+      "result": {
+        "decision": "D068",
+        "started_at_utc": "2026-11-10T14:42:58.238008+00:00",
+        "result": "FAIL",
+        "trials": [],
+        "peak_after_stop": 4979523584,
+        "failure_phase": "diagnostic-bf16",
+        "error": "SAFETY: memory/pressure/swap/OOM threshold",
+        "safety_failure": true,
+        "maxima": {
+          "current": 4838031360,
+          "peak": 4979523584,
+          "swap": 4096,
+          "VmRSS": 2634190848,
+          "VmHWM": 2774306816,
+          "VmSwap": 0
+        },
+        "elapsed_seconds": 25.040536684915423,
+        "original_restored": true
+      },
+      "last_stage": {
+        "elapsed": 11.089836,
+        "unix": 1794321799.5834398,
+        "stage": "codec_start"
+      },
+      "codes_end": [
+        {
+          "elapsed": 11.089494,
+          "unix": 1794321799.5831013,
+          "stage": "codes_end",
+          "seconds": 9.665079458616674,
+          "code_frames": [
+            15
+          ]
+        }
+      ],
+      "codec_stages": [
+        {
+          "elapsed": 11.089836,
+          "unix": 1794321799.5834398,
+          "stage": "codec_start"
+        }
+      ],
+      "cpu_seconds": 13.582554,
+      "minimum_host_available_bytes": 7758073856,
+      "max_sample_gap": 2.8512337412685156
+    },
+    {
+      "attempt": "05",
+      "result": {
+        "decision": "D068",
+        "started_at_utc": "2026-11-10T14:46:36.361615+00:00",
+        "result": "FAIL",
+        "trials": [],
+        "peak_after_stop": 5336653824,
+        "failure_phase": "diagnostic-mixed",
+        "error": "SAFETY: memory/pressure/swap/OOM threshold",
+        "safety_failure": true,
+        "maxima": {
+          "current": 5163761664,
+          "peak": 5297479680,
+          "swap": 84869120,
+          "VmRSS": 2625024000,
+          "VmHWM": 2625024000,
+          "VmSwap": 0
+        },
+        "elapsed_seconds": 25.693348424509168,
+        "original_restored": true
+      },
+      "last_stage": {
+        "elapsed": 11.620443,
+        "unix": 1794322020.8718023,
+        "stage": "predictor_forward",
+        "calls": {
+          "talker": 12,
+          "predictor": 180
+        },
+        "call_seconds": 0.012653768993914127,
+        "recent_unique": 12,
+        "recent_count": 12
+      },
+      "codes_end": [],
+      "codec_stages": [
+        {
+          "elapsed": 3.214415,
+          "unix": 1794322012.465774,
+          "stage": "codec_cast_start",
+          "target": "float32"
+        },
+        {
+          "elapsed": 3.850002,
+          "unix": 1794322013.1013615,
+          "stage": "codec_cast_end",
+          "seconds": 0.6352927619591355
+        }
+      ],
+      "cpu_seconds": 10.725479,
+      "minimum_host_available_bytes": 7889317888,
+      "max_sample_gap": 3.340671834535897
+    }
+  ],
+  "previous600seconds_timeout_source": "D067 external supervisor generation deadline, not an observed HTTP/backend timeout",
+  "no_progress_deadlock": "Not seen in observed generator; talker and predictor made progress",
+  "full_timeout_cause": "NOT_DETERMINED; codec reached, but interrupted before end",
+  "oom": 0,
+  "not_executed": [
+    "PruebaA complete",
+    "PruebaB15–30seconds",
+    "PruebaC120–150words/~60seconds",
+    "fullFP32/eager alternative after safety veto"
+  ]
+}

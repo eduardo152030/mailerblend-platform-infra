@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "image_lock_enforced": true,
+  "application_and_cadvisor_ids_startedAt_restartCount_unchanged": true,
+  "recreations": 0,
+  "restarts": 0
+}

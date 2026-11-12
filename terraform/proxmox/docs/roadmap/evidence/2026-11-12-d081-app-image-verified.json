@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "image_id": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+  "archive_sha256": "b6fe07c13bcbc9091cbcc7626f38dbb9db8a73dfbd4402981ee7d15d1a259b43",
+  "archive_bytes": 1279369082,
+  "verified_blobs": 39,
+  "archive_outside_pve": true,
+  "original_image_retained": true
+}

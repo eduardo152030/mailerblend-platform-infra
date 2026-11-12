@@ -1,0 +1,93 @@
+{
+  "files": [
+    {
+      "repo": "myshell-ai/OpenVoiceV2",
+      "revision": "f36e7edfe1684461a8343844af60babc2efbb727",
+      "name": "converter/checkpoint.pth",
+      "target": "converter/checkpoint.pth",
+      "bytes": 131320490,
+      "sha256": "9652c27e92b6b2a91632590ac9962ef7ae2b712e5c5b7f4c34ec55ee2b37ab9e"
+    },
+    {
+      "repo": "myshell-ai/OpenVoiceV2",
+      "revision": "f36e7edfe1684461a8343844af60babc2efbb727",
+      "name": "converter/config.json",
+      "target": "converter/config.json",
+      "bytes": 838,
+      "sha256": null
+    },
+    {
+      "repo": "myshell-ai/OpenVoiceV2",
+      "revision": "f36e7edfe1684461a8343844af60babc2efbb727",
+      "name": "base_speakers/ses/es.pth",
+      "target": "source-es.pth",
+      "bytes": 1692,
+      "sha256": "b8cece8853fb75b9f5217a1f5cda9807bac92a3e4c4547fc651e404d05deff63"
+    },
+    {
+      "repo": "myshell-ai/OpenVoiceV2",
+      "revision": "f36e7edfe1684461a8343844af60babc2efbb727",
+      "name": "README.md",
+      "target": "OPENVOICE_MODEL_CARD.md",
+      "bytes": 5371,
+      "sha256": null
+    },
+    {
+      "repo": "myshell-ai/MeloTTS-Spanish",
+      "revision": "dbb5496df39d11a66c1d5f5a9ca357c3c9fb95fb",
+      "name": "checkpoint.pth",
+      "target": "melo/checkpoint.pth",
+      "bytes": 207860748,
+      "sha256": "9077a7e7e5fd8e42f3f922641c401f1936971c08465a3e7ccb19d57a659e72ae"
+    },
+    {
+      "repo": "myshell-ai/MeloTTS-Spanish",
+      "revision": "dbb5496df39d11a66c1d5f5a9ca357c3c9fb95fb",
+      "name": "config.json",
+      "target": "melo/config.json",
+      "bytes": 3431,
+      "sha256": null
+    },
+    {
+      "repo": "myshell-ai/MeloTTS-Spanish",
+      "revision": "dbb5496df39d11a66c1d5f5a9ca357c3c9fb95fb",
+      "name": "README.md",
+      "target": "MELO_MODEL_CARD.md",
+      "bytes": 4493,
+      "sha256": null
+    },
+    {
+      "repo": "dccuchile/bert-base-spanish-wwm-uncased",
+      "revision": "d1c9c4565c9d6731e57ed7f027b802697bad861e",
+      "name": "vocab.txt",
+      "target": "tokenizer/vocab.txt",
+      "bytes": 247723,
+      "sha256": null
+    },
+    {
+      "repo": "dccuchile/bert-base-spanish-wwm-uncased",
+      "revision": "d1c9c4565c9d6731e57ed7f027b802697bad861e",
+      "name": "tokenizer_config.json",
+      "target": "tokenizer/tokenizer_config.json",
+      "bytes": 310,
+      "sha256": null
+    },
+    {
+      "repo": "dccuchile/bert-base-spanish-wwm-uncased",
+      "revision": "d1c9c4565c9d6731e57ed7f027b802697bad861e",
+      "name": "special_tokens_map.json",
+      "target": "tokenizer/special_tokens_map.json",
+      "bytes": 134,
+      "sha256": null
+    },
+    {
+      "repo": "dccuchile/bert-base-spanish-wwm-uncased",
+      "revision": "d1c9c4565c9d6731e57ed7f027b802697bad861e",
+      "name": "config.json",
+      "target": "tokenizer/config.json",
+      "bytes": 650,
+      "sha256": null
+    }
+  ],
+  "weights_download_only_no_model_load": true
+}

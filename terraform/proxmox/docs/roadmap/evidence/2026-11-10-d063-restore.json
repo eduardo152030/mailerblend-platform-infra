@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "archive_sha256": "dc738b318cc2ca7f3575a83781e0842fc8f4ff98630f4d74fd02fc96face49c3",
+  "files_verified": 25,
+  "symlinks_confined": 5,
+  "sqlite_integrity": "ok",
+  "completed_audio_files": 3,
+  "mode": "isolated restoration outside PVE; original data and archives preserved"
+}

@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "worker_job_id": "4042ddfe-b94b-42fc-b07d-a6e09e368c57",
+  "terminal_status": "failed",
+  "error": "execution_timeout",
+  "observed_seconds": 1.2256237212568521,
+  "pid_reaped": true,
+  "worker_healthy_after": true
+}

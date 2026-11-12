@@ -1,0 +1,178 @@
+{
+  "observed_at_utc": "2026-11-11T08:44:34.918741+00:00",
+  "method": "Metadata only; no weights downloaded or models instantiated",
+  "models": [
+    {
+      "repo": "myshell-ai/OpenVoiceV2",
+      "revision": "f36e7edfe1684461a8343844af60babc2efbb727",
+      "files": [
+        {
+          "name": "base_speakers/ses/en-au.pth",
+          "bytes": 1701
+        },
+        {
+          "name": "base_speakers/ses/en-br.pth",
+          "bytes": 1701
+        },
+        {
+          "name": "base_speakers/ses/en-default.pth",
+          "bytes": 1783
+        },
+        {
+          "name": "base_speakers/ses/en-india.pth",
+          "bytes": 1701
+        },
+        {
+          "name": "base_speakers/ses/en-newest.pth",
+          "bytes": 1692
+        },
+        {
+          "name": "base_speakers/ses/en-us.pth",
+          "bytes": 1701
+        },
+        {
+          "name": "base_speakers/ses/es.pth",
+          "bytes": 1692
+        },
+        {
+          "name": "base_speakers/ses/fr.pth",
+          "bytes": 1692
+        },
+        {
+          "name": "base_speakers/ses/jp.pth",
+          "bytes": 1692
+        },
+        {
+          "name": "base_speakers/ses/kr.pth",
+          "bytes": 1692
+        },
+        {
+          "name": "base_speakers/ses/zh.pth",
+          "bytes": 1692
+        },
+        {
+          "name": "converter/checkpoint.pth",
+          "bytes": 131320490
+        },
+        {
+          "name": "converter/config.json",
+          "bytes": 838
+        }
+      ]
+    },
+    {
+      "repo": "myshell-ai/MeloTTS-Spanish",
+      "revision": "dbb5496df39d11a66c1d5f5a9ca357c3c9fb95fb",
+      "files": [
+        {
+          "name": "checkpoint.pth",
+          "bytes": 207860748
+        },
+        {
+          "name": "config.json",
+          "bytes": 3431
+        }
+      ]
+    },
+    {
+      "repo": "ResembleAI/chatterbox",
+      "revision": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18",
+      "files": [
+        {
+          "name": "Cangjie5_TC.json",
+          "bytes": 1920163
+        },
+        {
+          "name": "conds.pt",
+          "bytes": 107374
+        },
+        {
+          "name": "grapheme_mtl_merged_expanded_v1.json",
+          "bytes": 69989
+        },
+        {
+          "name": "mtl_tokenizer.json",
+          "bytes": 68125
+        },
+        {
+          "name": "s3gen.pt",
+          "bytes": 1057165844
+        },
+        {
+          "name": "s3gen.safetensors",
+          "bytes": 1056484620
+        },
+        {
+          "name": "s3gen_v3.pt",
+          "bytes": 1056903694
+        },
+        {
+          "name": "s3gen_v3.safetensors",
+          "bytes": 1056381804
+        },
+        {
+          "name": "t3_23lang.safetensors",
+          "bytes": 2143154168
+        },
+        {
+          "name": "t3_cfg.pt",
+          "bytes": 1064892246
+        },
+        {
+          "name": "t3_cfg.safetensors",
+          "bytes": 2129653744
+        },
+        {
+          "name": "t3_mtl23ls_v2.safetensors",
+          "bytes": 2143989752
+        },
+        {
+          "name": "t3_mtl23ls_v3.safetensors",
+          "bytes": 2143989928
+        },
+        {
+          "name": "tokenizer.json",
+          "bytes": 25470
+        },
+        {
+          "name": "ve.pt",
+          "bytes": 5698626
+        },
+        {
+          "name": "ve.safetensors",
+          "bytes": 5695784
+        }
+      ]
+    },
+    {
+      "repo": "coqui/XTTS-v2",
+      "revision": "6c2b0d75eae4b7047358e3b6bd9325f857d43f77",
+      "files": [
+        {
+          "name": "config.json",
+          "bytes": 4368
+        },
+        {
+          "name": "dvae.pth",
+          "bytes": 210514388
+        },
+        {
+          "name": "mel_stats.pth",
+          "bytes": 1067
+        },
+        {
+          "name": "model.pth",
+          "bytes": 1867929118
+        },
+        {
+          "name": "speakers_xtts.pth",
+          "bytes": 7754818
+        },
+        {
+          "name": "vocab.json",
+          "bytes": 361219
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "phase": "7.4",
+  "status": "IN PROGRESS",
+  "observed_at_utc": "2026-11-10T10:38:20.773456+00:00",
+  "ct_id": 627,
+  "ip": "192.168.1.127",
+  "cpu": 3,
+  "memory_mib": 1080,
+  "swap_mib": 512,
+  "disk_gib": 50,
+  "terraform_initial_plan": "1create/0change/0destroy",
+  "terraform_second_apply": "0create/0change/0destroy",
+  "ssh": "PASS owner key, password auth disabled",
+  "bootstrap_incident": "Legacy ssh-dss host identity filtered; CT conserved; bootstrap recovered before untaint",
+  "exporters_direct_verification": "PASS",
+  "voicebox": "BUILD IN PROGRESS",
+  "monitoring_integration": "PREPARED NOT APPLIED",
+  "tts": "NOT PERFORMED"
+}

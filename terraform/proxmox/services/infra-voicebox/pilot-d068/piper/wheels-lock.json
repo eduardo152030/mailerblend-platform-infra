@@ -1,0 +1,14 @@
+[
+  {
+    "package": "piper-tts",
+    "version": "1.8.0",
+    "filename": "piper_tts-1.8.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl",
+    "sha256": "25b4d3f31ff70c8fa7151908e00aaa5650cbdf16bca8fcf21299f3941b89a7d3"
+  },
+  {
+    "package": "pathvalidate",
+    "version": "3.3.1",
+    "filename": "pathvalidate-3.3.1-py3-none-any.whl",
+    "sha256": "5263baab691f8e1af96092fa5137ee17df5bdfbd6cff1fcac4d6ef4bc2e1735f"
+  }
+]

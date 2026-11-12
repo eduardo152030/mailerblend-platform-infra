@@ -4,6 +4,7 @@ import argparse,copy,hashlib,json,os,shutil,subprocess,sys,re
 from pathlib import Path
 import yaml
 from lxc_provisioning import validate,render_monitoring,inventory_document
+from lxc_ssh import render as render_ssh
 ROOT=Path(__file__).resolve().parents[1]
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def run(args,cwd):
@@ -13,7 +14,7 @@ def run(args,cwd):
   raise RuntimeError('Validation failed: '+args[0]+' '+args[1]+'; output stored only in bundle')
  return p.stdout+p.stderr
 
-def prepare(spec,output):
+def prepare(spec,output,public_key_file=Path.home()/".ssh/id_ed25519.pub"):
  data=validate(yaml.safe_load(spec.read_text()));s=data['service'];key=s['name'];output=output.resolve()
  assert not output.exists(),'Output must be new; do not overwrite prior bundles'
  assert not output.is_relative_to(ROOT.resolve()),'Use a private staging path outside the working module'
@@ -24,15 +25,18 @@ def prepare(spec,output):
  # Sources are copied, not a second hand-written Terraform module or state.
  sources=json.loads((ROOT/'inventory/generated/lxc-notes-manifest.json').read_text())
  metadata=yaml.safe_load((ROOT/'inventory/documentation.yml').read_text())
- names=set(sources)|{x['runbook'] for x in metadata['services'].values()}|{str(p.relative_to(ROOT)) for p in ROOT.glob('*.tf')}|{'inventory/generated/lxc-notes.json','inventory/generated/lxc-notes-manifest.json','.terraform.lock.hcl','templates/provisioning/install-monitoring.py'}
+ names=set(sources)|{x['runbook'] for x in metadata['services'].values()}|{str(p.relative_to(ROOT)) for p in ROOT.glob('*.tf')}|{'inventory/generated/lxc-notes.json','inventory/generated/lxc-notes-manifest.json','.terraform.lock.hcl','templates/provisioning/install-monitoring.py','scripts/lxc_ssh.py','scripts/bootstrap-new-lxc-ssh.py','templates/provisioning/ssh/bootstrap-ssh-guest.py','templates/provisioning/ssh/00-lxc-bootstrap.conf'}
  for name in sorted(names):
   src=(ROOT/name).resolve();assert src.is_relative_to(ROOT.resolve())
   dest=module/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,dest)
- data=copy.deepcopy(data);data['documentation']={'inventory_file':f'docs/inventory/{s["vmid"]}-LXC-INVENTORY.md'}
+ data=copy.deepcopy(data);data['provisioning']['ssh']={'enabled':True,'method':'pct-merge','state':'PENDING VERIFICATION'};data['documentation']={'inventory_file':f'docs/inventory/{s["vmid"]}-LXC-INVENTORY.md'}
  (module/f'inventory/services/{key}.yml').write_text(yaml.safe_dump(data,sort_keys=False))
  doc=module/f'docs/inventory/{s["vmid"]}-LXC-INVENTORY.md';doc.parent.mkdir(parents=True,exist_ok=True);doc.write_text(inventory_document(data,key))
  run(['python3',str(module/'scripts/generate-lxc-inventory.py'),'--root',str(module)],module)
  render_monitoring(data,output/'monitoring',ROOT)
+ protected=[yaml.safe_load(p.read_text())['service']['vmid'] for p in (ROOT/'inventory/services').glob('*.yml')]
+ render_ssh(ROOT,output/'ssh',data,public_key_file,protected)
+ (module/'ssh-bootstrap.auto.tfvars.json').write_text(json.dumps({'lxc_ssh_bootstrap_configs':{key:str(output/'ssh/bootstrap.json')}},indent=2)+'\n')
  tests=module/'tests/provisioning';tests.mkdir(parents=True)
  (tests/'new-lxc.tftest.hcl').write_text('''# Offline test. mock_provider prevents Proxmox calls; command=plan only.
 mock_provider "proxmox" {}
@@ -43,6 +47,10 @@ run "new_ct_plan" {
     proxmox_endpoint  = "https://192.0.2.254:8006/"
     proxmox_api_token = "fixture-not-a-credential"
     node_name        = "fixture-node"
+  }
+  assert {
+    condition = length(var.lxc_ssh_bootstrap_configs) == 1 && length(var.lxc_ssh_public_keys) == 0
+    error_message = "Only new CT bootstrap may be selected; clone key merge must be additive"
   }
   assert {
     condition = proxmox_virtual_environment_container.svc["KEY"].vm_id == CT
@@ -81,11 +89,11 @@ def validate_bundle(output):
  except Exception:raise
  actual=re.search(r'provider "registry.terraform.io/bpg/proxmox" \{.*?version\s*=\s*"([^"]+)"',(module/'.terraform.lock.hcl').read_text(),re.S).group(1);assert actual==manifest['provider_version'],'Provider version drift'
  plan=transcript[-1];assert '1 passed, 0 failed' in plan,'Terraform mock test was not executed'
- assert '1 to add, 0 to change, 0 to destroy' in plan,'Expected exactly one mocked create'
+ assert '1 to add, 0 to change, 0 to destroy' in plan,'Expected only the new LXC'
  assert not list(module.glob('*.tfstate*')),'Unexpected state file in fixture module'
  (output/'plan.mock.txt').write_text(plan);(output/'plan.mock.txt').chmod(0o600)
  manifest['files']['terraform/.terraform.lock.hcl']=sha(module/'.terraform.lock.hcl');(output/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
- result={'result':'PASS','ct_id':manifest['ct_id'],'status':'READY FOR FIRST REAL PROVISIONING TEST','terraform_test':'mock_provider, command=plan','plan':'1 add, 0 change, 0 destroy (mock)','production_calls':False,'infrastructure_created':False,'real_first_test':'NOT PERFORMED','log':'validation.log','reviewable_plan':'plan.mock.txt'}
+ result={'result':'PASS','ct_id':manifest['ct_id'],'status':'READY FOR FIRST REAL PROVISIONING TEST','terraform_test':'mock_provider, command=plan','plan':'1 LXC add; 0 change/destroy (mock)','production_calls':False,'infrastructure_created':False,'real_first_test':'NOT PERFORMED','log':'validation.log','reviewable_plan':'plan.mock.txt'}
  (output/'validation.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
 def refresh_docs(output,receipt_path):
  manifest=json.loads((output/'manifest.json').read_text());receipt=json.loads(receipt_path.read_text());data=manifest['declared'];s=data['service']
@@ -102,10 +110,10 @@ def refresh_docs(output,receipt_path):
 
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='action',required=True)
- a=sub.add_parser('prepare');a.add_argument('--spec',type=Path,required=True);a.add_argument('--output',type=Path,required=True)
+ a=sub.add_parser('prepare');a.add_argument('--spec',type=Path,required=True);a.add_argument('--output',type=Path,required=True);a.add_argument('--ssh-public-key',type=Path,default=Path.home()/'.ssh/id_ed25519.pub')
  a=sub.add_parser('validate');a.add_argument('--bundle',type=Path,required=True)
  a=sub.add_parser('refresh-docs');a.add_argument('--bundle',type=Path,required=True);a.add_argument('--receipt',type=Path,required=True)
  args=p.parse_args()
- if args.action=='prepare':prepare(args.spec,args.output)
+ if args.action=='prepare':prepare(args.spec,args.output,args.ssh_public_key)
  elif args.action=='validate':validate_bundle(args.bundle)
  else:refresh_docs(args.bundle,args.receipt)

@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "stage": "download only; no model instantiated",
+  "revision": "85e237c12c027371202489a0ec509ded67b5e4b5",
+  "bytes": 2498386873,
+  "seconds": 231.66737373452634,
+  "helper_peak_rss_bytes": 78741504
+}

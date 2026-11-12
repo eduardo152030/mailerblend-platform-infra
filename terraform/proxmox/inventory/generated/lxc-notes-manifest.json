@@ -3,7 +3,7 @@
   "inventory/lxc-observed.json": "41d424fa96a422a9377c7bbc8f875d63f27cf85c30c05906d477d3571c6e77b2",
   "docs/inventory/routing-observed.json": "97a9f47e12ef36a6eb792d8226e6c09eb37e283233df99bffddf7b8296b883cf",
   "inventory/defaults.yml": "51890421e4dc23af3ce267b19af23108b33c86b9dc925ffef465cd8c7c6d851c",
-  "scripts/generate-lxc-inventory.py": "4c6742ffce12020ba787706a25d6e9769d34bd02285742b99ebc04d523215e96",
+  "scripts/generate-lxc-inventory.py": "97d52c1a463a53704673b34f9d6c8ab2b8fcf742e4fb708f3989795f881b9e50",
   "scripts/lxc_provisioning.py": "c2c51a171e103bdcccdfcf35e9597bbd08dc75945066916fdb44e33137393801",
   "templates/lxc-notes.tftpl": "d3ccbffb692f892e799101e02da3d40c463dcafe66cf536eb251480e2673f537",
   "inventory/services/infra-blackbox.yml": "1ba55dd29e357a36a0ad637550e917bc12b6d5e5d7a7e653a60c7220ed7fff4c",
@@ -23,8 +23,11 @@
   "inventory/services/infra-prom.yml": "03eae9400315eef46066b39b95dc440c721b0330b64f2a10fc157c65100e6fec",
   "inventory/services/infra-pulpo.yml": "0ae1b0df4f1bc3a356676d5346f3ebe51014421670158e5d6ce4782371fa85e5",
   "inventory/services/infra-svc01.yml": "31e321cf08d55b26b1ee6cc9ea4431651aeee62aac2810331af962fba1df82af",
+  "inventory/services/infra-voicebox.yml": "d4f5478558e4b2a61699d9a9a043c38535a97c4d78c14fb95471eb8ea567ab05",
   "services/infra-mailerblend-edge/NOTES.md": "9274702e810ddea54265377636eb77c01720115b97bdf1f64e2d3822c52b9d52",
   "services/infra-nucleoedge/NOTES.md": "f8ed390d1e4cf9e19f6589664482eaca7e59cd82860a2908f748b02eddac162a",
+  "services/infra-voicebox/NOTES.md": "e3d2b358461aba532cb211f974ab3d4290c03fd805856dfdf6ad6cd1df82b0b3",
   "docs/inventory/615-LXC-INVENTORY.md": "337d36867806c3a97062eb8d3ca4cd8f0f9032cc7803c96ef0a9fa02b245b764",
-  "docs/inventory/614-LXC-INVENTORY.md": "79915acd3807d6a33a9e8f7a1ef1ee728de3133186e74f11baf02321634423b3"
+  "docs/inventory/614-LXC-INVENTORY.md": "79915acd3807d6a33a9e8f7a1ef1ee728de3133186e74f11baf02321634423b3",
+  "docs/inventory/627-LXC-INVENTORY.md": "36f99c5165c4a7e98cf6c946d66567c3119f1633c43dce68a0c6f8ad051d9cbc"
 }

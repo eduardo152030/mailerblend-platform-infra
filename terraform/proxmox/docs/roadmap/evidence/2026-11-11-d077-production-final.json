@@ -1,0 +1,57 @@
+{
+  "at_utc": "2026-11-11T21:03:24.823379+00:00",
+  "voicebox": {
+    "id": "b761544dfda2067a6e3cb65fef7333733860cec083a5e6f7ce78ce1fb0063ffe",
+    "image": "sha256:7c747589727a4d283ae5cc0b549b522d5d0cd4602572a032d5b846127382547b",
+    "started_at": "2026-11-11T20:52:22.818005802Z",
+    "restart_count": 0,
+    "health": "healthy"
+  },
+  "PVE_configs_before_notes_all_identical": true,
+  "notes_sync": {
+    "description_synced": 627,
+    "changed_configs": [
+      "627"
+    ],
+    "no_other_LXC_changes": true
+  },
+  "no_other_LXC_changes": true,
+  "new_oom_host_and_all_ct": 0,
+  "profile_reference_original_transcript_preserved": true,
+  "profile_rows_and_final_logs": {
+    "error_lines_observation": 0,
+    "http5xx_observation": 0,
+    "profiles_sha256": "7876ec11eac1b8b9c8197ab408b09701bbddcab1391dd2873784b4537c73c26e",
+    "samples_sha256": "bdc8859b345139336d2a3f8516ece98a61b111bf6d2f33ab31508871fe70c3b2",
+    "profile_count": 1,
+    "sample_count": 1,
+    "generation_count": 4,
+    "original_profile_and_samples_identical": true
+  },
+  "runtime_tests_passed": 23,
+  "new_inference_jobs": 1,
+  "accepted_audio_history_id": "225c8772-6b09-52b0-9580-c0001fff4bcb",
+  "no_commit_push": true,
+  "central_prometheus_outage_preexisting_not_resolved": true,
+  "terraform_notes_refresh_only_applied": true,
+  "targeted_terraform_final_plan_changes": 0,
+  "model_availability_final": [
+    {
+      "model_name": "qwen-tts-0.6B",
+      "downloaded": true,
+      "loaded": false
+    },
+    {
+      "model_name": "kokoro",
+      "downloaded": true,
+      "loaded": false
+    },
+    {
+      "model_name": "piper-es-es",
+      "downloaded": true,
+      "loaded": false
+    }
+  ],
+  "app_and_supervisor_final_healthy": true,
+  "inventory_tests_passed": 16
+}

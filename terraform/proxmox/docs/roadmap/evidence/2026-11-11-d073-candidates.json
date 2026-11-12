@@ -1,0 +1,115 @@
+{
+  "A_temporaries_potential_bytes": 5098465461,
+  "A_cache_bytes": 4485183669,
+  "A_apt_bytes": 478756864,
+  "A_d072_public_build_bytes": 134524928,
+  "A_cache_ids": [
+    "vz5wfmecnxdgtv6mbf1zq0eho",
+    "cc9n4utgqdchqqwkkaowoc7bo",
+    "pv2ejpcwgqbwwqltompg5jgpz",
+    "yxvelzf4s39xc49b7o8yom63h",
+    "vnpkmjsn7luvj5i0sssnbetbh",
+    "onodw9o3mmfdvi2gi3mvw9z7b",
+    "izf9jojw8vhnmxdmvzqhqbocc",
+    "rex6zrysjqaamsn7reyjmv3er",
+    "igqfbnlbh5h0w49f2vcv6y2ge",
+    "3ae7a6z9mz6ejuutx0el17fzv",
+    "p57xn6tjk145ua7ai9ygnumen",
+    "zgd6mtif62swkdadnrxv6ysos",
+    "c8y5ng4p4puj2vsivznf7fi62",
+    "vxqizx2mgs78mqxz2tj1ki420",
+    "iecwav88rnakc534ho6kdx44d",
+    "tfu156dm92c16g9joljhfqvcr",
+    "4bd4pyd4hdd0nhkckehl579ko",
+    "wefuzeqs45zfb18h7f4o877d7",
+    "qdj9f4op8n66y83psh9cpdrow",
+    "unsi4ucvwqsoce23ydt0iui0g",
+    "gflyfzpl88hsudhu22u1me329",
+    "qsvfdye9j2pc23kmttkcz3oy8",
+    "bjsvmdgfxurqb5uby8woo69do",
+    "t2hntshb853fcdq312mhhu252",
+    "54vwu56n1a25dpjog5toqhaez",
+    "039alvv69vqij5mff04cogfrm",
+    "urvgdoi2v7hia5zxqsynmd7w0",
+    "npsywgtu46d918ewtarcocvhr",
+    "ia05deh12n2b09zy63ry71cr5",
+    "ckx618zyxh8gf1z2h4g7vbuwl",
+    "csgmb5j530kcenivtgninhunz",
+    "o4cara27r6xgeip6ioq3hyk2m",
+    "rvkt9214mj3g5wznu9189ranw",
+    "tnbwgnly6upuc3zjvjbsxhngw",
+    "ukbakly9s718meud8uqj81953",
+    "dm0nj6zng24s5yercokonuco7",
+    "vp6u93en3eic8dmb5zlit4kq0",
+    "juwdbj3w0h1m5w7y7fb7zm28v",
+    "p4lpjueruejdj7kjeynldore6",
+    "bmp44895rjk9a482c29s35mbw",
+    "gso88dg822qbaouurn2mdzyvv",
+    "m06hro4yqlgi3w5xmvtdba5ul",
+    "wdy9ouimdqccec56oo8joecru",
+    "y3w4g40it5ar3ravtm3jwq0wa"
+  ],
+  "B_expanded_backup_pairs": [
+    {
+      "name": "d068-preserved-final",
+      "allocated": 450490368
+    },
+    {
+      "name": "d064-before-catalog",
+      "allocated": 330301440
+    },
+    {
+      "name": "d067-final",
+      "allocated": 334630912
+    },
+    {
+      "name": "d068-final",
+      "allocated": 450187264
+    },
+    {
+      "name": "d067-before",
+      "allocated": 333508608
+    },
+    {
+      "name": "d068-before",
+      "allocated": 334635008
+    },
+    {
+      "name": "d068-before-piper",
+      "allocated": 411410432
+    },
+    {
+      "name": "d063-after-tts",
+      "allocated": 329515008
+    },
+    {
+      "name": "d069-before",
+      "allocated": 458395648
+    },
+    {
+      "name": "d067-before-recreate",
+      "allocated": 333516800
+    },
+    {
+      "name": "d064-before-memory3072",
+      "allocated": 332644352
+    },
+    {
+      "name": "d069-final",
+      "allocated": 2966126592
+    },
+    {
+      "name": "d066-before-qwen",
+      "allocated": 333074432
+    },
+    {
+      "name": "d063-final-2048",
+      "allocated": 330141696
+    }
+  ],
+  "B_potential_bytes": 7728578560,
+  "A_plus_B_upper_potential_bytes": 12827044021,
+  "no_cleanup_performed": true,
+  "all_removals_require_new_authorization": true,
+  "backup_pairs_not_revalidated_for_deletion": true
+}

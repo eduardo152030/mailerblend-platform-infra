@@ -1,0 +1,8 @@
+{
+  "image": "local/voicebox:8af7efe62fab-cpu-d063",
+  "image_id": "sha256:7f2e6f7e6a2d09c77ebd35424a7641249e51b8ff0374bc9c4acb1f7393cfcd4c",
+  "git_revision": "8af7efe62fab8d33e2a5dfbedabaa45f68a5184f",
+  "dockerfile_sha256": "f78a7430c534a6e4dd49ce5192b8339d62531828d333132fa341848e174aa38a",
+  "archive_sha256": "4d34b1c1d6ebd83a98d8621ef332d5a7fb3ab0d1db34eef04c161e27ddf32373",
+  "archive_bytes": 1206316979
+}

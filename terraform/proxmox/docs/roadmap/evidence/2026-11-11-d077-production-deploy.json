@@ -1,0 +1,39 @@
+{
+  "first_deployment": {
+    "scope": "CT627 Voicebox and dedicated PVE supervisor",
+    "idempotent_no_recreate": false,
+    "status": "FAILED",
+    "error": "JSONDecodeError",
+    "rollback_attempted": true,
+    "rollback_image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b"
+  },
+  "corrected_deploy": {
+    "scope": "CT627 Voicebox and dedicated PVE supervisor",
+    "candidate_runtime_UID999_passed": true,
+    "idempotent_no_recreate": false,
+    "status": "PASS",
+    "image_id": "sha256:7c747589727a4d283ae5cc0b549b522d5d0cd4602572a032d5b846127382547b",
+    "old_image_retained": true,
+    "container_id": "b761544dfda2067a6e3cb65fef7333733860cec083a5e6f7ce78ce1fb0063ffe",
+    "started_at": "2026-11-11T20:52:22.818005802Z",
+    "healthy": true,
+    "supervisor_active": true
+  },
+  "second_application": {
+    "scope": "CT627 Voicebox and dedicated PVE supervisor",
+    "candidate_runtime_UID999_passed": true,
+    "idempotent_no_recreate": true,
+    "status": "PASS",
+    "image_id": "sha256:7c747589727a4d283ae5cc0b549b522d5d0cd4602572a032d5b846127382547b",
+    "old_image_retained": true,
+    "container_id": "b761544dfda2067a6e3cb65fef7333733860cec083a5e6f7ce78ce1fb0063ffe",
+    "started_at": "2026-11-11T20:52:22.818005802Z",
+    "healthy": true,
+    "supervisor_active": true
+  },
+  "incidents_resolved": [
+    "new backend modules root600: actual rollback; COPYchown999 and mandatory UID999 smoke gate added",
+    "new imported WAV root600: reconciled only this new file, publisher now requires UID999"
+  ],
+  "no_new_TTS_for_integration_tests": true
+}

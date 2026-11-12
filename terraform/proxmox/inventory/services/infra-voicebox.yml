@@ -1,0 +1,130 @@
+service:
+  name: infra-voicebox
+  vmid: 627
+  ip: 192.168.1.127/24
+resources:
+  cpu: 3
+  memory: 15360
+  swap: 2048
+  disk_gb: 50
+os:
+  template_vmid: 106
+  name: Ubuntu LXC CT106 — versión pendiente de observación
+network:
+  gateway: 192.168.1.254
+  dns:
+  - 192.168.1.254
+  bridge: vmbr0
+storage:
+  name: local-lvm
+tags:
+- infra
+- ai
+- voice-generation
+- internal
+- 192.168.1.127
+monitoring:
+  docker: true
+  node_exporter: true
+  blackbox:
+  - url: http://192.168.1.127:17493/health
+    module: voicebox_api_cpu
+    contract: 'JSONstatushealthy ybackend_variantcpu: disponibilidadAPI, inferencia
+      probada separadamente'
+    body_regex: '"status"\s*:\s*"healthy"'
+provisioning:
+  environment: internal
+  purpose: AI / Voice Generation — Voicebox permanente; web y API privadas
+  owner: eduardo152030
+  applications:
+  - name: Voicebox
+    runtime: docker
+    ports:
+    - 17493/tcp interno; exposición LAN pendiente de ACL
+  dependencies:
+  - Docker Compose
+  - 'Hugging Face: modelos Kokoro'
+  - Fork eduardo152030/voicebox fijado 8af7efe62fab8d33e2a5dfbedabaa45f68a5184f
+  domains: []
+  backup: D069 backup privado previo a retirada, restaurado fuera PVE:127archivos/25audios;
+    ochoZIP porperfil yoriginales personales privados. ImagenR2 conservada; candidata
+    personal fijada yarchivada.
+  known_issues:
+  - Recursos iniciales de plantilla aprobados por propietario; consumo e inferencia
+    pendientes de medición
+  - Sin GPU configurada; no exponer API sin restricción de clientes
+  - IP sin coincidencias en inventario/configuración PVE; ping sin respuesta/ARP INCOMPLETE,
+    no acredita exclusión DHCP
+  - Inicio1080MiB medido insuficiente al cargarKokoro:RAM/swap saturadas ytimeoutNode;
+    aumento progresivo1536MiB autorizado por instrucción del propietario
+  - 1536MiB permitióTTS real pero solo13.7%RAMdisponible conmodelo cargado, por debajo
+    delumbral20%; siguienteescalón2048MiB sinmodificarF5
+  - 'D067: piloto BF16/SDPA con6144MiB cargó Qwen, pero corta agotó600s sinWAV, sinOOM;
+    rollback final3072MiB. FemeninaSerena bloqueada sinmuestra; Baseclonación pendiente.'
+  - 'D068: CustomVoice CPU bloqueado tras diagnóstico con progreso, parada por PSI/swap
+    sinOOM. Piper es_ES femenino yKokoro masculino técnicosPASS, escucha pendiente.
+    Base propietario preparado/guardado, no descargado ni clonado sin grabaciones.'
+  - D069 personal único; Base0.6B muestra6.4s/106.86s, sinOOM, cgroup5.18GiB; parecido/contenido/acento
+    pendientes de escucha; no60s validado. Ocho perfiles retirados con backup.
+  ssh:
+    enabled: true
+    method: pct-merge
+    state: PENDING VERIFICATION
+  verification_history:
+  - result: PASS
+    ct_id: 627
+    service: infra-voicebox
+    observed_at_utc: '2026-11-10T10:57:29.942080+00:00'
+    source: read-only PVE+cgroup+Node verification
+    cpu_source: cgroup_v2_textfile
+    state: RUNNING
+    allocated_cores: 3
+    memory_mib: 2048
+    uptime_seconds: 445
+  - result: PASS
+    ct_id: 627
+    service: infra-voicebox
+    observed_at_utc: '2026-11-10T12:51:47.116887+00:00'
+    source: read-only PVE+cgroup+Node verification
+    cpu_source: cgroup_v2_textfile
+    state: RUNNING
+    allocated_cores: 3
+    memory_mib: 3072
+    uptime_seconds: 111
+  - result: PASS
+    ct_id: 627
+    service: infra-voicebox
+    observed_at_utc: '2026-11-10T14:20:35.299958+00:00'
+    source: D067 read-only PVE config + functional API audit; post-recreation
+    cpu_source: cgroup_v2_textfile
+    state: RUNNING
+    allocated_cores: 3
+    memory_mib: 3072
+    uptime_seconds: 299
+  - result: PASS
+    ct_id: 627
+    service: infra-voicebox
+    observed_at_utc: '2026-11-10T19:52:01.525239+00:00'
+    source: D068 read-only PVE+cgroup/API audit; real Piper/Kokoro generation separately
+      evidenced
+    cpu_source: cgroup_v2_textfile
+    state: RUNNING
+    allocated_cores: 3
+    memory_mib: 7168
+    uptime_seconds: 18983
+  verification:
+    result: PASS
+    ct_id: 627
+    service: infra-voicebox
+    observed_at_utc: '2026-11-12T07:15:07.458590+00:00'
+    source: D080 live PVE config+cgroup resize; Voicebox identity preserved;
+      single continuous generation completed, 28.56 seconds audio
+    cpu_source: cgroup_v2_textfile
+    state: RUNNING
+    allocated_cores: 3
+    memory_mib: 15360
+    swap_mib: 2048
+    uptime_seconds: 4856.74
+documentation:
+  inventory_file: docs/inventory/627-LXC-INVENTORY.md
+  notes_file: services/infra-voicebox/NOTES.md

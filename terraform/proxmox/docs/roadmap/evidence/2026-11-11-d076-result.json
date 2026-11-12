@@ -1,0 +1,61 @@
+{
+  "outcome": "TIMEOUT_WITH_PROGRESS",
+  "goal_55_60s_audio_achieved": false,
+  "raw_supervisor_classification": "F",
+  "worker_error": "worker_wall_timeout",
+  "timeout_authorized_seconds": 300,
+  "extra_900s_not_authorized": true,
+  "total_supervisor_seconds": 299.9074090949998,
+  "worker_seconds": 295.02606086000014,
+  "model_stages_seconds": {
+    "load": 8.575882574000389,
+    "reference_encode": 4.127470122999512,
+    "reference_prompt": 15.029016837999734,
+    "prefill_forward": 3.5990549719999763
+  },
+  "last_forward_calls": 368,
+  "last_progress_seconds": 293.5683892630004,
+  "partial_forward_calls_per_second": 1.4181934742486801,
+  "not_final_token_rate": true,
+  "generated_tokens_final": null,
+  "EOS": null,
+  "decode_reached": false,
+  "wav_exists": false,
+  "peaks_sampled": {
+    "ct_current": 8358232064,
+    "worker_current": 6977933312,
+    "rss_bytes": 5905367040,
+    "ct_swap": 0
+  },
+  "rss_hwm_bytes": 6001713152,
+  "CPU_peak_cores": 2.8399820496655868,
+  "host_available_min_bytes": 18277707776,
+  "ct_psi_full_avg10_max": 0.0,
+  "swap_growth_bytes": 0,
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 137,
+    "Error": "",
+    "StartedAt": "2026-11-11T19:16:00.623673433Z",
+    "FinishedAt": "2026-11-11T19:20:56.977595903Z"
+  },
+  "numba_cache_ok": true,
+  "precision": {
+    "main": {
+      "torch.float32": 478
+    },
+    "codec": {
+      "torch.float32": 400
+    }
+  },
+  "attention": "sdpa",
+  "requested_generation_cap": 1024,
+  "three_threads": true,
+  "no_resource_guard_triggered": true
+}

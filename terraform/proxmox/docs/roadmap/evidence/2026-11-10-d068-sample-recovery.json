@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "restored_id": "5385d04b-49fa-4b0f-a001-1cebaf55b854",
+  "sha256": "d53665d3932c4b96fe7497587f57215e70b0b2cf8a5c9a290896665961cf2cfe",
+  "inserted_tables": [
+    "generations",
+    "generation_versions"
+  ],
+  "newer_generations_preserved": 24,
+  "full_db_rollback": false,
+  "cause_of_prior_absence": "UNDETERMINED; no delete issued by this intervention",
+  "api_history_and_audio_sha_verified": true
+}

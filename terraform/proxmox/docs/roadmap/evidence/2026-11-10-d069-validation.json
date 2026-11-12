@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "phase": "7.4/D069 DONE — Accepted for sole owner profile and first sample",
+  "owner_auditory_acceptance": "ACCEPTED_BY_OWNER",
+  "inventory_tests": 16,
+  "provisioning_tests": 16,
+  "terraform_fmt_validate": "PASS",
+  "python_shell": "PASS",
+  "local_links": "PASS",
+  "git_diff_check": "PASS",
+  "real_generation_seconds": 106.86044136155397,
+  "audio_seconds": 6.4,
+  "oom": 0,
+  "restart_persistence": "PASS",
+  "compose_two_applications": "PASS_NO_RESTART_RECREATE",
+  "terraform_final": "PASS_0_0_0",
+  "other_lxc_changes": 0,
+  "retired_profiles": 8,
+  "completed_audio_files_restored": 2,
+  "reference_audio_files_restored": 1,
+  "personal_recordings_published": false,
+  "limits": [
+    "No minute narration tested",
+    "Only supervised first sample accepted; no extrapolation",
+    "Rollback branch prepared, not exercised by successful pilot"
+  ]
+}

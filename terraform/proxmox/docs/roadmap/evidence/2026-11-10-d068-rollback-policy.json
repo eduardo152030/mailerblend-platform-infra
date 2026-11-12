@@ -1,0 +1,16 @@
+{
+  "target_memory_mib": 7168,
+  "keep_authorized_allocation_if_host_stable": true,
+  "candidate_failure": "stop diagnostic worker, restore stable original image andKokoro; do not promote candidate",
+  "resource_safety_failure": "Stop model immediately; return RAM3GiB only if host pressure/capacity remains unsafe after stop. Retain target7GiB when pressure normalizes and other17LXC remain healthy.",
+  "protected_resources": {
+    "cpu": 3,
+    "swap_mib": 512,
+    "disk_gib": 50
+  },
+  "no_progress_seconds": 45,
+  "diagnostic_wall_seconds": 120,
+  "minimum_wall_seconds": 180,
+  "no_success_at_token_cap": true,
+  "rationale": "Host available remained>7GiB during sampled pressure; after isolated worker stop pressure avg10 returned<1. No persistent allocation pressure; target7GiB remains explicitly authorized."
+}

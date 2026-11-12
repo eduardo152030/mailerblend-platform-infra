@@ -1,0 +1,32 @@
+{
+  "torch": "2.8.0+cpu",
+  "cpu_capability": "AVX2",
+  "scope": "tiny synthetic operators only; NO model loaded",
+  "results": {
+    "torch.float32": {
+      "linear": "PASS",
+      "conv1d": "PASS",
+      "conv_transpose1d": "PASS",
+      "sdpa": "PASS",
+      "rms_norm": "PASS",
+      "elapsed_seconds": 0.005941106006503105
+    },
+    "torch.bfloat16": {
+      "linear": "PASS",
+      "conv1d": "PASS",
+      "conv_transpose1d": "PASS",
+      "sdpa": "PASS",
+      "rms_norm": "PASS",
+      "elapsed_seconds": 0.004315069876611233
+    },
+    "torch.float16": {
+      "linear": "PASS",
+      "conv1d": "PASS",
+      "conv_transpose1d": "PASS",
+      "sdpa": "PASS",
+      "rms_norm": "PASS",
+      "elapsed_seconds": 0.005926346406340599
+    }
+  },
+  "diagnostic_process_peak_rss_bytes": 228904960
+}

@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "scope": "CT627 only",
+  "fields": [
+    "memory"
+  ],
+  "before_mib": 3072,
+  "after_mib": 7168,
+  "cpu": 3,
+  "swap_mib": 512,
+  "disk_gib": 50,
+  "replacements": 0
+}

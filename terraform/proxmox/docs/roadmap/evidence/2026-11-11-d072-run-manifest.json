@@ -1,0 +1,24 @@
+{
+  "classification": "DIAGNOSTIC_CLI_NOT_SERVER_QUALIFICATION",
+  "source_commit": "ef339be58a778b062e1c14382347964552eae007",
+  "binary_sha256": "04f4bce57f28449bb485e5ec9d6acf80d846851b1e08ffa9f885878241318de6",
+  "source_patch": "none",
+  "compile_simd": "portable AVX2/FMA",
+  "threads": 2,
+  "workers": 1,
+  "cpus_quota": 3,
+  "cpuset": "not pinned; CT scheduler",
+  "precision_requested": "int8",
+  "reference_mode": "ICL audio+exact transcript",
+  "seed": 42,
+  "job": "short-int8",
+  "timeout_seconds": 240,
+  "production_health_and_no_active_jobs_checked_before_run": true,
+  "artifact_hashes": {
+    "Dockerfile": "34cdfab352037bd261feec4d1e8e9d94666da9846061a43b115f77eeff456ff4",
+    "source-lock.json": "ca008597ebaca3d2171c5b4770440b60eecdc46e1dd05c4c0cec6668496fc035",
+    "prepare.py": "eea8b90dd2d971bf5566919bc957055a992ed5586de0d7e20216f4f1d26cdd49",
+    "infer.py": "128f56ed2f162ee0bfe7e784353cb237f8ca1a9a41ca9997f53788ee48e18a6f",
+    "run-probe.py": "8dad865ce519f7d854d0d199e2fb8dca42f61700125255f2c1e745ca7f7a26fd"
+  }
+}

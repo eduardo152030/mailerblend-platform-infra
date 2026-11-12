@@ -35,3 +35,28 @@ services/infra-composable-crm/recovery/plan.json
 
 # D061: real environment files remain local; examples are reviewed separately.
 **/.env
+
+# D069: owner recordings are private, never documentation artifacts.
+docs/roadmap/mi_voz/
+docs/roadmap/mi voz/
+
+# D082: private Voicebox payloads and visual evidence stay outside publication.
+services/infra-voicebox/**/private/
+services/infra-voicebox/**/private-originals/
+services/infra-voicebox/**/jobs/
+services/infra-voicebox/**/checkpoints/
+services/infra-voicebox/**/backups/
+services/infra-voicebox/**/huggingface/
+services/infra-voicebox/**/*.wav
+services/infra-voicebox/**/*.mp3
+services/infra-voicebox/**/*.npy
+services/infra-voicebox/**/*.safetensors
+services/infra-voicebox/**/*.onnx
+services/infra-voicebox/**/*.pt
+services/infra-voicebox/**/*.pth
+services/infra-voicebox/**/*.db
+services/infra-voicebox/**/*.sqlite*
+services/infra-voicebox/**/*.tar*
+services/infra-voicebox/**/*.zip
+services/infra-voicebox/**/*.whl
+docs/roadmap/evidence/*-d0[6-8][0-9]-*.png

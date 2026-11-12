@@ -1,0 +1,22 @@
+{
+  "other_17_config_hashes_unchanged": true,
+  "global_oom_unchanged": true,
+  "ct627_events_before": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "ct627_events_after": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "voicebox_identity_unchanged": true,
+  "voicebox": {
+    "id": "1c35e81571c979b89efc185a5074847bb5c5930b783027ea9d76ac45814ef457",
+    "image": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+    "started_at": "2026-11-12T07:01:37.552379895Z",
+    "restart_count": 0,
+    "health": "healthy"
+  },
+  "profile_samples_and_protected_files_unchanged": true,
+  "no_active_inference": true,
+  "agent_active": true,
+  "cpu_controls": {
+    "cpu.max": "300000 100000\n",
+    "cpu.stat": "usage_usec 17070302\nuser_usec 14238745\nsystem_usec 2831557\ncore_sched.force_idle_usec 0\nnr_periods 3894\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "cpuset.cpus.effective": "0-2\n"
+  }
+}

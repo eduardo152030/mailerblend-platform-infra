@@ -1,0 +1,436 @@
+{
+  "events": [
+    {
+      "elapsed": 3.0380006137420423e-06,
+      "stage": "preflight_imports_cache",
+      "event": "start"
+    },
+    {
+      "elapsed": 10.368541595999886,
+      "stage": "preflight_imports_cache",
+      "event": "passed",
+      "path": "/tmp/numba",
+      "uid": 999,
+      "writable": true,
+      "free_bytes_before_import": 134217728,
+      "numba": "0.60.0",
+      "librosa": "0.11.0",
+      "imports_passed": true,
+      "persistent_data_written": false
+    },
+    {
+      "elapsed": 10.395359465000183,
+      "stage": "preflight_fp32",
+      "event": "passed",
+      "dtype": "torch.float32",
+      "intraop": 3,
+      "interop": 1
+    },
+    {
+      "elapsed": 10.398598140000104,
+      "stage": "load",
+      "event": "start"
+    },
+    {
+      "elapsed": 18.974689059999946,
+      "stage": "load",
+      "event": "end",
+      "seconds": 8.575882574000389
+    },
+    {
+      "elapsed": 18.983418066000013,
+      "stage": "model_configuration",
+      "event": "validated",
+      "parameter_dtypes": {
+        "main": {
+          "torch.float32": 478
+        },
+        "codec": {
+          "torch.float32": 400
+        }
+      },
+      "attention": "sdpa"
+    },
+    {
+      "elapsed": 18.993682543999967,
+      "stage": "reference_prompt",
+      "event": "start"
+    },
+    {
+      "elapsed": 29.493909405000522,
+      "stage": "reference_encode",
+      "event": "start"
+    },
+    {
+      "elapsed": 33.621686843000134,
+      "stage": "reference_encode",
+      "event": "end",
+      "seconds": 4.127472135000062
+    },
+    {
+      "elapsed": 34.022931251000045,
+      "stage": "reference_prompt",
+      "event": "end",
+      "seconds": 15.029016837999734
+    },
+    {
+      "elapsed": 34.02328951800064,
+      "stage": "clone",
+      "event": "start",
+      "signature_max_new_tokens": "kwargs forwarded via _merge_generate_kwargs -> model.generate -> talker.generate"
+    },
+    {
+      "elapsed": 34.08334248900064,
+      "stage": "talker_generation",
+      "event": "start",
+      "max_new_tokens": 1024,
+      "eos_token_id": 2150
+    },
+    {
+      "elapsed": 34.086546737999925,
+      "stage": "prefill_forward",
+      "event": "start",
+      "positions": 322
+    },
+    {
+      "elapsed": 37.68560367600003,
+      "stage": "prefill_forward",
+      "event": "end",
+      "seconds": 3.599058179000167
+    },
+    {
+      "elapsed": 43.10341367900037,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 8
+    },
+    {
+      "elapsed": 47.82669570100006,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 16
+    },
+    {
+      "elapsed": 51.96509267000056,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 24
+    },
+    {
+      "elapsed": 56.9067202010001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 32
+    },
+    {
+      "elapsed": 60.5720338430001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 40
+    },
+    {
+      "elapsed": 65.21921374000067,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 48
+    },
+    {
+      "elapsed": 69.86750138800016,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 56
+    },
+    {
+      "elapsed": 74.8404690110001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 64
+    },
+    {
+      "elapsed": 79.66326330900029,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 72
+    },
+    {
+      "elapsed": 85.41187955700025,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 80
+    },
+    {
+      "elapsed": 90.6321476080002,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 88
+    },
+    {
+      "elapsed": 95.7866697899999,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 96
+    },
+    {
+      "elapsed": 101.4047145530003,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 104
+    },
+    {
+      "elapsed": 107.32178553199992,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 112
+    },
+    {
+      "elapsed": 113.51534198900026,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 120
+    },
+    {
+      "elapsed": 119.93778485300027,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 128
+    },
+    {
+      "elapsed": 126.16281047300072,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 136
+    },
+    {
+      "elapsed": 132.31000397300068,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 144
+    },
+    {
+      "elapsed": 137.7504556470003,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 152
+    },
+    {
+      "elapsed": 143.74626855400038,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 160
+    },
+    {
+      "elapsed": 149.332246381,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 168
+    },
+    {
+      "elapsed": 155.0395459320007,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 176
+    },
+    {
+      "elapsed": 161.47312242200042,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 184
+    },
+    {
+      "elapsed": 166.51017339400005,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 192
+    },
+    {
+      "elapsed": 171.05123474500033,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 200
+    },
+    {
+      "elapsed": 177.57944771800067,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 208
+    },
+    {
+      "elapsed": 182.55282933299986,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 216
+    },
+    {
+      "elapsed": 189.0793715460004,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 224
+    },
+    {
+      "elapsed": 194.82876954099993,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 232
+    },
+    {
+      "elapsed": 200.8684286810003,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 240
+    },
+    {
+      "elapsed": 206.40600196600008,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 248
+    },
+    {
+      "elapsed": 211.23881550100032,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 256
+    },
+    {
+      "elapsed": 216.45716931100014,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 264
+    },
+    {
+      "elapsed": 223.51998062000075,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 272
+    },
+    {
+      "elapsed": 229.46183246300006,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 280
+    },
+    {
+      "elapsed": 234.78071549200013,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 288
+    },
+    {
+      "elapsed": 240.65538946000015,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 296
+    },
+    {
+      "elapsed": 247.1678231599999,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 304
+    },
+    {
+      "elapsed": 252.78065940800025,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 312
+    },
+    {
+      "elapsed": 258.6458947280007,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 320
+    },
+    {
+      "elapsed": 263.8730148730001,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 328
+    },
+    {
+      "elapsed": 269.05319238500033,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 336
+    },
+    {
+      "elapsed": 275.2059068160006,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 344
+    },
+    {
+      "elapsed": 280.879219726,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 352
+    },
+    {
+      "elapsed": 287.39587187800043,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 360
+    },
+    {
+      "elapsed": 293.5683892630004,
+      "stage": "talker_forward",
+      "event": "progress",
+      "calls": 368
+    },
+    {
+      "elapsed": 295.00092472899996,
+      "stage": "failure",
+      "event": "error",
+      "error_type": "TimeoutError"
+    }
+  ],
+  "result": {
+    "stages": {
+      "load": 8.575882574000389,
+      "reference_encode": 4.127470122999512,
+      "reference_prompt": 15.029016837999734,
+      "prefill_forward": 3.5990549719999763
+    },
+    "generation_end": null,
+    "model_dtype": "float32",
+    "text": "Antes de empezar una sesi\u00f3n de trading, conviene observar el contexto y ordenar las ideas. Un gr\u00e1fico no cuenta toda la historia: tambi\u00e9n importan el comportamiento del precio, el volumen y las condiciones generales del mercado.\n\nEn este ejemplo, el objetivo es construir un escenario claro, sin confundir una posibilidad con una certeza. Primero se identifican las zonas relevantes. Despu\u00e9s se describe qu\u00e9 tendr\u00eda que ocurrir para que la interpretaci\u00f3n siga siendo v\u00e1lida y qu\u00e9 se\u00f1ales indicar\u00edan que necesita una revisi\u00f3n.\n\nEl registro de cada decisi\u00f3n permite comparar lo que se esperaba con lo que realmente sucedi\u00f3. Anotar las razones de una entrada, las dudas y las emociones ayuda a detectar patrones que, de otro modo, pueden pasar desapercibidos.\n\nUna operaci\u00f3n aislada no explica por s\u00ed sola la calidad de un proceso. La revisi\u00f3n de varias sesiones aporta una perspectiva m\u00e1s \u00fatil y evita sacar conclusiones precipitadas.\n\nLa disciplina consiste en mantener criterios comprensibles, reconocer la incertidumbre y aprender de los resultados. Al terminar la sesi\u00f3n, la pregunta principal no es solamente cu\u00e1nto se gan\u00f3 o se perdi\u00f3, sino qu\u00e9 se hizo, por qu\u00e9 se hizo y qu\u00e9 conviene estudiar con m\u00e1s atenci\u00f3n.",
+    "max_new_tokens": 1024,
+    "seed": 42,
+    "thread_budget": {
+      "intraop": 3,
+      "interop": 1
+    },
+    "cache_preflight": {
+      "path": "/tmp/numba",
+      "uid": 999,
+      "writable": true,
+      "free_bytes_before_import": 134217728,
+      "numba": "0.60.0",
+      "librosa": "0.11.0",
+      "imports_passed": true,
+      "persistent_data_written": false
+    },
+    "versions": {
+      "qwen-tts": "0.1.1",
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.3",
+      "accelerate": "1.12.0"
+    },
+    "prepared_precision": "float32_cpu_sdpa_no_autocast",
+    "parameter_dtypes": {
+      "main": {
+        "torch.float32": 478
+      },
+      "codec": {
+        "torch.float32": 400
+      }
+    },
+    "attention": "sdpa",
+    "classification": "F",
+    "error_type": "TimeoutError",
+    "error": "worker_wall_timeout",
+    "total_seconds": 295.02606086000014,
+    "rss_hwm_bytes": 6001713152
+  },
+  "wav_exists": false,
+  "timeout": {
+    "seconds": 300
+  }
+}

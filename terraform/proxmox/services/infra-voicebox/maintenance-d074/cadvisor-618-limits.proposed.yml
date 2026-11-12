@@ -1,0 +1,7 @@
+# D074 PROPOSED ONLY. CT618 exclusive; owner approval required before application.
+# Add to the existing CT618 cAdvisor Compose stack only; no app or fleet rollout.
+services:
+  cadvisor:
+    mem_limit: 256m
+    memswap_limit: 384m
+    cpus: '0.50'

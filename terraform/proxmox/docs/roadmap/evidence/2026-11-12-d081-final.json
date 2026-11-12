@@ -1,0 +1,28 @@
+{
+  "voicebox_identity_unchanged": true,
+  "voicebox": {
+    "id": "1c35e81571c979b89efc185a5074847bb5c5930b783027ea9d76ac45814ef457",
+    "image": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+    "started_at": "2026-11-12T07:01:37.552379895Z",
+    "restart_count": 0,
+    "health": "healthy"
+  },
+  "other_17_config_hashes_unchanged": true,
+  "global_oom_unchanged": true,
+  "ct627_events_unchanged": true,
+  "no_inferences_remaining": true,
+  "protected_files_checked": 91,
+  "protected_files_unchanged": true,
+  "profile_and_samples_unchanged": true,
+  "runtime_replaced": false,
+  "restarts_performed": false,
+  "old_failed_history_entry": {
+    "id": "73a3755f-5b19-4d33-aba3-79e43bf6d72b",
+    "api_delete_utc": "2026-11-12T07:38:27.765183499Z",
+    "new_submission_utc": "2026-11-12T07:38:43.661713188Z",
+    "actor_not_established": true,
+    "delete_not_emitted_by_d081_scripts": true,
+    "failed_job_directory_and_backup_row_preserved": true,
+    "row_not_reinserted_to_avoid_undoing_separate_ui_action": true
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "predictive_preflight": {
+    "initial_ct_bytes": 5997715456,
+    "expected_increment_bytes": 4831838208,
+    "safety_margin_bytes": 536870912,
+    "guard_bytes": 15032385536,
+    "projected_with_margin_bytes": 11366424576,
+    "passed": true
+  },
+  "ct_memory_max": 16106127360,
+  "ct_swap_max": 2147483648,
+  "anon": 400941056,
+  "file": 5252124672,
+  "kernel": 344645632,
+  "swap": 4096,
+  "psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=112695\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=109112\n",
+  "events": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "host": {
+    "MemTotal": 33533042688,
+    "MemAvailable": 23047483392
+  },
+  "host_psi": "some avg10=13.32 avg60=12.97 avg300=12.12 total=6141534444\nfull avg10=11.39 avg60=11.16 avg300=10.02 total=5355865542\n",
+  "checks": {
+    "protected_files_checked": 91,
+    "protected_files_unchanged": true,
+    "profile_and_samples_unchanged": true,
+    "health": {
+      "status": "healthy",
+      "model_loaded": false,
+      "model_downloaded": null,
+      "model_size": null,
+      "gpu_available": false,
+      "gpu_type": null,
+      "vram_used_mb": null,
+      "backend_type": "pytorch",
+      "backend_variant": "cpu",
+      "supports_rocm": false,
+      "gpu_compatibility_warning": null,
+      "cloud_enabled": false
+    },
+    "exporters": {
+      "node": 200,
+      "cadvisor": 200
+    },
+    "free_disk_bytes": 19872014336,
+    "no_active_inference": true
+  }
+}

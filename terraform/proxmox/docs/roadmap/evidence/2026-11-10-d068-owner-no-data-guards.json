@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "base_api_guard": {
+    "status": 500,
+    "detail": "{\"detail\":\"Real owner reference recordings required before loading Base\"}"
+  },
+  "owner_download_refused_without_references": true,
+  "personal_profile_created": false,
+  "base_model_downloaded": false,
+  "real_cloning_validation": "PENDING_OWNER_RECORDINGS"
+}

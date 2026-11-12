@@ -5,9 +5,14 @@ def load(filename):
  s=importlib.util.spec_from_file_location(filename,ROOT/'scripts'/filename);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
 g=load('generate-lxc-inventory.py');p=load('validate-lxc-notes-plan.py')
 class InventoryTests(unittest.TestCase):
- def test_exact_17_and_generated_artifacts(self):
-  notes,md=g.build();self.assertEqual(len(notes),17);self.assertIn('CT 61211',md)
+ def test_legacy_17_preserved_and_new_services_have_notes(self):
+  notes,md=g.build();declared=g.load()[0];self.assertEqual(set(notes),set(declared));self.assertTrue(g.EXPECTED <= {d['service']['vmid'] for d in declared.values()});self.assertIn('CT 61211',md)
   self.assertEqual(notes,json.loads((ROOT/'inventory/generated/lxc-notes.json').read_text()))
+ def test_new_service_notes_and_observed_state(self):
+  notes,markdown=g.build();v=notes['infra-voicebox']
+  self.assertEqual('# '+v['title']+'\n\n'+'\n\n'.join(v['sections'])+'\n',(ROOT/'services/infra-voicebox/NOTES.md').read_text())
+  row=next(line for line in markdown.splitlines() if line.startswith('| 627 |'))
+  self.assertIn('Observado RUNNING',row);self.assertNotIn('no desplegado',row)
  def test_ct614_notes_equal_the_service_source(self):
   notes,_=g.build();v=notes['infra-nucleoedge']
   text='# '+v['title']+'\n\n'+'\n\n'.join(v['sections'])+'\n'
@@ -39,6 +44,9 @@ class InventoryTests(unittest.TestCase):
    with self.assertRaises(AssertionError):g.assert_public(value)
  def plan(self):
   return {'resource_changes':[{'address':'proxmox_virtual_environment_container.svc["x"]','type':'proxmox_virtual_environment_container','name':'svc','index':'x','change':{'actions':['update'],'before':{'description':'old','cpu':[{'cores':2}]},'after':{'description':'new','cpu':[{'cores':2}]},'after_unknown':{}}}]}
+ def test_failed_empty_plan_cannot_authorize_notes(self):
+  self.assertFalse(p.review({'errored':True,'resource_changes':[]},{'x':'new'})['apply_permitted'])
+  self.assertFalse(p.review({'checks':[{'status':'fail'}],'resource_changes':[]},{'x':'new'})['apply_permitted'])
  def test_only_expected_notes_may_apply(self):self.assertTrue(p.review(self.plan(),{'x':'new'})['apply_permitted'])
  def test_resource_changes_block_apply(self):
   x=self.plan();x['resource_changes'][0]['change']['after']['cpu']=[{'cores':3}]
