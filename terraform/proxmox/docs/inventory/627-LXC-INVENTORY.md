@@ -8,9 +8,10 @@ Fecha: 2026-11-10 (Europe/Madrid). [Informe y estado vigente](../roadmap/PHASE7-
 El propietario escuchó yaceptó voz ycontenido el12nov2026. Referencia final:
 1059caracteres,57,36s continuos,total676,18s,EOS ycheckpoint íntegros,picoCT9,625GiB,
 sin nuevosOOM. No narraciones5–10min validadas. Mismos recursos/modelo/arquitectura.
-Cierre de implementación7.4 DONE / ACCEPTED; publicaciónGitD082 en curso hasta
-verificación deSHA remoto. No se cierran otrasfases. [Informefinal](../roadmap/PHASE7-D082-VOICEBOX-FINAL-ACCEPTANCE.md).
-Siguiente: completar publicación autorizada ydetenerse; no másinferencias ni mejoras.
+Cierre de implementación7.4 DONE / ACCEPTED; publicaciónGitD082 confirmada en
+main/origin medianteSHA remoto yverificación productiva sin reinicios. No se cierran otrasfases. [Informefinal](../roadmap/PHASE7-D082-VOICEBOX-FINAL-ACCEPTANCE.md).
+Siguiente: uso normal dentro delalcance aceptado. Intervención cerrada; sin nuevas
+funcionalidades, inferencias de prueba ni optimizaciones.
 
 ### Antecedentes D081
 

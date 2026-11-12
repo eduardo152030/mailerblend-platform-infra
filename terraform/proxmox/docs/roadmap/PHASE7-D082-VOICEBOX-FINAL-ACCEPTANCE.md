@@ -4,7 +4,8 @@ Fecha: **12 de noviembre de 2026, Europe/Madrid**. Evidencias operativas enUTC.
 
 **D-081 — ACCEPTED / PRODUCTION.** El propietario escuchó y aceptó expresamente
 voz y contenido. Implementación y aceptación de Fase7.4 **DONE / ACCEPTED**;
-publicación Git del cierre en curso, pendiente del recibo final de esta intervención.
+publicación funcional yde recuperación confirmada enGitHub; recibo documental
+final publicado coneste cierre.
 Fase7 global sigue IN PROGRESS; no se cierran7.2,7.3 ni tareas ajenas.
 
 ## Configuración final conservada
@@ -117,10 +118,35 @@ librerías enproducción para satisfacer tests de la estación local.
 
 ## Commits y publicación
 
-Commit funcional local: `b55a7f99480017fffcbeff4a3106115d65ee10ea`.
-Pendiente de completar con el reciboGitHub ylos commits documentales. No se declara
-publicado por haber preparado uncommit local. La entrega requiere push normal,
-confirmación deSHA remoto ysin commits locales deeste cierre pendientes.
+Rama **main**, remoto **origin**, GitHub `eduardo152030/mailerblend-platform-infra`.
+Push normal de loscommits funcionales confirmado porconsulta directa deSHA remoto:
+
+1. `b55a7f99480017fffcbeff4a3106115d65ee10ea` —
+   `feat(voicebox): finalize Qwen voice cloning production deployment`.
+2. `4dab6d505f4c7628cf8ebaecfdb44177bbbf3e5d` —
+   `docs(voicebox): preserve accepted recovery snapshot and evidence`.
+3. Recibo final: `docs(voicebox): record verified GitHub publication`; suSHA se
+   comprueba alpublicarlo yse comunica enlaentrega final, sin autorreferencia circular.
+
+[Recibo delpush yverificación productiva](evidence/2026-11-12-d082-publication.json).
+Elrecibo conserva elSHA observado tras losdos primeros commits; elcommit documental
+posterior solo registra elcierre yno cambia elruntime. Se verifica otra vez main
+remoto frenteHEAD después delúltimo push, sin force ni reescritura de historial.
+
+Post-push: Voiceboxhealthy, agenteactivo,imagen/ID/StartedAt/restartcount iguales,
+checkpoints y91archivos protegidos/perfil/muestras intactos,17configPVEajenos sin
+cambios, sin nuevasinferencias niOOM. Terraformdirigido627 permanece sin cambios.
+Las modificaciones ajenas deCRM/EVA,targets deotrosCT yservicios noVoicebox siguen
+locales, deliberadamente sin publicar. Unárbol de trabajo no limpio por ellas no
+implica commits deeste cierre pendientes.
+
+Evidencias finales: [aceptación](evidence/2026-11-12-d082-acceptance.json),
+[runtime inicial](evidence/2026-11-12-d082-runtime.json),
+[runtime post-push](evidence/2026-11-12-d082-runtime-after-push.json),
+[backup aceptado](evidence/2026-11-12-d082-accepted-backup.json),
+[imagen verificada](evidence/2026-11-12-d082-image-verified.json),
+[68tests yvalidaciones](evidence/2026-11-12-d082-validation.json),
+[Terraform](evidence/2026-11-12-d082-terraform-final.json).
 
 ## Limitaciones conocidas y estado de Fase7.4
 
@@ -130,6 +156,6 @@ confirmación deSHA remoto ysin commits locales deeste cierre pendientes.
 - Pronunciación dehola pendiente; trader→tréider no altera subtítulos originales.
 - API soloLAN; hardening/DR global yla incidencia centralPrometheus no se cierran.
 
-Fase7.4: implementación **DONE / ACCEPTED**, conD081 enproducción. La finalización
-de publicación D082 se registra separada hasta comprobar elpush. Sinfuncionalidades
+Fase7.4: implementación **DONE / ACCEPTED**, conD081 enproducción. La publicación funcional yde recuperación está comprobada; elrecibo final
+se valida medianteunúltimo push normal. Sinfuncionalidades
 nuevas después deeste cierre.

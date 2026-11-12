@@ -2040,3 +2040,20 @@ Preservar cambios ajenos; detener publicación si rama/remoto o diff no son segu
 Alcance aceptado≈unminuto, no5–10min; pronunciación hola pendiente, trader→tréider
 comprobado; texto fonéticoTTS separado del original destinado a subtítulos.
 Fase7.4 cierre IN PROGRESS hasta validaciones ypublicación; otrasfases intactas.
+
+### D082 — cierre aceptado ypublicación confirmada
+
+12nov2026 Europe/Madrid. D081 ACCEPTED / PRODUCTION por voz ycontenido escuchados.
+Fase7.4 DONE / ACCEPTED:≈1min, no5–10min. Runtime yrecursos conservados; noaudio
+nuevo, no reinicios. 68testsPASS,backup final117archivos/6WAV/1referencia ySQLite
+aceptado restaurados fueraPVE; dosimágenesOCI y39blobs verificados. Datos privados
+fueraGit. Notes627 sincronizadas; Terraformdirigido final0cambios.
+
+Commits b55a7f99480017fffcbeff4a3106115d65ee10ea y4dab6d505f4c7628cf8ebaecfdb44177bbbf3e5d
+publicados enorigin/main mediantepushnormal ySHA remoto comprobado. Recibo final
+solo documental; SHA exacto enentregafinal. Post-push: mismoVoiceboxhealthy/ID/inicio,
+agenteactivo,checkpoints/perfil/originales intactos,otros17configsin cambios,OOM0.
+No cambios ajenos publicados; noforcepush ni reescritura. Pronunciaciónhola pendiente,
+trader→tréider comprobado ysubtítulos originales separados deltexto fonéticoTTS.
+F7global y7.2/7.3 fueraalcance permanecen; no funcionalidades nuevas tras elcierre.
+[Informe final D082](PHASE7-D082-VOICEBOX-FINAL-ACCEPTANCE.md).
