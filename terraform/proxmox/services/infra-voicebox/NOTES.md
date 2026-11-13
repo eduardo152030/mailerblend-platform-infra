@@ -1,5 +1,13 @@
 # CT 627 — infra-voicebox
 
+**Entrada1200 desplegada,13nov2026:** UI/API/controlador/workerChatterbox1200,
+imagen218dc413… sobre21270364 conservada para rollback. Qwen/CBes/en healthy;
+400tokens/EOS/20sWAV/300s/guardas/recursos intactos. Sin narraciones ejecutadas;
+generación completa1200pendiente del propietario. Backup180archivosHDD verificado,
+idempotenciaPASS; soloVoicebox/agente actualizados, CTyotrosservicios intactos.
+Receta deploy-input-1200/README.md; informeVOICEBOX-CHATTERBOX-INPUT-1200.md.
+La sección D089 inferior es el baseline aceptado anterior, no el límite actual.
+
 **D089 — ACCEPTED,13nov2026:** Qwen Base0.6B FP32 y Chatterbox MultilingualV3
 operativos es/en con Eduardo; audios CB5,48s/5,00s y QwenEN45,04s escuchados y
 aceptados por propietario. Chatterbox240caracteres/400tokens/300s, Qwen1200/900s.

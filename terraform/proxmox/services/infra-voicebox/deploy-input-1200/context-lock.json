@@ -1,0 +1,14 @@
+{
+  "source_commit": "3987cabf9be44ed362c3a86c8a5924bd7a76ee04",
+  "base_image_id": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+  "candidate_tag": "local/voicebox:input1200-3987cab",
+  "files": {
+    "controller-engine_policy.py": "0aa1a5ce968304d38074e40907eb28426fac242c175e3de6d94083b1b876617d",
+    "Dockerfile": "018d306185219636fa62c2acbef083d1b02246c8cabbe86ed01b4db2b989dc08",
+    "engine_policy.py": "137cc0d8be438cfa816663479d31a2d3e242744aea413b4ddf47a3c5e981096b",
+    "frontend/index.html": "20420d9840b872037fd0ac65fc1d7472c826644ed603b638f25e33b3a720fa64",
+    "frontend/assets/index-ukolq7qj.css": "00f5c019399b782a5cbfb118364d6ee4413b85e3bcd6b74f60ba43c715d332b4",
+    "frontend/assets/voicebox-logo-DQ1k8iIe.png": "c688271d63dbcf0e10e7268b9184ca12c2b34ce6b1d9f20b348e2e9f8930bca5",
+    "frontend/assets/index-C3TqcsT9.js": "4c62847a8b43f77ccfd163b43a418394b49715c743b1ccb19ea9ec7bbbf060a7"
+  }
+}

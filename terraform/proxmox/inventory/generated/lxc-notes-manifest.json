@@ -26,8 +26,8 @@
   "inventory/services/infra-voicebox.yml": "4d331e7a6e5142f6fe60fd19687e7e1afffb759118aa5945ed68e9ecbee476a6",
   "services/infra-mailerblend-edge/NOTES.md": "9274702e810ddea54265377636eb77c01720115b97bdf1f64e2d3822c52b9d52",
   "services/infra-nucleoedge/NOTES.md": "f8ed390d1e4cf9e19f6589664482eaca7e59cd82860a2908f748b02eddac162a",
-  "services/infra-voicebox/NOTES.md": "166aa94cff1177d35aab87627bd18d740019b43af454068accd2111a3073a14e",
+  "services/infra-voicebox/NOTES.md": "5530c31a51d4c16ff622938bb975c3905be7d5bf684d0f9fa45e310d135cdbd4",
   "docs/inventory/615-LXC-INVENTORY.md": "337d36867806c3a97062eb8d3ca4cd8f0f9032cc7803c96ef0a9fa02b245b764",
   "docs/inventory/614-LXC-INVENTORY.md": "79915acd3807d6a33a9e8f7a1ef1ee728de3133186e74f11baf02321634423b3",
-  "docs/inventory/627-LXC-INVENTORY.md": "a2c94d965d365a8d1a59d3f64560c05eb6dccafa14360eaa949c104f1ebc677d"
+  "docs/inventory/627-LXC-INVENTORY.md": "097191a1d00c798b32d4e25f0800bedeb2912586fa182932177db945abefb585"
 }

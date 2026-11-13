@@ -2412,3 +2412,27 @@ Tests solo actualizados, NO ejecutados; sin inferencia/build/despliegue/reinicio
 Generación completa1200no validada; producción permanece240hasta otra intervención.
 Implementación local DONE; publicación autorizada aorigin/main; validación y
 despliegue TODO. [Detalle](VOICEBOX-CHATTERBOX-INPUT-1200.md).
+
+### Voicebox — despliegue de entrada1200 autorizado
+
+13nov2026 Europe/Madrid, Fase7.4. Propietario solicita desplegar el cambio
+3987cab a producción enCT627; probará él después las narraciones largas.
+Autoriza build/backup y sustitución acotada de app/política/controlador/worker
+necesarias para coherencia, con rollback y comprobaciones de salud. No ejecutar
+inferencias ni suite de pruebas; conservar400tokens/EOS/20sWAV/300s/guardas,
+Qwen, efectos, datos, imágenes previas y recursos. No intervenir otrosLXC/pipeline.
+Comprobación inicial: app21270364 healthy, Qwen/CBready, cero trabajos activos;
+producción aúnCB240. Despliegue IN PROGRESS antes de aplicar.
+
+### Voicebox — entrada1200 desplegada, validación larga pendiente
+
+13nov2026 Europe/Madrid. Backup180archivos HDD/restauraciónaisladaPASS; UI
+compilada y nuevaimagen218dc413 sobre21270364, mismaUID999/entrypoint/CMD.
+Primer intento revertido automáticamente por comprobación UI sobre descripción
+eliminada delbundle; sin fallo de arranque/datos. Observador corregido, segundo
+intentoPASS, mismo artefacto; UI/API/controlador/worker1200. IdempotenciaPASS
+sin recargas. SQLite/perfil/ref/12filas y11audios originales conservados;
+Qwen/CBes/en/Kokoro/Piper saludables, sinOOM/activos/CTrestart/otrosLXC/pipeline.
+400tokens/EOS/20sWAV/300s/guardas intactos. Sin suite ni inferencias. Despliegue
+DONE; narración completa1200TODO por propietario, sin atribuir aceptación acústica
+a esta ampliación. [Informe](VOICEBOX-CHATTERBOX-INPUT-1200.md).

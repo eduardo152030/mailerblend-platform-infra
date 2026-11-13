@@ -1,0 +1,39 @@
+{
+  "image": "local/voicebox:input1200-3987cab",
+  "image_id": "sha256:218dc413361d9f928e79ece96b9979ad9041ef4f2126b7c8175cc92cf91645d6",
+  "rollback_image_id": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+  "context_manifest_sha256": "7a7e79bec63922bb8026a7e628956c27cba23ec0294ceb0bf8198c491e37b182",
+  "backend_policy_sha256": "137cc0d8be438cfa816663479d31a2d3e242744aea413b4ddf47a3c5e981096b",
+  "controller_worker_policy_sha256": "0aa1a5ce968304d38074e40907eb28426fac242c175e3de6d94083b1b876617d",
+  "frontend": {
+    "index.html": "20420d9840b872037fd0ac65fc1d7472c826644ed603b638f25e33b3a720fa64",
+    "assets/index-ukolq7qj.css": "00f5c019399b782a5cbfb118364d6ee4413b85e3bcd6b74f60ba43c715d332b4",
+    "assets/voicebox-logo-DQ1k8iIe.png": "c688271d63dbcf0e10e7268b9184ca12c2b34ce6b1d9f20b348e2e9f8930bca5",
+    "assets/index-C3TqcsT9.js": "4c62847a8b43f77ccfd163b43a418394b49715c743b1ccb19ea9ec7bbbf060a7"
+  },
+  "limits": {
+    "engine": "chatterbox",
+    "variant": "multilingual-v3",
+    "model_size": "default",
+    "max_chars": 1200,
+    "max_tokens": 400,
+    "timeout_seconds": 300,
+    "worker_hard_bytes": 8589934592,
+    "worker_stop_bytes": 7516192768,
+    "predicted_increment_bytes": 7516192768,
+    "margin_bytes": 536870912
+  },
+  "complete_generation_1200": "NOT_VALIDATED",
+  "suite_or_inference_executed": false,
+  "recipe_files": {
+    "context-lock.json": "7a7e79bec63922bb8026a7e628956c27cba23ec0294ceb0bf8198c491e37b182",
+    "build.py": "f075c928fbb696bba06b0c76fdafb9275743900a8c6a5e3884b89d8dc6b93366",
+    "verify-data.py": "bb6246f56938e90d26a9d5130e141c645f51bca6a7e1e11ae87ef989225b151d",
+    "Dockerfile": "018d306185219636fa62c2acbef083d1b02246c8cabbe86ed01b4db2b989dc08",
+    "README.md": "24bd4b7c9f33d8f28c77b8f80190135f20aad08fd811c33bf3ee34e02d266b1b",
+    "transaction.py": "4ff35c4a67b6655ec1629c01807cab22bfb7eca4b05728de578cc6e173897fc0",
+    "backup.py": "7307603917d1acaaefa5ddc2a496a53c8ca1bd0562ca73007eb7cd2bf07f56cc",
+    "verify-backup.py": "3114a2890349a9b266c71164c3fe3b2a52b5157e2748b153a9b6c1ebb9887203",
+    "prepare.py": "1947b760fb4ef8b0203107df73554a6d78e70af29ce7a4554fff5e3882115e39"
+  }
+}

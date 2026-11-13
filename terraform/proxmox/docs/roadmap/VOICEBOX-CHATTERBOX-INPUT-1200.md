@@ -1,4 +1,40 @@
-# Fase 7.4 — Chatterbox: entrada de 1.200 caracteres, solo código
+# Fase7.4 — Chatterbox: entrada1200 desplegada
+
+## Estado vigente: despliegue completado
+
+13nov2026 Europe/Madrid. El propietario autoriza desplegar3987cab y probará él
+la narración larga. **Producción ya publica entrada1200 en UI/API/controlador/worker**.
+Voicebox/Qwen/Chatterbox es/en saludables. No se ejecutó ninguna inferencia ni suite;
+se compiló UI y se realizaron comprobaciones operativas de arranque/configuración.
+
+Imagen nueva `sha256:218dc413361d9f928e79ece96b9979ad9041ef4f2126b7c8175cc92cf91645d6`,
+base21270364 preservada para rollback, UID/GID999/entrypoint/CMD originales.
+Frontend servido index-C3TqcsT9, hash4c62847a…060a7; APIcapabilities publica1200 y
+controlador/worker comparten políticaSHA0aa1a5ce…6617d. Fuente de inferencia Qwen y
+Chatterbox, modelos, efectos,400tokens/EOS/20sWAV/300s/guardas intactos.
+
+Backup nuevo180archivos extraído/verificado en HDD, SQLite íntegra y12generaciones
+preservadas. Primer intento arrancó correctamente pero un criterio de observación
+buscaba una descripción no usada eliminada en minificación: rollback automático
+PASS, sin restaurar SQLite. Se corrigió solo el observador para comprobar función
+y constante reales en JS servido. Segundo despliegue PASS con la misma imagen.
+Evidencias de ambos intentos y rollback conservadas, sin borrar imágenes ni datos.
+
+Segunda aplicación idempotente: cero escrituras/reinicios, mismoID/StartedAt.
+Perfil/referencia/historial previos iguales;11audios originales verificados,
+WAVD081 y ambos Chatterbox/QwenEN anteriores accesibles. Cero trabajos activos,
+OOM nuevos o cambios de configsPVE/PIDCT, recursos u otros LXC/pipeline.
+Solo se recreó Voicebox y se recargó el agente para coordinar las políticas;
+no se reinició CT627. ProxmoxNotes/Terraform no aplicados en esta intervención.
+
+[Receta y rollback](../../services/infra-voicebox/deploy-input-1200/README.md),
+[evidencia filtrada](evidence/2026-11-13-voicebox-input1200-deployment.json).
+
+**Generación completa de textos1200 sin validar.** El máximo de entrada no amplía
+los400tokens,20sWAV o300s. Despliegue/configuración DONE; prueba acústica larga TODO,
+a cargo del propietario. D089 conserva su aceptación previa para los audios probados.
+
+## Historial: preparación solo de código anterior al despliegue
 
 13 de noviembre de 2026, Europe/Madrid. Implementación local preparada para publicar.
 **Pruebas no ejecutadas por instrucción expresa. Despliegue no ejecutado.**

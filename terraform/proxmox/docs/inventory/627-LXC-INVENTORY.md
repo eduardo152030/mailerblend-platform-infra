@@ -3,6 +3,20 @@
 Estado: **DONE técnico del alta D063**, con600s/21muestras deestabilidadPASS.
 Fecha: 2026-11-10 (Europe/Madrid). [Informe y estado vigente](../roadmap/PHASE7-D063-VOICEBOX.md).
 
+## Chatterbox: entrada1200 desplegada; narración larga pendiente
+
+13nov2026 Europe/Madrid, Fase7.4. Despliegue autorizado después de3987cab:
+UI/API/controlador/worker coherentes1200; imagen218dc413… basada en21270364
+conservada para rollback. CompilaciónUI y salud/configuración operativa verificadas;
+sin suite ni inferencias. Backup180archivos verificado en HDD,12generaciones y
+perfil/referencia/historial intactos,11audios verificados. Primer intento revertido
+por criterio UI no válido; observador corregido y segundo intentoPASS. Idempotencia
+sin escrituras/reiniciosPASS. Voicebox/Qwen/CBes/en saludables; Qwen/efectos,
+400tokens/EOS/20sWAV/300s/guardas y recursos sin cambios. Sin CTrestart/otrosLXC/pipeline.
+Despliegue DONE; generación completa1200sin validar, la probará el propietario.
+[Informe y rollback](../roadmap/VOICEBOX-CHATTERBOX-INPUT-1200.md).
+Siguiente: prueba manual del propietario; no ejecutar narraciones automáticamente.
+
 ## D089 — DONE / ACCEPTED; cierre del alcance validado Voicebox F7.4
 
 13nov2026 Europe/Madrid. Aceptación acústica explícita del propietario: Chatterbox

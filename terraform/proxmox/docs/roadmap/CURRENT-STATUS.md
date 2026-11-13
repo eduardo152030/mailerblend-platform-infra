@@ -1,18 +1,21 @@
 # Estado actual del proyecto
 
-Actualizado: **2026-11-13 (Europe/Madrid)**. D-089 ACCEPTED; Voicebox F7.4 validado; Chatterbox240/Qwen1200caracteres.
+Actualizado: **2026-11-13 (Europe/Madrid)**. Voicebox entrada1200 desplegada; narración larga Chatterbox pendiente del propietario.
 [Roadmap](ROADMAP.md) · [Decisiones](DECISIONS.md) · [Informe F6](PHASE6-D060-CLOSURE.md).
 
-## Chatterbox: entrada1200 en código; sin pruebas ni despliegue
+## Chatterbox: entrada1200 desplegada; narración larga pendiente
 
-13nov2026 Europe/Madrid, Fase7.4. Cambio autorizado solo de código y publicación:
-UI/API/controlador/worker comparten límite de entrada1200; mensajes/selector y
-capabilities actualizados. Hashes/expectativas de tests ajustados, tests no ejecutados.
-Se conservan400tokens/EOS/20sWAV/300s/guardas y Qwen/efectos. Generación completa
-1200sin validar. Producción aceptadaD089 sigue240, sin reinicios ni despliegue.
-Implementación local completada; validación/despliegue TODO. D089 ACCEPTED intacto.
-[Alcance y manifiestos](VOICEBOX-CHATTERBOX-INPUT-1200.md).
-Siguiente: validación/despliegue en intervención separada; no iniciar automáticamente.
+13nov2026 Europe/Madrid, Fase7.4. Despliegue autorizado después de3987cab:
+UI/API/controlador/worker coherentes1200; imagen218dc413… basada en21270364
+conservada para rollback. CompilaciónUI y salud/configuración operativa verificadas;
+sin suite ni inferencias. Backup180archivos verificado en HDD,12generaciones y
+perfil/referencia/historial intactos,11audios verificados. Primer intento revertido
+por criterio UI no válido; observador corregido y segundo intentoPASS. Idempotencia
+sin escrituras/reiniciosPASS. Voicebox/Qwen/CBes/en saludables; Qwen/efectos,
+400tokens/EOS/20sWAV/300s/guardas y recursos sin cambios. Sin CTrestart/otrosLXC/pipeline.
+Despliegue DONE; generación completa1200sin validar, la probará el propietario.
+[Informe y rollback](VOICEBOX-CHATTERBOX-INPUT-1200.md).
+Siguiente: prueba manual del propietario; no ejecutar narraciones automáticamente.
 
 ## D089 — DONE / ACCEPTED; cierre del alcance validado Voicebox F7.4
 

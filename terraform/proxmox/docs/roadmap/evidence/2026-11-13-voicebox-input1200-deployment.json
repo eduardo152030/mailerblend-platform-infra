@@ -1,0 +1,161 @@
+{
+  "status": "DEPLOYED_INPUT_1200_LONG_GENERATION_UNVALIDATED",
+  "source_commit": "3987cabf9be44ed362c3a86c8a5924bd7a76ee04",
+  "image": {
+    "image": "local/voicebox:input1200-3987cab",
+    "image_id": "sha256:218dc413361d9f928e79ece96b9979ad9041ef4f2126b7c8175cc92cf91645d6",
+    "base_image_id": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+    "user": "999:999",
+    "entrypoint": [
+      "/usr/local/bin/entrypoint-uid999.sh"
+    ],
+    "cmd": [
+      "uvicorn",
+      "backend.main:app",
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "17493"
+    ],
+    "context_manifest_sha256": "7a7e79bec63922bb8026a7e628956c27cba23ec0294ceb0bf8198c491e37b182",
+    "no_deployment_or_inference": true
+  },
+  "backup": {
+    "result": "PASS",
+    "archive_sha256": "5ea444d8cd749c9080f260c12967a0ac9cb14c68951d6a85bbe701c1987b4370",
+    "files_verified": 180,
+    "sqlite_integrity": "ok",
+    "database_counts": {
+      "profiles": 1,
+      "profile_samples": 1,
+      "generations": 12
+    },
+    "restored_outside_production": true
+  },
+  "initial_attempt": {
+    "rollback": "PASS",
+    "reason": "Observer asserted an unused description string eliminated by minification; verify retained input-limit function instead",
+    "data_restored": false,
+    "evidence_preserved": true
+  },
+  "final_deployment": {
+    "deployment": "PASS",
+    "healthy": true,
+    "image_id": "sha256:218dc413361d9f928e79ece96b9979ad9041ef4f2126b7c8175cc92cf91645d6",
+    "container_id": "b4a72656a6d74e06d5f5673800d36b97f9714e06bb2ec4315e904ad522a11230",
+    "started_at": "2026-11-13T09:04:32.587377261Z",
+    "uid": 999,
+    "cap_eff": 0,
+    "capabilities": {
+      "qwen": {
+        "ready": true,
+        "languages": [
+          "es",
+          "en"
+        ],
+        "model_sizes": [
+          "0.6B"
+        ],
+        "max_chars": 1200
+      },
+      "chatterbox": {
+        "ready": true,
+        "languages": [
+          "es",
+          "en"
+        ],
+        "model_sizes": [
+          "default"
+        ],
+        "max_chars": 1200,
+        "experimental": true,
+        "variant": "multilingual-v3"
+      },
+      "chatterbox_turbo": {
+        "ready": false
+      },
+      "kokoro": {
+        "ready": true
+      },
+      "piper": {
+        "ready": true
+      }
+    },
+    "frontend_sha256": {
+      "index.html": "20420d9840b872037fd0ac65fc1d7472c826644ed603b638f25e33b3a720fa64",
+      "assets/index-ukolq7qj.css": "00f5c019399b782a5cbfb118364d6ee4413b85e3bcd6b74f60ba43c715d332b4",
+      "assets/voicebox-logo-DQ1k8iIe.png": "c688271d63dbcf0e10e7268b9184ca12c2b34ce6b1d9f20b348e2e9f8930bca5",
+      "assets/index-C3TqcsT9.js": "4c62847a8b43f77ccfd163b43a418394b49715c743b1ccb19ea9ec7bbbf060a7"
+    },
+    "old_wavs_accessible": true,
+    "effects_preserved": true,
+    "qwen_worker_unchanged": true,
+    "cb_generation_worker_unchanged": true,
+    "ct_configs_and_pid_unchanged": true,
+    "no_new_oom": true,
+    "no_active_inference": true
+  },
+  "policy": {
+    "engine": "chatterbox",
+    "variant": "multilingual-v3",
+    "model_size": "default",
+    "max_chars": 1200,
+    "max_tokens": 400,
+    "timeout_seconds": 300,
+    "worker_hard_bytes": 8589934592,
+    "worker_stop_bytes": 7516192768,
+    "predicted_increment_bytes": 7516192768,
+    "margin_bytes": 536870912
+  },
+  "idempotence": {
+    "result": "PASS",
+    "writes_or_restarts": 0,
+    "same_app_id": true,
+    "same_started_at": true
+  },
+  "data": [
+    {
+      "database": {
+        "profiles": {
+          "rows": 1,
+          "sha256": "d9e260f32d4bf93e9c55ad4057c9bb9166e0eae73a4e4b904293b893b6090d79"
+        },
+        "profile_samples": {
+          "rows": 1,
+          "sha256": "d2622919263b06313c5b50517612982f4ef042a99ea9faa92381538a2d27b90b"
+        },
+        "generations": {
+          "rows": 12,
+          "sha256": "ce420decbceb52992d7a9ecd1782c01837d10eff1b47a3ea3de1cb106a654396"
+        }
+      },
+      "sqlite_integrity": "ok",
+      "http": {
+        "health": {
+          "status": 200
+        },
+        "agent": {
+          "status": 200
+        },
+        "wav": {
+          "status": 200,
+          "bytes": 2753324,
+          "sha256": "6da5f689b7c939ef069c8ede664888ed42fa31bd0d0f3f15e2f03ff9dccc014c"
+        },
+        "node": {
+          "status": 200
+        },
+        "cadvisor": {
+          "status": 200
+        }
+      }
+    },
+    {
+      "baseline_profile_reference_and_history_unchanged": true,
+      "original_audio_hashes_checked": 11
+    }
+  ],
+  "tts_inferences": 0,
+  "test_suite_executed": false,
+  "other_lxc_or_resources_changed": false
+}
