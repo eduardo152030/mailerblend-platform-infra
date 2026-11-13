@@ -2382,3 +2382,13 @@ Sin inferencias, DSP, despliegues, reinicios o cambios de límites/recursos.
 Rama actualmain, upstreamorigin/main, remotoeduardo152030/mailerblend-platform-infra;
 fetch confirmado0/0 antes de preparar. Cambios de otros servicios/monitorización
 se conservan fuera del índice.
+
+### D089 — publicación funcional verificada
+
+13nov2026 Europe/Madrid. Commit `402501e0279389e607c44950be9b3423e4d5bb4c` enmain verificado
+enorigin/main conpushnormal,197archivos Voicebox/CT627. Índice exacto validado
+y escaneado sin secretos ni fragmentos de transcripción; efectosdisponibles/default
+none yCB240/Qwen1200confirmados enproducción sinaudio. Voicebox/Qwen/CBhealthy
+post-push, misma app/configPVE/datos protegidos. Se publica recibo documental
+posterior; SHAfinal se verifica ycomunica, sinforce. Cambiosajenos conservados
+fuera delcommit. F7.4Voicebox ACCEPTED, otrosalcances no se cierran.

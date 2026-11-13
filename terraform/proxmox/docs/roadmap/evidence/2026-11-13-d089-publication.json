@@ -1,0 +1,102 @@
+{
+  "result": "PUBLISHED_VERIFIED",
+  "functional_commit": "402501e0279389e607c44950be9b3423e4d5bb4c",
+  "functional_tree": "20e729d789e144f238a29e6b74949c1879bbd9b3",
+  "branch": "main",
+  "remote": "git@github.com:eduardo152030/mailerblend-platform-infra.git",
+  "remote_head_observed": "402501e0279389e607c44950be9b3423e4d5bb4c",
+  "normal_push_no_force": true,
+  "files_in_functional_commit": 197,
+  "privacy_review": {
+    "secret_pattern_hits": 0,
+    "private_transcript_fragment_hits": 0,
+    "binary_audio_models_checkpoints_backup_tfstate_included": false,
+    "unrelated_changes_excluded": true,
+    "staged_local_links_missing": 0
+  },
+  "validation": {
+    "exact_staged_inventory_check": "PASS",
+    "terraform_validate": "PASS",
+    "staged_ui_tests": 9,
+    "staged_python_and_shell_syntax": "PASS",
+    "full_suite_previous_D089": 77,
+    "no_audio_tests_or_dsp_this_publication": true
+  },
+  "acceptance": {
+    "human_chatterbox_es": true,
+    "human_chatterbox_en": true,
+    "human_qwen_en_45_04s": true,
+    "voicebox_7_4": "DONE_ACCEPTED",
+    "chatterbox_1200_chars_accepted_or_enabled": false
+  },
+  "effective": {
+    "chatterbox_chars": 240,
+    "qwen_chars": 1200,
+    "effects": [
+      "Robotic",
+      "Radio",
+      "Echo Chamber",
+      "Deep Voice"
+    ],
+    "eduardo_default_effects": "none"
+  },
+  "post_push": {
+    "at_utc": "2026-11-13T08:36:52.793946+00:00",
+    "healthy": true,
+    "capabilities": {
+      "qwen": {
+        "ready": true,
+        "languages": [
+          "es",
+          "en"
+        ],
+        "model_sizes": [
+          "0.6B"
+        ],
+        "max_chars": 1200
+      },
+      "chatterbox": {
+        "ready": true,
+        "languages": [
+          "es",
+          "en"
+        ],
+        "model_sizes": [
+          "default"
+        ],
+        "max_chars": 240,
+        "experimental": true,
+        "variant": "multilingual-v3"
+      },
+      "chatterbox_turbo": {
+        "ready": false
+      },
+      "kokoro": {
+        "ready": true
+      },
+      "piper": {
+        "ready": true
+      }
+    },
+    "resources": {
+      "memory": "20480",
+      "cores": "3",
+      "swap": "2048",
+      "rootfs": "local-lvm:vm-627-disk-0,size=100G"
+    },
+    "no_residual_inference": true,
+    "protected_files_checked": 105,
+    "protected_files_unchanged": true,
+    "ct_events": {
+      "low": 0,
+      "high": 251,
+      "max": 367,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    }
+  },
+  "app_id_start_image_unchanged": true,
+  "all_pve_configs_unchanged": true,
+  "documentation_followup": "This receipt is published in a subsequent normal documentation commit; final HEAD verified against remote and reported to owner."
+}

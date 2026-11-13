@@ -81,6 +81,23 @@ con sus estados previos. Siguiente: operación habitual y vigilancia; cualquier
 ampliación de Chatterbox o nuevos ensayos requiere alcance propio. Sin inferencias,
 procesado de audio, reinicios, despliegues ni cambio de configuración en esta revisión.
 
+## Publicación verificada en GitHub
+
+Commit funcional **`402501e0279389e607c44950be9b3423e4d5bb4c`**, rama **main**, remoto
+`git@github.com:eduardo152030/mailerblend-platform-infra.git`. Push normal y consulta
+independiente de refs/heads/main confirmaron ese SHA.197archivos de Voicebox/CT627,
+sin datos privados ni cambios ajenos. Instantánea exacta del índice validada:
+inventario fresco, Terraformvalidate,9testsUI, sintaxisPython/Bash y enlaces locales.
+Suite77/77 previa D089 conservada; no se generó ni procesó audio en esta revisión.
+
+Post-push: Voiceboxhealthy, Qwen/Chatterboxes/en ready; mismo ID/StartedAt/imagen,
+configuraciones PVE y105archivos protegidos intactos, sin trabajos residuales.
+[Recibo de publicación](evidence/2026-11-13-d089-publication.json).
+El recibo y esta sección se publican en un commit documental posterior normal;
+suSHA final se comprueba en el remoto y se comunica al propietario sin intentar
+incluir autorreferencia circular. Otros cambios locales permanecen sin publicar.
+No se aplicaron ProxmoxNotes/Terraform, reinicios o despliegues al publicar Git.
+
 ## Historial de reanudación previo a la aceptación
 
 ## Estado vigente — reanudación completada técnicamente

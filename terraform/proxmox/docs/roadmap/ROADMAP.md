@@ -15,8 +15,8 @@ Chatterbox1200caracteres o narraciones largas no demostrados ni incluidos en cie
 Robotic/Radio/Echo Chamber/Deep Voice disponibles para ambos motores; Eduardo
 sin efectos por defecto, perfil sin cadena. Disponibilidad comprobada sin DSP/audio.
 Voicebox/Qwen/Chatterbox es/en saludables; configuración productiva intacta.
-Publicación normal main autorizada solo para Voicebox/CT627/documentación asociada;
-cambios ajenos y datos privados excluidos. F7 global/7.2/7.3 no se cierran.
+Publicación normal main verificada: commitfuncional `402501e`,197archivos Voicebox/CT627;
+recibo y validación post-push en D089. Cambios ajenos y datos privados excluidos. F7 global/7.2/7.3 no se cierran.
 [Informe D089](PHASE7-D089-CHATTERBOX-PRODUCTION-VALIDATION.md),
 [auditoría](evidence/2026-11-13-d089-acceptance-audit.json).
 Siguiente: operación/vigilancia; ampliaciones o ensayos nuevos fuera de este alcance.
