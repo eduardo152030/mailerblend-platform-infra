@@ -1,0 +1,29 @@
+{
+  "worker": {
+    "chatterbox_worker.py": "331f12b86aff72bb3a5d1816add1ea25f7b7c98690c01e869d367e03de202d68",
+    "load_probe.py": "9405813b8f562f54026391cc5b78f49fcf3ad9bcbe8c0ca8131d6bfa23f6343b",
+    "telemetry.py": "537f9075d19a4ba96818f4d55664c5c786b9f56a02f10b2044c0a7df28b2c32d"
+  },
+  "controller": {
+    "readiness.py": "4652aaebfb64dc9d4cbfa8eb262af48531893d1f5e9ca14fabe47fd2a9ef7a9a"
+  },
+  "original_source_hashes": {
+    "supervise_chatterbox.py": "44c381d8f62f023b2a8a222d373087bb30671e6d0bda034d9a6e58009aaab821",
+    "guards.py": "f983d72b48260d915185d0664eee7977c68abfc9e8018dd70a4e4b1a1a9f2779",
+    "qwen_language_policy.py": "32015eab1359d7c7ddc38d85f05bcedb0f3c4070d58e6cb6b08b773fcac70fe0",
+    "supervise.py": "f3e4b919c906f97330d080ca0f5fb23427a897a03f92a6df0b1b22ca6091d676",
+    "readiness.py": "7cbac2aab4df9d67f99294e76438ce667b369e606b47ec6dd0d39f90186024fd",
+    "engine_policy.py": "a162ee546e5b65317e51423e9c8ade3294fa829eb85f1348aa9a55278d86f009",
+    "agent.py": "2daaafaf6f1fd211f8ded56f90f80103deb60c74909b8e9bae749662a1cd4f80"
+  },
+  "original_worker_hashes": {
+    "worker.py": "a4f09cbe11652e88af1a45ab376d9634741d5953d8fba7aef2b6cff792de7c91",
+    "guards.py": "f983d72b48260d915185d0664eee7977c68abfc9e8018dd70a4e4b1a1a9f2779",
+    "qwen_language_policy.py": "32015eab1359d7c7ddc38d85f05bcedb0f3c4070d58e6cb6b08b773fcac70fe0",
+    "d077_contract.py": "e30e0367d4bf17b87b1ce5b8237eec9f51e628d382d3b50b52a5631da04f7450",
+    "supervise.py": "f3e4b919c906f97330d080ca0f5fb23427a897a03f92a6df0b1b22ca6091d676",
+    "engine_policy.py": "a162ee546e5b65317e51423e9c8ade3294fa829eb85f1348aa9a55278d86f009",
+    "chatterbox_worker.py": "f05e20a8051968c3cda1d8808043755efd9df66d5f86e83d82f58d04663dc31c"
+  },
+  "app_image_unchanged": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386"
+}

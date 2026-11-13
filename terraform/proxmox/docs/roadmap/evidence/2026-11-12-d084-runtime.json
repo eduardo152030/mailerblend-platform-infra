@@ -1,0 +1,48 @@
+{
+  "at_utc": "2026-11-12T15:13:41.164359+00:00",
+  "ct_running": true,
+  "resources": {
+    "memory": "15360",
+    "cores": "3",
+    "swap": "2048",
+    "rootfs": "local-lvm:vm-627-disk-0,size=100G"
+  },
+  "app_image": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+  "worker_image": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b",
+  "app_id": "1c35e81571c979b89efc185a5074847bb5c5930b783027ea9d76ac45814ef457",
+  "started_at": "2026-11-12T07:01:37.552379895Z",
+  "restart_count": 0,
+  "healthy": true,
+  "agent_active": true,
+  "no_active_inference": true,
+  "checkpoints": {
+    "7f348e9777214f4e827dcf7e1458c045": {
+      "integrity": true,
+      "shape": [
+        669,
+        16
+      ],
+      "eos": true
+    },
+    "baa61a95c7b445248229aa697b941710": {
+      "integrity": true,
+      "shape": [
+        1029,
+        16
+      ],
+      "eos": true
+    }
+  },
+  "worker_source_hashes": {
+    "worker.py": "09bcc54336203e506df44ad38078948bd6afd2a5898bb66aed63eaf2fa0afc40",
+    "runtime.py": "a752570acf07d517d821f8cdf06afaf5be0c480f6b13dc04d109b32d23e021fc",
+    "checkpoint.py": "73cdcb816966cc446cc3a543d3493d6c76517a01229ecab33f109afd5532a0bc"
+  },
+  "controller_hashes": {
+    "agent.py": "b2dfb7b6520678b9a421efcb6ed1d116d7f200717aa7ab75a9fb5d9762c5abe4",
+    "supervise.py": "3998fc7240bfa18461399d5cad680af6dff457960be3ca98c9287f5dd29501cd",
+    "guards.py": "150e6c4d6d150ac7cecb2438b053a309f9c528d8987c173e7a6ceea02ed84349"
+  },
+  "model_available": true,
+  "no_mutations": true
+}

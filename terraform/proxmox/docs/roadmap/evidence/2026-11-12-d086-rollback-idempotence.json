@@ -1,0 +1,8 @@
+{
+  "rollback_reconciliation": "PASS",
+  "same_container_id": true,
+  "same_started_at": true,
+  "no_recreation": true,
+  "no_model_preparation": true,
+  "healthy": true
+}

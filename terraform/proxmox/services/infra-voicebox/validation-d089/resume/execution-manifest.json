@@ -1,0 +1,15 @@
+{
+  "status": "DONE_TECHNICAL_ACOUSTIC_PENDING",
+  "model_worker_unchanged": {
+    "chatterbox_worker.py": "331f12b86aff72bb3a5d1816add1ea25f7b7c98690c01e869d367e03de202d68",
+    "load_probe.py": "9405813b8f562f54026391cc5b78f49fcf3ad9bcbe8c0ca8131d6bfa23f6343b",
+    "telemetry.py": "537f9075d19a4ba96818f4d55664c5c786b9f56a02f10b2044c0a7df28b2c32d"
+  },
+  "files": {
+    "observer.py": "017b2a60f728403f3cc2ef8fa17dee50c670d1878baf4061037cfce4cc367f47",
+    "toggle.py": "c00a03054399ddafeff9cfd4603f10e05fc16809a9ceb2f18b13955fe0af6163",
+    "README.md": "5d13c693b481726d537090ec4385830e4349a77c528272cf6aa94be6cc2a4dbc",
+    "final-check.py": "f440ca4cc2357d31e5920ffd7ea46febf838231449bdc8364412af68851b4e60"
+  },
+  "observer_regression_sha256": "176250297b2212bebc039cf67e188933876948f31473a7b6dbfa918b9fb5f8f4"
+}

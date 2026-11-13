@@ -1,0 +1,32 @@
+{
+  "sqlite_integrity": "ok",
+  "profile_count": 1,
+  "reference_count": 1,
+  "history_count": 6,
+  "database_fingerprints_unchanged": true,
+  "wav_bytes": 2753324,
+  "wav_sha256": "6da5f689b7c939ef069c8ede664888ed42fa31bd0d0f3f15e2f03ff9dccc014c",
+  "http": {
+    "health": {
+      "status": 200
+    },
+    "agent": {
+      "status": 200
+    },
+    "wav": {
+      "status": 200,
+      "bytes": 2753324,
+      "sha256": "6da5f689b7c939ef069c8ede664888ed42fa31bd0d0f3f15e2f03ff9dccc014c"
+    },
+    "node": {
+      "status": 200
+    },
+    "cadvisor": {
+      "status": 200
+    }
+  },
+  "no_new_oom": true,
+  "other_service_lxc_configs_unchanged": 17,
+  "all_other_ct_configs_unchanged": 26,
+  "candidate_files_preserved": 16
+}

@@ -1,0 +1,35 @@
+{
+  "at_utc": "2026-11-12T19:22:17.097504+00:00",
+  "images": {
+    "local/voicebox:qwen-isolated-d079": {
+      "id": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+      "user": "root",
+      "entrypoint": [
+        "/usr/local/bin/entrypoint.sh"
+      ]
+    },
+    "local/voicebox:d085-candidate": {
+      "id": "sha256:19af4754968dacacbb9104f8ea40826dbea4f9f772992397cf322802d7babbfe",
+      "user": "999:999",
+      "entrypoint": [
+        "/usr/local/bin/entrypoint.sh"
+      ]
+    }
+  },
+  "processes": [
+    "voicebox",
+    "cadvisor",
+    "test-nginx"
+  ],
+  "chatterbox_enabled": false,
+  "ct_memory_events": "low 0\nhigh 251\nmax 367\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "ct_current_bytes": 2600751104,
+  "ct_swap_bytes": 0,
+  "ct_psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=229735\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=220024\n",
+  "pool": "0 839041024 thin-pool 167 29213/1043456 4520895/6555008 - rw discard_passdown queue_if_no_space - 1024",
+  "df": "Filesystem                          1B-blocks        Used   Available Use% Mounted on\n/dev/mapper/pve-vm--627--disk--0 105358065664 36222881792 64265146368  37% /\n",
+  "app_process_uid": "Uid:\t999\t999\t999\t999",
+  "new_kernel_oom_io_errors": 0,
+  "pool_free_gib": 124.15240478515625,
+  "pool_free_pct": 31.031434286579053
+}

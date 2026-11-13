@@ -1,0 +1,101 @@
+{
+  "result": "PASS",
+  "uid": 999,
+  "gid": 999,
+  "paths": {
+    "/app/backend": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o755",
+      "read": true,
+      "write": true
+    },
+    "/app/backend/config.py": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o644",
+      "read": true,
+      "write": true
+    },
+    "/app/backend/models.py": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o644",
+      "read": true,
+      "write": true
+    },
+    "/app/backend/backends/isolated_backend.py": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o644",
+      "read": true,
+      "write": true
+    },
+    "/app/data": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o755",
+      "read": true,
+      "write": true
+    },
+    "/app/data/voicebox.db": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o644",
+      "read": true,
+      "write": true
+    },
+    "/app/data/cache": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o755",
+      "read": true,
+      "write": true
+    },
+    "/app/data/cache/numba": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o755",
+      "read": true,
+      "write": true
+    },
+    "/app/data/profiles": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o755",
+      "read": true,
+      "write": true
+    },
+    "/app/data/generations": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o755",
+      "read": true,
+      "write": true
+    },
+    "/qwen-jobs": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o700",
+      "read": true,
+      "write": true
+    },
+    "/home/voicebox/.cache": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o755",
+      "read": true,
+      "write": true
+    },
+    "/home/voicebox/.cache/huggingface": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o755",
+      "read": true,
+      "write": true
+    }
+  },
+  "writes_performed": 0,
+  "modules_and_config_readable": true,
+  "db_readable_and_writable_by_dac": true
+}

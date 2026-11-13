@@ -4,9 +4,9 @@ service:
   ip: 192.168.1.127/24
 resources:
   cpu: 3
-  memory: 15360
+  memory: 20480
   swap: 2048
-  disk_gb: 50
+  disk_gb: 100
 os:
   template_vmid: 106
   name: Ubuntu LXC CT106 — versión pendiente de observación
@@ -112,19 +112,43 @@ provisioning:
     allocated_cores: 3
     memory_mib: 7168
     uptime_seconds: 18983
-  verification:
-    result: PASS
+  - result: PASS
     ct_id: 627
     service: infra-voicebox
     observed_at_utc: '2026-11-12T07:15:07.458590+00:00'
-    source: D080 live PVE config+cgroup resize; Voicebox identity preserved;
-      single continuous generation completed, 28.56 seconds audio
+    source: D080 live PVE config+cgroup resize; Voicebox identity preserved; single
+      continuous generation completed, 28.56 seconds audio
     cpu_source: cgroup_v2_textfile
     state: RUNNING
     allocated_cores: 3
     memory_mib: 15360
     swap_mib: 2048
     uptime_seconds: 4856.74
+  - result: PASS
+    ct_id: 627
+    service: infra-voicebox
+    observed_at_utc: '2026-11-12T20:28:17.672123+00:00'
+    source: D087 live PVE/cgroup resize20GiB; D081 same container/start healthy; no
+      inference
+    cpu_source: cgroup_v2_textfile
+    state: RUNNING
+    allocated_cores: 3
+    memory_mib: 20480
+    swap_mib: 2048
+    uptime_seconds: 95974.52
+  verification:
+    result: PASS
+    ct_id: 627
+    service: infra-voicebox
+    observed_at_utc: '2026-11-12T23:53:44.515751+00:00'
+    source: D087b PVE/cgroup + actual UID999 startup; Qwen English accepted; Chatterbox
+      guard7GiB stopped and disabled; original data preserved
+    cpu_source: cgroup_v2_textfile
+    state: RUNNING
+    allocated_cores: 3
+    memory_mib: 20480
+    swap_mib: 2048
+    uptime_seconds: 108472.57
 documentation:
   inventory_file: docs/inventory/627-LXC-INVENTORY.md
   notes_file: services/infra-voicebox/NOTES.md

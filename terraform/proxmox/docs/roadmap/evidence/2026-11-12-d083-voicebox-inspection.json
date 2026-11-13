@@ -1,0 +1,50 @@
+{
+  "fork_revision": "8af7efe62fab8d33e2a5dfbedabaa45f68a5184f",
+  "installed_versions": {
+    "chatterbox-tts": "0.1.7",
+    "torch": "2.8.0+cpu",
+    "torchaudio": "2.8.0+cpu",
+    "transformers": "4.57.3",
+    "safetensors": "0.8.0",
+    "diffusers": "0.39.0",
+    "resemble-perth": "1.0.1",
+    "s3tokenizer": "0.3.0"
+  },
+  "installed_mtl_has_v3_selector": false,
+  "installed_chatterbox_weight_cache_dirs": [],
+  "disk_free_bytes": 19656077312,
+  "native_chatterbox_blocked_by_api_and_loader": true,
+  "installed_module_hashes": {
+    "chatterbox/mtl_tts.py": "117c5ba0ed55812440ff7ed9e0db28b674779ca93b17533c0b6b927a80111cf8",
+    "chatterbox/tts_turbo.py": "19b531951f0ea68102327f379b2b9eb986d37d4a3eae30ef58716c7d61abf98e",
+    "chatterbox/models/t3/modules/t3_config.py": "e07d8c09f85242f061a036cb1ac56de5b49cd5444790e8ac35098df44348801f",
+    "qwen3_tts_model.py": "e1da450732857c1f5fe3e36ebab85db2f6dc6a48caaff6973f463384e30275e4",
+    "backend_base.py": "84aefc68c22429d1ae43d6592ecf38fec4b5e0356f0ba310db06712189c66b3e"
+  },
+  "upstream_commit": "ab55923c27757c90cfcc407baa57dc25a7d25217",
+  "upstream_last_commit": "2026-11-04T18:48:10Z",
+  "model_revision": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18",
+  "turbo_revision": "749d1c1a46eb10492095d68fbcf55691ccf137cd",
+  "model_license": "mit",
+  "installed_requirements": [
+    "numpy<2.0.0,>=1.24.0; python_version < \"3.13\"",
+    "numpy>=2.0.0; python_version >= \"3.13\"",
+    "librosa==0.11.0",
+    "s3tokenizer",
+    "torch==2.6.0; python_version < \"3.14\"",
+    "torch>=2.9.0; python_version >= \"3.14\"",
+    "torchaudio==2.6.0; python_version < \"3.14\"",
+    "torchaudio>=2.9.0; python_version >= \"3.14\"",
+    "transformers==5.2.0",
+    "diffusers==0.29.0",
+    "resemble-perth>=1.0.0",
+    "conformer==0.3.2",
+    "safetensors==0.5.3",
+    "spacy-pkuseg",
+    "pykakasi==2.3.0",
+    "gradio==6.8.0",
+    "pyloudnorm",
+    "omegaconf"
+  ],
+  "sources_fetched": "code/docs and HTTP metadata only; no weights downloaded"
+}

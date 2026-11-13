@@ -1,0 +1,33 @@
+{
+  "private_module_only": true,
+  "remote_refresh": false,
+  "apply_executed": false,
+  "active_state_modified": false,
+  "proposed_backup": false,
+  "adding_mp0": [
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-voicebox\"]",
+      "actions": [
+        "delete",
+        "create"
+      ],
+      "replace_paths": [
+        [
+          "mount_point",
+          0,
+          "volume"
+        ],
+        [
+          "mount_point"
+        ],
+        [
+          "mount_point",
+          0,
+          "size"
+        ]
+      ]
+    }
+  ],
+  "after_synthetic_adoption": [],
+  "fixture_volume_not_allocated": true
+}

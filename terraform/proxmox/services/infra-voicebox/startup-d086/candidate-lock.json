@@ -1,0 +1,28 @@
+{
+  "image": "local/voicebox:d086-uid999-candidate",
+  "image_id": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+  "parent_image_id": "sha256:19af4754968dacacbb9104f8ea40826dbea4f9f772992397cf322802d7babbfe",
+  "user": "999:999",
+  "entrypoint": [
+    "/usr/local/bin/entrypoint-uid999.sh"
+  ],
+  "cmd": [
+    "uvicorn",
+    "backend.main:app",
+    "--host",
+    "0.0.0.0",
+    "--port",
+    "17493"
+  ],
+  "status": "ISOLATED_STARTUP_PASS_NOT_DEPLOYED_NO_INFERENCE",
+  "source_files": {
+    "access-audit.py": "134cac660b76f3b53f1a8b2e106d3fabc6370170c34866e183d6f7d496c4cdc2",
+    "Dockerfile": "93b5fe49e4786cda0ea04dab493dd0a822e04cdb2eea4d27eeec2d963439c424",
+    "README.md": "4f375ea70e60f4e88ab3d4111cb70681729fe02212fac02d303656fc7b063655",
+    "build.sh": "4e5bc019dd7b82df6bdd87c000054b26202195d15bcb6f4920f3024ed89958fb",
+    "prepare-fixtures.py": "4920b26f1e128ab8b8f4239609c2531568970c969351e629a85cd8d17863234f",
+    "full-startup-test.py": "28b06f263784d5a5b7bf529ba30c310a3f62803e801634764a617985e15f2e07",
+    "entrypoint-uid999.sh": "e1896a427365ef7d644b3b6ae6c14a0d55ae12610d0274abd1904c007797af40",
+    "home/.cache/.keep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "enabled": false,
+  "reason": "Awaiting owner authorization for production deployment and A/B/C real trials",
+  "model_manifest_sha256": "42f1c0393ffbff61f1f3212e0f14e573e3c1bf07daf0b9385f1e22630715ba4b",
+  "environment_receipt_sha256": "2228e9565df074fd89e6f93a7fd57910e95a1215a4ac32bda036c277d71b8dce",
+  "source_hashes": {
+    "supervise_chatterbox.py": "151c33b59c31c8f0dd463369cc3ed38a58dee513909d42025e6ebe2b74ad2872",
+    "qwen_language_policy.py": "32015eab1359d7c7ddc38d85f05bcedb0f3c4070d58e6cb6b08b773fcac70fe0",
+    "readiness.py": "67f129c5ca33976689103fc14c07e512e08ef429b63976907a1a620386aab86e",
+    "engine_policy.py": "b24d0820db94c29df061dbf585ea8e641e48dc04d46f60f98d30ebe23674dcad",
+    "agent.py": "2daaafaf6f1fd211f8ded56f90f80103deb60c74909b8e9bae749662a1cd4f80"
+  },
+  "worker_hashes": {
+    "worker.py": "a4f09cbe11652e88af1a45ab376d9634741d5953d8fba7aef2b6cff792de7c91",
+    "qwen_language_policy.py": "32015eab1359d7c7ddc38d85f05bcedb0f3c4070d58e6cb6b08b773fcac70fe0",
+    "d077_contract.py": "e30e0367d4bf17b87b1ce5b8237eec9f51e628d382d3b50b52a5631da04f7450",
+    "engine_policy.py": "b24d0820db94c29df061dbf585ea8e641e48dc04d46f60f98d30ebe23674dcad",
+    "chatterbox_worker.py": "f05e20a8051968c3cda1d8808043755efd9df66d5f86e83d82f58d04663dc31c"
+  }
+}

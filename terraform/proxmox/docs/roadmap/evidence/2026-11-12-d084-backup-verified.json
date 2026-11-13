@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "at_utc": "2026-11-12T15:11:45.769481+00:00",
+  "archive": "/mnt/storage/dump/vzdump-lxc-627-2026_11_12-15_49_14.tar.zst",
+  "archive_bytes": 18952506863,
+  "archive_sha256": "3fa4107c8566fa9b0c4cd22b21a7423cc16901245ae613bf52f983bcd790afcb",
+  "full_archive_verified": true,
+  "full_directory_extraction": true,
+  "restore_files_verified": 111,
+  "sqlite_integrity": "ok",
+  "eduardo_profile": true,
+  "completed_wavs": 6,
+  "reference_wavs": 1,
+  "model_hashes_verified": {
+    "model.safetensors": "180b3b10eb1c9f1b4db7806d5475bae3071c0243c299d49926bab1da3b6946f6",
+    "speech_tokenizer/model.safetensors": "836b7b357f5ea43e889936a3709af68dfe3751881acefe4ecf0dbd30ba571258",
+    "config.json": "2e714c787c8edb98b05432685cddb634add2de4d4e645f653d68251ef72ba011"
+  },
+  "restore_root": "/mnt/storage/d084-627/restore-rootfs",
+  "boot_restore_executed": false,
+  "production_untouched": true
+}

@@ -1,10 +1,41 @@
 # CT 627 — infra-voicebox
 
+**D089 — ACCEPTED,13nov2026:** Qwen Base0.6B FP32 y Chatterbox MultilingualV3
+operativos es/en con Eduardo; audios CB5,48s/5,00s y QwenEN45,04s escuchados y
+aceptados por propietario. Chatterbox240caracteres/400tokens/300s, Qwen1200/900s.
+Efectos Robotic/Radio/Echo Chamber/Deep Voice disponibles en ambos; default sin
+efectos en Eduardo. No ampliar límites ni prometer narraciones largas Chatterbox.
+CT20GiB/3CPU/2GiBswap/rootfs100GiBSSD; guardaCT19GiB, worker CB8/stop7 y Qwen9.
+Preservar modelos, perfil, grabación, historia, checkpoints yrollback.
+Informe docs/roadmap/PHASE7-D089-CHATTERBOX-PRODUCTION-VALIDATION.md.
+Actualización documental/IaC; no recarga de Proxmox Notes en el cierre Git.
+
+**Histórico D087b,13nov2026:** imagen21270364… con USER999:999 y
+entrypoint corregido, Voicebox healthy. Qwen Base0.6B FP32 es/en, Eduardo — Mi Voz,
+semilla42 y referencia original. English corto2,56s/33tokens/EOS,124,38s total,
+aceptado por propietario (voz y frase completas); no inglés largo validado.
+Chatterbox MultilingualV3 deshabilitado tras guarda worker7GiB (pico7,70GiB,
+sinOOM); no reintento ni ensayoC. Modelos/datos conservados. Robotic, Radio,
+Echo Chamber y Deep Voice disponibles como presets, sin prueba convoz real.
+Backups yrollback D081 conservados; historial6originales+Acumplido+Bfallido.
+Informe docs/roadmap/PHASE7-D087-QWEN-CHATTERBOX-PRODUCTION-VALIDATION.md.
+
+
+**D087 — recursos aplicados:** CT20GiB/3CPU/2GiBswap/rootfs100GiB SSD;
+guardaCT19GiB, Qwenhard9GiB/stop8,2 y Chatterboxhard8GiB/stop7.
+Ampliación sin reinicio deCT/app; despliegue candidato completado después enD087b.
+QwenEnglish aceptado; Chatterbox bloqueado en aquel momento; habilitado y aceptado después en D089. Sin efectos durante ensayos, sin cambios en otrosLXC.
+
+
+**D084 — almacenamiento:** rootfs100GiB en local-lvm/SSD; sin reinicio ni cambio
+de runtime Qwen. Backup completo previo en HDD storage; reserva thinpool20%.
+Runbook resize-d084/README.md. Estado históricoD084: aún sin candidato bilingüe.
+
 **D081 — ACCEPTED / PRODUCTION; cierre D082.** Voz y contenido aceptados por el
 propietario el12nov2026:1059caracteres continuos,57,36s,total676,18s,EOS ycheckpoint
 íntegros,picoCT9,625GiB,sinOOM. Alcance≈1min;5–10min no validados. Audio privado.
-15GiB RAM/3CPU/2GiBswap/50GiB, Base0.6B FP32/SDPA/3hilos/semilla42/español;
-A→checkpoint→B300/context25; guardaCT14GiB,workerhard9GiB/stop8,2;1200chars/900s.
+20GiB RAM/3CPU/2GiBswap/100GiB SSD (D087 verificado en caliente), Base0.6B FP32/SDPA/3hilos/semilla42/español;
+A→checkpoint→B300/context25; guardaCT19GiB,workerhard9GiB/stop8,2;1200chars/900s.
 Sin cambios de runtime ni nuevas inferencias enD082. Runbookrelease-d082/README.md.
 Pronunciación: trader→tréider comprobado; hola pendiente. No alterar texto original
 para subtítulos ni pipeline de vídeos al preparar futuras sustituciones fonéticas.

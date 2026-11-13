@@ -1,0 +1,22 @@
+numpy>=1.24.0,<2.0.0; python_version < '3.13'
+numpy>=2.0.0; python_version >= '3.13'
+librosa==0.11.0
+s3tokenizer
+torch==2.6.0+cpu; python_version < '3.14'
+torch>=2.9.0; python_version >= '3.14'
+torchaudio==2.6.0+cpu; python_version < '3.14'
+torchaudio>=2.9.0; python_version >= '3.14'
+transformers==5.2.0
+diffusers==0.29.0
+resemble-perth @ https://github.com/resemble-ai/Perth/archive/ff1c8ac55a976971245cdd53c18d6131ca00d993.tar.gz#sha256=00e89ff833f7efc1a0ae0ca3c5420ae108b9adbed9c0fb7b03750b854d30f149
+conformer==0.3.2
+safetensors==0.5.3
+spacy-pkuseg
+pykakasi==2.3.0
+gradio==6.8.0
+pyloudnorm
+omegaconf
+setuptools==80.9.0
+wheel==0.45.1
+packaging==25.0
+uv_build==0.12.7

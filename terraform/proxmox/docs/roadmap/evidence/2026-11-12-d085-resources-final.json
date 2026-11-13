@@ -1,0 +1,28 @@
+{
+  "at_utc": "2026-11-12T18:53:16.479677+00:00",
+  "pool": "0 839041024 thin-pool 167 29213/1043456 4520847/6555008 - rw discard_passdown queue_if_no_space - 1024",
+  "df": "Filesystem                          1B-blocks        Used   Available Use% Mounted on\n/dev/mapper/pve-vm--627--disk--0 105358065664 36036218880 64451809280  36% /\n",
+  "env_physical_bytes": 5150162944,
+  "env_logical_bytes": 5063958601,
+  "ct_memory_events": "low 0\nhigh 251\nmax 367\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "ct_memory_events_local": "low 0\nhigh 251\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "ct_current_bytes": 2392793088,
+  "ct_swap_bytes": 0,
+  "ct_psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=229735\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=220024\n",
+  "running_containers": [
+    "voicebox",
+    "cadvisor",
+    "test-nginx"
+  ],
+  "candidate_image": "sha256:19af4754968dacacbb9104f8ea40826dbea4f9f772992397cf322802d7babbfe",
+  "candidate_image_size": 1291629181,
+  "new_kernel_oom_io_errors": 0,
+  "new_backup_hdd_bytes": 82493485,
+  "pool_free_gib": 124.15533447265625,
+  "pool_free_pct": 31.03216655113159,
+  "production_unchanged": true,
+  "all_ct_configs_unchanged": 27,
+  "other_service_ct_unchanged": 17,
+  "protected_files_unchanged": 111,
+  "real_inferences": 0
+}

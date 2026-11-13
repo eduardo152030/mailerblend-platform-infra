@@ -23,11 +23,11 @@
   "inventory/services/infra-prom.yml": "03eae9400315eef46066b39b95dc440c721b0330b64f2a10fc157c65100e6fec",
   "inventory/services/infra-pulpo.yml": "0ae1b0df4f1bc3a356676d5346f3ebe51014421670158e5d6ce4782371fa85e5",
   "inventory/services/infra-svc01.yml": "31e321cf08d55b26b1ee6cc9ea4431651aeee62aac2810331af962fba1df82af",
-  "inventory/services/infra-voicebox.yml": "d4f5478558e4b2a61699d9a9a043c38535a97c4d78c14fb95471eb8ea567ab05",
+  "inventory/services/infra-voicebox.yml": "4d331e7a6e5142f6fe60fd19687e7e1afffb759118aa5945ed68e9ecbee476a6",
   "services/infra-mailerblend-edge/NOTES.md": "9274702e810ddea54265377636eb77c01720115b97bdf1f64e2d3822c52b9d52",
   "services/infra-nucleoedge/NOTES.md": "f8ed390d1e4cf9e19f6589664482eaca7e59cd82860a2908f748b02eddac162a",
-  "services/infra-voicebox/NOTES.md": "e3d2b358461aba532cb211f974ab3d4290c03fd805856dfdf6ad6cd1df82b0b3",
+  "services/infra-voicebox/NOTES.md": "166aa94cff1177d35aab87627bd18d740019b43af454068accd2111a3073a14e",
   "docs/inventory/615-LXC-INVENTORY.md": "337d36867806c3a97062eb8d3ca4cd8f0f9032cc7803c96ef0a9fa02b245b764",
   "docs/inventory/614-LXC-INVENTORY.md": "79915acd3807d6a33a9e8f7a1ef1ee728de3133186e74f11baf02321634423b3",
-  "docs/inventory/627-LXC-INVENTORY.md": "639408c0201ae2f65091204fd0955f0059e0339e9281b39dba26d3c43d483933"
+  "docs/inventory/627-LXC-INVENTORY.md": "a2c94d965d365a8d1a59d3f64560c05eb6dccafa14360eaa949c104f1ebc677d"
 }

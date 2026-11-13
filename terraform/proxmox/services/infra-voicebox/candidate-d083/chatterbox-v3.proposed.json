@@ -1,0 +1,54 @@
+{
+  "status": "PROPOSED_NOT_DOWNLOADED_NOT_APPROVED",
+  "source_git_sha": "ab55923c27757c90cfcc407baa57dc25a7d25217",
+  "package_label": "0.1.7 is not sufficient to distinguish installed V2 from upstream V3",
+  "model_repo": "ResembleAI/chatterbox",
+  "model_revision": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18",
+  "model_variant_argument": {
+    "t3_model": "v3"
+  },
+  "loader": "ChatterboxMultilingualTTS.from_local",
+  "device": "cpu",
+  "precision_proposal": "FP32",
+  "weights_and_tokenizer_disk_bytes": 3208951924,
+  "files": [
+    {
+      "name": "t3_mtl23ls_v3.safetensors",
+      "bytes": 2143989928,
+      "lfs_sha256": "5abca8321ede76f8e61f1cc0d19aea6c946b28871017ce8726f8a69203f05953",
+      "git_blob_id": "1c209b87ad60fc1d4924b0ae2aee5c830c2a4a91"
+    },
+    {
+      "name": "s3gen.pt",
+      "bytes": 1057165844,
+      "lfs_sha256": "9b9ff07e60b20c136e2b1b3d7563a24604e8d2c4c267888d1ee929dd0151d2a3",
+      "git_blob_id": "d4ef76740efef1aeb5eb1415214083288cf2cfde"
+    },
+    {
+      "name": "ve.pt",
+      "bytes": 5698626,
+      "lfs_sha256": "4b16d836bc598509860f6fa068165a8bb5e9ac84f05582dfcf278a5a372879f1",
+      "git_blob_id": "adae22451d455ceb0592efc42464cadb21978b2a"
+    },
+    {
+      "name": "grapheme_mtl_merged_expanded_v1.json",
+      "bytes": 69989,
+      "lfs_sha256": null,
+      "git_blob_id": "d27fb3f2fd38ca39b7bbfbf83a13b3c617e551df"
+    },
+    {
+      "name": "conds.pt",
+      "bytes": 107374,
+      "lfs_sha256": "6552d70568833628ba019c6b03459e77fe71ca197d5c560cef9411bee9d87f4e",
+      "git_blob_id": "e13b43d1ce809473454627428ff413ebfc7e8660"
+    },
+    {
+      "name": "Cangjie5_TC.json",
+      "bytes": 1920163,
+      "lfs_sha256": null,
+      "git_blob_id": "d77891f84ca1db0d6f7058a4ee081d4bb0bfe88e"
+    }
+  ],
+  "dependencies_lock_complete": false,
+  "reason": "Separate CPU image dependency resolution/Perth revision and measured loading memory still required"
+}

@@ -1,0 +1,17 @@
+{
+  "at_utc": "2026-11-12T14:39:35.913591+00:00",
+  "rootfs_gib": 50,
+  "ct_running": true,
+  "voicebox_healthy": true,
+  "agent_active": true,
+  "production_image_id_and_start_unchanged": true,
+  "all_pve_ct_configs_unchanged": true,
+  "candidate_files_preserved": 16,
+  "candidate_hashes_unchanged": true,
+  "new_model_downloads": false,
+  "new_inferences": false,
+  "storage_changes_executed": false,
+  "terraform_apply_executed": false,
+  "hdd_volume_created": false,
+  "commit_or_push": false
+}

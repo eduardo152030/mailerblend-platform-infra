@@ -1,0 +1,29 @@
+{
+  "private_copy_only": true,
+  "refresh": false,
+  "applied": false,
+  "live_state_modified": false,
+  "current_policy_and_100GiB": {
+    "code": 1,
+    "precondition_failed": true
+  },
+  "policy_100_disk_ignored": {
+    "code": 0,
+    "changes": []
+  },
+  "removing_ignore_only_in_private_simulation": {
+    "code": 0,
+    "changes": [
+      {
+        "address": "proxmox_virtual_environment_container.svc[\"infra-voicebox\"]",
+        "actions": [
+          "update"
+        ],
+        "changed_fields": [
+          "disk"
+        ],
+        "replace_paths": []
+      }
+    ]
+  }
+}

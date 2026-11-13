@@ -1,0 +1,165 @@
+{
+  "at_utc": "2026-11-12T14:19:33.530563+00:00",
+  "df": {
+    "code": 0,
+    "output": "Filesystem                       Type   1B-blocks        Used   Available Use% Mounted on\n/dev/mapper/pve-vm--627--disk--0 ext4 52521566208 30164447232 19655987200  61% /\n",
+    "error": ""
+  },
+  "usage": {
+    "/": {
+      "code": 0,
+      "output": "4096\t/home\n5826691072\t/srv\n217088\t/root\n16384\t/lost+found\n1835544576\t/usr\n14591762432\t/var\n4096\t/mnt\n4096\t/media\n40960\t/tmp\n4530176\t/etc\n7906545664\t/opt\n4096\t/boot\n30165368832\t/\n",
+      "error": ""
+    },
+    "/var": {
+      "code": 0,
+      "output": "14401052672\t/var/lib\n1097728\t/var/spool\n798720\t/var/backups\n177061888\t/var/log\n11714560\t/var/cache\n4096\t/var/mail\n20480\t/var/tmp\n4096\t/var/opt\n4096\t/var/local\n14591762432\t/var\n",
+      "error": ""
+    },
+    "/var/lib": {
+      "code": 0,
+      "output": "17719296\t/var/lib/docker\n3592192\t/var/lib/command-not-found\n14277947392\t/var/lib/containerd\n4096\t/var/lib/machines\n4096\t/var/lib/python\n36864\t/var/lib/polkit-1\n4096\t/var/lib/man-db\n12288\t/var/lib/update-manager\n102400\t/var/lib/ucf\n4096\t/var/lib/private\n36864\t/var/lib/PackageKit\n8192\t/var/lib/ubuntu-release-upgrader\n12288\t/var/lib/lxc-ssh-bootstrap\n49152\t/var/lib/apt\n4096\t/var/lib/dbus\n8192\t/var/lib/postfix\n720896\t/var/lib/usbutils\n4096\t/var/lib/portables\n4096\t/var/lib/dhcp\n4096\t/var/lib/update-notifier\n28672\t/var/lib/pam\n8192\t/var/lib/logrotate\n8192\t/var/lib/vim\n4096\t/var/lib/misc\n8192\t/var/lib/sudo\n92745728\t/var/lib/dpkg\n12288\t/var/lib/node_exporter\n372736\t/var/lib/systemd\n4096\t/var/lib/git\n4096\t/var/lib/unattended-upgrades\n7548928\t/var/lib/ubuntu-advantage\n24576\t/var/lib/emacsen-common\n14401052672\t/var/lib\n",
+      "error": ""
+    },
+    "/var/lib/docker": {
+      "code": 0,
+      "output": "4096\t/var/lib/docker/runtimes\n28672\t/var/lib/docker/volumes\n8192\t/var/lib/docker/rootfs\n81920\t/var/lib/docker/network\n2572288\t/var/lib/docker/containers\n14995456\t/var/lib/docker/buildkit\n8192\t/var/lib/docker/tmp\n8192\t/var/lib/docker/plugins\n4096\t/var/lib/docker/swarm\n17719296\t/var/lib/docker\n",
+      "error": ""
+    },
+    "/var/lib/containerd": {
+      "code": 0,
+      "output": "2242465792\t/var/lib/containerd/io.containerd.content.v1.content\n8192\t/var/lib/containerd/io.containerd.grpc.v1.introspection\n20480\t/var/lib/containerd/io.containerd.runtime.v2.task\n12032438272\t/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs\n4096\t/var/lib/containerd/io.containerd.snapshotter.v1.blockfile\n4096\t/var/lib/containerd/tmpmounts\n8192\t/var/lib/containerd/io.containerd.snapshotter.v1.native\n2981888\t/var/lib/containerd/io.containerd.metadata.v1.bolt\n4096\t/var/lib/containerd/io.containerd.snapshotter.v1.btrfs\n4096\t/var/lib/containerd/io.containerd.snapshotter.v1.erofs\n4096\t/var/lib/containerd/io.containerd.sandbox.controller.v1.shim\n14277947392\t/var/lib/containerd\n",
+      "error": ""
+    },
+    "/var/log": {
+      "code": 0,
+      "output": "4096\t/var/log/dist-upgrade\n4096\t/var/log/private\n360448\t/var/log/apt\n165294080\t/var/log/journal\n151552\t/var/log/unattended-upgrades\n177061888\t/var/log\n",
+      "error": ""
+    },
+    "/opt/voicebox": {
+      "code": 0,
+      "output": "253952\t/opt/voicebox/d082-tests\n151552\t/opt/voicebox/d077-tests\n77824\t/opt/voicebox/pilot-d071\n28672\t/opt/voicebox/pilot-d067\n144392192\t/opt/voicebox/source\n65536\t/opt/voicebox/production-d079\n32768\t/opt/voicebox/pilot-d069\n34267136\t/opt/voicebox/pilot-d068\n7657844736\t/opt/voicebox/backups\n253952\t/opt/voicebox/d079-tests\n34217984\t/opt/voicebox/d068-rollback\n69632\t/opt/voicebox/production-d077\n8192\t/opt/voicebox/diagnostics-d072-stable\n12288\t/opt/voicebox/diagnostics-d070\n12288\t/opt/voicebox/diagnostics-d071-stable\n40960\t/opt/voicebox/pilot-d066\n7871844352\t/opt/voicebox\n",
+      "error": ""
+    },
+    "/opt/voicebox/backups": {
+      "code": 0,
+      "output": "91377664\t/opt/voicebox/backups/d081-functional-before\n6770688\t/opt/voicebox/backups/d070-cancel\n87560192\t/opt/voicebox/backups/d079-production-before\n98725888\t/opt/voicebox/backups/d082-accepted-final\n20480\t/opt/voicebox/backups/d069-acceptance\n86335488\t/opt/voicebox/backups/d077-production-before\n86642688\t/opt/voicebox/backups/d071-before\n7657844736\t/opt/voicebox/backups\n",
+      "error": ""
+    },
+    "/srv/voicebox": {
+      "code": 0,
+      "output": "73728\t/srv/voicebox/pilot-d076\n2845691904\t/srv/voicebox/huggingface\n4038656\t/srv/voicebox/pilot-d067\n5361664\t/srv/voicebox/private-originals\n23412736\t/srv/voicebox/pilot-d068\n94208\t/srv/voicebox/pilot-d075-b\n1052672\t/srv/voicebox/pilot-d077\n241664\t/srv/voicebox/diagnostics-d072-stable\n1257472\t/srv/voicebox/pilot-d072\n345698304\t/srv/voicebox/openvoice\n241664\t/srv/voicebox/diagnostics-d070\n89341952\t/srv/voicebox/data\n241664\t/srv/voicebox/diagnostics-d071-stable\n7847936\t/srv/voicebox/qwen-worker\n2502086656\t/srv/voicebox/pilot-d066\n5826686976\t/srv/voicebox\n",
+      "error": ""
+    },
+    "/srv/voicebox/data": {
+      "code": 0,
+      "output": "1204224\t/srv/voicebox/data/profiles\n1433600\t/srv/voicebox/data/cache\n76775424\t/srv/voicebox/data/models\n12288\t/srv/voicebox/data/backends\n5947392\t/srv/voicebox/data/generations\n89341952\t/srv/voicebox/data\n",
+      "error": ""
+    },
+    "/srv/voicebox/huggingface": {
+      "code": 0,
+      "output": "126976\t/srv/voicebox/huggingface/xet\n2845560832\t/srv/voicebox/huggingface/hub\n2845691904\t/srv/voicebox/huggingface\n",
+      "error": ""
+    },
+    "/srv/voicebox/qwen-worker": {
+      "code": 0,
+      "output": "57344\t/srv/voicebox/qwen-worker/src-a1f041a7b2692d14\n7671808\t/srv/voicebox/qwen-worker/jobs\n57344\t/srv/voicebox/qwen-worker/src-761a9719081033cd\n57344\t/srv/voicebox/qwen-worker/src-b528a92bc9866a6f\n7847936\t/srv/voicebox/qwen-worker\n",
+      "error": ""
+    },
+    "/srv/voicebox/qwen-worker/jobs": {
+      "code": 0,
+      "output": "524288\t/srv/voicebox/qwen-worker/jobs/accepted-sample\n81920\t/srv/voicebox/qwen-worker/jobs/73a3755f5b194d33aba379e43bf6d72b\n81920\t/srv/voicebox/qwen-worker/jobs/86dde73bfe39498cba26658bd7849f1c\n4587520\t/srv/voicebox/qwen-worker/jobs/baa61a95c7b445248229aa697b941710\n2387968\t/srv/voicebox/qwen-worker/jobs/7f348e9777214f4e827dcf7e1458c045\n7671808\t/srv/voicebox/qwen-worker/jobs\n",
+      "error": ""
+    },
+    "/tmp": {
+      "code": 0,
+      "output": "8192\t/tmp/systemd-private-b2d0d4b886c147ffbc78360f053efa82-systemd-resolved.service-MFnmzN\n4096\t/tmp/.XIM-unix\n4096\t/tmp/.X11-unix\n4096\t/tmp/.font-unix\n8192\t/tmp/systemd-private-b2d0d4b886c147ffbc78360f053efa82-systemd-logind.service-kLNB2V\n4096\t/tmp/.Test-unix\n4096\t/tmp/.ICE-unix\n40960\t/tmp\n",
+      "error": ""
+    },
+    "/var/tmp": {
+      "code": 0,
+      "output": "8192\t/var/tmp/systemd-private-b2d0d4b886c147ffbc78360f053efa82-systemd-logind.service-6ARHKS\n8192\t/var/tmp/systemd-private-b2d0d4b886c147ffbc78360f053efa82-systemd-resolved.service-uzofjw\n20480\t/var/tmp\n",
+      "error": ""
+    },
+    "/root/.cache": {
+      "code": 0,
+      "output": "4096\t/root/.cache\n",
+      "error": ""
+    },
+    "/home/voicebox/.cache": {
+      "absent": true
+    }
+  },
+  "docker_info": {
+    "code": 0,
+    "output": "\"/var/lib/docker\" \"overlayfs\" [[\"driver-type\",\"io.containerd.snapshotter.v1\"]]\n",
+    "error": ""
+  },
+  "docker_df": {
+    "code": 0,
+    "output": "{\"Active\":\"9\",\"Reclaimable\":\"10.42GB (73%)\",\"Size\":\"14.27GB\",\"TotalCount\":\"13\",\"Type\":\"Images\"}\n{\"Active\":\"3\",\"Reclaimable\":\"5.816MB (97%)\",\"Size\":\"5.98MB\",\"TotalCount\":\"23\",\"Type\":\"Containers\"}\n{\"Active\":\"0\",\"Reclaimable\":\"0B\",\"Size\":\"0B\",\"TotalCount\":\"0\",\"Type\":\"Local Volumes\"}\n{\"Active\":\"0\",\"Reclaimable\":\"637.8MB\",\"Size\":\"6.713GB\",\"TotalCount\":\"50\",\"Type\":\"Build Cache\"}\n",
+    "error": ""
+  },
+  "permissions": {
+    "/srv/voicebox": {
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "resolved": "/srv/voicebox"
+    },
+    "/srv/voicebox/data": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o755",
+      "resolved": "/srv/voicebox/data"
+    },
+    "/srv/voicebox/huggingface": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o755",
+      "resolved": "/srv/voicebox/huggingface"
+    },
+    "/srv/voicebox/qwen-worker/jobs": {
+      "uid": 999,
+      "gid": 999,
+      "mode": "0o700",
+      "resolved": "/srv/voicebox/qwen-worker/jobs"
+    }
+  },
+  "docker_volume_mounts": [],
+  "voicebox": {
+    "image": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+    "id": "1c35e81571c979b89efc185a5074847bb5c5930b783027ea9d76ac45814ef457",
+    "started_at": "2026-11-12T07:01:37.552379895Z",
+    "health": "healthy",
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/srv/voicebox/data",
+        "Destination": "/app/data",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/srv/voicebox/huggingface",
+        "Destination": "/home/voicebox/.cache/huggingface",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/srv/voicebox/qwen-worker/jobs",
+        "Destination": "/qwen-jobs",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "paths_env": {
+      "HF_HUB_OFFLINE": "1"
+    }
+  }
+}

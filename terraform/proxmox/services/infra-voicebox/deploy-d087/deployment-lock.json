@@ -1,0 +1,34 @@
+{
+  "image_id": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+  "user": "999:999",
+  "entrypoint": [
+    "/usr/local/bin/entrypoint-uid999.sh"
+  ],
+  "cmd": [
+    "uvicorn",
+    "backend.main:app",
+    "--host",
+    "0.0.0.0",
+    "--port",
+    "17493"
+  ],
+  "status": "D087B_QWEN_ENGLISH_ACCEPTED_CHATTERBOX_DISABLED_WORKER_GUARD",
+  "controller_release": "services/infra-voicebox/maintenance-d087/release.proposed.json",
+  "controller_release_sha256": "267586015926d93f20e04cc0611eceebee267fd847c0a5b8fbce201fdd6894bb",
+  "files": {
+    "postdeploy.py": "0dec5710f7e45a1c34fb3b83afacb165642286a36ed43e721488093e69dfd91b",
+    "submit-trial.py": "da9f84d5d82150988ca8d7a750f964a59cfcb022ad8d07e12a8215f9b19cadda",
+    "verify-data.py": "49aba409f43f7d0d001d2c35a86b408cb44070e52acfa406f8002463621d7176",
+    "disable-failed-chatterbox.py": "1a660e45a438e29f4c0406c7d6a746efccc5251d4353c1852600db77ab1e6243",
+    "collect-trial.py": "46d8c0dfb43e867afbeb29c84713963bca7c568dd82f786e319f257817b7237c",
+    "transaction.py": "0393672c4f12cdfd33497a65dfa1332df076460498823e34e2201ca043072fe3",
+    "final-check.py": "42e981fdfc5937509cdc2efac8522c576a284f24aa3fff1f73e3cb7235f94328",
+    "verify-control.py": "38f18807a6084172ae6c7d6e3bb1e7455af1a3594add463efdc3c3216261cac7",
+    "observe-trial.py": "a0ae9003083b9b0cbac00d79d149641bcec6133aee6dc62a8551972c0b0b0db3",
+    "backup.py": "38272322ee9f1682ee68ef9cba170c1e000fdf621a39305e9a7a6cb13029b479"
+  },
+  "startup_dockerfile_sha256": "93b5fe49e4786cda0ea04dab493dd0a822e04cdb2eea4d27eeec2d963439c424",
+  "ct_memory_mib": 20480,
+  "ct_guard_gib": 19,
+  "attempt": "d087b"
+}

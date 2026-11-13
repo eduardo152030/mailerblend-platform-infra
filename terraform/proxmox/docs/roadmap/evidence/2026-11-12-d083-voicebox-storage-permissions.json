@@ -1,0 +1,24 @@
+{
+  "daemon_namespaces": {
+    "1": {
+      "comm": "systemd",
+      "mntns": "mnt:[4026538400]"
+    },
+    "129": {
+      "comm": "containerd",
+      "mntns": "mnt:[4026538400]"
+    },
+    "230": {
+      "comm": "dockerd",
+      "mntns": "mnt:[4026538400]"
+    }
+  },
+  "proposed_mount_exists": false,
+  "docker.service": "MountFlags=\nPrivateMounts=no\nProtectSystem=no\n",
+  "containerd.service": "MountFlags=\nPrivateMounts=no\nProtectSystem=no\n",
+  "app_uid999_access": {
+    "uid": 999,
+    "model_config_readable": true,
+    "cache_inode_device": 64543
+  }
+}

@@ -3,6 +3,141 @@
 Estado: **DONE técnico del alta D063**, con600s/21muestras deestabilidadPASS.
 Fecha: 2026-11-10 (Europe/Madrid). [Informe y estado vigente](../roadmap/PHASE7-D063-VOICEBOX.md).
 
+## D089 — DONE / ACCEPTED; cierre del alcance validado Voicebox F7.4
+
+13nov2026 Europe/Madrid. Aceptación acústica explícita del propietario: Chatterbox
+español5,48s/inglés5,00s y Qwen inglés45,04s. Qwen español D081 preservado.
+Auditoría efectiva solo lectura: Chatterbox240caracteres (UI/API/controlador/worker),
+400tokens/EOS obligatorio,300s y WAV≤20s; Qwen1200caracteres. No se amplían límites;
+Chatterbox1200caracteres o narraciones largas no demostrados ni incluidos en cierre.
+Robotic/Radio/Echo Chamber/Deep Voice disponibles para ambos motores; Eduardo
+sin efectos por defecto, perfil sin cadena. Disponibilidad comprobada sin DSP/audio.
+Voicebox/Qwen/Chatterbox es/en saludables; configuración productiva intacta.
+Publicación normal main autorizada solo para Voicebox/CT627/documentación asociada;
+cambios ajenos y datos privados excluidos. F7 global/7.2/7.3 no se cierran.
+[Informe D089](../roadmap/PHASE7-D089-CHATTERBOX-PRODUCTION-VALIDATION.md),
+[auditoría](../roadmap/evidence/2026-11-13-d089-acceptance-audit.json).
+Siguiente: operación/vigilancia; ampliaciones o ensayos nuevos fuera de este alcance.
+
+## D087b — Qwen bilingüe DONE / ACCEPTED; Chatterbox BLOCKED
+
+13nov2026 Europe/Madrid. Despliegue corregido21270364… healthy, USER999:999,
+entrypoint real y capacidadescero. Copia soloarchivos delrelease; readinesscompleto
+incluye guardas/supervisores. Backupnuevo117archivos restaurado externamente;
+39tests sininferenciaPASS. Cancelaciónsintética/sharedlockPASS sin modelos ni audio.
+A QwenEnglish: EOS33tokens,checkpoint344×16íntegro,WAV2,56s/124,38s; propietario
+escuchó y aceptóvoz/texto. Español conserva contrato y audioD081, sin otra inferencia.
+B ChatterboxSpanish: parada worker7GiB; pico cgroup7,70GiB (RSS6,52), CT12,04GiB;
+61,73s,sinWAV/OOM. C NOejecutado; sin reintentos. Chatterboxdeshabilitado sin
+reiniciarapp; Qwenes/en sigue listo. No elevarmásRAMCT ni guardas automáticamente.
+Cuatroefectos disponibles, sinvozreal. Perfil/ref/6históricos intactos; historial8,
+105archivos ycheckpoints verificados, nuevosjobs archivados privadamente fueraPVE.
+20GiB/3CPU/2GiBswap/100GiB/guarda19 yworkers originales conservados. Notes/TF
+refresh-only627, planfinal0cambios; otras26configsPVE idénticas. Prom/Blackbox627up1,
+Grafanahealth200, ceroalertasFIRING Voicebox, sinresiduales/otrosLXC/pipeline/commit/push.
+[InformeD087](../roadmap/PHASE7-D087-QWEN-CHATTERBOX-PRODUCTION-VALIDATION.md).
+Siguiente: optimizar/instrumentar memoria delworkerChatterbox antes deotroensayo
+explícitamente autorizado. Ingléslargo/Chatterbox/efectos reales no aceptados.
+Esta entrada sustituye estados inferiores deD087; D081 conservado comobaseline/rollback.
+
+## D087 — recursos20GiB DONE; despliegue ROLLED BACK / BLOCKED
+
+12nov2026 Europe/Madrid, Fase7.4. Propietario autorizó20GiB y guardaCT19GiB;
+aplicados en caliente y reconciliados con Terraform refresh-only exclusivo627,
+planfinal0cambios. CPU3/swap2GiB/disco100GiB y workers Qwen9/8,2 y CB8/7 intactos.
+Backupnuevo117archivos extraído/verificado fueraPVE; D081/82/84/85 revalidados.
+Intento coordinado falló copiando controller/__pycache__, creado por la importación
+del preflight. RollbackPASS: D081healthy, mismoID/inicio, agenteactivo, CBdeshabilitado;
+ninguna app candidata recreada ni inferenciaA/B/C. Perfil/ref/6WAV/SQLite/checkpoints
+intactos; otros26configsPVE idénticos, OOM0. Guarda19GiB permanece aprobada.
+Corrección de copia solo local: archivos del release verificados por hash;37tests
+sininferenciaPASS. No reintento, efectos, narraciones largas, otrosLXC/pipeline,
+commit/push. [InformeD087](../roadmap/PHASE7-D087-QWEN-CHATTERBOX-PRODUCTION-VALIDATION.md).
+Siguiente: revisión y autorización de nuevo intento coordinado, conservando este
+fallido y sus backups; preflight/backup actualizado antes de ejecutarA→B→C.
+Aceptación acústica nueva pendiente. Esta entrada sustituye el bloqueo15GiB inferior.
+
+## D087 — BLOCKED antes del despliegue: margen Chatterbox insuficiente
+
+Fase7.4, 12nov2026 Europe/Madrid. Imagen corregida21270364… verificada con
+USER999:999/entrypoint corregido/CMD Uvicorn; receta y lockD087 preparados localmente.
+PreflightQwen PASS, pero Chatterbox proyecta15,245GiB frente a guarda14GiB:
+CTinicial7,745GiB (anon0,366/file6,893/kernel0,485), falta1,245GiB de margen.
+HostMemAvailable≈20,6GiB y pool31,03%libre; swapglobal activo, PSIlocal0,
+swapCTestable/OOM0. No se presupone caché liberada ni se modifican guardas.
+D081healthy, mismoID/inicio, perfil/referencia/6WAV/SQLite intactos,27configsPVE
+idénticas.30tests sininferencias PASS. No despliegue, backupnuevo, rollback necesario,
+A/B/C, efectos, recursos/otrosLXC/pipeline, commit ni push. Aceptación acústica pendiente.
+[InformeD087](../roadmap/PHASE7-D087-QWEN-CHATTERBOX-PRODUCTION-VALIDATION.md).
+Siguiente: aclarar consumo file/swap con diagnóstico y resolver margen; revalidar
+preflight y backups antes de reanudar. No ejecutar ensayos automáticamente.
+
+## D086 — arranque UID999 corregido y validado en aislamiento
+
+Corrección candidata DONE técnica, sin despliegue: imagen21270364… mantiene
+USER999:999, entrypoint sin gosu/cambio deusuario yCMDUvicorn original. Caché
+interna preparada conpropietario999 enbuild; permisos debinds reales intactos.
+Prueba completa conentrypoint/CMD reales healthy, PID1UID/GID999 yCapEff/Prm0;
+mismaENV/límites/mounts internos con copias privadas, sinred nipuertos.
+30testsPython/UI y14API+8efectos+4DSP sintéticosPASS. D081healthy con mismoID/inicio,
+agente/fuentes intactos,111archivos/BD/WAV y27configsPVE sin cambios.
+NoinferenciasA/B/C, nodeploy productivo, nirecursos/guardas/otrosLXC/commit/push.
+[Informe de corrección](../roadmap/PHASE7-D086-UID999-STARTUP-FIX.md). Siguiente: revisión del resultado antes de
+continuar despliegue coordinado yensayos; propuesta anterior deUSERroot descartada.
+
+## D086 — fallo de arranque; ROLLED BACK / BLOCKED
+
+Despliegue candidato19af4754… falló antes deAPI porUSER999 incompatible con
+entrypoint heredado que usa gosu. Rollback coordinado completado: D08109774c5b…
+healthy, agente/src originales restaurados yChatterbox deshabilitado. Cero
+inferencias: A/B/C yefectos NOejecutados por parada crítica. Backupnuevo118archivos
+restaurado externamente; D081/82/84/85 revalidados. Perfil/ref/6WAV/111archivos y
+27configsPVE intactos; otros17LXC sin cambios,OOM0,swap0,PSIlocal0. Disco100GiB,
+59,852GiB libres; pool124,152GiB/31,03%. Reconciliaciónrollback no-op.
+[Informe D086](../roadmap/PHASE7-D086-QWEN-CHATTERBOX-VALIDATION.md). Siguiente: autorización nueva para corregir contrato de
+startup yvalidarlo aislado conentrypoint real antes de repetir despliegue/ensayos.
+No se corrigió ni redesplegó traselfallo. Sincommit/push; D081 ACCEPTED intacto.
+
+## D085 — preparación bilingüe, Chatterbox y efectos DONE; despliegue TODO
+
+Candidato D083 preservado por16hashes. Qwen es/en preparado,1200caracteres,
+FP32/0.6B/42 yA/B intactos. Chatterbox MultilingualV3 aislado,240caracteres,
+5archivos/2,989GiB verificados y113paquetes fijados; sinVCSflotante. Efectos
+Robotic,Radio,EchoChamber yDeepVoice preparados por generación conDSP nativo.
+UI completa compila;11Python+5UI D085,14API,8envíos deefectos y4DSP sintéticos PASS;
+regresiónD08310Python+4UI PASS. Backupnuevo117archivos restaurado externamente;
+D084 completo SHA revalidado. Entorno4,796GiB; quedan60,025GiB enCT y124,155GiB
+físicos enpool/31,03%, reserva20%respetada. D081healthy/mismoID/inicio/fuentes,
+perfil/ref/6WAV/checkpoints intactos,27configsPVE idénticas yotros17sin cambios.
+Sin inferencia real, despliegue, recursos/guardas modificados, commit/push.
+[Informe D085](../roadmap/PHASE7-D085-QWEN-BILINGUAL-CHATTERBOX.md). Siguiente: revisión yautorización separada de despliegue
+coordinado yensayos cortos A→B→C; calidad/RAM/latenciaCB aún pendientes.
+
+## D084 — ampliación SSD CT627 DONE técnico
+
+Rootfs local-lvm50→100GiB yext4 verificados en caliente, mismoUUID/PID/appsinreinicio.
+Disponibles65,494GiB; poollibre124,605GiB/31,14%, reserva20%respetada. Backupcompleto
+HDD17,651GiB verificado conextracciónaislada,SQLite/modelos/111archivos/permisos.
+Terraformrefresh-only exclusivo627 aplicado; planfinaldirigido0cambios. Otros17LXC
+sin cambios,OOM0,perfil/referencia/historial/WAV/checkpoints intactos. D081 sigue
+ACCEPTED / PRODUCTION; candidatoD08316archivos conservado. Sin inferencias,descargas,
+Chatterbox,reinicios,commit/push. [Informe D084](../roadmap/PHASE7-D084-CT627-SSD-RESIZE.md).
+Siguiente: Qweninglés yChatterbox enintervención separada; D084cerrada.
+
+## Antecedente D083 Voicebox — auditoría SSD previa a D084
+
+Prioridad: rootfs62750→100GiB enlocal-lvm/SSD, no mp0HDD. Pool400,086GiB,
+usados275,051/libres125,035; metadatos2,794%; VGsinextents, sobreasignación
+808→858GiB lógicos. Viable para Docker/Chatterbox previsto, condicionado areserva
+global ysnapshots; no es reserva física exclusiva de50GiB. Hotgrowth ext4 soportado,
+no ejecutado. [Cifras, procedimientoIaC yrollback](../roadmap/PHASE7-D083-CT627-SSD-CAPACITY-AUDIT.md).
+En D083, D081 seguía ACCEPTED / PRODUCTION conrootfs50GiB; imágenes,recursos,guardas,
+perfiles ydatos intactos. CandidatoQwenbilingüe ytests conservados; Chatterbox
+pausado. No resize,descargas,movimientos,reinicios,inferencias,commit/push.
+Propuesta autorizada y ejecutada posteriormente en D084; no aplicar losplanes deauditoría.
+Estaentrada es F7.4; elD083 de monitorización inferior esunaintervención separada.
+
+
 ## D082 — D081 ACCEPTED / PRODUCTION; Fase7.4 DONE / ACCEPTED
 
 El propietario escuchó yaceptó voz ycontenido el12nov2026. Referencia final:
@@ -474,3 +609,12 @@ solo Voicebox. Rollback con imagen previa y datos compatibles; migraciones SQLit
 requieren restauración coordinada. Nunca down -v, prune ni destroy automático.
 Recuperación Terraform tainted según [runbook de altas](../runbooks/NEW-LXC-PROVISIONING.md),
 sin reaplicación que reemplace el CT. RPO/RTO/retención global siguen pendientes F7.3.
+
+## D-088 Voicebox y autorización condicional D-089
+
+13nov2026 Europe/Madrid. Dos cargas autorizadas consumidas; candidata FP32 carga
+en38,88s, RSS máximo4,557GiB frente a6,556GiB original. Reducción por assign=True
+verificada sin cambiar pesos. Producción Qwen es/en intacta y Chatterbox deshabilitado.
+D089 BLOCKED: no hay mediciones de activaciones/generación/decoder que acrediten
+margen. No despliegue ni audio. Propuesta pendiente de autorización: ensayo aislado
+instrumentado bajo guardas originales. Informe: [D088](../roadmap/PHASE7-D088-CHATTERBOX-MEMORY-OPTIMIZATION.md). Sin commit/push.

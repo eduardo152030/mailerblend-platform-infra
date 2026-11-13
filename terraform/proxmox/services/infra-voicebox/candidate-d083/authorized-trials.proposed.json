@@ -1,0 +1,30 @@
+{
+  "status": "PREPARED_NOT_AUTHORIZED_TO_RUN",
+  "qwen_english": {
+    "text": "This is a test to see if I can speak in English.",
+    "profile": "Eduardo — Mi Voz",
+    "profile_id": "1fd00418-2a79-4178-883f-af6c3f5e07ee",
+    "engine": "qwen",
+    "model_size": "0.6B",
+    "language": "en",
+    "seed": 42,
+    "instruct": null,
+    "personality": false,
+    "continuous": true,
+    "max_seconds": 900,
+    "automatic_retries": false
+  },
+  "chatterbox_proposals": [
+    {"language": "en", "text": "This is Eduardo. This is a short test of my own voice."},
+    {"language": "es", "text": "Soy Eduardo. Esta es una prueba breve de mi voz en español."}
+  ],
+  "chatterbox_preconditions": [
+    "Approval for isolated image/dependency preparation and selective model download",
+    "Measured loader peak safely below existing preventive worker stop",
+    "Keep more than10GiB disk free for the accepted Qwen preflight",
+    "One serial agent queue and shared PVE lock; no concurrent heavy engine",
+    "Separate process must terminate completely on cancellation",
+    "Original reference mounted read-only; no copy or edit of the original",
+    "No reuse of Qwen acoustic checkpoints for Chatterbox"
+  ]
+}

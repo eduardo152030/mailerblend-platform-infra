@@ -1,0 +1,60 @@
+{
+  "at_utc": "2026-11-12T19:48:43.963314+00:00",
+  "production_healthy": true,
+  "production_id": "3590943bf886c3e3703cb49b92f39d8cfa23c9ef7bec43aa66f47c7e8278181c",
+  "production_started_at": "2026-11-12T19:18:39.011893295Z",
+  "test_stopped_pid0": true,
+  "image_id": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+  "entrypoint": [
+    "/usr/local/bin/entrypoint-uid999.sh"
+  ],
+  "cmd": [
+    "uvicorn",
+    "backend.main:app",
+    "--host",
+    "0.0.0.0",
+    "--port",
+    "17493"
+  ],
+  "same_explicit_environment": true,
+  "matched_host_config": {
+    "Memory": 6501171200,
+    "MemorySwap": 6920601600,
+    "NanoCpus": 3000000000,
+    "Privileged": false,
+    "CapAdd": null,
+    "CapDrop": null,
+    "SecurityOpt": null,
+    "ReadonlyRootfs": false,
+    "PidsLimit": null,
+    "UsernsMode": ""
+  },
+  "volumes": [
+    {
+      "Type": "bind",
+      "Destination": "/home/voicebox/.cache/huggingface",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Destination": "/qwen-jobs",
+      "RW": true
+    },
+    {
+      "Type": "bind",
+      "Destination": "/app/data",
+      "RW": true
+    }
+  ],
+  "network_mode": "none",
+  "ports": {},
+  "active_containers": [
+    "voicebox",
+    "cadvisor",
+    "test-nginx"
+  ],
+  "pool_free_gib": 124.15057373046875,
+  "pool_free_pct": 31.03097662123372,
+  "df": "Filesystem                          1B-blocks        Used   Available Use% Mounted on\n/dev/mapper/pve-vm--627--disk--0 105358065664 39163031552 61324996608  39% /\n",
+  "ct_memory_events": "low 0\nhigh 251\nmax 367\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

@@ -1,0 +1,59 @@
+{
+  "at_utc": "2026-11-12T14:33:18.751542+00:00",
+  "pvesm": {
+    "code": 0,
+    "output": "Name             Type     Status           Total            Used       Available        %\nlocal             dir     active        67043328        59690576         7352752   89.03%\nlocal-lvm     lvmthin     active       419520512       288420352       131100160   68.75%\nstorage           dir     active      1464390028        40804304      1423585724    2.79%\n",
+    "error": ""
+  },
+  "vgs": {
+    "code": 0,
+    "output": "  {\n      \"report\": [\n          {\n              \"vg\": [\n                  {\"vg_name\":\"pve\", \"vg_size\":\"524036341760\", \"vg_free\":\"0\", \"vg_extent_size\":\"4194304\", \"vg_extent_count\":\"124940\", \"vg_free_count\":\"0\"}\n              ]\n          }\n      ]\n  }\n",
+    "error": ""
+  },
+  "lvs": {
+    "code": 0,
+    "output": "  {\n      \"report\": [\n          {\n              \"lv\": [\n                  {\"lv_name\":\"base-106-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vri---tz-k\", \"lv_size\":\"53687091200\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"data\", \"vg_name\":\"pve\", \"lv_attr\":\"twi-aotz--\", \"lv_size\":\"429589004288\", \"pool_lv\":\"\", \"origin\":\"\", \"data_percent\":\"68.75\", \"metadata_percent\":\"2.79\", \"lv_health_status\":\"\", \"segtype\":\"thin-pool\"},\n                  {\"lv_name\":\"[data_tdata]\", \"vg_name\":\"pve\", \"lv_attr\":\"Twi-ao----\", \"lv_size\":\"429589004288\", \"pool_lv\":\"\", \"origin\":\"\", \"data_percent\":\"\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"linear\"},\n                  {\"lv_name\":\"[data_tdata]\", \"vg_name\":\"pve\", \"lv_attr\":\"Twi-ao----\", \"lv_size\":\"429589004288\", \"pool_lv\":\"\", \"origin\":\"\", \"data_percent\":\"\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"linear\"},\n                  {\"lv_name\":\"[data_tmeta]\", \"vg_name\":\"pve\", \"lv_attr\":\"ewi-ao----\", \"lv_size\":\"4273995776\", \"pool_lv\":\"\", \"origin\":\"\", \"data_percent\":\"\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"linear\"},\n                  {\"lv_name\":\"[lvol0_pmspare]\", \"vg_name\":\"pve\", \"lv_attr\":\"ewi-------\", \"lv_size\":\"4273995776\", \"pool_lv\":\"\", \"origin\":\"\", \"data_percent\":\"\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"linear\"},\n                  {\"lv_name\":\"root\", \"vg_name\":\"pve\", \"lv_attr\":\"-wi-ao----\", \"lv_size\":\"68719476736\", \"pool_lv\":\"\", \"origin\":\"\", \"data_percent\":\"\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"linear\"},\n                  {\"lv_name\":\"swap\", \"vg_name\":\"pve\", \"lv_attr\":\"-wi-ao----\", \"lv_size\":\"17179869184\", \"pool_lv\":\"\", \"origin\":\"\", \"data_percent\":\"\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"linear\"},\n                  {\"lv_name\":\"vm-101-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"21474836480\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"31.93\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-103-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"53687091200\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"40.30\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-104-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"10737418240\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"18.68\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-105-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"8589934592\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"61.28\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-107-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"53687091200\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"13.11\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-109-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"53687091200\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"9.63\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-610-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"10737418240\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"92.56\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-611-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"10737418240\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"47.13\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-61211-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"42949672960\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"15.01\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-613-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"10737418240\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"21.71\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-614-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"10737418240\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"51.43\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-615-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"10737418240\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"38.23\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-616-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"10737418240\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"22.01\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-617-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"10737418240\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"52.92\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-618-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"53687091200\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"47.49\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-619-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"10737418240\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"55.79\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-620-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"10737418240\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"54.81\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-621-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"10737418240\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"23.63\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-622-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"42949672960\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"63.15\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-623-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"53687091200\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"15.81\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-624-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"53687091200\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"8.97\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-625-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"53687091200\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"8.75\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-626-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"53687091200\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"8.35\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-627-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-aotz--\", \"lv_size\":\"53687091200\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"97.33\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-9618-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-a-tz--\", \"lv_size\":\"53687091200\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"46.05\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"},\n                  {\"lv_name\":\"vm-9622-disk-0\", \"vg_name\":\"pve\", \"lv_attr\":\"Vwi-a-tz--\", \"lv_size\":\"42949672960\", \"pool_lv\":\"data\", \"origin\":\"\", \"data_percent\":\"79.64\", \"metadata_percent\":\"\", \"lv_health_status\":\"\", \"segtype\":\"thin\"}\n              ]\n          }\n      ]\n  }\n",
+    "error": ""
+  },
+  "pvs": {
+    "code": 0,
+    "output": "  {\n      \"report\": [\n          {\n              \"pv\": [\n                  {\"pv_name\":\"/dev/sda3\", \"vg_name\":\"pve\", \"pv_size\":\"524036341760\", \"pv_free\":\"0\"}\n              ]\n          }\n      ]\n  }\n",
+    "error": ""
+  },
+  "pool_status": {
+    "code": 0,
+    "output": "0 839041024 thin-pool 165 29153/1043456 4506439/6555008 - rw discard_passdown queue_if_no_space - 1024 \n",
+    "error": ""
+  },
+  "pool_table": {
+    "code": 0,
+    "output": "0 839041024 thin-pool 252:2 252:3 128 0 0 \n",
+    "error": ""
+  },
+  "lvm_policy": {
+    "code": 0,
+    "output": "thin_pool_autoextend_threshold=100\nthin_pool_autoextend_percent=20\nmonitoring=1\n",
+    "error": ""
+  },
+  "pool_monitor": {
+    "code": 0,
+    "output": "  data monitored\n",
+    "error": ""
+  },
+  "ct_snapshots": {
+    "code": 0,
+    "output": "`-> current                                             You are here!\n",
+    "error": ""
+  },
+  "ext4": {
+    "Filesystem features": "has_journal ext_attr resize_inode dir_index filetype needs_recovery extent 64bit mmp flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum",
+    "Filesystem state": "clean",
+    "Errors behavior": "Continue",
+    "Block count": "13107200",
+    "Reserved block count": "655360",
+    "Free blocks": "5458305",
+    "Block size": "4096",
+    "Reserved GDT blocks": "1024"
+  },
+  "block_device_bytes": 53687091200
+}

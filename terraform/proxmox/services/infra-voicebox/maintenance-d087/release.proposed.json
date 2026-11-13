@@ -1,0 +1,24 @@
+{
+  "enabled": false,
+  "reason": "D087b authorized corrected deployment; acoustic acceptance pending",
+  "model_manifest_sha256": "42f1c0393ffbff61f1f3212e0f14e573e3c1bf07daf0b9385f1e22630715ba4b",
+  "environment_receipt_sha256": "2228e9565df074fd89e6f93a7fd57910e95a1215a4ac32bda036c277d71b8dce",
+  "source_hashes": {
+    "supervise_chatterbox.py": "44c381d8f62f023b2a8a222d373087bb30671e6d0bda034d9a6e58009aaab821",
+    "guards.py": "f983d72b48260d915185d0664eee7977c68abfc9e8018dd70a4e4b1a1a9f2779",
+    "qwen_language_policy.py": "32015eab1359d7c7ddc38d85f05bcedb0f3c4070d58e6cb6b08b773fcac70fe0",
+    "supervise.py": "f3e4b919c906f97330d080ca0f5fb23427a897a03f92a6df0b1b22ca6091d676",
+    "readiness.py": "7cbac2aab4df9d67f99294e76438ce667b369e606b47ec6dd0d39f90186024fd",
+    "engine_policy.py": "a162ee546e5b65317e51423e9c8ade3294fa829eb85f1348aa9a55278d86f009",
+    "agent.py": "2daaafaf6f1fd211f8ded56f90f80103deb60c74909b8e9bae749662a1cd4f80"
+  },
+  "worker_hashes": {
+    "worker.py": "a4f09cbe11652e88af1a45ab376d9634741d5953d8fba7aef2b6cff792de7c91",
+    "guards.py": "f983d72b48260d915185d0664eee7977c68abfc9e8018dd70a4e4b1a1a9f2779",
+    "qwen_language_policy.py": "32015eab1359d7c7ddc38d85f05bcedb0f3c4070d58e6cb6b08b773fcac70fe0",
+    "d077_contract.py": "e30e0367d4bf17b87b1ce5b8237eec9f51e628d382d3b50b52a5631da04f7450",
+    "supervise.py": "f3e4b919c906f97330d080ca0f5fb23427a897a03f92a6df0b1b22ca6091d676",
+    "engine_policy.py": "a162ee546e5b65317e51423e9c8ade3294fa829eb85f1348aa9a55278d86f009",
+    "chatterbox_worker.py": "f05e20a8051968c3cda1d8808043755efd9df66d5f86e83d82f58d04663dc31c"
+  }
+}

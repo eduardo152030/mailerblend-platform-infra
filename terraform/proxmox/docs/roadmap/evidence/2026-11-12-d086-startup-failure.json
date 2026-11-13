@@ -1,0 +1,21 @@
+{
+  "at_utc": "2026-11-12T19:18:14.855115+00:00",
+  "image": "sha256:19af4754968dacacbb9104f8ea40826dbea4f9f772992397cf322802d7babbfe",
+  "status": "unhealthy",
+  "running": true,
+  "restart_count": 10,
+  "error_lines": [
+    "error: failed switching to \"voicebox\": operation not permitted",
+    "error: /app/data is not writable by the voicebox user (uid 999)",
+    "error: failed switching to \"voicebox\": operation not permitted",
+    "error: /app/data is not writable by the voicebox user (uid 999)",
+    "error: failed switching to \"voicebox\": operation not permitted",
+    "error: /app/data is not writable by the voicebox user (uid 999)",
+    "error: failed switching to \"voicebox\": operation not permitted",
+    "error: /app/data is not writable by the voicebox user (uid 999)",
+    "error: failed switching to \"voicebox\": operation not permitted",
+    "error: /app/data is not writable by the voicebox user (uid 999)",
+    "error: failed switching to \"voicebox\": operation not permitted",
+    "error: /app/data is not writable by the voicebox user (uid 999)"
+  ]
+}

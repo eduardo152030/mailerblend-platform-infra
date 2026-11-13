@@ -1,0 +1,13 @@
+{
+  "fixture_root": "/srv/voicebox/chatterbox-d085/startup-validation",
+  "files": {
+    "data": 64,
+    "huggingface": 55,
+    "jobs": 40
+  },
+  "sqlite_integrity": "ok",
+  "source_writes": 0,
+  "model_loads": 0,
+  "personal_audio_copies_private": true,
+  "owners_modes_preserved": true
+}

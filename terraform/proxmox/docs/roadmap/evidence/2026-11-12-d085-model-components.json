@@ -1,0 +1,26 @@
+{
+  "t3": {
+    "storage_bytes_by_dtype": {
+      "F32": 2143956992
+    },
+    "parameters_by_dtype": {
+      "F32": 535989248
+    },
+    "header_bytes": 32928
+  },
+  "s3gen.pt": {
+    "tensor_storage_bytes": 1056169264,
+    "storage_types": [
+      "torch FloatStorage",
+      "torch LongStorage"
+    ],
+    "pickle_executed": false
+  },
+  "ve.pt": {
+    "tensor_storage_bytes": 5694472,
+    "storage_types": [
+      "torch FloatStorage"
+    ],
+    "pickle_executed": false
+  }
+}

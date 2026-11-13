@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "rollback_image": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+  "voicebox_healthy": true,
+  "agent_active": true,
+  "same_ct_pid": true,
+  "all_ct_configs_unchanged": 27,
+  "protected_files_unchanged": 111,
+  "worker_controller_source_restored": true,
+  "old_database_and_wav_unchanged": true,
+  "inferences_submitted": 0,
+  "trial_A": "NOT_RUN",
+  "trial_B": "NOT_RUN",
+  "trial_C": "NOT_RUN",
+  "effects": "NOT_RUN_AFTER_CRITICAL_STOP",
+  "original_container_id": "1c35e81571c979b89efc185a5074847bb5c5930b783027ea9d76ac45814ef457",
+  "restored_container_id": "3590943bf886c3e3703cb49b92f39d8cfa23c9ef7bec43aa66f47c7e8278181c",
+  "restored_started_at": "2026-11-12T19:18:39.011893295Z",
+  "ct_events_before": "low 0\nhigh 251\nmax 367\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "ct_events_after": "low 0\nhigh 251\nmax 367\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

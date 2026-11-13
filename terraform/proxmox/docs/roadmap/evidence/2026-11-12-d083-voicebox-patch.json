@@ -1,0 +1,8 @@
+{
+  "applied_to_actual_installed_route_copy": true,
+  "production_file_changed": false,
+  "route_guards_replaced": 2,
+  "new_capability_endpoint": true,
+  "input_route_sha256": "1b1c91aa5c5a14d1bd45d39ed8b6a8dc56242ec5051177ecbf0b909537207d6a",
+  "output_route_sha256": "6ddcbb8d984d9715b67eca515fd80293102ff70ee218ee0cc57638010d0d14ba"
+}

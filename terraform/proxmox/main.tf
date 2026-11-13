@@ -36,8 +36,8 @@ resource "proxmox_virtual_environment_container" "svc" {
 
   lifecycle {
     precondition {
-      condition     = each.key != "infra-voicebox" || (each.value.memory <= 15360 && each.value.cpu == 3 && each.value.disk_gb == 50)
-      error_message = "D080 CT627: maximum15360 MiB,3 vCPU and50 GiB; changing CPU/disk or exceeding RAM requires new authorization."
+      condition     = each.key != "infra-voicebox" || (each.value.memory <= 20480 && each.value.cpu == 3 && contains([50, 100], each.value.disk_gb))
+      error_message = "D087 CT627: maximum20480 MiB,3 vCPU and approved50/100 GiB SSD; other resource changes require new authorization."
     }
     precondition {
       condition     = !try(local.services_raw[each.key].provisioning.ssh.enabled, false) || contains(keys(var.lxc_ssh_bootstrap_configs), each.key)

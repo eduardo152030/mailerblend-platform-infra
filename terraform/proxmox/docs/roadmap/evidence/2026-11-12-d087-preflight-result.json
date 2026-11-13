@@ -1,0 +1,97 @@
+{
+  "result": "BLOCKED_BEFORE_DEPLOYMENT",
+  "at_utc": "2026-11-12T20:18:13.599408+00:00",
+  "image_verified": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+  "candidate_user": "999:999",
+  "candidate_entrypoint": [
+    "/usr/local/bin/entrypoint-uid999.sh"
+  ],
+  "candidate_cmd": [
+    "uvicorn",
+    "backend.main:app",
+    "--host",
+    "0.0.0.0",
+    "--port",
+    "17493"
+  ],
+  "ct_current": 8315973632,
+  "stat": {
+    "anon": 392810496,
+    "file": 7401611264,
+    "kernel": 521244672,
+    "file_mapped": 402374656,
+    "file_dirty": 270336,
+    "inactive_file": 7196643328,
+    "active_file": 203722752
+  },
+  "swap": 311296,
+  "psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=230539\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=220828\n",
+  "events": "low 0\nhigh 251\nmax 367\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "qwen_preflight": {
+    "initial_ct_bytes": 8315973632,
+    "expected_increment_bytes": 4831838208,
+    "safety_margin_bytes": 536870912,
+    "guard_bytes": 15032385536,
+    "projected_with_margin_bytes": 13684682752,
+    "passed": true
+  },
+  "chatterbox_projection_bytes": 16369037312,
+  "chatterbox_guard_bytes": 15032385536,
+  "chatterbox_policy_preflight": false,
+  "chatterbox_max_initial_ct_bytes": 6979321856,
+  "shortfall_bytes": 1336651776,
+  "production_image": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+  "production_same_id_and_start": true,
+  "production_healthy": true,
+  "ct_pid_unchanged": true,
+  "pve_configs_compared": 27,
+  "pve_configs_unchanged": true,
+  "database_and_original_wav_unchanged": true,
+  "data_validation": {
+    "database": {
+      "profiles": {
+        "rows": 1,
+        "sha256": "d9e260f32d4bf93e9c55ad4057c9bb9166e0eae73a4e4b904293b893b6090d79"
+      },
+      "profile_samples": {
+        "rows": 1,
+        "sha256": "d2622919263b06313c5b50517612982f4ef042a99ea9faa92381538a2d27b90b"
+      },
+      "generations": {
+        "rows": 6,
+        "sha256": "df981358cf004e14d050361d3f9cf8c3d17c24f2e81a42dd7724c7a6e0be7844"
+      }
+    },
+    "sqlite_integrity": "ok",
+    "http": {
+      "health": {
+        "status": 200
+      },
+      "agent": {
+        "status": 200
+      },
+      "wav": {
+        "status": 200,
+        "bytes": 2753324,
+        "sha256": "6da5f689b7c939ef069c8ede664888ed42fa31bd0d0f3f15e2f03ff9dccc014c"
+      },
+      "node": {
+        "status": 200
+      },
+      "cadvisor": {
+        "status": 200
+      }
+    }
+  },
+  "tests": {
+    "python_d083": 10,
+    "python_d085": 11,
+    "ui_d083": 4,
+    "ui_d085": 5,
+    "all_passed": true
+  },
+  "deploy_executed": false,
+  "backup_new_created": false,
+  "rollback_required": false,
+  "inferences_executed": 0
+}

@@ -1,0 +1,15 @@
+{
+  "api_checks": 14,
+  "result": "PASS",
+  "model_generations": 0,
+  "history_simulated": true,
+  "routes_from_candidate_image": true,
+  "effects_forward_checks": 8,
+  "dsp_synthetic_pass": [
+    "Robotic",
+    "Radio",
+    "Echo Chamber",
+    "Deep Voice"
+  ],
+  "builtin_presets_seeded_in_temporary_db": true
+}

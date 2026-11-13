@@ -1,0 +1,2570 @@
+{
+  "original": {
+    "result": {
+      "variant": "original",
+      "exit_code": 1,
+      "reason": null,
+      "seconds": 46.37889828400512,
+      "child_reaped": true
+    },
+    "processes_released": true,
+    "maxima": {
+      "rss_bytes": 7039516672,
+      "worker_current": 4733116416,
+      "worker_peak": 4733165568,
+      "worker_swap": 0,
+      "ct_current": 12654559232,
+      "ct_psi_full_avg10": 0.72,
+      "host_psi_full_avg10": 2.69
+    },
+    "phase_events": [
+      {
+        "elapsed_seconds": 1.5230034478008747e-06,
+        "memory": {
+          "Pss_bytes": 12300288,
+          "VmHWM_bytes": 18481152,
+          "VmRSS_bytes": 18481152,
+          "memory.current": 15851520,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 0,
+            "anon": 14053376,
+            "file": 376832,
+            "file_dirty": 24576,
+            "file_mapped": 0,
+            "inactive_file": 36864,
+            "kernel": 909312
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 18481152
+        },
+        "phase": "worker.start",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 0,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 0
+        }
+      },
+      {
+        "elapsed_seconds": 8.137653631012654,
+        "memory": {
+          "Pss_bytes": 14323712,
+          "VmHWM_bytes": 27131904,
+          "VmRSS_bytes": 20480000,
+          "memory.current": 17600512,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 0,
+            "anon": 16265216,
+            "file": 380928,
+            "file_dirty": 20480,
+            "file_mapped": 0,
+            "inactive_file": 40960,
+            "kernel": 942080
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 27131904
+        },
+        "model_files": 5,
+        "phase": "inputs.verified",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 0,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 0
+        }
+      },
+      {
+        "chatterbox_version": "0.1.7",
+        "elapsed_seconds": 14.722137329008547,
+        "memory": {
+          "Pss_bytes": 544457728,
+          "VmHWM_bytes": 553025536,
+          "VmRSS_bytes": 553025536,
+          "memory.current": 366075904,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 361512960,
+            "file": 1212416,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 40960,
+            "kernel": 3207168
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 553025536
+        },
+        "phase": "imports.ready",
+        "torch_version": "2.6.0+cpu",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 0,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 0
+        }
+      },
+      {
+        "elapsed_seconds": 14.733636778008076,
+        "memory": {
+          "Pss_bytes": 544457728,
+          "VmHWM_bytes": 553025536,
+          "VmRSS_bytes": 553025536,
+          "memory.current": 366075904,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 361512960,
+            "file": 1212416,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 40960,
+            "kernel": 3207168
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 553025536
+        },
+        "phase": "from_local.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 0,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 0
+        }
+      },
+      {
+        "elapsed_seconds": 14.745297607005341,
+        "memory": {
+          "Pss_bytes": 544457728,
+          "VmHWM_bytes": 553025536,
+          "VmRSS_bytes": 553025536,
+          "memory.current": 366075904,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 361517056,
+            "file": 1212416,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 40960,
+            "kernel": 3207168
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 553025536
+        },
+        "phase": "VE.construct.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 0,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 0
+        }
+      },
+      {
+        "elapsed_seconds": 14.779141096005333,
+        "memory": {
+          "Pss_bytes": 550474752,
+          "VmHWM_bytes": 559054848,
+          "VmRSS_bytes": 559054848,
+          "memory.current": 371580928,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 367001600,
+            "file": 1216512,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 45056,
+            "kernel": 3223552
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 559054848
+        },
+        "phase": "VE.construct.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 5694472
+        }
+      },
+      {
+        "elapsed_seconds": 14.79786174200126,
+        "memory": {
+          "Pss_bytes": 550482944,
+          "VmHWM_bytes": 559054848,
+          "VmRSS_bytes": 559054848,
+          "memory.current": 371699712,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 367009792,
+            "file": 1216512,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 45056,
+            "kernel": 3211264
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 559054848
+        },
+        "phase": "VE.checkpoint.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 5694472
+        }
+      },
+      {
+        "elapsed_seconds": 14.82084188501176,
+        "memory": {
+          "Pss_bytes": 556332032,
+          "VmHWM_bytes": 564953088,
+          "VmRSS_bytes": 564953088,
+          "memory.current": 377204736,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 372711424,
+            "file": 1216512,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 45056,
+            "kernel": 3231744
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 564953088
+        },
+        "phase": "VE.checkpoint.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 5694472,
+          "live_state_tensor_objects": 16,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 11388944
+        }
+      },
+      {
+        "assign": false,
+        "elapsed_seconds": 14.838766987013514,
+        "memory": {
+          "Pss_bytes": 556340224,
+          "VmHWM_bytes": 564953088,
+          "VmRSS_bytes": 564953088,
+          "memory.current": 377434112,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 372711424,
+            "file": 1216512,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 45056,
+            "kernel": 3231744
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 564953088
+        },
+        "phase": "VE.load_state.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 5694472,
+          "live_state_tensor_objects": 16,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 11388944
+        }
+      },
+      {
+        "assign": false,
+        "elapsed_seconds": 14.855320855000173,
+        "memory": {
+          "Pss_bytes": 556602368,
+          "VmHWM_bytes": 565084160,
+          "VmRSS_bytes": 565084160,
+          "memory.current": 377958400,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 372736000,
+            "file": 1216512,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 45056,
+            "kernel": 3231744
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 565084160
+        },
+        "phase": "VE.load_state.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 5694472,
+          "live_state_tensor_objects": 16,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 11388944
+        }
+      },
+      {
+        "assign": false,
+        "elapsed_seconds": 14.927615381006035,
+        "memory": {
+          "Pss_bytes": 556798976,
+          "VmHWM_bytes": 565346304,
+          "VmRSS_bytes": 565346304,
+          "memory.current": 377597952,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 372817920,
+            "file": 1220608,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 49152,
+            "kernel": 3301376
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 565346304
+        },
+        "phase": "VE.verified_and_read",
+        "storage_content_aggregate_sha256": "dc3689cc87e1634663c0c0277f102dcc3472b2b040a43150f24c657c0a9c55c2",
+        "storages_read_fully": 32,
+        "tensor_values_verified": 16,
+        "tracked_tensors": {
+          "live_state_storage_bytes": 5694472,
+          "live_state_tensor_objects": 16,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 11388944
+        }
+      },
+      {
+        "elapsed_seconds": 14.944064736002474,
+        "memory": {
+          "Pss_bytes": 556925952,
+          "VmHWM_bytes": 565477376,
+          "VmRSS_bytes": 565477376,
+          "memory.current": 377606144,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 397111296,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 372817920,
+            "file": 1220608,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 49152,
+            "kernel": 3301376
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 565477376
+        },
+        "phase": "T3.construct.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 5694472
+        }
+      },
+      {
+        "elapsed_seconds": 21.71095497701026,
+        "memory": {
+          "Pss_bytes": 2701698048,
+          "VmHWM_bytes": 2710208512,
+          "VmRSS_bytes": 2710208512,
+          "memory.current": 2525974528,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2525974528,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 2516602880,
+            "file": 1220608,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 49152,
+            "kernel": 7929856
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 2710208512
+        },
+        "phase": "T3.construct.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 2149651720
+        }
+      },
+      {
+        "elapsed_seconds": 21.74248284001078,
+        "memory": {
+          "Pss_bytes": 2701775872,
+          "VmHWM_bytes": 2710339584,
+          "VmRSS_bytes": 2710339584,
+          "memory.current": 2526236672,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2526236672,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 2516623360,
+            "file": 1220608,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 49152,
+            "kernel": 7929856
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 2710339584
+        },
+        "phase": "T3.checkpoint.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 2149651720
+        }
+      },
+      {
+        "elapsed_seconds": 21.78556779801147,
+        "memory": {
+          "Pss_bytes": 2717316096,
+          "VmHWM_bytes": 2725806080,
+          "VmRSS_bytes": 2725806080,
+          "memory.current": 2527121408,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2527121408,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 2516844544,
+            "file": 1224704,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 53248,
+            "kernel": 8863744
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 2725806080
+        },
+        "phase": "T3.checkpoint.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 4293608712
+        }
+      },
+      {
+        "assign": false,
+        "elapsed_seconds": 21.821581767013413,
+        "memory": {
+          "Pss_bytes": 2717402112,
+          "VmHWM_bytes": 2725937152,
+          "VmRSS_bytes": 2725937152,
+          "memory.current": 2527272960,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2527272960,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 2516844544,
+            "file": 1224704,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 53248,
+            "kernel": 8863744
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 2725937152
+        },
+        "phase": "T3.load_state.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 4293608712
+        }
+      },
+      {
+        "assign": false,
+        "elapsed_seconds": 22.15472744300496,
+        "memory": {
+          "Pss_bytes": 4846490624,
+          "VmHWM_bytes": 4855070720,
+          "VmRSS_bytes": 4855070720,
+          "memory.current": 2530729984,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2530906112,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 2516951040,
+            "file": 1224704,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 53248,
+            "kernel": 12148736
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4855070720
+        },
+        "phase": "T3.load_state.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 4293608712
+        }
+      },
+      {
+        "assign": false,
+        "elapsed_seconds": 33.31528834201163,
+        "memory": {
+          "Pss_bytes": 4846658560,
+          "VmHWM_bytes": 4855201792,
+          "VmRSS_bytes": 4855201792,
+          "memory.current": 2530742272,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2530906112,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 2517118976,
+            "file": 1224704,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 53248,
+            "kernel": 12140544
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4855201792
+        },
+        "phase": "T3.verified_and_read",
+        "storage_content_aggregate_sha256": "ce8f5e16b41016b90441707daad0a94341f3a51a106590ab57fc007c24a016f0",
+        "storages_read_fully": 584,
+        "tensor_values_verified": 292,
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 4293608712
+        }
+      },
+      {
+        "elapsed_seconds": 33.374292406006134,
+        "memory": {
+          "Pss_bytes": 4846683136,
+          "VmHWM_bytes": 4855201792,
+          "VmRSS_bytes": 4855201792,
+          "memory.current": 2530762752,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2530906112,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 2517135360,
+            "file": 1224704,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 53248,
+            "kernel": 12140544
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4855201792
+        },
+        "phase": "S3Gen.construct.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 4293608712
+        }
+      },
+      {
+        "elapsed_seconds": 36.28558892500587,
+        "memory": {
+          "Pss_bytes": 5963031552,
+          "VmHWM_bytes": 5971542016,
+          "VmRSS_bytes": 5971542016,
+          "memory.current": 3645861888,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 3646017536,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 3630022656,
+            "file": 1232896,
+            "file_dirty": 4096,
+            "file_mapped": 618496,
+            "inactive_file": 61440,
+            "kernel": 14344192
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 5971542016
+        },
+        "phase": "S3Gen.construct.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 5349781816
+        }
+      },
+      {
+        "elapsed_seconds": 36.37011477300257,
+        "memory": {
+          "Pss_bytes": 5963789312,
+          "VmHWM_bytes": 5972328448,
+          "VmRSS_bytes": 5972328448,
+          "memory.current": 3646640128,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 3646640128,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 3630796800,
+            "file": 1232896,
+            "file_dirty": 4096,
+            "file_mapped": 618496,
+            "inactive_file": 61440,
+            "kernel": 14348288
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 5972328448
+        },
+        "phase": "S3Gen.checkpoint.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 5349781816
+        }
+      },
+      {
+        "elapsed_seconds": 37.56769076301134,
+        "memory": {
+          "Pss_bytes": 7016698880,
+          "VmHWM_bytes": 7025229824,
+          "VmRSS_bytes": 7025229824,
+          "memory.current": 4731629568,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 4731629568,
+          "memory.pressure": "some avg10=0.54 avg60=0.09 avg300=0.02 total=68666\nfull avg10=0.54 avg60=0.09 avg300=0.02 total=68666\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 4683739136,
+            "file": 31428608,
+            "file_dirty": 4096,
+            "file_mapped": 618496,
+            "inactive_file": 30257152,
+            "kernel": 16449536
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 7025229824
+        },
+        "phase": "S3Gen.checkpoint.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 3200126256,
+          "live_state_tensor_objects": 2782,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 6405951080
+        }
+      },
+      {
+        "assign": false,
+        "elapsed_seconds": 37.66408874500485,
+        "memory": {
+          "Pss_bytes": 7016858624,
+          "VmHWM_bytes": 7025360896,
+          "VmRSS_bytes": 7025360896,
+          "memory.current": 4731891712,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 4731891712,
+          "memory.pressure": "some avg10=0.54 avg60=0.09 avg300=0.02 total=68666\nfull avg10=0.54 avg60=0.09 avg300=0.02 total=68666\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 4683907072,
+            "file": 31428608,
+            "file_dirty": 4096,
+            "file_mapped": 618496,
+            "inactive_file": 30257152,
+            "kernel": 16441344
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 7025360896
+        },
+        "phase": "S3Gen.load_state.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 3200126256,
+          "live_state_tensor_objects": 2782,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 6405951080
+        }
+      },
+      {
+        "assign": false,
+        "elapsed_seconds": 37.97436347100302,
+        "memory": {
+          "Pss_bytes": 7016858624,
+          "VmHWM_bytes": 7025360896,
+          "VmRSS_bytes": 7025360896,
+          "memory.current": 4732047360,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 4732047360,
+          "memory.pressure": "some avg10=0.54 avg60=0.09 avg300=0.02 total=68666\nfull avg10=0.54 avg60=0.09 avg300=0.02 total=68666\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 4683907072,
+            "file": 31436800,
+            "file_dirty": 8192,
+            "file_mapped": 618496,
+            "inactive_file": 30265344,
+            "kernel": 16441344
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 7025360896
+        },
+        "phase": "S3Gen.load_state.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 3200126256,
+          "live_state_tensor_objects": 2782,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 6405951080
+        }
+      },
+      {
+        "assign": false,
+        "elapsed_seconds": 44.287945750009385,
+        "memory": {
+          "Pss_bytes": 7017964544,
+          "VmHWM_bytes": 7026671616,
+          "VmRSS_bytes": 7026671616,
+          "memory.current": 4733157376,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 4733157376,
+          "memory.pressure": "some avg10=0.29 avg60=0.08 avg300=0.01 total=68666\nfull avg10=0.29 avg60=0.08 avg300=0.01 total=68666\n",
+          "memory.stat": {
+            "active_file": 827392,
+            "anon": 4685012992,
+            "file": 31436800,
+            "file_dirty": 0,
+            "file_mapped": 618496,
+            "inactive_file": 30265344,
+            "kernel": 16445440
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 7026671616
+        },
+        "phase": "S3Gen.verified_and_read",
+        "storage_content_aggregate_sha256": "8e229d707baa2f13cd22d503faee839a155634242359c529629def18c62d79bb",
+        "storages_read_fully": 4980,
+        "tensor_values_verified": 2490,
+        "tracked_tensors": {
+          "live_state_storage_bytes": 3200126256,
+          "live_state_tensor_objects": 2782,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 6405951080
+        }
+      },
+      {
+        "elapsed_seconds": 44.97224300701055,
+        "error_type": "OSError",
+        "memory": {
+          "Pss_bytes": 6710875136,
+          "VmHWM_bytes": 7026671616,
+          "VmRSS_bytes": 6719488000,
+          "memory.current": 4426342400,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 4733165568,
+          "memory.pressure": "some avg10=0.29 avg60=0.08 avg300=0.01 total=68666\nfull avg10=0.29 avg60=0.08 avg300=0.01 total=68666\n",
+          "memory.stat": {
+            "active_file": 2564096,
+            "anon": 4373975040,
+            "file": 36511744,
+            "file_dirty": 0,
+            "file_mapped": 1273856,
+            "inactive_file": 33570816,
+            "kernel": 15806464
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 7026671616
+        },
+        "phase": "worker.failed",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 5349781816
+        }
+      },
+      {
+        "elapsed_seconds": 45.06271964000189,
+        "memory": {
+          "Pss_bytes": 6710875136,
+          "VmHWM_bytes": 7026671616,
+          "VmRSS_bytes": 6719488000,
+          "memory.current": 4426547200,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 4733165568,
+          "memory.pressure": "some avg10=0.29 avg60=0.08 avg300=0.01 total=68666\nfull avg10=0.29 avg60=0.08 avg300=0.01 total=68666\n",
+          "memory.stat": {
+            "active_file": 2592768,
+            "anon": 4373975040,
+            "file": 36511744,
+            "file_dirty": 0,
+            "file_mapped": 1273856,
+            "inactive_file": 33574912,
+            "kernel": 15798272
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 7026671616
+        },
+        "phase": "worker.end",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 5349781816
+        }
+      }
+    ]
+  },
+  "candidate": {
+    "result": {
+      "variant": "candidate",
+      "exit_code": 0,
+      "reason": null,
+      "seconds": 38.88427003700053,
+      "child_reaped": true
+    },
+    "processes_released": true,
+    "maxima": {
+      "rss_bytes": 4893560832,
+      "worker_current": 2882363392,
+      "worker_peak": 2882363392,
+      "worker_swap": 0,
+      "ct_current": 10839465984,
+      "ct_psi_full_avg10": 0.0,
+      "host_psi_full_avg10": 5.8
+    },
+    "phase_events": [
+      {
+        "elapsed_seconds": 1.7079873941838741e-06,
+        "memory": {
+          "Pss_bytes": 12575744,
+          "VmHWM_bytes": 18612224,
+          "VmRSS_bytes": 18612224,
+          "memory.current": 147341312,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 530374656,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 14405632,
+            "file": 131796992,
+            "file_dirty": 4096,
+            "file_mapped": 0,
+            "inactive_file": 130973696,
+            "kernel": 937984
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 18612224
+        },
+        "phase": "worker.start",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 0,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 0
+        }
+      },
+      {
+        "elapsed_seconds": 8.708841425992432,
+        "memory": {
+          "Pss_bytes": 14618624,
+          "VmHWM_bytes": 27262976,
+          "VmRSS_bytes": 20758528,
+          "memory.current": 348487680,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 530374656,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 16363520,
+            "file": 330977280,
+            "file_dirty": 0,
+            "file_mapped": 0,
+            "inactive_file": 330153984,
+            "kernel": 946176
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 27262976
+        },
+        "model_files": 5,
+        "phase": "inputs.verified",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 0,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 0
+        }
+      },
+      {
+        "chatterbox_version": "0.1.7",
+        "elapsed_seconds": 15.267255783997825,
+        "memory": {
+          "Pss_bytes": 544471040,
+          "VmHWM_bytes": 553172992,
+          "VmRSS_bytes": 553172992,
+          "memory.current": 695828480,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 695828480,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 361598976,
+            "file": 330981376,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330153984,
+            "kernel": 3219456
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 553172992
+        },
+        "phase": "imports.ready",
+        "torch_version": "2.6.0+cpu",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 0,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 0
+        }
+      },
+      {
+        "elapsed_seconds": 15.287041078991024,
+        "memory": {
+          "Pss_bytes": 544471040,
+          "VmHWM_bytes": 553172992,
+          "VmRSS_bytes": 553172992,
+          "memory.current": 696066048,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 696066048,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 361598976,
+            "file": 330981376,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330153984,
+            "kernel": 3219456
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 553172992
+        },
+        "phase": "from_local.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 0,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 0
+        }
+      },
+      {
+        "elapsed_seconds": 15.300008343998343,
+        "memory": {
+          "Pss_bytes": 544471040,
+          "VmHWM_bytes": 553172992,
+          "VmRSS_bytes": 553172992,
+          "memory.current": 696061952,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 696066048,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 361607168,
+            "file": 330981376,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330153984,
+            "kernel": 3219456
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 553172992
+        },
+        "phase": "VE.construct.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 0,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 0
+        }
+      },
+      {
+        "elapsed_seconds": 15.32545501999266,
+        "memory": {
+          "Pss_bytes": 550483968,
+          "VmHWM_bytes": 559202304,
+          "VmRSS_bytes": 559202304,
+          "memory.current": 701313024,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 701313024,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 367087616,
+            "file": 330985472,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330158080,
+            "kernel": 3235840
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 559202304
+        },
+        "phase": "VE.construct.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 5694472
+        }
+      },
+      {
+        "elapsed_seconds": 15.338788197987014,
+        "memory": {
+          "Pss_bytes": 550483968,
+          "VmHWM_bytes": 559202304,
+          "VmRSS_bytes": 559202304,
+          "memory.current": 701558784,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 701558784,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 367087616,
+            "file": 330985472,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330158080,
+            "kernel": 3235840
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 559202304
+        },
+        "phase": "VE.checkpoint.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 5694472
+        }
+      },
+      {
+        "elapsed_seconds": 15.357111704986892,
+        "memory": {
+          "Pss_bytes": 556349440,
+          "VmHWM_bytes": 565100544,
+          "VmRSS_bytes": 565100544,
+          "memory.current": 707063808,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 707063808,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 372805632,
+            "file": 330985472,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330158080,
+            "kernel": 3239936
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 565100544
+        },
+        "phase": "VE.checkpoint.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 5694472,
+          "live_state_tensor_objects": 16,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 11388944
+        }
+      },
+      {
+        "assign": true,
+        "elapsed_seconds": 15.369584866988589,
+        "memory": {
+          "Pss_bytes": 556361728,
+          "VmHWM_bytes": 565100544,
+          "VmRSS_bytes": 565100544,
+          "memory.current": 707063808,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 707063808,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 372826112,
+            "file": 330985472,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330158080,
+            "kernel": 3231744
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 565100544
+        },
+        "phase": "VE.load_state.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 5694472,
+          "live_state_tensor_objects": 16,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 11388944
+        }
+      },
+      {
+        "assign": true,
+        "elapsed_seconds": 15.383380489991396,
+        "memory": {
+          "Pss_bytes": 556361728,
+          "VmHWM_bytes": 565100544,
+          "VmRSS_bytes": 565100544,
+          "memory.current": 707063808,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 707063808,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 372830208,
+            "file": 330985472,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330158080,
+            "kernel": 3231744
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 565100544
+        },
+        "phase": "VE.load_state.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 5694472,
+          "live_state_tensor_objects": 16,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 5694472,
+          "union_storage_bytes": 5694472
+        }
+      },
+      {
+        "assign": true,
+        "elapsed_seconds": 15.411837317995378,
+        "memory": {
+          "Pss_bytes": 556697600,
+          "VmHWM_bytes": 565362688,
+          "VmRSS_bytes": 565362688,
+          "memory.current": 707624960,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 707850240,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 372834304,
+            "file": 330989568,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330162176,
+            "kernel": 3231744
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 565362688
+        },
+        "phase": "VE.verified_and_read",
+        "storage_content_aggregate_sha256": "e45e3af1d7145b5434e9c0715b243c493fd431cf313a5ba1b33f0ecf88876040",
+        "storages_read_fully": 16,
+        "tensor_values_verified": 16,
+        "tracked_tensors": {
+          "live_state_storage_bytes": 5694472,
+          "live_state_tensor_objects": 16,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 5694472,
+          "union_storage_bytes": 5694472
+        }
+      },
+      {
+        "elapsed_seconds": 15.426138043985702,
+        "memory": {
+          "Pss_bytes": 556828672,
+          "VmHWM_bytes": 565493760,
+          "VmRSS_bytes": 565493760,
+          "memory.current": 707891200,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 707891200,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 372916224,
+            "file": 330989568,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330162176,
+            "kernel": 3317760
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 565493760
+        },
+        "phase": "T3.construct.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 5694472,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 5694472
+        }
+      },
+      {
+        "elapsed_seconds": 22.15173989998584,
+        "memory": {
+          "Pss_bytes": 2702772224,
+          "VmHWM_bytes": 2711273472,
+          "VmRSS_bytes": 2711273472,
+          "memory.current": 2856697856,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2856697856,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2517757952,
+            "file": 330989568,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330162176,
+            "kernel": 7942144
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 2711273472
+        },
+        "phase": "T3.construct.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 2149651720
+        }
+      },
+      {
+        "elapsed_seconds": 22.18185664099292,
+        "memory": {
+          "Pss_bytes": 2702854144,
+          "VmHWM_bytes": 2711404544,
+          "VmRSS_bytes": 2711404544,
+          "memory.current": 2856955904,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2856960000,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2517774336,
+            "file": 330989568,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330162176,
+            "kernel": 7942144
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 2711404544
+        },
+        "phase": "T3.checkpoint.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 0,
+          "live_state_tensor_objects": 0,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 2149651720
+        }
+      },
+      {
+        "elapsed_seconds": 22.221138141991105,
+        "memory": {
+          "Pss_bytes": 2718382080,
+          "VmHWM_bytes": 2726871040,
+          "VmRSS_bytes": 2726871040,
+          "memory.current": 2858078208,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2858078208,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2517929984,
+            "file": 330993664,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330166272,
+            "kernel": 8630272
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 2726871040
+        },
+        "phase": "T3.checkpoint.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 4293608712
+        }
+      },
+      {
+        "assign": true,
+        "elapsed_seconds": 22.251844592989073,
+        "memory": {
+          "Pss_bytes": 2718476288,
+          "VmHWM_bytes": 2727002112,
+          "VmRSS_bytes": 2727002112,
+          "memory.current": 2858078208,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2858078208,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2518048768,
+            "file": 330993664,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330166272,
+            "kernel": 8867840
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 2727002112
+        },
+        "phase": "T3.load_state.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 0,
+          "union_storage_bytes": 4293608712
+        }
+      },
+      {
+        "assign": true,
+        "elapsed_seconds": 22.394798971989076,
+        "memory": {
+          "Pss_bytes": 868288512,
+          "VmHWM_bytes": 2727002112,
+          "VmRSS_bytes": 876859392,
+          "memory.current": 1003728896,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2858078208,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 667889664,
+            "file": 330993664,
+            "file_dirty": 0,
+            "file_mapped": 28672,
+            "inactive_file": 330166272,
+            "kernel": 4812800
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 2727002112
+        },
+        "phase": "T3.load_state.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 2143956992,
+          "union_storage_bytes": 2149651720
+        }
+      },
+      {
+        "assign": true,
+        "elapsed_seconds": 28.062309721994097,
+        "memory": {
+          "Pss_bytes": 2997454848,
+          "VmHWM_bytes": 3005992960,
+          "VmRSS_bytes": 3005992960,
+          "memory.current": 1007333376,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2858078208,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 667987968,
+            "file": 330993664,
+            "file_dirty": 0,
+            "file_mapped": 69632,
+            "inactive_file": 330166272,
+            "kernel": 8085504
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 3005992960
+        },
+        "phase": "T3.verified_and_read",
+        "storage_content_aggregate_sha256": "543c929e9dd561e95196b1ac88314959c6b629a49ee676022af3eb7befe950bf",
+        "storages_read_fully": 292,
+        "tensor_values_verified": 292,
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 2143956992,
+          "union_storage_bytes": 2149651720
+        }
+      },
+      {
+        "elapsed_seconds": 28.112818734996836,
+        "memory": {
+          "Pss_bytes": 2997483520,
+          "VmHWM_bytes": 3006124032,
+          "VmRSS_bytes": 3006124032,
+          "memory.current": 1007362048,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2858078208,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 668012544,
+            "file": 330993664,
+            "file_dirty": 0,
+            "file_mapped": 69632,
+            "inactive_file": 330166272,
+            "kernel": 8089600
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 3006124032
+        },
+        "phase": "S3Gen.construct.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 2149651720,
+          "shared_storage_bytes": 2143956992,
+          "union_storage_bytes": 2149651720
+        }
+      },
+      {
+        "elapsed_seconds": 30.85076845198637,
+        "memory": {
+          "Pss_bytes": 3820000256,
+          "VmHWM_bytes": 3828600832,
+          "VmRSS_bytes": 3828600832,
+          "memory.current": 1828020224,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2858078208,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 1487040512,
+            "file": 331022336,
+            "file_dirty": 0,
+            "file_mapped": 69632,
+            "inactive_file": 330194944,
+            "kernel": 9723904
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 3828731904
+        },
+        "phase": "S3Gen.construct.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 2143956992,
+          "union_storage_bytes": 3205824824
+        }
+      },
+      {
+        "elapsed_seconds": 30.917882172987447,
+        "memory": {
+          "Pss_bytes": 3820762112,
+          "VmHWM_bytes": 3829387264,
+          "VmRSS_bytes": 3829387264,
+          "memory.current": 1828806656,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2858078208,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 1487822848,
+            "file": 331022336,
+            "file_dirty": 0,
+            "file_mapped": 69632,
+            "inactive_file": 330194944,
+            "kernel": 9736192
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 3829387264
+        },
+        "phase": "S3Gen.checkpoint.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2143956992,
+          "live_state_tensor_objects": 292,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 2143956992,
+          "union_storage_bytes": 3205824824
+        }
+      },
+      {
+        "elapsed_seconds": 31.708581516999402,
+        "memory": {
+          "Pss_bytes": 4872344576,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4880977920,
+          "memory.current": 2882363392,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2539397120,
+            "file": 331022336,
+            "file_dirty": 0,
+            "file_mapped": 69632,
+            "inactive_file": 330194944,
+            "kernel": 11829248
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "phase": "S3Gen.checkpoint.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 3200126256,
+          "live_state_tensor_objects": 2782,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 2143956992,
+          "union_storage_bytes": 4261994088
+        }
+      },
+      {
+        "assign": true,
+        "elapsed_seconds": 31.785988336996525,
+        "memory": {
+          "Pss_bytes": 4872356864,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4880977920,
+          "memory.current": 2882363392,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2539413504,
+            "file": 331022336,
+            "file_dirty": 0,
+            "file_mapped": 69632,
+            "inactive_file": 330194944,
+            "kernel": 11821056
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "phase": "S3Gen.load_state.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 3200126256,
+          "live_state_tensor_objects": 2782,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 2143956992,
+          "union_storage_bytes": 4261994088
+        }
+      },
+      {
+        "assign": true,
+        "elapsed_seconds": 31.963550599990413,
+        "memory": {
+          "Pss_bytes": 4662608896,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4671344640,
+          "memory.current": 2672353280,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2329669632,
+            "file": 331030528,
+            "file_dirty": 0,
+            "file_mapped": 69632,
+            "inactive_file": 330203136,
+            "kernel": 11390976
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "phase": "S3Gen.load_state.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 3200126256,
+          "live_state_tensor_objects": 2782,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 3200126256,
+          "union_storage_bytes": 3205824824
+        }
+      },
+      {
+        "assign": true,
+        "elapsed_seconds": 34.934415833995445,
+        "memory": {
+          "Pss_bytes": 4663215104,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4672000000,
+          "memory.current": 2672926720,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2330275840,
+            "file": 331030528,
+            "file_dirty": 0,
+            "file_mapped": 69632,
+            "inactive_file": 330203136,
+            "kernel": 11390976
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "phase": "S3Gen.verified_and_read",
+        "storage_content_aggregate_sha256": "2ef493963455e5c4f9ebeaa402c297a3086080544342920f92e6aa5b3da66242",
+        "storages_read_fully": 2490,
+        "tensor_values_verified": 2490,
+        "tracked_tensors": {
+          "live_state_storage_bytes": 3200126256,
+          "live_state_tensor_objects": 2782,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 3200126256,
+          "union_storage_bytes": 3205824824
+        }
+      },
+      {
+        "elapsed_seconds": 35.04333348199725,
+        "memory": {
+          "Pss_bytes": 4663231488,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4672000000,
+          "memory.current": 2672975872,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2330292224,
+            "file": 331030528,
+            "file_dirty": 0,
+            "file_mapped": 69632,
+            "inactive_file": 330203136,
+            "kernel": 11390976
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "phase": "tokenizer.construct.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2144391188,
+          "live_state_tensor_objects": 660,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 2144391188,
+          "union_storage_bytes": 3205824824
+        }
+      },
+      {
+        "elapsed_seconds": 35.12022645298566,
+        "memory": {
+          "Pss_bytes": 4665492480,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4674228224,
+          "memory.current": 2672975872,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2330292224,
+            "file": 331030528,
+            "file_dirty": 0,
+            "file_mapped": 69632,
+            "inactive_file": 330203136,
+            "kernel": 11390976
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "phase": "tokenizer.construct.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2144391188,
+          "live_state_tensor_objects": 660,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 2144391188,
+          "union_storage_bytes": 3205824824
+        }
+      },
+      {
+        "elapsed_seconds": 35.26214980198711,
+        "memory": {
+          "Pss_bytes": 4665504768,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4674228224,
+          "memory.current": 2672996352,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2330300416,
+            "file": 331042816,
+            "file_dirty": 4096,
+            "file_mapped": 98304,
+            "inactive_file": 330207232,
+            "kernel": 11390976
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "phase": "nested.checkpoint.before",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2144391188,
+          "live_state_tensor_objects": 660,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 2144391188,
+          "union_storage_bytes": 3205824824
+        }
+      },
+      {
+        "elapsed_seconds": 35.4638212039863,
+        "memory": {
+          "Pss_bytes": 4665508864,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4674359296,
+          "memory.current": 2710540288,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2330308608,
+            "file": 368476160,
+            "file_dirty": 4096,
+            "file_mapped": 98304,
+            "inactive_file": 367620096,
+            "kernel": 11399168
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "phase": "nested.checkpoint.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 2144391188,
+          "live_state_tensor_objects": 660,
+          "module_storage_bytes": 3205824824,
+          "shared_storage_bytes": 2144391188,
+          "union_storage_bytes": 3205824824
+        }
+      },
+      {
+        "elapsed_seconds": 35.558739083993714,
+        "memory": {
+          "Pss_bytes": 4665508864,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4674359296,
+          "memory.current": 2710413312,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2330308608,
+            "file": 368476160,
+            "file_dirty": 4096,
+            "file_mapped": 98304,
+            "inactive_file": 367624192,
+            "kernel": 11390976
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "phase": "from_local.after",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 434196,
+          "live_state_tensor_objects": 368,
+          "module_storage_bytes": 3243232092,
+          "shared_storage_bytes": 434196,
+          "union_storage_bytes": 3243232092
+        }
+      },
+      {
+        "elapsed_seconds": 35.631886660994496,
+        "memory": {
+          "Pss_bytes": 4665508864,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4674359296,
+          "memory.current": 2710413312,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2330308608,
+            "file": 368476160,
+            "file_dirty": 4096,
+            "file_mapped": 98304,
+            "inactive_file": 367624192,
+            "kernel": 11390976
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "nonpersistent_trim_fade_materialized": true,
+        "phase": "model.ready",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 434196,
+          "live_state_tensor_objects": 368,
+          "module_storage_bytes": 3243232092,
+          "shared_storage_bytes": 434196,
+          "union_storage_bytes": 3243232092
+        }
+      },
+      {
+        "elapsed_seconds": 37.70447925799817,
+        "memory": {
+          "Pss_bytes": 4665508864,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4674359296,
+          "memory.current": 2710437888,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2330308608,
+            "file": 368476160,
+            "file_dirty": 4096,
+            "file_mapped": 98304,
+            "inactive_file": 367648768,
+            "kernel": 11390976
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "phase": "model.steady",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 434196,
+          "live_state_tensor_objects": 368,
+          "module_storage_bytes": 3243232092,
+          "shared_storage_bytes": 434196,
+          "union_storage_bytes": 3243232092
+        }
+      },
+      {
+        "elapsed_seconds": 37.776307001986424,
+        "memory": {
+          "Pss_bytes": 4665508864,
+          "VmHWM_bytes": 4880977920,
+          "VmRSS_bytes": 4674359296,
+          "memory.current": 2710700032,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2882363392,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 483328,
+            "anon": 2330308608,
+            "file": 368476160,
+            "file_dirty": 4096,
+            "file_mapped": 98304,
+            "inactive_file": 367648768,
+            "kernel": 11390976
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4880977920
+        },
+        "phase": "worker.end",
+        "tracked_tensors": {
+          "live_state_storage_bytes": 434196,
+          "live_state_tensor_objects": 368,
+          "module_storage_bytes": 3243232092,
+          "shared_storage_bytes": 434196,
+          "union_storage_bytes": 3243232092
+        }
+      }
+    ]
+  },
+  "production": {
+    "at_utc": "2026-11-13T02:44:11.401823+00:00",
+    "healthy": true,
+    "capabilities": {
+      "qwen": {
+        "ready": true,
+        "languages": [
+          "es",
+          "en"
+        ],
+        "model_sizes": [
+          "0.6B"
+        ],
+        "max_chars": 1200
+      },
+      "chatterbox": {
+        "ready": false,
+        "languages": [
+          "es",
+          "en"
+        ],
+        "model_sizes": [
+          "default"
+        ],
+        "max_chars": 240,
+        "experimental": true,
+        "variant": "multilingual-v3"
+      },
+      "chatterbox_turbo": {
+        "ready": false
+      },
+      "kokoro": {
+        "ready": true
+      },
+      "piper": {
+        "ready": true
+      }
+    },
+    "resources": {
+      "memory": "20480",
+      "cores": "3",
+      "swap": "2048",
+      "rootfs": "local-lvm:vm-627-disk-0,size=100G"
+    },
+    "protected_files_checked": 105,
+    "protected_files_unchanged": true,
+    "no_residual_inference": true,
+    "agent_active": true,
+    "checkpoints": {
+      "7f348e9777214f4e827dcf7e1458c045": {
+        "integrity": true,
+        "eos": true,
+        "shape": [
+          669,
+          16
+        ]
+      },
+      "baa61a95c7b445248229aa697b941710": {
+        "integrity": true,
+        "eos": true,
+        "shape": [
+          1029,
+          16
+        ]
+      },
+      "d7f2f5da9dfd49eab7df678ff1e25b82": {
+        "integrity": true,
+        "eos": true,
+        "shape": [
+          344,
+          16
+        ]
+      }
+    },
+    "configs_unchanged": true,
+    "app_unchanged": true
+  },
+  "limitations": [
+    "Different cgroups; shared page-cache charge differs.",
+    "No reference, generation or decoder executed.",
+    "D089 conditional deployment STOP."
+  ]
+}

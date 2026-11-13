@@ -1,0 +1,30 @@
+{
+  "imports": "PASS",
+  "torch": "2.6.0+cpu",
+  "transformers": "5.2.0",
+  "diffusers": "0.29.0",
+  "languages": [
+    "es",
+    "en"
+  ],
+  "weight_loads": 0,
+  "audio_generated": false,
+  "max_rss_kib": 615388,
+  "python": "3.12.16",
+  "requirements_sha256": "7c929d3d16afa86b593a0fd25084f56966ad541bcb18f6a19151b49c4919121b",
+  "source_commits": {
+    "chatterbox": {
+      "repository": "resemble-ai/chatterbox",
+      "commit": "ab55923c27757c90cfcc407baa57dc25a7d25217",
+      "archive_sha256": "46ee991e5b68f7c8adad6bb68a8f2465b5f8f669e95116e859b34b67ada3a3d6",
+      "archive_bytes": 1432950
+    },
+    "perth": {
+      "repository": "resemble-ai/Perth",
+      "commit": "ff1c8ac55a976971245cdd53c18d6131ca00d993",
+      "archive_sha256": "00e89ff833f7efc1a0ae0ca3c5420ae108b9adbed9c0fb7b03750b854d30f149",
+      "archive_bytes": 34548910
+    }
+  },
+  "no_models_loaded": true
+}

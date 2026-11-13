@@ -1,0 +1,16 @@
+{
+  "remote_mutations": false,
+  "review": [
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-voicebox\"]",
+      "actions": [
+        "update"
+      ],
+      "drift_fields": [
+        "description",
+        "disk"
+      ],
+      "disk_gib": 100
+    }
+  ]
+}

@@ -2057,3 +2057,328 @@ No cambios ajenos publicados; noforcepush ni reescritura. Pronunciaciónhola pen
 trader→tréider comprobado ysubtítulos originales separados deltexto fonéticoTTS.
 F7global y7.2/7.3 fueraalcance permanecen; no funcionalidades nuevas tras elcierre.
 [Informe final D082](PHASE7-D082-VOICEBOX-FINAL-ACCEPTANCE.md).
+
+### D083 Voicebox — preparación bilingüe y evaluación Chatterbox autorizadas
+
+Nueva intervención Fase7.4, distinta deD083 de recuperación de monitorización
+registrada arriba. No renumerar ni alterar esa intervención ajena. El propietario
+autoriza diagnóstico, implementación candidata local ytests sininferencias para
+es/en enQwen0.6B; investigar Chatterbox antes deinstalar/descargar modelos. Mantener
+D081 ACCEPTED / PRODUCTION, referencia/transcripción,semilla42,FP32,A/B,guardas
+yrecursos intactos. No despliegue, inferencias, nuevasdependencias productivas,
+servicios,otrosLXC,pipeline,commit/push. Chatterbox requiere diagnóstico deCPU,
+RAM/disco/licencias/versiones yplan antes deactivación. Candidatos yensayos
+preparados se distinguen delruntime productivo. Detenerse alpresentar informe.
+
+### D083 Voicebox — pausa Chatterbox y auditoría de almacenamiento
+
+El propietario pausa descargas/instalación/despliegue de Chatterbox. Prioridad:
+auditoría de solo lectura delstorage mostrado comoStorage(pve), rootfs627 y
+alternativas de volumen gestionado100GiB frente amigrarrootfs. No crear/mover/borrar,
+no reiniciar, cambiar recursos/guardas, inferencias, commit/push ni otrosLXC.
+Conservar candidatoQwenbilingüe ytests locales. Esta ampliación documental F7.4
+se distingue deD083monitorización ajeno; producciónD081 aceptada permanece intacta.
+Entrega propuesta antes de cualquier cambio dealmacenamiento.
+
+### D083 Voicebox — prioridad SSD: auditoría rootfs50→100GiB
+
+El propietario sustituye la preferencia de mp0/HDD por ampliar rootfs627 enSSD
+local-lvm de50 a100GiB. Solo auditoría: thinpool/datos/metadatos/sobreasignación,
+hotresize yprocedimientoIaC compatibleD080, validación yrollback. No pctresize,
+volúmenesHDD, movimientos, descargas, reinicios, inferencias,commit/push ni otrosLXC.
+Conservar todos los avances/candidato bilingüe yproducciónD081. La auditoríaHDD
+queda como antecedente, no se ejecuta ninguna de sus propuestas.
+
+### D083 Voicebox — resultado auditoría SSD, sin ejecución
+
+Poolpve/data400,086GiB,275,051usados y125,035libres; metadatos2,794%,VGfree0,
+autoextendthreshold100 desactivado. Thinvirtual808GiB→858trasresize100. Con50GiB
+nuevos escritos quedarían75,035GiB; con627todoasignado100≈73,70. Snapshots yotros
+LXC comparten margen; no prometer reserva absoluta. Crecimientoext4online soportado
+porAPIinstalada; no ejecutado. Políticaactual50 eignore_changes[disk] requieren
+actualización coordinada futura yverificaciónLV+FS, recetaD080 yrefresh-only.
+Planes privadossinapply:100rechazado porpolítica; permitiendo100diskignoradocero
+cambios; quitandoignore soloensimulación update627 sinrecreación. No modificar
+ignore global de17CT. Rollbacknoesshrink: backupcompleto/restauraciónaislada si
+seexige50. SSD100 es opciónpreferida parausoprevisto conreservaoperativa propuesta.
+
+CandidatoD083 ytests preservados; app/recursos/configsPVE intactos, rootfsreal50.
+Fase7.4productivaDONE/ACCEPTED permanece; ampliación NOAUTORIZADA aún. No inferencias,
+descargas,limpieza,HDD,volúmenes,reinicios,commit/push. [Auditoría](PHASE7-D083-CT627-SSD-CAPACITY-AUDIT.md).
+
+### D084 — ampliación SSD CT627 autorizada
+
+Fase 7.4, 12nov2026 Europe/Madrid. Autorizados preflight, backup completo verificable
+en HDD storage, resize online absoluto rootfs62750→100GiB local-lvm, actualización
+IaC/Notes y reconciliación refresh-only dirigida627. Reserva operativa pool20%;
+no capacidad física exclusiva. Backup obligatorio antes de resize. Sin reinicios,
+inferencias, descargas, otros LXC, cambios Qwen, commit/push. D081 y candidatoD083
+protegidos. Estado IN PROGRESS; detener ante condición de seguridad fallida.
+
+### D084 — resultado: DONE técnico
+
+CT627 rootfs50→100GiB local-lvm yext4 verificadosonline, mismoUUID/PID/app;
+backupHDDcompleto17,651GiB íntegro, extracción completa aislada,SQLite/modelos/
+111archivos ypermisosPASS. BackupD082/imagen externa revalidados. Disponibles
+65,494GiB; poollibre124,605GiB/31,14%, reserva20%respetada. Notes/IaCactualizados,
+ignore_changes conservado; refresh-onlytarget627 aplicado, serial278→279,
+planfinaldirigido0cambios yotrosestadosTerraformidénticos. Configsotros17servicios
+y26CTajenosidénticas. Perfil/referencia/6WAV/historial/checkpoints intactos;
+OOM0 ysin erroreskernel nuevos. D081 ACCEPTED / PRODUCTION sin cambioML;
+candidatoD08316archivos intacto. No inferencias,descargas,Chatterbox,reinicios,
+commit/push. Restauraciónporarchivos comprobada, no ensayoDRdearranque.
+No shrink; backup50 ycontroladorPVE separados conservados. VGfree0 yPSIheredado
+continúan; reserva20%noesunaalerta desplegada. Detenida alcompletarD084; próximo
+trabajoinglés/Chatterbox separado. [Informe](PHASE7-D084-CT627-SSD-RESIZE.md).
+
+### D085 — preparación bilingüe y Chatterbox autorizada
+
+Fase 7.4, 12nov2026 Europe/Madrid. Recuperar candidato D083 porhash, completar
+código y pruebas sin audio, preparar dependencias/entorno aislado Chatterbox
+Multilingual oficial fijado tras preflights. Se autorizan descargas selectivas
+con hashes ypresupuesto vigilado, conservando20%delthinpool libre. Sin cambio
+de recursos/guardas, referencia/transcripción, D081 niotrosLXC. No despliegue
+productivo, inferencia real, commit/push. Estado IN PROGRESS. Entregar informe
+D085 y detener antes de despliegue yensayos A/B/C.
+
+### D085 — ampliación autorizada: cuatro efectos de salida
+
+El propietario confirma referenciaoriginal mediante procesamiento propioChatterbox,
+perfil/checkpointsQwen intactos, límite240 exclusivoCB/Qwen1200 ydependencias
+porversiones/hashes sinmaster. Autoriza preparar Robotic,Radio,EchoChamber y
+DeepVoice reutilizando presets/DSP existentes, solo candidato ypruebas sintéticas.
+Se conserva punto deparada: sinproducción, inferencia real, commit/push.
+
+### D085 — preparación completada; despliegue y ensayos pendientes
+
+Fase7.4: implementación/pruebas/entorno aislado DONE, producción nueva TODO.
+16hashesD083 intactos; política Qwen1200 yChatterbox240 independiente. Referencia
+original RO yprocesamiento acústicoCB propio, sincheckpointQwen; perfil intacto.
+113paquetes instalados conlock/hashes,Perthcommitff1c8ac… sinmaster;5archivosV3
+verificados3208844550bytes. UI/imagen candidata19af4754… construidas sin despliegue;
+11Python+5UI nuevos y10Python+4UI heredadosPASS,14API/8efectos/4DSP sintéticosPASS.
+Efectos4 nativos porgeneración; no defaultperfil alterado. Backupdatos117archivos
+restaurado externamente yD084completo revalidadoSHA. Entorno4,796GiB;rootlibre
+60,025GiB,pool124,155GiB/31,03%,20%respetado. ImportsRSS601MiB medido, carga/inferencia
+CB no medida; propuesta hard8/stop7 y300s basada encomponentesFP32, sin cambiarQwen.
+ProducciónD081 mismoID/inicio/imagen/fuentes,111archivos+DB/WAV intactos;27configs
+PVE idénticas/OOM0;max367 soloen hijosauxiliares,localCTmax0. Sininferenciasreales,
+deploy, recursos/guardas originales modificados, otrosLXC,pipeline,commit/push.
+Detenida para revisión del[InformeD085](PHASE7-D085-QWEN-BILINGUAL-CHATTERBOX.md).
+Siguienteautorizable: desplieguecoordinado,validaciónsinvoz y AEnglishQwen→BSpanishCB
+→CEnglishCB secuenciales,sinefectos alcompararidentidad. No ejecutar ahora.
+
+### D086 — despliegue y tres ensayos autorizados
+
+Fase7.4. Autoriza desplegar D085 coordinadamente enCT627 conbackupnuevo yrollback
+app/controller/worker; recursos/guardas intactos. Solo A QwenEnglish→B CBSpanish
+→C CBEnglish, secuenciales, textos exactos, sin efectos ni normalización adicional.
+Fallo detiene secuencia, sin reintentos; fallo crítico de despliegue exige rollback.
+Solicitud adicional deefectos se probará en copias separadas delWAV obtenido, sin
+otra inferencia ni alterar las muestras de comparación/referencia. SinotrosLXC,
+pipeline,commit/push. Aceptaciónacústica pendiente. IN PROGRESS.
+
+### D086 — fallo crítico de startup; rollback completado
+
+Candidato19af4754… cambió USER a999 pero heredóentrypoint congosu; erroroperation
+notpermitted antesAPI. FixturesD085 omitíanentrypoint real. Se abortótransacción
+conSIGINTcontrolado ysuBaseExceptionejecutórollbackcoordinado. D08109774c5b…
+healthy, procesoservidorUID999,agente/src/controlador originales,CBdeshabilitado;
+CTsinreinicio. NuevoDockerID esperado, reconciliación posterior no-op.
+A/B/C yefectos noejecutados;0POSTgenerate/0inferencias,ningúncheckpointnuevo.
+Backup118archivos restaurado externamente yD081/82/84/85revalidados. Datos6WAV/
+1perfil/1referencia/111archivos y27configsPVE idénticos. OOM0,eventosmemoriaigual,
+swap0/PSIlocal0;pool31,03%libre. SinotrosLXC/pipeline/recursos/guardas/commit/push.
+EstadoD086 BLOCKED/ROLLED BACK; recuperaciónDONE técnica;D081 ACCEPTED vigente.
+Propuesta NOaplicada: USERroot soloalarranque heredado,gosu aUID999,smokeaislado
+conentrypoint real ydespuésnuevo tag/revisión. Nuevaautorización antesdereintentar.
+[Informe](PHASE7-D086-QWEN-CHATTERBOX-VALIDATION.md).
+
+### D086 — corrección de arranque sin privilegios autorizada
+
+Confirmar rollback D081 healthy; corregir solo entrypoint candidato manteniendo
+USER999, sinroot ni capacidades añadidas. InspeccionarDockerfile/Compose/mounts
+ypermisos reales; probarentrypoint yCMD reales en aislamiento, más accesoUID999
+a módulos/config/DB/directorios. No despliegue productivo ni inferencia A/B/C.
+Pruebas dearranque usan copias privadas equivalentes a losbinds para conservar
+SQLite/perfiles/WAV originales; auditoría deacceso real sin escrituras separada.
+SinotrosLXC,recursos,guardas,commit/push. IN PROGRESS.
+
+### D086 — resultado corrección sinprivilegios: DONE técnico aislado
+
+Se descarta propuesta previa deUSERroot segúninstrucción expresa delpropietario.
+Imagen21270364… mantieneUSER999:999 yentrypointdirectexec sin gosu/chown/usermod
+ni fallbackroot. Cacheparent imagenowned999 medianteCOPYbuild, sin tocarvolúmenes;
+CMDUvicorn original explícito porqueENTRYPOINTreiniciaCMDheredado enDocker.
+Fullstartup realenaislamiento healthy, mismosENV/límites/mounts internos/modos,
+fuentesbindprivadas conowners/modes ySQLitebackup coherentes; auditoría realbind
+UID999sin escrituras. PID1UID/GID999,CapEff/Prm0,DBlectura/escritura rollbackPASS,
+modelo no cargado. TestparadoPID0, producción mismoID/inicio/imagenhealthy yagent.
+30testsPython/UI y14API+8efectos/4DSP sintéticosPASS;111archivos/DB/WAV y27configs
+PVE idénticos, permisosreales intactos, sinOOMnuevo. SinA/B/C,inferencias,deployment
+productivo, recursos/guardas/otrosLXC,pipeline,commit/push. Intervencióndetenida
+para revisión antes de continuar. [Informe](PHASE7-D086-UID999-STARTUP-FIX.md).
+
+### D087 — despliegue corregido y tres ensayos autorizados
+
+Fase 7.4, 12 de noviembre de 2026 (Europe/Madrid), IN PROGRESS. El propietario
+autoriza exclusivamente la imagen 21270364… manteniendo USER999:999, entrypoint
+corregido, CMD Uvicorn y cero privilegios adicionales. Preflight, backup actualizado
+y rollback coordinado obligatorios; ante fallo crítico de despliegue, restaurar D081.
+Solo A Qwen English → B Chatterbox Spanish → C Chatterbox English, una ejecución
+por ensayo, textos exactos, sin efectos ni reintentos; detenerse al primer fallo.
+Recursos/guardas intactos; no otros LXC, pipeline, narraciones largas, commit/push.
+Calidad acústica pendiente del propietario aun si los tres WAV resultan válidos.
+
+### D087 — resultado: BLOCKED en preflight, producción intacta
+
+La imagen21270364… UID999 se verificó; receta/locks actualizados solo localmente.
+CT7,745GiB + presupuestoCB7GiB + reserva0,5GiB =15,245GiB > guarda14GiB.
+Política realD085 rechaza admisión; no se descuenta file6,893GiB como ya liberado.
+QwenPASS, pero no se inicia secuencia parcial. Host dispone20,6GiB; swapglobal
+activo, PSIlocal0/swapCTestable/OOM0. D081healthy/mismoID/inicio, DB/WAV y27configs
+PVE intactos;30tests PASS. No despliegue, backupnuevo ni A/B/C; rollback innecesario.
+Backups existentes conservados, revalidación completa pendiente antes de desplegar.
+No recursos/guardas/otrosLXC/pipeline/commit/push. Detenido según condición del
+propietario. Siguiente: diagnosticar file/swap, resolver margen y repetir preflight;
+no ejecutar limpieza/reclamación ni inferencias automáticamente.
+[InformeD087](PHASE7-D087-QWEN-CHATTERBOX-PRODUCTION-VALIDATION.md).
+
+### D087 — reanudación autorizada: CT627 con20GiB y guarda19GiB
+
+El propietario autoriza ampliar exclusivamente CT627 a20480MiB mediante el
+procedimiento IaC existente y elevar la guarda agregada a19GiB. Conservar CPU3,
+swap2048MiB, disco100GiB y workers Qwen hard9GiB/stop8,2GiB y Chatterbox
+hard8GiB/stop7GiB. Autoriza reanudar despliegue coordinado imagen21270364… y
+A→B→C secuenciales sin efectos ni reintentos, condicionado a preflight/backup.
+No otros LXC, pipeline, narraciones largas, commit/push. IN PROGRESS.
+
+### D087 —20GiB aplicados; despliegue fallido y rollbackPASS
+
+RAM20480MiB/guarda19GiB DONE mediante IaC+PVEhotchange yrefresh-onlytarget627;
+planfinal0cambios/restoestadoidéntico. CPU3/swap2GiB/disco100GiB yworkerstope sin
+cambios. BackupsD081/82/84/85 revalidados; nuevo117archivos restaurado fueraPVE.
+Presupuesto físico usa techooperativo19GiB yreserva6GiB; primerchequeo20GiB/6GiB
+se detuvo sin cambios. Posterior despliegue coordinado falló al copiar__pycache__
+creado porpreflight. Rollback automáticoPASS, D081 mismoID/iniciohealthy, agente
+activo, CBdeshabilitado; conserva20GiB/19GiB aprobados.0inferenciasA/B/C; parada
+alprimerfallo, sinreintentos. Datos/perfil/referencia/WAV/checkpoints intactos,
+26configsajenasidénticas/OOM0. Receta copy_locked corregida solo localmente;37tests
+PASS, nodéploy de corrección. Próximo intento necesita revisión/autorización y
+backup/nombre nuevos, sin borrar el fallido. SinotrosLXC/pipeline/commit/push.
+[InformeD087](PHASE7-D087-QWEN-CHATTERBOX-PRODUCTION-VALIDATION.md).
+
+### D087b — corrección y continuación autorizadas
+
+El propietario indica «solucionalo y continua» después del rollbackD087. Autoriza
+corregir la receta, preparar nuevo intento sin sobrescribir respaldos y continuar
+el despliegue y A→B→C condicionado a validaciones. Mantener imagen21270364…,
+UID999,20GiB/guarda19GiB, resto de recursos/guardas/parámetros y referencias.
+Sin efectos, narraciones largas, reintentos de inferencia, otrosLXC, commit/push.
+IN PROGRESS; preservar evidenciasD087 y detener secuencia al primer fallo real.
+
+### D087b — despliegueDONE; inglésaceptado; paradaB y Chatterboxdeshabilitado
+
+13nov2026 Europe/Madrid. Imagen21270364… USER999/entrypointrealhealthy. Nuevo
+backup117archivos restaurado ychecksumD081/82/84/85PASS; sin borrar elintentoD087.
+Readiness corregido a7archivoscontroller/7worker conguardas19/RAM20;39testsPASS.
+Cancelaciónhold sintética ysharedslotPASS,0pesos/0audio. AEnglishcompleted33tokens
+EOS/checkpoint344×16;2,56sWAV,124,38sagente. Propietario confirmó «Sí, voz y texto
+correctos»: aceptado soloesteensayoinglés; noingléslargo niotrasvoces/motores.
+BSpanishCB fallóenguarda7GiB, pico7,6957GiBcgroup/RSS6,516GiB/CT12,04GiB,OOM0;
+subetapaexactanoinstrumentada. SinWAV; Cnoejecutado ysinreintentos. Se deshabilitó
+releaseCB sinreinicioapp, preservandoQwenbilingüe ytodoslosdatos/evidencias.
+Efectos4disponibles enUI/API, noprocesadosconvozreal. Recursos/guardas intactos;
+Notes/TFrefresh-only627/planfinal0 yotrosestados/configsajenasintactos.105archivos,
+7audiosoriginales ycheckpointsPASS; historial6previos+Acompleted+Bfailed.
+Sinresiduales/otrosLXC/pipeline/commit/push. Detenidoalprimerfallodeinferencia.
+Propuesta pendiente: eventosdurablesporfase y optimizarcopias/mapeosdelcargador
+CB; no másRAMCT niajustesdeguardas automáticos.
+[InformeD087](PHASE7-D087-QWEN-CHATTERBOX-PRODUCTION-VALIDATION.md).
+
+### D088 Voicebox — diagnóstico y dos cargas comparativas autorizadas
+
+Fase7.4,13nov2026 Europe/Madrid. Esta D088 es independiente de la recuperación
+cAdvisor/CRM D088 anterior. Preservar Qwen es/en aceptado, producción y susdatos.
+Preparar candidato e instrumentación persistente de memoria porfase paraChatterbox.
+El propietario autoriza expresamente dos cargas reales: original y candidata,
+secuenciales, sinreferencia personal niTTS, hard8GiB/stop7GiB/CT19GiB/300s cadauna.
+Sin más intentos automáticos. MantenerFP32/modelo/paquetes/hashes originales, CPU3,
+RAM20GiB,swap2GiB,disco100GiB; CBsigue deshabilitado. No deploy, inferencia, otrosLXC,
+Terraformglobal,pipeline,borrados,commit/push. IN PROGRESS.
+
+## D-088 Voicebox y autorización condicional D-089
+
+13nov2026 Europe/Madrid. Dos cargas autorizadas consumidas; candidata FP32 carga
+en38,88s, RSS máximo4,557GiB frente a6,556GiB original. Reducción por assign=True
+verificada sin cambiar pesos. Producción Qwen es/en intacta y Chatterbox deshabilitado.
+D089 BLOCKED: no hay mediciones de activaciones/generación/decoder que acrediten
+margen. No despliegue ni audio. Propuesta pendiente de autorización: ensayo aislado
+instrumentado bajo guardas originales. Informe: [D088](PHASE7-D088-CHATTERBOX-MEMORY-OPTIMIZATION.md). Sin commit/push.
+
+## D-089 sustituida — validación aislada y despliegue condicional autorizados
+
+13nov2026 Europe/Madrid, Fase7.4 IN PROGRESS. La última instrucción sustituye
+íntegramente D089 anterior. Autoriza resolver/reproducir suite completa estable
+y candidata en entorno fijado con soundfile; exigir PASS antes de una única
+inferencia aislada española, referencia original RO, sin efectos ni reintentos.
+Solo con WAV íntegro, sin guardas/OOM/swap y margen medido autoriza backup y
+despliegue mínimo exactamente probado; después una prueba UI es y, si pasa, en.
+CT20GiB/3CPU/2GiBswap/100GiB; CB FP32 stop7/hard8/CT19/300s/240 caracteres.
+Ante fallo detenerse; si desplegado deshabilitar CB y rollback si afecta Qwen/app.
+Qwen aceptado, datos, otrosLXC y pipeline intactos; sin commit/push.
+
+### D089 — ejecución condicional y parada
+
+13nov2026 Europe/Madrid. Suite73/73, UI9/9; inferencia aislada FP32es aprobó
+criterios medidos y permitió despliegue mínimo con backup D089141archivos
+restaurado/verificado, D084/D085/D087 revalidados. App/Qwen sin cambios. Una
+generación Voiceboxes completa:139tokens/EOS, WAV5,48s, pico kernel3,187GiB,
+margen3,813GiB; sin OOM/swap. Observador local falló por No route to host;
+STOP aplicado, inglés no ejecutado, ninguna inferencia repetida. Observación
+recuperada desde PVE, Chatterbox deshabilitado sin reinicios. Qwen es/en sigue
+operativo; generación ajena activa conservada. Overlay instalado pero no habilitado;
+rollback preparado sin restaurar SQLite. Cierre BLOCKED, calidad acústica pendiente.
+Siguiente propuesto, no ejecutado: revisión de conectividad y reanudación autorizada
+para inglés después de valorar español. Sin recursos/otrosLXC/pipeline/commit/push.
+[Informe](PHASE7-D089-CHATTERBOX-PRODUCTION-VALIDATION.md).
+
+### D089 — reanudación autorizada tras conectividad
+
+13nov2026 Europe/Madrid, Fase7.4. El propietario confirma que inició Qwen inglés
+728caracteres. No cancelar ni reiniciar app/agente mientras activo; comprobar
+estado terminal y WAV o conservar fallo. Autoriza diagnóstico/corrección del
+observador, reutilizar WAVes sin inferencia adicional, verificar API/checksum
+desde ruta comprobada o PVE. Tras salud/sin trabajos activos, reactivar CB y una
+única generación inglesa exacta, sin efectos/reintentos, stop7/hard8/CT19GiB/300s.
+Si falla o no verificable API: STOP/CBdeshabilitado/Qwen operativo. Si pasa, dejar
+CBes/en disponible, aceptación acústica pendiente. Sin recursos/otrosLXC/pipeline
+ni commit/push. Trabajo Qwen ya comprobado terminal completed antes de cambios.
+
+### D089 — reanudación completada, disponibilidad autorizada
+
+13nov2026 Europe/Madrid. Propietario Qwen: completed45,04s/EOS, checkpoint875×16
+íntegro, descarga API verificada; ninguna interrupción. Español existente
+revalidado directo/PVE mismo SHA, cero inferencias nuevas. Observer GET-only
+fallback/estados separados, 4regresiones y suite77/77 PASS. Error histórico
+EHOSTUNREACH demostrado, causa precisa de red no recuperable con evidencia actual.
+Receipt reactivado y una sola inferencia inglesa:127tokens/EOS, WAV5,00s,
+API=worker SHA, pico kernel2,518GiB, margen4,482GiB; sin OOM/swap/guardas.
+Chatterbox disponible es/en conforme autorización. Voicebox/Qwen healthy, cero
+trabajos activos/residuales, misma imagen/ID/StartedAt, cero reinicios/recursos.
+Implementación/despliegue/validación DONE técnico; aceptación acústica TODO.
+No elevar a aceptación final por WAV válido. Sin otrosLXC/pipeline/commit/push.
+[Informe D089](PHASE7-D089-CHATTERBOX-PRODUCTION-VALIDATION.md).
+
+### D089 — aceptación acústica y publicación autorizadas
+
+13nov2026 Europe/Madrid. El propietario confirma escucha y aceptación de
+Chatterbox español5,48s e inglés5,00s y Qwen inglés45,04s. Cerrar solo alcance
+validado Voicebox F7.4; no extender a CB1200caracteres, efectos acústicos ni
+narraciones no probadas. Autoriza auditoría solo lectura de límites/efectos y
+commit/push normal del código, IaC y documentación Voicebox pendientes, con
+selección explícita de rutas/hunks y exclusión de datos privados/estados/backups.
+Sin inferencias, DSP, despliegues, reinicios o cambios de límites/recursos.
+Rama actualmain, upstreamorigin/main, remotoeduardo152030/mailerblend-platform-infra;
+fetch confirmado0/0 antes de preparar. Cambios de otros servicios/monitorización
+se conservan fuera del índice.

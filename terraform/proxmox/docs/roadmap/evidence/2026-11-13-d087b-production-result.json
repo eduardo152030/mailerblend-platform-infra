@@ -1,0 +1,561 @@
+{
+  "followup_date_europe_madrid": "2026-11-13",
+  "phase": "7.4",
+  "status": "QWEN_ENGLISH_ACCEPTED_CHATTERBOX_BLOCKED_DISABLED",
+  "app": {
+    "app_image": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+    "app_id": "ff11c52d6a5939348765334c148472cc02bb567b55e5009afe0c10f7f51979e4",
+    "started_at": "2026-11-12T23:43:24.94800213Z",
+    "healthy": true,
+    "uid": 999,
+    "gid": 999,
+    "cap_eff": "0000000000000000",
+    "restart_count": 0
+  },
+  "resources": {
+    "memory": "20480",
+    "cores": "3",
+    "swap": "2048",
+    "rootfs": "local-lvm:vm-627-disk-0,size=100G"
+  },
+  "ct_guard_gib": 19,
+  "worker_limits": {
+    "qwen_hard_gib": 9,
+    "qwen_stop_gib": 8.2,
+    "chatterbox_hard_gib": 8,
+    "chatterbox_stop_gib": 7
+  },
+  "capabilities": {
+    "qwen": {
+      "ready": true,
+      "languages": [
+        "es",
+        "en"
+      ],
+      "model_sizes": [
+        "0.6B"
+      ],
+      "max_chars": 1200
+    },
+    "chatterbox": {
+      "ready": false,
+      "languages": [
+        "es",
+        "en"
+      ],
+      "model_sizes": [
+        "default"
+      ],
+      "max_chars": 240,
+      "experimental": true,
+      "variant": "multilingual-v3"
+    },
+    "chatterbox_turbo": {
+      "ready": false
+    },
+    "kokoro": {
+      "ready": true
+    },
+    "piper": {
+      "ready": true
+    }
+  },
+  "trial_A": {
+    "id": "d7f2f5da-9dfd-49ea-b7df-678ff1e25b82",
+    "trial": "A",
+    "success": true,
+    "status": "completed",
+    "error": null,
+    "observer_seconds": 90.27226474300551,
+    "audio_url": "http://192.168.1.127:17493/audio/d7f2f5da-9dfd-49ea-b7df-678ff1e25b82",
+    "wav_seconds": 2.56,
+    "sample_rate": 24000,
+    "wav_frames": 61440,
+    "wav_bytes": 122924,
+    "wav_sha256": "0196b8a5645a0a15f63f44f8142942e57385e74680b7f957b721e7fdcf791c7e",
+    "accepted_voice_and_complete_text": true,
+    "agent_seconds": 124.38334441184998,
+    "model_load_seconds": 8.829056856004172,
+    "reference_prepare_seconds": 17.062858646997483,
+    "generation_seconds": 27.22390409000218,
+    "sequence_tokens": 33,
+    "tokens_per_second": 1.2121700065832608,
+    "eos": true,
+    "language": "English",
+    "seed": 42,
+    "checkpoint_shape": [
+      344,
+      16
+    ],
+    "checkpoint_integrity": true,
+    "stages": {
+      "talker": {
+        "success": true,
+        "error": null,
+        "elapsed_total": 75.61703157100419,
+        "worker_result": {
+          "checkpoint_verified": true,
+          "decoder_called": false,
+          "elapsed_seconds": 63.00903509800264,
+          "eos_emitted": true,
+          "rss_hwm_bytes": 6001500160,
+          "success": true
+        },
+        "processes_released": true,
+        "ct_current_max": 8995655680,
+        "ct_swap_max": 14118912,
+        "host_available_min": 18787033088,
+        "worker_current_max": 6836903936,
+        "rss_bytes_max": 5431074816,
+        "ct_psi_full_avg10_max": 0.0,
+        "host_psi_full_avg10_max": 12.7,
+        "ct_stat_anon_max": 5089198080,
+        "ct_stat_file_max": 3594203136,
+        "ct_stat_kernel_max": 522665984,
+        "worker_stat_anon_max": 4694892544,
+        "worker_stat_file_max": 2337247232,
+        "worker_stat_kernel_max": 14589952,
+        "worker_cpu_usage_usec_max": 91559342,
+        "worker_cpu_user_usec_max": 83614082,
+        "worker_cpu_system_usec_max": 7945260,
+        "ct_events_oom_max": 0,
+        "ct_events_oom_kill_max": 0,
+        "worker_events_oom_max": 0,
+        "worker_events_oom_kill_max": 0,
+        "ct_cpu_delta_usec": 97579341,
+        "ct_swap_growth_bytes": 0,
+        "ct_events_delta": {
+          "oom": 0,
+          "oom_kill": 0
+        },
+        "host_oom_delta": 0
+      },
+      "decoder": {
+        "success": true,
+        "error": null,
+        "elapsed_total": 47.35908140600077,
+        "worker_result": {
+          "chunk_steps": 300,
+          "elapsed_seconds": 36.369835513003636,
+          "encoder_loaded": false,
+          "frames": 61440,
+          "left_context_steps": 25,
+          "reference_cut_samples": 599040,
+          "rss_hwm_bytes": 2417131520,
+          "sample_rate": 24000,
+          "seconds": 2.56,
+          "success": true,
+          "talker_loaded": false,
+          "wav_sha256": "0196b8a5645a0a15f63f44f8142942e57385e74680b7f957b721e7fdcf791c7e"
+        },
+        "processes_released": true,
+        "ct_current_max": 6599991296,
+        "ct_swap_max": 14118912,
+        "host_available_min": 20994469888,
+        "worker_current_max": 2101026816,
+        "rss_bytes_max": 2416865280,
+        "ct_psi_full_avg10_max": 0.0,
+        "host_psi_full_avg10_max": 12.3,
+        "ct_stat_anon_max": 2163372032,
+        "ct_stat_file_max": 3918114816,
+        "ct_stat_kernel_max": 516665344,
+        "worker_stat_anon_max": 1769332736,
+        "worker_stat_file_max": 323702784,
+        "worker_stat_kernel_max": 7991296,
+        "worker_cpu_usage_usec_max": 63564928,
+        "worker_cpu_user_usec_max": 45421910,
+        "worker_cpu_system_usec_max": 18143018,
+        "ct_events_oom_max": 0,
+        "ct_events_oom_kill_max": 0,
+        "worker_events_oom_max": 0,
+        "worker_events_oom_kill_max": 0,
+        "ct_cpu_delta_usec": 67361465,
+        "ct_swap_growth_bytes": 0,
+        "ct_events_delta": {
+          "oom": 0,
+          "oom_kill": 0
+        },
+        "host_oom_delta": 0
+      }
+    }
+  },
+  "trial_B": {
+    "id": "9eca224b-2312-4b1a-9cc0-756c3251e5a4",
+    "success": false,
+    "status": "failed",
+    "error": "CHATTERBOX_WORKER_7_GIB",
+    "agent_seconds": 61.726399183273315,
+    "wav_produced": false,
+    "checkpoint_exists": false,
+    "metrics": {
+      "success": false,
+      "error": "CHATTERBOX_WORKER_7_GIB",
+      "elapsed_total": null,
+      "worker_result": null,
+      "processes_released": true,
+      "worker_peak_sample": {
+        "at_utc": "2026-11-12T23:49:01.283356+00:00",
+        "worker_current": 8263151616,
+        "rss_bytes": 6995947520,
+        "ct_current": 12927115264,
+        "worker_stat": {
+          "anon": 4645007360,
+          "file": 3598917632,
+          "kernel": 19169280,
+          "kernel_stack": 147456,
+          "pagetables": 15261696,
+          "sec_pagetables": 0,
+          "percpu": 2136,
+          "sock": 0,
+          "vmalloc": 12288,
+          "shmem": 344064,
+          "zswap": 0,
+          "zswapped": 0,
+          "file_mapped": 2330656768,
+          "file_dirty": 0,
+          "file_writeback": 0,
+          "swapcached": 0,
+          "anon_thp": 0,
+          "file_thp": 0,
+          "shmem_thp": 0,
+          "inactive_anon": 0,
+          "active_anon": 4645347328,
+          "inactive_file": 3322421248,
+          "active_file": 276152320,
+          "unevictable": 0,
+          "slab_reclaimable": 2807272,
+          "slab_unreclaimable": 925784,
+          "slab": 3733056,
+          "workingset_refault_anon": 0,
+          "workingset_refault_file": 0,
+          "workingset_activate_anon": 0,
+          "workingset_activate_file": 0,
+          "workingset_restore_anon": 0,
+          "workingset_restore_file": 0,
+          "workingset_nodereclaim": 0,
+          "pgscan": 0,
+          "pgsteal": 0,
+          "pgscan_kswapd": 0,
+          "pgscan_direct": 0,
+          "pgscan_khugepaged": 0,
+          "pgsteal_kswapd": 0,
+          "pgsteal_direct": 0,
+          "pgsteal_khugepaged": 0,
+          "pgfault": 1249132,
+          "pgmajfault": 1959,
+          "pgrefill": 0,
+          "pgactivate": 0,
+          "pgdeactivate": 0,
+          "pglazyfree": 0,
+          "pglazyfreed": 0,
+          "zswpin": 0,
+          "zswpout": 0,
+          "zswpwb": 0,
+          "thp_fault_alloc": 0,
+          "thp_collapse_alloc": 0,
+          "thp_swpout": 0,
+          "thp_swpout_fallback": 0
+        },
+        "worker_events": {
+          "low": 0,
+          "high": 0,
+          "max": 0,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0
+        }
+      },
+      "ct_current_max": 12927115264,
+      "ct_swap_max": 14118912,
+      "host_available_min": 18782883840,
+      "worker_current_max": 8263151616,
+      "rss_bytes_max": 6995947520,
+      "ct_psi_full_avg10_max": 0.0,
+      "host_psi_full_avg10_max": 17.12,
+      "ct_stat_anon_max": 5036859392,
+      "ct_stat_file_max": 7502868480,
+      "ct_stat_kernel_max": 527089664,
+      "worker_stat_anon_max": 4645007360,
+      "worker_stat_file_max": 3598917632,
+      "worker_stat_kernel_max": 19169280,
+      "worker_cpu_usage_usec_max": 35468795,
+      "worker_cpu_user_usec_max": 29754176,
+      "worker_cpu_system_usec_max": 5714619,
+      "ct_events_oom_max": 0,
+      "ct_events_oom_kill_max": 0,
+      "worker_events_oom_max": 0,
+      "worker_events_oom_kill_max": 0,
+      "ct_cpu_delta_usec": 38663063,
+      "ct_swap_growth_bytes": 0,
+      "ct_events_delta": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "host_oom_delta": 0
+    },
+    "worker_swap_max_bytes": 0,
+    "worker_memory_max_events": 0,
+    "precise_failure_substage": "not instrumented; cannot assert model loading versus reference preparation"
+  },
+  "trial_C": {
+    "executed": false,
+    "reason": "Stopped after B preventive worker memory guard"
+  },
+  "synthetic_control": {
+    "synthetic_hold_only": true,
+    "model_loaded": false,
+    "audio_generated": false,
+    "shared_lock_blocks_second_contender": true,
+    "cancellation_effective": true,
+    "all_processes_released": true,
+    "owned_worker_removed": true,
+    "persistent_synthetic_evidence_kept": true
+  },
+  "backup": {
+    "result": "PASS",
+    "archive_sha256": "a090fdab2af2ad0932a73bc4d3815a460f0bfb0873bf74ccf509904ae86d536c",
+    "files_verified": 117,
+    "symlinks_confined": 0,
+    "sqlite_integrity": "ok",
+    "completed_audio_files": 6,
+    "reference_audio_files": 1,
+    "sample_rates_verified": [
+      24000
+    ],
+    "mode": "isolated restoration outside PVE; original data and archives preserved"
+  },
+  "trial_archive": {
+    "private_archive_outside_pve": true,
+    "sha256": "a6c4d4eed905b0e7e16d501d00f18b713f952502668919163ae4c9ee24773ef4",
+    "qwen_checkpoint_integrity": true,
+    "failed_cb_evidence_preserved": true,
+    "no_source_recording_in_archive": true
+  },
+  "terraform": {
+    "only_ct627_notes_reconciled": true,
+    "final_target_plan_changes": 0,
+    "other_state_instances_unchanged": true,
+    "serial_before": 280,
+    "serial_after": 281
+  },
+  "monitoring": {
+    "at_utc": "2026-11-12T23:56:02.673166+00:00",
+    "grafana": {
+      "http_status": 200,
+      "health": {
+        "database": "ok",
+        "version": "12.3.1",
+        "commit": "3a1c80ca7ce612f309fdc99338dd3c5e486339be"
+      },
+      "configured_port": 3010
+    },
+    "prometheus": {
+      "http_status": 200
+    },
+    "exporters627": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.127:8085",
+              "job": "cadvisor",
+              "service": "infra-voicebox",
+              "source": "inventory",
+              "vmid": "627"
+            },
+            "value": [
+              1794527763.179,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.127:9100",
+              "job": "node_exporter",
+              "service": "infra-voicebox",
+              "source": "inventory",
+              "vmid": "627"
+            },
+            "value": [
+              1794527763.179,
+              "1"
+            ]
+          }
+        ]
+      }
+    },
+    "voicebox_probe": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.127:17493/health",
+              "job": "blackbox",
+              "module": "voicebox_api_cpu",
+              "probe_id": "voicebox-api-health",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-voicebox",
+              "source": "inventory",
+              "vmid": "627"
+            },
+            "value": [
+              1794527763.181,
+              "1"
+            ]
+          }
+        ]
+      }
+    },
+    "firing_alerts_voicebox": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": []
+      }
+    },
+    "exporters627_scrape_age_seconds": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "instance": "192.168.1.127:8085",
+              "job": "cadvisor",
+              "service": "infra-voicebox",
+              "source": "inventory",
+              "vmid": "627"
+            },
+            "value": [
+              1794528405.157,
+              "24.844000101089478"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.127:9100",
+              "job": "node_exporter",
+              "service": "infra-voicebox",
+              "source": "inventory",
+              "vmid": "627"
+            },
+            "value": [
+              1794528405.157,
+              "19.926000118255615"
+            ]
+          }
+        ]
+      }
+    },
+    "node627_memtotal": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.127:9100",
+              "job": "node_exporter",
+              "service": "infra-voicebox",
+              "source": "inventory",
+              "vmid": "627"
+            },
+            "value": [
+              1794528405.159,
+              "21474836480"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "final_state": {
+    "at_utc": "2026-11-13T00:00:29.877745+00:00",
+    "ct_pid": "31843",
+    "ct_current": 8179802112,
+    "ct_stat": {
+      "anon": 381980672,
+      "file": 7367225344,
+      "kernel": 429174784
+    },
+    "ct_swap": 14118912,
+    "ct_psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=391934\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=365354\n",
+    "ct_events": {
+      "low": 0,
+      "high": 251,
+      "max": 367,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "host": {
+      "MemTotal": 33533042688,
+      "MemAvailable": 23441276928
+    },
+    "pool_free_gib": 124.11163330078125,
+    "pool_free_pct": 31.021243604889577,
+    "protected_files_checked": 105,
+    "protected_files_unchanged": true,
+    "checkpoints": {
+      "7f348e9777214f4e827dcf7e1458c045": {
+        "integrity": true,
+        "eos": true,
+        "shape": [
+          669,
+          16
+        ]
+      },
+      "baa61a95c7b445248229aa697b941710": {
+        "integrity": true,
+        "eos": true,
+        "shape": [
+          1029,
+          16
+        ]
+      },
+      "d7f2f5da9dfd49eab7df678ff1e25b82": {
+        "integrity": true,
+        "eos": true,
+        "shape": [
+          344,
+          16
+        ]
+      }
+    },
+    "no_residual_inference": true,
+    "agent_active": true,
+    "source_hashes_verified": true
+  },
+  "other_26_configs_unchanged": true,
+  "original_data": {
+    "profiles": 1,
+    "references": 1,
+    "historical_generations_preserved": 6,
+    "final_generations": 8,
+    "original_audio_hashes_verified": 7
+  },
+  "tests_without_inference_passed": 39,
+  "effects_presets_available": [
+    "Robotic",
+    "Radio",
+    "Echo Chamber",
+    "Deep Voice"
+  ],
+  "effects_with_real_voice_executed": false,
+  "inferences_submitted": 2,
+  "automatic_retries": false,
+  "commit_push": false
+}

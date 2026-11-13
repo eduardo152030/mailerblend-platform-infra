@@ -1,0 +1,82 @@
+{
+  "result": "PASS",
+  "production_unchanged": true,
+  "healthy": true,
+  "agent_active": true,
+  "same_container_id": true,
+  "same_started_at": true,
+  "same_ct_pid": true,
+  "all_ct_configs_unchanged": 27,
+  "protected_files_unchanged": 111,
+  "live_volume_permissions_unchanged": true,
+  "database_and_original_wavs_unchanged": true,
+  "inferences": 0,
+  "model_loads": 0,
+  "startup_image_id": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+  "full_startup": {
+    "at_utc": "2026-11-12T19:38:15.731312+00:00",
+    "image_id": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+    "user": "999:999",
+    "entrypoint": [
+      "/usr/local/bin/entrypoint-uid999.sh"
+    ],
+    "cmd": [
+      "uvicorn",
+      "backend.main:app",
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "17493"
+    ],
+    "same_app_environment": true,
+    "real_entrypoint_used": true,
+    "ports_published": false,
+    "bind_sources_private_copies": true,
+    "audit": {
+      "uid": 999,
+      "gid": 999,
+      "pid1_uid": "999\t999\t999\t999",
+      "cap_eff": "0000000000000000",
+      "cap_prm": "0000000000000000",
+      "cache_owner": 999,
+      "module_access": true,
+      "directory_access": {
+        "/app/data": true,
+        "/app/data/cache": true,
+        "/app/data/cache/numba": true,
+        "/app/data/profiles": true,
+        "/app/data/generations": true,
+        "/qwen-jobs": true,
+        "/home/voicebox/.cache": true,
+        "/home/voicebox/.cache/huggingface": true
+      },
+      "sqlite_integrity": "ok",
+      "sqlite_read_write_rollback": true,
+      "database_counts": {
+        "profiles": 1,
+        "profile_samples": 1,
+        "generations": 6
+      },
+      "model_loaded": false,
+      "healthy": true
+    },
+    "result": "PASS",
+    "test_processes_released": true,
+    "production_same_id_and_started_at": true
+  },
+  "api_regression": {
+    "api_checks": 14,
+    "result": "PASS",
+    "model_generations": 0,
+    "history_simulated": true,
+    "routes_from_candidate_image": true,
+    "effects_forward_checks": 8,
+    "dsp_synthetic_pass": [
+      "Robotic",
+      "Radio",
+      "Echo Chamber",
+      "Deep Voice"
+    ],
+    "builtin_presets_seeded_in_temporary_db": true
+  }
+}

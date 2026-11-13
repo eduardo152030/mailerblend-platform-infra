@@ -1,0 +1,205 @@
+{
+  "at_utc": "2026-11-13T08:27:41.719636+00:00",
+  "healthy": true,
+  "capabilities": {
+    "qwen": {
+      "ready": true,
+      "languages": [
+        "es",
+        "en"
+      ],
+      "model_sizes": [
+        "0.6B"
+      ],
+      "max_chars": 1200
+    },
+    "chatterbox": {
+      "ready": true,
+      "languages": [
+        "es",
+        "en"
+      ],
+      "model_sizes": [
+        "default"
+      ],
+      "max_chars": 240,
+      "experimental": true,
+      "variant": "multilingual-v3"
+    },
+    "chatterbox_turbo": {
+      "ready": false
+    },
+    "kokoro": {
+      "ready": true
+    },
+    "piper": {
+      "ready": true
+    }
+  },
+  "chatterbox_policy": {
+    "engine": "chatterbox",
+    "variant": "multilingual-v3",
+    "model_size": "default",
+    "max_chars": 240,
+    "max_tokens": 400,
+    "timeout_seconds": 300,
+    "worker_hard_bytes": 8589934592,
+    "worker_stop_bytes": 7516192768,
+    "predicted_increment_bytes": 7516192768,
+    "margin_bytes": 536870912
+  },
+  "pure_validation_no_requests": {
+    "240": "accepted_by_pure_validation",
+    "241": "rejected_before_ML",
+    "1200": "rejected_before_ML"
+  },
+  "worker_audio_cap_seconds": 20,
+  "upstream": {
+    "source_commit": "ab55923c27757c90cfcc407baa57dc25a7d25217",
+    "generate_max_new_tokens": 1000,
+    "max_text_tokens": 2048,
+    "max_speech_tokens": 4096,
+    "mtl_sha256": "936759044e54cffe8c68b91b32e01da0bc032a1e084f769f0403080d86ad153c"
+  },
+  "ui_api": {
+    "api_admission_240": true,
+    "api_effects_shared_postprocessing": true,
+    "api_effects_default_none": true,
+    "eduardo_profile_effects_none": true,
+    "served_bundles": [
+      {
+        "name": "index-CzM_gv4b.js",
+        "sha256": "82a69264ebb5e4aeb075fb0bb997b77d4b5351f2f67853c7c93506963224ad16",
+        "effects_selector": true,
+        "requested_effect_labels": true
+      }
+    ]
+  },
+  "effects_presets": [
+    {
+      "id": "6222ff3b-a864-4d68-8fee-82780e7e6b3f",
+      "name": "Robotic",
+      "description": "Metallic robotic voice (flanger with slow LFO and high feedback)",
+      "effects_chain": [
+        {
+          "type": "chorus",
+          "enabled": true,
+          "params": {
+            "rate_hz": 0.2,
+            "depth": 1.0,
+            "feedback": 0.35,
+            "centre_delay_ms": 7.0,
+            "mix": 0.5
+          }
+        }
+      ],
+      "is_builtin": true,
+      "created_at": "2026-11-10T10:43:55.111228"
+    },
+    {
+      "id": "667eaee0-2b77-4b36-b530-0fd69f811397",
+      "name": "Radio",
+      "description": "Thin AM-radio voice with band-pass filtering and light compression",
+      "effects_chain": [
+        {
+          "type": "highpass",
+          "enabled": true,
+          "params": {
+            "cutoff_frequency_hz": 300.0
+          }
+        },
+        {
+          "type": "lowpass",
+          "enabled": true,
+          "params": {
+            "cutoff_frequency_hz": 3500.0
+          }
+        },
+        {
+          "type": "compressor",
+          "enabled": true,
+          "params": {
+            "threshold_db": -15.0,
+            "ratio": 6.0,
+            "attack_ms": 5.0,
+            "release_ms": 50.0
+          }
+        },
+        {
+          "type": "gain",
+          "enabled": true,
+          "params": {
+            "gain_db": 6.0
+          }
+        }
+      ],
+      "is_builtin": true,
+      "created_at": "2026-11-10T10:43:55.111235"
+    },
+    {
+      "id": "094132fe-1713-4c02-a1d5-a33134e59625",
+      "name": "Echo Chamber",
+      "description": "Spacious reverb with trailing echo",
+      "effects_chain": [
+        {
+          "type": "reverb",
+          "enabled": true,
+          "params": {
+            "room_size": 0.85,
+            "damping": 0.3,
+            "wet_level": 0.45,
+            "dry_level": 0.55,
+            "width": 1.0
+          }
+        },
+        {
+          "type": "delay",
+          "enabled": true,
+          "params": {
+            "delay_seconds": 0.25,
+            "feedback": 0.3,
+            "mix": 0.2
+          }
+        }
+      ],
+      "is_builtin": true,
+      "created_at": "2026-11-10T10:43:55.111236"
+    },
+    {
+      "id": "e92140c4-d15c-4c3f-8657-6ebf8f684dee",
+      "name": "Deep Voice",
+      "description": "Lower pitch with added warmth",
+      "effects_chain": [
+        {
+          "type": "pitch_shift",
+          "enabled": true,
+          "params": {
+            "semitones": -3.0
+          }
+        },
+        {
+          "type": "lowpass",
+          "enabled": true,
+          "params": {
+            "cutoff_frequency_hz": 6000.0
+          }
+        },
+        {
+          "type": "compressor",
+          "enabled": true,
+          "params": {
+            "threshold_db": -18.0,
+            "ratio": 3.0,
+            "attack_ms": 10.0,
+            "release_ms": 150.0
+          }
+        }
+      ],
+      "is_builtin": true,
+      "created_at": "2026-11-10T10:43:55.111237"
+    }
+  ],
+  "effects_selection_both_engines": true,
+  "effects_default": "none; Eduardo profile has no effects chain",
+  "audio_generated_or_processed": false
+}

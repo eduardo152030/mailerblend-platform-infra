@@ -1,0 +1,959 @@
+{
+  "date": "2026-11-13 Europe/Madrid",
+  "status": "BLOCKED_AFTER_OBSERVER_NETWORK_FAILURE",
+  "tests": {
+    "stable_original_full_suite": {
+      "tests": 69,
+      "failures": 1,
+      "errors": 0
+    },
+    "stable_readiness_alone": {
+      "tests": 2,
+      "failures": 0
+    },
+    "fixed_full_suite": {
+      "tests": 73,
+      "failures": 0,
+      "errors": 0
+    },
+    "ui": {
+      "tests": 9,
+      "failures": 0
+    }
+  },
+  "isolated": {
+    "success": true,
+    "tts_attempts": 1,
+    "effective_limits": {
+      "memory.max": "8589934592",
+      "memory.swap.max": "0",
+      "cpu.max": "300000 100000"
+    },
+    "result": {
+      "engine": "chatterbox",
+      "variant": "multilingual-v3",
+      "language": "es",
+      "dtype": "float32",
+      "seed": 42,
+      "load_seconds": 22.707963630993618,
+      "tokens": 139,
+      "eos": true,
+      "token_seconds": 37.79378882198944,
+      "success": true,
+      "seconds": 5.48,
+      "wav_sha256": "358aacba678d13acd3e203e517cbb53f54f5ea62fd261869b9c5a12ac6b4cd45",
+      "total_seconds": 118.71353064198047
+    },
+    "cgroup_peak_bytes": 2576482304,
+    "margin_to_7gib_bytes": 4939710464,
+    "rss_hwm_bytes": 4920815616,
+    "worker_swap_max": 0,
+    "worker_cpu_seconds": 250.936488,
+    "wall_seconds": 141.19187622398022,
+    "ct_psi_full_avg10_max": 0.0,
+    "phases": [
+      {
+        "phase": "load.before",
+        "elapsed_seconds": 20.453229787002783,
+        "memory": {
+          "Pss_bytes": 586426368,
+          "VmHWM_bytes": 594087936,
+          "VmRSS_bytes": 594087936,
+          "memory.current": 390975488,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 390975488,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 0,
+            "anon": 387084288,
+            "file": 450560,
+            "file_dirty": 0,
+            "file_mapped": 0,
+            "inactive_file": 106496,
+            "kernel": 3186688
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 594087936
+        }
+      },
+      {
+        "phase": "load.after",
+        "elapsed_seconds": 43.03282454400323,
+        "memory": {
+          "Pss_bytes": 4579524608,
+          "VmHWM_bytes": 4920815616,
+          "VmRSS_bytes": 4587061248,
+          "memory.current": 2279616512,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2576482304,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=739\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=739\n",
+          "memory.stat": {
+            "active_file": 0,
+            "anon": 2230300672,
+            "file": 37928960,
+            "file_dirty": 0,
+            "file_mapped": 0,
+            "inactive_file": 37572608,
+            "kernel": 11132928
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920815616
+        }
+      },
+      {
+        "phase": "reference.before",
+        "elapsed_seconds": 43.16126186499605,
+        "memory": {
+          "Pss_bytes": 4579524608,
+          "VmHWM_bytes": 4920815616,
+          "VmRSS_bytes": 4587061248,
+          "memory.current": 2279616512,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2576482304,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=739\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=739\n",
+          "memory.stat": {
+            "active_file": 0,
+            "anon": 2230300672,
+            "file": 37928960,
+            "file_dirty": 0,
+            "file_mapped": 0,
+            "inactive_file": 37572608,
+            "kernel": 11132928
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920815616
+        }
+      },
+      {
+        "phase": "reference.after",
+        "elapsed_seconds": 60.484133341000415,
+        "memory": {
+          "Pss_bytes": 4623554560,
+          "VmHWM_bytes": 4920815616,
+          "VmRSS_bytes": 4631097344,
+          "memory.current": 2336223232,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2576482304,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=739\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=739\n",
+          "memory.stat": {
+            "active_file": 23281664,
+            "anon": 2252787712,
+            "file": 71397376,
+            "file_dirty": 0,
+            "file_mapped": 13246464,
+            "inactive_file": 45330432,
+            "kernel": 11788288
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920815616
+        }
+      },
+      {
+        "phase": "tokens.before",
+        "elapsed_seconds": 60.55978828098159,
+        "memory": {
+          "Pss_bytes": 4623554560,
+          "VmHWM_bytes": 4920815616,
+          "VmRSS_bytes": 4631097344,
+          "memory.current": 2336223232,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2576482304,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=739\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=739\n",
+          "memory.stat": {
+            "active_file": 23281664,
+            "anon": 2252787712,
+            "file": 71397376,
+            "file_dirty": 0,
+            "file_mapped": 13246464,
+            "inactive_file": 45330432,
+            "kernel": 11788288
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920815616
+        }
+      },
+      {
+        "phase": "tokens.after",
+        "elapsed_seconds": 98.42311794598936,
+        "memory": {
+          "Pss_bytes": 4626536448,
+          "VmHWM_bytes": 4920815616,
+          "VmRSS_bytes": 4633849856,
+          "memory.current": 2339639296,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2576482304,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=739\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=739\n",
+          "memory.stat": {
+            "active_file": 26193920,
+            "anon": 2253185024,
+            "file": 74338304,
+            "file_dirty": 0,
+            "file_mapped": 15441920,
+            "inactive_file": 45363200,
+            "kernel": 11853824
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920815616
+        }
+      },
+      {
+        "phase": "decoder.before",
+        "elapsed_seconds": 98.50296024198178,
+        "memory": {
+          "Pss_bytes": 4626540544,
+          "VmHWM_bytes": 4920815616,
+          "VmRSS_bytes": 4633849856,
+          "memory.current": 2339901440,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2576482304,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=739\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=739\n",
+          "memory.stat": {
+            "active_file": 26193920,
+            "anon": 2253185024,
+            "file": 74338304,
+            "file_dirty": 0,
+            "file_mapped": 15441920,
+            "inactive_file": 45363200,
+            "kernel": 11853824
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920815616
+        }
+      },
+      {
+        "phase": "decoder.after",
+        "elapsed_seconds": 138.82199580298038,
+        "memory": {
+          "Pss_bytes": 4657059840,
+          "VmHWM_bytes": 4920815616,
+          "VmRSS_bytes": 4664619008,
+          "memory.current": 2368315392,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2576482304,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=739\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=739\n",
+          "memory.stat": {
+            "active_file": 29040640,
+            "anon": 2278502400,
+            "file": 77185024,
+            "file_dirty": 0,
+            "file_mapped": 18038784,
+            "inactive_file": 45363200,
+            "kernel": 11988992
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920815616
+        }
+      },
+      {
+        "phase": "worker.end",
+        "elapsed_seconds": 139.11318530098652,
+        "memory": {
+          "Pss_bytes": 4657276928,
+          "VmHWM_bytes": 4920815616,
+          "VmRSS_bytes": 4664881152,
+          "memory.current": 2368323584,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 2576482304,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=739\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=739\n",
+          "memory.stat": {
+            "active_file": 29097984,
+            "anon": 2278555648,
+            "file": 77512704,
+            "file_dirty": 0,
+            "file_mapped": 18149376,
+            "inactive_file": 45633536,
+            "kernel": 11993088
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920815616
+        }
+      }
+    ],
+    "processes_released": true
+  },
+  "production_es": {
+    "success": true,
+    "error": null,
+    "elapsed_total": null,
+    "worker_result": {
+      "engine": "chatterbox",
+      "variant": "multilingual-v3",
+      "language": "es",
+      "dtype": "float32",
+      "seed": 42,
+      "load_seconds": 23.498718495015055,
+      "tokens": 139,
+      "eos": true,
+      "token_seconds": 32.31418067001505,
+      "success": true,
+      "seconds": 5.48,
+      "wav_sha256": "358aacba678d13acd3e203e517cbb53f54f5ea62fd261869b9c5a12ac6b4cd45",
+      "total_seconds": 110.91932905997965
+    },
+    "processes_released": true,
+    "worker_peak_sample": {
+      "at_utc": "2026-11-13T07:11:53.560650+00:00",
+      "worker_current": 3266584576,
+      "rss_bytes": 2621792256,
+      "ct_current": 10621145088,
+      "worker_stat": {
+        "anon": 2412982272,
+        "file": 845430784,
+        "kernel": 8171520,
+        "kernel_stack": 147456,
+        "pagetables": 6598656,
+        "sec_pagetables": 0,
+        "percpu": 2136,
+        "sock": 0,
+        "vmalloc": 12288,
+        "shmem": 344064,
+        "zswap": 0,
+        "zswapped": 0,
+        "file_mapped": 0,
+        "file_dirty": 0,
+        "file_writeback": 0,
+        "swapcached": 0,
+        "anon_thp": 0,
+        "file_thp": 0,
+        "shmem_thp": 0,
+        "inactive_anon": 0,
+        "active_anon": 2413326336,
+        "inactive_file": 845074432,
+        "active_file": 12288,
+        "unevictable": 0,
+        "slab_reclaimable": 492088,
+        "slab_unreclaimable": 908904,
+        "slab": 1400992,
+        "workingset_refault_anon": 0,
+        "workingset_refault_file": 0,
+        "workingset_activate_anon": 0,
+        "workingset_activate_file": 0,
+        "workingset_restore_anon": 0,
+        "workingset_restore_file": 0,
+        "workingset_nodereclaim": 0,
+        "pgscan": 0,
+        "pgsteal": 0,
+        "pgscan_kswapd": 0,
+        "pgscan_direct": 0,
+        "pgscan_khugepaged": 0,
+        "pgsteal_kswapd": 0,
+        "pgsteal_direct": 0,
+        "pgsteal_khugepaged": 0,
+        "pgfault": 667805,
+        "pgmajfault": 2,
+        "pgrefill": 0,
+        "pgactivate": 0,
+        "pgdeactivate": 0,
+        "pglazyfree": 0,
+        "pglazyfreed": 0,
+        "zswpin": 0,
+        "zswpout": 0,
+        "zswpwb": 0,
+        "thp_fault_alloc": 0,
+        "thp_collapse_alloc": 0,
+        "thp_swpout": 0,
+        "thp_swpout_fallback": 0
+      },
+      "worker_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "ct_current_max": 10621145088,
+    "ct_swap_max": 13881344,
+    "host_available_min": 20504023040,
+    "worker_current_max": 3266584576,
+    "rss_bytes_max": 4646191104,
+    "ct_psi_full_avg10_max": 0.0,
+    "host_psi_full_avg10_max": 4.6,
+    "ct_stat_anon_max": 2810306560,
+    "ct_stat_file_max": 7328989184,
+    "ct_stat_kernel_max": 532148224,
+    "worker_stat_anon_max": 2412982272,
+    "worker_stat_file_max": 893644800,
+    "worker_stat_kernel_max": 11796480,
+    "worker_cpu_usage_usec_max": 243286003,
+    "worker_cpu_user_usec_max": 233153024,
+    "worker_cpu_system_usec_max": 10132979,
+    "ct_events_oom_max": 0,
+    "ct_events_oom_kill_max": 0,
+    "worker_events_oom_max": 0,
+    "worker_events_oom_kill_max": 0,
+    "ct_cpu_delta_usec": 252254391,
+    "ct_swap_growth_bytes": 0,
+    "ct_events_delta": {
+      "oom": 0,
+      "oom_kill": 0
+    },
+    "host_oom_delta": 0,
+    "id": "9a8ba53a-6032-4ab0-bfa6-8521e4d1de77",
+    "cgroup_kernel_peak_bytes": 3421573120,
+    "margin_to_7gib_bytes": 4094619648,
+    "rss_hwm_bytes": 4920995840,
+    "phase_snapshots": [
+      {
+        "phase": "load.before",
+        "elapsed_seconds": 26.41638352398877,
+        "memory": {
+          "Pss_bytes": 586647552,
+          "VmHWM_bytes": 593846272,
+          "VmRSS_bytes": 593846272,
+          "memory.current": 1236176896,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 1236176896,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "memory.stat": {
+            "active_file": 12288,
+            "anon": 387125248,
+            "file": 845422592,
+            "file_dirty": 0,
+            "file_mapped": 0,
+            "inactive_file": 845053952,
+            "kernel": 3190784
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 593846272
+        }
+      },
+      {
+        "phase": "load.after",
+        "elapsed_seconds": 49.80671096401056,
+        "memory": {
+          "Pss_bytes": 4579813376,
+          "VmHWM_bytes": 4920995840,
+          "VmRSS_bytes": 4587360256,
+          "memory.current": 3124649984,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 3421573120,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10\n",
+          "memory.stat": {
+            "active_file": 12288,
+            "anon": 2230358016,
+            "file": 882913280,
+            "file_dirty": 4096,
+            "file_mapped": 234983424,
+            "inactive_file": 882515968,
+            "kernel": 11124736
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920995840
+        }
+      },
+      {
+        "phase": "reference.before",
+        "elapsed_seconds": 49.91516515400144,
+        "memory": {
+          "Pss_bytes": 4579813376,
+          "VmHWM_bytes": 4920995840,
+          "VmRSS_bytes": 4587360256,
+          "memory.current": 3124654080,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 3421573120,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10\n",
+          "memory.stat": {
+            "active_file": 12288,
+            "anon": 2230358016,
+            "file": 882913280,
+            "file_dirty": 4096,
+            "file_mapped": 234983424,
+            "inactive_file": 882515968,
+            "kernel": 11124736
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920995840
+        }
+      },
+      {
+        "phase": "reference.after",
+        "elapsed_seconds": 65.39711153999087,
+        "memory": {
+          "Pss_bytes": 4623824896,
+          "VmHWM_bytes": 4920995840,
+          "VmRSS_bytes": 4631072768,
+          "memory.current": 3158208512,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 3421573120,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10\n",
+          "memory.stat": {
+            "active_file": 57344,
+            "anon": 2252845056,
+            "file": 893337600,
+            "file_dirty": 0,
+            "file_mapped": 235589632,
+            "inactive_file": 890503168,
+            "kernel": 11657216
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920995840
+        }
+      },
+      {
+        "phase": "tokens.before",
+        "elapsed_seconds": 65.46848726799362,
+        "memory": {
+          "Pss_bytes": 4623824896,
+          "VmHWM_bytes": 4920995840,
+          "VmRSS_bytes": 4631072768,
+          "memory.current": 3158085632,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 3421573120,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10\n",
+          "memory.stat": {
+            "active_file": 57344,
+            "anon": 2252845056,
+            "file": 893337600,
+            "file_dirty": 0,
+            "file_mapped": 235589632,
+            "inactive_file": 890503168,
+            "kernel": 11657216
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920995840
+        }
+      },
+      {
+        "phase": "tokens.after",
+        "elapsed_seconds": 97.85391666000942,
+        "memory": {
+          "Pss_bytes": 4626786304,
+          "VmHWM_bytes": 4920995840,
+          "VmRSS_bytes": 4634349568,
+          "memory.current": 3158601728,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 3421573120,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10\n",
+          "memory.stat": {
+            "active_file": 57344,
+            "anon": 2253242368,
+            "file": 893374464,
+            "file_dirty": 0,
+            "file_mapped": 235593728,
+            "inactive_file": 890535936,
+            "kernel": 11722752
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920995840
+        }
+      },
+      {
+        "phase": "decoder.before",
+        "elapsed_seconds": 97.92230417099199,
+        "memory": {
+          "Pss_bytes": 4626786304,
+          "VmHWM_bytes": 4920995840,
+          "VmRSS_bytes": 4634349568,
+          "memory.current": 3158601728,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 3421573120,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10\n",
+          "memory.stat": {
+            "active_file": 57344,
+            "anon": 2253242368,
+            "file": 893374464,
+            "file_dirty": 0,
+            "file_mapped": 235593728,
+            "inactive_file": 890535936,
+            "kernel": 11722752
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920995840
+        }
+      },
+      {
+        "phase": "decoder.after",
+        "elapsed_seconds": 136.97836912600906,
+        "memory": {
+          "Pss_bytes": 4638496768,
+          "VmHWM_bytes": 4920995840,
+          "VmRSS_bytes": 4645797888,
+          "memory.current": 3165413376,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 3421573120,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10\n",
+          "memory.stat": {
+            "active_file": 57344,
+            "anon": 2259709952,
+            "file": 893374464,
+            "file_dirty": 0,
+            "file_mapped": 235593728,
+            "inactive_file": 890535936,
+            "kernel": 11800576
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920995840
+        }
+      },
+      {
+        "phase": "worker.end",
+        "elapsed_seconds": 137.30153469799552,
+        "memory": {
+          "Pss_bytes": 4638681088,
+          "VmHWM_bytes": 4920995840,
+          "VmRSS_bytes": 4646060032,
+          "memory.current": 3165519872,
+          "memory.events": {
+            "high": 0,
+            "low": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_group_kill": 0,
+            "oom_kill": 0
+          },
+          "memory.high": "max",
+          "memory.max": 8589934592,
+          "memory.peak": 3421573120,
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10\n",
+          "memory.stat": {
+            "active_file": 57344,
+            "anon": 2259795968,
+            "file": 893644800,
+            "file_dirty": 4096,
+            "file_mapped": 235593728,
+            "inactive_file": 890806272,
+            "kernel": 11825152
+          },
+          "memory.swap.current": 0,
+          "rusage_hwm_bytes": 4920995840
+        }
+      }
+    ],
+    "audio_url": "http://192.168.1.127:17493/audio/9a8ba53a-6032-4ab0-bfa6-8521e4d1de77",
+    "observed_from_pve": true,
+    "worker_swap_max": 0
+  },
+  "production_en": {
+    "executed": false,
+    "reason": "STOP after local observer lost network route; no automatic retry"
+  },
+  "deployment": {
+    "deployment": "PASS",
+    "app_unchanged": true,
+    "qwen_unchanged": true,
+    "capabilities": {
+      "qwen": {
+        "ready": true,
+        "languages": [
+          "es",
+          "en"
+        ],
+        "model_sizes": [
+          "0.6B"
+        ],
+        "max_chars": 1200
+      },
+      "chatterbox": {
+        "ready": true,
+        "languages": [
+          "es",
+          "en"
+        ],
+        "model_sizes": [
+          "default"
+        ],
+        "max_chars": 240,
+        "experimental": true,
+        "variant": "multilingual-v3"
+      },
+      "chatterbox_turbo": {
+        "ready": false
+      },
+      "kokoro": {
+        "ready": true
+      },
+      "piper": {
+        "ready": true
+      }
+    },
+    "resources_and_configs_unchanged": true,
+    "rollback_ready": true
+  },
+  "disabled": {
+    "chatterbox_disabled": true,
+    "qwen_es_en_ready": true,
+    "voicebox_healthy": true,
+    "no_service_restart": true
+  },
+  "control": {
+    "synthetic_hold_only": true,
+    "model_loaded": false,
+    "audio_generated": false,
+    "shared_lock_blocks_second_contender": true,
+    "cancellation_effective": true,
+    "all_processes_released": true,
+    "owned_worker_removed": true,
+    "persistent_synthetic_evidence_kept": true
+  },
+  "backups": {
+    "result": "PASS",
+    "backups": {
+      "D084": {
+        "bytes": 18952506863,
+        "sha256": "3fa4107c8566fa9b0c4cd22b21a7423cc16901245ae613bf52f983bcd790afcb",
+        "unchanged_since_verified_restore": true
+      },
+      "D085": {
+        "bytes": 82493485,
+        "sha256": "9ac082cf85ac771a632abc4000b2f198b1de7b6c95c896aeae131d6021a390d1",
+        "unchanged_since_verified_restore": true
+      },
+      "D087": {
+        "bytes": 82493480,
+        "sha256": "a090fdab2af2ad0932a73bc4d3815a460f0bfb0873bf74ccf509904ae86d536c",
+        "unchanged_since_verified_restore": true
+      },
+      "D089": {
+        "sha256": "32006c99f0a41ea7d454a4d75c662b237287a0b9e5c936db0dbbfb00d172b4f0",
+        "files_verified": 141,
+        "isolated_restore": true,
+        "sqlite_integrity": "ok",
+        "no_production_restore": true
+      }
+    }
+  },
+  "final": {
+    "at_utc": "2026-11-13T07:35:06.847769+00:00",
+    "healthy": true,
+    "capabilities": {
+      "qwen": {
+        "ready": true,
+        "languages": [
+          "es",
+          "en"
+        ],
+        "model_sizes": [
+          "0.6B"
+        ],
+        "max_chars": 1200
+      },
+      "chatterbox": {
+        "ready": false,
+        "languages": [
+          "es",
+          "en"
+        ],
+        "model_sizes": [
+          "default"
+        ],
+        "max_chars": 240,
+        "experimental": true,
+        "variant": "multilingual-v3"
+      },
+      "chatterbox_turbo": {
+        "ready": false
+      },
+      "kokoro": {
+        "ready": true
+      },
+      "piper": {
+        "ready": true
+      }
+    },
+    "resources": {
+      "memory": "20480",
+      "cores": "3",
+      "swap": "2048",
+      "rootfs": "local-lvm:vm-627-disk-0,size=100G"
+    },
+    "protected_files_checked": 105,
+    "protected_files_unchanged": true,
+    "no_residual_chatterbox": true,
+    "other_active_qwen_jobs": [
+      "27af4ddcc17a4e109dc2b3fe2d569329"
+    ],
+    "ct_events": {
+      "low": 0,
+      "high": 251,
+      "max": 367,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "ct_psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=913879\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=870033\n",
+    "pool_free_pct": 30.943043852883168,
+    "checkpoints": {
+      "7f348e9777214f4e827dcf7e1458c045": {
+        "integrity": true,
+        "eos": true,
+        "shape": [
+          669,
+          16
+        ]
+      },
+      "baa61a95c7b445248229aa697b941710": {
+        "integrity": true,
+        "eos": true,
+        "shape": [
+          1029,
+          16
+        ]
+      },
+      "d7f2f5da9dfd49eab7df678ff1e25b82": {
+        "integrity": true,
+        "eos": true,
+        "shape": [
+          344,
+          16
+        ]
+      }
+    }
+  },
+  "app_id_start_image_unchanged": true,
+  "all_pve_configs_unchanged": true
+}

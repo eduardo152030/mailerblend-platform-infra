@@ -4,9 +4,14 @@
 contenido del WAV privado de57,36s. No se prueba aquí un nuevo audio ni se amplía
 el alcance a5–10min. [Informe final](../../../docs/roadmap/PHASE7-D082-VOICEBOX-FINAL-ACCEPTANCE.md).
 
+**Actualización D084:** rootfs ampliado online a100GiB SSD; runtimeD081 intacto.
+Para verificar la configuración actual usar [verificador D084](../resize-d084/verify-production.py)
+y[runbook](../resize-d084/README.md); el verificador D082 original exige50GiB
+como evidencia histórica yno debe usarse tras estaampliación.
+
 ## Configuración que debe conservarse
 
-CT627 infra-voicebox:15360MiB RAM,3vCPU,2048MiBswap,50GiB. ImagenappD079
+CT627 infra-voicebox:15360MiB RAM,3vCPU,2048MiBswap,100GiB (D084). ImagenappD079
 `sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea`;
 workerD069 `sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b`.
 Locks yCompose fijan las imágenes; `pilot-d077/runtime.py` fija modelo ybackend.

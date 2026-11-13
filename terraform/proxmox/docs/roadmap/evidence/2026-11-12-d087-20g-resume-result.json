@@ -1,0 +1,157 @@
+{
+  "status": "RESOURCES_DONE_DEPLOYMENT_ROLLED_BACK",
+  "resources": {
+    "resources": {
+      "memory": "20480",
+      "cores": "3",
+      "swap": "2048",
+      "rootfs": "local-lvm:vm-627-disk-0,size=100G"
+    },
+    "ct_memory_max": 21474836480,
+    "ct_swap_max": 2147483648,
+    "ct_guard_gib": 19,
+    "qwen_worker_hard_gib": 9,
+    "qwen_worker_stop_gib": 8.2,
+    "agent": "active",
+    "agent_healthy": true,
+    "chatterbox_enabled": false,
+    "active_containers": [
+      "voicebox",
+      "cadvisor",
+      "test-nginx"
+    ],
+    "host": {
+      "MemTotal": 33533042688,
+      "MemAvailable": 23467409408
+    },
+    "host_psi": "some avg10=18.33 avg60=16.96 avg300=16.57 total=12877034342\nfull avg10=15.47 avg60=14.52 avg300=13.87 total=11167451647\n",
+    "ct_current": 3790282752,
+    "ct_psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=259745\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=247743\n",
+    "ct_swap": 14168064,
+    "ct_events": "low 0\nhigh 251\nmax 367\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "pool_free_gib": 124.1431884765625,
+    "pool_free_pct": 31.02913070434086,
+    "guard_files_unchanged_after_rollback": true
+  },
+  "resize": {
+    "at_utc": "2026-11-12T20:28:17.672123+00:00",
+    "before_resources": {
+      "cores": "3",
+      "memory": "15360",
+      "swap": "2048"
+    },
+    "after_memory_bytes": 21474836480,
+    "after_swap_bytes": 2147483648,
+    "voicebox_identity": {
+      "id": "3590943bf886c3e3703cb49b92f39d8cfa23c9ef7bec43aa66f47c7e8278181c",
+      "image": "sha256:09774c5b7c535185c901557ddb6c69a4f8bb38ceff2c6998e19bab403b8e94ea",
+      "started": "2026-11-12T19:18:39.011893295Z",
+      "restarts": 0,
+      "health": "healthy"
+    },
+    "changed": true,
+    "restart": false,
+    "others_unchanged": true
+  },
+  "guards": {
+    "files": {
+      "supervise.py": "f3e4b919c906f97330d080ca0f5fb23427a897a03f92a6df0b1b22ca6091d676",
+      "guards.py": "f983d72b48260d915185d0664eee7977c68abfc9e8018dd70a4e4b1a1a9f2779"
+    },
+    "ct_guard_gib": 19,
+    "ct_ram_gib": 20,
+    "worker_hard_gib": 9,
+    "worker_stop_gib": 8.2,
+    "app_recreated": false,
+    "agent_active": true,
+    "agent_restart_needed": true,
+    "ct_source_revision": "src-9de5403e3b0fdebe"
+  },
+  "terraform": {
+    "final_plan_changes": 0,
+    "target_only_ct627": true,
+    "other_state_instances_unchanged": true,
+    "serial_before": 279,
+    "serial_after": 280
+  },
+  "backup": {
+    "result": "PASS",
+    "archive_sha256": "466deaa31ef647b277d3559198b577b364754d0fae9c02979936b76db2b005ab",
+    "files_verified": 117,
+    "symlinks_confined": 0,
+    "sqlite_integrity": "ok",
+    "completed_audio_files": 6,
+    "reference_audio_files": 1,
+    "sample_rates_verified": [
+      24000
+    ],
+    "mode": "isolated restoration outside PVE; original data and archives preserved"
+  },
+  "image_attempted": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+  "deployment_error": "IsADirectoryError: bundle/controller/__pycache__; resource preflight import created cache; unconstrained iterdir copied directory",
+  "rollback": "PASS",
+  "production_same_id_and_start": true,
+  "other_26_pve_configs_unchanged": true,
+  "data": {
+    "database": {
+      "profiles": {
+        "rows": 1,
+        "sha256": "d9e260f32d4bf93e9c55ad4057c9bb9166e0eae73a4e4b904293b893b6090d79"
+      },
+      "profile_samples": {
+        "rows": 1,
+        "sha256": "d2622919263b06313c5b50517612982f4ef042a99ea9faa92381538a2d27b90b"
+      },
+      "generations": {
+        "rows": 6,
+        "sha256": "df981358cf004e14d050361d3f9cf8c3d17c24f2e81a42dd7724c7a6e0be7844"
+      }
+    },
+    "sqlite_integrity": "ok",
+    "http": {
+      "health": {
+        "status": 200
+      },
+      "agent": {
+        "status": 200
+      },
+      "wav": {
+        "status": 200,
+        "bytes": 2753324,
+        "sha256": "6da5f689b7c939ef069c8ede664888ed42fa31bd0d0f3f15e2f03ff9dccc014c"
+      },
+      "node": {
+        "status": 200
+      },
+      "cadvisor": {
+        "status": 200
+      }
+    }
+  },
+  "inferences": 0,
+  "tests_without_inference_passed": 37,
+  "local_recipe_corrected_not_redeployed": true,
+  "commit_push": false,
+  "protected_files": {
+    "protected_files_checked": 105,
+    "unchanged": true
+  },
+  "historical_checkpoints": {
+    "7f348e9777214f4e827dcf7e1458c045": {
+      "integrity": true,
+      "shape": [
+        669,
+        16
+      ],
+      "eos": true
+    },
+    "baa61a95c7b445248229aa697b941710": {
+      "integrity": true,
+      "shape": [
+        1029,
+        16
+      ],
+      "eos": true
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PREPARED_NOT_DEPLOYED",
+  "model_manifest_sha256": "42f1c0393ffbff61f1f3212e0f14e573e3c1bf07daf0b9385f1e22630715ba4b",
+  "environment_receipt_sha256": "2228e9565df074fd89e6f93a7fd57910e95a1215a4ac32bda036c277d71b8dce",
+  "mtl_source_sha256": "936759044e54cffe8c68b91b32e01da0bc032a1e084f769f0403080d86ad153c",
+  "original_model_files_unchanged": true,
+  "variant_difference": "Core assign=True; Chinese-only auxiliary initialization deferred. Compare core phases separately from tokenizer fix.",
+  "files": {
+    "driver.py": "ff6660de6920cc8c7c8e6057d4759b19e0cf856eacda85a56a7755750667d291",
+    "load_probe.py": "9405813b8f562f54026391cc5b78f49fcf3ad9bcbe8c0ca8131d6bfa23f6343b",
+    "contracts.py": "89d14fb093d4ecb8b227f36b146aed067e314737e06941d98e041536c3e193b0",
+    "telemetry.py": "537f9075d19a4ba96818f4d55664c5c786b9f56a02f10b2044c0a7df28b2c32d",
+    "supervise_load.py": "2fd359902f39314be6309db5e75411874fb9ac1b41adf9e182914ca411fc71da"
+  }
+}

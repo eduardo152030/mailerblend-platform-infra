@@ -1,0 +1,29 @@
+{
+  "status": "STOP_CHATTERBOX_DISABLED",
+  "production_ml_identical_to_isolated": true,
+  "files": {
+    "services/infra-voicebox/validation-d089/README.md": "c3a3f43ce2c2ac9169222bab694be506638fe91d0cf24c69891ba52d8d22976c",
+    "services/infra-voicebox/validation-d089/backup.py": "51553b84e921f1914b906c84f77e990715c9a12ded04305e00d71009ae7d4b29",
+    "services/infra-voicebox/validation-d089/chatterbox_worker.py": "331f12b86aff72bb3a5d1816add1ea25f7b7c98690c01e869d367e03de202d68",
+    "services/infra-voicebox/validation-d089/d077_contract.py": "e30e0367d4bf17b87b1ce5b8237eec9f51e628d382d3b50b52a5631da04f7450",
+    "services/infra-voicebox/validation-d089/deploy.py": "eba4246c4bb829b000d15f4ad70125a8e96759a01dfaafe49e65c3e90abb3b77",
+    "services/infra-voicebox/validation-d089/deployment-lock.json": "72c03ae8905235509f704fe44da54e6ccc6691898e22fae487263438a6b47bd4",
+    "services/infra-voicebox/validation-d089/disable.py": "5764ef146530bd7e02d154e4d2cf1f2f143e31f16dea2b1cc9dff4cd19311784",
+    "services/infra-voicebox/validation-d089/engine_policy.py": "a162ee546e5b65317e51423e9c8ade3294fa829eb85f1348aa9a55278d86f009",
+    "services/infra-voicebox/validation-d089/final-check.py": "0e9f6f640b9541d8adc2e7c1766344d88606f5c780df1e336d6afc3a6a89d9e7",
+    "services/infra-voicebox/validation-d089/load_probe.py": "9405813b8f562f54026391cc5b78f49fcf3ad9bcbe8c0ca8131d6bfa23f6343b",
+    "services/infra-voicebox/validation-d089/qwen_language_policy.py": "32015eab1359d7c7ddc38d85f05bcedb0f3c4070d58e6cb6b08b773fcac70fe0",
+    "services/infra-voicebox/validation-d089/readiness.py": "4652aaebfb64dc9d4cbfa8eb262af48531893d1f5e9ca14fabe47fd2a9ef7a9a",
+    "services/infra-voicebox/validation-d089/source-lock.json": "2fd427f0f8f214b98be92fb7f510b7b28ac40cda8a941f41cc30df3974b571fe",
+    "services/infra-voicebox/validation-d089/submit_once.py": "a42397c096de68a0277cd8ba5be418b04b222e46b39fce6451a8a301c60e1c41",
+    "services/infra-voicebox/validation-d089/supervise_isolated.py": "4b47e96c66b02f9574ccd2079b25724ddc0f856512ed0c0a201deac36edbb293",
+    "services/infra-voicebox/validation-d089/telemetry.py": "537f9075d19a4ba96818f4d55664c5c786b9f56a02f10b2044c0a7df28b2c32d",
+    "services/infra-voicebox/validation-d089/verify-control.py": "b2832b7f1e28d2a9dc3fc61567902849d5212c5b4a8f5222388a9492bd67a498",
+    "services/infra-voicebox/validation-d089/verify-data.py": "d14e0ba76421963a566e3f1bc0a15067f2fd85141ad09bf6367065cddca2acd0",
+    "services/infra-voicebox/validation-d089/verify_backups.py": "721e4714922ed3209edff287a7db60e66f29677a98035e64bf10acdb4a3eeee4"
+  },
+  "tests": {
+    "tests/voicebox/test_d087_readiness.py": "cef7536e008a81040c31a04f0c374c9b6754b4eb45088c3aacfcb0018eb42afb",
+    "tests/voicebox/test_d089.py": "aa09e4eecac1faccae6ef7ff1fa2a26562f24ffad1cd892e820234d923f38965"
+  }
+}
