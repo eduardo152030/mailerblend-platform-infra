@@ -1,13 +1,18 @@
 # Fase 7. IaC Reliability, Security & Disaster Recovery
 ## IA-CHAT — documentación y publicación autorizadas (13/11/2026)
 
-Fase 7; documentación IN PROGRESS, publicación IN PROGRESS. El propietario autoriza
+Fase 7; documentación DONE y publicación principal DONE, verificada en origin/main. El propietario autoriza
 commit y push del alcance IA-CHAT, sustituyendo la prohibición anterior solo para
 esta publicación. Cambios ajenos permanecen fuera. Se documentan los 8192 tokens
 de Gemma, el presupuesto compartido y el uso de chats cortos/temáticos, carpetas y
 búsqueda; estas no amplían la memoria del modelo. Ampliación de contexto TODO, sin
 despliegue: resumen, recuperación, slots u otro perfil requieren pruebas y alcance
 autorizado. [Plan](../IA-CHAT-CONTEXT-PLAN.md). No cambios productivos ni CT627.
+Publicación verificada: commit principal `2d945b0`, 37 pruebas PASS, Terraform validate,
+inventario y revisión de secretos PASS. README operativo sincronizado.
+Siguiente: caso largo del propietario y comparación del plan de contexto;
+Fase 7 global IN PROGRESS. No despliegues ni cambios de configuración en este cierre.
+
 
 
 ## IA-CHAT-LATENCY — DONE técnico (13/11/2026 22:33 CET)

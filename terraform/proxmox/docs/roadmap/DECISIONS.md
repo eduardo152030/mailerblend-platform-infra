@@ -2612,3 +2612,9 @@ incorporar cambios ajenos ni secretos. Sin nuevos despliegues o cambios de CT.
 Propuestas TODO, no aprobadas para ejecución: resumen automático, recuperación de
 notas, otro presupuesto de slots o capacidad/modelo. No prometer memoria automática
 por usar carpetas o búsqueda. [Plan y criterios](IA-CHAT-CONTEXT-PLAN.md).
+
+### IA-CHAT — publicación verificada
+
+Commit principal2d945b0 publicado y comprobado en origin/main. Documentación DONE;
+plan de ampliación de contexto TODO, sin nueva autorización de despliegue.
+[Recibo de publicación](evidence/ia-chat-latency-2026-11-13/publication-verified.json).
