@@ -1,0 +1,45 @@
+{
+  "status": "CODE_ONLY_NOT_TESTED_NOT_DEPLOYED",
+  "input_max_chars": 1200,
+  "complete_generation_at_input_limit": "NOT_VALIDATED",
+  "preserved_output_limits": {
+    "max_new_tokens": 400,
+    "eos_required": true,
+    "max_wav_seconds": 20,
+    "timeout_seconds": 300,
+    "worker_stop_gib": 7,
+    "worker_hard_gib": 8,
+    "ct_guard_gib": 19
+  },
+  "historical_baseline_commit": "ec9cb311443ea0c3291c6b708302e47bbb0cf8e1",
+  "historical_execution_manifests_preserved": [
+    "services/infra-voicebox/validation-d089/execution-manifest.json",
+    "services/infra-voicebox/validation-d089/resume/execution-manifest.json"
+  ],
+  "published_image_digests_preserved": {
+    "app": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+    "worker": "sha256:bcc5c14f88064ffa76f813d788d183918b208deba45075d8118a2b07c60c248b"
+  },
+  "files": {
+    "services/infra-voicebox/candidate-d085/README.md": "0107cfc61e0c4db99432f0d80c96db733a869cdfbb743084a3b8ca18efa69efc",
+    "services/infra-voicebox/candidate-d085/api-fixture.py": "2a243ec297db5c8123cafaf8c3873a4f3d6551b400554a36297942b45b483e55",
+    "services/infra-voicebox/candidate-d085/chatterbox-release.proposed.json": "fa328fe9fb3b72935ebe229d1e5109d86ac26448ee714e01230a408a044c4d90",
+    "services/infra-voicebox/candidate-d085/engine_policy.py": "137cc0d8be438cfa816663479d31a2d3e242744aea413b4ddf47a3c5e981096b",
+    "services/infra-voicebox/candidate-d085/ui/components/Generation/EngineModelSelector.tsx": "2ee651d056642c805f6d8c05b6d0de51dbfea79e9af181af3ff6684f729325f7",
+    "services/infra-voicebox/candidate-d085/ui/components/Generation/ct627Policy.ts": "7c849dd3bf7917bb2f893004a3b5fc6d472a9e768bc3d19b5e5e5dcacbcdf48c",
+    "services/infra-voicebox/deploy-d086/transaction.py": "046e034b9f44051327564a16ad8222ae50b1d9dd6eb276e8d96b2a20463ba27a",
+    "services/infra-voicebox/deploy-d087/deployment-lock.json": "f46f92bdeff1c71081a78631d66f55e5c3b74a08f8b306fc04e8f56db29ac80e",
+    "services/infra-voicebox/deploy-d087/postdeploy.py": "80231cf7b48ab0200babcfadffd833c875cd764dec8bf928d021e389e1fbcc7f",
+    "services/infra-voicebox/deploy-d087/transaction.py": "a3bf4031279f83320d442ae90a947e4e9b925929f3736db45ae509b8e9637009",
+    "services/infra-voicebox/maintenance-d087/engine_policy.py": "0aa1a5ce968304d38074e40907eb28426fac242c175e3de6d94083b1b876617d",
+    "services/infra-voicebox/maintenance-d087/release.proposed.json": "105cb6b02ea83cf28b38277aa6cccdf37b083e50ce7f36eb8f1141ada604edcf",
+    "services/infra-voicebox/release-d089/README.md": "6056a3327933754baf15a588522278a452e0af873a7c90ea6191dd557d9b5d6e",
+    "services/infra-voicebox/validation-d089/deploy.py": "1f4c9d8e734632325634f65030baeeade255e927a86a4029e7b6145e0692e230",
+    "services/infra-voicebox/validation-d089/deployment-lock.json": "556edf6e2808466173f326305b5e8e6552844e5e32983de921f8a509bb3472b5",
+    "services/infra-voicebox/validation-d089/engine_policy.py": "0aa1a5ce968304d38074e40907eb28426fac242c175e3de6d94083b1b876617d",
+    "services/infra-voicebox/validation-d089/source-lock.json": "0e926119023dc85606093e8bd5e1116bb31b942f54af90f3e52d6df55649d840",
+    "tests/voicebox/test_d085.py": "6c90d316ed45ba56556ac9437ae9fdb073dae68514aec507f6fe4efe254cbfd6",
+    "tests/voicebox/test_d085_ui.mjs": "ec4acd7cd665e959b38181bf94f46c04b3db96d617359a5936c68990ffc7b116",
+    "tests/voicebox/test_d087_resources.py": "22dc7694ad3ea91ea6eac032df92690464feba1c7f9e24f354a7d54825a295b9"
+  }
+}

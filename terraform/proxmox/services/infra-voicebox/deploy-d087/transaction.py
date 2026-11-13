@@ -140,7 +140,7 @@ def deploy(r,bundle,release):
   assert int(fields['CapEff'],16)==0 and int(fields['CapPrm'],16)==0
   caps=json.load(urllib.request.urlopen('http://192.168.1.127:17493/tts-capabilities',timeout=10))
   for e in ['qwen','chatterbox']:assert caps[e]['ready'] and caps[e]['languages']==['es','en']
-  assert caps['qwen']['max_chars']==1200 and caps['chatterbox']['max_chars']==240
+  assert caps['qwen']['max_chars']==1200 and caps['chatterbox']['max_chars']==release['max_chars']
   assert configs=={p.stem:sha(p) for p in Path('/etc/pve/lxc').glob('*.conf')}
   no_jobs(r)
   ct('python3',('/opt/voicebox/deploy-'+ATTEMPT+'/verify-data.py'),'--baseline','/opt/voicebox/backups/'+ATTEMPT+'-before-deploy')

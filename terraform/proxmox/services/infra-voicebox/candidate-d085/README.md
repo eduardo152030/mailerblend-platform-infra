@@ -1,5 +1,10 @@
 # D085 — candidato preparado, no desplegado
 
+Cambio posterior solo de código: límite de entrada Chatterbox1200; generación completa
+sin validar, sin pruebas ni despliegue. Los240caracteres descritos a continuación
+corresponden a la preparación histórica D085/D089. Ver
+`docs/roadmap/VOICEBOX-CHATTERBOX-INPUT-1200.md`.
+
 La corrección posterior UID999 tiene imagen separada y prueba real deentrypoint;
 ver [startup D086](../startup-d086/README.md). Este tagD085 se conserva como antecedente.
 

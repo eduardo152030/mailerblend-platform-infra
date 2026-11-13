@@ -6,4 +6,6 @@ export function isOptionAvailable(option: { engine: string; value: string }, cap
   return ['kokoro', 'piper', 'chatterbox', 'chatterbox_turbo'].includes(option.engine);
 }
 
-export function textLimit(engine: string): number { return engine === 'chatterbox' ? 240 : engine === 'qwen' ? 1200 : 50000; }
+// Admission limit only; complete generation at this length is not validated.
+export const CHATTERBOX_MAX_CHARS = 1200;
+export function textLimit(engine: string): number { return engine === 'chatterbox' ? CHATTERBOX_MAX_CHARS : engine === 'qwen' ? 1200 : 50000; }

@@ -2,10 +2,12 @@
   "worker": {
     "chatterbox_worker.py": "331f12b86aff72bb3a5d1816add1ea25f7b7c98690c01e869d367e03de202d68",
     "load_probe.py": "9405813b8f562f54026391cc5b78f49fcf3ad9bcbe8c0ca8131d6bfa23f6343b",
-    "telemetry.py": "537f9075d19a4ba96818f4d55664c5c786b9f56a02f10b2044c0a7df28b2c32d"
+    "telemetry.py": "537f9075d19a4ba96818f4d55664c5c786b9f56a02f10b2044c0a7df28b2c32d",
+    "engine_policy.py": "0aa1a5ce968304d38074e40907eb28426fac242c175e3de6d94083b1b876617d"
   },
   "controller": {
-    "readiness.py": "4652aaebfb64dc9d4cbfa8eb262af48531893d1f5e9ca14fabe47fd2a9ef7a9a"
+    "readiness.py": "4652aaebfb64dc9d4cbfa8eb262af48531893d1f5e9ca14fabe47fd2a9ef7a9a",
+    "engine_policy.py": "0aa1a5ce968304d38074e40907eb28426fac242c175e3de6d94083b1b876617d"
   },
   "original_source_hashes": {
     "supervise_chatterbox.py": "44c381d8f62f023b2a8a222d373087bb30671e6d0bda034d9a6e58009aaab821",
@@ -25,5 +27,8 @@
     "engine_policy.py": "a162ee546e5b65317e51423e9c8ade3294fa829eb85f1348aa9a55278d86f009",
     "chatterbox_worker.py": "f05e20a8051968c3cda1d8808043755efd9df66d5f86e83d82f58d04663dc31c"
   },
-  "app_image_unchanged": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386"
+  "app_image_unchanged": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
+  "chatterbox_max_chars": 1200,
+  "source_status": "INPUT_1200_CODE_ONLY_NOT_TESTED_NOT_DEPLOYED",
+  "original_hashes_role": "Preserved D089 rollback/source baseline; not target hashes"
 }

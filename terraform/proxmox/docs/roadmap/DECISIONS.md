@@ -2392,3 +2392,23 @@ none yCB240/Qwen1200confirmados enproducción sinaudio. Voicebox/Qwen/CBhealthy
 post-push, misma app/configPVE/datos protegidos. Se publica recibo documental
 posterior; SHAfinal se verifica ycomunica, sinforce. Cambiosajenos conservados
 fuera delcommit. F7.4Voicebox ACCEPTED, otrosalcances no se cierran.
+
+### Voicebox — entrada Chatterbox1200 autorizada, solo código
+
+13nov2026 Europe/Madrid, Fase7.4. Propietario autoriza entrada1200caracteres
+coherente UI/API/controlador/worker, selector/capabilities/mensajes, expectativas
+de tests y hashes/manifiestos. Conservar400tokens/EOS/20sWAV/300s/guardas, Qwen,
+efectos, evidenciasD089 y digests publicados. Autoriza commit/pushnormalmain
+solo de este cambio. Prohíbe ejecutar pruebas/inferencias, desplegar o reiniciar.
+Generación completa de1200caracteres no validada; producción aceptada240 intacta.
+Preparación IN PROGRESS; registro previo a implementación.
+
+### Voicebox — entrada1200 implementada localmente
+
+UI/API/controlador/worker ycapabilities/mensajes/selector actualizados en código.
+Política reutilizada; contratos de salida/tiempo/memoria, Qwen y efectos intactos.
+Hashes objetivo recalculados; baselines y evidenciasD089/digests preservados.
+Tests solo actualizados, NO ejecutados; sin inferencia/build/despliegue/reinicio.
+Generación completa1200no validada; producción permanece240hasta otra intervención.
+Implementación local DONE; publicación autorizada aorigin/main; validación y
+despliegue TODO. [Detalle](VOICEBOX-CHATTERBOX-INPUT-1200.md).

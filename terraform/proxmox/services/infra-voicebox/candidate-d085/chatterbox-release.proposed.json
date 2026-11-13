@@ -7,14 +7,16 @@
     "supervise_chatterbox.py": "151c33b59c31c8f0dd463369cc3ed38a58dee513909d42025e6ebe2b74ad2872",
     "qwen_language_policy.py": "32015eab1359d7c7ddc38d85f05bcedb0f3c4070d58e6cb6b08b773fcac70fe0",
     "readiness.py": "67f129c5ca33976689103fc14c07e512e08ef429b63976907a1a620386aab86e",
-    "engine_policy.py": "b24d0820db94c29df061dbf585ea8e641e48dc04d46f60f98d30ebe23674dcad",
+    "engine_policy.py": "137cc0d8be438cfa816663479d31a2d3e242744aea413b4ddf47a3c5e981096b",
     "agent.py": "2daaafaf6f1fd211f8ded56f90f80103deb60c74909b8e9bae749662a1cd4f80"
   },
   "worker_hashes": {
     "worker.py": "a4f09cbe11652e88af1a45ab376d9634741d5953d8fba7aef2b6cff792de7c91",
     "qwen_language_policy.py": "32015eab1359d7c7ddc38d85f05bcedb0f3c4070d58e6cb6b08b773fcac70fe0",
     "d077_contract.py": "e30e0367d4bf17b87b1ce5b8237eec9f51e628d382d3b50b52a5631da04f7450",
-    "engine_policy.py": "b24d0820db94c29df061dbf585ea8e641e48dc04d46f60f98d30ebe23674dcad",
+    "engine_policy.py": "137cc0d8be438cfa816663479d31a2d3e242744aea413b4ddf47a3c5e981096b",
     "chatterbox_worker.py": "f05e20a8051968c3cda1d8808043755efd9df66d5f86e83d82f58d04663dc31c"
-  }
+  },
+  "max_chars": 1200,
+  "source_status": "INPUT_1200_CODE_ONLY_NOT_TESTED_NOT_DEPLOYED"
 }

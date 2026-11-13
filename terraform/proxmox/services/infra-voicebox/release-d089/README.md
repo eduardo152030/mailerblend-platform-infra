@@ -45,3 +45,8 @@ Informe y evidencia: docs/roadmap/PHASE7-D089-CHATTERBOX-PRODUCTION-VALIDATION.m
 evidence/2026-11-13-d089-acceptance-audit.json. Aceptación humana registrada como tal;
 no sustituirla por un test sintético. Capacidad para1200caracteres en CB queda pendiente
 fuera del cierre, aunque el código se pueda modificar para investigarla en otro alcance.
+
+Cambio posterior: las fuentes admiten entrada1200 en Chatterbox, sin validar
+generación completa. Esta publicación no cambia la producción D089 de240.
+Ver docs/roadmap/VOICEBOX-CHATTERBOX-INPUT-1200.md; no reejecutar recetas ni
+interpretar los digests de imágenes D089 como un nuevo build.

@@ -1,6 +1,8 @@
 """PVE read-only deployment gate. No generation, profile edit or model loading."""
 from pathlib import Path
-import json,subprocess,urllib.request,urllib.error,time,hashlib
+import json,subprocess,urllib.request,urllib.error,time,hashlib,sys
+sys.path.insert(0,'/opt/voicebox-qwen-627')
+from engine_policy import CB
 APP='sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386'
 def ct(*a):return subprocess.check_output(['pct','exec','627','--',*a],text=True,timeout=30)
 def get(path):return json.load(urllib.request.urlopen('http://192.168.1.127:17493'+path,timeout=15))
@@ -10,7 +12,7 @@ s=dict(l.split(':',1) for l in ct('docker','exec','voicebox','cat','/proc/1/stat
 assert s['Uid'].split()==['999']*4 and s['Gid'].split()==['999']*4 and int(s['CapEff'],16)==0 and int(s['CapPrm'],16)==0
 assert get('/health')['status']=='healthy' and not get('/health')['model_loaded']
 caps=get('/tts-capabilities')
-for e,n in [('qwen',1200),('chatterbox',240)]:assert caps[e]['ready'] and caps[e]['languages']==['es','en'] and caps[e]['max_chars']==n
+for e,n in [('qwen',1200),('chatterbox',CB['max_chars'])]:assert caps[e]['ready'] and caps[e]['languages']==['es','en'] and caps[e]['max_chars']==n
 history=get('/history');assert 'baa61a95-c7b4-4524-8229-aa697b941710' in json.dumps(history)
 presets=get('/effects/presets');assert {'Robotic','Radio','Echo Chamber','Deep Voice'}<={p['name'] for p in presets}
 # Nonexistent ID exercises cancellation routing without changing a real job.

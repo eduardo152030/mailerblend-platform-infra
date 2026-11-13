@@ -35,7 +35,7 @@ class Resources(unittest.TestCase):
   self.assertFalse(p.preflight(dict(b,ct_psi_full_avg10=5)))
   self.assertEqual(g.stop_reason(dict(b,ct_swap=128*2**20),b,0,None)[0],'CT_SWAP_GROWTH_128_MIB')
  def test_language_identity_and_character_limits(self):
-  for engine,size,limit in [('qwen','0.6B',1200),('chatterbox','default',240)]:
+  for engine,size,limit in [('qwen','0.6B',1200),('chatterbox','default',1200)]:
    for language in ['es','en']:
     r=dict(engine=engine,profile_id=p.OWNER,seed=42,language=language,model_size=size,text='a'*limit)
     self.assertEqual(p.validate(r)['language'],language)

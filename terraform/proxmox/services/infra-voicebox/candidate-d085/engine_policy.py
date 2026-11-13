@@ -4,8 +4,10 @@ if __package__:
 else:
     from qwen_language_policy import validate_request as validate_qwen, OWNER, WORKER_PROTOCOL, EXPECTED_WORKER_SHA256, policy_fingerprint
 LANGUAGES = ['es','en']
+# Input admission only; complete narration at this length is not validated.
+CHATTERBOX_MAX_CHARS = 1200
 CB = {'engine':'chatterbox','variant':'multilingual-v3','model_size':'default',
-      'max_chars':240,'max_tokens':400,'timeout_seconds':300,
+      'max_chars':CHATTERBOX_MAX_CHARS,'max_tokens':400,'timeout_seconds':300,
       'worker_hard_bytes':8*2**30,'worker_stop_bytes':7*2**30,
       'predicted_increment_bytes':7*2**30,'margin_bytes':512*2**20}
 
@@ -20,7 +22,7 @@ def validate(request):
     if request.get('instruct') or request.get('personality'):
         raise ValueError('Instrucciones y personalidad no habilitadas')
     if not isinstance(request.get('text'),str) or not 1<=len(request['text'])<=CB['max_chars']:
-        raise ValueError('Chatterbox experimental admite1..240caracteres; narraciones largas no validadas')
+        raise ValueError(f'Chatterbox admite entre 1 y {CB["max_chars"]} caracteres de entrada; generación completa de textos largos sin validar')
     return request
 
 def admission(data):
@@ -53,5 +55,5 @@ def capabilities(heartbeat,now):
     qwen=fresh and heartbeat.get('protocol')==WORKER_PROTOCOL and heartbeat.get('worker_source_sha256')==EXPECTED_WORKER_SHA256 and heartbeat.get('language_policy_sha256')==policy_fingerprint() and heartbeat.get('languages')==LANGUAGES
     cb=qwen and heartbeat.get('chatterbox',{}).get('ready') is True and heartbeat.get('chatterbox',{}).get('protocol')=='d085-cb-v1'
     return {'qwen':{'ready':bool(qwen),'languages':LANGUAGES,'model_sizes':['0.6B'],'max_chars':1200},
-            'chatterbox':{'ready':bool(cb),'languages':LANGUAGES,'model_sizes':['default'],'max_chars':240,'experimental':True,'variant':'multilingual-v3'},
+            'chatterbox':{'ready':bool(cb),'languages':LANGUAGES,'model_sizes':['default'],'max_chars':CB['max_chars'],'experimental':True,'variant':'multilingual-v3'},
             'chatterbox_turbo':{'ready':False},'kokoro':{'ready':True},'piper':{'ready':True}}

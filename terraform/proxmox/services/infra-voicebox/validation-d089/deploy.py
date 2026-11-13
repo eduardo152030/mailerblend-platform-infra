@@ -24,7 +24,7 @@ def wait(enabled):
 def restore(root):
  state=json.loads((BACK/'state.json').read_text());link=root/'srv/voicebox/qwen-worker/src'
  subprocess.run(['systemctl','stop','voicebox-qwen-627.service'],check=True)
- for n in ['readiness.py','chatterbox-release.json']:shutil.copy2(BACK/n,CODE/n)
+ for n in state.get('controller_files',['readiness.py'])+['chatterbox-release.json']:shutil.copy2(BACK/n,CODE/n)
  tmp=link.with_name('src-d089-rollback');assert not tmp.exists();tmp.symlink_to(state['old_link']);os.replace(tmp,link)
  subprocess.run(['systemctl','start','voicebox-qwen-627.service'],check=True)
  caps=wait(False);assert app()==state['app'];return {'rollback':'PASS','capabilities':caps,'sqlite_restored':False}
@@ -37,7 +37,9 @@ def main():
   if a.action=='verify':
    state=json.loads((BACK/'state.json').read_text());assert app()==state['app'] and configs()==state['configs'];assert (root/'srv/voicebox/qwen-worker/src').readlink().as_posix()==state['new_link']
    for n,h in lock['worker'].items():assert sha(root/'srv/voicebox/qwen-worker/src'/n)==h
-   assert sha(CODE/'readiness.py')==lock['controller']['readiness.py'];caps=wait(True)
+
+   for n,h in lock['controller'].items():assert sha(CODE/n)==h
+   caps=wait(True)
    print(json.dumps({'idempotent_verification':'PASS','restarts_or_writes':0,'capabilities':caps}));return
   assert not BACK.exists(),'No automatic redeployment'
   assert json.loads((Path('/mnt/storage/d089/backups-verified.json')).read_text())['result']=='PASS'
@@ -60,22 +62,25 @@ def main():
   old=root/'srv/voicebox/qwen-worker/src';assert old.is_symlink()
   for n,h in release['worker_hashes'].items():assert sha(old/n)==h
   original=app();assert get('/tts-capabilities')['qwen']['ready']
-  BACK.mkdir(mode=0o700);shutil.copy2(CODE/'readiness.py',BACK/'readiness.py');shutil.copy2(CODE/'chatterbox-release.json',BACK/'chatterbox-release.json')
+  BACK.mkdir(mode=0o700)
+  for n in lock['controller']:shutil.copy2(CODE/n,BACK/n)
+  shutil.copy2(CODE/'chatterbox-release.json',BACK/'chatterbox-release.json')
   shutil.copytree(CODE,BACK/'controller',ignore=shutil.ignore_patterns('backups','__pycache__','*.pyc'))
   new=old.parent/'src-d089-optimized';assert not new.exists();shutil.copytree(old,new,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
   for n in lock['worker']:shutil.copy2(source/n,new/n)
   for f in [new,*new.rglob('*')]:os.chown(f,999,999);f.chmod(0o700 if f.is_dir() else 0o600)
-  state={'app':original,'old_link':old.readlink().as_posix(),'new_link':new.name,'configs':configs(),'sqlite_restored':False};atom(BACK/'state.json',state)
+  state={'app':original,'old_link':old.readlink().as_posix(),'new_link':new.name,'configs':configs(),'sqlite_restored':False,'controller_files':list(lock['controller'])};atom(BACK/'state.json',state)
   # No schema/database change. Rollback restores only controller code/receipt/src link.
   try:
    nojobs(root);subprocess.run(['systemctl','stop','voicebox-qwen-627.service'],check=True)
-   shutil.copy2(source/'readiness.py',CODE/'readiness.py');(CODE/'readiness.py').chmod(0o600)
+   for n in lock['controller']:
+    shutil.copy2(source/n,CODE/n);(CODE/n).chmod(0o600)
    pending=old.with_name('src-d089-pending');assert not pending.exists();pending.symlink_to(new.name);os.replace(pending,old)
    release['source_hashes'].update(lock['controller']);release['worker_hashes'].update(lock['worker']);release.update(enabled=True,reason='D089 isolated FP32 inference validated; acoustic acceptance pending')
    atom(CODE/'chatterbox-release.json',release)
    subprocess.run(['systemctl','start','voicebox-qwen-627.service'],check=True)
    caps=wait(True);assert app()==original and configs()==state['configs'];nojobs(root)
-   assert caps['qwen']['languages']==caps['chatterbox']['languages']==['es','en'] and caps['qwen']['max_chars']==1200 and caps['chatterbox']['max_chars']==240
+   assert caps['qwen']['languages']==caps['chatterbox']['languages']==['es','en'] and caps['qwen']['max_chars']==1200 and caps['chatterbox']['max_chars']==lock['chatterbox_max_chars']
    assert 'baa61a95-c7b4-4524-8229-aa697b941710' in json.dumps(get('/history'))
    result={'deployment':'PASS','app_unchanged':True,'qwen_unchanged':True,'capabilities':caps,'resources_and_configs_unchanged':True,'rollback_ready':True};atom(BACK/'result.json',result);print(json.dumps(result))
   except BaseException as exc:

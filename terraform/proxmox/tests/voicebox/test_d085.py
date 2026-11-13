@@ -18,7 +18,7 @@ class Policy(unittest.TestCase):
     def test_four_engine_language_routes_and_limits(self):
         for e in ['qwen','chatterbox']:
             for l in ['es','en']:self.assertEqual(policy.validate(request(e,l))['language'],l)
-        for e,maxchars in [('qwen',1200),('chatterbox',240)]:
+        for e,maxchars in [('qwen',1200),('chatterbox',1200)]:
             self.assertEqual(len(policy.validate(dict(request(e),text='a'*maxchars))['text']),maxchars)
             with self.assertRaises(ValueError):policy.validate(dict(request(e),text='a'*(maxchars+1)))
     def test_identity_parameters_and_checkpoint_boundaries(self):

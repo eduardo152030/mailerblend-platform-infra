@@ -9,6 +9,7 @@ torch.load=forbidden;huggingface_hub.hf_hub_download=forbidden;safetensors.torch
 from backend import config
 config.set_data_dir('/tmp/d085-api-data')
 from backend import models
+from backend.backends.engine_policy import CB
 from backend.routes import generations as api
 from backend.routes import models as model_api
 from backend.backends import get_tts_backend_for_engine,TTS_ENGINES
@@ -38,7 +39,7 @@ async def main():
         except HTTPException as exc:assert exc.status_code==409
     create.assert_not_awaited();checks+=1
     # Reject foreign profile/oversize/unsupported size without altering history.
-    for change in [{'profile_id':'other'},{'text':'x'*241},{'model_size':'0.6B'}]:
+    for change in [{'profile_id':'other'},{'text':'x'*(CB['max_chars']+1)},{'model_size':'0.6B'}]:
         data=models.GenerationRequest(profile_id=change.get('profile_id',OWNER),text=change.get('text','Test'),language='en',engine='chatterbox',effects_chain=[],**({'model_size':change['model_size']} if 'model_size' in change else {}))
         with patch.object(api.profiles,'get_profile',AsyncMock(return_value=types.SimpleNamespace())),patch.object(api.history,'create_generation',create):
             try:await api.generate_speech(data,db=Mock());raise AssertionError('Should reject')

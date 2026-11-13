@@ -1,4 +1,4 @@
-import { isOptionAvailable } from './ct627Policy';
+import { CHATTERBOX_MAX_CHARS, isOptionAvailable } from './ct627Policy';
 import { useCT627Capabilities } from './useCT627Capabilities';
 import { useEffect } from 'react';
 import type { UseFormReturn } from 'react-hook-form';
@@ -38,7 +38,7 @@ const ENGINE_DESCRIPTIONS: Record<string, string> = {
   qwen_custom_voice: '9 preset voices, instruct control',
   qwen_voice_design: 'Voices described in plain language',
   luxtts: 'Fast, English-focused',
-  chatterbox: 'Eduardo — Español / English; piloto hasta240caracteres',
+  chatterbox: `Eduardo — Español / English; entrada hasta ${CHATTERBOX_MAX_CHARS} caracteres; generación completa sin validar`,
   chatterbox_turbo: 'English, [laugh] [cough] tags',
   tada: 'HumeAI, 700s+ coherent audio',
   kokoro: '82M params, CPU realtime, 8 langs',

@@ -4,6 +4,17 @@ Estado: **IN PROGRESS**. Actualizado: 2026-11-13 (Europe/Madrid).
 [Roadmap](../ROADMAP.md) · [Estado actual](../CURRENT-STATUS.md) · [Decisiones](../DECISIONS.md)
 
 
+## Chatterbox: entrada1200 en código; sin pruebas ni despliegue
+
+13nov2026 Europe/Madrid, Fase7.4. Cambio autorizado solo de código y publicación:
+UI/API/controlador/worker comparten límite de entrada1200; mensajes/selector y
+capabilities actualizados. Hashes/expectativas de tests ajustados, tests no ejecutados.
+Se conservan400tokens/EOS/20sWAV/300s/guardas y Qwen/efectos. Generación completa
+1200sin validar. Producción aceptadaD089 sigue240, sin reinicios ni despliegue.
+Implementación local completada; validación/despliegue TODO. D089 ACCEPTED intacto.
+[Alcance y manifiestos](../VOICEBOX-CHATTERBOX-INPUT-1200.md).
+Siguiente: validación/despliegue en intervención separada; no iniciar automáticamente.
+
 ## D089 — DONE / ACCEPTED; cierre del alcance validado Voicebox F7.4
 
 13nov2026 Europe/Madrid. Aceptación acústica explícita del propietario: Chatterbox
