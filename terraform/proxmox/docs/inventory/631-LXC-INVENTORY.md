@@ -14,7 +14,7 @@ de latencia están documentadas por separado.
 
 ## Arquitectura y recursos
  Debian 12, LXC sin privilegios, 2 vCPU, 4096 MiB RAM,
-1024 MiB swap, onboot=1 y Europe/Madrid. Raíz de 20 GiB en
+1741 MiB swap (~1,7 GiB), onboot=1 y Europe/Madrid. Raíz de 20 GiB en
 `local-lvm:vm-631-disk-0`; sin mountpoints PVE adicionales. Docker con nesting/keyctl;
 excepción AppArmor `unconfined` aprobada únicamente para631, documentada en IaC.
 RAM ampliada con autorización expresa; no extender la excepción a otros CT.

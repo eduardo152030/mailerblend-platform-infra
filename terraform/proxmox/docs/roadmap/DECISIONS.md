@@ -2618,3 +2618,11 @@ por usar carpetas o búsqueda. [Plan y criterios](IA-CHAT-CONTEXT-PLAN.md).
 Commit principal2d945b0 publicado y comprobado en origin/main. Documentación DONE;
 plan de ampliación de contexto TODO, sin nueva autorización de despliegue.
 [Recibo de publicación](evidence/ia-chat-latency-2026-11-13/publication-verified.json).
+## IA-CHAT-SWAP-631 — autorizado
+
+El propietario autoriza swap631 de1024 a1741MiB (~1,7GiB), IaC, commit ypush.
+Sin cambio de RAM, reinicios ni otrosCT. El aumento amplía cuota de swap del CT,
+no crea swap física en el host ni garantiza mayor velocidad.
+
+Resultado técnico:1741MiB aplicados, segunda aplicación0escrituras, PVE/cgroup/
+Node/Prometheus PASS, sin reinicios ni cambios aotrosCT. [Informe](IA-CHAT-SWAP-631.md).

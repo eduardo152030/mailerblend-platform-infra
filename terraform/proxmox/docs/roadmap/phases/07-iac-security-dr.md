@@ -1,4 +1,17 @@
 # Fase 7. IaC Reliability, Security & Disaster Recovery
+## IA-CHAT-SWAP-631 — DONE técnico
+
+Fase 7. Swap631 ampliada mediante YAML/script versionado de1024 a1741MiB (~1,7GiB),
+autorización expresa del propietario, incluido commit/push. PVE/cgroup/Node/Prometheus
+verificados; uso observado~58,8% tras ampliar cuota, RAM4096MiB conservada.
+WebUI health200; contenedores intactos, sin reinicios, OOM0. Segunda aplicación
+sin escrituras; plan Terraform acotado no-op conTLS,16tests inventario yvalidatePASS.
+Notes631 sincronizadas, ficha/generados/README actualizados. Solo631 modificado;
+sin627,otrosCT,swapoff ni apply general. Amplía cuota, no swap física delhost.
+Siguiente: observar uso habitual; Fase7 global IN PROGRESS, pendientes heredados
+conservados. [Informe](../IA-CHAT-SWAP-631.md).
+
+
 ## IA-CHAT — documentación y publicación autorizadas (13/11/2026)
 
 Fase 7; documentación DONE y publicación principal DONE, verificada en origin/main. El propietario autoriza

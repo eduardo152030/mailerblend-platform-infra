@@ -30,9 +30,10 @@ assert protected()==old,'Other CT configurations changed';assert identities()==i
 print(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'result':'PASS','cts':rows,'other_ct_configs_unchanged':True,'runtime_identity_unchanged':True,'restarts':0,'redeploys':0,'terraform_apply':False}))
 '''
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--apply',action='store_true');p.add_argument('--evidence-dir',type=Path,default=ROOT/'docs/roadmap/evidence/ia-chat-2026-11-13');a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--apply',action='store_true');p.add_argument('--ct',type=int,choices=[630,631],action='append',help='Limita las escrituras de Notes a los CT seleccionados');p.add_argument('--evidence-dir',type=Path,default=ROOT/'docs/roadmap/evidence/ia-chat-2026-11-13');a=p.parse_args()
  generated=json.loads((ROOT/'inventory/generated/lxc-notes.json').read_text());items=[]
  for ct,name in [(630,'infra-llm'),(631,'infra-webui')]:
+  if a.ct and ct not in a.ct:continue
   d=generated[name];body='# '+d['title']+'\n\n'+'\n\n'.join(d['sections'])+'\n';assert body==(ROOT/'services'/name/'NOTES.md').read_text(),'Generated Notes stale'
   items.append({'ct':ct,'hostname':name,'description':body})
  args=['ssh','-o','UserKnownHostsFile='+str(Path.home()/'.ssh/known_hosts'),'-o','StrictHostKeyChecking=yes','-o','BatchMode=yes','pve',shlex.join(['python3','-c',REMOTE])]

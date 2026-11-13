@@ -1,0 +1,36 @@
+{
+  "utc": "2026-11-13T21:57:17.695265+00:00",
+  "ct": 631,
+  "before_swap_mib": 1024,
+  "after_swap_mib": 1741,
+  "desired_swap_mib": 1741,
+  "configuration_writes": 1,
+  "before": {
+    "swap_current_bytes": 1072988160,
+    "swap_max_bytes": 1073741824,
+    "memory_current_bytes": 1155371008,
+    "memory_max_bytes": 4294967296,
+    "events": "low 0\nhigh 0\nmax 62400\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "host": {
+      "MemAvailable": 24332365824,
+      "SwapTotal": 17179865088,
+      "SwapFree": 9517133824
+    }
+  },
+  "after": {
+    "swap_current_bytes": 1072988160,
+    "swap_max_bytes": 1825570816,
+    "memory_current_bytes": 1155538944,
+    "memory_max_bytes": 4294967296,
+    "events": "low 0\nhigh 0\nmax 62400\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "host": {
+      "MemAvailable": 24334966784,
+      "SwapTotal": 17179865088,
+      "SwapFree": 9517133824
+    }
+  },
+  "other_ct_configs_unchanged": true,
+  "containers_unchanged": true,
+  "health": 200,
+  "terraform_apply": false
+}

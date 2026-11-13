@@ -5,7 +5,7 @@ service:
 resources:
   cpu: 2
   memory: 4096
-  swap: 1024
+  swap: 1741
   disk_gb: 20
 os:
   template_file_id: local:vztmpl/debian-12-standard_12.12-1_amd64.tar.zst

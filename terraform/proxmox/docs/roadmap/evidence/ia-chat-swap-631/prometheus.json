@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "data": {
+    "resultType": "vector",
+    "result": [
+      {
+        "metric": {
+          "__name__": "node_memory_SwapTotal_bytes",
+          "cpu_contract": "lxc_cgroup_v1",
+          "instance": "192.168.1.66:9100",
+          "job": "node_exporter",
+          "service": "infra-webui",
+          "source": "inventory",
+          "vmid": "631"
+        },
+        "value": [
+          1794607097.323,
+          "1825570816"
+        ]
+      }
+    ]
+  }
+}

@@ -9,7 +9,7 @@ La aceptación entre dispositivos y el micrófono real corresponde al propietari
 | CT | Nombre | DHCP actual | Recursos | Almacenamiento local-lvm |
 |---|---|---|---|---|
 | 630 | infra-llm | 192.168.1.67 | 4 CPU; 22528 MiB RAM; 1024 MiB swap | rootfs 16 GiB; modelos 60 GiB |
-| 631 | infra-webui | 192.168.1.66 | 2 CPU; 4096 MiB RAM; 1024 MiB swap | rootfs 20 GiB |
+| 631 | infra-webui | 192.168.1.66 | 2 CPU; 4096 MiB RAM; 1741 MiB swap | rootfs 20 GiB |
 
 Ambos usan Debian 12, contenedores no privilegiados y Europe/Madrid.
 El volumen `/models` está en solo lectura y tiene `backup=0`.
@@ -281,3 +281,8 @@ la caché evita que esa subida sea necesariamente progresiva en cada turno.
 Al cambiar de chat, lleva un resumen revisado de objetivos y decisiones. El
 [plan de contexto](../../docs/roadmap/IA-CHAT-CONTEXT-PLAN.md) explica los límites,
 las opciones futuras y las pruebas pendientes; ninguna ampliación está desplegada.
+
+Swap de CT631 ampliada por autorización a1741MiB (~1,7GiB), sin reinicios.
+Fuente: `inventory/services/infra-webui.yml`; reconciliación acotada mediante
+`scripts/ia-chat/resize-swap-631.py`. Es cuota del CT sobre la swap del host,
+no swap física adicional ni una mejora garantizada de velocidad.

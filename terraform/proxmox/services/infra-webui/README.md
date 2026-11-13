@@ -1,6 +1,6 @@
 # infra-webui — CT 631
 
-Debian12 sin privilegios;2CPU,4096MiB RAM,1024MiB swap,raíz20GiB.
+Debian12 sin privilegios;2CPU,4096MiB RAM,1741MiB swap (~1,7GiB),raíz20GiB.
 Terraform: `svc["infra-webui"]`, declaración `inventory/services/infra-webui.yml`.
 Compose canónico en `compose/`, configuración en `config/` y runtime `/opt/ia-chat`.
 Recetas compartidas: [ia-chat](../../scripts/ia-chat/README.md).

@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-13T21:57:45.418934+00:00",
+  "result": "PASS",
+  "cts": [
+    {
+      "ct_id": 631,
+      "hostname": "infra-webui",
+      "notes_equal": true,
+      "configuration_writes": 0,
+      "allowed_field": "description",
+      "sha256": "d0540efebf93eae74cfd2452f0f7bb69ad9343603fa92a22216087d5dcc88218"
+    }
+  ],
+  "other_ct_configs_unchanged": true,
+  "runtime_identity_unchanged": true,
+  "restarts": 0,
+  "redeploys": 0,
+  "terraform_apply": false
+}

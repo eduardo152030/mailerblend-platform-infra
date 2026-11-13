@@ -25,15 +25,15 @@
   "inventory/services/infra-pulpo.yml": "0ae1b0df4f1bc3a356676d5346f3ebe51014421670158e5d6ce4782371fa85e5",
   "inventory/services/infra-svc01.yml": "31e321cf08d55b26b1ee6cc9ea4431651aeee62aac2810331af962fba1df82af",
   "inventory/services/infra-voicebox.yml": "4d331e7a6e5142f6fe60fd19687e7e1afffb759118aa5945ed68e9ecbee476a6",
-  "inventory/services/infra-webui.yml": "029b6d8c12855025c94b652c576b210b2a511a28caf4ad9217cd23c8b46cfcc6",
+  "inventory/services/infra-webui.yml": "9a97b7d7bdacf6f6026d4ae03e30296905ee3b639ba60335a04f35b89eb1d9cb",
   "services/infra-llm/NOTES.md": "e7a58e7e8eb351f2ca2f77a9d67cf12a884326abf604aad16467cd766dddcc61",
   "services/infra-mailerblend-edge/NOTES.md": "9274702e810ddea54265377636eb77c01720115b97bdf1f64e2d3822c52b9d52",
   "services/infra-nucleoedge/NOTES.md": "f8ed390d1e4cf9e19f6589664482eaca7e59cd82860a2908f748b02eddac162a",
   "services/infra-voicebox/NOTES.md": "5530c31a51d4c16ff622938bb975c3905be7d5bf684d0f9fa45e310d135cdbd4",
-  "services/infra-webui/NOTES.md": "02c66b977067c614a8cd9d2f21ae15e26c26961d936cf7a154dd814b77d1c07b",
+  "services/infra-webui/NOTES.md": "d0540efebf93eae74cfd2452f0f7bb69ad9343603fa92a22216087d5dcc88218",
   "docs/inventory/630-LXC-INVENTORY.md": "3f871b481cc6e26d9efd232037adc35adeb26365c885e019b1f9ce97c23021b0",
   "docs/inventory/615-LXC-INVENTORY.md": "337d36867806c3a97062eb8d3ca4cd8f0f9032cc7803c96ef0a9fa02b245b764",
   "docs/inventory/614-LXC-INVENTORY.md": "79915acd3807d6a33a9e8f7a1ef1ee728de3133186e74f11baf02321634423b3",
   "docs/inventory/627-LXC-INVENTORY.md": "097191a1d00c798b32d4e25f0800bedeb2912586fa182932177db945abefb585",
-  "docs/inventory/631-LXC-INVENTORY.md": "6057db8aa267ce3eeb3f6ae267718fd28aaef03d3d24265a7f5b851f9dba95e9"
+  "docs/inventory/631-LXC-INVENTORY.md": "10277d99368b1ecec592b91fcef6b55a420e7f6778f39e78f407451e53e21a0a"
 }

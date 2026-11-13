@@ -98,3 +98,12 @@ funcional. Copiar README operativo a `/root/ia-local/README.md` enPVE.
 
 CT627 excluido. Sin commit/push. `install-crun.py` documenta un intento fallido y no
 es dependencia activa. No utilizar deploy-all ni política/global rolloutF4.
+
+## Cuota de swap631
+
+La fuente vigente es `inventory/services/infra-webui.yml` (1741MiB).
+`resize-swap-631.py --apply --label applied` reconcilia exclusivamente swap631
+mediante PVE con digest/backup, sin reinicios. Sin --apply solo consulta.
+Repetir con otra etiqueta verifica idempotencia; no imprime configuración privada.
+Sincronizar Notes mediante `sync-notes.py --ct 631 --apply --evidence-dir <carpeta>`.
+El bootstrap histórico compartido no es otro gestor tras la adopción Terraform.
