@@ -1,0 +1,15 @@
+[
+  {
+    "targets": [
+      "http://192.168.1.66:3000/health"
+    ],
+    "labels": {
+      "service": "infra-webui",
+      "vmid": "631",
+      "module": "infra_webui_health",
+      "probe_id": "infra-webui-0",
+      "probe_type": "internal",
+      "source": "inventory"
+    }
+  }
+]

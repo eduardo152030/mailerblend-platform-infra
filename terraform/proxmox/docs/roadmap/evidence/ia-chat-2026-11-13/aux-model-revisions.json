@@ -1,0 +1,10 @@
+[
+  {
+    "repo_cache": "models--intfloat--multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+  },
+  {
+    "repo_cache": "models--Systran--faster-whisper-small",
+    "revision": "536b0662742c02347bc0e980a01041f333bce120"
+  }
+]

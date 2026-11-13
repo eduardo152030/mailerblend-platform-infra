@@ -1,0 +1,23 @@
+{
+  "imported_only": [
+    630,
+    631
+  ],
+  "tls_verified": true,
+  "changes": [
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-llm\"]",
+      "actions": [
+        "no-op"
+      ],
+      "fields": []
+    },
+    {
+      "address": "proxmox_virtual_environment_container.svc[\"infra-webui\"]",
+      "actions": [
+        "no-op"
+      ],
+      "fields": []
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+final-cycle-1-gemma-4-26b HTTP OK 59.83 s 'Dos más dos es igual a cuatro.' reasoning_chars 0
+final-cycle-2-qwen3.6-35b HTTP OK 78.31 s '2 + 2 es igual a 4.' reasoning_chars 0
+final-cycle-3-gemma-4-26b HTTP OK 65.57 s 'Dos más dos es igual a cuatro.' reasoning_chars 0

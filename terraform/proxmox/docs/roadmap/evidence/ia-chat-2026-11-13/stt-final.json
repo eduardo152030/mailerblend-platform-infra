@@ -1,0 +1,10 @@
+{
+  "stt": {
+    "text": "¡Hola! ¡Esto es una nueva!",
+    "elapsed_s": 8.900338506995467,
+    "word_error_rate": 0.2,
+    "ok_approximate": true,
+    "exact": false,
+    "criterion": "Transcripción parecida: WER<=20%; registrar explícitamente cualquier error"
+  }
+}

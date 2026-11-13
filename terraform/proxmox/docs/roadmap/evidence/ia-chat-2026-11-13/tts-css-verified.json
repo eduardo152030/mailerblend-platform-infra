@@ -1,0 +1,8 @@
+{
+  "ui_http": 200,
+  "css_http": 200,
+  "html_links_custom_css": true,
+  "read_aloud_control_hidden": true,
+  "stt_control_unchanged": true,
+  "official_image_unmodified": true
+}

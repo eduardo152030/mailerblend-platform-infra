@@ -1,0 +1,3677 @@
+{
+  "model": "qwen3.6-35b",
+  "thinking": false,
+  "content": "OK",
+  "reasoning_chars": 0,
+  "ttft_s": 72.58927645900985,
+  "elapsed_s": 72.76660148100927,
+  "unload_guard_s": 2.095669936010381,
+  "transition_total_s": 74.86257507200935,
+  "usage": {
+    "completion_tokens": 2,
+    "prompt_tokens": 17,
+    "total_tokens": 19,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 17,
+    "prompt_ms": 1568.103,
+    "prompt_per_token_ms": 92.24135294117647,
+    "prompt_per_second": 10.841124594494111,
+    "predicted_n": 2,
+    "predicted_ms": 177.128,
+    "predicted_per_token_ms": 177.128,
+    "predicted_per_second": 5.64563479517637
+  },
+  "tokens_s": 5.64563479517637,
+  "samples": [
+    {
+      "host": {
+        "MemAvailable": 25621401600,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 15232053248,
+          "working_set": 7937622016,
+          "max": 23622320128,
+          "anon": 49332224,
+          "file": 15138488320,
+          "mapped_file": 37310464,
+          "kernel": 43462656,
+          "resident_tasks": 130105344,
+          "inactive_file": 7294431232,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2297622528,
+          "working_set": 1939656704,
+          "max": 4294967296,
+          "anon": 1509568512,
+          "file": 512180224,
+          "mapped_file": 232312832,
+          "kernel": 266035200,
+          "resident_tasks": 2007916544,
+          "inactive_file": 357965824,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15004\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        }
+      ],
+      "utc": "2026-11-13T17:15:30.802769+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25600454656,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 15370936320,
+          "working_set": 8065245184,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 15181463552,
+          "mapped_file": 80154624,
+          "kernel": 44408832,
+          "resident_tasks": 269172736,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2297622528,
+          "working_set": 1939656704,
+          "max": 4294967296,
+          "anon": 1509568512,
+          "file": 512180224,
+          "mapped_file": 232312832,
+          "kernel": 266035200,
+          "resident_tasks": 2007916544,
+          "inactive_file": 357965824,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15004\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 151224320,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:31.804317+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25599664128,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 15647260672,
+          "working_set": 8341569536,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 15456714752,
+          "mapped_file": 355405824,
+          "kernel": 45576192,
+          "resident_tasks": 545591296,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2297622528,
+          "working_set": 1939656704,
+          "max": 4294967296,
+          "anon": 1509568512,
+          "file": 512180224,
+          "mapped_file": 232312832,
+          "kernel": 266035200,
+          "resident_tasks": 2007916544,
+          "inactive_file": 357965824,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15004\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 426475520,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:32.805635+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25602142208,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 15941980160,
+          "working_set": 8636289024,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 15750053888,
+          "mapped_file": 648749056,
+          "kernel": 46825472,
+          "resident_tasks": 840183808,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2297626624,
+          "working_set": 1939660800,
+          "max": 4294967296,
+          "anon": 1509568512,
+          "file": 512180224,
+          "mapped_file": 232312832,
+          "kernel": 266035200,
+          "resident_tasks": 2007916544,
+          "inactive_file": 357965824,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15004\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 719814656,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:33.806948+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25610903552,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 16227106816,
+          "working_set": 8921415680,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 16034185216,
+          "mapped_file": 932913152,
+          "kernel": 48033792,
+          "resident_tasks": 1125556224,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2297425920,
+          "working_set": 1939460096,
+          "max": 4294967296,
+          "anon": 1509367808,
+          "file": 512180224,
+          "mapped_file": 232312832,
+          "kernel": 266039296,
+          "resident_tasks": 2007719936,
+          "inactive_file": 357965824,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15004\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 1003716608,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:34.809455+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25612173312,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 16513269760,
+          "working_set": 9207578624,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 16319168512,
+          "mapped_file": 1217863680,
+          "kernel": 49246208,
+          "resident_tasks": 1411719168,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2296803328,
+          "working_set": 1938837504,
+          "max": 4294967296,
+          "anon": 1508741120,
+          "file": 512180224,
+          "mapped_file": 232316928,
+          "kernel": 266043392,
+          "resident_tasks": 2007101440,
+          "inactive_file": 357965824,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15004\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 1288929280,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:35.810802+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25608990720,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 16797323264,
+          "working_set": 9491632128,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 16602021888,
+          "mapped_file": 1500717056,
+          "kernel": 50446336,
+          "resident_tasks": 1695772672,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2296819712,
+          "working_set": 1938853888,
+          "max": 4294967296,
+          "anon": 1508757504,
+          "file": 512180224,
+          "mapped_file": 232316928,
+          "kernel": 266043392,
+          "resident_tasks": 2007117824,
+          "inactive_file": 357965824,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15004\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 1571782656,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:36.812090+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25616023552,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 17080590336,
+          "working_set": 9774899200,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 16883826688,
+          "mapped_file": 1782521856,
+          "kernel": 51650560,
+          "resident_tasks": 1978781696,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2296819712,
+          "working_set": 1938853888,
+          "max": 4294967296,
+          "anon": 1508757504,
+          "file": 512180224,
+          "mapped_file": 232316928,
+          "kernel": 266043392,
+          "resident_tasks": 2007117824,
+          "inactive_file": 357965824,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15004\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 1853587456,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:37.813486+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25610067968,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 17378824192,
+          "working_set": 10073133056,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 17180835840,
+          "mapped_file": 2079531008,
+          "kernel": 52908032,
+          "resident_tasks": 2277048320,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2296246272,
+          "working_set": 1938264064,
+          "max": 4294967296,
+          "anon": 1508167680,
+          "file": 512196608,
+          "mapped_file": 232316928,
+          "kernel": 266043392,
+          "resident_tasks": 2006528000,
+          "inactive_file": 357982208,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15004\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 2150596608,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:38.814744+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25621086208,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 17671864320,
+          "working_set": 10366173184,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 17472602112,
+          "mapped_file": 2371297280,
+          "kernel": 54145024,
+          "resident_tasks": 2570051584,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2297671680,
+          "working_set": 1937829888,
+          "max": 4294967296,
+          "anon": 1507450880,
+          "file": 514093056,
+          "mapped_file": 232316928,
+          "kernel": 266096640,
+          "resident_tasks": 2005864448,
+          "inactive_file": 359841792,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15005\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 2442625024,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:39.816365+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25618939904,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 17966415872,
+          "working_set": 10660724736,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 17765941248,
+          "mapped_file": 2664636416,
+          "kernel": 55390208,
+          "resident_tasks": 2864635904,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2299805696,
+          "working_set": 1938157568,
+          "max": 4294967296,
+          "anon": 1507741696,
+          "file": 515862528,
+          "mapped_file": 232316928,
+          "kernel": 266141696,
+          "resident_tasks": 2006200320,
+          "inactive_file": 361648128,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15009\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 2735702016,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:40.817639+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25621917696,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 18245476352,
+          "working_set": 10939785216,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 18043629568,
+          "mapped_file": 2942509056,
+          "kernel": 56578048,
+          "resident_tasks": 3143696384,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2299994112,
+          "working_set": 1938034688,
+          "max": 4294967296,
+          "anon": 1507778560,
+          "file": 516222976,
+          "mapped_file": 232316928,
+          "kernel": 266153984,
+          "resident_tasks": 2006249472,
+          "inactive_file": 361959424,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15017\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 3013312512,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:41.818899+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25615003648,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 18524794880,
+          "working_set": 11219103744,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 18321686528,
+          "mapped_file": 3220381696,
+          "kernel": 57753600,
+          "resident_tasks": 3422744576,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2299904000,
+          "working_set": 1938046976,
+          "max": 4294967296,
+          "anon": 1507819520,
+          "file": 516100096,
+          "mapped_file": 232316928,
+          "kernel": 266145792,
+          "resident_tasks": 2006282240,
+          "inactive_file": 361857024,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15027\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 3291709440,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:42.820426+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25607729152,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 18828886016,
+          "working_set": 11523194880,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 18624987136,
+          "mapped_file": 3523682304,
+          "kernel": 59043840,
+          "resident_tasks": 3727335424,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2299912192,
+          "working_set": 1938526208,
+          "max": 4294967296,
+          "anon": 1508335616,
+          "file": 515604480,
+          "mapped_file": 232316928,
+          "kernel": 266133504,
+          "resident_tasks": 2006786048,
+          "inactive_file": 361385984,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15041\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 3594747904,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:43.821687+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25604771840,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 19125846016,
+          "working_set": 11820154880,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 18920685568,
+          "mapped_file": 3819380736,
+          "kernel": 60305408,
+          "resident_tasks": 4024295424,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2300080128,
+          "working_set": 1938726912,
+          "max": 4294967296,
+          "anon": 1508540416,
+          "file": 515567616,
+          "mapped_file": 232316928,
+          "kernel": 266133504,
+          "resident_tasks": 2006990848,
+          "inactive_file": 361353216,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15051\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 3890446336,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:44.823080+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25594486784,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 19412000768,
+          "working_set": 12106309632,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 19205373952,
+          "mapped_file": 4104069120,
+          "kernel": 61513728,
+          "resident_tasks": 4310192128,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2297753600,
+          "working_set": 1938976768,
+          "max": 4294967296,
+          "anon": 1508499456,
+          "file": 513044480,
+          "mapped_file": 232321024,
+          "kernel": 266063872,
+          "resident_tasks": 2006884352,
+          "inactive_file": 358776832,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15070\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 4175134720,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:45.824351+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25568862208,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 19698405376,
+          "working_set": 12392714240,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 19490586624,
+          "mapped_file": 4389281792,
+          "kernel": 62726144,
+          "resident_tasks": 4596617216,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2299768832,
+          "working_set": 1939759104,
+          "max": 4294967296,
+          "anon": 1508507648,
+          "file": 515284992,
+          "mapped_file": 232185856,
+          "kernel": 266137600,
+          "resident_tasks": 2006831104,
+          "inactive_file": 360009728,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15071\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 4460347392,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:46.825660+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25534717952,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 19982749696,
+          "working_set": 12677058560,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 19773964288,
+          "mapped_file": 4672659456,
+          "kernel": 63930368,
+          "resident_tasks": 4881199104,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2300026880,
+          "working_set": 1940566016,
+          "max": 4294967296,
+          "anon": 1508872192,
+          "file": 515137536,
+          "mapped_file": 231206912,
+          "kernel": 266178560,
+          "resident_tasks": 2006257664,
+          "inactive_file": 359460864,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15081\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 4743725056,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:47.826991+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25528344576,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 20283387904,
+          "working_set": 12977696768,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 20072984576,
+          "mapped_file": 4971765760,
+          "kernel": 65204224,
+          "resident_tasks": 5181579264,
+          "inactive_file": 7305691136,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2299895808,
+          "working_set": 1940598784,
+          "max": 4294967296,
+          "anon": 1508925440,
+          "file": 514957312,
+          "mapped_file": 231206912,
+          "kernel": 266174464,
+          "resident_tasks": 2006306816,
+          "inactive_file": 359297024,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15092\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 5042831360,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:48.828440+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25550053376,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9851629568
+      },
+      "ct": {
+        "630": {
+          "current": 20436627456,
+          "working_set": 13266743296,
+          "max": 23622320128,
+          "anon": 144609280,
+          "file": 20225097728,
+          "mapped_file": 5259599872,
+          "kernel": 66428928,
+          "resident_tasks": 5470638080,
+          "inactive_file": 7169884160,
+          "swap": 4603904,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2300215296,
+          "working_set": 1941610496,
+          "max": 4294967296,
+          "anon": 1509572608,
+          "file": 514650112,
+          "mapped_file": 231477248,
+          "kernel": 266153984,
+          "resident_tasks": 2007203840,
+          "inactive_file": 358604800,
+          "swap": 1016664064,
+          "events": "low 0\nhigh 0\nmax 15104\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 5330665472,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:49.829886+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25630285824,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9847435264
+      },
+      "ct": {
+        "630": {
+          "current": 20383977472,
+          "working_set": 13542481920,
+          "max": 23622320128,
+          "anon": 145367040,
+          "file": 20170498048,
+          "mapped_file": 5532999680,
+          "kernel": 67588096,
+          "resident_tasks": 5745954816,
+          "inactive_file": 6841495552,
+          "swap": 4898816,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2232262656,
+          "working_set": 1951125504,
+          "max": 4294967296,
+          "anon": 1508237312,
+          "file": 449036288,
+          "mapped_file": 227319808,
+          "kernel": 266027008,
+          "resident_tasks": 2001584128,
+          "inactive_file": 281137152,
+          "swap": 1017188352,
+          "events": "low 0\nhigh 0\nmax 15115\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 5604343808,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:50.831428+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25623748608,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9847435264
+      },
+      "ct": {
+        "630": {
+          "current": 20672032768,
+          "working_set": 13830537216,
+          "max": 23622320128,
+          "anon": 145367040,
+          "file": 20457586688,
+          "mapped_file": 5819785216,
+          "kernel": 68800512,
+          "resident_tasks": 6033952768,
+          "inactive_file": 6841495552,
+          "swap": 4898816,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2233749504,
+          "working_set": 1951203328,
+          "max": 4294967296,
+          "anon": 1508102144,
+          "file": 450879488,
+          "mapped_file": 227348480,
+          "kernel": 266063872,
+          "resident_tasks": 2001514496,
+          "inactive_file": 282546176,
+          "swap": 1017188352,
+          "events": "low 0\nhigh 0\nmax 15119\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 5890998272,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:51.832989+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25658904576,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9835376640
+      },
+      "ct": {
+        "630": {
+          "current": 20707213312,
+          "working_set": 14088716288,
+          "max": 23622320128,
+          "anon": 145367040,
+          "file": 20491485184,
+          "mapped_file": 6065528832,
+          "kernel": 69832704,
+          "resident_tasks": 6280728576,
+          "inactive_file": 6618497024,
+          "swap": 4898816,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2181619712,
+          "working_set": 2007097344,
+          "max": 4294967296,
+          "anon": 1507295232,
+          "file": 400068608,
+          "mapped_file": 224628736,
+          "kernel": 266022912,
+          "resident_tasks": 1997946880,
+          "inactive_file": 174522368,
+          "swap": 1018060800,
+          "events": "low 0\nhigh 0\nmax 15127\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 6137151488,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:52.834840+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25324265472,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9826463744
+      },
+      "ct": {
+        "630": {
+          "current": 20523405312,
+          "working_set": 14355316736,
+          "max": 23622320128,
+          "anon": 144887808,
+          "file": 20306944000,
+          "mapped_file": 6331490304,
+          "kernel": 70955008,
+          "resident_tasks": 6547333120,
+          "inactive_file": 6168088576,
+          "swap": 5378048,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2179579904,
+          "working_set": 2011869184,
+          "max": 4294967296,
+          "anon": 1506103296,
+          "file": 398991360,
+          "mapped_file": 224448512,
+          "kernel": 266027008,
+          "resident_tasks": 1996578816,
+          "inactive_file": 167710720,
+          "swap": 1019195392,
+          "events": "low 0\nhigh 0\nmax 15136\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 6402965504,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:53.836347+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25340391424,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9823842304
+      },
+      "ct": {
+        "630": {
+          "current": 20805607424,
+          "working_set": 14637518848,
+          "max": 23622320128,
+          "anon": 144887808,
+          "file": 20587569152,
+          "mapped_file": 6612246528,
+          "kernel": 72146944,
+          "resident_tasks": 6829281280,
+          "inactive_file": 6168088576,
+          "swap": 5378048,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2138935296,
+          "working_set": 2024071168,
+          "max": 4294967296,
+          "anon": 1506156544,
+          "file": 358555648,
+          "mapped_file": 210710528,
+          "kernel": 266018816,
+          "resident_tasks": 1982885888,
+          "inactive_file": 114864128,
+          "swap": 1019195392,
+          "events": "low 0\nhigh 0\nmax 15147\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 6683983872,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:54.837918+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25663336448,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9815715840
+      },
+      "ct": {
+        "630": {
+          "current": 20853833728,
+          "working_set": 14873616384,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20635541504,
+          "mapped_file": 6845337600,
+          "kernel": 73129984,
+          "resident_tasks": 7063195648,
+          "inactive_file": 5980217344,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2107244544,
+          "working_set": 2020777984,
+          "max": 4294967296,
+          "anon": 1501716480,
+          "file": 331001856,
+          "mapped_file": 190300160,
+          "kernel": 265908224,
+          "resident_tasks": 1957924864,
+          "inactive_file": 86466560,
+          "swap": 1021964288,
+          "events": "low 0\nhigh 0\nmax 15153\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 6917292032,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:55.839361+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25707106304,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9812045824
+      },
+      "ct": {
+        "630": {
+          "current": 20791005184,
+          "working_set": 15110639616,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20571582464,
+          "mapped_file": 7079202816,
+          "kernel": 74125312,
+          "resident_tasks": 7298056192,
+          "inactive_file": 5680365568,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2100199424,
+          "working_set": 2011299840,
+          "max": 4294967296,
+          "anon": 1501171712,
+          "file": 325103616,
+          "mapped_file": 190304256,
+          "kernel": 265912320,
+          "resident_tasks": 1957388288,
+          "inactive_file": 88899584,
+          "swap": 1022550016,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 7151648768,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:56.840712+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25692000256,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9812570112
+      },
+      "ct": {
+        "630": {
+          "current": 21066051584,
+          "working_set": 15385669632,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20845514752,
+          "mapped_file": 7352885248,
+          "kernel": 75304960,
+          "resident_tasks": 7572918272,
+          "inactive_file": 5680381952,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2100199424,
+          "working_set": 2011299840,
+          "max": 4294967296,
+          "anon": 1501171712,
+          "file": 325103616,
+          "mapped_file": 190304256,
+          "kernel": 265912320,
+          "resident_tasks": 1957388288,
+          "inactive_file": 88899584,
+          "swap": 1022537728,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 7425327104,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:57.841989+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25688203264,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9810210816
+      },
+      "ct": {
+        "630": {
+          "current": 21039235072,
+          "working_set": 15673704448,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20817477632,
+          "mapped_file": 7639699456,
+          "kernel": 76525568,
+          "resident_tasks": 7860953088,
+          "inactive_file": 5365530624,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2098192384,
+          "working_set": 2031632384,
+          "max": 4294967296,
+          "anon": 1500364800,
+          "file": 323514368,
+          "mapped_file": 190304256,
+          "kernel": 265912320,
+          "resident_tasks": 1956581376,
+          "inactive_file": 66560000,
+          "swap": 1023344640,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 7712112640,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:58.843221+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25654542336,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9804443648
+      },
+      "ct": {
+        "630": {
+          "current": 21024878592,
+          "working_set": 15958425600,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20801843200,
+          "mapped_file": 7922946048,
+          "kernel": 77725696,
+          "resident_tasks": 8145399808,
+          "inactive_file": 5066452992,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2097446912,
+          "working_set": 1997344768,
+          "max": 4294967296,
+          "anon": 1500188672,
+          "file": 323514368,
+          "mapped_file": 190304256,
+          "kernel": 265912320,
+          "resident_tasks": 1956405248,
+          "inactive_file": 100102144,
+          "swap": 1023520768,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 7995097088,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:15:59.844572+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25715597312,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9802084352
+      },
+      "ct": {
+        "630": {
+          "current": 21163114496,
+          "working_set": 16231141376,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20938760192,
+          "mapped_file": 8194265088,
+          "kernel": 78888960,
+          "resident_tasks": 8417882112,
+          "inactive_file": 4931973120,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2097360896,
+          "working_set": 1997258752,
+          "max": 4294967296,
+          "anon": 1499488256,
+          "file": 323514368,
+          "mapped_file": 190304256,
+          "kernel": 265912320,
+          "resident_tasks": 1955704832,
+          "inactive_file": 100102144,
+          "swap": 1024221184,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 8266809344,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:00.846005+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25740894208,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9798938624
+      },
+      "ct": {
+        "630": {
+          "current": 21125513216,
+          "working_set": 16502345728,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20899991552,
+          "mapped_file": 8464273408,
+          "kernel": 80031744,
+          "resident_tasks": 8689033216,
+          "inactive_file": 4623167488,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2096574464,
+          "working_set": 1996472320,
+          "max": 4294967296,
+          "anon": 1498701824,
+          "file": 323514368,
+          "mapped_file": 190304256,
+          "kernel": 265912320,
+          "resident_tasks": 1954918400,
+          "inactive_file": 100102144,
+          "swap": 1025007616,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 8536293376,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:01.847316+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25742974976,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9785569280
+      },
+      "ct": {
+        "630": {
+          "current": 21081780224,
+          "working_set": 16753786880,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20855197696,
+          "mapped_file": 8714653696,
+          "kernel": 81096704,
+          "resident_tasks": 8940478464,
+          "inactive_file": 4327993344,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2095321088,
+          "working_set": 1995251712,
+          "max": 4294967296,
+          "anon": 1497845760,
+          "file": 323526656,
+          "mapped_file": 190304256,
+          "kernel": 265850880,
+          "resident_tasks": 1954000896,
+          "inactive_file": 100069376,
+          "swap": 1025863680,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 8786903040,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:02.848567+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25767636992,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9782685696
+      },
+      "ct": {
+        "630": {
+          "current": 21230571520,
+          "working_set": 17031012352,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 21003063296,
+          "mapped_file": 8990957568,
+          "kernel": 82276352,
+          "resident_tasks": 9217961984,
+          "inactive_file": 4199559168,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2094997504,
+          "working_set": 1994928128,
+          "max": 4294967296,
+          "anon": 1497391104,
+          "file": 323526656,
+          "mapped_file": 190304256,
+          "kernel": 265850880,
+          "resident_tasks": 1953546240,
+          "inactive_file": 100069376,
+          "swap": 1026326528,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 9062940672,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:03.849775+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25793757184,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9781374976
+      },
+      "ct": {
+        "630": {
+          "current": 21249863680,
+          "working_set": 17313497088,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 21021151232,
+          "mapped_file": 9272238080,
+          "kernel": 83480576,
+          "resident_tasks": 9500446720,
+          "inactive_file": 3936366592,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2093424640,
+          "working_set": 1993355264,
+          "max": 4294967296,
+          "anon": 1495818240,
+          "file": 323526656,
+          "mapped_file": 190304256,
+          "kernel": 265850880,
+          "resident_tasks": 1951973376,
+          "inactive_file": 100069376,
+          "swap": 1027100672,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 9344483328,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:04.851070+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25786056704,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9779015680
+      },
+      "ct": {
+        "630": {
+          "current": 21259677696,
+          "working_set": 17590697984,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 21029539840,
+          "mapped_file": 9548013568,
+          "kernel": 84652032,
+          "resident_tasks": 9777393664,
+          "inactive_file": 3668979712,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2091524096,
+          "working_set": 1991450624,
+          "max": 4294967296,
+          "anon": 1494106112,
+          "file": 323530752,
+          "mapped_file": 190304256,
+          "kernel": 265854976,
+          "resident_tasks": 1950265344,
+          "inactive_file": 100073472,
+          "swap": 1027887104,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 9620258816,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:05.852362+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25781989376,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9778229248
+      },
+      "ct": {
+        "630": {
+          "current": 21138968576,
+          "working_set": 17866813440,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20907888640,
+          "mapped_file": 9829818368,
+          "kernel": 85848064,
+          "resident_tasks": 10060394496,
+          "inactive_file": 3272155136,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2090545152,
+          "working_set": 1990152192,
+          "max": 4294967296,
+          "anon": 1493331968,
+          "file": 323530752,
+          "mapped_file": 190300160,
+          "kernel": 265854976,
+          "resident_tasks": 1949487104,
+          "inactive_file": 100392960,
+          "swap": 1028472832,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 9902063616,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:06.853621+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25782136832,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9776656384
+      },
+      "ct": {
+        "630": {
+          "current": 21186846720,
+          "working_set": 18132664320,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20954628096,
+          "mapped_file": 10094583808,
+          "kernel": 86966272,
+          "resident_tasks": 10326278144,
+          "inactive_file": 3054182400,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2085453824,
+          "working_set": 1993183232,
+          "max": 4294967296,
+          "anon": 1492316160,
+          "file": 319356928,
+          "mapped_file": 188854272,
+          "kernel": 265842688,
+          "resident_tasks": 1947013120,
+          "inactive_file": 92270592,
+          "swap": 1029144576,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 10166566912,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:07.855007+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25786560512,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9775869952
+      },
+      "ct": {
+        "630": {
+          "current": 21202173952,
+          "working_set": 18409349120,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20968800256,
+          "mapped_file": 10370097152,
+          "kernel": 88141824,
+          "resident_tasks": 10602967040,
+          "inactive_file": 2792824832,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2082701312,
+          "working_set": 1992929280,
+          "max": 4294967296,
+          "anon": 1491791872,
+          "file": 317153280,
+          "mapped_file": 188821504,
+          "kernel": 265850880,
+          "resident_tasks": 1946464256,
+          "inactive_file": 89772032,
+          "swap": 1029668864,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 10442080256,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:08.856234+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25786032128,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9775345664
+      },
+      "ct": {
+        "630": {
+          "current": 21218099200,
+          "working_set": 18690039808,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20983304192,
+          "mapped_file": 10649329664,
+          "kernel": 89325568,
+          "resident_tasks": 10883383296,
+          "inactive_file": 2528059392,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2080759808,
+          "working_set": 1858129920,
+          "max": 4294967296,
+          "anon": 1491263488,
+          "file": 315813888,
+          "mapped_file": 187871232,
+          "kernel": 265773056,
+          "resident_tasks": 1944907776,
+          "inactive_file": 222629888,
+          "swap": 1030197248,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 10721525760,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:09.857796+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25784385536,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9775083520
+      },
+      "ct": {
+        "630": {
+          "current": 21201907712,
+          "working_set": 18945953792,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20966264832,
+          "mapped_file": 10904395776,
+          "kernel": 90411008,
+          "resident_tasks": 11139534848,
+          "inactive_file": 2255953920,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2090749952,
+          "working_set": 1868070912,
+          "max": 4294967296,
+          "anon": 1492127744,
+          "file": 324538368,
+          "mapped_file": 189779968,
+          "kernel": 266186752,
+          "resident_tasks": 1948094464,
+          "inactive_file": 222679040,
+          "swap": 1030627328,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 10976591872,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:10.859047+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25790017536,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9774559232
+      },
+      "ct": {
+        "630": {
+          "current": 21198278656,
+          "working_set": 19214430208,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20961284096,
+          "mapped_file": 11171520512,
+          "kernel": 91545600,
+          "resident_tasks": 11407794176,
+          "inactive_file": 1983848448,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2089971712,
+          "working_set": 1867268096,
+          "max": 4294967296,
+          "anon": 1490403328,
+          "file": 325910528,
+          "mapped_file": 187871232,
+          "kernel": 265773056,
+          "resident_tasks": 1944047616,
+          "inactive_file": 222703616,
+          "swap": 1031151616,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 11243454464,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:11.860232+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25798115328,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9774034944
+      },
+      "ct": {
+        "630": {
+          "current": 21326581760,
+          "working_set": 19479048192,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 21088423936,
+          "mapped_file": 11434975232,
+          "kernel": 92672000,
+          "resident_tasks": 11672375296,
+          "inactive_file": 1847533568,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2089910272,
+          "working_set": 1867206656,
+          "max": 4294967296,
+          "anon": 1489940480,
+          "file": 325910528,
+          "mapped_file": 187871232,
+          "kernel": 265773056,
+          "resident_tasks": 1943584768,
+          "inactive_file": 222703616,
+          "swap": 1031614464,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 11507171328,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:12.861564+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25806053376,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9771413504
+      },
+      "ct": {
+        "630": {
+          "current": 21149720576,
+          "working_set": 19748184064,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 20910428160,
+          "mapped_file": 11703410688,
+          "kernel": 93806592,
+          "resident_tasks": 11941945344,
+          "inactive_file": 1401536512,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2087055360,
+          "working_set": 1862447104,
+          "max": 4294967296,
+          "anon": 1489154048,
+          "file": 323579904,
+          "mapped_file": 185737216,
+          "kernel": 265773056,
+          "resident_tasks": 1940664320,
+          "inactive_file": 224608256,
+          "swap": 1032400896,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 11775606784,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:13.862971+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25789665280,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9771413504
+      },
+      "ct": {
+        "630": {
+          "current": 21303787520,
+          "working_set": 20038041600,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 21063520256,
+          "mapped_file": 11992293376,
+          "kernel": 95035392,
+          "resident_tasks": 12232056832,
+          "inactive_file": 1265745920,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2086539264,
+          "working_set": 1861922816,
+          "max": 4294967296,
+          "anon": 1489154048,
+          "file": 323588096,
+          "mapped_file": 185741312,
+          "kernel": 265773056,
+          "resident_tasks": 1940668416,
+          "inactive_file": 224616448,
+          "swap": 1032400896,
+          "events": "low 0\nhigh 0\nmax 15158\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 12064489472,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:14.864296+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25794555904,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9771151360
+      },
+      "ct": {
+        "630": {
+          "current": 21312888832,
+          "working_set": 20319494144,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 21071400960,
+          "mapped_file": 12272529408,
+          "kernel": 96223232,
+          "resident_tasks": 12513480704,
+          "inactive_file": 993394688,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2083831808,
+          "working_set": 1861566464,
+          "max": 4294967296,
+          "anon": 1488863232,
+          "file": 321236992,
+          "mapped_file": 185741312,
+          "kernel": 265711616,
+          "resident_tasks": 1940316160,
+          "inactive_file": 222265344,
+          "swap": 1032663040,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 12344721408,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:15.865482+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25791279104,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9770889216
+      },
+      "ct": {
+        "630": {
+          "current": 21326327808,
+          "working_set": 20607610880,
+          "max": 23622320128,
+          "anon": 144728064,
+          "file": 21083226112,
+          "mapped_file": 12556865536,
+          "kernel": 97431552,
+          "resident_tasks": 12799025152,
+          "inactive_file": 718716928,
+          "swap": 5537792,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2083569664,
+          "working_set": 1861304320,
+          "max": 4294967296,
+          "anon": 1488601088,
+          "file": 321236992,
+          "mapped_file": 185741312,
+          "kernel": 265711616,
+          "resident_tasks": 1940054016,
+          "inactive_file": 222265344,
+          "swap": 1032925184,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 12629147648,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:16.867055+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25764052992,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9770102784
+      },
+      "ct": {
+        "630": {
+          "current": 21188382720,
+          "working_set": 15768064000,
+          "max": 23622320128,
+          "anon": 144605184,
+          "file": 20944158720,
+          "mapped_file": 12818485248,
+          "kernel": 98549760,
+          "resident_tasks": 13061640192,
+          "inactive_file": 5420318720,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2083098624,
+          "working_set": 1860841472,
+          "max": 4294967296,
+          "anon": 1488277504,
+          "file": 321228800,
+          "mapped_file": 185741312,
+          "kernel": 265711616,
+          "resident_tasks": 1939730432,
+          "inactive_file": 222257152,
+          "swap": 1033248768,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 12890505216,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:17.868363+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25769066496,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9769054208
+      },
+      "ct": {
+        "630": {
+          "current": 21284990976,
+          "working_set": 16026439680,
+          "max": 23622320128,
+          "anon": 144605184,
+          "file": 21040717824,
+          "mapped_file": 13076434944,
+          "kernel": 99631104,
+          "resident_tasks": 13320671232,
+          "inactive_file": 5258551296,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2082836480,
+          "working_set": 1860579328,
+          "max": 4294967296,
+          "anon": 1488015360,
+          "file": 321228800,
+          "mapped_file": 185741312,
+          "kernel": 265711616,
+          "resident_tasks": 1939468288,
+          "inactive_file": 222257152,
+          "swap": 1033510912,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 13148848128,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:18.869611+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25776889856,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9767481344
+      },
+      "ct": {
+        "630": {
+          "current": 21177724928,
+          "working_set": 16292880384,
+          "max": 23622320128,
+          "anon": 144605184,
+          "file": 20931502080,
+          "mapped_file": 13339836416,
+          "kernel": 100749312,
+          "resident_tasks": 13585190912,
+          "inactive_file": 4884844544,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2083135488,
+          "working_set": 1861214208,
+          "max": 4294967296,
+          "anon": 1488216064,
+          "file": 321114112,
+          "mapped_file": 185569280,
+          "kernel": 265711616,
+          "resident_tasks": 1939496960,
+          "inactive_file": 221921280,
+          "swap": 1033986048,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49274880,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 13412171776,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:19.870947+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25794555904,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9765646336
+      },
+      "ct": {
+        "630": {
+          "current": 21194403840,
+          "working_set": 16575696896,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20946751488,
+          "mapped_file": 13620973568,
+          "kernel": 101949440,
+          "resident_tasks": 13867511808,
+          "inactive_file": 4618706944,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2082689024,
+          "working_set": 1861070848,
+          "max": 4294967296,
+          "anon": 1487781888,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265711616,
+          "resident_tasks": 1938903040,
+          "inactive_file": 221618176,
+          "swap": 1034420224,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 13693714432,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:20.872487+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25796861952,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9764335616
+      },
+      "ct": {
+        "630": {
+          "current": 21208698880,
+          "working_set": 16856334336,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20959891456,
+          "mapped_file": 13900419072,
+          "kernel": 103145472,
+          "resident_tasks": 14148153344,
+          "inactive_file": 4352364544,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2082254848,
+          "working_set": 1860636672,
+          "max": 4294967296,
+          "anon": 1487400960,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265711616,
+          "resident_tasks": 1938522112,
+          "inactive_file": 221618176,
+          "swap": 1034801152,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 13972897792,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:21.873771+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25789743104,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9764073472
+      },
+      "ct": {
+        "630": {
+          "current": 21212229632,
+          "working_set": 17131708416,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20962250752,
+          "mapped_file": 14174621696,
+          "kernel": 104308736,
+          "resident_tasks": 14423519232,
+          "inactive_file": 4080521216,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2081914880,
+          "working_set": 1860296704,
+          "max": 4294967296,
+          "anon": 1487138816,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1938182144,
+          "inactive_file": 221618176,
+          "swap": 1035063296,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 14246838272,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:22.875194+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25781710848,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9763811328
+      },
+      "ct": {
+        "630": {
+          "current": 21216014336,
+          "working_set": 17407361024,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20964876288,
+          "mapped_file": 14449086464,
+          "kernel": 105467904,
+          "resident_tasks": 14699143168,
+          "inactive_file": 3808653312,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2081652736,
+          "working_set": 1860034560,
+          "max": 4294967296,
+          "anon": 1486876672,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1937920000,
+          "inactive_file": 221618176,
+          "swap": 1035325440,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 14521565184,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:23.876524+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25759350784,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9763549184
+      },
+      "ct": {
+        "630": {
+          "current": 21233557504,
+          "working_set": 17695469568,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20981657600,
+          "mapped_file": 14736396288,
+          "kernel": 106684416,
+          "resident_tasks": 14987669504,
+          "inactive_file": 3538087936,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2081390592,
+          "working_set": 1859772416,
+          "max": 4294967296,
+          "anon": 1486614528,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1937657856,
+          "inactive_file": 221618176,
+          "swap": 1035587584,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 14808875008,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:24.878001+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25760882688,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9762500608
+      },
+      "ct": {
+        "630": {
+          "current": 21223919616,
+          "working_set": 17955762176,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20970917888,
+          "mapped_file": 14995394560,
+          "kernel": 107786240,
+          "resident_tasks": 15247769600,
+          "inactive_file": 3268157440,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2081009664,
+          "working_set": 1859391488,
+          "max": 4294967296,
+          "anon": 1486233600,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1937276928,
+          "inactive_file": 221618176,
+          "swap": 1035968512,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 15067873280,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:25.879332+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25768570880,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9761976320
+      },
+      "ct": {
+        "630": {
+          "current": 21220868096,
+          "working_set": 18222178304,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20966739968,
+          "mapped_file": 15260684288,
+          "kernel": 108912640,
+          "resident_tasks": 15514185728,
+          "inactive_file": 2998689792,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2080628736,
+          "working_set": 1859010560,
+          "max": 4294967296,
+          "anon": 1485979648,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1937022976,
+          "inactive_file": 221618176,
+          "swap": 1036222464,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 15333294080,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:26.880575+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25773735936,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9761714176
+      },
+      "ct": {
+        "630": {
+          "current": 21326458880,
+          "working_set": 18464055296,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 21071101952,
+          "mapped_file": 15501332480,
+          "kernel": 109944832,
+          "resident_tasks": 15755866112,
+          "inactive_file": 2862403584,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2080628736,
+          "working_set": 1858514944,
+          "max": 4294967296,
+          "anon": 1485979648,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1937022976,
+          "inactive_file": 222113792,
+          "swap": 1036222464,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 15573942272,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:27.881906+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25786019840,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9761714176
+      },
+      "ct": {
+        "630": {
+          "current": 21209473024,
+          "working_set": 18754469888,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20952846336,
+          "mapped_file": 15790477312,
+          "kernel": 111177728,
+          "resident_tasks": 16046243840,
+          "inactive_file": 2455003136,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2080600064,
+          "working_set": 1858486272,
+          "max": 4294967296,
+          "anon": 1485918208,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1936961536,
+          "inactive_file": 222113792,
+          "swap": 1036283904,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 15862824960,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:28.883369+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25802899456,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9760141312
+      },
+      "ct": {
+        "630": {
+          "current": 21227724800,
+          "working_set": 19040817152,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20969623552,
+          "mapped_file": 16075161600,
+          "kernel": 112390144,
+          "resident_tasks": 16332140544,
+          "inactive_file": 2186907648,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2080489472,
+          "working_set": 1857101824,
+          "max": 4294967296,
+          "anon": 1485869056,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1936912384,
+          "inactive_file": 223387648,
+          "swap": 1036333056,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 16147513344,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:29.884691+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25799843840,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9759617024
+      },
+      "ct": {
+        "630": {
+          "current": 21233328128,
+          "working_set": 19306467328,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20974374912,
+          "mapped_file": 16339927040,
+          "kernel": 113512448,
+          "resident_tasks": 16598028288,
+          "inactive_file": 1926860800,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2080489472,
+          "working_set": 1857101824,
+          "max": 4294967296,
+          "anon": 1485869056,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1936912384,
+          "inactive_file": 223387648,
+          "swap": 1036333056,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 16412540928,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:30.886099+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25794240512,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9759617024
+      },
+      "ct": {
+        "630": {
+          "current": 21247889408,
+          "working_set": 19593658368,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20987744256,
+          "mapped_file": 16625926144,
+          "kernel": 114724864,
+          "resident_tasks": 16885239808,
+          "inactive_file": 1654231040,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2080489472,
+          "working_set": 1857101824,
+          "max": 4294967296,
+          "anon": 1485869056,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1936912384,
+          "inactive_file": 223387648,
+          "swap": 1036333056,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 16698540032,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:31.887412+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25799077888,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9759617024
+      },
+      "ct": {
+        "630": {
+          "current": 21249634304,
+          "working_set": 19868033024,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20988530688,
+          "mapped_file": 16899342336,
+          "kernel": 115888128,
+          "resident_tasks": 17159819264,
+          "inactive_file": 1381601280,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2080501760,
+          "working_set": 1857105920,
+          "max": 4294967296,
+          "anon": 1485873152,
+          "file": 320937984,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1936916480,
+          "inactive_file": 223395840,
+          "swap": 1036333056,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 16971694080,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:32.888740+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25798647808,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9759617024
+      },
+      "ct": {
+        "630": {
+          "current": 21259993088,
+          "working_set": 20149186560,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 20997705728,
+          "mapped_file": 17179316224,
+          "kernel": 117071872,
+          "resident_tasks": 17440976896,
+          "inactive_file": 1110806528,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2080497664,
+          "working_set": 1857101824,
+          "max": 4294967296,
+          "anon": 1485873152,
+          "file": 320937984,
+          "mapped_file": 185409536,
+          "kernel": 265633792,
+          "resident_tasks": 1936916480,
+          "inactive_file": 223395840,
+          "swap": 1036333056,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 17251926016,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:33.890008+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25791143936,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9759092736
+      },
+      "ct": {
+        "630": {
+          "current": 21270102016,
+          "working_set": 20431400960,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 21006356480,
+          "mapped_file": 17460264960,
+          "kernel": 118267904,
+          "resident_tasks": 17723121664,
+          "inactive_file": 838701056,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2080309248,
+          "working_set": 1856921600,
+          "max": 4294967296,
+          "anon": 1485692928,
+          "file": 320929792,
+          "mapped_file": 185409536,
+          "kernel": 265629696,
+          "resident_tasks": 1936732160,
+          "inactive_file": 223387648,
+          "swap": 1036333056,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 17532682240,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:34.891284+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 25768988672,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9759092736
+      },
+      "ct": {
+        "630": {
+          "current": 21274124288,
+          "working_set": 20708052992,
+          "max": 23622320128,
+          "anon": 144588800,
+          "file": 21009240064,
+          "mapped_file": 17735573504,
+          "kernel": 119435264,
+          "resident_tasks": 17999597568,
+          "inactive_file": 566071296,
+          "swap": 5660672,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 2081816576,
+          "working_set": 1858416640,
+          "max": 4294967296,
+          "anon": 1486036992,
+          "file": 322088960,
+          "mapped_file": 185942016,
+          "kernel": 265633792,
+          "resident_tasks": 1937612800,
+          "inactive_file": 223399936,
+          "swap": 1036333056,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 17808326656,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:35.892739+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 24976060416,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9667080192
+      },
+      "ct": {
+        "630": {
+          "current": 21823356928,
+          "working_set": 19592237056,
+          "max": 23622320128,
+          "anon": 804421632,
+          "file": 20917805056,
+          "mapped_file": 17756200960,
+          "kernel": 100282368,
+          "resident_tasks": 18660904960,
+          "inactive_file": 2231119872,
+          "swap": 5664768,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1869221888,
+          "working_set": 1797939200,
+          "max": 4294967296,
+          "anon": 1416744960,
+          "file": 175161344,
+          "mapped_file": 112533504,
+          "kernel": 262840320,
+          "resident_tasks": 1792118784,
+          "inactive_file": 71282688,
+          "swap": 1073741824,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49143808,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 18490970112,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:36.894112+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 24578482176,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9644535808
+      },
+      "ct": {
+        "630": {
+          "current": 22297088000,
+          "working_set": 20427923456,
+          "max": 23622320128,
+          "anon": 1639055360,
+          "file": 20555538432,
+          "mapped_file": 17756606464,
+          "kernel": 101896192,
+          "resident_tasks": 19497558016,
+          "inactive_file": 1869164544,
+          "swap": 5824512,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1783218176,
+          "working_set": 1723113472,
+          "max": 4294967296,
+          "anon": 1416744960,
+          "file": 160616448,
+          "mapped_file": 109400064,
+          "kernel": 191381504,
+          "resident_tasks": 1717526528,
+          "inactive_file": 60104704,
+          "swap": 1073741824,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49012736,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 19325374464,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:37.896432+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 24375013376,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9632477184
+      },
+      "ct": {
+        "630": {
+          "current": 22347980800,
+          "working_set": 20686700544,
+          "max": 23622320128,
+          "anon": 1896296448,
+          "file": 20348174336,
+          "mapped_file": 17756151808,
+          "kernel": 102985728,
+          "resident_tasks": 19755433984,
+          "inactive_file": 1661280256,
+          "swap": 5840896,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1773158400,
+          "working_set": 1665798144,
+          "max": 4294967296,
+          "anon": 1416744960,
+          "file": 150454272,
+          "mapped_file": 109309952,
+          "kernel": 191483904,
+          "resident_tasks": 1717538816,
+          "inactive_file": 107360256,
+          "swap": 1073741824,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49012736,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 19582668800,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:38.897763+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 24021704704,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9632739328
+      },
+      "ct": {
+        "630": {
+          "current": 22359375872,
+          "working_set": 21014343680,
+          "max": 23622320128,
+          "anon": 2221854720,
+          "file": 20032778240,
+          "mapped_file": 17756151808,
+          "kernel": 104386560,
+          "resident_tasks": 20082393088,
+          "inactive_file": 1345032192,
+          "swap": 5840896,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1773969408,
+          "working_set": 1666195456,
+          "max": 4294967296,
+          "anon": 1416753152,
+          "file": 150847488,
+          "mapped_file": 109309952,
+          "kernel": 191885312,
+          "resident_tasks": 1717948416,
+          "inactive_file": 107773952,
+          "swap": 1073659904,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 49012736,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 19908251648,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:39.899097+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 23430254592,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9601282048
+      },
+      "ct": {
+        "630": {
+          "current": 22267719680,
+          "working_set": 15756623872,
+          "max": 23622320128,
+          "anon": 2443755520,
+          "file": 19715317760,
+          "mapped_file": 17756073984,
+          "kernel": 105447424,
+          "resident_tasks": 20305276928,
+          "inactive_file": 6511095808,
+          "swap": 35397632,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1772240896,
+          "working_set": 1670545408,
+          "max": 4294967296,
+          "anon": 1416753152,
+          "file": 149127168,
+          "mapped_file": 107843584,
+          "kernel": 191885312,
+          "resident_tasks": 1716482048,
+          "inactive_file": 101695488,
+          "swap": 1073659904,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 19652608,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 20159778816,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:40.900313+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 23752904704,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9599709184
+      },
+      "ct": {
+        "630": {
+          "current": 22318448640,
+          "working_set": 15835328512,
+          "max": 23622320128,
+          "anon": 2519085056,
+          "file": 19689971712,
+          "mapped_file": 17755639808,
+          "kernel": 105844736,
+          "resident_tasks": 20380569600,
+          "inactive_file": 6483120128,
+          "swap": 35397632,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1787539456,
+          "working_set": 1681309696,
+          "max": 4294967296,
+          "anon": 1416933376,
+          "file": 164016128,
+          "mapped_file": 107937792,
+          "kernel": 192114688,
+          "resident_tasks": 1716985856,
+          "inactive_file": 106229760,
+          "swap": 1073659904,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 17293312,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 20234412032,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:41.901797+00:00"
+    },
+    {
+      "host": {
+        "MemAvailable": 23634776064,
+        "SwapTotal": 17179865088,
+        "SwapFree": 9600495616
+      },
+      "ct": {
+        "630": {
+          "current": 22318428160,
+          "working_set": 15835308032,
+          "max": 23622320128,
+          "anon": 2519134208,
+          "file": 19689971712,
+          "mapped_file": 17755639808,
+          "kernel": 105844736,
+          "resident_tasks": 20380618752,
+          "inactive_file": 6483120128,
+          "swap": 35397632,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1787539456,
+          "working_set": 1681309696,
+          "max": 4294967296,
+          "anon": 1416933376,
+          "file": 164016128,
+          "mapped_file": 107937792,
+          "kernel": 192114688,
+          "resident_tasks": 1716985856,
+          "inactive_file": 106229760,
+          "swap": 1073659904,
+          "events": "low 0\nhigh 0\nmax 15167\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 4095791,
+          "rss": 17293312,
+          "model_files": []
+        },
+        {
+          "pid": 4131492,
+          "rss": 20234543104,
+          "model_files": [
+            "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T17:16:42.903015+00:00"
+    }
+  ],
+  "anomalies": [],
+  "error": null
+}

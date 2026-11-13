@@ -1,0 +1,102 @@
+{
+  "captured_at": "2026-11-13T11:42:46+01:00",
+  "remote_read_only": true,
+  "results": [
+    {
+      "cmd": "date --iso-8601=seconds",
+      "chunk_id": "90edc0",
+      "wall_time_seconds": 0.337164312,
+      "exit_code": 0,
+      "original_token_count": 7,
+      "output": "2026-11-13T11:42:46+01:00\n"
+    },
+    {
+      "cmd": "lspci -nnk | grep -iA3 eth",
+      "chunk_id": "d784bf",
+      "wall_time_seconds": 0.029517457,
+      "exit_code": 0,
+      "original_token_count": 65,
+      "output": "00:1f.6 Ethernet controller [0200]: Intel Corporation Ethernet Connection (5) I219-LM [8086:15e3]\n\tDeviceName: Onboard Lan\n\tSubsystem: Hewlett-Packard Company Ethernet Connection (5) I219-LM [103c:829a]\n\tKernel driver in use: e1000e\n\tKernel modules: e1000e\n"
+    },
+    {
+      "cmd": "ethtool -i eno1",
+      "chunk_id": "aeca39",
+      "wall_time_seconds": 0.016280179,
+      "exit_code": 0,
+      "original_token_count": 59,
+      "output": "driver: e1000e\nversion: 6.8.12-4-pve\nfirmware-version: 0.1-4\nexpansion-rom-version: \nbus-info: 0000:00:1f.6\nsupports-statistics: yes\nsupports-test: yes\nsupports-eeprom-access: yes\nsupports-register-dump: yes\nsupports-priv-flags: yes\n"
+    },
+    {
+      "cmd": "ethtool eno1",
+      "chunk_id": "09aa0c",
+      "wall_time_seconds": 0.020229348,
+      "exit_code": 0,
+      "original_token_count": 279,
+      "output": "Settings for eno1:\n\tSupported ports: [ TP ]\n\tSupported link modes:   10baseT/Half 10baseT/Full\n\t                        100baseT/Half 100baseT/Full\n\t                        1000baseT/Full\n\tSupported pause frame use: Symmetric Receive-only\n\tSupports auto-negotiation: Yes\n\tSupported FEC modes: Not reported\n\tAdvertised link modes:  10baseT/Half 10baseT/Full\n\t                        100baseT/Half 100baseT/Full\n\t                        1000baseT/Full\n\tAdvertised pause frame use: Symmetric Receive-only\n\tAdvertised auto-negotiation: Yes\n\tAdvertised FEC modes: Not reported\n\tLink partner advertised link modes:  10baseT/Half 10baseT/Full\n\t                                     100baseT/Half 100baseT/Full\n\tLink partner advertised pause frame use: No\n\tLink partner advertised auto-negotiation: Yes\n\tLink partner advertised FEC modes: Not reported\n\tSpeed: 100Mb/s\n\tDuplex: Full\n\tAuto-negotiation: on\n\tPort: Twisted Pair\n\tPHYAD: 1\n\tTransceiver: internal\n\tMDI-X: on (auto)\n\tSupports Wake-on: pumbg\n\tWake-on: g\n        Current message level: 0x00000007 (7)\n                               drv probe link\n\tLink detected: yes\n"
+    },
+    {
+      "cmd": "ethtool -S eno1 | grep -iE \"err|crc|drop|collision|fcs\"",
+      "chunk_id": "c7282b",
+      "wall_time_seconds": 0.016363462,
+      "exit_code": 0,
+      "original_token_count": 133,
+      "output": "     rx_errors: 0\n     tx_errors: 0\n     tx_dropped: 0\n     collisions: 0\n     rx_length_errors: 0\n     rx_over_errors: 0\n     rx_crc_errors: 0\n     rx_frame_errors: 0\n     rx_missed_errors: 0\n     tx_aborted_errors: 0\n     tx_carrier_errors: 0\n     tx_fifo_errors: 0\n     tx_heartbeat_errors: 0\n     tx_window_errors: 0\n     tx_deferred_ok: 0\n     rx_long_length_errors: 0\n     rx_short_length_errors: 0\n     rx_align_errors: 0\n     rx_csum_offload_errors: 0\n     dropped_smbus: 0\n     uncorr_ecc_errors: 0\n     corr_ecc_errors: 0\n"
+    },
+    {
+      "cmd": "ip -s link show eno1",
+      "chunk_id": "eced52",
+      "wall_time_seconds": 0.019528719,
+      "exit_code": 0,
+      "original_token_count": 112,
+      "output": "2: eno1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master vmbr0 state UP mode DEFAULT group default qlen 1000\n    link/ether 10:62:e5:19:13:cd brd ff:ff:ff:ff:ff:ff\n    RX:  bytes packets errors dropped  missed   mcast           \n    7521742869 7356160      0    2605       0  121714 \n    TX:  bytes packets errors dropped carrier collsns           \n    4375860158 7501381      0       0       0       0 \n    altname enp0s31f6\n"
+    },
+    {
+      "cmd": "dmesg -T | grep -iE \"eno1|link is up|link is down|e1000|igb|r8169|ixgbe\"",
+      "chunk_id": "27205a",
+      "wall_time_seconds": 0.035656032,
+      "exit_code": 0,
+      "original_token_count": 336,
+      "output": "[Wed Nov 11 18:47:08 2026] e1000e: Intel(R) PRO/1000 Network Driver\n[Wed Nov 11 18:47:08 2026] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.\n[Wed Nov 11 18:47:08 2026] e1000e 0000:00:1f.6: enabling device (0100 -> 0102)\n[Wed Nov 11 18:47:08 2026] e1000e 0000:00:1f.6: Interrupt Throttling Rate (ints/sec) set to dynamic conservative mode\n[Wed Nov 11 18:47:08 2026] e1000e 0000:00:1f.6 0000:00:1f.6 (uninitialized): registered PHC clock\n[Wed Nov 11 18:47:08 2026] e1000e 0000:00:1f.6 eth0: (PCI Express:2.5GT/s:Width x1) 10:62:e5:19:13:cd\n[Wed Nov 11 18:47:08 2026] e1000e 0000:00:1f.6 eth0: Intel(R) PRO/1000 Network Connection\n[Wed Nov 11 18:47:08 2026] e1000e 0000:00:1f.6 eth0: MAC: 12, PHY: 12, PBA No: FFFFFF-0FF\n[Wed Nov 11 18:47:08 2026] e1000e 0000:00:1f.6 eno1: renamed from eth0\n[Wed Nov 11 18:47:14 2026] vmbr0: port 1(eno1) entered blocking state\n[Wed Nov 11 18:47:14 2026] vmbr0: port 1(eno1) entered disabled state\n[Wed Nov 11 18:47:14 2026] e1000e 0000:00:1f.6 eno1: entered allmulticast mode\n[Wed Nov 11 18:47:14 2026] e1000e 0000:00:1f.6 eno1: entered promiscuous mode\n[Wed Nov 11 18:47:16 2026] e1000e 0000:00:1f.6 eno1: NIC Link is Up 100 Mbps Full Duplex, Flow Control: None\n[Wed Nov 11 18:47:16 2026] vmbr0: port 1(eno1) entered blocking state\n[Wed Nov 11 18:47:16 2026] vmbr0: port 1(eno1) entered forwarding state\n"
+    },
+    {
+      "cmd": "cat /etc/network/interfaces",
+      "chunk_id": "4f9c9d",
+      "wall_time_seconds": 0.013686917,
+      "exit_code": 0,
+      "original_token_count": 171,
+      "output": "# network interface settings; autogenerated\n# Please do NOT modify this file directly, unless you know what\n# you're doing.\n#\n# If you want to manage parts of the network configuration manually,\n# please utilize the 'source' or 'source-directory' directives to do\n# so.\n# PVE will preserve these directives, but will NOT read its network\n# configuration from sourced files, so do not attempt to move any of\n# the PVE managed interfaces into external files!\n\nauto lo\niface lo inet loopback\n\niface eno1 inet manual\n\nauto vmbr0\niface vmbr0 inet static\n\taddress 192.168.1.100/24\n\tgateway 192.168.1.254\n\tbridge-ports eno1\n\tbridge-stp off\n\tbridge-fd 0\n\nsource /etc/network/interfaces.d/*\n"
+    },
+    {
+      "cmd": "grep -rE \"speed|autoneg|duplex|ethtool\" /etc/network/ /etc/systemd/network/ /etc/udev/rules.d/ 2>/dev/null",
+      "chunk_id": "33efa1",
+      "wall_time_seconds": 0.030261716,
+      "exit_code": 0,
+      "original_token_count": 135,
+      "output": "/etc/network/if-up.d/ethtool:ETHTOOL=/sbin/ethtool\n/etc/network/if-up.d/ethtool:${IF_LINK_SPEED:+ speed $IF_LINK_SPEED}\\\n/etc/network/if-up.d/ethtool:${IF_LINK_DUPLEX:+ duplex $IF_LINK_DUPLEX}\\\n/etc/network/if-up.d/ethtool:on|off)\tSETTINGS=\"$SETTINGS autoneg $IF_ETHERNET_AUTONEG\" ;;\n/etc/network/if-up.d/ethtool:*)\tSETTINGS=\"$SETTINGS autoneg on advertise $IF_ETHERNET_AUTONEG\" ;;\n/etc/network/if-pre-up.d/ethtool:ETHTOOL=/sbin/ethtool\n/etc/network/ifupdown2/addons.conf:pre-up,ethtool\n/etc/network/ifupdown2/addons.conf:pre-down,ethtool\n"
+    },
+    {
+      "cmd": "command -v iperf3",
+      "chunk_id": "09ca48",
+      "wall_time_seconds": 0.01870999,
+      "exit_code": 1,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "cmd": "find /etc/network/interfaces.d -maxdepth 1 -type f -exec cat {} \\;",
+      "chunk_id": "f1e641",
+      "wall_time_seconds": 0.294673333,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "cmd": "cat /etc/network/if-up.d/ethtool /etc/network/if-pre-up.d/ethtool",
+      "chunk_id": "fd9070",
+      "wall_time_seconds": 0.054774208,
+      "exit_code": 0,
+      "original_token_count": 508,
+      "output": "#!/bin/sh\n\nETHTOOL=/sbin/ethtool\n\ntest -x $ETHTOOL || exit 0\n\n[ \"$IFACE\" != \"lo\" ] || exit 0\n\n# Find settings with a given prefix and print them as they appeared in\n# /etc/network/interfaces, only with the prefix removed.\n# This actually prints each name and value on a separate line, but that\n# doesn't matter to the shell.\ngather_settings () {\n    set | sed -n \"\n/^IF_$1[A-Za-z0-9_]*=/ {\n    h;                             # hold line\n    s/^IF_$1//; s/=.*//; s/_/-/g;  # get name without prefix\n    y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/;  # lower-case\n    p;\n    g;                             # restore line\n    s/^[^=]*=//; s/^'\\(.*\\)'/\\1/;  # get value\n    p;\n}\"\n}\n\n# Gather together the mixed bag of settings applied with -s/--change\nSETTINGS=\"\\\n${IF_LINK_SPEED:+ speed $IF_LINK_SPEED}\\\n${IF_LINK_DUPLEX:+ duplex $IF_LINK_DUPLEX}\\\n\"\n\n# WOL has an optional pass-key\nset -- $IF_ETHERNET_WOL\nSETTINGS=\"$SETTINGS${1:+ wol $1}${2:+ sopass $2}\"\n\n# Autonegotiation can be on|off or an advertising mask\ncase \"$IF_ETHERNET_AUTONEG\" in\n'')\t;;\non|off)\tSETTINGS=\"$SETTINGS autoneg $IF_ETHERNET_AUTONEG\" ;;\n*)\tSETTINGS=\"$SETTINGS autoneg on advertise $IF_ETHERNET_AUTONEG\" ;;\nesac\n\n[ -z \"$SETTINGS\" ] || $ETHTOOL --change \"$IFACE\" $SETTINGS\n\nSETTINGS=\"$(gather_settings ETHERNET_PAUSE_)\"\n[ -z \"$SETTINGS\" ] || $ETHTOOL --pause \"$IFACE\" $SETTINGS\n\nSETTINGS=\"$(gather_settings HARDWARE_IRQ_COALESCE_)\"\n[ -z \"$SETTINGS\" ] || $ETHTOOL --coalesce \"$IFACE\" $SETTINGS\n\nSETTINGS=\"$(gather_settings HARDWARE_DMA_RING_)\"\n[ -z \"$SETTINGS\" ] || $ETHTOOL --set-ring \"$IFACE\" $SETTINGS\n\nSETTINGS=\"$(gather_settings OFFLOAD_)\"\n[ -z \"$SETTINGS\" ] || $ETHTOOL --offload \"$IFACE\" $SETTINGS\n#!/bin/sh\n\nETHTOOL=/sbin/ethtool\n\ntest -x $ETHTOOL || exit 0\n\n[ \"$IFACE\" != \"lo\" ] || exit 0\n\n# Gather together the mixed bag of settings applied with -s/--change\nSETTINGS=\"\\\n${IF_ETHERNET_PORT:+ port $IF_ETHERNET_PORT}\\\n${IF_DRIVER_MESSAGE_LEVEL:+ msglvl $IF_DRIVER_MESSAGE_LEVEL}\\\n\"\n[ -z \"$SETTINGS\" ] || $ETHTOOL --change \"$IFACE\" $SETTINGS\n"
+    }
+  ]
+}

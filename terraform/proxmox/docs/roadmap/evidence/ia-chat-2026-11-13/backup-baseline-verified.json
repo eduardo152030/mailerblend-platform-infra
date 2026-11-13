@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-13T12:13:41.587361+00:00",
+  "path": "/mnt/storage/dump/vzdump-lxc-631-2026_11_13-13_04_42.tar.zst",
+  "bytes": 5238836291,
+  "sha256": "d40723e2125f82df4bb6342226ee7d969a5bf2f41f132a14ac93c349e087fbcf",
+  "zstd_test": "PASS",
+  "tar_list": "PASS",
+  "members": 123284,
+  "critical_members": {
+    "webui.db": true,
+    "docker-compose.yml": true,
+    "secrets.env": true,
+    "settings.yml": true,
+    "pct.conf": true
+  },
+  "functional_restore": "NOT_PERFORMED"
+}

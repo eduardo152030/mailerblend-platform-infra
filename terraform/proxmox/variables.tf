@@ -43,3 +43,10 @@ variable "voicebox_pilot_memory_mib" {
     error_message = "Only the historical4096 MiB pilot or3072 MiB safety rollback is allowed."
   }
 }
+
+# Preserve legacy default; IA-CHAT operations explicitly require verified TLS.
+variable "proxmox_tls_insecure" {
+  type        = bool
+  default     = true
+  description = "Legacy compatibility only; use false with a trusted PVE CA for new operations."
+}

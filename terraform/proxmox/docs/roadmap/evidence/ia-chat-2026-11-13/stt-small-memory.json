@@ -1,0 +1,905 @@
+[
+  {
+    "utc": "2026-11-13T12:14:16.967401+00:00",
+    "ct": {
+      "630": {
+        "current": 19869835264,
+        "working_set": 8295682048,
+        "max": 23622320128,
+        "anon": 165613568,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 555593728,
+        "working_set": 522309632,
+        "max": 3221225472,
+        "anon": 458919936,
+        "swap": 1072971776,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:17.968439+00:00",
+    "ct": {
+      "630": {
+        "current": 20153851904,
+        "working_set": 8579698688,
+        "max": 23622320128,
+        "anon": 165613568,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 555593728,
+        "working_set": 522309632,
+        "max": 3221225472,
+        "anon": 458919936,
+        "swap": 1072971776,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:18.969703+00:00",
+    "ct": {
+      "630": {
+        "current": 20429803520,
+        "working_set": 8855650304,
+        "max": 23622320128,
+        "anon": 165613568,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 577462272,
+        "working_set": 541044736,
+        "max": 3221225472,
+        "anon": 465866752,
+        "swap": 1072971776,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:19.970667+00:00",
+    "ct": {
+      "630": {
+        "current": 20702650368,
+        "working_set": 9128497152,
+        "max": 23622320128,
+        "anon": 165613568,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 593952768,
+        "working_set": 553418752,
+        "max": 3221225472,
+        "anon": 469143552,
+        "swap": 1072971776,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:20.971611+00:00",
+    "ct": {
+      "630": {
+        "current": 20990242816,
+        "working_set": 9416089600,
+        "max": 23622320128,
+        "anon": 165613568,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 602132480,
+        "working_set": 561082368,
+        "max": 3221225472,
+        "anon": 472047616,
+        "swap": 1070403584,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:21.972558+00:00",
+    "ct": {
+      "630": {
+        "current": 21268238336,
+        "working_set": 9694085120,
+        "max": 23622320128,
+        "anon": 165613568,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 607457280,
+        "working_set": 566370304,
+        "max": 3221225472,
+        "anon": 474619904,
+        "swap": 1067831296,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:22.973880+00:00",
+    "ct": {
+      "630": {
+        "current": 21548208128,
+        "working_set": 9974054912,
+        "max": 23622320128,
+        "anon": 165613568,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 613036032,
+        "working_set": 571711488,
+        "max": 3221225472,
+        "anon": 477421568,
+        "swap": 1064960000,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:23.974881+00:00",
+    "ct": {
+      "630": {
+        "current": 21814751232,
+        "working_set": 10240598016,
+        "max": 23622320128,
+        "anon": 165613568,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 629387264,
+        "working_set": 585723904,
+        "max": 3221225472,
+        "anon": 479543296,
+        "swap": 1063649280,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:24.975887+00:00",
+    "ct": {
+      "630": {
+        "current": 22083276800,
+        "working_set": 10509123584,
+        "max": 23622320128,
+        "anon": 165613568,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 693792768,
+        "working_set": 648069120,
+        "max": 3221225472,
+        "anon": 489291776,
+        "swap": 1063649280,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:25.976975+00:00",
+    "ct": {
+      "630": {
+        "current": 22497206272,
+        "working_set": 11107078144,
+        "max": 23622320128,
+        "anon": 562581504,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 697118720,
+        "working_set": 650760192,
+        "max": 3221225472,
+        "anon": 482537472,
+        "swap": 1059930112,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:26.978046+00:00",
+    "ct": {
+      "630": {
+        "current": 22473375744,
+        "working_set": 12580352000,
+        "max": 23622320128,
+        "anon": 2032361472,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 725311488,
+        "working_set": 678649856,
+        "max": 3221225472,
+        "anon": 494116864,
+        "swap": 1048502272,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:27.979169+00:00",
+    "ct": {
+      "630": {
+        "current": 22683987968,
+        "working_set": 12821442560,
+        "max": 23622320128,
+        "anon": 2272288768,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 729866240,
+        "working_set": 683196416,
+        "max": 3221225472,
+        "anon": 498126848,
+        "swap": 1044602880,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:28.980392+00:00",
+    "ct": {
+      "630": {
+        "current": 22693027840,
+        "working_set": 13166825472,
+        "max": 23622320128,
+        "anon": 2616242176,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 736919552,
+        "working_set": 690245632,
+        "max": 3221225472,
+        "anon": 500232192,
+        "swap": 1042288640,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:29.981608+00:00",
+    "ct": {
+      "630": {
+        "current": 22654545920,
+        "working_set": 13490409472,
+        "max": 23622320128,
+        "anon": 2938138624,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 739287040,
+        "working_set": 692613120,
+        "max": 3221225472,
+        "anon": 502018048,
+        "swap": 1040764928,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:30.982823+00:00",
+    "ct": {
+      "630": {
+        "current": 22698016768,
+        "working_set": 13790425088,
+        "max": 23622320128,
+        "anon": 3237298176,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 745103360,
+        "working_set": 698220544,
+        "max": 3221225472,
+        "anon": 506441728,
+        "swap": 1037914112,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:31.986664+00:00",
+    "ct": {
+      "630": {
+        "current": 22564483072,
+        "working_set": 13797396480,
+        "max": 23622320128,
+        "anon": 3243200512,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 766468096,
+        "working_set": 715329536,
+        "max": 3221225472,
+        "anon": 514646016,
+        "swap": 1032974336,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:32.989375+00:00",
+    "ct": {
+      "630": {
+        "current": 22564966400,
+        "working_set": 13797879808,
+        "max": 23622320128,
+        "anon": 3243520000,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 847777792,
+        "working_set": 796639232,
+        "max": 3221225472,
+        "anon": 588529664,
+        "swap": 1016774656,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:33.990588+00:00",
+    "ct": {
+      "630": {
+        "current": 22431027200,
+        "working_set": 15260561408,
+        "max": 23622320128,
+        "anon": 3246211072,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 913715200,
+        "working_set": 862576640,
+        "max": 3221225472,
+        "anon": 656248832,
+        "swap": 1016541184,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:34.991837+00:00",
+    "ct": {
+      "630": {
+        "current": 22430990336,
+        "working_set": 15260524544,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 980779008,
+        "working_set": 929636352,
+        "max": 3221225472,
+        "anon": 723152896,
+        "swap": 1016541184,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:35.993084+00:00",
+    "ct": {
+      "630": {
+        "current": 22391836672,
+        "working_set": 16234024960,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 1048080384,
+        "working_set": 996937728,
+        "max": 3221225472,
+        "anon": 790511616,
+        "swap": 1016020992,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:36.994401+00:00",
+    "ct": {
+      "630": {
+        "current": 22296690688,
+        "working_set": 16544120832,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 1115725824,
+        "working_set": 1064583168,
+        "max": 3221225472,
+        "anon": 855842816,
+        "swap": 1015918592,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:37.995948+00:00",
+    "ct": {
+      "630": {
+        "current": 22158524416,
+        "working_set": 16576393216,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 1183887360,
+        "working_set": 1065656320,
+        "max": 3221225472,
+        "anon": 856211456,
+        "swap": 1015918592,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:38.997486+00:00",
+    "ct": {
+      "630": {
+        "current": 22158524416,
+        "working_set": 16576393216,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 1259294720,
+        "working_set": 1062395904,
+        "max": 3221225472,
+        "anon": 856993792,
+        "swap": 1015918592,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:39.999237+00:00",
+    "ct": {
+      "630": {
+        "current": 21839851520,
+        "working_set": 16620134400,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 1280716800,
+        "working_set": 746016768,
+        "max": 3221225472,
+        "anon": 531730432,
+        "swap": 1015918592,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:41.001626+00:00",
+    "ct": {
+      "630": {
+        "current": 21839851520,
+        "working_set": 16620134400,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 1280741376,
+        "working_set": 746012672,
+        "max": 3221225472,
+        "anon": 531783680,
+        "swap": 1015820288,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:42.002978+00:00",
+    "ct": {
+      "630": {
+        "current": 21296689152,
+        "working_set": 16729550848,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 1999900672,
+        "working_set": 1465167872,
+        "max": 3221225472,
+        "anon": 1238683648,
+        "swap": 1015111680,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:43.004541+00:00",
+    "ct": {
+      "630": {
+        "current": 21296689152,
+        "working_set": 16729550848,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2041511936,
+        "working_set": 1506779136,
+        "max": 3221225472,
+        "anon": 1262882816,
+        "swap": 991383552,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:44.005989+00:00",
+    "ct": {
+      "630": {
+        "current": 21296689152,
+        "working_set": 16729550848,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2080894976,
+        "working_set": 1546162176,
+        "max": 3221225472,
+        "anon": 1293160448,
+        "swap": 960974848,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:45.007449+00:00",
+    "ct": {
+      "630": {
+        "current": 21296689152,
+        "working_set": 16729550848,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2117799936,
+        "working_set": 1583067136,
+        "max": 3221225472,
+        "anon": 1322602496,
+        "swap": 931639296,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:46.008924+00:00",
+    "ct": {
+      "630": {
+        "current": 21161738240,
+        "working_set": 16757317632,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2159902720,
+        "working_set": 1625169920,
+        "max": 3221225472,
+        "anon": 1354809344,
+        "swap": 899538944,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:47.010379+00:00",
+    "ct": {
+      "630": {
+        "current": 21161738240,
+        "working_set": 16757317632,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2204839936,
+        "working_set": 1670107136,
+        "max": 3221225472,
+        "anon": 1388269568,
+        "swap": 865738752,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:48.011834+00:00",
+    "ct": {
+      "630": {
+        "current": 21161738240,
+        "working_set": 16757317632,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2247114752,
+        "working_set": 1712381952,
+        "max": 3221225472,
+        "anon": 1421385728,
+        "swap": 832860160,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:49.013413+00:00",
+    "ct": {
+      "630": {
+        "current": 21161738240,
+        "working_set": 16757317632,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2285064192,
+        "working_set": 1750331392,
+        "max": 3221225472,
+        "anon": 1452474368,
+        "swap": 801693696,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:50.014888+00:00",
+    "ct": {
+      "630": {
+        "current": 21026082816,
+        "working_set": 16767107072,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2317586432,
+        "working_set": 1782853632,
+        "max": 3221225472,
+        "anon": 1480896512,
+        "swap": 773394432,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:51.016641+00:00",
+    "ct": {
+      "630": {
+        "current": 21026082816,
+        "working_set": 16767107072,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2355146752,
+        "working_set": 1820413952,
+        "max": 3221225472,
+        "anon": 1525702656,
+        "swap": 728584192,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:52.018197+00:00",
+    "ct": {
+      "630": {
+        "current": 21026082816,
+        "working_set": 16767107072,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2396082176,
+        "working_set": 1861349376,
+        "max": 3221225472,
+        "anon": 1577713664,
+        "swap": 676421632,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:53.019902+00:00",
+    "ct": {
+      "630": {
+        "current": 21026082816,
+        "working_set": 16767107072,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2439229440,
+        "working_set": 1904496640,
+        "max": 3221225472,
+        "anon": 1623887872,
+        "swap": 630366208,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:54.021552+00:00",
+    "ct": {
+      "630": {
+        "current": 20889804800,
+        "working_set": 16827289600,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2479718400,
+        "working_set": 1944985600,
+        "max": 3221225472,
+        "anon": 1674592256,
+        "swap": 579756032,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:55.023041+00:00",
+    "ct": {
+      "630": {
+        "current": 20889804800,
+        "working_set": 16827289600,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2505281536,
+        "working_set": 1970548736,
+        "max": 3221225472,
+        "anon": 1702121472,
+        "swap": 552247296,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:56.024660+00:00",
+    "ct": {
+      "630": {
+        "current": 20617359360,
+        "working_set": 16947511296,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2603970560,
+        "working_set": 2069237760,
+        "max": 3221225472,
+        "anon": 1792995328,
+        "swap": 552038400,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:57.028287+00:00",
+    "ct": {
+      "630": {
+        "current": 20482273280,
+        "working_set": 16969019392,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2712428544,
+        "working_set": 2177695744,
+        "max": 3221225472,
+        "anon": 1900998656,
+        "swap": 552038400,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:58.029910+00:00",
+    "ct": {
+      "630": {
+        "current": 20482273280,
+        "working_set": 16969019392,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2604482560,
+        "working_set": 2069749760,
+        "max": 3221225472,
+        "anon": 1792999424,
+        "swap": 552038400,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:14:59.031621+00:00",
+    "ct": {
+      "630": {
+        "current": 20482273280,
+        "working_set": 16969019392,
+        "max": 23622320128,
+        "anon": 3246206976,
+        "swap": 7430144,
+        "events": "low 0\nhigh 1733\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2603851776,
+        "working_set": 2069114880,
+        "max": 3221225472,
+        "anon": 1791954944,
+        "swap": 552038400,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  }
+]

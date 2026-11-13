@@ -1,0 +1,7 @@
+[Unit]
+Description=LXC cgroup CPU textfile
+[Service]
+Type=oneshot
+User=nobody
+Group=nogroup
+ExecStart=/bin/sh /opt/lxc-monitoring/node-cgroup.sh --once

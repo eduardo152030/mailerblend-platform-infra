@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/root/ia-local/final-health.py", line 11, in <module>
+    cts[id]={'config':run('pct','config',id),'ip':json.loads(run('pct','exec',id,'--','ip','-j','-4','addr','show','dev','eth0')),'timezone':run('pct','exec',id,'--','timedatectl','show','-p','Timezone','--value'),'current':current,'working_set':current-s.get('inactive_file',0),'resident_tasks':min(current,s.get('anon',0)+s.get('file_mapped',0)+s.get('kernel',0)),'anon':s.get('anon',0),'swap':int((p/'memory.swap.current').read_text()),'memory_events':(p/'memory.events').read_text()}
+                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ia-local/final-health.py", line 5, in run
+    def run(*a):return subprocess.run(a,text=True,capture_output=True,check=True).stdout.strip()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '('pct', 'exec', '630', '--', 'timedatectl', 'show', '-p', 'Timezone', '--value')' returned non-zero exit status 1.

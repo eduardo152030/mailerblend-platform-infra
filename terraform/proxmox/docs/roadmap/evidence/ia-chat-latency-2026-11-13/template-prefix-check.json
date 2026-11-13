@@ -1,0 +1,6 @@
+{
+  "result": "PASS",
+  "first_turn_identical_to_upstream": true,
+  "history_prefix_exact": true,
+  "thinking_control_preserved": true
+}

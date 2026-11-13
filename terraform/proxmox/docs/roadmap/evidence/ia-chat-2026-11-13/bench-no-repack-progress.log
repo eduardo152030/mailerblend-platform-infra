@@ -1,0 +1,8 @@
+{"utc": "2026-11-13T11:55:20.152586+00:00", "alias": "gemma-4-26b", "threads": 3, "host_memavailable_bytes": 27722829824}
+PASS gemma-4-26b-t3.json [(512, 0, 16.3953), (0, 128, 7.960704)]
+{"utc": "2026-11-13T11:57:02.651118+00:00", "alias": "gemma-4-26b", "threads": 4, "host_memavailable_bytes": 27501080576}
+PASS gemma-4-26b-t4.json [(512, 0, 18.266529), (0, 128, 6.378334)]
+{"utc": "2026-11-13T11:58:22.146152+00:00", "alias": "qwen3.6-35b", "threads": 3, "host_memavailable_bytes": 27483189248}
+PASS qwen3.6-35b-t3.json [(512, 0, 20.013556), (0, 128, 5.127122)]
+{"utc": "2026-11-13T12:01:13.128168+00:00", "alias": "qwen3.6-35b", "threads": 4, "host_memavailable_bytes": 27554521088}
+PASS qwen3.6-35b-t4.json [(512, 0, 19.488041), (0, 128, 4.423762)]

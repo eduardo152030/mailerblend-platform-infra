@@ -1,0 +1,87 @@
+service:
+  name: infra-webui
+  vmid: 631
+  ip: 192.168.1.66/24
+resources:
+  cpu: 2
+  memory: 4096
+  swap: 1024
+  disk_gb: 20
+os:
+  template_file_id: local:vztmpl/debian-12-standard_12.12-1_amd64.tar.zst
+  name: Debian 12
+network:
+  gateway: 192.168.1.254
+  dns:
+  - 192.168.1.254
+  bridge: vmbr0
+  dhcp: true
+  mac_address: BC:24:11:0D:41:78
+storage:
+  name: local-lvm
+tags:
+- infra
+- ai
+- internal
+monitoring:
+  docker: true
+  node_exporter: true
+  blackbox:
+  - url: http://192.168.1.66:3000/health
+    module: infra_webui_health
+    contract: HTTP 200 y JSON de salud; sin inferencia ni carga de modelo
+    body_regex: '"status"\s*:\s*true'
+  cadvisor_memory_mib: 256
+provisioning:
+  unprivileged: true
+  environment: internal
+  purpose: Chat IA local — Open WebUI y SearXNG interno
+  owner: eduardo152030
+  applications:
+  - name: Open WebUI + SearXNG
+    runtime: docker
+    ports:
+    - 3000/tcp LAN; SearXNG solo red interna
+  dependencies:
+  - 630 API
+  domains: []
+  backup: PVE HDD; diario 03:30 7daily/4weekly
+  known_issues:
+  - 'DHCP: reserva pendiente en router para BC:24:11:0D:41:78'
+  - UAT humana pendiente; no implica aceptación de calidad de voz
+  - RAM4096MiB aprobada para latencia/RAG/STT; PVE/cgroup/LXCFS verificados en IA-CHAT-LATENCY
+  ssh:
+    enabled: true
+    method: pct-merge
+    state: VERIFIED
+  verification_history:
+  - result: PASS
+    ct_id: 631
+    service: infra-webui
+    observed_at_utc: '2026-11-13T15:26:39.437859+00:00'
+    source: read-only PVE+cgroup+Node verification
+    cpu_source: cgroup_v2_textfile
+    state: RUNNING
+    allocated_cores: 2
+    memory_mib: 3072
+    uptime_seconds: 10619
+    activation: CANDIDATE_ONLY_NOT_APPLIED
+    stability_acceptance: PENDING VERIFICATION
+    application_health: declared probe contracts checked; no business UAT
+  verification:
+    result: PASS
+    ct_id: 631
+    service: infra-webui
+    observed_at_utc: '2026-11-13T16:54:57.518777+00:00'
+    source: read-only PVE+cgroup+Node verification
+    cpu_source: cgroup_v2_textfile
+    state: RUNNING
+    allocated_cores: 2
+    memory_mib: 4096
+    uptime_seconds: 5006
+    activation: CANDIDATE_ONLY_NOT_APPLIED
+    stability_acceptance: PENDING VERIFICATION
+    application_health: declared probe contracts checked; no business UAT
+documentation:
+  inventory_file: docs/inventory/631-LXC-INVENTORY.md
+  notes_file: services/infra-webui/NOTES.md

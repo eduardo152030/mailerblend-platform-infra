@@ -1,0 +1,169 @@
+{
+  "label": "qwen3.6-35b-loaded-final",
+  "utc": "2026-11-13T21:18:04.292858+00:00",
+  "host": {
+    "MemAvailable": 23616946176,
+    "SwapTotal": 17179865088,
+    "SwapFree": 10356518912
+  },
+  "cts": [
+    {
+      "ct_id": 101,
+      "hostname": "docmost",
+      "swap_bytes": 565403648,
+      "memory_current": 154603520
+    },
+    {
+      "ct_id": 103,
+      "hostname": "aws-workshop",
+      "swap_bytes": 842792960,
+      "memory_current": 240230400
+    },
+    {
+      "ct_id": 104,
+      "hostname": "nucleo",
+      "swap_bytes": 58908672,
+      "memory_current": 38187008
+    },
+    {
+      "ct_id": 105,
+      "hostname": "n8n-server",
+      "swap_bytes": 78954496,
+      "memory_current": 85356544
+    },
+    {
+      "ct_id": 107,
+      "hostname": "drawio",
+      "swap_bytes": 494350336,
+      "memory_current": 77991936
+    },
+    {
+      "ct_id": 109,
+      "hostname": "edge-router",
+      "swap_bytes": 94183424,
+      "memory_current": 91226112
+    },
+    {
+      "ct_id": 610,
+      "hostname": "infra-prom",
+      "swap_bytes": 215183360,
+      "memory_current": 400363520
+    },
+    {
+      "ct_id": 611,
+      "hostname": "infra-grafana",
+      "swap_bytes": 105484288,
+      "memory_current": 394096640
+    },
+    {
+      "ct_id": 61211,
+      "hostname": "svc01",
+      "swap_bytes": 265584640,
+      "memory_current": 348258304
+    },
+    {
+      "ct_id": 613,
+      "hostname": "infra-hola",
+      "swap_bytes": 80891904,
+      "memory_current": 132042752
+    },
+    {
+      "ct_id": 614,
+      "hostname": "infra-nucleoedge",
+      "swap_bytes": 133509120,
+      "memory_current": 366157824
+    },
+    {
+      "ct_id": 615,
+      "hostname": "infra-mailerblend-edge",
+      "swap_bytes": 130101248,
+      "memory_current": 338976768
+    },
+    {
+      "ct_id": 616,
+      "hostname": "infra-blackbox",
+      "swap_bytes": 86548480,
+      "memory_current": 154554368
+    },
+    {
+      "ct_id": 617,
+      "hostname": "infra-orbit",
+      "swap_bytes": 123375616,
+      "memory_current": 219684864
+    },
+    {
+      "ct_id": 618,
+      "hostname": "infra-composable-crm",
+      "swap_bytes": 536866816,
+      "memory_current": 2198396928
+    },
+    {
+      "ct_id": 619,
+      "hostname": "infra-pulpo",
+      "swap_bytes": 273657856,
+      "memory_current": 605982720
+    },
+    {
+      "ct_id": 620,
+      "hostname": "infra-excraper",
+      "swap_bytes": 162570240,
+      "memory_current": 303136768
+    },
+    {
+      "ct_id": 621,
+      "hostname": "infra-project-gestion",
+      "swap_bytes": 88518656,
+      "memory_current": 162840576
+    },
+    {
+      "ct_id": 622,
+      "hostname": "infra-eva-assistant-bot",
+      "swap_bytes": 297418752,
+      "memory_current": 416530432
+    },
+    {
+      "ct_id": 623,
+      "hostname": "infra-gestoria",
+      "swap_bytes": 227221504,
+      "memory_current": 588836864
+    },
+    {
+      "ct_id": 624,
+      "hostname": "infra-journal-web",
+      "swap_bytes": 95797248,
+      "memory_current": 167571456
+    },
+    {
+      "ct_id": 625,
+      "hostname": "infra-journal-db",
+      "swap_bytes": 112099328,
+      "memory_current": 246325248
+    },
+    {
+      "ct_id": 626,
+      "hostname": "infra-journal-api",
+      "swap_bytes": 145338368,
+      "memory_current": 190992384
+    },
+    {
+      "ct_id": 627,
+      "hostname": "infra-voicebox",
+      "swap_bytes": 439324672,
+      "memory_current": 504242176
+    },
+    {
+      "ct_id": 630,
+      "hostname": "infra-llm",
+      "swap_bytes": 41955328,
+      "memory_current": 20914647040
+    },
+    {
+      "ct_id": 631,
+      "hostname": "infra-webui",
+      "swap_bytes": 107270144,
+      "memory_current": 2525581312
+    }
+  ],
+  "ct_swap_sum": 5803311104,
+  "method": "host cgroup v2 read-only; no guest exec, no swapoff"
+}

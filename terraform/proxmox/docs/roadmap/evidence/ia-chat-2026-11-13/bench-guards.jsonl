@@ -1,0 +1,5 @@
+{"utc": "2026-11-13T11:52:06.549063+00:00", "alias": "gemma-4-26b", "threads": 3, "host_memavailable_bytes": 23774633984}
+{"utc": "2026-11-13T11:55:20.152586+00:00", "alias": "gemma-4-26b", "threads": 3, "host_memavailable_bytes": 27722829824}
+{"utc": "2026-11-13T11:57:02.651118+00:00", "alias": "gemma-4-26b", "threads": 4, "host_memavailable_bytes": 27501080576}
+{"utc": "2026-11-13T11:58:22.146152+00:00", "alias": "qwen3.6-35b", "threads": 3, "host_memavailable_bytes": 27483189248}
+{"utc": "2026-11-13T12:01:13.128168+00:00", "alias": "qwen3.6-35b", "threads": 4, "host_memavailable_bytes": 27554521088}

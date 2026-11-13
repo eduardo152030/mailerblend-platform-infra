@@ -1,0 +1,8 @@
+{"returncodes": {"rag": 0, "stt": 1}, "anomalies": [], "ct631_peak_working_gib": 2.1921463012695312, "ct631_peak_resident_gib": 2.162067413330078}
+rag RAG chat PASS 7731 [1]
+
+stt Traceback (most recent call last):
+  File "/root/webui-check.py", line 71, in <module>
+    out['stt']={'text':text,'elapsed_s':time.monotonic()-start,'word_error_rate':wer,'ok_approximate':wer<=0.20,'exact':wer==0,'criterion':'Transcripción parecida: WER<=20%; registrar explícitamente cualquier error'};save();assert out['stt']['ok_approximate'],text;print('STT aproximado',text,'WER',wer,'exacto',wer==0)
+                                                                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: O la... esto es... O la... O la...

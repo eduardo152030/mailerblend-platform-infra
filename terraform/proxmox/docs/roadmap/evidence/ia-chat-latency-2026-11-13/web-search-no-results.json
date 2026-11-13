@@ -1,0 +1,681 @@
+{
+  "stage": "web-search-final",
+  "chat_id": "2edfc0e2-fc99-4934-88c0-135734df33b0",
+  "results": [
+    {
+      "message": "Busca la documentaci\u00f3n oficial de Open WebUI y dime qu\u00e9 es en una frase.",
+      "ttft_s": 3.5912629580125213,
+      "elapsed_s": 7.751170330011519,
+      "text": "Open WebUI es una interfaz de usuario autohospedada, compatible con la API de OpenAI, dise\u00f1ada para interactuar con modelos de lenguaje de forma sencilla y local.",
+      "usage": {
+        "cache_n": 45,
+        "prompt_n": 26,
+        "prompt_ms": 1988.284,
+        "prompt_per_token_ms": 76.47246153846154,
+        "prompt_per_second": 13.076602738844148,
+        "predicted_n": 36,
+        "predicted_ms": 4135.672,
+        "predicted_per_token_ms": 118.16205714285714,
+        "predicted_per_second": 8.462953541770238,
+        "input_tokens": 71,
+        "output_tokens": 36,
+        "total_tokens": 107
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.030440024012932554,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.04063990598660894,
+          "event": {
+            "type": "status",
+            "data": {
+              "action": "web_search",
+              "description": "Searching the web",
+              "done": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.0556059580121655,
+          "event": {
+            "type": "status",
+            "data": {
+              "action": "web_search_queries_generated",
+              "queries": [
+                "Busca la documentaci\u00f3n oficial de Open WebUI y dime qu\u00e9 es en una frase."
+              ],
+              "done": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.5873797159874812,
+          "event": {
+            "type": "status",
+            "data": {
+              "action": "web_search",
+              "description": "[ERROR: No results found from web search]",
+              "queries": [
+                "Busca la documentaci\u00f3n oficial de Open WebUI y dime qu\u00e9 es en una frase."
+              ],
+              "done": true,
+              "error": true
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.5907614979951177,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794605028,
+              "id": "chatcmpl-zRgo4MYXskqcxWreABvn9U4dkhGkwFED",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.5912629580125213,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Open"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.74927883798955,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Web"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.88634834199911,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "UI"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.9929330100130755,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " es"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.108291595999617,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " una"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.225139376998413,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " interfaz"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.3407943609927315,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.453507875005016,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " usuario"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.566353427013382,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " aut"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.684617463994073,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "oh"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.7963040489994455,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "osp"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.913746768987039,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ed"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.029513484012568,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ada"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.143360003014095,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.2841123119869735,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " compatible"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.39842991399928,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " con"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.525190948013915,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " la"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.64651669000159,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " API"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.760039082000731,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.880687107011909,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " OpenAI"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.9969319039955735,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.111981483991258,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " dise\u00f1ada"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.223067457991419,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " para"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.335189003992127,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " interact"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.447354623989668,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "uar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.565171566995559,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " con"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.678662276011892,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " modelos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.795425641990732,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.910871592001058,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " lenguaje"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.028498399013188,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.142684491002001,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " forma"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.271524901007069,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " sencilla"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.3882163889938965,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.5002534840023145,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " local"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.614493909990415,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_15fb96eb28574ca18ea02df3",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.728013815009035,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 45,
+                "prompt_n": 26,
+                "prompt_ms": 1988.284,
+                "prompt_per_token_ms": 76.47246153846154,
+                "prompt_per_second": 13.076602738844148,
+                "predicted_n": 36,
+                "predicted_ms": 4135.672,
+                "predicted_per_token_ms": 118.16205714285714,
+                "predicted_per_second": 8.462953541770238,
+                "input_tokens": 71,
+                "output_tokens": 36,
+                "total_tokens": 107
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.7280585060070734,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794605032,
+              "id": "chatcmpl-zRgo4MYXskqcxWreABvn9U4dkhGkwFED",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 45,
+                "prompt_n": 26,
+                "prompt_ms": 1988.284,
+                "prompt_per_token_ms": 76.47246153846154,
+                "prompt_per_second": 13.076602738844148,
+                "predicted_n": 36,
+                "predicted_ms": 4135.672,
+                "predicted_per_token_ms": 118.16205714285714,
+                "predicted_per_second": 8.462953541770238
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.737566205003532,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "2edfc0e2-fc99-4934-88c0-135734df33b0",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.737689422996482,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_15fb96eb28574ca18ea02df3",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Open WebUI es una interfaz de usuario autohospedada, compatible con la API de OpenAI, dise\u00f1ada para interactuar con modelos de lenguaje de forma sencilla y local."
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency web-search-final",
+              "usage": {
+                "cache_n": 45,
+                "prompt_n": 26,
+                "prompt_ms": 1988.284,
+                "prompt_per_token_ms": 76.47246153846154,
+                "prompt_per_second": 13.076602738844148,
+                "predicted_n": 36,
+                "predicted_ms": 4135.672,
+                "predicted_per_token_ms": 118.16205714285714,
+                "predicted_per_second": 8.462953541770238,
+                "input_tokens": 71,
+                "output_tokens": 36,
+                "total_tokens": 107
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.743480186007218,
+          "event": {
+            "type": "chat:title",
+            "data": "Busca la documentaci\u00f3n oficial de Open WebUI y dime qu\u00e9 es en una frase."
+          }
+        },
+        {
+          "elapsed_s": 7.746553803997813,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    }
+  ]
+}

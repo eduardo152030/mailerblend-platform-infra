@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-13",
+  "timezone": "Europe/Madrid",
+  "exact_observation_time": null,
+  "source": "Lecturas de herramientas durante primer benchmark, transcritas; no atribuir precisi\u00f3n temporal ausente",
+  "benchmark_started_utc": "2026-11-13T11:52:06.549063+00:00",
+  "model": "gemma-4-26b",
+  "threads": 3,
+  "repack": true,
+  "valid_result": false,
+  "interrupted_signal": "SIGINT",
+  "returncode": 130,
+  "observed_rss_kib": 22264352,
+  "host_swap_used_bytes": 7646216192,
+  "ct630_swap_bytes": 817168384,
+  "ct630_memory_high_events": 168,
+  "ct630_oom": 0,
+  "ct630_oom_kill": 0,
+  "correction": "repack=0, mmap, batch512, ubatch128; solo630, sin aumentar recursos ni cambiar swapglobal"
+}

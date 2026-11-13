@@ -1,0 +1,2 @@
+runtime-gemma-4-26b-1 HTTP OK 68.58 s 'OK' reasoning_chars 0
+{"model": "gemma-4-26b", "peak_rss_gib": 17.907184600830078, "peak_resident_gib": 18.031639099121094}

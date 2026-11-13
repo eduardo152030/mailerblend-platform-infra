@@ -217,5 +217,29 @@
       "source": "inventory",
       "cpu_contract": "lxc_cgroup_v1"
     }
+  },
+  {
+    "targets": [
+      "192.168.1.67:9100"
+    ],
+    "labels": {
+      "job": "node_exporter",
+      "service": "infra-llm",
+      "vmid": "630",
+      "source": "inventory",
+      "cpu_contract": "lxc_cgroup_v1"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.66:9100"
+    ],
+    "labels": {
+      "job": "node_exporter",
+      "service": "infra-webui",
+      "vmid": "631",
+      "source": "inventory",
+      "cpu_contract": "lxc_cgroup_v1"
+    }
   }
 ]

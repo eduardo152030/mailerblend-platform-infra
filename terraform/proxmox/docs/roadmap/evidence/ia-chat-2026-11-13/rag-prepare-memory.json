@@ -1,0 +1,86 @@
+[
+  {
+    "utc": "2026-11-13T12:05:51.696106+00:00",
+    "ct": {
+      "630": {
+        "current": 12392685568,
+        "working_set": 606769152,
+        "max": 23622320128,
+        "anon": 39886848,
+        "swap": 5914624,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2595299328,
+        "working_set": 1760423936,
+        "max": 3221225472,
+        "anon": 1405845504,
+        "swap": 146067456,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:05:52.697764+00:00",
+    "ct": {
+      "630": {
+        "current": 11856601088,
+        "working_set": 606769152,
+        "max": 23622320128,
+        "anon": 39886848,
+        "swap": 5914624,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2595299328,
+        "working_set": 1760423936,
+        "max": 3221225472,
+        "anon": 1405845504,
+        "swap": 146067456,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:05:53.700432+00:00",
+    "ct": {
+      "630": {
+        "current": 11589738496,
+        "working_set": 606769152,
+        "max": 23622320128,
+        "anon": 39886848,
+        "swap": 5914624,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2673172480,
+        "working_set": 1835540480,
+        "max": 3221225472,
+        "anon": 1422172160,
+        "swap": 146067456,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:05:54.701316+00:00",
+    "ct": {
+      "630": {
+        "current": 11589738496,
+        "working_set": 606773248,
+        "max": 23622320128,
+        "anon": 39886848,
+        "swap": 5914624,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2673496064,
+        "working_set": 1834844160,
+        "max": 3221225472,
+        "anon": 1416273920,
+        "swap": 145997824,
+        "events": "low 0\nhigh 1849\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  }
+]

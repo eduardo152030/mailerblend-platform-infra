@@ -1,0 +1,29 @@
+groups:
+- name: provisioned_630
+  rules:
+  - record: lxc:cpu_inventory:expected
+    expr: vector(1)
+    labels:
+      job: node_exporter
+      instance: 192.168.1.67:9100
+      service: infra-llm
+      ct_id: '630'
+  - record: lxc:cadvisor:required
+    expr: vector(0)
+    labels:
+      service: infra-llm
+      ct_id: '630'
+- name: provisioned_631
+  rules:
+  - record: lxc:cpu_inventory:expected
+    expr: vector(1)
+    labels:
+      job: node_exporter
+      instance: 192.168.1.66:9100
+      service: infra-webui
+      ct_id: '631'
+  - record: lxc:cadvisor:required
+    expr: vector(1)
+    labels:
+      service: infra-webui
+      ct_id: '631'

@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-13T21:27:26.671475+00:00",
+  "cts": {
+    "630": {
+      "node_metrics": {
+        "node_memory_MemTotal_bytes": [
+          "node_memory_MemTotal_bytes 2.3622320128e+10"
+        ],
+        "lxc_cpu_usage_seconds_total": [
+          "lxc_cpu_usage_seconds_total{cpu_source=\"cgroup_v2\",ct_id=\"630\",resource_scope=\"lxc\"} 31740.358016"
+        ]
+      },
+      "health": 200
+    },
+    "631": {
+      "node_metrics": {
+        "node_memory_MemTotal_bytes": [
+          "node_memory_MemTotal_bytes 4.294967296e+09"
+        ],
+        "lxc_cpu_usage_seconds_total": [
+          "lxc_cpu_usage_seconds_total{cpu_source=\"cgroup_v2\",ct_id=\"631\",resource_scope=\"lxc\"} 759.516589"
+        ]
+      },
+      "health": 200
+    }
+  }
+}

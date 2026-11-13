@@ -1,0 +1,80 @@
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:v0.13.3@sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14
+    restart: unless-stopped
+    ports:
+    - 3000:8080
+    volumes:
+    - /opt/ia-chat/data:/app/backend/data
+    - /opt/ia-chat/custom.css:/app/build/static/custom.css:ro
+    env_file:
+    - secrets.env
+    environment:
+      TZ: Europe/Madrid
+      WEBUI_URL: http://192.168.1.66:3000
+      WEBUI_AUTH: 'true'
+      ENABLE_SIGNUP: 'true'
+      DEFAULT_USER_ROLE: pending
+      DEFAULT_LOCALE: es-ES
+      DEFAULT_MODELS: gemma-4-26b
+      ENABLE_OLLAMA_API: 'false'
+      ENABLE_OPENAI_API: 'true'
+      OPENAI_API_BASE_URL: http://192.168.1.67:8080/v1
+      OPENAI_API_BASE_URLS: http://192.168.1.67:8080/v1
+      ENABLE_TITLE_GENERATION: 'false'
+      ENABLE_TAGS_GENERATION: 'false'
+      ENABLE_FOLLOW_UP_GENERATION: 'false'
+      ENABLE_AUTOCOMPLETE_GENERATION: 'false'
+      ENABLE_SEARCH_QUERY_GENERATION: 'false'
+      ENABLE_RETRIEVAL_QUERY_GENERATION: 'false'
+      ENABLE_WEB_SEARCH: 'true'
+      WEB_SEARCH_ENGINE: searxng
+      SEARXNG_QUERY_URL: http://searxng:8080/search?q=<query>&format=json
+      WEB_SEARCH_RESULT_COUNT: '3'
+      WEB_SEARCH_CONCURRENT_REQUESTS: '1'
+      RAG_EMBEDDING_ENGINE: ''
+      RAG_EMBEDDING_MODEL: intfloat/multilingual-e5-small
+      RAG_EMBEDDING_MODEL_TRUST_REMOTE_CODE: 'false'
+      RAG_TOP_K: '3'
+      CHUNK_SIZE: '600'
+      CHUNK_OVERLAP: '100'
+      AUDIO_STT_ENGINE: ''
+      WHISPER_MODEL: small
+      WHISPER_LANGUAGE: es
+      WHISPER_COMPUTE_TYPE: int8
+      WHISPER_MODEL_AUTO_UPDATE: 'false'
+      AUDIO_TTS_ENGINE: ''
+      DEFAULT_MODEL_PARAMS: '{"system": "Hoy es {{CURRENT_WEEKDAY}}, {{CURRENT_DATE}}.
+        Responde en español salvo que se te pida otro idioma. Sé directo y conciso.",
+        "chat_template_kwargs": {"enable_thinking": false}, "function_calling": "legacy",
+        "custom_params": {"cache_prompt": true}}'
+      DEFAULT_MODEL_METADATA: '{"capabilities": {"vision": true, "builtin_tools":
+        false}}'
+      ANONYMIZED_TELEMETRY: 'false'
+      DO_NOT_TRACK: 'true'
+      OMP_NUM_THREADS: '2'
+      TOKENIZERS_PARALLELISM: 'false'
+      USER_PERMISSIONS_CHAT_TTS: 'false'
+      RAG_EMBEDDING_QUERY_PREFIX: 'query: '
+      RAG_EMBEDDING_CONTENT_PREFIX: 'passage: '
+      DEFAULT_INTERFACE_SETTINGS: '{"webSearch": false, "responseAutoPlayback": false}'
+      RAG_EMBEDDING_MODEL_AUTO_UPDATE: 'false'
+      UI_VISIBILITY: '{"settings.text_to_speech_engine": false}'
+    networks:
+    - chat
+    command:
+    - bash
+    - -c
+    - umask 077; exec bash /app/backend/start.sh
+  searxng:
+    image: docker.io/searxng/searxng:2026.11.9-57ff753ad@sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2
+    restart: unless-stopped
+    volumes:
+    - /opt/ia-chat/searxng:/etc/searxng
+    networks:
+    - chat
+    environment:
+      TZ: Europe/Madrid
+networks:
+  chat:
+    driver: bridge

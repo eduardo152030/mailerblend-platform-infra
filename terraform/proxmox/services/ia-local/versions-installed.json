@@ -1,0 +1,48 @@
+{
+  "llama_cpp": {
+    "tag": "v1.0.0",
+    "commit": "b1b770d90d94cad9e9ea5b993bdbc383a522fb28",
+    "reported_version": "1.0.0-dev",
+    "GGML_NATIVE": true,
+    "compiler_native_flag": "-march=native",
+    "repack": false
+  },
+  "docker_packages": [
+    "containerd.io\t2.4.2-4~debian.12~bookworm",
+    "docker-ce\t5:29.9.3-1~debian.12~bookworm",
+    "docker-ce-cli\t5:29.9.3-1~debian.12~bookworm",
+    "docker-compose-plugin\t5.7.1-1~debian.12~bookworm"
+  ],
+  "images": {
+    "ia-chat-open-webui-1": "[\"ghcr.io/open-webui/open-webui@sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14\"]|sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14",
+    "ia-chat-searxng-1": "[\"searxng/searxng@sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2\"]|sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2"
+  },
+  "auxiliary_models": [
+    {
+      "repo_cache": "models--intfloat--multilingual-e5-small",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+    },
+    {
+      "repo_cache": "models--Systran--faster-whisper-small",
+      "revision": "536b0662742c02347bc0e980a01041f333bce120"
+    }
+  ],
+  "runtime": "runc oficial Docker; crun1.31 inactivo conservado",
+  "active_contexts": {
+    "gemma-4-26b": 16384,
+    "qwen3.6-35b": 65536
+  },
+  "slots_each": 2,
+  "whisper": {
+    "model": "small",
+    "compute_type": "int8",
+    "language": "es"
+  },
+  "monitoring": {
+    "node_exporter": "1.10.2 native",
+    "cadvisor": "0.60.6 only631",
+    "cadvisor_digest": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a"
+  },
+  "idle_seconds": 3600,
+  "performance_selection": "services/infra-llm/config/performance-tuning.json"
+}

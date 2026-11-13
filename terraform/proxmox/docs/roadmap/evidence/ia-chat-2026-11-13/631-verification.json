@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "ct_id": 631,
+  "service": "infra-webui",
+  "observed_at_utc": "2026-11-13T15:26:39.437859+00:00",
+  "source": "read-only PVE+cgroup+Node verification",
+  "cpu_source": "cgroup_v2_textfile",
+  "state": "RUNNING",
+  "allocated_cores": 2,
+  "memory_mib": 3072,
+  "uptime_seconds": 10619,
+  "activation": "CANDIDATE_ONLY_NOT_APPLIED",
+  "stability_acceptance": "PENDING VERIFICATION",
+  "application_health": "declared probe contracts checked; no business UAT"
+}

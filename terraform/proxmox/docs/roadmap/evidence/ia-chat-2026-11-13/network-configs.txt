@@ -1,0 +1,30 @@
+lo               UNKNOWN        127.0.0.1/8
+eth0@if100       UP             192.168.1.67/24
+lo               UNKNOWN        127.0.0.1/8
+eth0@if104       UP             192.168.1.66/24
+arch: amd64
+cores: 4
+hostname: infra-llm
+memory: 22528
+mp0: local-lvm:vm-630-disk-1,mp=/models,backup=0,size=60G
+net0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:6F:79:36,ip=dhcp,type=veth
+onboot: 1
+ostype: debian
+rootfs: local-lvm:vm-630-disk-0,size=16G
+swap: 1024
+tags: ia-chat;infra
+timezone: Europe/Madrid
+unprivileged: 1
+arch: amd64
+cores: 2
+features: nesting=1,keyctl=1
+hostname: infra-webui
+memory: 3072
+net0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:0D:41:78,ip=dhcp,type=veth
+onboot: 1
+ostype: debian
+rootfs: local-lvm:vm-631-disk-0,size=20G
+swap: 1024
+tags: ia-chat;infra
+timezone: Europe/Madrid
+unprivileged: 1

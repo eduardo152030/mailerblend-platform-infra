@@ -1,0 +1,23 @@
+use_default_settings:
+  engines:
+    keep_only:
+    - google
+    - bing
+    - duckduckgo
+    - wikipedia
+    - github
+    - stackoverflow
+general:
+  debug: false
+search:
+  default_lang: es
+  formats:
+  - html
+  - json
+server:
+  secret_key: REPLACE_WITH_LOCAL_SECRET
+  limiter: false
+  bind_address: 0.0.0.0
+  port: 8080
+ui:
+  default_locale: es

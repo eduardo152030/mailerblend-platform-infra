@@ -1,0 +1,13 @@
+{
+  "ct_id": 630,
+  "result": "PASS",
+  "key_fingerprint": "SHA256:Nn0S3/IJjot0WZguBrHqPwls3vnmhfQ7ZoSRf62c+Kw",
+  "owner_key_access": "VERIFIED",
+  "password_authentication": "no",
+  "keyboard_interactive": "no",
+  "root_login": "prohibit-password",
+  "host_identity_source": "trusted PVE pct exec, not keyscan",
+  "console_recovery_preserved": true,
+  "stage_before": "PREPARED",
+  "guest_prepare_writes": 2
+}

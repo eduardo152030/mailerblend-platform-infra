@@ -26,6 +26,8 @@ No se atribuye un dominio por su nombre. Recursos distintos no se reconcilian aq
 | 625 | infra-journal-db | PostgreSQL de Journal TradeIntuit | 192.168.1.125 | Not verified | infra-journal-db-db-1, test-nginx | Parcial: observación verificada; funcionalidad pendiente | [JOURNAL-EXECUTION.md](../../docs/roadmap/JOURNAL-EXECUTION.md) |
 | 626 | infra-journal-api | API de Journal TradeIntuit | 192.168.1.126 | app.tradeintuit.com | infra-journal-api-api-1, test-nginx | Parcial: observación verificada; funcionalidad pendiente | [JOURNAL-EXECUTION.md](../../docs/roadmap/JOURNAL-EXECUTION.md) |
 | 627 | infra-voicebox | AI / Voice Generation — Voicebox permanente; web y API privadas | 192.168.1.127 | Sin dominio declarado | Ver ficha | Observado RUNNING; aceptación funcional: ver ficha | [627-LXC-INVENTORY.md](../../docs/inventory/627-LXC-INVENTORY.md) |
+| 630 | infra-llm | Chat IA local — llama.cpp CPU con dos modelos y un solo modelo residente | 192.168.1.67 | Sin dominio declarado | Ver ficha | Observado RUNNING; aceptación funcional: ver ficha | [630-LXC-INVENTORY.md](../../docs/inventory/630-LXC-INVENTORY.md) |
+| 631 | infra-webui | Chat IA local — Open WebUI y SearXNG interno | 192.168.1.66 | Sin dominio declarado | Ver ficha | Observado RUNNING; aceptación funcional: ver ficha | [631-LXC-INVENTORY.md](../../docs/inventory/631-LXC-INVENTORY.md) |
 | 61211 | svc01 | Plataforma NocoDB con PostgreSQL | 192.168.1.112 | Not verified | infra-svc01-nocodb, infra-svc01-nocodb-db | Parcial: observación verificada; funcionalidad pendiente | [CT61211-D037-EXECUTION.md](../../docs/roadmap/CT61211-D037-EXECUTION.md) |
 
 ## CT 610 — infra-prom
@@ -536,6 +538,14 @@ Dependencias externas y su disponibilidad: Not verified.
 ## CT 627 — infra-voicebox
 
 Ficha: [627-LXC-INVENTORY.md](../../docs/inventory/627-LXC-INVENTORY.md).
+
+## CT 630 — infra-llm
+
+Ficha: [630-LXC-INVENTORY.md](../../docs/inventory/630-LXC-INVENTORY.md).
+
+## CT 631 — infra-webui
+
+Ficha: [631-LXC-INVENTORY.md](../../docs/inventory/631-LXC-INVENTORY.md).
 
 ## CT 61211 — svc01
 

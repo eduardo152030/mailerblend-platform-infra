@@ -1,4 +1,143 @@
 # Fase 7. IaC Reliability, Security & Disaster Recovery
+## IA-CHAT — documentación y publicación autorizadas (13/11/2026)
+
+Fase 7; documentación IN PROGRESS, publicación IN PROGRESS. El propietario autoriza
+commit y push del alcance IA-CHAT, sustituyendo la prohibición anterior solo para
+esta publicación. Cambios ajenos permanecen fuera. Se documentan los 8192 tokens
+de Gemma, el presupuesto compartido y el uso de chats cortos/temáticos, carpetas y
+búsqueda; estas no amplían la memoria del modelo. Ampliación de contexto TODO, sin
+despliegue: resumen, recuperación, slots u otro perfil requieren pruebas y alcance
+autorizado. [Plan](../IA-CHAT-CONTEXT-PLAN.md). No cambios productivos ni CT627.
+
+
+## IA-CHAT-LATENCY — DONE técnico (13/11/2026 22:33 CET)
+
+Fase 7. IaC Reliability, Security & Disaster Recovery continúa IN PROGRESS global.
+Este resultado sustituye los pendientes de ejecución de latencia anteriores;
+no acepta ni dispensa UAT, restauración o alertas heredadas.
+
+Desplegado y comprobado exclusivamente630/631. Gemma, ruta UI real con stream:
+344,401s antes →3,571/1,410/1,477s en tres turnos;2peticiones/mensaje →1.
+Prompt5324tokens más título314 →60/96/134; cache0/77/112, mismo slot.
+Qwen:4,193/4,039/2,634s, cache0/75/120, mismo slot. Objetivo<=10s PASS.
+Idle3600:300,779s sin inferencias, mismoPID/RSS17,97GiB; saludo posterior1,609s.
+Fecha correcta viernes13/11; búsqueda por botón PASS con3URLs yuna llamada LLM,
+49,434s por recuperación/lectura785tokens. Consulta literal larga inicial sin
+resultados preservada como fallo; con query-generationOFF usar términos breves.
+
+Matriz r3 completa; Gemma b2048/ub512 yQwen b512/ub512. Prueba real3000tokens:
+TTFT177,204/139,371s, picos18,095/19,219GiB (<19,8GiB). Qwen3000 empeora respecto
+alos133,432s iniciales; no se oculta esa variación. Repack no repetido sin margen.
+Gemma contexto16384total/8192por conversación conSWAcompleta; Qwen65536/32768.
+6314096MiB aplicados, RAG/STT concurrentesPASS, sinOOM. max jerárquico delímite
+cAdvisor256MiB; max local delCT=0. No certifica contexto lleno/multiusuario.
+
+Fuentes canónicas INI/Jinja/selección, Compose/perfilAPI, YAML, Notes630/631,
+fichas/índice yREADME operativo PVE actualizados. Segunda aplicación sin escrituras,
+recargas, reinicios nirecreaciones; Terraform acotado no-op conTLS verificado.
+37testsPASS, terraform validate, generador ydiff-checkPASS. CPUcgroup/RAM4GiB yhealth
+verificados; integraciónGrafana previa conservada, sin cambios a610/611/616.
+Usuario/Knowledge/token técnicos retirados, JWT401; propietario ydatos originales
+preservados, SQLiteok. 27configuraciones protegidas intactas. CT627 no intervenido;
+swap deotrosCT sololectura desdehost. Sin commit/push.
+
+Siguiente: revisión del propietario del perfil/contexto yUAT móvil/voz; reservasDHCP,
+restauración funcional yrecepción humana Telegram siguen sin verificar. No hay
+autorización nueva para otrosCT ni rolloutF4. [Informe vigente](../IA-CHAT-LATENCY-2026-11-13.md).
+
+
+## IA-CHAT-LATENCY — reanudación y selección validada (13/11/2026, Europe/Madrid)
+
+IN PROGRESS. Matriz completa r3 de ambos modelos: 12 combinaciones y 24 comandos,
+pp512/pp2048 a4h, tg128 a3h. Gemma b2048/ub512, Qwen b512/ub512; validación real
+3000tokens PASS bajo guarda90%: picos18,095/19,219GiB. TTFT177,204/139,371s;
+Qwen no mejora su prueba larga anterior133,432s pese a mejorar llama-bench.
+Tres turnos UI Qwen4,193/4,039/2,634s, cache0/75/120tokens. Gemma final, fecha,
+búsqueda y300s idle en ejecución. WebUI Compose reconciliado solo631, health200;
+SearXNG/cAdvisor sin recreación. Perfil API ysegunda aplicación sin escrituras,
+reaplicación llama/Compose/jobs sin reinicios,27configuraciones protegidas intactas.
+Terraform630/631 no-op conTLS verificado; Notes actualizadas yverificadas.
+Sigue pendiente retirar cuenta/token técnicos ycerrar informe con pruebas finales.
+No627 ni otrosCT modificados; swapotrosCT sololecturahost. Sin commit/push.
+
+
+## IA-CHAT-LATENCY — medición inicial y corrección de caché (13/11/2026)
+
+Fase7 IN PROGRESS. Baseline UI real:5324tokens,344,401s hasta primer delta;
+segunda petición de título314tokens (1reutilizado/313procesados). Herramientas
+nativas por defecto desactivadas:43tokens y1,362s. Títulos/tareas y consultasOFF:
+1petición/mensaje,0,444s con prefijo caliente. Idle3600 aplicado.
+
+Gemma:template canónico preserva prefijo vacío de pensamiento desactivado ySWA
+completa; contexto16384total/8192por slot para respetar RAM, frente a65536anterior.
+Qwen mantiene65536total. Tres turnos UI:2,835/1,546/1,200s; caché0/60/243tokens,
+mismo slot. Cambio de capacidad comunicado durante ejecución; no RAMextra630.
+6314096MiB aplicados en vivo y declarados enYAML; no restartWebUI. RAG/STT PASS,
+picoresidente2,510GiB. OOM0; delta jerárquicomax90 atribuido a cAdvisor256MiB,
+contador local del límiteCT=0. Prueba3000tokens sin caché:Gemma185,868s/Qwen133,432s.
+
+Matriz de benchmarks r3 en curso;630router detenido de forma acotada durante pruebas,
+631 activo. Selección final, fecha/weekday,5minidle,idempotencia yretiradafixture
+pendientes. Solo630/631 modificados; swapotrosCT sololecturahost. No627,commit/push.
+[Informe](../IA-CHAT-LATENCY-2026-11-13.md).
+
+
+## IA-CHAT — Notes e inventarios de 630/631 completados (2026-11-13)
+
+Fase 7. IaC Reliability, Security & Disaster Recovery; tarea IA-CHAT-NOTES DONE.
+Identificados en PVE activo y YAML:630 infra-llm y631 infra-webui. Los seis CT activos
+fuera del inventario son servicios distintos, no candidatos de este despliegue.
+Notes canónicas ampliadas siguiendo la estructura de627 y fichas individuales
+completadas con observación real fechada, recursos/red/montajes/apps/persistencia/
+healthchecks/monitorización/backups. Notes previas útiles conservadas.
+Generador existente actualizado en sus salidas (JSON/manifiesto/índice); fuentes
+individuales canónicas, sin cambiar el mecanismo de generación.
+
+Aplicación exclusiva del campo description/Notes en630/631 mediante API PVE con
+digest y backup privado; igualdad byte a byte verificada. Resto de configuración,
+otros CT e identidades de servicios intactos; sin reinicios, redespliegue, apply
+Terraform ni commit/push. CT627 solo referencia documental local, no intervenido.
+SearXNG running sin healthcheck Docker: se distingue de healthy.
+
+No verificados: reservasDHCP, dominio/TLS/ACL-WAN efectivas, UAT móvil/voz,
+administrador actual del propietario, restauración funcional, ejecución del backup
+semanal630 y recepción humana Telegram. Backup631 manual con integridad verificada
+previamente y existencia/tamaño reconsultados; no nuevo ensayo de restauración.
+Siguiente: propietario completa esos pendientes; Fase7 global sigue IN PROGRESS.
+Evidencias: `evidence/ia-chat-2026-11-13/notes-live-audit.json` y
+`notes-sync-applied.json`/`notes-sync-verified.json` en la misma carpeta.
+
+
+## IA-CHAT — integración desplegada y estabilidad PASS (2026-11-13, Europe/Madrid)
+
+Fase 7. IaC Reliability, Security & Disaster Recovery; complementos de Fases 4 y 6.
+Implementación y pruebas técnicas DONE: CT 630/631 adoptados en Terraform sin
+recreación, plan acotado no-op y 18 entradas anteriores del estado intactas.
+YAML y configuración canónica por servicio, inventario individual/global y Notes
+actualizados. CPU cgroup y RAM LXCFS verificadas; Node Exporter nativo en ambos,
+cAdvisor solo en 631 y cinco targets nuevos. Prometheus/Blackbox integrados de
+forma aditiva; Grafana Fleet/Details contempla cAdvisor N/A en 630.
+
+PASS: 600 segundos / 21 muestras sin anomalías, 136 consultas reales de Grafana,
+reinicio de ambos CT, autenticación, chat, visión, thinking, búsqueda, RAG e historial.
+Segunda aplicación sin escrituras de configuración, recargas ni reinicios.
+Backup final de 631 verificado por SHA256/zstd/tar; README operativo en PVE.
+27 hashes de configuración PVE protegidos iguales; CT 627 no intervenido.
+Sin commits ni push.
+
+Voz funcional con calidad limitada: small/int8, 4 de 5 palabras correctas en el WAV
+sintético (WER 20 %). Con RAG/STT y exporters, 631 alcanza 2,69 GiB residentes /
+2,85 GiB de working set; propuesta de 4096 MiB sin aplicar, límite de 3072 MiB
+conservado. Cuenta y Knowledge técnicos retirados; primer administrador disponible.
+
+Aceptación completa IN PROGRESS: reservas DHCP, administrador y UAT móvil/voz del
+propietario. Restauración funcional y recepción Telegram FIRING/RESOLVED de las
+nuevas cadenas no realizadas. No declararlas aceptadas bajo el contrato F4 ni cerrar
+la Fase 7 global. Siguiente paso: propietario reserva DHCP, crea su administrador,
+prueba voz/móvil y valora el margen de RAM; coordinar después la aceptación de
+alertas de 630/631. [Informe vigente](../IA-CHAT-EXECUTION-2026-11-13.md).
+
+
 
 Estado: **IN PROGRESS**. Actualizado: 2026-11-13 (Europe/Madrid).
 [Roadmap](../ROADMAP.md) · [Estado actual](../CURRENT-STATUS.md) · [Decisiones](../DECISIONS.md)
@@ -679,3 +818,106 @@ verificada sin cambiar pesos. Producción Qwen es/en intacta y Chatterbox deshab
 D089 BLOCKED: no hay mediciones de activaciones/generación/decoder que acrediten
 margen. No despliegue ni audio. Propuesta pendiente de autorización: ensayo aislado
 instrumentado bajo guardas originales. Informe: [D088](../PHASE7-D088-CHATTERBOX-MEMORY-OPTIMIZATION.md). Sin commit/push.
+## IA-CHAT-A — preflight autorizado — IN PROGRESS
+
+13 de noviembre de 2026 (Europe/Madrid). Fase 7. IaC Reliability, Security & Disaster Recovery; subproyecto IA local, Fase A (la «Fase 1» del encargo no renumera el roadmap). Solo lecturas PVE/API pública, hashes y plan local. No crear CT, instalar, descargar pesos, cargar modelos ni modificar CT existentes/627/red/storage.cfg. Parada obligatoria tras plan, B–F requieren confirmación. Sin commit/push.
+
+### IA-CHAT-A — resultado BLOCKED
+
+13nov2026 Europe/Madrid. Qwen y mmproj ausentes de la ruta declarada en PVE; hashes locales imposibles. Parada aplicada sin crear/modificarCT. Plan parcial630/631, IP230/231 pendientes DHCP, Gemma Unsloth14,249GB seleccionado por metadatos; Debian12 en catálogo/no descargado. MemAvailable22,42GiB puntual, red100Mb/s. Versiones/compatibilidad aún incompletas; no declarar A DONE. [Informe y evidencias](../IA-CHAT-PREFLIGHT-2026-11-13.md). Sin despliegue/inferencia/commit/push. Siguiente: aclarar ruta Qwen, completar preflight y pedir confirmación antes de B–F. Fase7 global IN PROGRESS; pendientes ajenos conservados.
+
+
+## IA-CHAT A–F — reanudación autorizada — IN PROGRESS
+
+13nov2026 Europe/Madrid. El propietario sustituye bloqueo por ausencia de pesos:
+autoriza descarga en630, altas630/631 DHCP, volúmenes96GiBSSD, instalación,
+compilación, benchmarks/validaciones, reinicios solo nuevosCT, backups/jobs propios,
+README /root/ia-local y reservas MikroTik exclusivamente si acceso existente.
+627 excluido por completo; exclusión de uso manual/riesgo aceptado, sin mecanismos.
+Sin cambios otrosCT/storage.cfg/redhost ni commit/push. Guardas: parar SHA tras
+dos intentos, MemAvailable<21GiB antes de cargas, afectación fuera alcance o
+aceptación sin solución interna. No pedir permiso entre fases. IPs antiguas propuestas
+230/231 descartadas: usar DHCP y reserva si acceso existente; si no, comandos al dueño.
+Siguiente: completar A y ejecutar B–F condicionado a guardas; no repetir otros trabajos.
+
+### IA-CHAT — compatibilidad Docker en631
+
+Runtime runc actual rechaza sysctl dentro deLXC conAppArmor antiguo (lxc-pve6.0.0-1). Se prepara OCI crun1.31 oficial/SHAfijo y registro exclusivoDocker631; elección de implementación dentro delCTnuevo. No actualización delhost, no cambiosAppArmor/seccomp ni CTexistentes, no downgrade. Validación pendiente; no afirmar resuelto.
+
+### IA-CHAT — excepción AppArmor631 aprobada
+
+13nov2026 Europe/Madrid. Tras falla real tanto runc como crun1.31, propietario
+autoriza expresamente `lxc.apparmor.profile: unconfined` SOLO631 y reinicio deeseCT.
+Mantener unprivileged/namespaces/seccomp; pérdida deAppArmor exterior aceptada
+solo631, sin extender aotrosCT ni modificar perfiles/paquetes globales. Volver
+a runtimeoficialrunc. Crun queda evidencia deintento/no configuración activa.
+B–F siguen autorizadas conguardas originales; implementación/validación pendientes.
+
+### IA-CHAT — ajuste interno de memoria de llama.cpp
+
+Primer benchmarkGemma interrumpido(SIGINT/rc130), no válido: repacking por defecto
+duplica pesos, RSS≈21,2GiB ymemory.high en630; sinOOM, swap630≈0,76GiB yhost
+≈7,12GiB frentea2,47previos. No modificar otrosCT ni swapglobal. Se desactiva
+repacking (`--repack 0` enbench, `no-repack=true` enpreset), mmap ybatch512/ubatch128.
+Repetir solo benchmarks incompletos conguarda21GiB, sin ampliar recursos.
+
+### IA-CHAT — B DONE; C/D IN PROGRESS
+
+Cuatro pesos verificados al primer intento; volumen630 RO/backup0 y plantillaDebian12.
+630/631 creados, IP DHCP67/66 yreservas pendientes delpropietario. Primerbenchmark
+válido Gemma3h:pp51216,395t/s,tg1287,961t/s sinrepacking. ExcepciónAppArmor631
+aprobada/aplicada ySearXNG JSON10resultados; WebUI noarrancado aún. E/F TODO.
+[Informe vigente](../IA-CHAT-EXECUTION-2026-11-13.md); siguiente: completar benchmarks/router/WebUI/backups/aceptación
+con guardas, sin627/otrosCT ni commit/push. Fase7 global IN PROGRESS.
+
+### IA-CHAT — contexto Qwen reducido según guarda90%
+
+Chat inicial correcto, pero RSSrouter+hijoQwen19,8195GiB supera90% de22GiB
+(19,8GiB), aunqueworkingset17,10GiB. Se reduce contexto total131072→65536,
+dos slots32768, sin modificarRAM ni otrosCT. Evidencia inicial conservada y
+revalidación pendiente. Watcher vigila tantoRSS como workingset. Gemma65536 intacto.
+
+### IA-CHAT — validación y ajustes dentro de los CT nuevos
+
+Qwen con65536total: RSS18,96GiB, chatPASS. FalsoHALT alvolver aGemma: workingset
+incluía caché no mapeada delmodelo descargado; RSS6,53GiB/anon0,15GiB aldetenerse.
+Observador corregido: máximoderesident_tasks(anon+file_mapped+kernel) yRSS,
+conserva current/working_set porseparado; Gemma65536 revalidado. SinOOM.
+Visión: primera imagen pixelada falló enQwen; PNG DejaVuSans normal pasó4821
+enambos. Sin cambio deversión/modelo/proyector. Thinkingoff0chars/on1040chars
+yrespuestaCarlaPASS. STTsmallint8>1GiB incremental ytranscripción errónea; se
+usa baseint8. FP32 descartado por2,97GiBworking/1GiBswap en631 sinOOM ysinmejorar.
+RAM631 permanece3072MiB. Propuesta noaprobada:4096MiB solo si se quisiera investigar
+FP32; no necesaria paraelperfilint8 elegido. STTaproximado4/5palabras: sustituye
+prueba→nueva; exactitud limitada se conserva comoresultado, no transcripción exacta.
+Criterio operativo de«parecerse»: WER<=20%, registrando errores; noUAT humana.
+RAG/STT concurrentes yreboots/limpieza/idempotencia todavía pendientes.
+
+### IA-CHAT — corrección de configuración persistida de audio
+
+Auditoría de SQLite detecta `audio.stt.whisper_model="small"` pese al cambio de
+entorno a base. Los ensayos etiquetados base anteriores siguieron usando small;
+se conserva su evidencia y se corrige esa clasificación. El pico FP32 de2,97GiB
+corresponde a small/FP32. Se precarga base en caché local y se fija mediante API
+admin `/api/v1/audio/config/update`, verificando respuesta y valor persistido.
+Repetir STT y concurrencia/RAM antes del cierre; no reutilizar sus cifras como
+evidencia de base. El backup13:41 se conserva como anterior a esta corrección.
+Sin cambios de RAM/otrosCT/627 ni commit/push.
+
+
+## IA-CHAT — ampliación de alcance aprobada: patrón del repositorio y observabilidad
+
+13nov2026 Europe/Madrid. El propietario solicita integración reproducible completa de
+630/631 en Terraform/inventario YAML, docs/inventory, monitorización y Grafana como
+el resto del pool; autoriza los cambios necesarios para ello. Aprobación limitada
+a los dos CT nuevos y modificaciones aditivas de observabilidad que los incorporen,
+con backup/rollback, validación e idempotencia. No rollout global de exporters,
+no cambios de aplicaciones/recursos de otros CT y **627 excluido por completo**.
+Sin commit/push ni aumento automático de RAM631. Mantener DHCP y reservas pendientes,
+unprivileged, volúmenes/modelos y contratos CPU/RAM del repositorio.
+
+Estado IN PROGRESS: la receta pct aislada anterior no basta como cierre del patrón
+solicitado; preparar adopción Terraform sin recreación, SSH verificado si procede,
+exporters apropiados para630sinDocker y631conDocker, integración aditiva enPrometheus/
+Blackbox/Grafana e inventario. Conservar cambios previos ajenos. La validación devoz
+sigue pendiente tras corregir WHISPER_MODEL persistido; no declararla aprobada.

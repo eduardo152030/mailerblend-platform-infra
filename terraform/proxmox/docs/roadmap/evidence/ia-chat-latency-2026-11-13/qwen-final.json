@@ -1,0 +1,1224 @@
+{
+  "stage": "qwen-final",
+  "chat_id": "b4d79cd6-67fb-402c-9d09-5f1387f206c8",
+  "results": [
+    {
+      "message": "Hola, \u00bfqu\u00e9 tal?",
+      "ttft_s": 4.192589682992548,
+      "elapsed_s": 7.342269054992357,
+      "text": "Hola. Todo bien, gracias. \u00bfEn qu\u00e9 puedo ayudarte hoy?",
+      "usage": {
+        "cache_n": 0,
+        "prompt_n": 61,
+        "prompt_ms": 4092.97,
+        "prompt_per_token_ms": 67.09786885245902,
+        "prompt_per_second": 14.903603007107309,
+        "predicted_n": 15,
+        "predicted_ms": 3120.87,
+        "predicted_per_token_ms": 222.9192857142857,
+        "predicted_per_second": 4.485928603242045,
+        "input_tokens": 61,
+        "output_tokens": 15,
+        "total_tokens": 76
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.0751002979814075,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.192555318993982,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794604695,
+              "id": "chatcmpl-f0zlLYfWPfet5Hlb4lrE9RCU7xFsPKEg",
+              "model": "qwen3.6-35b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.192589682992548,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Hola"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.376376120984787,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.627479936985765,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Todo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.812230202980572,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " bien"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.990880173980258,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.523027014976833,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " gracias"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.688461970974458,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.860123336984543,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.074753214983502,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "En"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.2932585289818235,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " qu\u00e9"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.5570443460019305,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " puedo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.769426479993854,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ayudarte"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.967224804975558,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " hoy"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.141698932973668,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d3f27412b9df4f868c29934f",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.317972568998812,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 0,
+                "prompt_n": 61,
+                "prompt_ms": 4092.97,
+                "prompt_per_token_ms": 67.09786885245902,
+                "prompt_per_second": 14.903603007107309,
+                "predicted_n": 15,
+                "predicted_ms": 3120.87,
+                "predicted_per_token_ms": 222.9192857142857,
+                "predicted_per_second": 4.485928603242045,
+                "input_tokens": 61,
+                "output_tokens": 15,
+                "total_tokens": 76
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.3182106069871224,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794604698,
+              "id": "chatcmpl-f0zlLYfWPfet5Hlb4lrE9RCU7xFsPKEg",
+              "model": "qwen3.6-35b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 0,
+                "prompt_n": 61,
+                "prompt_ms": 4092.97,
+                "prompt_per_token_ms": 67.09786885245902,
+                "prompt_per_second": 14.903603007107309,
+                "predicted_n": 15,
+                "predicted_ms": 3120.87,
+                "predicted_per_token_ms": 222.9192857142857,
+                "predicted_per_second": 4.485928603242045
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.329877973999828,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "b4d79cd6-67fb-402c-9d09-5f1387f206c8",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.330010107980343,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_d3f27412b9df4f868c29934f",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Hola. Todo bien, gracias. \u00bfEn qu\u00e9 puedo ayudarte hoy?"
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency qwen-final",
+              "usage": {
+                "cache_n": 0,
+                "prompt_n": 61,
+                "prompt_ms": 4092.97,
+                "prompt_per_token_ms": 67.09786885245902,
+                "prompt_per_second": 14.903603007107309,
+                "predicted_n": 15,
+                "predicted_ms": 3120.87,
+                "predicted_per_token_ms": 222.9192857142857,
+                "predicted_per_second": 4.485928603242045,
+                "input_tokens": 61,
+                "output_tokens": 15,
+                "total_tokens": 76
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.3398355829995126,
+          "event": {
+            "type": "chat:title",
+            "data": "Hola, \u00bfqu\u00e9 tal?"
+          }
+        },
+        {
+          "elapsed_s": 7.3441245979920495,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    },
+    {
+      "message": "\u00bfY c\u00f3mo est\u00e1s?",
+      "ttft_s": 4.0391781679936685,
+      "elapsed_s": 9.576136210991535,
+      "text": "Como soy una inteligencia artificial, no tengo sentimientos, pero funciono correctamente. \u00bfY t\u00fa? \u00bfEn qu\u00e9 puedo asistirte?",
+      "usage": {
+        "cache_n": 75,
+        "prompt_n": 19,
+        "prompt_ms": 3906.989,
+        "prompt_per_token_ms": 205.631,
+        "prompt_per_second": 4.8630799830764815,
+        "predicted_n": 27,
+        "predicted_ms": 5521.626,
+        "predicted_per_token_ms": 212.37023076923077,
+        "predicted_per_second": 4.708757891244354,
+        "input_tokens": 94,
+        "output_tokens": 27,
+        "total_tokens": 121
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.05278188901138492,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.039147878997028,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794604733,
+              "id": "chatcmpl-mjldEgZKYVI203q4lZNheo1fqBf5D11d",
+              "model": "qwen3.6-35b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.0391781679936685,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Como"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.213766480999766,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " soy"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.385485361010069,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " una"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.568111738015432,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " inteligencia"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.741708020010265,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " artificial"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.922622686019167,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.093670725997072,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " no"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.2684062700136565,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " tengo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.437621993012726,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " sentimientos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.628375453990884,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.802268566010753,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " pero"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.97865134201129,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " funcion"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.149392430001171,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.3901853669958655,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " correctamente"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.617544356995495,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.823180194012821,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.053739702008897,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.235526595002739,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " t\u00fa"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.446739697013982,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.628878290997818,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.803093148017069,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "En"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.013493661012035,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " qu\u00e9"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.18440581599134,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " puedo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.359041456016712,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " asistir"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.666166971990606,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "te"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.842819417011924,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_c85492e5f9c4496daa571ab9",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.562516384001356,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 75,
+                "prompt_n": 19,
+                "prompt_ms": 3906.989,
+                "prompt_per_token_ms": 205.631,
+                "prompt_per_second": 4.8630799830764815,
+                "predicted_n": 27,
+                "predicted_ms": 5521.626,
+                "predicted_per_token_ms": 212.37023076923077,
+                "predicted_per_second": 4.708757891244354,
+                "input_tokens": 94,
+                "output_tokens": 27,
+                "total_tokens": 121
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.56263277499238,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794604738,
+              "id": "chatcmpl-mjldEgZKYVI203q4lZNheo1fqBf5D11d",
+              "model": "qwen3.6-35b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 75,
+                "prompt_n": 19,
+                "prompt_ms": 3906.989,
+                "prompt_per_token_ms": 205.631,
+                "prompt_per_second": 4.8630799830764815,
+                "predicted_n": 27,
+                "predicted_ms": 5521.626,
+                "predicted_per_token_ms": 212.37023076923077,
+                "predicted_per_second": 4.708757891244354
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.57342037401395,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "b4d79cd6-67fb-402c-9d09-5f1387f206c8",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.573533646005671,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_c85492e5f9c4496daa571ab9",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Como soy una inteligencia artificial, no tengo sentimientos, pero funciono correctamente. \u00bfY t\u00fa? \u00bfEn qu\u00e9 puedo asistirte?"
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency qwen-final",
+              "usage": {
+                "cache_n": 75,
+                "prompt_n": 19,
+                "prompt_ms": 3906.989,
+                "prompt_per_token_ms": 205.631,
+                "prompt_per_second": 4.8630799830764815,
+                "predicted_n": 27,
+                "predicted_ms": 5521.626,
+                "predicted_per_token_ms": 212.37023076923077,
+                "predicted_per_second": 4.708757891244354,
+                "input_tokens": 94,
+                "output_tokens": 27,
+                "total_tokens": 121
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.582440602011047,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    },
+    {
+      "message": "Res\u00famelo en una frase.",
+      "ttft_s": 2.634043367987033,
+      "elapsed_s": 5.091932716983138,
+      "text": "Como IA, no tengo sentimientos, pero estoy lista para ayudarte.",
+      "usage": {
+        "cache_n": 120,
+        "prompt_n": 21,
+        "prompt_ms": 2482.677,
+        "prompt_per_token_ms": 118.22271428571429,
+        "prompt_per_second": 8.458611410183442,
+        "predicted_n": 14,
+        "predicted_ms": 2428.307,
+        "predicted_per_token_ms": 186.79284615384614,
+        "predicted_per_second": 5.35352408076903,
+        "input_tokens": 141,
+        "output_tokens": 14,
+        "total_tokens": 155
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.0394921469851397,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.633830336999381,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794604771,
+              "id": "chatcmpl-Zdjnrv8IKSeR5spMmdzFjWdVOzuHdrWU",
+              "model": "qwen3.6-35b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.634043367987033,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Como"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.8106586759968195,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " IA"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.0004527749842964,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.2129149129905272,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " no"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.473793383978773,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " tengo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.642787431977922,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " sentimientos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.820973995985696,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.9923739479854703,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " pero"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.163483509997604,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " estoy"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.342081708979094,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " lista"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.522789927985286,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " para"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.708159058995079,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ayudarte"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.892898050980875,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_89b742e714564466ba243194",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.063996106997365,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 120,
+                "prompt_n": 21,
+                "prompt_ms": 2482.677,
+                "prompt_per_token_ms": 118.22271428571429,
+                "prompt_per_second": 8.458611410183442,
+                "predicted_n": 14,
+                "predicted_ms": 2428.307,
+                "predicted_per_token_ms": 186.79284615384614,
+                "predicted_per_second": 5.35352408076903,
+                "input_tokens": 141,
+                "output_tokens": 14,
+                "total_tokens": 155
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.0641159809893,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794604773,
+              "id": "chatcmpl-Zdjnrv8IKSeR5spMmdzFjWdVOzuHdrWU",
+              "model": "qwen3.6-35b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 120,
+                "prompt_n": 21,
+                "prompt_ms": 2482.677,
+                "prompt_per_token_ms": 118.22271428571429,
+                "prompt_per_second": 8.458611410183442,
+                "predicted_n": 14,
+                "predicted_ms": 2428.307,
+                "predicted_per_token_ms": 186.79284615384614,
+                "predicted_per_second": 5.35352408076903
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.083844330976717,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "b4d79cd6-67fb-402c-9d09-5f1387f206c8",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.083885706990259,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_89b742e714564466ba243194",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Como IA, no tengo sentimientos, pero estoy lista para ayudarte."
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency qwen-final",
+              "usage": {
+                "cache_n": 120,
+                "prompt_n": 21,
+                "prompt_ms": 2482.677,
+                "prompt_per_token_ms": 118.22271428571429,
+                "prompt_per_second": 8.458611410183442,
+                "predicted_n": 14,
+                "predicted_ms": 2428.307,
+                "predicted_per_token_ms": 186.79284615384614,
+                "predicted_per_second": 5.35352408076903,
+                "input_tokens": 141,
+                "output_tokens": 14,
+                "total_tokens": 155
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.0949992449895944,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    }
+  ]
+}

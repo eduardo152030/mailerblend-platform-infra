@@ -137,3 +137,23 @@ modules:
       fail_if_body_not_matches_regexp:
       - '"status"\s*:\s*"healthy"'
       - '"backend_variant"\s*:\s*"cpu"'
+  infra_llm_health:
+    prober: http
+    timeout: 5s
+    http:
+      method: GET
+      valid_status_codes:
+      - 200
+      follow_redirects: false
+      fail_if_body_not_matches_regexp:
+      - '"status"\s*:\s*"ok"'
+  infra_webui_health:
+    prober: http
+    timeout: 5s
+    http:
+      method: GET
+      valid_status_codes:
+      - 200
+      follow_redirects: false
+      fail_if_body_not_matches_regexp:
+      - '"status"\s*:\s*true'

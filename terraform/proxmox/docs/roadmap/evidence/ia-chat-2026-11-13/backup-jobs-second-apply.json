@@ -1,0 +1,39 @@
+{
+  "utc": "2026-11-13T12:04:44.610241+00:00",
+  "created": [],
+  "jobs": [
+    {
+      "compress": "zstd",
+      "enabled": 1,
+      "id": "ia-chat-webui-631",
+      "mode": "snapshot",
+      "next-run": 1794623400,
+      "node": "pve",
+      "prune-backups": {
+        "keep-daily": "7",
+        "keep-weekly": "4"
+      },
+      "schedule": "03:30",
+      "storage": "storage",
+      "type": "vzdump",
+      "vmid": "631"
+    },
+    {
+      "compress": "zstd",
+      "enabled": 1,
+      "id": "ia-chat-llm-630",
+      "mode": "snapshot",
+      "next-run": 1794711600,
+      "node": "pve",
+      "prune-backups": {
+        "keep-daily": "7",
+        "keep-weekly": "4"
+      },
+      "schedule": "sun 04:00",
+      "storage": "storage",
+      "type": "vzdump",
+      "vmid": "630"
+    }
+  ],
+  "other_jobs_unchanged": true
+}

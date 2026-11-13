@@ -1,0 +1,2 @@
+chat-qwen3.6-35b PASS 70.49 s '2 + 2 es igual a 4.' reasoning_chars 0
+HALT interno630: ['memoria CT>90%']

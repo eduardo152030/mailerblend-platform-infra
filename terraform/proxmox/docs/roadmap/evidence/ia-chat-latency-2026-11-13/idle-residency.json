@@ -1,0 +1,327 @@
+{
+  "inference_requests_in_journal": 0,
+  "result": "PASS",
+  "duration_s": 300.7793131109793,
+  "same_model_pid": true,
+  "no_model_requests_during_interval": true,
+  "samples": [
+    {
+      "elapsed_s": 0.0013501479988917708,
+      "host": {
+        "MemAvailable": 21351116800,
+        "SwapTotal": 17179865088,
+        "SwapFree": 10192941056
+      },
+      "ct": {
+        "630": {
+          "current": 21323104256,
+          "working_set": 13837340672,
+          "max": 23622320128,
+          "anon": 5058830336,
+          "file": 16141172736,
+          "mapped_file": 14266343424,
+          "kernel": 122359808,
+          "resident_tasks": 19447533568,
+          "inactive_file": 7485763584,
+          "swap": 43773952,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1856987136,
+          "working_set": 1665740800,
+          "max": 4294967296,
+          "anon": 1185234944,
+          "file": 399151104,
+          "mapped_file": 175763456,
+          "kernel": 263696384,
+          "resident_tasks": 1624694784,
+          "inactive_file": 191246336,
+          "swap": 286134272,
+          "events": "low 0\nhigh 0\nmax 57722\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 1073336,
+          "rss": 10375168,
+          "hwm": 65515520,
+          "model_files": []
+        },
+        {
+          "pid": 1123723,
+          "rss": 19296284672,
+          "hwm": 19296546816,
+          "model_files": [
+            "gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T21:24:26.006441+00:00"
+    },
+    {
+      "elapsed_s": 60.00144050698145,
+      "host": {
+        "MemAvailable": 21302263808,
+        "SwapTotal": 17179865088,
+        "SwapFree": 10223874048
+      },
+      "ct": {
+        "630": {
+          "current": 21200834560,
+          "working_set": 13848109056,
+          "max": 23622320128,
+          "anon": 5059899392,
+          "file": 16017891328,
+          "mapped_file": 14272024576,
+          "kernel": 122449920,
+          "resident_tasks": 19454373888,
+          "inactive_file": 7352725504,
+          "swap": 42168320,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1856700416,
+          "working_set": 1649659904,
+          "max": 4294967296,
+          "anon": 1185718272,
+          "file": 398462976,
+          "mapped_file": 176418816,
+          "kernel": 263639040,
+          "resident_tasks": 1625776128,
+          "inactive_file": 207040512,
+          "swap": 286113792,
+          "events": "low 0\nhigh 0\nmax 57851\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 1073336,
+          "rss": 10375168,
+          "hwm": 65515520,
+          "model_files": []
+        },
+        {
+          "pid": 1123723,
+          "rss": 19296284672,
+          "hwm": 19296546816,
+          "model_files": [
+            "gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T21:25:26.006548+00:00"
+    },
+    {
+      "elapsed_s": 120.00140427899896,
+      "host": {
+        "MemAvailable": 21343588352,
+        "SwapTotal": 17179865088,
+        "SwapFree": 10209718272
+      },
+      "ct": {
+        "630": {
+          "current": 21085048832,
+          "working_set": 13854109696,
+          "max": 23622320128,
+          "anon": 5059715072,
+          "file": 15902384128,
+          "mapped_file": 14272241664,
+          "kernel": 122355712,
+          "resident_tasks": 19454312448,
+          "inactive_file": 7230939136,
+          "swap": 42168320,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1854242816,
+          "working_set": 1650966528,
+          "max": 4294967296,
+          "anon": 1164926976,
+          "file": 409427968,
+          "mapped_file": 178597888,
+          "kernel": 263790592,
+          "resident_tasks": 1607315456,
+          "inactive_file": 203276288,
+          "swap": 308334592,
+          "events": "low 0\nhigh 0\nmax 58009\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 1073336,
+          "rss": 10375168,
+          "hwm": 65515520,
+          "model_files": []
+        },
+        {
+          "pid": 1123723,
+          "rss": 19296284672,
+          "hwm": 19296546816,
+          "model_files": [
+            "gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T21:26:26.006517+00:00"
+    },
+    {
+      "elapsed_s": 180.00122402398847,
+      "host": {
+        "MemAvailable": 21344120832,
+        "SwapTotal": 17179865088,
+        "SwapFree": 10211815424
+      },
+      "ct": {
+        "630": {
+          "current": 21086429184,
+          "working_set": 13855490048,
+          "max": 23622320128,
+          "anon": 5061013504,
+          "file": 15902466048,
+          "mapped_file": 14272446464,
+          "kernel": 122355712,
+          "resident_tasks": 19455815680,
+          "inactive_file": 7230939136,
+          "swap": 42168320,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1853644800,
+          "working_set": 1646428160,
+          "max": 4294967296,
+          "anon": 1164701696,
+          "file": 409165824,
+          "mapped_file": 180592640,
+          "kernel": 263684096,
+          "resident_tasks": 1608978432,
+          "inactive_file": 207216640,
+          "swap": 308367360,
+          "events": "low 0\nhigh 0\nmax 58156\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 1073336,
+          "rss": 10375168,
+          "hwm": 65515520,
+          "model_files": []
+        },
+        {
+          "pid": 1123723,
+          "rss": 19296284672,
+          "hwm": 19296546816,
+          "model_files": [
+            "gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T21:27:26.006336+00:00"
+    },
+    {
+      "elapsed_s": 240.00127082198742,
+      "host": {
+        "MemAvailable": 21319585792,
+        "SwapTotal": 17179865088,
+        "SwapFree": 10215485440
+      },
+      "ct": {
+        "630": {
+          "current": 21087428608,
+          "working_set": 13856489472,
+          "max": 23622320128,
+          "anon": 5060448256,
+          "file": 15904018432,
+          "mapped_file": 14273531904,
+          "kernel": 122363904,
+          "resident_tasks": 19456344064,
+          "inactive_file": 7230939136,
+          "swap": 42164224,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1855541248,
+          "working_set": 1655787520,
+          "max": 4294967296,
+          "anon": 1164460032,
+          "file": 411254784,
+          "mapped_file": 180846592,
+          "kernel": 263733248,
+          "resident_tasks": 1609039872,
+          "inactive_file": 199753728,
+          "swap": 308318208,
+          "events": "low 0\nhigh 0\nmax 58326\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 1073336,
+          "rss": 10375168,
+          "hwm": 65515520,
+          "model_files": []
+        },
+        {
+          "pid": 1123723,
+          "rss": 19296284672,
+          "hwm": 19296546816,
+          "model_files": [
+            "gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T21:28:26.006383+00:00"
+    },
+    {
+      "elapsed_s": 300.00133811699925,
+      "host": {
+        "MemAvailable": 21325901824,
+        "SwapTotal": 17179865088,
+        "SwapFree": 10218106880
+      },
+      "ct": {
+        "630": {
+          "current": 21086740480,
+          "working_set": 13855801344,
+          "max": 23622320128,
+          "anon": 5059706880,
+          "file": 15904071680,
+          "mapped_file": 14273601536,
+          "kernel": 122363904,
+          "resident_tasks": 19455672320,
+          "inactive_file": 7230939136,
+          "swap": 42164224,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+        },
+        "631": {
+          "current": 1855057920,
+          "working_set": 1643982848,
+          "max": 4294967296,
+          "anon": 1163182080,
+          "file": 412028928,
+          "mapped_file": 181202944,
+          "kernel": 263757824,
+          "resident_tasks": 1608142848,
+          "inactive_file": 211075072,
+          "swap": 308371456,
+          "events": "low 0\nhigh 0\nmax 58465\noom 0\noom_kill 0\noom_group_kill 0\n"
+        }
+      },
+      "processes": [
+        {
+          "pid": 1073336,
+          "rss": 10375168,
+          "hwm": 65515520,
+          "model_files": []
+        },
+        {
+          "pid": 1123723,
+          "rss": 19296284672,
+          "hwm": 19296546816,
+          "model_files": [
+            "gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf"
+          ]
+        }
+      ],
+      "utc": "2026-11-13T21:29:26.006451+00:00"
+    }
+  ]
+}

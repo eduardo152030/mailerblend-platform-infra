@@ -1,0 +1,17 @@
+{
+  "terraform": "no-op both630/631",
+  "legacy_state_instances_unchanged": 18,
+  "protected_pve_hashes_unchanged": 27,
+  "exporter_configuration_writes": {
+    "630": 0,
+    "631": 0
+  },
+  "prometheus_blackbox_configuration_writes": 0,
+  "prometheus_blackbox_reloads": 0,
+  "grafana_changed_files": 0,
+  "grafana_reloads": 0,
+  "grafana_restarts": 0,
+  "applications_no_recreation_reload_restart": true,
+  "final_app_identity_unchanged": true,
+  "final_check_utc": "2026-11-13T16:12:30.689144+00:00"
+}

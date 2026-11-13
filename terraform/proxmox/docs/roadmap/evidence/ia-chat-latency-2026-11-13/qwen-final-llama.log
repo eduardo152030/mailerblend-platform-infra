@@ -1,0 +1,17 @@
+[48027] 3.49.207.004 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 18, t_last = 185311064518
+[48027] 3.49.207.091 I slot launch_slot_: id  0 | task 27 | processing task, is_child = 0
+[48027] 3.52.846.714 I slot print_timing: id  0 | task 27 | prompt processing, n_tokens =     57, progress = 0.93, t =   3.64 s / 15.66 tokens per second
+[48027] 3.56.420.966 I slot print_timing: id  0 | task 27 | prompt eval time =    4092.97 ms /    61 tokens (   67.10 ms per token,    14.90 tokens per second)
+[48027] 3.56.421.459 I slot print_timing: id  0 | task 27 |        eval time =    3120.87 ms /    15 tokens (  222.92 ms per token,     4.49 tokens per second)
+[48027] 3.56.421.918 I slot      release: id  0 | task 27 | stop processing: n_tokens = 75, truncated = 0
+[48027] 4.26.619.984 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.798 (> 0.100 thold), f_keep = 1.000
+[48027] 4.26.620.092 I slot launch_slot_: id  0 | task 45 | processing task, is_child = 0
+[48027] 4.30.176.326 I slot print_timing: id  0 | task 45 | prompt processing, n_tokens =     15, progress = 0.96, t =   3.56 s / 4.22 tokens per second
+[48027] 4.36.048.999 I slot print_timing: id  0 | task 45 | prompt eval time =    3906.99 ms /    19 tokens (  205.63 ms per token,     4.86 tokens per second)
+[48027] 4.36.049.020 I slot print_timing: id  0 | task 45 |        eval time =    5521.63 ms /    27 tokens (  212.37 ms per token,     4.71 tokens per second)
+[48027] 4.36.051.121 I slot      release: id  0 | task 45 | stop processing: n_tokens = 120, truncated = 0
+[48027] 5.06.232.887 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.851 (> 0.100 thold), f_keep = 1.000
+[48027] 5.06.233.165 I slot launch_slot_: id  0 | task 75 | processing task, is_child = 0
+[48027] 5.11.144.244 I slot print_timing: id  0 | task 75 | prompt eval time =    2482.68 ms /    21 tokens (  118.22 ms per token,     8.46 tokens per second)
+[48027] 5.11.144.250 I slot print_timing: id  0 | task 75 |        eval time =    2428.31 ms /    14 tokens (  186.79 ms per token,     5.35 tokens per second)
+[48027] 5.11.146.451 I slot      release: id  0 | task 75 | stop processing: n_tokens = 154, truncated = 0

@@ -1,0 +1,577 @@
+{
+  "observed_at_utc": "2026-11-13T16:18:41.344271+00:00",
+  "identified": [
+    {
+      "vmid": 631,
+      "name": "infra-webui",
+      "status": "running",
+      "service": "infra-webui"
+    },
+    {
+      "vmid": 630,
+      "name": "infra-llm",
+      "status": "running",
+      "service": "infra-llm"
+    }
+  ],
+  "unmanaged_active": [
+    {
+      "vmid": 105,
+      "name": "n8n-server",
+      "status": "running"
+    },
+    {
+      "vmid": 107,
+      "name": "drawio",
+      "status": "running"
+    },
+    {
+      "vmid": 103,
+      "name": "aws-workshop",
+      "status": "running"
+    },
+    {
+      "vmid": 104,
+      "name": "nucleo",
+      "status": "running"
+    },
+    {
+      "vmid": 101,
+      "name": "docmost",
+      "status": "running"
+    },
+    {
+      "vmid": 109,
+      "name": "edge-router",
+      "status": "running"
+    }
+  ],
+  "cts": {
+    "630": {
+      "config": {
+        "hostname": "infra-llm",
+        "cores": 4,
+        "memory": 22528,
+        "swap": 1024,
+        "rootfs": "local-lvm:vm-630-disk-0,size=16G",
+        "mp0": "local-lvm:vm-630-disk-1,mp=/models,backup=0,ro=1,size=60G",
+        "net0": "name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:6F:79:36,ip=dhcp,type=veth",
+        "unprivileged": 1,
+        "onboot": 1,
+        "timezone": "Europe/Madrid",
+        "ostype": "debian",
+        "tags": "192.168.1.67;ai;infra;internal"
+      },
+      "runtime": {
+        "os": "\"Debian GNU/Linux 12 (bookworm)\"",
+        "ip": [
+          {
+            "ifindex": 2,
+            "link_index": 124,
+            "ifname": "eth0",
+            "flags": [
+              "BROADCAST",
+              "MULTICAST",
+              "UP",
+              "LOWER_UP"
+            ],
+            "mtu": 1500,
+            "qdisc": "noqueue",
+            "operstate": "UP",
+            "group": "default",
+            "txqlen": 1000,
+            "link_netnsid": 0,
+            "addr_info": [
+              {
+                "family": "inet",
+                "local": "192.168.1.67",
+                "prefixlen": 24,
+                "broadcast": "192.168.1.255",
+                "scope": "global",
+                "dynamic": true,
+                "label": "eth0",
+                "valid_life_time": 1350,
+                "preferred_life_time": 1350
+              }
+            ]
+          }
+        ],
+        "mounts": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/\",\n         \"source\": \"/dev/mapper/pve-vm--630--disk--0\",\n         \"fstype\": \"ext4\",\n         \"options\": \"rw,relatime,stripe=16\",\n         \"children\": [\n            {\n               \"target\": \"/run\",\n               \"source\": \"tmpfs\",\n               \"fstype\": \"tmpfs\",\n               \"options\": \"rw,nosuid,nodev,size=6549424k,nr_inodes=819200,mode=755,uid=100000,gid=100000,inode64\",\n               \"children\": [\n                  {\n                     \"target\": \"/run/lock\",\n                     \"source\": \"tmpfs\",\n                     \"fstype\": \"tmpfs\",\n                     \"options\": \"rw,nosuid,nodev,noexec,relatime,size=5120k,uid=100000,gid=100000,inode64\"\n                  },{\n                     \"target\": \"/run/credentials/systemd-tmpfiles-setup-dev.service\",\n                     \"source\": \"tmpfs\",\n                     \"fstype\": \"tmpfs\",\n                     \"options\": \"ro,nosuid,nodev,noexec,relatime,size=1024k,nr_inodes=1024,mode=700,uid=100000,gid=100000,inode64\"\n                  },{\n                     \"target\": \"/run/credentials/systemd-tmpfiles-setup.service\",\n                     \"source\": \"tmpfs\",\n                     \"fstype\": \"tmpfs\",\n                     \"options\": \"ro,nosuid,nodev,noexec,relatime,size=1024k,nr_inodes=1024,mode=700,uid=100000,gid=100000,inode64\"\n                  },{\n                     \"target\": \"/run/credentials/systemd-sysctl.service\",\n                     \"source\": \"tmpfs\",\n                     \"fstype\": \"tmpfs\",\n                     \"options\": \"ro,nosuid,nodev,noexec,relatime,size=1024k,nr_inodes=1024,mode=700,uid=100000,gid=100000,inode64\"\n                  },{\n                     \"target\": \"/run/credentials/systemd-sysusers.service\",\n                     \"source\": \"tmpfs\",\n                     \"fstype\": \"tmpfs\",\n                     \"options\": \"ro,nosuid,nodev,noexec,relatime,size=1024k,nr_inodes=1024,mode=700,uid=100000,gid=100000,inode64\"\n                  }\n               ]\n            },{\n               \"target\": \"/models\",\n               \"source\": \"/dev/mapper/pve-vm--630--disk--1\",\n               \"fstype\": \"ext4\",\n               \"options\": \"ro,relatime,stripe=16\"\n            },{\n               \"target\": \"/dev\",\n               \"source\": \"none\",\n               \"fstype\": \"tmpfs\",\n               \"options\": \"rw,relatime,size=492k,mode=755,uid=100000,gid=100000,inode64\",\n               \"children\": [\n                  {\n                     \"target\": \"/dev/shm\",\n                     \"source\": \"tmpfs\",\n                     \"fstype\": \"tmpfs\",\n                     \"options\": \"rw,nosuid,nodev,uid=100000,gid=100000,inode64\"\n                  },{\n                     \"target\": \"/dev/mqueue\",\n                     \"source\": \"mqueue\",\n                     \"fstype\": \"mqueue\",\n                     \"options\": \"rw,nosuid,nodev,noexec,relatime\"\n                  },{\n                     \"target\": \"/dev/full\",\n                     \"source\": \"udev[/full]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/null\",\n                     \"source\": \"udev[/null]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/random\",\n                     \"source\": \"udev[/random]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/tty\",\n                     \"source\": \"udev[/tty]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/urandom\",\n                     \"source\": \"udev[/urandom]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/zero\",\n                     \"source\": \"udev[/zero]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/pts\",\n                     \"source\": \"devpts\",\n                     \"fstype\": \"devpts\",\n                     \"options\": \"rw,nosuid,noexec,relatime,gid=100005,mode=620,ptmxmode=666,max=1026\"\n                  },{\n                     \"target\": \"/dev/ptmx\",\n                     \"source\": \"devpts[/ptmx]\",\n                     \"fstype\": \"devpts\",\n                     \"options\": \"rw,nosuid,noexec,relatime,gid=100005,mode=620,ptmxmode=666,max=1026\"\n                  },{\n                     \"target\": \"/dev/console\",\n                     \"source\": \"devpts[/0]\",\n                     \"fstype\": \"devpts\",\n                     \"options\": \"rw,nosuid,noexec,relatime,gid=100005,mode=620,ptmxmode=666,max=1026\"\n                  },{\n                     \"target\": \"/dev/tty1\",\n                     \"source\": \"devpts[/1]\",\n                     \"fstype\": \"devpts\",\n                     \"options\": \"rw,nosuid,noexec,relatime,gid=100005,mode=620,ptmxmode=666,max=1026\"\n                  },{\n                     \"target\": \"/dev/tty2\",\n                     \"source\": \"devpts[/2]\",\n                     \"fstype\": \"devpts\",\n                     \"options\": \"rw,nosuid,noexec,relatime,gid=100005,mode=620,ptmxmode=666,max=1026\"\n                  }\n               ]\n            },{\n               \"target\": \"/proc\",\n               \"source\": \"proc\",\n               \"fstype\": \"proc\",\n               \"options\": \"rw,nosuid,nodev,noexec,relatime\",\n               \"children\": [\n                  {\n                     \"target\": \"/proc/sys\",\n                     \"source\": \"proc[/sys]\",\n                     \"fstype\": \"proc\",\n                     \"options\": \"ro,relatime\",\n                     \"children\": [\n                        {\n                           \"target\": \"/proc/sys/net\",\n                           \"source\": \"proc[/sys/net]\",\n                           \"fstype\": \"proc\",\n                           \"options\": \"rw,nosuid,nodev,noexec,relatime\"\n                        },{\n                           \"target\": \"/proc/sys/kernel/random/boot_id\",\n                           \"source\": \"none[/.lxc-boot-id]\",\n                           \"fstype\": \"tmpfs\",\n                           \"options\": \"ro,nosuid,nodev,noexec,relatime,size=492k,mode=755,uid=100000,gid=100000,inode64\"\n                        }\n                     ]\n                  },{\n                     \"target\": \"/proc/sysrq-trigger\",\n                     \"source\": \"proc[/sysrq-trigger]\",\n                     \"fstype\": \"proc\",\n                     \"options\": \"ro,relatime\"\n                  },{\n                     \"target\": \"/proc/cpuinfo\",\n                     \"source\": \"lxcfs[/proc/cpuinfo]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/diskstats\",\n                     \"source\": \"lxcfs[/proc/diskstats]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/loadavg\",\n                     \"source\": \"lxcfs[/proc/loadavg]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/meminfo\",\n                     \"source\": \"lxcfs[/proc/meminfo]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/slabinfo\",\n                     \"source\": \"lxcfs[/proc/slabinfo]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/stat\",\n                     \"source\": \"lxcfs[/proc/stat]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/swaps\",\n                     \"source\": \"lxcfs[/proc/swaps]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/uptime\",\n                     \"source\": \"lxcfs[/proc/uptime]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  }\n               ]\n            },{\n               \"target\": \"/sys\",\n               \"source\": \"sysfs\",\n               \"fstype\": \"sysfs\",\n               \"options\": \"ro,nosuid,nodev,noexec,relatime\",\n               \"children\": [\n                  {\n                     \"target\": \"/sys/fs/fuse/connections\",\n                     \"source\": \"fusectl\",\n                     \"fstype\": \"fusectl\",\n                     \"options\": \"rw,nosuid,nodev,noexec,relatime\"\n                  },{\n                     \"target\": \"/sys/devices/virtual/net\",\n                     \"source\": \"sysfs[/devices/virtual/net]\",\n                     \"fstype\": \"sysfs\",\n                     \"options\": \"rw,nosuid,nodev,noexec,relatime\"\n                  },{\n                     \"target\": \"/sys/fs/cgroup\",\n                     \"source\": \"none\",\n                     \"fstype\": \"cgroup2\",\n                     \"options\": \"rw,nosuid,nodev,noexec,relatime\"\n                  },{\n                     \"target\": \"/sys/devices/system/cpu\",\n                     \"source\": \"lxcfs[/sys/devices/system/cpu]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  }\n               ]\n            }\n         ]\n      }\n   ]\n}\n",
+        "listeners": "State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\nLISTEN 0      100        127.0.0.1:25        0.0.0.0:*          \nLISTEN 0      4096    192.168.1.67:9100      0.0.0.0:*          \nLISTEN 0      128          0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      512          0.0.0.0:8080      0.0.0.0:*          \nLISTEN 0      100            [::1]:25           [::]:*          \nLISTEN 0      128             [::]:22           [::]:*          \n",
+        "services": {
+          "llama-server": "active",
+          "node-exporter": "active",
+          "lxc-cpu.timer": "active",
+          "docker": "inactive"
+        }
+      },
+      "network_observed": {
+        "route": [
+          {
+            "dst": "default",
+            "gateway": "192.168.1.254",
+            "dev": "eth0",
+            "flags": []
+          },
+          {
+            "dst": "192.168.1.0/24",
+            "dev": "eth0",
+            "protocol": "kernel",
+            "scope": "link",
+            "prefsrc": "192.168.1.67",
+            "flags": []
+          }
+        ],
+        "dns": [
+          "192.168.1.254"
+        ]
+      }
+    },
+    "631": {
+      "config": {
+        "hostname": "infra-webui",
+        "cores": 2,
+        "memory": 3072,
+        "swap": 1024,
+        "rootfs": "local-lvm:vm-631-disk-0,size=20G",
+        "net0": "name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:0D:41:78,ip=dhcp,type=veth",
+        "unprivileged": 1,
+        "features": "keyctl=1,nesting=1",
+        "onboot": 1,
+        "timezone": "Europe/Madrid",
+        "ostype": "debian",
+        "tags": "192.168.1.66;ai;infra;internal"
+      },
+      "runtime": {
+        "os": "\"Debian GNU/Linux 12 (bookworm)\"",
+        "ip": [
+          {
+            "ifindex": 2,
+            "link_index": 128,
+            "ifname": "eth0",
+            "flags": [
+              "BROADCAST",
+              "MULTICAST",
+              "UP",
+              "LOWER_UP"
+            ],
+            "mtu": 1500,
+            "qdisc": "noqueue",
+            "operstate": "UP",
+            "group": "default",
+            "txqlen": 1000,
+            "link_netnsid": 0,
+            "addr_info": [
+              {
+                "family": "inet",
+                "local": "192.168.1.66",
+                "prefixlen": 24,
+                "broadcast": "192.168.1.255",
+                "scope": "global",
+                "dynamic": true,
+                "label": "eth0",
+                "valid_life_time": 1209,
+                "preferred_life_time": 1209
+              }
+            ]
+          }
+        ],
+        "mounts": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/\",\n         \"source\": \"/dev/mapper/pve-vm--631--disk--0\",\n         \"fstype\": \"ext4\",\n         \"options\": \"rw,relatime,stripe=16\",\n         \"children\": [\n            {\n               \"target\": \"/run\",\n               \"source\": \"tmpfs\",\n               \"fstype\": \"tmpfs\",\n               \"options\": \"rw,nosuid,nodev,size=6549424k,nr_inodes=819200,mode=755,uid=100000,gid=100000,inode64\",\n               \"children\": [\n                  {\n                     \"target\": \"/run/lock\",\n                     \"source\": \"tmpfs\",\n                     \"fstype\": \"tmpfs\",\n                     \"options\": \"rw,nosuid,nodev,noexec,relatime,size=5120k,uid=100000,gid=100000,inode64\"\n                  },{\n                     \"target\": \"/run/credentials/systemd-tmpfiles-setup-dev.service\",\n                     \"source\": \"ramfs\",\n                     \"fstype\": \"ramfs\",\n                     \"options\": \"ro,nosuid,nodev,noexec,relatime,mode=700\"\n                  },{\n                     \"target\": \"/run/credentials/systemd-tmpfiles-setup.service\",\n                     \"source\": \"ramfs\",\n                     \"fstype\": \"ramfs\",\n                     \"options\": \"ro,nosuid,nodev,noexec,relatime,mode=700\"\n                  },{\n                     \"target\": \"/run/credentials/systemd-sysusers.service\",\n                     \"source\": \"ramfs\",\n                     \"fstype\": \"ramfs\",\n                     \"options\": \"ro,nosuid,nodev,noexec,relatime,mode=700\"\n                  },{\n                     \"target\": \"/run/credentials/systemd-sysctl.service\",\n                     \"source\": \"ramfs\",\n                     \"fstype\": \"ramfs\",\n                     \"options\": \"ro,nosuid,nodev,noexec,relatime,mode=700\"\n                  },{\n                     \"target\": \"/run/docker/netns/b262da84f8ed\",\n                     \"source\": \"nsfs[net:[4026541933]]\",\n                     \"fstype\": \"nsfs\",\n                     \"options\": \"rw\"\n                  },{\n                     \"target\": \"/run/docker/netns/4b44ed1c8b35\",\n                     \"source\": \"nsfs[net:[4026542010]]\",\n                     \"fstype\": \"nsfs\",\n                     \"options\": \"rw\"\n                  },{\n                     \"target\": \"/run/docker/netns/655f50c63130\",\n                     \"source\": \"nsfs[net:[4026541855]]\",\n                     \"fstype\": \"nsfs\",\n                     \"options\": \"rw\"\n                  }\n               ]\n            },{\n               \"target\": \"/dev\",\n               \"source\": \"none\",\n               \"fstype\": \"tmpfs\",\n               \"options\": \"rw,relatime,size=492k,mode=755,uid=100000,gid=100000,inode64\",\n               \"children\": [\n                  {\n                     \"target\": \"/dev/mqueue\",\n                     \"source\": \"mqueue\",\n                     \"fstype\": \"mqueue\",\n                     \"options\": \"rw,nosuid,nodev,noexec,relatime\"\n                  },{\n                     \"target\": \"/dev/shm\",\n                     \"source\": \"tmpfs\",\n                     \"fstype\": \"tmpfs\",\n                     \"options\": \"rw,nosuid,nodev,uid=100000,gid=100000,inode64\"\n                  },{\n                     \"target\": \"/dev/full\",\n                     \"source\": \"udev[/full]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/null\",\n                     \"source\": \"udev[/null]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/random\",\n                     \"source\": \"udev[/random]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/tty\",\n                     \"source\": \"udev[/tty]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/urandom\",\n                     \"source\": \"udev[/urandom]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/zero\",\n                     \"source\": \"udev[/zero]\",\n                     \"fstype\": \"devtmpfs\",\n                     \"options\": \"rw,nosuid,relatime,size=16339688k,nr_inodes=4084922,mode=755,inode64\"\n                  },{\n                     \"target\": \"/dev/pts\",\n                     \"source\": \"devpts\",\n                     \"fstype\": \"devpts\",\n                     \"options\": \"rw,nosuid,noexec,relatime,gid=100005,mode=620,ptmxmode=666,max=1026\"\n                  },{\n                     \"target\": \"/dev/ptmx\",\n                     \"source\": \"devpts[/ptmx]\",\n                     \"fstype\": \"devpts\",\n                     \"options\": \"rw,nosuid,noexec,relatime,gid=100005,mode=620,ptmxmode=666,max=1026\"\n                  },{\n                     \"target\": \"/dev/console\",\n                     \"source\": \"devpts[/0]\",\n                     \"fstype\": \"devpts\",\n                     \"options\": \"rw,nosuid,noexec,relatime,gid=100005,mode=620,ptmxmode=666,max=1026\"\n                  },{\n                     \"target\": \"/dev/tty1\",\n                     \"source\": \"devpts[/1]\",\n                     \"fstype\": \"devpts\",\n                     \"options\": \"rw,nosuid,noexec,relatime,gid=100005,mode=620,ptmxmode=666,max=1026\"\n                  },{\n                     \"target\": \"/dev/tty2\",\n                     \"source\": \"devpts[/2]\",\n                     \"fstype\": \"devpts\",\n                     \"options\": \"rw,nosuid,noexec,relatime,gid=100005,mode=620,ptmxmode=666,max=1026\"\n                  }\n               ]\n            },{\n               \"target\": \"/proc\",\n               \"source\": \"proc\",\n               \"fstype\": \"proc\",\n               \"options\": \"rw,nosuid,nodev,noexec,relatime\",\n               \"children\": [\n                  {\n                     \"target\": \"/proc/sys\",\n                     \"source\": \"proc[/sys]\",\n                     \"fstype\": \"proc\",\n                     \"options\": \"ro,relatime\",\n                     \"children\": [\n                        {\n                           \"target\": \"/proc/sys/net\",\n                           \"source\": \"proc[/sys/net]\",\n                           \"fstype\": \"proc\",\n                           \"options\": \"rw,nosuid,nodev,noexec,relatime\"\n                        },{\n                           \"target\": \"/proc/sys/kernel/random/boot_id\",\n                           \"source\": \"none[/.lxc-boot-id]\",\n                           \"fstype\": \"tmpfs\",\n                           \"options\": \"ro,nosuid,nodev,noexec,relatime,size=492k,mode=755,uid=100000,gid=100000,inode64\"\n                        }\n                     ]\n                  },{\n                     \"target\": \"/proc/sysrq-trigger\",\n                     \"source\": \"proc[/sysrq-trigger]\",\n                     \"fstype\": \"proc\",\n                     \"options\": \"ro,relatime\"\n                  },{\n                     \"target\": \"/proc/cpuinfo\",\n                     \"source\": \"lxcfs[/proc/cpuinfo]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/diskstats\",\n                     \"source\": \"lxcfs[/proc/diskstats]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/loadavg\",\n                     \"source\": \"lxcfs[/proc/loadavg]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/meminfo\",\n                     \"source\": \"lxcfs[/proc/meminfo]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/slabinfo\",\n                     \"source\": \"lxcfs[/proc/slabinfo]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/stat\",\n                     \"source\": \"lxcfs[/proc/stat]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/swaps\",\n                     \"source\": \"lxcfs[/proc/swaps]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  },{\n                     \"target\": \"/proc/uptime\",\n                     \"source\": \"lxcfs[/proc/uptime]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  }\n               ]\n            },{\n               \"target\": \"/sys\",\n               \"source\": \"sysfs\",\n               \"fstype\": \"sysfs\",\n               \"options\": \"ro,nosuid,nodev,noexec,relatime\",\n               \"children\": [\n                  {\n                     \"target\": \"/sys/fs/fuse/connections\",\n                     \"source\": \"fusectl\",\n                     \"fstype\": \"fusectl\",\n                     \"options\": \"rw,nosuid,nodev,noexec,relatime\"\n                  },{\n                     \"target\": \"/sys/devices/virtual/net\",\n                     \"source\": \"sysfs[/devices/virtual/net]\",\n                     \"fstype\": \"sysfs\",\n                     \"options\": \"rw,nosuid,nodev,noexec,relatime\"\n                  },{\n                     \"target\": \"/sys/fs/cgroup\",\n                     \"source\": \"none\",\n                     \"fstype\": \"cgroup2\",\n                     \"options\": \"rw,nosuid,nodev,noexec,relatime\"\n                  },{\n                     \"target\": \"/sys/devices/system/cpu\",\n                     \"source\": \"lxcfs[/sys/devices/system/cpu]\",\n                     \"fstype\": \"fuse.lxcfs\",\n                     \"options\": \"rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other\"\n                  }\n               ]\n            },{\n               \"target\": \"/var/lib/docker/rootfs/overlayfs/76be6828c7a3dadd9147c92b45f52105366bf30c383c554a9e60496f12eaf8f9\",\n               \"source\": \"overlay\",\n               \"fstype\": \"overlay\",\n               \"options\": \"rw,relatime,lowerdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/61/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/60/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/59/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/58/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/57/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/56/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/55/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/54/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/53/fs,upperdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/62/fs,workdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/62/work,redirect_dir=nofollow,userxattr\"\n            },{\n               \"target\": \"/var/lib/docker/rootfs/overlayfs/eeabd0eac4dd675e631a552b122a50c3f76151d92d2d58d5a4bace30e05aa026\",\n               \"source\": \"overlay\",\n               \"fstype\": \"overlay\",\n               \"options\": \"rw,relatime,lowerdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/32/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/17/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/16/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/15/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/6/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/3/fs,upperdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/33/fs,workdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/33/work,redirect_dir=nofollow,userxattr\"\n            },{\n               \"target\": \"/var/lib/docker/rootfs/overlayfs/78ba3362e7219bbe29c864e66c88e0957b1a68ad2ba2848706d893ec19f82707\",\n               \"source\": \"overlay\",\n               \"fstype\": \"overlay\",\n               \"options\": \"rw,relatime,lowerdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/51/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/25/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/24/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/23/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/22/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/21/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/20/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/19/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/18/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/14/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/13/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/12/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/11/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/10/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/9/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/8/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/7/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/5/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/4/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/2/fs,upperdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/52/fs,workdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/52/work,redirect_dir=nofollow,userxattr\"\n            }\n         ]\n      }\n   ]\n}\n",
+        "listeners": "State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096    192.168.1.66:9100      0.0.0.0:*          \nLISTEN 0      100        127.0.0.1:25        0.0.0.0:*          \nLISTEN 0      4096         0.0.0.0:3000      0.0.0.0:*          \nLISTEN 0      4096    192.168.1.66:8085      0.0.0.0:*          \nLISTEN 0      100            [::1]:25           [::]:*          \nLISTEN 0      4096            [::]:3000         [::]:*          \nLISTEN 0      4096               *:22              *:*          \n",
+        "services": {
+          "llama-server": "inactive",
+          "node-exporter": "active",
+          "lxc-cpu.timer": "active",
+          "docker": "active"
+        }
+      },
+      "containers": [
+        {
+          "name": "/cadvisor",
+          "id": "76be6828c7a3dadd9147c92b45f52105366bf30c383c554a9e60496f12eaf8f9",
+          "image": "ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-13T15:31:33.911954298Z",
+          "status": "running",
+          "health": "healthy",
+          "has_healthcheck": true,
+          "ports": {
+            "8080/tcp": [
+              {
+                "HostIp": "192.168.1.66",
+                "HostPort": "8085"
+              }
+            ]
+          },
+          "mounts": [
+            {
+              "source": "/",
+              "destination": "/rootfs",
+              "rw": false
+            },
+            {
+              "source": "/sys",
+              "destination": "/sys",
+              "rw": false
+            },
+            {
+              "source": "/run/containerd/containerd.sock",
+              "destination": "/run/containerd/containerd.sock",
+              "rw": false
+            },
+            {
+              "source": "/var/lib/containerd",
+              "destination": "/var/lib/containerd",
+              "rw": false
+            },
+            {
+              "source": "/var/lib/docker",
+              "destination": "/var/lib/docker",
+              "rw": false
+            },
+            {
+              "source": "/var/run/docker.sock",
+              "destination": "/var/run/docker.sock",
+              "rw": false
+            }
+          ],
+          "restart_policy": "unless-stopped"
+        },
+        {
+          "name": "/ia-chat-open-webui-1",
+          "id": "78ba3362e7219bbe29c864e66c88e0957b1a68ad2ba2848706d893ec19f82707",
+          "image": "ghcr.io/open-webui/open-webui:v0.13.3@sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14",
+          "started": "2026-11-13T15:33:15.65108763Z",
+          "status": "running",
+          "health": "healthy",
+          "has_healthcheck": true,
+          "ports": {
+            "8080/tcp": [
+              {
+                "HostIp": "0.0.0.0",
+                "HostPort": "3000"
+              },
+              {
+                "HostIp": "::",
+                "HostPort": "3000"
+              }
+            ]
+          },
+          "mounts": [
+            {
+              "source": "/opt/ia-chat/data",
+              "destination": "/app/backend/data",
+              "rw": true
+            },
+            {
+              "source": "/opt/ia-chat/custom.css",
+              "destination": "/app/build/static/custom.css",
+              "rw": false
+            }
+          ],
+          "restart_policy": "unless-stopped"
+        },
+        {
+          "name": "/ia-chat-searxng-1",
+          "id": "eeabd0eac4dd675e631a552b122a50c3f76151d92d2d58d5a4bace30e05aa026",
+          "image": "docker.io/searxng/searxng:2026.11.9-57ff753ad@sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2",
+          "started": "2026-11-13T15:31:33.942354149Z",
+          "status": "running",
+          "health": null,
+          "has_healthcheck": false,
+          "ports": {
+            "8080/tcp": null
+          },
+          "mounts": [
+            {
+              "source": "/opt/ia-chat/searxng",
+              "destination": "/etc/searxng",
+              "rw": true
+            },
+            {
+              "source": "/var/lib/docker/volumes/b4f8b92ec6cf2e7cd384dfd18f858d6c85f58cc4045e6f165e31c7afbadd04e3/_data",
+              "destination": "/var/cache/searxng",
+              "rw": true
+            }
+          ],
+          "restart_policy": "unless-stopped"
+        }
+      ],
+      "network_observed": {
+        "route": [
+          {
+            "dst": "default",
+            "gateway": "192.168.1.254",
+            "dev": "eth0",
+            "flags": []
+          },
+          {
+            "dst": "172.17.0.0/16",
+            "dev": "docker0",
+            "protocol": "kernel",
+            "scope": "link",
+            "prefsrc": "172.17.0.1",
+            "flags": [
+              "linkdown"
+            ]
+          },
+          {
+            "dst": "172.18.0.0/16",
+            "dev": "br-928ef7de687e",
+            "protocol": "kernel",
+            "scope": "link",
+            "prefsrc": "172.18.0.1",
+            "flags": []
+          },
+          {
+            "dst": "172.19.0.0/16",
+            "dev": "br-e2310b5d02c9",
+            "protocol": "kernel",
+            "scope": "link",
+            "prefsrc": "172.19.0.1",
+            "flags": []
+          },
+          {
+            "dst": "192.168.1.0/24",
+            "dev": "eth0",
+            "protocol": "kernel",
+            "scope": "link",
+            "prefsrc": "192.168.1.66",
+            "flags": []
+          }
+        ],
+        "dns": [
+          "192.168.1.254"
+        ]
+      }
+    }
+  },
+  "jobs": [
+    {
+      "compress": "zstd",
+      "enabled": 1,
+      "id": "ia-chat-webui-631",
+      "mode": "snapshot",
+      "next-run": 1794623400,
+      "node": "pve",
+      "prune-backups": {
+        "keep-daily": "7",
+        "keep-weekly": "4"
+      },
+      "schedule": "03:30",
+      "storage": "storage",
+      "type": "vzdump",
+      "vmid": "631"
+    },
+    {
+      "compress": "zstd",
+      "enabled": 1,
+      "id": "ia-chat-llm-630",
+      "mode": "snapshot",
+      "next-run": 1794711600,
+      "node": "pve",
+      "prune-backups": {
+        "keep-weekly": "4"
+      },
+      "schedule": "sun 04:00",
+      "storage": "storage",
+      "type": "vzdump",
+      "vmid": "630"
+    }
+  ],
+  "monitoring": {
+    "targets": [
+      {
+        "metric": {
+          "__name__": "up",
+          "cpu_contract": "lxc_cgroup_v1",
+          "instance": "192.168.1.66:9100",
+          "job": "node_exporter",
+          "service": "infra-webui",
+          "source": "inventory",
+          "vmid": "631"
+        },
+        "value": [
+          1794586727.469,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "up",
+          "health_signal": "api_liveness",
+          "instance": "http://192.168.1.67:8080/health",
+          "job": "blackbox",
+          "module": "infra_llm_health",
+          "probe_id": "infra-llm-0",
+          "probe_type": "internal",
+          "scope": "internal",
+          "service": "infra-llm",
+          "source": "inventory",
+          "vmid": "630"
+        },
+        "value": [
+          1794586727.469,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "up",
+          "instance": "192.168.1.66:8085",
+          "job": "cadvisor",
+          "service": "infra-webui",
+          "source": "inventory",
+          "vmid": "631"
+        },
+        "value": [
+          1794586727.469,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "up",
+          "cpu_contract": "lxc_cgroup_v1",
+          "instance": "192.168.1.67:9100",
+          "job": "node_exporter",
+          "service": "infra-llm",
+          "source": "inventory",
+          "vmid": "630"
+        },
+        "value": [
+          1794586727.469,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "up",
+          "health_signal": "api_liveness",
+          "instance": "http://192.168.1.66:3000/health",
+          "job": "blackbox",
+          "module": "infra_webui_health",
+          "probe_id": "infra-webui-0",
+          "probe_type": "internal",
+          "scope": "internal",
+          "service": "infra-webui",
+          "source": "inventory",
+          "vmid": "631"
+        },
+        "value": [
+          1794586727.469,
+          "1"
+        ]
+      }
+    ],
+    "probes": [
+      {
+        "metric": {
+          "__name__": "probe_success",
+          "health_signal": "api_liveness",
+          "instance": "http://192.168.1.67:8080/health",
+          "job": "blackbox",
+          "module": "infra_llm_health",
+          "probe_id": "infra-llm-0",
+          "probe_type": "internal",
+          "scope": "internal",
+          "service": "infra-llm",
+          "source": "inventory",
+          "vmid": "630"
+        },
+        "value": [
+          1794586727.471,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "probe_success",
+          "health_signal": "api_liveness",
+          "instance": "http://192.168.1.66:3000/health",
+          "job": "blackbox",
+          "module": "infra_webui_health",
+          "probe_id": "infra-webui-0",
+          "probe_type": "internal",
+          "scope": "internal",
+          "service": "infra-webui",
+          "source": "inventory",
+          "vmid": "631"
+        },
+        "value": [
+          1794586727.471,
+          "1"
+        ]
+      }
+    ],
+    "cpu": [
+      {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "631",
+          "instance": "192.168.1.66:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-webui"
+        },
+        "value": [
+          1794586727.473,
+          "1.270175185185186"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "630",
+          "instance": "192.168.1.67:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-llm"
+        },
+        "value": [
+          1794586727.473,
+          "0.07728416666666664"
+        ]
+      }
+    ],
+    "ram": [
+      {
+        "metric": {
+          "__name__": "node_memory_MemTotal_bytes",
+          "cpu_contract": "lxc_cgroup_v1",
+          "instance": "192.168.1.66:9100",
+          "job": "node_exporter",
+          "service": "infra-webui",
+          "source": "inventory",
+          "vmid": "631"
+        },
+        "value": [
+          1794586727.475,
+          "3221225472"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "node_memory_MemTotal_bytes",
+          "cpu_contract": "lxc_cgroup_v1",
+          "instance": "192.168.1.67:9100",
+          "job": "node_exporter",
+          "service": "infra-llm",
+          "source": "inventory",
+          "vmid": "630"
+        },
+        "value": [
+          1794586727.475,
+          "23622320128"
+        ]
+      }
+    ],
+    "alerts": []
+  },
+  "additional_checks": {
+    "apparmor_631_unconfined": true,
+    "backup_exists": true,
+    "backup_bytes": 5898708342
+  }
+}

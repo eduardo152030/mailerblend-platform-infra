@@ -1,0 +1,2 @@
+explicitly configured lxc.apparmor.profile overrides the following settings: features:nesting
+{"utc": "2026-11-13T11:49:50.244304+00:00", "ct": 631, "profile": "unconfined", "approved": true, "protected_unchanged": true}

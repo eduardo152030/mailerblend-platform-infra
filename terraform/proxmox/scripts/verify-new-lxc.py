@@ -16,12 +16,13 @@ node=NODE;ct=CT
 conf=json.loads(subprocess.check_output(['pvesh','get','/nodes/'+node+'/lxc/'+str(ct)+'/config','--output-format','json']))
 status=json.loads(subprocess.check_output(['pvesh','get','/nodes/'+node+'/lxc/'+str(ct)+'/status/current','--output-format','json']))
 cg=pathlib.Path('/sys/fs/cgroup/lxc')/str(ct);cpu=dict(line.split() for line in (cg/'cpu.stat').read_text().splitlines())
-out={'hostname':conf['hostname'],'cores':conf['cores'],'memory':conf['memory'],'net0':conf['net0'],'rootfs':conf['rootfs'],'status':status['status'],'uptime':status['uptime'],'cpu_seconds':int(cpu['usage_usec'])/1e6,'timestamp':time.time()}
+out={'hostname':conf['hostname'],'cores':conf['cores'],'memory':conf['memory'],'net0':conf['net0'],'rootfs':conf['rootfs'],'status':status['status'],'uptime':status['uptime'],'cpu_seconds':int(cpu['usage_usec'])/1e6,'timestamp':time.time(),'guest_addresses':json.loads(subprocess.check_output(['pct','exec',str(ct),'--','ip','-j','-4','addr','show','dev','eth0']))}
 print(json.dumps(out))'''.replace('NODE',repr(a.node)).replace('CT',str(ct))
  r=subprocess.run(['ssh','-o','UserKnownHostsFile='+str(Path.home()/'.ssh/known_hosts'),'-o','StrictHostKeyChecking=yes','-o','BatchMode=yes',a.pve_host,shlex.join(['python3','-c',code])],capture_output=True,timeout=30)
  assert r.returncode==0,'PVE/SSH gate failed; output withheld';actual=json.loads(r.stdout)
  assert actual['hostname']==s['name'] and actual['status']=='running' and actual['uptime']>0
- assert actual['cores']==d['resources']['cpu'] and actual['memory']==d['resources']['memory'] and ('ip='+s['ip']) in actual['net0']
+ assert actual['cores']==d['resources']['cpu'] and actual['memory']==d['resources']['memory'] and (('ip=dhcp' in actual['net0']) if d['network'].get('dhcp',False) else ('ip='+s['ip']) in actual['net0'])
+ if d['network'].get('dhcp',False):assert any(a['local']==ip for link in actual['guest_addresses'] for a in link.get('addr_info',[])),'DHCP lease differs from declared observed address'
  with urllib.request.urlopen('http://'+ip+':9100/metrics',timeout=10) as response:body=response.read().decode()
  def metric(name):
   rows=re.findall(r'^'+re.escape(name)+r'(\{[^\n]*\})? ([^\s]+)$',body,re.M);assert len(rows)==1,'Missing/duplicate metric: '+name

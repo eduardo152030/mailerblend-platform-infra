@@ -1,0 +1,18 @@
+{
+  "memory.events.local": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "ns/system.slice/docker-76be6828c7a3dadd9147c92b45f52105366bf30c383c554a9e60496f12eaf8f9.scope/memory.events.local": {
+    "low": 0,
+    "high": 0,
+    "max": 14821,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  }
+}

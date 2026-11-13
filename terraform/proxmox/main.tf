@@ -1,7 +1,7 @@
 provider "proxmox" {
   endpoint  = var.proxmox_endpoint
   api_token = var.proxmox_api_token
-  insecure  = true
+  insecure  = var.proxmox_tls_insecure
 }
 
 # Multi-service LXC: inventory/services/*.yml
@@ -19,8 +19,17 @@ resource "proxmox_virtual_environment_container" "svc" {
     sort(distinct(concat(each.value.tags, [split("/", each.value.ip)[0]]))) : each.value.tags
   )
 
-  # --- CONFIGURACIÓN CRÍTICA PARA DOCKER ---
-  unprivileged = false # <--- Obligatorio para Grafana/Docker sin errores de kernel
+  # Conservar el modo legacy; las nuevas declaraciones optan por unprivileged.
+  unprivileged = try(local.services_raw[each.key].provisioning.unprivileged, false)
+
+  dynamic "console" {
+    for_each = try(local.services_raw[each.key].network.dhcp, false) ? [1] : []
+    content {
+      enabled   = true
+      tty_count = 2
+      type      = "tty"
+    }
+  }
 
   features {
     nesting = each.value.docker
@@ -28,10 +37,42 @@ resource "proxmox_virtual_environment_container" "svc" {
   }
 
   # Clone from CT template
-  clone {
-    vm_id        = each.value.template_vmid
-    node_name    = var.node_name
-    datastore_id = each.value.storage
+  dynamic "clone" {
+    for_each = try(local.services_raw[each.key].os.template_file_id, null) == null ? [1] : []
+    content {
+      vm_id        = each.value.template_vmid
+      node_name    = var.node_name
+      datastore_id = each.value.storage
+    }
+  }
+
+  dynamic "operating_system" {
+    for_each = try(local.services_raw[each.key].os.template_file_id, null) == null ? [] : [1]
+    content {
+      template_file_id = local.services_raw[each.key].os.template_file_id
+      type             = "debian"
+    }
+  }
+
+  dynamic "network_interface" {
+    for_each = try(local.services_raw[each.key].network.dhcp, false) ? [1] : []
+    content {
+      name        = "eth0"
+      bridge      = each.value.bridge
+      firewall    = true
+      mac_address = local.services_raw[each.key].network.mac_address
+    }
+  }
+
+  dynamic "mount_point" {
+    for_each = try(local.services_raw[each.key].mount_points, [])
+    content {
+      volume    = mount_point.value.volume
+      path      = mount_point.value.path
+      size      = mount_point.value.size
+      backup    = mount_point.value.backup
+      read_only = mount_point.value.read_only
+    }
   }
 
   lifecycle {
@@ -53,22 +94,25 @@ resource "proxmox_virtual_environment_container" "svc" {
     }
 
     ignore_changes = [
-      clone, # Evita que cambie/destruya los LXC si actualizas la plantilla base
-      disk,  # Evita errores de API al intentar encoger discos en Proxmox
+      clone,                                # Evita que cambie/destruya los LXC si actualizas la plantilla base
+      mount_point[0].volume,                # Creation storage selector; preserve allocated volume identity after import.
+      operating_system[0].template_file_id, # Creation-only source is not returned on import.
+      disk,                                 # Evita errores de API al intentar encoger discos en Proxmox
     ]
   }
 
   initialization {
     hostname = each.value.name
 
-    dns {
-      servers = each.value.dns
+    dynamic "dns" {
+      for_each = try(local.services_raw[each.key].network.dhcp, false) ? [] : [1]
+      content { servers = each.value.dns }
     }
 
     ip_config {
       ipv4 {
-        address = each.value.ip
-        gateway = each.value.gateway
+        address = try(local.services_raw[each.key].network.dhcp, false) ? "dhcp" : each.value.ip
+        gateway = try(local.services_raw[each.key].network.dhcp, false) ? null : each.value.gateway
       }
     }
 
@@ -92,7 +136,7 @@ resource "proxmox_virtual_environment_container" "svc" {
 
   memory {
     dedicated = each.key == "infra-voicebox" && var.voicebox_pilot_memory_mib != null ? var.voicebox_pilot_memory_mib : each.value.memory
-    swap      = each.key == "infra-voicebox" ? try(local.services_raw[each.key].resources.swap, 512) : 512
+    swap      = try(local.services_raw[each.key].resources.swap, 512)
   }
   # Creation only; existing resources never execute this provisioner.
   provisioner "local-exec" {

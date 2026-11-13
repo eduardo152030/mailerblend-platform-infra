@@ -1,0 +1,35 @@
+{
+  "utc": "2026-11-13T11:52:05.582772+00:00",
+  "models": [
+    {
+      "path": "/models/qwen3.6-35b-a3b/Qwen3.6-35B-A3B-UD-IQ4_XS.gguf",
+      "bytes": 17730509792,
+      "sha256": "649d7508507b84638732c4f52c24c8b15843c6dca2f3ff793ae07c14a67ebbb3",
+      "attempt": 1,
+      "utc": "2026-11-13T11:45:42.474701+00:00"
+    },
+    {
+      "path": "/models/qwen3.6-35b-a3b/mmproj-F16.gguf",
+      "bytes": 899283680,
+      "sha256": "8971ee4f331ff0a4c609374f32984b3d4e6dc086c0aa35f1d637fad1829e887f",
+      "attempt": 1,
+      "utc": "2026-11-13T11:46:02.172931+00:00"
+    },
+    {
+      "path": "/models/gemma-4-26b-a4b/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf",
+      "bytes": 14249047104,
+      "sha256": "a7c5bc715f5ff8e99a3e8901ce7d2b42b402c669bf24f7c5250747633d0f5891",
+      "attempt": 1,
+      "utc": "2026-11-13T11:51:22.264279+00:00"
+    },
+    {
+      "path": "/models/gemma-4-26b-a4b/mmproj-F16.gguf",
+      "bytes": 1193058784,
+      "sha256": "d00f211a7d4f7fb19bd9b75d8e9342eccffb5920b08fd9562167560fdfcc5dd1",
+      "attempt": 1,
+      "utc": "2026-11-13T11:51:46.317743+00:00"
+    }
+  ],
+  "mount_options": "ro,relatime,stripe=16",
+  "config": "arch: amd64\ncores: 4\nhostname: infra-llm\nmemory: 22528\nmp0: local-lvm:vm-630-disk-1,mp=/models,backup=0,ro=1,size=60G\nnet0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:6F:79:36,ip=dhcp,type=veth\nonboot: 1\nostype: debian\nrootfs: local-lvm:vm-630-disk-0,size=16G\nswap: 1024\ntags: 192.168.1.67;ia-chat;infra\ntimezone: Europe/Madrid\nunprivileged: 1"
+}

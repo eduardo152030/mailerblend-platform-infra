@@ -1,0 +1,191 @@
+[
+  {
+    "utc": "2026-11-13T12:03:57.619594+00:00",
+    "ct": {
+      "630": {
+        "current": 18505949184,
+        "working_set": 10736123904,
+        "max": 23622320128,
+        "anon": 38215680,
+        "swap": 7577600,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2883682304,
+        "working_set": 1706119168,
+        "max": 3221225472,
+        "anon": 1196765184,
+        "swap": 143806464,
+        "events": "low 0\nhigh 1219\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:03:58.620562+00:00",
+    "ct": {
+      "630": {
+        "current": 18505949184,
+        "working_set": 10736123904,
+        "max": 23622320128,
+        "anon": 38215680,
+        "swap": 7577600,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 3195723776,
+        "working_set": 1729269760,
+        "max": 3221225472,
+        "anon": 1208356864,
+        "swap": 145453056,
+        "events": "low 0\nhigh 1260\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:03:59.632954+00:00",
+    "ct": {
+      "630": {
+        "current": 18505949184,
+        "working_set": 10736123904,
+        "max": 23622320128,
+        "anon": 38215680,
+        "swap": 7577600,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2726174720,
+        "working_set": 1256173568,
+        "max": 3221225472,
+        "anon": 733798400,
+        "swap": 147603456,
+        "events": "low 0\nhigh 1431\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:04:00.634269+00:00",
+    "ct": {
+      "630": {
+        "current": 18505949184,
+        "working_set": 10736123904,
+        "max": 23622320128,
+        "anon": 38215680,
+        "swap": 7577600,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 2872598528,
+        "working_set": 1380958208,
+        "max": 3221225472,
+        "anon": 824938496,
+        "swap": 147189760,
+        "events": "low 0\nhigh 1431\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:04:01.636143+00:00",
+    "ct": {
+      "630": {
+        "current": 18505949184,
+        "working_set": 10736123904,
+        "max": 23622320128,
+        "anon": 38215680,
+        "swap": 7577600,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 3172179968,
+        "working_set": 1679994880,
+        "max": 3221225472,
+        "anon": 1105920000,
+        "swap": 146669568,
+        "events": "low 0\nhigh 1431\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:04:02.637286+00:00",
+    "ct": {
+      "630": {
+        "current": 18505949184,
+        "working_set": 10736123904,
+        "max": 23622320128,
+        "anon": 38215680,
+        "swap": 7577600,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 3195531264,
+        "working_set": 1993793536,
+        "max": 3221225472,
+        "anon": 1423532032,
+        "swap": 150118400,
+        "events": "low 0\nhigh 1772\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:04:03.640793+00:00",
+    "ct": {
+      "630": {
+        "current": 18359148544,
+        "working_set": 10736123904,
+        "max": 23622320128,
+        "anon": 38215680,
+        "swap": 7577600,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 3152691200,
+        "working_set": 1950400512,
+        "max": 3221225472,
+        "anon": 1379053568,
+        "swap": 150118400,
+        "events": "low 0\nhigh 1772\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:04:04.641800+00:00",
+    "ct": {
+      "630": {
+        "current": 18359148544,
+        "working_set": 10736123904,
+        "max": 23622320128,
+        "anon": 38215680,
+        "swap": 7577600,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 3152789504,
+        "working_set": 1950498816,
+        "max": 3221225472,
+        "anon": 1379053568,
+        "swap": 150118400,
+        "events": "low 0\nhigh 1772\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  },
+  {
+    "utc": "2026-11-13T12:04:05.642934+00:00",
+    "ct": {
+      "630": {
+        "current": 18359148544,
+        "working_set": 10736123904,
+        "max": 23622320128,
+        "anon": 38215680,
+        "swap": 7577600,
+        "events": "low 0\nhigh 168\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      },
+      "631": {
+        "current": 3144589312,
+        "working_set": 1942298624,
+        "max": 3221225472,
+        "anon": 1370574848,
+        "swap": 149991424,
+        "events": "low 0\nhigh 1772\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+      }
+    }
+  }
+]

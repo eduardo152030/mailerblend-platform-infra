@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-13T12:47:16.465472+00:00",
+  "path": "/mnt/storage/dump/vzdump-lxc-631-2026_11_13-13_41_55.tar.zst",
+  "bytes": 5683029185,
+  "sha256": "eee8d8285315a681792f6a5b5d3b7beecfe5bc2e5d821cf6f43668bb5923cbc8",
+  "zstd_test": "PASS",
+  "tar_list": "PASS",
+  "members": 123362,
+  "critical_members": {
+    "opt/ia-chat/data/webui.db": true,
+    "opt/ia-chat/docker-compose.yml": true,
+    "opt/ia-chat/secrets.env": true,
+    "opt/ia-chat/searxng/settings.yml": true,
+    "opt/ia-chat/custom.css": true,
+    "etc/vzdump/pct.conf": true
+  },
+  "functional_restore": "NOT_PERFORMED"
+}

@@ -15,7 +15,8 @@ def validate(data):
  for address in n['dns']:ipaddress.ip_address(address)
  for field,minimum in [('cpu',1),('memory',128),('disk_gb',2)]:assert isinstance(r[field],int) and r[field]>=minimum
  assert isinstance(m['docker'],bool) and m['node_exporter'] is True
- assert data['os']['template_vmid']>=100 and data['os']['name'].strip()
+ if 'cadvisor_memory_mib' in m:assert m['docker'] and isinstance(m['cadvisor_memory_mib'],int) and 128<=m['cadvisor_memory_mib']<=1024
+ assert (data['os'].get('template_vmid',0)>=100 or re.fullmatch(r'[a-zA-Z0-9_-]+:vztmpl/[a-zA-Z0-9_.-]+',data['os'].get('template_file_id',''))) and data['os']['name'].strip()
  for field in ['environment','purpose','owner','backup']:assert isinstance(p[field],str) and p[field].strip()
  for field in ['applications','dependencies','domains','known_issues']:assert isinstance(p[field],list)
  assert isinstance(data['tags'],list) and data['tags']
@@ -40,7 +41,7 @@ def pending_notes(data,key):
   '**Applications**\n'+apps+'\nAll application health: '+PENDING,
   '**Dependencies**\n'+('; '.join(p['dependencies']) or 'None declared; '+PENDING),
   '**Monitoring**\nNode Exporter 1.10.2 native systemd; CPU cgroup v2 textfile (native CPU collector disabled), RAM LXCFS/root disk. '+('cAdvisor 0.60.6 planned; exact socket/namespace approval required.' if m['docker'] else 'Docker/cAdvisor not required by declaration; no Docker agent installed.')+'\nUptime: existing PVE exporter; dashboards join published inventory. Endpoints: '+('; '.join(x['url']+' ['+x['contract']+']' for x in m.get('blackbox',[])) or PENDING)+'\nAll deployed monitoring/functional status: '+PENDING,
-  f'**Infrastructure as Code**\ninventory/services/{key}.yml; Terraform resource svc["{key}"]; {r["cpu"]} CPU / {r["memory"]} MiB / {r["disk_gb"]} GiB; template {data["os"]["template_vmid"]} ({data["os"]["name"]}); storage {data["storage"]["name"]}.',
+  f'**Infrastructure as Code**\ninventory/services/{key}.yml; Terraform resource svc["{key}"]; {r["cpu"]} CPU / {r["memory"]} MiB / {r["disk_gb"]} GiB; template {data["os"].get("template_file_id",data["os"].get("template_vmid"))} ({data["os"]["name"]}); storage {data["storage"]["name"]}.',
   f'**Documentation**\ndocs/inventory/{ct}-LXC-INVENTORY.md; docs/runbooks/NEW-LXC-PROVISIONING.md',
   '**Known Issues**\n'+'; '.join(p['known_issues'] or [PENDING])+'\nBackup/recovery: '+p['backup']]
  observed=p.get('verification')
@@ -87,6 +88,7 @@ WantedBy=multi-user.target
  if m['docker']:
   compose=yaml.safe_load((root/'services/common/cadvisor/docker-compose.phase4.yml').read_text());cad=compose['services']['cadvisor'];cad['ports']=[f'{ip}:8085:8080'];cad['pull_policy']='missing';cad['command']+=['--allow_dynamic_housekeeping=false','--max_housekeeping_interval=30s','--jitter_factor=0','--initial_splay_factor=0']
   cad['volumes'].append('/run/containerd/containerd.sock:/run/containerd/containerd.sock:ro')
+  if 'cadvisor_memory_mib' in m:cad['mem_limit']=str(m['cadvisor_memory_mib'])+'m'
   (out/'cadvisor.yml').write_text(yaml.safe_dump(compose,sort_keys=False))
  targets={'node-exporter.json':[{'targets':[ip+':9100'],'labels':{'job':'node_exporter','service':name,'vmid':str(ct),'source':'inventory'}}],
           'cadvisor.json':([{'targets':[ip+':8085'],'labels':{'job':'cadvisor','service':name,'vmid':str(ct),'source':'inventory'}}] if m['docker'] else []),

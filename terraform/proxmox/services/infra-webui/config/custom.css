@@ -1,0 +1,6 @@
+/* Open WebUI v0.13.3: sin TTS en este panel, incluido el administrador.
+ * Hook oficial /static/custom.css. No modifica el micrófono STT.
+ */
+button[id^="speak-button-"] {
+  display: none !important;
+}

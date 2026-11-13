@@ -1,0 +1,18 @@
+{
+  "status": "PREPARED_NOT_DEPLOYED",
+  "node_cpu_contract_label": "BLOCKED until verify-new-lxc.py passes",
+  "cpu_rules": "existing lxc-cpu.yml, no physical fallback",
+  "cadvisor_required": true,
+  "required_prerequisites": [
+    "fresh PVE identity/allocation/uptime",
+    "SSH known_hosts verified",
+    "LXCFS and cgroup metrics verified",
+    "Docker namespace/socket approval if required",
+    "valid functional probe modules",
+    "backup and rollback for monitoring transaction"
+  ],
+  "publish": "merge additive targets into existing jobs and expected-inventory rule, then validated controlled reload; never replace all catalogs",
+  "blackbox_modules_required": [
+    "infra_webui_health"
+  ]
+}

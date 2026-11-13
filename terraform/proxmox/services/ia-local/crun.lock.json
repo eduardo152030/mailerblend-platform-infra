@@ -1,0 +1,138 @@
+{
+  "tag_name": "1.31",
+  "published_at": "2026-11-12T09:30:23Z",
+  "html_url": "https://github.com/containers/crun/releases/tag/1.31",
+  "tarball_url": "https://api.github.com/repos/containers/crun/tarball/1.31",
+  "assets": [
+    {
+      "name": "CHECKSUMS",
+      "url": "https://github.com/containers/crun/releases/download/1.31/CHECKSUMS",
+      "digest": "sha256:9eb7b13de88b119dd8a01472cb507a4571571281fe3c9b561285f709b176f55a"
+    },
+    {
+      "name": "CHECKSUMS.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/CHECKSUMS.asc",
+      "digest": "sha256:cfec2481f6d421d2d7dac85a5523586e19efb0930b4c0533fa61ca2236a19ba6"
+    },
+    {
+      "name": "crun-1.31-linux-amd64",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-amd64",
+      "digest": "sha256:8cacae171bb0e5f9e275adac2eeb2c6ec8c69fdedff7b008eadd8cdd25b0d349"
+    },
+    {
+      "name": "crun-1.31-linux-amd64-disable-systemd",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-amd64-disable-systemd",
+      "digest": "sha256:44d493d4b00914ea2f153631ad825c7653aacfa09c373c50dfe08c61258ede9d"
+    },
+    {
+      "name": "crun-1.31-linux-amd64-disable-systemd.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-amd64-disable-systemd.asc",
+      "digest": "sha256:28cf9390e4c0c8bbb6354be89132fd6e13eb558d90582d4c0a5a06c199e3c69c"
+    },
+    {
+      "name": "crun-1.31-linux-amd64.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-amd64.asc",
+      "digest": "sha256:f50c226cabd55e105dcbe8719af5d3c625cf2e13eef29b28ae956287cd406d78"
+    },
+    {
+      "name": "crun-1.31-linux-arm64",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-arm64",
+      "digest": "sha256:f54fd58603ae031aa7a255af550bcffb035f28058aa1a971e6691b53f7f5a32e"
+    },
+    {
+      "name": "crun-1.31-linux-arm64-disable-systemd",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-arm64-disable-systemd",
+      "digest": "sha256:2fd023c8a110edd31a2eb2617a3d7633d2615364938250c89cb13fffd9f0ed38"
+    },
+    {
+      "name": "crun-1.31-linux-arm64-disable-systemd.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-arm64-disable-systemd.asc",
+      "digest": "sha256:071b5d431c1eee59b5c804c552761bd9a1023c3ed4575d5ac5f189111e8ea7d1"
+    },
+    {
+      "name": "crun-1.31-linux-arm64.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-arm64.asc",
+      "digest": "sha256:cf9966c674b8e2c3e355e0d0407e4795052300c1eb36a9221357ce9482201064"
+    },
+    {
+      "name": "crun-1.31-linux-ppc64le",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-ppc64le",
+      "digest": "sha256:6b7a22d23154764e3525a77e74042a37a4a76c2187d5716f255f4c10c9b40cf7"
+    },
+    {
+      "name": "crun-1.31-linux-ppc64le-disable-systemd",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-ppc64le-disable-systemd",
+      "digest": "sha256:7eefabb876396f134fd1aeaabc1ce6cf64fdc73a78365a9276dcdd06ad40a29f"
+    },
+    {
+      "name": "crun-1.31-linux-ppc64le-disable-systemd.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-ppc64le-disable-systemd.asc",
+      "digest": "sha256:b59dad566dc7d7cc0bc7e7a30729fe5095db3bdc86e189ddb108a88cde8e156c"
+    },
+    {
+      "name": "crun-1.31-linux-ppc64le.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-ppc64le.asc",
+      "digest": "sha256:fce4f259c634e5f8261ea797866d059927294f8319bd366698ec4c447d2da8e7"
+    },
+    {
+      "name": "crun-1.31-linux-riscv64",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-riscv64",
+      "digest": "sha256:153788c890419ed69a69ad837e307c709c0b174f3cbd783f64a2e243345aaf51"
+    },
+    {
+      "name": "crun-1.31-linux-riscv64-disable-systemd",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-riscv64-disable-systemd",
+      "digest": "sha256:eb2a5c65d023d08dbcbe4337e89ce7b54de202c7a0ab2d7b0a008934c1b9ee7f"
+    },
+    {
+      "name": "crun-1.31-linux-riscv64-disable-systemd.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-riscv64-disable-systemd.asc",
+      "digest": "sha256:875cc58a1a1b3498df30d0ff2839a55d1560ac34b3676ccc3c2ff4bc5e344b38"
+    },
+    {
+      "name": "crun-1.31-linux-riscv64.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-riscv64.asc",
+      "digest": "sha256:3bda390ebdb9d30450f7e5bb85f2e2288f08e00c798898f64b619c332aa19aca"
+    },
+    {
+      "name": "crun-1.31-linux-s390x",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-s390x",
+      "digest": "sha256:cdd9b0d7a8edf22405b15b9373280e54d4684141e41e04c1d4a0c659f3d3a245"
+    },
+    {
+      "name": "crun-1.31-linux-s390x-disable-systemd",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-s390x-disable-systemd",
+      "digest": "sha256:8ef6bca9f41ec0e8ede31193bd24ddb404980bb6865849689e8219f1bee76e56"
+    },
+    {
+      "name": "crun-1.31-linux-s390x-disable-systemd.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-s390x-disable-systemd.asc",
+      "digest": "sha256:d7a6177277fb48e73d17aa27bf4964ab2990f7ce118d2814d0a0f125cd8b5a20"
+    },
+    {
+      "name": "crun-1.31-linux-s390x.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31-linux-s390x.asc",
+      "digest": "sha256:f478a618e20e8363bd537f4648c061222024849ce7b96d769768bbbf9111362c"
+    },
+    {
+      "name": "crun-1.31.tar.gz",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31.tar.gz",
+      "digest": "sha256:17d04ba159fada1f1300a36b8afe869afb38bf1bbda28da052e83bb4bee20108"
+    },
+    {
+      "name": "crun-1.31.tar.gz.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31.tar.gz.asc",
+      "digest": "sha256:5e68a5b4e062380b2199a0f03e8a7baf5728a70f647cfd6b29b494a21d4ea6cd"
+    },
+    {
+      "name": "crun-1.31.tar.zst",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31.tar.zst",
+      "digest": "sha256:cb76a7951438205466725307e4061da6d1dfdc202bdf675cf209c7037b94002b"
+    },
+    {
+      "name": "crun-1.31.tar.zst.asc",
+      "url": "https://github.com/containers/crun/releases/download/1.31/crun-1.31.tar.zst.asc",
+      "digest": "sha256:ae262ef851b12203635bdc068fb2fd5aadbdbce256d8188afc33dae1a465e72c"
+    }
+  ]
+}

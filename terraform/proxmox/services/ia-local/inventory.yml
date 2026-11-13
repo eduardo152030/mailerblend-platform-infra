@@ -1,0 +1,23 @@
+node: pve
+template: debian-12-standard_12.12-1_amd64.tar.zst
+storage: local-lvm
+bridge: vmbr0
+network: dhcp
+unprivileged: true
+timezone: Europe/Madrid
+containers:
+- id: 630
+  hostname: infra-llm
+  cores: 4
+  memory: 22528
+  swap: 1024
+  rootfs_gib: 16
+  models_gib: 60
+- id: 631
+  hostname: infra-webui
+  cores: 2
+  memory: 3072
+  swap: 1024
+  rootfs_gib: 20
+  features: nesting=1,keyctl=1
+  apparmor_profile: unconfined

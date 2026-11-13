@@ -1,0 +1,408 @@
+{
+  "stage": "after-b",
+  "chat_id": "5ff87d3f-99c7-4906-a89d-912fe2f24e70",
+  "results": [
+    {
+      "message": "Hola, \u00bfqu\u00e9 tal?",
+      "ttft_s": 0.4898283469956368,
+      "elapsed_s": 2.5450862789875828,
+      "text": "\u00a1Hola! Muy bien, \u00bfy t\u00fa? \u00bfEn qu\u00e9 puedo ayudarte hoy?",
+      "usage": {
+        "cache_n": 38,
+        "prompt_n": 5,
+        "prompt_ms": 395.481,
+        "prompt_per_token_ms": 79.0962,
+        "prompt_per_second": 12.64283239902802,
+        "predicted_n": 18,
+        "predicted_ms": 2037.971,
+        "predicted_per_token_ms": 119.88064705882353,
+        "predicted_per_second": 8.341629983939908,
+        "input_tokens": 43,
+        "output_tokens": 18,
+        "total_tokens": 61
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.029373655997915193,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.48979326299740933,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794588738,
+              "id": "chatcmpl-1Zylx5wwGUznFWcp38xuxKUXza9aKfoZ",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.4898283469956368,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\u00a1"
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.624191147973761,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Hola"
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.7645854759903159,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "!"
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.8780578049772885,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Muy"
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.9900129059969913,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " bien"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.09904903799179,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.2095291289733723,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.3210856689838693,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.4306359589973,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " t\u00fa"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.5991071479802486,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.7303591159870848,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.8479534109937958,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "En"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.9619130729988683,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " qu\u00e9"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.0761879189813044,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " puedo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.1930712579924148,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ayudarte"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.306454000994563,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " hoy"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.4181055129738525,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0ae71b7dfc604459a7b51275",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.527045973984059,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 38,
+                "prompt_n": 5,
+                "prompt_ms": 395.481,
+                "prompt_per_token_ms": 79.0962,
+                "prompt_per_second": 12.64283239902802,
+                "predicted_n": 18,
+                "predicted_ms": 2037.971,
+                "predicted_per_token_ms": 119.88064705882353,
+                "predicted_per_second": 8.341629983939908,
+                "input_tokens": 43,
+                "output_tokens": 18,
+                "total_tokens": 61
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.5270856209972408,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794588740,
+              "id": "chatcmpl-1Zylx5wwGUznFWcp38xuxKUXza9aKfoZ",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 38,
+                "prompt_n": 5,
+                "prompt_ms": 395.481,
+                "prompt_per_token_ms": 79.0962,
+                "prompt_per_second": 12.64283239902802,
+                "predicted_n": 18,
+                "predicted_ms": 2037.971,
+                "predicted_per_token_ms": 119.88064705882353,
+                "predicted_per_second": 8.341629983939908
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.5356437109876424,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "5ff87d3f-99c7-4906-a89d-912fe2f24e70",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.5364232569991145,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_0ae71b7dfc604459a7b51275",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "\u00a1Hola! Muy bien, \u00bfy t\u00fa? \u00bfEn qu\u00e9 puedo ayudarte hoy?"
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency after-b",
+              "usage": {
+                "cache_n": 38,
+                "prompt_n": 5,
+                "prompt_ms": 395.481,
+                "prompt_per_token_ms": 79.0962,
+                "prompt_per_second": 12.64283239902802,
+                "predicted_n": 18,
+                "predicted_ms": 2037.971,
+                "predicted_per_token_ms": 119.88064705882353,
+                "predicted_per_second": 8.341629983939908,
+                "input_tokens": 43,
+                "output_tokens": 18,
+                "total_tokens": 61
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.542083260981599,
+          "event": {
+            "type": "chat:title",
+            "data": "Hola, \u00bfqu\u00e9 tal?"
+          }
+        },
+        {
+          "elapsed_s": 2.5455155649979133,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "changed": false,
+  "restarts": 0,
+  "reloads": 0,
+  "only_alert": "LxcDockerMetricsMissing",
+  "old_expr": "(lxc:cpu_inventory:expected unless on(service) container_last_seen{job=\"cadvisor\",name!=\"\"}) unless on(service) (lxc:cadvisor:required == 0)",
+  "new_expr": "(lxc:cpu_inventory:expected unless on(service) container_last_seen{job=\"cadvisor\",name!=\"\"}) unless on(service) (lxc:cadvisor:required == 0)",
+  "legacy_default_docker_required": true
+}

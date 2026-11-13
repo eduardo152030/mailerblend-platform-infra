@@ -1,0 +1,8 @@
+[Unit]
+Description=Refresh LXC CPU every5s
+[Timer]
+OnBootSec=5s
+OnUnitActiveSec=5s
+AccuracySec=1s
+[Install]
+WantedBy=timers.target

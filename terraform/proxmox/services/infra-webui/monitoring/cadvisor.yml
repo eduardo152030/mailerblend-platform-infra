@@ -1,0 +1,38 @@
+services:
+  cadvisor:
+    image: ghcr.io/google/cadvisor@sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a
+    pull_policy: missing
+    container_name: cadvisor
+    restart: unless-stopped
+    privileged: true
+    cgroup: host
+    ports:
+    - 192.168.1.66:8085:8080
+    command:
+    - --listen_ip=0.0.0.0
+    - --port=8080
+    - --docker_only=true
+    - --housekeeping_interval=30s
+    - --global_housekeeping_interval=30s
+    - --store_container_labels=false
+    - --whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service
+    - --enable_metrics=cpu,memory,network,disk,diskIO
+    - --disable_root_cgroup_stats=true
+    - --profiling=false
+    - --allow_dynamic_housekeeping=false
+    - --max_housekeeping_interval=30s
+    - --jitter_factor=0
+    - --initial_splay_factor=0
+    volumes:
+    - /:/rootfs:ro
+    - /sys:/sys:ro
+    - /var/lib/docker:/var/lib/docker:ro
+    - /var/lib/containerd:/var/lib/containerd:ro
+    - /var/run/docker.sock:/var/run/docker.sock:ro
+    - /run/containerd/containerd.sock:/run/containerd/containerd.sock:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '5'
+    mem_limit: 256m

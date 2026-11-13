@@ -1,0 +1,7 @@
+vision-gemma-4-26b PASS 15.26 s '4821' reasoning_chars 0
+vision-qwen3.6-35b PASS 111.99 s '400000000' reasoning_chars 0
+Traceback (most recent call last):
+  File "/root/ia-local/validate-api.py", line 102, in <module>
+    r=request_chat('vision-'+model,model,'Lee el número de la imagen. Responde solo con el número.',image=image,max_tokens=64);assert '4821' in r['content'],'Vision no leyó4821'
+                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Vision no leyó4821

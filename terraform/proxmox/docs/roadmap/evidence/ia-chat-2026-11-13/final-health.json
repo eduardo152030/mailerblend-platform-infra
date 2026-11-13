@@ -1,0 +1,131 @@
+{
+  "utc": "2026-11-13T16:12:30.689144+00:00",
+  "protected_configs": 27,
+  "protected_unchanged": true,
+  "host_memory": {
+    "MemTotal": 33533042688,
+    "MemAvailable": 25132871680,
+    "SwapTotal": 17179865088,
+    "SwapFree": 11261702144
+  },
+  "storage": "Name             Type     Status           Total            Used       Available        %\nlocal             dir     active        67043328        23553132        43490196   35.13%\nlocal-lvm     lvmthin     active       419520512       280323606       139196905   66.82%\nstorage           dir     active      1464390028       142323440      1322066588    9.72%",
+  "cts": {
+    "630": {
+      "config": "arch: amd64\ncores: 4\ndescription: # CT 630 %E2%80%94 infra-llm%0A%0AOperaci%C3%B3n y evidencia%3A [IA-CHAT](../../docs/roadmap/IA-CHAT-EXECUTION-2026-11-13.md).%0ADHCP 192.168.1.67, MAC BC%3A24%3A11%3A6F%3A79%3A36; reserva pendiente. CT627 excluido.%0A\nhostname: infra-llm\nmemory: 22528\nmp0: local-lvm:vm-630-disk-1,mp=/models,backup=0,ro=1,size=60G\nnet0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:6F:79:36,ip=dhcp,type=veth\nonboot: 1\nostype: debian\nrootfs: local-lvm:vm-630-disk-0,size=16G\nswap: 1024\ntags: 192.168.1.67;ai;infra;internal\ntimezone: Europe/Madrid\nunprivileged: 1",
+      "ip": [
+        {
+          "ifindex": 2,
+          "link_index": 124,
+          "ifname": "eth0",
+          "flags": [
+            "BROADCAST",
+            "MULTICAST",
+            "UP",
+            "LOWER_UP"
+          ],
+          "mtu": 1500,
+          "qdisc": "noqueue",
+          "operstate": "UP",
+          "group": "default",
+          "txqlen": 1000,
+          "link_netnsid": 0,
+          "addr_info": [
+            {
+              "family": "inet",
+              "local": "192.168.1.67",
+              "prefixlen": 24,
+              "broadcast": "192.168.1.255",
+              "scope": "global",
+              "dynamic": true,
+              "label": "eth0",
+              "valid_life_time": 1730,
+              "preferred_life_time": 1730
+            }
+          ]
+        }
+      ],
+      "timezone": "Europe/Madrid",
+      "current": 203145216,
+      "working_set": 143478784,
+      "resident_tasks": 112300032,
+      "anon": 52953088,
+      "swap": 0,
+      "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+    },
+    "631": {
+      "config": "arch: amd64\ncores: 2\ndescription: # CT 631 %E2%80%94 infra-webui%0A%0AOperaci%C3%B3n y evidencia%3A [IA-CHAT](../../docs/roadmap/IA-CHAT-EXECUTION-2026-11-13.md).%0ADHCP 192.168.1.66, MAC BC%3A24%3A11%3A0D%3A41%3A78; reserva pendiente. CT627 excluido.%0A\nfeatures: keyctl=1,nesting=1\nhostname: infra-webui\nmemory: 3072\nnet0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:0D:41:78,ip=dhcp,type=veth\nonboot: 1\nostype: debian\nrootfs: local-lvm:vm-631-disk-0,size=20G\nswap: 1024\ntags: 192.168.1.66;ai;infra;internal\ntimezone: Europe/Madrid\nunprivileged: 1\nlxc.apparmor.profile: unconfined",
+      "ip": [
+        {
+          "ifindex": 2,
+          "link_index": 128,
+          "ifname": "eth0",
+          "flags": [
+            "BROADCAST",
+            "MULTICAST",
+            "UP",
+            "LOWER_UP"
+          ],
+          "mtu": 1500,
+          "qdisc": "noqueue",
+          "operstate": "UP",
+          "group": "default",
+          "txqlen": 1000,
+          "link_netnsid": 0,
+          "addr_info": [
+            {
+              "family": "inet",
+              "local": "192.168.1.66",
+              "prefixlen": 24,
+              "broadcast": "192.168.1.255",
+              "scope": "global",
+              "dynamic": true,
+              "label": "eth0",
+              "valid_life_time": 1589,
+              "preferred_life_time": 1589
+            }
+          ]
+        }
+      ],
+      "timezone": "Europe/Madrid",
+      "current": 2776629248,
+      "working_set": 2428784640,
+      "resident_tasks": 2096664576,
+      "anon": 1412665344,
+      "swap": 3850240,
+      "memory_events": "low 0\nhigh 0\nmax 5030\noom 0\noom_kill 0\noom_group_kill 0\n"
+    }
+  },
+  "containers": {
+    "ia-chat-open-webui-1": "78ba3362e7219bbe29c864e66c88e0957b1a68ad2ba2848706d893ec19f82707|sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14|2026-11-13T15:33:15.65108763Z|running|0|runc",
+    "ia-chat-searxng-1": "eeabd0eac4dd675e631a552b122a50c3f76151d92d2d58d5a4bace30e05aa026|sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2|2026-11-13T15:31:33.942354149Z|running|0|runc"
+  },
+  "images": {
+    "ia-chat-open-webui-1": "[\"ghcr.io/open-webui/open-webui@sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14\"]|sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14",
+    "ia-chat-searxng-1": "[\"searxng/searxng@sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2\"]|sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2"
+  },
+  "db": {
+    "users": 0,
+    "knowledge": 0,
+    "integrity": "ok",
+    "models": [
+      [
+        "gemma-4-26b",
+        "Gemma 4 \u00b7 Chat",
+        "system"
+      ],
+      [
+        "qwen3.6-35b",
+        "Qwen3.6 \u00b7 C\u00f3digo y razonamiento",
+        "system"
+      ]
+    ],
+    "temporary_credentials_absent": true
+  },
+  "secret_modes": {
+    "630": "600 /etc/llama/api.key",
+    "631": "600 /opt/ia-chat/secrets.env\n600 /opt/ia-chat/searxng/settings.yml"
+  },
+  "llama_active": "active",
+  "docker_versions": "containerd.io\t2.4.2-4~debian.12~bookworm\ndocker-ce\t5:29.9.3-1~debian.12~bookworm\ndocker-ce-cli\t5:29.9.3-1~debian.12~bookworm\ndocker-compose-plugin\t5.7.1-1~debian.12~bookworm",
+  "models_mount": "ro,relatime,stripe=16"
+}

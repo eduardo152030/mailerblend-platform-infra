@@ -1,0 +1,80 @@
+{
+  "models": [
+    {
+      "id": "gemma-4-26b",
+      "name": "Gemma 4 · Chat",
+      "vision": true
+    },
+    {
+      "id": "qwen3.6-35b",
+      "name": "Qwen3.6 · Código y razonamiento",
+      "vision": true
+    }
+  ],
+  "history_fixture": {
+    "id": "c4193964-2087-4953-95f5-f06bf74f8ab4"
+  },
+  "history_search": true,
+  "ui": 200,
+  "anonymous_config": {
+    "status": true,
+    "name": "Open WebUI",
+    "version": "0.13.3",
+    "default_locale": "es-ES",
+    "i18n": {},
+    "oauth": {
+      "providers": {},
+      "auto_redirect": false
+    },
+    "features": {
+      "slim": false,
+      "auth_sessions": true,
+      "tether": true,
+      "auth": true,
+      "auth_trusted_header": false,
+      "enable_signup_password_confirmation": false,
+      "enable_ldap": false,
+      "enable_signup": false,
+      "enable_login_form": true,
+      "enable_websocket": true
+    }
+  },
+  "rag_fixture": {
+    "file_id": "5dbb4a21-b212-497e-958a-3ee3967fb8de",
+    "knowledge_id": "bbec377f-c1f0-4d2e-9fa2-2be872ff2de5",
+    "added": true,
+    "deleted": true
+  },
+  "stt": {
+    "text": "¡Hola! ¡Esto es una nueva!",
+    "elapsed_s": 49.989149339002324,
+    "ok": false
+  },
+  "stt_attempts": [
+    {
+      "text": "ahora esto es una nueva",
+      "elapsed_s": 38.509955304005416,
+      "ok": false
+    },
+    {
+      "text": "Hola, esto es una nueva.",
+      "elapsed_s": 12.016360802022973,
+      "ok": false
+    },
+    {
+      "text": "¡Hola! ¡Esto es una nueva!",
+      "elapsed_s": 3.727604246989358,
+      "ok": false
+    }
+  ],
+  "rag": {
+    "content": "7731",
+    "elapsed_s": 98.4904485399893,
+    "ok": true
+  },
+  "history_after_reboot": {
+    "same_id": true,
+    "search_ok": true
+  },
+  "ui_after_reboot": 200
+}

@@ -1,0 +1,2 @@
+thinking-off HTTP OK 21.41 s 'Si Ana es mayor que Bea, y Bea es mayor que Carla, entonces el orden de mayor a menor es: Ana > Bea ' reasoning_chars 0
+thinking-on HTTP OK 58.94 s 'Carla es la menor.' reasoning_chars 1040

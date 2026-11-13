@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/root/webui-check.py", line 63, in <module>
+    out['stt']={'text':text,'elapsed_s':time.monotonic()-start,'ok':'prueba' in text.lower() and 'hola' in text.lower()};save();assert out['stt']['ok'],text;print('STT PASS',text)
+                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ¡Hola! ¡Esto es una nueva!
+Memoria631 working_set pico GiB 2.434

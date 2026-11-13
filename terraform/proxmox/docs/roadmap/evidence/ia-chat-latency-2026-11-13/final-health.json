@@ -1,0 +1,129 @@
+{
+  "utc": "2026-11-13T21:32:35.683396+00:00",
+  "protected_configs": 27,
+  "protected_unchanged": true,
+  "host_memory": {
+    "MemTotal": 33533042688,
+    "MemAvailable": 21254549504,
+    "SwapTotal": 17179865088,
+    "SwapFree": 10189795328
+  },
+  "storage": "Name             Type     Status           Total            Used       Available        %\nlocal             dir     active        67043328        23572896        43470432   35.16%\nlocal-lvm     lvmthin     active       419520512       280449462       139071049   66.85%\nstorage           dir     active      1464390028       142323440      1322066588    9.72%",
+  "cts": {
+    "630": {
+      "config": "arch: amd64\ncores: 4\ndescription: # CT 630 %E2%80%94 infra-llm%0A%0A**Prop%C3%B3sito y estado%3A** inferencia local de chat, c%C3%B3digo, razonamiento y visi%C3%B3n con%0Allama.cpp en CPU. Servicio `infra-llm`, nodo `pve`; RUNNING observado el%0A13/11/2026 a las 17%3A18 CET (16%3A18 UTC). Salud del router verificada mediante%0ABlackbox; la observaci%C3%B3n original de17%3A18 no carg%C3%B3 modelos. Las pruebas posteriores%0Ade latencia se documentan por separado.%0A%0A**Arquitectura y recursos%3A** Debian 12, LXC sin privilegios, 4 vCPU, 22528 MiB RAM,%0A1024 MiB swap, onboot=1 y Europe/Madrid. Ra%C3%ADz de 16 GiB en%0A`local-lvm%3Avm-630-disk-0`; volumen de modelos de 60 GiB en%0A`local-lvm%3Avm-630-disk-1`, montado en `/models`, ext4, solo lectura y backup=0.%0Allama-server nativo systemd; sin servicio Docker activo ni cAdvisor requerido.%0A%0A**Red, puertos y acceso%3A** DHCP 192.168.1.67/24, MAC BC%3A24%3A11%3A6F%3A79%3A36,%0Avmbr0/firewall=1; gateway y DNS 192.168.1.254 observados. API LAN%0Ahttp%3A//192.168.1.67%3A8080/v1; SSH 22 y Node Exporter 192.168.1.67%3A9100.%0ASMTP 25 solo loopback, sin funci%C3%B3n de aplicaci%C3%B3n verificada. Reserva DHCP, dominio,%0ATLS y exposici%C3%B3n externa%3A no verificados; no asumir que firewall=1 implica ACL LAN.%0ALa API requiere clave; se conserva fuera de Git en `/etc/llama/api.key` (600).%0A%0A**Servicio, dependencias y persistencia%3A** llama.cpp v1.0.0, commit%0Ab1b770d90d94cad9e9ea5b993bdbc383a522fb28, CPU AVX2. Unidad%0A`llama-server.service` activa y habilitada. Preset `/etc/llama/models.ini`;%0Ac%C3%B3digo/binarios `/opt/llama.cpp`; pesos GGUF y proyectores Qwen3.6/Gemma4 en `/models`.%0ARouter con un modelo grande m%C3%A1ximo y dos slots. Gemma%3A contexto total 16384%0A(8192 por slot), SWA completa y plantilla de cach%C3%A9 versionada; Qwen%3A total 65536%0A(32768 por slot). Reposo 3600 s; cache_prompt activo y cach%C3%A9 auxiliar RAM desactivada. Descargas iniciales requieren Hugging Face; inferencia local.%0AAntes de cargar pesos, comprobar MemAvailable del host >=21 GiB. No inferir%0Acapacidad concurrente a partir de los l%C3%ADmites virtuales.%0A%0A**Salud y monitorizaci%C3%B3n%3A** `/health` HTTP/JSON, sin inferencia. Node Exporter%0A1.10.2 nativo, CPU cgroup v2 textfile cada 5 s y collector.cpu desactivado; RAM%0ALXCFS. Node/Blackbox UP, CPU y RAM publicadas, sin alertas FIRING del servicio en%0Ala captura. Grafana Fleet/Details por CT630; uptime/estado desde API PVE.%0A`lxc%3Acadvisor%3Arequired=0`%3A Docker N/A expl%C3%ADcito. No sondear autom%C3%A1ticamente%0A`/metrics?model=...`, que puede cargar pesos. Recepci%C3%B3n Telegram%3A no verificada.%0A%0A**Backup y recuperaci%C3%B3n%3A** job `ia-chat-llm-630` habilitado, domingo 04%3A00,%0Astorage `storage` (HDD seg%C3%BAn despliegue), snapshot/zstd, cuatro semanales.%0A`/models` queda excluido%3A reconstruir desde el manifiesto de bytes/SHA256.%0AEjecuci%C3%B3n y restauraci%C3%B3n funcional de este job%3A no verificadas. Conservar vol%C3%BAmenes,%0AAPI key y configuraciones. No destroy ni recuperaci%C3%B3n sobre un CT existente.%0A%0A**IaC y operaci%C3%B3n%3A** `inventory/services/infra-llm.yml`, Terraform%0A`proxmox_virtual_environment_container.svc[\"infra-llm\"]`, configuraci%C3%B3n can%C3%B3nica%0A`services/infra-llm/{config,systemd,monitoring}`. Arranque/parada/logs mediante%0Asystemctl/journalctl exclusivamente en630; receta compartida `scripts/ia-chat/README.md`.%0AFicha `docs/inventory/630-LXC-INVENTORY.md`; informe y evidencia de pruebas previas%0A`docs/roadmap/IA-CHAT-EXECUTION-2026-11-13.md`. Optimizaci%C3%B3n posterior documentada en `docs/roadmap/IA-CHAT-LATENCY-2026-11-13.md`.%0A%0A**L%C3%ADmites%3A** reserva DHCP y UAT del propietario pendientes; logind tiene una%0Alimitaci%C3%B3n NAMESPACE documentada, sin relajar AppArmor630. CT627 (Voicebox) queda%0Aexcluido%3A no modificarlo ni coordinarlo autom%C3%A1ticamente. No usar LLM y Voicebox%0Asimult%C3%A1neamente; no usar Gemma mientras un futuro agente utilice Qwen.%0A%0AActualizaci%C3%B3n de latencia (13/11/2026)%3A defaults sin herramientas nativas, t%C3%ADtulos%0Ani generaci%C3%B3n de consultas. B%C3%BAsqueda expl%C3%ADcita mediante bot%C3%B3n; sistema de una l%C3%ADnea%0Acon CURRENT_WEEKDAY y CURRENT_DATE. Fuentes y pruebas en el informe IA-CHAT-LATENCY.%0ALas observaciones de17%3A18 anteriores se conservan como evidencia hist%C3%B3rica.%0A%0APerfil CPU validado r3%3A Gemma batch2048/ubatch512; Qwen batch512/ubatch512,%0Ageneraci%C3%B3n3h/prompt4h. Selecci%C3%B3n can%C3%B3nica%3A `config/performance-tuning.json`.%0A\nhostname: infra-llm\nmemory: 22528\nmp0: local-lvm:vm-630-disk-1,mp=/models,backup=0,ro=1,size=60G\nnet0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:6F:79:36,ip=dhcp,type=veth\nonboot: 1\nostype: debian\nrootfs: local-lvm:vm-630-disk-0,size=16G\nswap: 1024\ntags: 192.168.1.67;ai;infra;internal\ntimezone: Europe/Madrid\nunprivileged: 1",
+      "ip": [
+        {
+          "ifindex": 2,
+          "link_index": 124,
+          "ifname": "eth0",
+          "flags": [
+            "BROADCAST",
+            "MULTICAST",
+            "UP",
+            "LOWER_UP"
+          ],
+          "mtu": 1500,
+          "qdisc": "noqueue",
+          "operstate": "UP",
+          "group": "default",
+          "txqlen": 1000,
+          "link_netnsid": 0,
+          "addr_info": [
+            {
+              "family": "inet",
+              "local": "192.168.1.67",
+              "prefixlen": 24,
+              "broadcast": "192.168.1.255",
+              "scope": "global",
+              "dynamic": true,
+              "label": "eth0",
+              "valid_life_time": 1356,
+              "preferred_life_time": 1356
+            }
+          ]
+        }
+      ],
+      "timezone": "Europe/Madrid",
+      "current": 20668026880,
+      "working_set": 9345662976,
+      "resident_tasks": 19386105856,
+      "anon": 5150687232,
+      "swap": 42131456,
+      "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n"
+    },
+    "631": {
+      "config": "arch: amd64\ncores: 2\ndescription: # CT 631 %E2%80%94 infra-webui%0A%0A**Prop%C3%B3sito y estado%3A** interfaz privada de chat con Open WebUI, b%C3%BAsqueda SearXNG,%0ARAG multiling%C3%BCe y STT local. Servicio `infra-webui`, nodo `pve`; RUNNING observado%0Ael 13/11/2026 a las 17%3A18 CET (16%3A18 UTC). WebUI y cAdvisor healthy; SearXNG running%0Asin healthcheck Docker. La observaci%C3%B3n original de17%3A18 no ejecut%C3%B3 inferencias; las pruebas posteriores%0Ade latencia est%C3%A1n documentadas por separado.%0A%0A**Arquitectura y recursos%3A** Debian 12, LXC sin privilegios, 2 vCPU, 4096 MiB RAM,%0A1024 MiB swap, onboot=1 y Europe/Madrid. Ra%C3%ADz de 20 GiB en%0A`local-lvm%3Avm-631-disk-0`; sin mountpoints PVE adicionales. Docker con nesting/keyctl;%0Aexcepci%C3%B3n AppArmor `unconfined` aprobada %C3%BAnicamente para631, documentada en IaC.%0ARAM ampliada con autorizaci%C3%B3n expresa; no extender la excepci%C3%B3n a otros CT.%0A%0A**Red, puertos y acceso%3A** DHCP 192.168.1.66/24, MAC BC%3A24%3A11%3A0D%3A41%3A78,%0Avmbr0/firewall=1; gateway y DNS 192.168.1.254 observados. UI%0Ahttp%3A//192.168.1.66%3A3000 (publicado en IPv4/IPv6 hacia8080), SSH22,%0ANode Exporter 192.168.1.66%3A9100 y cAdvisor 192.168.1.66%3A8085.%0ASearXNG8080 solo red Compose, sin publicaci%C3%B3n; SMTP25 solo loopback.%0AReserva DHCP, dominio, TLS y reglas WAN/ACL efectivas%3A no verificados.%0A%0A**Servicio y dependencias%3A** Compose `/opt/ia-chat/docker-compose.yml`;%0AOpen WebUI v0.13.3 y SearXNG 2026.11.9-57ff753ad, im%C3%A1genes fijadas por digest.%0AAmbos restart=unless-stopped. API compatible OpenAI de630 en%0Ahttp%3A//192.168.1.67%3A8080/v1; Ollama desactivado. Embedding local%0Aintfloat/multilingual-e5-small y Whisper small/int8/es; b%C3%BAsqueda externa mediante%0ASearXNG. La configuraci%C3%B3n persistida prevalece sobre variables de entorno.%0A%0A**Persistencia y seguridad%3A** `/opt/ia-chat/data` -> `/app/backend/data` (RW),%0Aincluye SQLite, historial, documentos y cach%C3%A9s locales; `/opt/ia-chat/custom.css`%0A-> `/app/build/static/custom.css` (RO). SearXNG usa `/opt/ia-chat/searxng`%0A-> `/etc/searxng` (RW) y volumen Docker an%C3%B3nimo para `/var/cache/searxng`.%0ANo tratar ese volumen de cach%C3%A9 como datos funcionales imprescindibles.%0ASecretos en archivos privados600; no publicar entornos, claves ni bases de datos.%0AAutenticaci%C3%B3n habilitada; administrador del propietario existente y preservado.%0ARegistro cerrado; no publicar datos de usuarios ni sus sesiones.%0A%0A**Salud y monitorizaci%C3%B3n%3A** healthcheck Docker WebUI healthy y sonda JSON `/health`%0AUP; SearXNG carece de healthcheck Docker, b%C3%BAsqueda funcional probada previamente,%0Ano repetida ahora. Node Exporter1.10.2 nativo, CPU cgroup v2 textfile/5s y RAM LXCFS;%0AcAdvisor0.60.6 con socket containerdRO solo631, l%C3%ADmite256MiB. Node, cAdvisor y Blackbox del servicio UP; sin alertas FIRING en la captura.%0AGrafana Fleet/Details porCT631; uptime/estado desde API PVE. Recepci%C3%B3n Telegram%3A%0Ano verificada. Un estado healthy no acredita calidad de voz ni UAT de chat.%0A%0A**Backup y recuperaci%C3%B3n%3A** job `ia-chat-webui-631` habilitado, diario03%3A30,%0Astorage `storage` (HDD seg%C3%BAn despliegue), snapshot/zstd, siete diarios/cuatro semanales.%0ABackup manual final del13/11/2026 a16%3A35 CET verificado por SHA256/zstd/tar y archivos%0Acr%C3%ADticos; evidencia en el informe IA-CHAT. Restauraci%C3%B3n funcional completa%3A%0Ano verificada. Preservar datos, secretos, configuraci%C3%B3n e im%C3%A1genes de rollback.%0A%0A**IaC y operaci%C3%B3n%3A** `inventory/services/infra-webui.yml`, Terraform%0A`proxmox_virtual_environment_container.svc[\"infra-webui\"]`, configuraci%C3%B3n can%C3%B3nica%0A`services/infra-webui/{compose,config,monitoring}`. Operar Compose solo en%0A`/opt/ia-chat`; no down-v/prune ni deploy-all. Receta `scripts/ia-chat/README.md`;%0Aficha `docs/inventory/631-LXC-INVENTORY.md` e informe%0A`docs/roadmap/IA-CHAT-EXECUTION-2026-11-13.md`. Optimizaci%C3%B3n posterior documentada en `docs/roadmap/IA-CHAT-LATENCY-2026-11-13.md`.%0A%0A**L%C3%ADmites%3A** STT sint%C3%A9tico previo4/5palabras (WER20%25), no calidad exacta ni UAT humana.%0ARAG/STT concurrentes con cuota4096MiB%3A pico residente2,510GiB, sin OOM.%0AContador max jer%C3%A1rquico atribuible a cAdvisor256MiB; l%C3%ADmite local del CT sin eventos max. M%C3%B3vil/micr%C3%B3fono real pendientes. CT627 (Voicebox) excluido;%0Ano modificarlo, reiniciarlo ni a%C3%B1adir coordinaci%C3%B3n autom%C3%A1tica.%0A%0AActualizaci%C3%B3n de latencia (13/11/2026)%3A defaults sin herramientas nativas, t%C3%ADtulos%0Ani generaci%C3%B3n de consultas. B%C3%BAsqueda expl%C3%ADcita mediante bot%C3%B3n; sistema de una l%C3%ADnea%0Acon CURRENT_WEEKDAY y CURRENT_DATE. Fuentes y pruebas en el informe IA-CHAT-LATENCY.%0ALas observaciones de17%3A18 anteriores se conservan como evidencia hist%C3%B3rica.%0A\nfeatures: keyctl=1,nesting=1\nhostname: infra-webui\nmemory: 4096\nnet0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:0D:41:78,ip=dhcp,type=veth\nonboot: 1\nostype: debian\nrootfs: local-lvm:vm-631-disk-0,size=20G\nswap: 1024\ntags: 192.168.1.66;ai;infra;internal\ntimezone: Europe/Madrid\nunprivileged: 1\nlxc.apparmor.profile: unconfined",
+      "ip": [
+        {
+          "ifindex": 2,
+          "link_index": 128,
+          "ifname": "eth0",
+          "flags": [
+            "BROADCAST",
+            "MULTICAST",
+            "UP",
+            "LOWER_UP"
+          ],
+          "mtu": 1500,
+          "qdisc": "noqueue",
+          "operstate": "UP",
+          "group": "default",
+          "txqlen": 1000,
+          "link_netnsid": 0,
+          "addr_info": [
+            {
+              "family": "inet",
+              "local": "192.168.1.66",
+              "prefixlen": 24,
+              "broadcast": "192.168.1.255",
+              "scope": "global",
+              "dynamic": true,
+              "label": "eth0",
+              "valid_life_time": 1788,
+              "preferred_life_time": 1788
+            }
+          ]
+        }
+      ],
+      "timezone": "Europe/Madrid",
+      "current": 2164363264,
+      "working_set": 1881886720,
+      "resident_tasks": 1780781056,
+      "anon": 1156792320,
+      "swap": 348516352,
+      "memory_events": "low 0\nhigh 0\nmax 58891\noom 0\noom_kill 0\noom_group_kill 0\n"
+    }
+  },
+  "containers": {
+    "ia-chat-open-webui-1": "c5181b63c9ed0f5071822be4c3c90811b38a24d1bd2888831a65424daa618ffa|sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14|2026-11-13T21:15:39.79183468Z|running|0|runc",
+    "ia-chat-searxng-1": "eeabd0eac4dd675e631a552b122a50c3f76151d92d2d58d5a4bace30e05aa026|sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2|2026-11-13T15:31:33.942354149Z|running|0|runc"
+  },
+  "images": {
+    "ia-chat-open-webui-1": "[\"ghcr.io/open-webui/open-webui@sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14\"]|sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14",
+    "ia-chat-searxng-1": "[\"searxng/searxng@sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2\"]|sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2"
+  },
+  "db": {
+    "users": 1,
+    "knowledge": 0,
+    "integrity": "ok",
+    "models": [
+      [
+        "gemma-4-26b",
+        "Gemma 4 \u00b7 Chat"
+      ],
+      [
+        "qwen3.6-35b",
+        "Qwen3.6 \u00b7 C\u00f3digo y razonamiento"
+      ]
+    ],
+    "temporary_credentials_absent": true
+  },
+  "secret_modes": {
+    "630": "600 /etc/llama/api.key",
+    "631": "600 /opt/ia-chat/secrets.env\n600 /opt/ia-chat/searxng/settings.yml"
+  },
+  "llama_active": "active",
+  "docker_versions": "containerd.io\t2.4.2-4~debian.12~bookworm\ndocker-ce\t5:29.9.3-1~debian.12~bookworm\ndocker-ce-cli\t5:29.9.3-1~debian.12~bookworm\ndocker-compose-plugin\t5.7.1-1~debian.12~bookworm",
+  "models_mount": "ro,relatime,stripe=16"
+}

@@ -1,0 +1,14 @@
+ Container ia-chat-open-webui-1 Stopping
+ Container ia-chat-open-webui-1 Stopped
+ Container ia-chat-open-webui-run-88302da4959f Creating
+ Container ia-chat-open-webui-run-88302da4959f Created
+INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+WARNI [open_webui.env]
+
+WARNING: CORS_ALLOW_ORIGIN IS SET TO '*' - NOT RECOMMENDED FOR PRODUCTION DEPLOYMENTS.
+
+Fixture de usuario eliminada; cuenta del propietario pendiente
+ Container ia-chat-open-webui-1 Starting
+ Container ia-chat-open-webui-1 Started
+WebUI health HTTP200

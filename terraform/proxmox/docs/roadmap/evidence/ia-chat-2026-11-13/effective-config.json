@@ -1,0 +1,40 @@
+{
+  "ollama.enable": false,
+  "openai.enable": true,
+  "ui.default_locale": "es-ES",
+  "ui.default_models": "gemma-4-26b",
+  "ui.default_interface_settings": {
+    "webSearch": false
+  },
+  "ui.enable_signup": false,
+  "web.search.enable": true,
+  "web.search.engine": "searxng",
+  "web.search.searxng_query_url": "http://searxng:8080/search?q=<query>&format=json",
+  "web.search.result_count": 3,
+  "web.search.concurrent_requests": 1,
+  "rag.top_k": 3,
+  "rag.embedding_engine": "",
+  "rag.embedding_model": "intfloat/multilingual-e5-small",
+  "rag.embedding_query_prefix": "query: ",
+  "rag.embedding_content_prefix": "passage: ",
+  "audio.stt.engine": "",
+  "audio.stt.whisper_model": "small",
+  "audio.tts.engine": "",
+  "task.follow_up.enable": false,
+  "task.tags.enable": false,
+  "task.title.enable": true,
+  "task.query.search.enable": true,
+  "task.query.retrieval.enable": false,
+  "task.autocomplete.enable": false,
+  "models.default_params": {
+    "system": "Responde en español salvo que se te pida otro idioma. Sé directo y conciso.",
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "models.default_metadata": {
+    "capabilities": {
+      "vision": true
+    }
+  }
+}

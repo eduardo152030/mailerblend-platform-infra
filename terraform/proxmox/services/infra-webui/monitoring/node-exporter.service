@@ -1,0 +1,10 @@
+[Unit]
+Description=Node Exporter for this LXC (native CPU disabled)
+After=network-online.target lxc-cpu.service
+[Service]
+User=nobody
+Group=nogroup
+ExecStart=/opt/lxc-monitoring/node_exporter --web.listen-address=192.168.1.66:9100 --no-collector.cpu --collector.textfile.directory=/var/lib/node_exporter/textfile
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "fixture_users": 0,
+  "fixture_credentials_absent": true,
+  "real_users_preserved": 1,
+  "users_now": 1,
+  "model_owners_unchanged": true,
+  "fixture_knowledge_absent": true,
+  "sqlite": "ok"
+}

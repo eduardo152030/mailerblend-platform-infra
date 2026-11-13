@@ -20,6 +20,6 @@ def render(root,out,data,key_file,protected):
  key,fingerprint=public_key(key_file.read_text());out.mkdir(mode=0o700)
  (out/'owner.pub').write_text(key+'\n');(out/'owner.pub').chmod(0o600)
  for name in ['bootstrap-ssh-guest.py','00-lxc-bootstrap.conf']:shutil.copy2(root/'templates/provisioning/ssh'/name,out/name)
- conf={'schema':1,'owner_public_key_file':str(key_file.resolve()),'ct_id':data['service']['vmid'],'hostname':data['service']['name'],'ip':data['service']['ip'].split('/')[0],'pve_host':'pve','key_fingerprint':fingerprint,'protected_ct_ids':sorted(protected),'docker':data['monitoring']['docker'],'fixture':data['service']['ip'].startswith(('192.0.2.','198.51.100.','203.0.113.'))}
+ conf={'schema':1,'owner_public_key_file':str(key_file.resolve()),'ct_id':data['service']['vmid'],'hostname':data['service']['name'],'ip':data['service']['ip'].split('/')[0],'pve_host':'pve','key_fingerprint':fingerprint,'protected_ct_ids':sorted(protected),'docker':data['monitoring']['docker'],'dhcp':data['network'].get('dhcp',False),'fixture':data['service']['ip'].startswith(('192.0.2.','198.51.100.','203.0.113.'))}
  (out/'bootstrap.json').write_text(json.dumps(conf,indent=2)+'\n');(out/'bootstrap.json').chmod(0o600)
  return fingerprint

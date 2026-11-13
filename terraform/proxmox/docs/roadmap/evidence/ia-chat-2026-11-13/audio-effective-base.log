@@ -1,0 +1,2 @@
+{"previous_actual_model": "small", "actual_model": "base", "engine": "local", "verified_admin_api": true, "verified_persistent_db": true}
+RAG fixture PASS

@@ -1,0 +1,19 @@
+{
+  "dashboards": {
+    "proxmox-lxc-fleet": {
+      "changed": false,
+      "before_sha256": "51a6090738fff5a5f16020abd40cd0f9cd29473ded3c01c190009d30ff6f1071",
+      "desired_sha256": "51a6090738fff5a5f16020abd40cd0f9cd29473ded3c01c190009d30ff6f1071"
+    },
+    "proxmox-lxc-details": {
+      "changed": false,
+      "before_sha256": "e1e8470ccb9856dc6d5c4d1bb0924b1aaca22178573b297c98b3e95542d21aab",
+      "desired_sha256": "e1e8470ccb9856dc6d5c4d1bb0924b1aaca22178573b297c98b3e95542d21aab"
+    }
+  },
+  "changed_files": 0,
+  "restarts": 0,
+  "explicit_reloads": 0,
+  "database_backup_integrity": "ok",
+  "runtime_api_panels_match": true
+}

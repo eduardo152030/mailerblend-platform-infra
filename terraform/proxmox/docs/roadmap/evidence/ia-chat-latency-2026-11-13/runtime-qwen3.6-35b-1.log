@@ -1,0 +1,2 @@
+runtime-qwen3.6-35b-1 HTTP OK 75.66 s 'OK' reasoning_chars 0
+{"model": "qwen3.6-35b", "peak_rss_gib": 18.908889770507812, "peak_resident_gib": 19.031536102294922}

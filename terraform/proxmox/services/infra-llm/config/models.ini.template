@@ -1,0 +1,37 @@
+version = 1
+
+[*]
+no-repack = true
+load-mode = mmap
+cache-ram = 0
+batch-size = 512
+ubatch-size = 128
+threads = 4
+threads-batch = 4
+parallel = 2
+jinja = true
+n-gpu-layers = 0
+image-max-tokens = 128
+reasoning-format = deepseek
+chat-template-kwargs = {"enable_thinking":false}
+sleep-idle-seconds = 3600
+
+[gemma-4-26b]
+chat-template-file = /etc/llama/gemma-cache.jinja
+swa-full = true
+model = /models/gemma-4-26b-a4b/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf
+mmproj = /models/gemma-4-26b-a4b/mmproj-F16.gguf
+ctx-size = 16384
+temp = 1.0
+top-p = 0.95
+top-k = 64
+
+[qwen3.6-35b]
+chat-template-kwargs = {"enable_thinking":false,"preserve_thinking":true}
+model = /models/qwen3.6-35b-a3b/Qwen3.6-35B-A3B-UD-IQ4_XS.gguf
+mmproj = /models/qwen3.6-35b-a3b/mmproj-F16.gguf
+ctx-size = 65536
+temp = 0.6
+top-p = 0.95
+top-k = 20
+min-p = 0

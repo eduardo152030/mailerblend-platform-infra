@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """D060 read-only PromQL checks across every monitored CT; never publish missing data as zero."""
-import concurrent.futures,json,math,time,urllib.parse,urllib.request
+import concurrent.futures,json,math,time,urllib.parse,urllib.request,os,yaml
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];BASE='http://192.168.1.110:9090'
 def api(path,data=None):
@@ -11,7 +11,8 @@ def substitute(expr,ct,service):
  return expr.replace('${lxc:regex}',ct).replace('${service:regex}',service)
 def main():
  model=json.loads((ROOT/'services/infra-grafana/config/provisioning/fleet-assets/proxmox-lxc-details.json').read_text())
- inv=query('lxc:cpu_inventory:expected');assert len(inv)==17;checks=[]
+ expected={str(yaml.safe_load(p.read_text())['service']['vmid']) for p in (ROOT/'inventory/services').glob('*.yml')}
+ inv=query('lxc:cpu_inventory:expected');assert {r['metric']['ct_id'] for r in inv}==expected and len(inv)==len(expected);checks=[]
  def one(row):
   ct=row['metric']['ct_id'];service=row['metric']['service'];out=[]
   for p in model['panels']:
@@ -39,5 +40,5 @@ def main():
     assert all(r['metric'].get('ct_id')==ct and r['metric'].get('service',service)==service for r in rows)
     history.append({'ct_id':ct,'panel':p['title'],'series':len(rows)})
  result={'timestamp_utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'result':'PASS','ct_count':len(inv),'query_count':len(checks),'checks':checks,'history':history,'cross_lxc_data':False}
- (ROOT/'docs/roadmap/evidence/2026-11-09-d060-promql.json').write_text(json.dumps(result,indent=2)+'\n');print('PASS',len(checks),'instant queries across17CT;',len(history),'range queries; no cross-CT/service data')
+ (ROOT/os.environ.get('LXC_DETAILS_EVIDENCE_PATH','docs/roadmap/evidence/2026-11-09-d060-promql.json')).write_text(json.dumps(result,indent=2)+'\n');print('PASS',len(checks),'instant queries across',len(expected),'CT;',len(history),'range queries; no cross-CT/service data')
 if __name__=='__main__':main()

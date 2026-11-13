@@ -1,0 +1,1887 @@
+{
+  "stage": "web-search-final",
+  "chat_id": "56b99ad9-0bb5-4db8-a938-443cfbe2695e",
+  "results": [
+    {
+      "message": "Open WebUI documentation",
+      "ttft_s": 49.43397409300087,
+      "elapsed_s": 68.71864934399491,
+      "text": "Open WebUI es una plataforma de IA autohospedada, extensible, rica en funciones y f\u00e1cil de usar, dise\u00f1ada para funcionar completamente fuera de l\u00ednea [1]. Es compatible con Ollama y APIs compatibles con OpenAI, ofreciendo una interfaz agn\u00f3stica a proveedores para modelos locales y en la nube [1].\n\nAdem\u00e1s, funciona como una Progressive Web App (PWA), lo que permite instalarla como una aplicaci\u00f3n en cualquier dispositivo (iPhone, iPad, Android, Chrome o Edge) sin necesidad de una descarga independiente, proporcionando una experiencia de pantalla completa desde el navegador [2].",
+      "usage": {
+        "cache_n": 2,
+        "prompt_n": 783,
+        "prompt_ms": 44278.569,
+        "prompt_per_token_ms": 56.54989655172414,
+        "prompt_per_second": 17.683498308177032,
+        "predicted_n": 121,
+        "predicted_ms": 19252.501,
+        "predicted_per_token_ms": 160.43750833333334,
+        "predicted_per_second": 6.232956435114586,
+        "input_tokens": 785,
+        "output_tokens": 121,
+        "total_tokens": 906
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.032239972992101684,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.0422580239828676,
+          "event": {
+            "type": "status",
+            "data": {
+              "action": "web_search",
+              "description": "Searching the web",
+              "done": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.04679854598361999,
+          "event": {
+            "type": "status",
+            "data": {
+              "action": "web_search_queries_generated",
+              "queries": [
+                "Open WebUI documentation"
+              ],
+              "done": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.0587532999925315,
+          "event": {
+            "type": "status",
+            "data": {
+              "action": "web_search",
+              "description": "Searched {{count}} sites",
+              "urls": [
+                "https://docs.openwebui.com/",
+                "https://docs.openwebui.com/getting-started/",
+                "https://github.com/open-webui/docs"
+              ],
+              "items": [
+                {
+                  "link": "https://docs.openwebui.com/",
+                  "title": "Home / Open WebUI",
+                  "snippet": "Open WebUI is a home for AI, a self-hosted AI platform that's extensible, feature-rich, user-friendly, and built to run entirely offline. With support for Ollama and OpenAI-compatible APIs, it gives you a powerful, provider-agnostic interface for both local and cloud-based models."
+                },
+                {
+                  "link": "https://docs.openwebui.com/getting-started/",
+                  "title": "Getting Started / Open WebUI",
+                  "snippet": "Getting Started with Open WebUI From zero to your first AI conversation in under five minutes. Open WebUI runs anywhere (Docker, Kubernetes, pip, bare metal) and connects to Ollama, OpenAI-compatible, and Open Responses providers out of the box. Pick an install method, connect a provider, and start chatting."
+                },
+                {
+                  "link": "https://github.com/open-webui/docs",
+                  "title": "GitHub - open-webui/docs: https://docs.openwebui.com",
+                  "snippet": "Learn how to install, use, and extend Open WebUI, a self-hosted AI interface for LLMs and OpenAI-compatible APIs. Browse the API reference, plugin and extension guides, file uploads, and developer contribution guide on docs.openwebui.com."
+                }
+              ],
+              "done": true
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.067433040996548,
+          "event": {
+            "type": "status",
+            "data": {
+              "action": "queries_generated",
+              "queries": [],
+              "done": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.1377733100089245,
+          "event": {
+            "type": "status",
+            "data": {
+              "action": "sources_retrieved",
+              "count": 2,
+              "done": true
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.157817742991028,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "sources": [
+                {
+                  "source": {
+                    "collection_name": "web-search-90857435-0f26-48d9-b9cd-98b32c95f0b0-3b114389e0c47be",
+                    "name": "Open WebUI documentation",
+                    "type": "web_search",
+                    "urls": [
+                      "https://docs.openwebui.com/",
+                      "https://docs.openwebui.com/getting-started/",
+                      "https://github.com/open-webui/docs"
+                    ],
+                    "queries": [
+                      "Open WebUI documentation"
+                    ]
+                  },
+                  "document": [
+                    "Open WebUI is a home for AI, a self-hosted AI platform that's extensible, feature-rich, user-friendly, and built to run entirely offline. With support for Ollama and OpenAI-compatible APIs, it gives you a powerful, provider-agnostic interface for both local and cloud-based models.  \nQuick Start\nPythonDockerDesktop# With uv installed (macOS/Linux)\nDATA_DIR=~/.open-webui uvx --python 3.12 open-webui@latest serve",
+                    "Open WebUI as an App\nAlready running Open WebUI? Install it as an app on any device.\nOpen WebUI is a Progressive Web App (PWA). Add it to your phone's home screen, your desktop taskbar, or your dock. No separate download required. Get a full-screen, native-feeling experience from any browser.\niPhone / iPadShare \u2192 Add to Home ScreenAndroidMenu \u2192 Install appChrome / EdgeAddress bar install icon\nInstall as an app \u2192  \nEssentials for Open WebUI\nInstalled and chatting. Now what?",
+                    "Home / Open WebUI  \nSkip to main contentOpen WebUIBlogGitHubDiscordHomeGetting StartedReferenceFeaturesEcosystemOpen Terminal & TerminalsTetherKnowledge Base Sync (oikb)Open WebUI CommunityOpen WebUI ComputerTroubleshootingOpen WebUI for EnterpriseTutorialsFAQRoadmapAlternatives to Open WebUISecurityContributingSponsorshipsBrand GuidelinesOpen WebUI LicenseOur MissionOur TeamHomeOn this pageOpen WebUI"
+                  ],
+                  "metadata": [
+                    {
+                      "description": "Open WebUI is a home for AI, a self-hosted AI platform that's extensible, feature-rich, user-friendly, and built to run entirely offline. With support for Ollama and OpenAI-compatible APIs, it gives you a powerful, provider-agnostic interface for both local and cloud-based models.",
+                      "embedding_config": "{'engine': '', 'model': 'intfloat/multilingual-e5-small'}",
+                      "title": "Home / Open WebUI",
+                      "language": "en",
+                      "start_index": 405,
+                      "source": "https://docs.openwebui.com/"
+                    },
+                    {
+                      "title": "Getting Started / Open WebUI",
+                      "embedding_config": "{'engine': '', 'model': 'intfloat/multilingual-e5-small'}",
+                      "description": "<ThemedImage",
+                      "source": "https://docs.openwebui.com/getting-started/",
+                      "language": "en",
+                      "start_index": 1537
+                    },
+                    {
+                      "description": "Open WebUI is a home for AI, a self-hosted AI platform that's extensible, feature-rich, user-friendly, and built to run entirely offline. With support for Ollama and OpenAI-compatible APIs, it gives you a powerful, provider-agnostic interface for both local and cloud-based models.",
+                      "title": "Home / Open WebUI",
+                      "language": "en",
+                      "start_index": 0,
+                      "embedding_config": "{'engine': '', 'model': 'intfloat/multilingual-e5-small'}",
+                      "source": "https://docs.openwebui.com/"
+                    }
+                  ],
+                  "distances": [
+                    0.957455039024353,
+                    0.9514533877372742,
+                    0.9511246085166931
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_s": 49.433939165988704,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794605462,
+              "id": "chatcmpl-6cL68Tzx8y8f1fZ98dy6sF4mWBgVyFGP",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 49.43397409300087,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Open"
+            }
+          }
+        },
+        {
+          "elapsed_s": 49.57999444898451,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Web"
+            }
+          }
+        },
+        {
+          "elapsed_s": 49.72590193198994,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "UI"
+            }
+          }
+        },
+        {
+          "elapsed_s": 49.86581337300595,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " es"
+            }
+          }
+        },
+        {
+          "elapsed_s": 50.01302640399081,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " una"
+            }
+          }
+        },
+        {
+          "elapsed_s": 50.155033921008,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " plataforma"
+            }
+          }
+        },
+        {
+          "elapsed_s": 50.30403569500777,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 50.473245943983784,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " IA"
+            }
+          }
+        },
+        {
+          "elapsed_s": 50.66715986200143,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " aut"
+            }
+          }
+        },
+        {
+          "elapsed_s": 50.82691207699827,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "oh"
+            }
+          }
+        },
+        {
+          "elapsed_s": 50.971766331989784,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "osp"
+            }
+          }
+        },
+        {
+          "elapsed_s": 51.11920670099789,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ed"
+            }
+          }
+        },
+        {
+          "elapsed_s": 51.265690097003244,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ada"
+            }
+          }
+        },
+        {
+          "elapsed_s": 51.4071086049953,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 51.55058087798534,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " extensible"
+            }
+          }
+        },
+        {
+          "elapsed_s": 51.70332734999829,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 51.86741069398704,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " rica"
+            }
+          }
+        },
+        {
+          "elapsed_s": 52.015672106004786,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " en"
+            }
+          }
+        },
+        {
+          "elapsed_s": 52.288169682986336,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " funciones"
+            }
+          }
+        },
+        {
+          "elapsed_s": 52.438259665999794,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 52.60808433199418,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " f\u00e1cil"
+            }
+          }
+        },
+        {
+          "elapsed_s": 52.804208752990235,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 53.024536368000554,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " usar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 53.169868552999105,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 53.321444272005465,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " dise\u00f1ada"
+            }
+          }
+        },
+        {
+          "elapsed_s": 53.47677819500677,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " para"
+            }
+          }
+        },
+        {
+          "elapsed_s": 53.61500480398536,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " funcionar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 53.76004744699458,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " completamente"
+            }
+          }
+        },
+        {
+          "elapsed_s": 53.917624666995835,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " fuera"
+            }
+          }
+        },
+        {
+          "elapsed_s": 54.05966046600952,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 54.20406123899738,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " l\u00ednea"
+            }
+          }
+        },
+        {
+          "elapsed_s": 54.351177678996464,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ["
+            }
+          }
+        },
+        {
+          "elapsed_s": 54.509196030005114,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "1"
+            }
+          }
+        },
+        {
+          "elapsed_s": 54.68421594100073,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "]."
+            }
+          }
+        },
+        {
+          "elapsed_s": 54.86897521300125,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Es"
+            }
+          }
+        },
+        {
+          "elapsed_s": 55.032367871986935,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " compatible"
+            }
+          }
+        },
+        {
+          "elapsed_s": 55.1760519729869,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " con"
+            }
+          }
+        },
+        {
+          "elapsed_s": 55.32178937399294,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Oll"
+            }
+          }
+        },
+        {
+          "elapsed_s": 55.46814224898117,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ama"
+            }
+          }
+        },
+        {
+          "elapsed_s": 55.620538497983944,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 55.77019978899625,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " APIs"
+            }
+          }
+        },
+        {
+          "elapsed_s": 55.950382007984444,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " compatibles"
+            }
+          }
+        },
+        {
+          "elapsed_s": 56.11143426300259,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " con"
+            }
+          }
+        },
+        {
+          "elapsed_s": 56.31049627100583,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " OpenAI"
+            }
+          }
+        },
+        {
+          "elapsed_s": 56.45363961099065,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 56.6019605009933,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ofreci"
+            }
+          }
+        },
+        {
+          "elapsed_s": 56.746479252993595,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "endo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 56.892887742986204,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " una"
+            }
+          }
+        },
+        {
+          "elapsed_s": 57.04745168899535,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " interfaz"
+            }
+          }
+        },
+        {
+          "elapsed_s": 57.530343218008056,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ag"
+            }
+          }
+        },
+        {
+          "elapsed_s": 57.686717414006125,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 57.82902856200235,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\u00f3st"
+            }
+          }
+        },
+        {
+          "elapsed_s": 57.97695053098141,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ica"
+            }
+          }
+        },
+        {
+          "elapsed_s": 58.12549888898502,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " a"
+            }
+          }
+        },
+        {
+          "elapsed_s": 58.279436855984386,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " proveedores"
+            }
+          }
+        },
+        {
+          "elapsed_s": 58.4248158900009,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " para"
+            }
+          }
+        },
+        {
+          "elapsed_s": 58.57095003200811,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " modelos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 58.715174441982526,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " locales"
+            }
+          }
+        },
+        {
+          "elapsed_s": 58.85799258798943,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 59.01715538298595,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " en"
+            }
+          }
+        },
+        {
+          "elapsed_s": 59.20599622899317,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " la"
+            }
+          }
+        },
+        {
+          "elapsed_s": 59.42049053599476,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " nube"
+            }
+          }
+        },
+        {
+          "elapsed_s": 59.60712902699015,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ["
+            }
+          }
+        },
+        {
+          "elapsed_s": 59.757217923004646,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "1"
+            }
+          }
+        },
+        {
+          "elapsed_s": 59.90356591998716,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "]."
+            }
+          }
+        },
+        {
+          "elapsed_s": 60.05762668600073,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 60.20331826899201,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Adem\u00e1s"
+            }
+          }
+        },
+        {
+          "elapsed_s": 60.349109190981835,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 60.49305125398678,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " funciona"
+            }
+          }
+        },
+        {
+          "elapsed_s": 60.66774318399257,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " como"
+            }
+          }
+        },
+        {
+          "elapsed_s": 60.811661429004744,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " una"
+            }
+          }
+        },
+        {
+          "elapsed_s": 60.961714303994086,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Progressive"
+            }
+          }
+        },
+        {
+          "elapsed_s": 61.12046964498586,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Web"
+            }
+          }
+        },
+        {
+          "elapsed_s": 61.31120992699289,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " App"
+            }
+          }
+        },
+        {
+          "elapsed_s": 61.45521375199314,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ("
+            }
+          }
+        },
+        {
+          "elapsed_s": 61.59813693500473,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "P"
+            }
+          }
+        },
+        {
+          "elapsed_s": 61.74539179500425,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "WA"
+            }
+          }
+        },
+        {
+          "elapsed_s": 61.886838054982945,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "),"
+            }
+          }
+        },
+        {
+          "elapsed_s": 62.03156869200757,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " lo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 62.18185349900159,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " que"
+            }
+          }
+        },
+        {
+          "elapsed_s": 62.35685455100611,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " permite"
+            }
+          }
+        },
+        {
+          "elapsed_s": 62.507717405009316,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " instalar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 62.669661355990684,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "la"
+            }
+          }
+        },
+        {
+          "elapsed_s": 62.86342051299289,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " como"
+            }
+          }
+        },
+        {
+          "elapsed_s": 63.035420476982836,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " una"
+            }
+          }
+        },
+        {
+          "elapsed_s": 63.215379950997885,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " aplicaci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 63.37429281199002,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " en"
+            }
+          }
+        },
+        {
+          "elapsed_s": 63.51778160198592,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " cualquier"
+            }
+          }
+        },
+        {
+          "elapsed_s": 63.666918539995095,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " dispositivo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 63.81215048598824,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ("
+            }
+          }
+        },
+        {
+          "elapsed_s": 63.95492731500417,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "iPhone"
+            }
+          }
+        },
+        {
+          "elapsed_s": 64.09844246300054,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 64.2435581109894,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " iPad"
+            }
+          }
+        },
+        {
+          "elapsed_s": 64.38428076400305,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 64.52659420200507,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Android"
+            }
+          }
+        },
+        {
+          "elapsed_s": 64.66931284498423,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 64.81970810799976,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Chrome"
+            }
+          }
+        },
+        {
+          "elapsed_s": 64.97786492700106,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 65.23121630999958,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Edge"
+            }
+          }
+        },
+        {
+          "elapsed_s": 65.51178048798465,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ")"
+            }
+          }
+        },
+        {
+          "elapsed_s": 65.66439536298276,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " sin"
+            }
+          }
+        },
+        {
+          "elapsed_s": 65.82322368398309,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " necesidad"
+            }
+          }
+        },
+        {
+          "elapsed_s": 65.96832855799585,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 66.11159521000809,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " una"
+            }
+          }
+        },
+        {
+          "elapsed_s": 66.27858628999093,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " descarga"
+            }
+          }
+        },
+        {
+          "elapsed_s": 66.44056591400295,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " independiente"
+            }
+          }
+        },
+        {
+          "elapsed_s": 66.58114475099137,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 66.73563370399643,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " proporcion"
+            }
+          }
+        },
+        {
+          "elapsed_s": 66.88542292400962,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ando"
+            }
+          }
+        },
+        {
+          "elapsed_s": 67.04854850500124,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " una"
+            }
+          }
+        },
+        {
+          "elapsed_s": 67.19594921899261,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " experiencia"
+            }
+          }
+        },
+        {
+          "elapsed_s": 67.34516149898991,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 67.49207781098085,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " pantalla"
+            }
+          }
+        },
+        {
+          "elapsed_s": 67.63741363899317,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " completa"
+            }
+          }
+        },
+        {
+          "elapsed_s": 67.78441909799585,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " desde"
+            }
+          }
+        },
+        {
+          "elapsed_s": 67.93734966698685,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " el"
+            }
+          }
+        },
+        {
+          "elapsed_s": 68.0873419730051,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " navegador"
+            }
+          }
+        },
+        {
+          "elapsed_s": 68.23659210698679,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ["
+            }
+          }
+        },
+        {
+          "elapsed_s": 68.39277266600402,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "2"
+            }
+          }
+        },
+        {
+          "elapsed_s": 68.5452637480048,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_b963e88363c34d58b409f1a6",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "]."
+            }
+          }
+        },
+        {
+          "elapsed_s": 68.686295099993,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 2,
+                "prompt_n": 783,
+                "prompt_ms": 44278.569,
+                "prompt_per_token_ms": 56.54989655172414,
+                "prompt_per_second": 17.683498308177032,
+                "predicted_n": 121,
+                "predicted_ms": 19252.501,
+                "predicted_per_token_ms": 160.43750833333334,
+                "predicted_per_second": 6.232956435114586,
+                "input_tokens": 785,
+                "output_tokens": 121,
+                "total_tokens": 906
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 68.68640634400072,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794605482,
+              "id": "chatcmpl-6cL68Tzx8y8f1fZ98dy6sF4mWBgVyFGP",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 2,
+                "prompt_n": 783,
+                "prompt_ms": 44278.569,
+                "prompt_per_token_ms": 56.54989655172414,
+                "prompt_per_second": 17.683498308177032,
+                "predicted_n": 121,
+                "predicted_ms": 19252.501,
+                "predicted_per_token_ms": 160.43750833333334,
+                "predicted_per_second": 6.232956435114586
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 68.69962267499068,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "56b99ad9-0bb5-4db8-a938-443cfbe2695e",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 68.69969821799896,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_b963e88363c34d58b409f1a6",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Open WebUI es una plataforma de IA autohospedada, extensible, rica en funciones y f\u00e1cil de usar, dise\u00f1ada para funcionar completamente fuera de l\u00ednea [1]. Es compatible con Ollama y APIs compatibles con OpenAI, ofreciendo una interfaz agn\u00f3stica a proveedores para modelos locales y en la nube [1].\n\nAdem\u00e1s, funciona como una Progressive Web App (PWA), lo que permite instalarla como una aplicaci\u00f3n en cualquier dispositivo (iPhone, iPad, Android, Chrome o Edge) sin necesidad de una descarga independiente, proporcionando una experiencia de pantalla completa desde el navegador [2]."
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency web-search-final",
+              "usage": {
+                "cache_n": 2,
+                "prompt_n": 783,
+                "prompt_ms": 44278.569,
+                "prompt_per_token_ms": 56.54989655172414,
+                "prompt_per_second": 17.683498308177032,
+                "predicted_n": 121,
+                "predicted_ms": 19252.501,
+                "predicted_per_token_ms": 160.43750833333334,
+                "predicted_per_second": 6.232956435114586,
+                "input_tokens": 785,
+                "output_tokens": 121,
+                "total_tokens": 906
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 68.70653849799419,
+          "event": {
+            "type": "chat:title",
+            "data": "Open WebUI documentation"
+          }
+        },
+        {
+          "elapsed_s": 68.70973453798797,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    }
+  ]
+}

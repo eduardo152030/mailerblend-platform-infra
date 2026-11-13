@@ -1,0 +1,5509 @@
+{
+  "status": "PASS",
+  "samples": [
+    {
+      "utc": "2026-11-13T15:36:39.153177+00:00",
+      "elapsed_seconds": 0.01729035899916198,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584198.333,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584198.333,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584198.335,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584198.337,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584198.337,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584198.338,
+              "11.86462759259259"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584198.338,
+              "0.17011212962962963"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584198.34,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584198.34,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584198.342,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584198.342,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584198.344,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584198.344,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584198.347,
+              "9.346999883651733"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584198.347,
+              "20.346999883651733"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:37:07.885804+00:00",
+      "elapsed_seconds": 30.02514449800219,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584227.15,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584227.15,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584227.152,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584227.153,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584227.153,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584227.155,
+              "7.31438037037037"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584227.155,
+              "0.16987259259259258"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584227.157,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584227.157,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584227.16,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584227.16,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584227.161,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584227.161,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584227.165,
+              "3.1649999618530273"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584227.165,
+              "19.164999961853027"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:37:36.590982+00:00",
+      "elapsed_seconds": 60.02142459500101,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584255.942,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584255.942,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584255.945,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584255.947,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584255.947,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584255.948,
+              "7.316407407407407"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584255.948,
+              "0.15943981481481478"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584255.95,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584255.95,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584255.951,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584255.951,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584255.952,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584255.952,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584255.955,
+              "1.9549999237060547"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584255.955,
+              "17.954999923706055"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:38:05.288380+00:00",
+      "elapsed_seconds": 90.02289219700106,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584284.723,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584284.723,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584284.725,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584284.727,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584284.727,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584284.731,
+              "6.806249074074073"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584284.731,
+              "0.09200416666666664"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584284.733,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584284.733,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584284.735,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584284.735,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584284.736,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584284.736,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584284.739,
+              "30.73900008201599"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584284.739,
+              "16.73900008201599"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:38:33.956458+00:00",
+      "elapsed_seconds": 120.02347722999912,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584313.487,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584313.487,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584313.489,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584313.491,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584313.491,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584313.493,
+              "1.7912787037037026"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584313.493,
+              "0.1232678703703703"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584313.494,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584313.494,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584313.496,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584313.496,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584313.498,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584313.498,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584313.502,
+              "29.502000093460083"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584313.502,
+              "14.502000093460083"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:39:02.665909+00:00",
+      "elapsed_seconds": 150.0182715709998,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584342.285,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584342.285,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584342.287,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584342.288,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584342.288,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584342.29,
+              "1.7557035185185195"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584342.29,
+              "0.12390268518518517"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584342.293,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584342.293,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584342.295,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584342.295,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584342.296,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584342.296,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584342.299,
+              "28.299000024795532"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584342.299,
+              "13.299000024795532"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:39:31.378230+00:00",
+      "elapsed_seconds": 180.0205358589992,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584371.085,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584371.085,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584371.087,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584371.089,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584371.089,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584371.09,
+              "1.5796068518518531"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584371.09,
+              "0.11933972222222225"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584371.092,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584371.092,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584371.093,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584371.093,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584371.095,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584371.095,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584371.098,
+              "27.098000049591064"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584371.098,
+              "12.098000049591064"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:40:00.084556+00:00",
+      "elapsed_seconds": 210.03974878699955,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584399.881,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584399.881,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584399.883,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584399.885,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584399.885,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584399.887,
+              "1.7068259259259255"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584399.887,
+              "0.11923324074074072"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584399.888,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584399.888,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584399.89,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584399.89,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584399.891,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584399.891,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584399.895,
+              "25.894999980926514"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584399.895,
+              "10.894999980926514"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:40:28.719536+00:00",
+      "elapsed_seconds": 240.0294054799997,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584428.609,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584428.609,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584428.611,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584428.613,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584428.613,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584428.615,
+              "1.5489538888888874"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584428.615,
+              "0.1191462037037037"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584428.616,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584428.616,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584428.617,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584428.617,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584428.619,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584428.619,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584428.622,
+              "24.621999979019165"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584428.622,
+              "9.621999979019165"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:40:57.451017+00:00",
+      "elapsed_seconds": 270.04279958999905,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584457.426,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584457.426,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584457.428,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584457.431,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584457.431,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584457.433,
+              "1.6818294444444448"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584457.433,
+              "0.11909796296296295"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584457.435,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584457.435,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584457.437,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584457.437,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584457.439,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584457.439,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584457.442,
+              "23.441999912261963"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584457.442,
+              "8.441999912261963"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:41:27.436040+00:00",
+      "elapsed_seconds": 300.02782570400086,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584486.213,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584486.213,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584486.216,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584486.218,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584486.218,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584486.22,
+              "1.5116718518518515"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584486.22,
+              "0.11868537037037034"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584486.222,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584486.222,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584486.223,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584486.223,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584486.225,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584486.225,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584486.228,
+              "22.227999925613403"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584486.228,
+              "7.227999925613403"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:41:56.147925+00:00",
+      "elapsed_seconds": 330.0291436810003,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584515.005,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584515.005,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584515.007,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584515.009,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584515.009,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584515.011,
+              "1.5898631481481487"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584515.011,
+              "0.11856564814814811"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584515.013,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584515.013,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584515.014,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584515.014,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584515.016,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584515.016,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584515.019,
+              "22.01900005340576"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584515.019,
+              "6.019000053405762"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:42:24.837043+00:00",
+      "elapsed_seconds": 360.01908788999935,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584543.785,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584543.785,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584543.787,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584543.788,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584543.788,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584543.79,
+              "1.5114927777777794"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584543.79,
+              "0.11738907407407406"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584543.792,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584543.792,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584543.793,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584543.793,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584543.795,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584543.795,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584543.798,
+              "21.79800009727478"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584543.798,
+              "4.79800009727478"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:42:53.549019+00:00",
+      "elapsed_seconds": 390.0323243540006,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584572.583,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584572.583,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584572.585,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584572.587,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584572.587,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584572.588,
+              "1.489697777777779"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584572.588,
+              "0.09047250000000004"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584572.59,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584572.59,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584572.591,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584572.591,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584572.593,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584572.593,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584572.596,
+              "20.59599995613098"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584572.596,
+              "3.5959999561309814"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:43:22.228740+00:00",
+      "elapsed_seconds": 420.0228173700016,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584601.341,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584601.341,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584601.343,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584601.344,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584601.344,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584601.346,
+              "1.489697777777779"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584601.346,
+              "0.09047250000000004"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584601.347,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584601.347,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584601.349,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584601.349,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584601.351,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584601.351,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584601.354,
+              "20.354000091552734"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584601.354,
+              "2.3540000915527344"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:43:50.912155+00:00",
+      "elapsed_seconds": 450.03862101100094,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584630.115,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584630.115,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584630.116,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584630.118,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584630.118,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584630.119,
+              "1.3118220370370366"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584630.119,
+              "0.08842064814814814"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584630.121,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584630.121,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584630.122,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584630.122,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584630.124,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584630.124,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584630.127,
+              "20.127000093460083"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584630.127,
+              "1.127000093460083"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T15:44:19.549859+00:00",
+      "elapsed_seconds": 480.0238871670008,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584658.867,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584658.867,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584658.869,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584658.87,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584658.87,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794584658.872,
+              "1.2770738888888882"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794584658.872,
+              "0.08830629629629626"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584658.873,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584658.873,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584658.875,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584658.875,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584658.877,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794584658.877,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794584658.879,
+              "19.878999948501587"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794584658.879,
+              "29.878999948501587"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T16:06:30.404055+00:00",
+      "elapsed_seconds": 510.01884670899744,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794585990.45,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794585990.45,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794585990.452,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794585990.454,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794585990.454,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794585990.455,
+              "1.2653174074074065"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794585990.455,
+              "0.07810111111111105"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794585990.457,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794585990.457,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794585990.459,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794585990.459,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794585990.46,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794585990.46,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794585990.465,
+              "27.46499991416931"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794585990.465,
+              "12.464999914169312"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T16:07:01.255243+00:00",
+      "elapsed_seconds": 540.0492610439978,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586021.144,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586021.144,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586021.146,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586021.147,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586021.147,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794586021.148,
+              "1.3949557407407422"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794586021.148,
+              "0.07840935185185187"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586021.15,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586021.15,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586021.152,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586021.152,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794586021.153,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794586021.153,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586021.156,
+              "28.155999898910522"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586021.156,
+              "13.155999898910522"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T16:07:32.205049+00:00",
+      "elapsed_seconds": 570.0169451410038,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586052.219,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586052.219,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586052.221,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586052.224,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586052.224,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794586052.226,
+              "1.2681381481481468"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794586052.226,
+              "0.0785273148148147"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586052.228,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586052.228,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586052.229,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586052.229,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794586052.23,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794586052.23,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586052.233,
+              "29.23300004005432"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586052.233,
+              "14.233000040054321"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "utc": "2026-11-13T16:08:02.203810+00:00",
+      "elapsed_seconds": 600.0157082290025,
+      "queries": {
+        "node": [
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586083.118,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586083.118,
+              "1"
+            ]
+          }
+        ],
+        "cadvisor": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "192.168.1.66:8085",
+              "job": "cadvisor",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586083.12,
+              "1"
+            ]
+          }
+        ],
+        "probes": [
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.67:8080/health",
+              "job": "blackbox",
+              "module": "infra_llm_health",
+              "probe_id": "infra-llm-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586083.122,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "probe_success",
+              "health_signal": "api_liveness",
+              "instance": "http://192.168.1.66:3000/health",
+              "job": "blackbox",
+              "module": "infra_webui_health",
+              "probe_id": "infra-webui-0",
+              "probe_type": "internal",
+              "scope": "internal",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586083.122,
+              "1"
+            ]
+          }
+        ],
+        "cpu": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui"
+            },
+            "value": [
+              1794586083.124,
+              "1.4042477777777775"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_usage:percent",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm"
+            },
+            "value": [
+              1794586083.124,
+              "0.0783372222222221"
+            ]
+          }
+        ],
+        "contract": [
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586083.125,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "lxc:cpu_contract:valid",
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586083.125,
+              "4"
+            ]
+          }
+        ],
+        "ram": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586083.127,
+              "3221225472"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "cpu_contract": "lxc_cgroup_v1",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586083.127,
+              "23622320128"
+            ]
+          }
+        ],
+        "pve": [
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "630",
+              "id": "lxc/630",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794586083.128,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "pve_up",
+              "ct_id": "631",
+              "id": "lxc/631",
+              "instance": "pve-uptime-exporter:9221",
+              "job": "pve_uptime"
+            },
+            "value": [
+              1794586083.128,
+              "1"
+            ]
+          }
+        ],
+        "alerts": [],
+        "freshness": [
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "631",
+              "instance": "192.168.1.66:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-webui",
+              "source": "inventory",
+              "vmid": "631"
+            },
+            "value": [
+              1794586083.131,
+              "31.13100004196167"
+            ]
+          },
+          {
+            "metric": {
+              "cpu_contract": "lxc_cgroup_v1",
+              "cpu_source": "cgroup_v2",
+              "ct_id": "630",
+              "instance": "192.168.1.67:9100",
+              "job": "node_exporter",
+              "resource_scope": "lxc",
+              "service": "infra-llm",
+              "source": "inventory",
+              "vmid": "630"
+            },
+            "value": [
+              1794586083.131,
+              "15.13100004196167"
+            ]
+          }
+        ]
+      },
+      "errors": []
+    }
+  ],
+  "duration_seconds": 600.0208209300035,
+  "sample_count": 21
+}

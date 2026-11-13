@@ -1,0 +1,63 @@
+downloading http://download.proxmox.com/images/system/debian-12-standard_12.12-1_amd64.tar.zst to /var/lib/vz/template/cache/debian-12-standard_12.12-1_amd64.tar.zst
+--2026-11-13 12:37:20--  http://download.proxmox.com/images/system/debian-12-standard_12.12-1_amd64.tar.zst
+Resolving download.proxmox.com (download.proxmox.com)... 51.91.38.34, 2001:41d0:b00:5900::34
+Connecting to download.proxmox.com (download.proxmox.com)|51.91.38.34|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 123731847 (118M) [application/octet-stream]
+Saving to: '/var/lib/vz/template/cache/debian-12-standard_12.12-1_amd64.tar.zst.tmp_dwnl.2544998'
+     0K ........ ........ ........ ........ 27% 41.6M 2s
+ 32768K ........ ........ ........ ........ 54% 44.8M 1s
+ 65536K ........ ........ ........ ........ 81% 46.9M 0s
+ 98304K ........ ........ .....            100% 47.8M=2.6s
+2026-11-13 12:37:23 (45.0 MB/s) - '/var/lib/vz/template/cache/debian-12-standard_12.12-1_amd64.tar.zst.tmp_dwnl.2544998' saved [123731847/123731847]
+calculating checksum...OK, checksum verified
+download of 'http://download.proxmox.com/images/system/debian-12-standard_12.12-1_amd64.tar.zst' to '/var/lib/vz/template/cache/debian-12-standard_12.12-1_amd64.tar.zst' finished
+WARNING: You have not turned on protection against thin pools running out of space.
+  WARNING: Set activation/thin_pool_autoextend_threshold below 100 to trigger automatic extension of thin pools before they get full.
+  Logical volume "vm-630-disk-0" created.
+  WARNING: Sum of all thin volume sizes (784.00 GiB) exceeds the size of thin pool pve/data and the size of whole volume group (<488.05 GiB).
+Creating filesystem with 4194304 4k blocks and 1048576 inodes
+Filesystem UUID: c57f2b32-9cb7-4353-b74d-b720a5943cd3
+Superblock backups stored on blocks:
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+extracting archive '/var/lib/vz/template/cache/debian-12-standard_12.12-1_amd64.tar.zst'
+Total bytes read: 522782720 (499MiB, 298MiB/s)
+Detected container architecture: amd64
+Creating SSH host key 'ssh_host_ecdsa_key' - this may take some time ...
+done: SHA256:V3RPZ6UtHz61iUdS8pebFHkOYOLiS+fD8U0QVzascAc root@infra-llm
+Creating SSH host key 'ssh_host_dsa_key' - this may take some time ...
+done: SHA256:Fkb74oRE86r5rHwSgYX/jlP0Omc9+IdEjsnJYo7u/Wg root@infra-llm
+Creating SSH host key 'ssh_host_ed25519_key' - this may take some time ...
+done: SHA256:ArcZ4isQBVVhYEhcFmSpnuoFvv7g07uALlj7gfG2h28 root@infra-llm
+Creating SSH host key 'ssh_host_rsa_key' - this may take some time ...
+done: SHA256:U39RlkYPhiuB+OT6Zt9kHlZvPNM5i2V9sHrbtfb/Pg4 root@infra-llm
+WARNING: You have not turned on protection against thin pools running out of space.
+  WARNING: Set activation/thin_pool_autoextend_threshold below 100 to trigger automatic extension of thin pools before they get full.
+  Logical volume "vm-630-disk-1" created.
+Creating filesystem with 15728640 4k blocks and 3932160 inodes
+Filesystem UUID: 755e2d3b-8acd-4c30-90f0-8ebb348b017d
+Superblock backups stored on blocks:
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+	4096000, 7962624, 11239424
+
+WARNING: You have not turned on protection against thin pools running out of space.
+  WARNING: Set activation/thin_pool_autoextend_threshold below 100 to trigger automatic extension of thin pools before they get full.
+  Logical volume "vm-631-disk-0" created.
+  WARNING: Sum of all thin volume sizes (864.00 GiB) exceeds the size of thin pool pve/data and the size of whole volume group (<488.05 GiB).
+Creating filesystem with 5242880 4k blocks and 1310720 inodes
+Filesystem UUID: 8f5bfd69-01ee-42f0-bef2-6e2f57f7a419
+Superblock backups stored on blocks:
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+extracting archive '/var/lib/vz/template/cache/debian-12-standard_12.12-1_amd64.tar.zst'
+Total bytes read: 522782720 (499MiB, 301MiB/s)
+Detected container architecture: amd64
+Creating SSH host key 'ssh_host_rsa_key' - this may take some time ...
+done: SHA256:rapk2eEW/N/uTWd7GJ01A3Kqbk31R4r1DD0oS9XjGWc root@infra-webui
+Creating SSH host key 'ssh_host_ecdsa_key' - this may take some time ...
+done: SHA256:srB3JkD0vP3bAa4Cl+Kd4Scd3X10cch+W7Gp6VynHq8 root@infra-webui
+Creating SSH host key 'ssh_host_dsa_key' - this may take some time ...
+done: SHA256:7bToUNaiJOyLIGcfwt00TVdPGFJlR457Nt689BTV3QE root@infra-webui
+Creating SSH host key 'ssh_host_ed25519_key' - this may take some time ...
+done: SHA256:BZBvI5k8aRg79RGLnHaOhe7SnG1OG+2j5dvHjuinbn8 root@infra-webui
+
+{"utc": "2026-11-13T11:37:45.605411+00:00", "protected_unchanged": true, "configs": {"630": "arch: amd64\ncores: 4\nhostname: infra-llm\nmemory: 22528\nmp0: local-lvm:vm-630-disk-1,mp=/models,backup=0,size=60G\nnet0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:6F:79:36,ip=dhcp,type=veth\nonboot: 1\nostype: debian\nrootfs: local-lvm:vm-630-disk-0,size=16G\nswap: 1024\ntags: ia-chat;infra\ntimezone: Europe/Madrid\nunprivileged: 1", "631": "arch: amd64\ncores: 2\nfeatures: nesting=1,keyctl=1\nhostname: infra-webui\nmemory: 3072\nnet0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:0D:41:78,ip=dhcp,type=veth\nonboot: 1\nostype: debian\nrootfs: local-lvm:vm-631-disk-0,size=20G\nswap: 1024\ntags: ia-chat;infra\ntimezone: Europe/Madrid\nunprivileged: 1"}}

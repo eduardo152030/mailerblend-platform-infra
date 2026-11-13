@@ -1,0 +1,1194 @@
+[
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC monitorizados",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC monitorizados",
+    "ref": "B",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "Node Exporter",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "Node Exporter",
+    "ref": "B",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "Node Exporter",
+    "ref": "C",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "cAdvisor",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "cAdvisor",
+    "ref": "B",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "cAdvisor",
+    "ref": "C",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "Blackbox \u00b7 sondas",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "Blackbox \u00b7 sondas",
+    "ref": "B",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "Blackbox \u00b7 sondas",
+    "ref": "C",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "Alertas FIRING",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "A",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "B",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "C",
+    "series": 1,
+    "values": [
+      "-2"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "D",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "E",
+    "series": 1,
+    "values": [
+      "0.0883537037037038"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "F",
+    "series": 1,
+    "values": [
+      "0.2647573297673955"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "G",
+    "series": 1,
+    "values": [
+      "14.785698039416351"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "H",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "I",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "J",
+    "series": 1,
+    "values": [
+      "2410"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "K",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "L",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "M",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "CPU Usage by LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "Memory Usage by LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "Disk Usage by LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "630",
+    "panel": "Active alerts \u00b7 FIRING / PENDING",
+    "ref": "A",
+    "series": 0,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC monitorizados",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC monitorizados",
+    "ref": "B",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "Node Exporter",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "Node Exporter",
+    "ref": "B",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "Node Exporter",
+    "ref": "C",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "cAdvisor",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "cAdvisor",
+    "ref": "B",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "cAdvisor",
+    "ref": "C",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "Blackbox \u00b7 sondas",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "Blackbox \u00b7 sondas",
+    "ref": "B",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "Blackbox \u00b7 sondas",
+    "ref": "C",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "Alertas FIRING",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "A",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "B",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "C",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "D",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "E",
+    "series": 1,
+    "values": [
+      "1.4120816666666673"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "F",
+    "series": 1,
+    "values": [
+      "52.075322469075516"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "G",
+    "series": 1,
+    "values": [
+      "58.29951506518828"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "H",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "I",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "J",
+    "series": 1,
+    "values": [
+      "2394"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "K",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "L",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "LXC health \u00b7 priorizaci\u00f3n por estado",
+    "ref": "M",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "CPU Usage by LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "Memory Usage by LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "Disk Usage by LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-fleet",
+    "ct_id": "631",
+    "panel": "Active alerts \u00b7 FIRING / PENDING",
+    "ref": "A",
+    "series": 0,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "A",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "B",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "C",
+    "series": 1,
+    "values": [
+      "-2"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "D",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "E",
+    "series": 1,
+    "values": [
+      "0.0883537037037038"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "F",
+    "series": 1,
+    "values": [
+      "0.2647573297673955"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "G",
+    "series": 1,
+    "values": [
+      "14.785698039416351"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "H",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "I",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "J",
+    "series": 1,
+    "values": [
+      "2410"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "K",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "L",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "M",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "CPU asignada",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "RAM asignada",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Disco ra\u00edz \u00b7 capacidad",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Identidad e IP del LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "CPU \u00b7 hist\u00f3rico LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "RAM \u00b7 hist\u00f3rico LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+    "ref": "B",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Docker \u00b7 contenedores activos del LXC",
+    "ref": "A",
+    "series": 0,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Docker \u00b7 contenedores activos del LXC",
+    "ref": "B",
+    "series": 0,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Docker \u00b7 contenedores activos del LXC",
+    "ref": "C",
+    "series": 0,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Docker \u00b7 contenedores activos del LXC",
+    "ref": "D",
+    "series": 0,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Docker \u00b7 contenedores activos del LXC",
+    "ref": "E",
+    "series": 0,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+    "ref": "B",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+    "ref": "C",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+    "ref": "D",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Readiness \u00b7 componentes esenciales",
+    "ref": "A",
+    "series": 0,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Monitoring \u00b7 targets y frescura",
+    "ref": "A",
+    "series": 3,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Monitoring \u00b7 targets y frescura",
+    "ref": "B",
+    "series": 3,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Monitoring \u00b7 targets y frescura",
+    "ref": "C",
+    "series": 3,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Alertas activas \u00b7 CT $lxc",
+    "ref": "A",
+    "series": 0,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "630",
+    "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "A",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "B",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "C",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "D",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "E",
+    "series": 1,
+    "values": [
+      "1.4120816666666673"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "F",
+    "series": 1,
+    "values": [
+      "52.075322469075516"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "G",
+    "series": 1,
+    "values": [
+      "58.29951506518828"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "H",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "I",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "J",
+    "series": 1,
+    "values": [
+      "2394"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "K",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "L",
+    "series": 1,
+    "values": [
+      "1"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "LXC \u00b7 informaci\u00f3n y salud",
+    "ref": "M",
+    "series": 1,
+    "values": [
+      "0"
+    ]
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "CPU asignada",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "RAM asignada",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Disco ra\u00edz \u00b7 capacidad",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Identidad e IP del LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "CPU \u00b7 hist\u00f3rico LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "RAM \u00b7 hist\u00f3rico LXC",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Disco \u00b7 hist\u00f3rico ra\u00edz",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+    "ref": "A",
+    "series": 7,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Red del LXC \u00b7 recepci\u00f3n / transmisi\u00f3n",
+    "ref": "B",
+    "series": 7,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Docker \u00b7 contenedores activos del LXC",
+    "ref": "A",
+    "series": 3,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Docker \u00b7 contenedores activos del LXC",
+    "ref": "B",
+    "series": 3,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Docker \u00b7 contenedores activos del LXC",
+    "ref": "C",
+    "series": 3,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Docker \u00b7 contenedores activos del LXC",
+    "ref": "D",
+    "series": 3,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Docker \u00b7 contenedores activos del LXC",
+    "ref": "E",
+    "series": 3,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+    "ref": "B",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+    "ref": "C",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Aplicaci\u00f3n \u00b7 endpoints y sondas",
+    "ref": "D",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Aplicaci\u00f3n \u00b7 disponibilidad observada",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Aplicaci\u00f3n \u00b7 latencia de la sonda",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Readiness \u00b7 componentes esenciales",
+    "ref": "A",
+    "series": 0,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Monitoring \u00b7 targets y frescura",
+    "ref": "A",
+    "series": 4,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Monitoring \u00b7 targets y frescura",
+    "ref": "B",
+    "series": 4,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Monitoring \u00b7 targets y frescura",
+    "ref": "C",
+    "series": 4,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Alertas activas \u00b7 CT $lxc",
+    "ref": "A",
+    "series": 0,
+    "values": []
+  },
+  {
+    "uid": "proxmox-lxc-details",
+    "ct_id": "631",
+    "panel": "Documentaci\u00f3n \u00b7 ficha local existente",
+    "ref": "A",
+    "series": 1,
+    "values": []
+  }
+]

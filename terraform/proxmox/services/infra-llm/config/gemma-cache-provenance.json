@@ -1,0 +1,6 @@
+{
+  "source": "chat_template embedded in verified Gemma GGUF, obtained from /props",
+  "original_sha256": "aa3185dfc65051046349995de1cfc2fbb275491b9a3832b71595f1ff5b31d61b",
+  "patched_sha256": "8cbd347f34bce4372d11e3805f9f428f09dbd8d98fdaa2341f5d8ab14b4b2478",
+  "change": "Preserve empty disabled-thinking prefix in historical assistant turns; no change to first-turn generation, vision or tools branches"
+}

@@ -1,0 +1,239 @@
+{
+  "stage": "weekday",
+  "chat_id": "c476271f-d832-4c51-93b8-0894873dc98d",
+  "results": [
+    {
+      "message": "\u00bfqu\u00e9 d\u00eda de la semana es hoy?",
+      "ttft_s": 1.314980827999534,
+      "elapsed_s": 1.8795353040040936,
+      "text": "Hoy es viernes.",
+      "usage": {
+        "cache_n": 45,
+        "prompt_n": 18,
+        "prompt_ms": 1260.896,
+        "prompt_per_token_ms": 70.04977777777778,
+        "prompt_per_second": 14.27556277440804,
+        "predicted_n": 5,
+        "predicted_ms": 546.39,
+        "predicted_per_token_ms": 136.5975,
+        "predicted_per_second": 7.320778198722524,
+        "input_tokens": 63,
+        "output_tokens": 5,
+        "total_tokens": 68
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.032074140006443486,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.3149480620049872,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794604988,
+              "id": "chatcmpl-gDGf9f7nhZosdcPfhvcKkZ29WvoJq6m2",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.314980827999534,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_f42d001944ba4f00ae3fbd82",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Hoy"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.4338462470041122,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_f42d001944ba4f00ae3fbd82",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " es"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.5836965680064168,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_f42d001944ba4f00ae3fbd82",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " viernes"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.7253442690125667,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_f42d001944ba4f00ae3fbd82",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.861283125996124,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 45,
+                "prompt_n": 18,
+                "prompt_ms": 1260.896,
+                "prompt_per_token_ms": 70.04977777777778,
+                "prompt_per_second": 14.27556277440804,
+                "predicted_n": 5,
+                "predicted_ms": 546.39,
+                "predicted_per_token_ms": 136.5975,
+                "predicted_per_second": 7.320778198722524,
+                "input_tokens": 63,
+                "output_tokens": 5,
+                "total_tokens": 68
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.86132151298807,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794604989,
+              "id": "chatcmpl-gDGf9f7nhZosdcPfhvcKkZ29WvoJq6m2",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 45,
+                "prompt_n": 18,
+                "prompt_ms": 1260.896,
+                "prompt_per_token_ms": 70.04977777777778,
+                "prompt_per_second": 14.27556277440804,
+                "predicted_n": 5,
+                "predicted_ms": 546.39,
+                "predicted_per_token_ms": 136.5975,
+                "predicted_per_second": 7.320778198722524
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.8716402119898703,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "c476271f-d832-4c51-93b8-0894873dc98d",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.8725790430034976,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_f42d001944ba4f00ae3fbd82",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Hoy es viernes."
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency weekday",
+              "usage": {
+                "cache_n": 45,
+                "prompt_n": 18,
+                "prompt_ms": 1260.896,
+                "prompt_per_token_ms": 70.04977777777778,
+                "prompt_per_second": 14.27556277440804,
+                "predicted_n": 5,
+                "predicted_ms": 546.39,
+                "predicted_per_token_ms": 136.5975,
+                "predicted_per_second": 7.320778198722524,
+                "input_tokens": 63,
+                "output_tokens": 5,
+                "total_tokens": 68
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.882222668005852,
+          "event": {
+            "type": "chat:title",
+            "data": "\u00bfqu\u00e9 d\u00eda de la semana es hoy?"
+          }
+        },
+        {
+          "elapsed_s": 1.885570968996035,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+[51281] 0.09.313.327 I slot get_availabl: id  1 | task -1 | selected slot by LRU, n_tokens = 0, t_last = -1
+[51281] 0.09.313.384 I slot launch_slot_: id  1 | task 5 | processing task, is_child = 0
+[51281] 0.13.581.686 I slot print_timing: id  1 | task 5 | prompt eval time =    2315.89 ms /    43 tokens (   53.86 ms per token,    18.57 tokens per second)
+[51281] 0.13.581.695 I slot print_timing: id  1 | task 5 |        eval time =    1949.56 ms /    18 tokens (  114.68 ms per token,     8.72 tokens per second)
+[51281] 0.13.581.727 I slot      release: id  1 | task 5 | stop processing: n_tokens = 60, truncated = 0

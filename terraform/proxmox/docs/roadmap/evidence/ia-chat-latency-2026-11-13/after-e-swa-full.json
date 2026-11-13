@@ -1,0 +1,3213 @@
+{
+  "stage": "after-e-swa-full",
+  "chat_id": "754aa589-9f9a-4079-afb4-374dcc36b567",
+  "results": [
+    {
+      "message": "Hola, \u00bfqu\u00e9 tal?",
+      "ttft_s": 2.8354347929998767,
+      "elapsed_s": 4.878158024017466,
+      "text": "\u00a1Hola! Muy bien, \u00bfy t\u00fa? \u00bfEn qu\u00e9 puedo ayudarte hoy?",
+      "usage": {
+        "cache_n": 0,
+        "prompt_n": 43,
+        "prompt_ms": 2785.618,
+        "prompt_per_token_ms": 64.78181395348837,
+        "prompt_per_second": 15.436430982281133,
+        "predicted_n": 18,
+        "predicted_ms": 2023.15,
+        "predicted_per_token_ms": 119.00882352941177,
+        "predicted_per_second": 8.402738304129699,
+        "input_tokens": 43,
+        "output_tokens": 18,
+        "total_tokens": 61
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.02915005199611187,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.8352657750074286,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794589696,
+              "id": "chatcmpl-Ue8UtYu0CgSZWzdnbNnnL0l73D2ZLq94",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.8354347929998767,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\u00a1"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.9520786970097106,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Hola"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.086368645017501,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "!"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.224178964999737,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Muy"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.3333602189959493,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " bien"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.443562162021408,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.5542246109980624,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.6678954450180754,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.81851020900649,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " t\u00fa"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.945028045010986,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.058768092014361,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.172122980002314,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "En"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.285227415995905,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " qu\u00e9"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.394931237009587,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " puedo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.505630222003674,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ayudarte"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.617186999996193,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " hoy"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.730769265006529,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_52532d7b8b9742a7bd8772f4",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.859918853006093,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 0,
+                "prompt_n": 43,
+                "prompt_ms": 2785.618,
+                "prompt_per_token_ms": 64.78181395348837,
+                "prompt_per_second": 15.436430982281133,
+                "predicted_n": 18,
+                "predicted_ms": 2023.15,
+                "predicted_per_token_ms": 119.00882352941177,
+                "predicted_per_second": 8.402738304129699,
+                "input_tokens": 43,
+                "output_tokens": 18,
+                "total_tokens": 61
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.85997988001327,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794589698,
+              "id": "chatcmpl-Ue8UtYu0CgSZWzdnbNnnL0l73D2ZLq94",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 0,
+                "prompt_n": 43,
+                "prompt_ms": 2785.618,
+                "prompt_per_token_ms": 64.78181395348837,
+                "prompt_per_second": 15.436430982281133,
+                "predicted_n": 18,
+                "predicted_ms": 2023.15,
+                "predicted_per_token_ms": 119.00882352941177,
+                "predicted_per_second": 8.402738304129699
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.870402232016204,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "754aa589-9f9a-4079-afb4-374dcc36b567",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.870981510001002,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_52532d7b8b9742a7bd8772f4",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "\u00a1Hola! Muy bien, \u00bfy t\u00fa? \u00bfEn qu\u00e9 puedo ayudarte hoy?"
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency after-e-swa-full",
+              "usage": {
+                "cache_n": 0,
+                "prompt_n": 43,
+                "prompt_ms": 2785.618,
+                "prompt_per_token_ms": 64.78181395348837,
+                "prompt_per_second": 15.436430982281133,
+                "predicted_n": 18,
+                "predicted_ms": 2023.15,
+                "predicted_per_token_ms": 119.00882352941177,
+                "predicted_per_second": 8.402738304129699,
+                "input_tokens": 43,
+                "output_tokens": 18,
+                "total_tokens": 61
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.877091500995448,
+          "event": {
+            "type": "chat:title",
+            "data": "Hola, \u00bfqu\u00e9 tal?"
+          }
+        },
+        {
+          "elapsed_s": 4.880240132013569,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    },
+    {
+      "message": "\u00bfY c\u00f3mo puedes ayudarme?",
+      "ttft_s": 1.5459596439905,
+      "elapsed_s": 22.36886486498406,
+      "text": "Puedo ayudarte en diversas tareas, como por ejemplo:\n\n*   **Responder preguntas:** Sobre cultura general, ciencia, historia, etc.\n*   **Redacci\u00f3n y correcci\u00f3n:** Escribir correos, ensayos, textos creativos o revisar tu gram\u00e1tica.\n*   **Programaci\u00f3n:** Escribir, explicar o depurar c\u00f3digo en varios lenguajes.\n*   **Traducci\u00f3n:** Traducir textos entre decenas de idiomas.\n*   **Resumen y an\u00e1lisis:** Sintetizar textos largos o explicar conceptos complejos de forma sencilla.\n*   **Lluvia de ideas:** Generar ideas para proyectos, nombres, regalos o contenido.\n*   **Matem\u00e1ticas y l\u00f3gica:** Resolver problemas y explicar procedimientos.\n\n\u00bfTienes algo espec\u00edfico en mente?",
+      "usage": {
+        "cache_n": 60,
+        "prompt_n": 21,
+        "prompt_ms": 1491.399,
+        "prompt_per_token_ms": 71.01899999999999,
+        "prompt_per_second": 14.080738957180474,
+        "predicted_n": 163,
+        "predicted_ms": 20794.608,
+        "predicted_per_token_ms": 128.36177777777777,
+        "predicted_per_second": 7.790481070862216,
+        "input_tokens": 81,
+        "output_tokens": 163,
+        "total_tokens": 244
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.031633798993425444,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.5459273110027425,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794589729,
+              "id": "chatcmpl-ACiYNMfZQhU07ylxcZermRIEse48O18X",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.5459596439905,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Pued"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.6652539929782506,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.7772795319906436,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ayudarte"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.9026033019763418,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " en"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.016562675999012,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " diversas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.213472607982112,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " tareas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.647537505981745,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.7856084529776126,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " como"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.900963722000597,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " por"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.014465382992057,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ejemplo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.1372001109994017,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.3045407249883283,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.371366991981631,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "*"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.4944569209765177,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "   "
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.6124712089949753,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.7246016940043774,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Responder"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.8365033360023517,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " preguntas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.948751606978476,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.074819935980486,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Sobre"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.200349606981035,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " cultura"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.310440061992267,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " general"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.42955794397858,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.545301526988624,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ciencia"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.657052102003945,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.769501881994074,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " historia"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.882049202977214,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.993478978984058,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " etc"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.108207722980296,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.231600761995651,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.347500726988073,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "*"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.468075397977373,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "   "
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.584264292992884,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.697920095990412,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Red"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.81491975300014,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "acci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.926769457000773,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.040183621982578,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " corre"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.154064251983073,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "cci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.2672817989951,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.382657541980734,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " E"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.502795362001052,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "scrib"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.613800044986419,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ir"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.7337524379836395,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " corre"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.855514133989345,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "os"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.973440928995842,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.11091152500012,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ensayos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.2480997669918,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.400779224000871,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " textos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.522108885983471,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " creat"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.64728701999411,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ivos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.8030147009994835,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.938970203977078,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " revisar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.055396212992491,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " tu"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.17228126199916,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " gram"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.2893893319997,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\u00e1tica"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.413863980997121,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.58173902600538,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.700476361991605,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "*"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.850611351983389,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "   "
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.962600778992055,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.076101707003545,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Program"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.189326516992878,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "aci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.304524832987227,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.421607700991444,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " E"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.541085150995059,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "scrib"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.653988046979066,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ir"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.82545571497758,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.956478204985615,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " explicar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.079560455982573,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.264245406986447,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " dep"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.381037043000106,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "urar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.498393869987922,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " c\u00f3digo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.611606242979178,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " en"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.72742743298295,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " varios"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.841419031989062,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " leng"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.962458762980532,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "u"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.08035418597865,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ajes"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.195934713003226,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.320036158984294,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.43663130098139,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "*"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.559802917996421,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "   "
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.678877456986811,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.811523315001978,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Tr"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.941921634977916,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "adu"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.05433466899558,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "cci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.170139252004446,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.28643907199148,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Trad"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.401073389977682,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "uc"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.518791471986333,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ir"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.633821370982332,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " textos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.747211790003348,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " entre"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.863166853989242,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " decenas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.987210612976924,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.104202305985382,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " idiomas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.217140642984305,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.329090476996498,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.450199304992566,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "*"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.620926208997844,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "   "
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.735803594987374,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.877877302991692,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Res"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.000419728981797,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "umen"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.113543432002189,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.231528025993612,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " an\u00e1lisis"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.348354396992363,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.472650588984834,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Sint"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.601291814993601,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "et"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.715391590987565,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "izar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.83386107799015,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " textos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.948181466985261,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " largos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.061463970982004,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.202509673981695,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " explicar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.32804976697662,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " conceptos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.447398445976432,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " complejos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.574993382004322,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.692907605000073,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " forma"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.817281890980667,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " sencilla"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.942640359979123,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.06845757199335,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.203865621995647,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "*"
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.37684203698882,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "   "
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.501412647980032,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.71366581498296,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "L"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.146392271999503,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "lu"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.271087126981,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "via"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.385200778982835,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.512945169990417,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ideas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.6293929599924,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.7463791629998,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Gener"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.86246585898334,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.978792345995316,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ideas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.093387145985616,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " para"
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.226356056984514,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " proyectos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.363098966976395,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.524130816978868,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " nombres"
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.669547377998242,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.790948822977953,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " regalos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.910011710977415,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.026349641993875,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " contenido"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.14402863700525,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.260093991993926,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.379228509991663,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "*"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.50182072998723,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "   "
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.615425992989913,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.7339921160019,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Mat"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.853024576004827,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "em"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.965810036985204,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\u00e1ticas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.07833882397972,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.20947640397935,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " l\u00f3gica"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.323110331984935,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.441009425005177,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Resolver"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.559061138977995,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " problemas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.675612719991477,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.796631495002657,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " explicar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.92039850098081,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " procedimientos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.05499675599276,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.226035143976333,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.35380212898599,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.472764459002065,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Tienes"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.646061556995846,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " algo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.775576877989806,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " espec\u00edfico"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.934467629995197,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " en"
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.077140888985014,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " mente"
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.198152666998794,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_10ac9c4335bb41e4a4a9c833",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.34224120300496,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 60,
+                "prompt_n": 21,
+                "prompt_ms": 1491.399,
+                "prompt_per_token_ms": 71.01899999999999,
+                "prompt_per_second": 14.080738957180474,
+                "predicted_n": 163,
+                "predicted_ms": 20794.608,
+                "predicted_per_token_ms": 128.36177777777777,
+                "predicted_per_second": 7.790481070862216,
+                "input_tokens": 81,
+                "output_tokens": 163,
+                "total_tokens": 244
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.342278698983137,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794589750,
+              "id": "chatcmpl-ACiYNMfZQhU07ylxcZermRIEse48O18X",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 60,
+                "prompt_n": 21,
+                "prompt_ms": 1491.399,
+                "prompt_per_token_ms": 71.01899999999999,
+                "prompt_per_second": 14.080738957180474,
+                "predicted_n": 163,
+                "predicted_ms": 20794.608,
+                "predicted_per_token_ms": 128.36177777777777,
+                "predicted_per_second": 7.790481070862216
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.361107779986924,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "754aa589-9f9a-4079-afb4-374dcc36b567",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.36121954699047,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_10ac9c4335bb41e4a4a9c833",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Puedo ayudarte en diversas tareas, como por ejemplo:\n\n*   **Responder preguntas:** Sobre cultura general, ciencia, historia, etc.\n*   **Redacci\u00f3n y correcci\u00f3n:** Escribir correos, ensayos, textos creativos o revisar tu gram\u00e1tica.\n*   **Programaci\u00f3n:** Escribir, explicar o depurar c\u00f3digo en varios lenguajes.\n*   **Traducci\u00f3n:** Traducir textos entre decenas de idiomas.\n*   **Resumen y an\u00e1lisis:** Sintetizar textos largos o explicar conceptos complejos de forma sencilla.\n*   **Lluvia de ideas:** Generar ideas para proyectos, nombres, regalos o contenido.\n*   **Matem\u00e1ticas y l\u00f3gica:** Resolver problemas y explicar procedimientos.\n\n\u00bfTienes algo espec\u00edfico en mente?"
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency after-e-swa-full",
+              "usage": {
+                "cache_n": 60,
+                "prompt_n": 21,
+                "prompt_ms": 1491.399,
+                "prompt_per_token_ms": 71.01899999999999,
+                "prompt_per_second": 14.080738957180474,
+                "predicted_n": 163,
+                "predicted_ms": 20794.608,
+                "predicted_per_token_ms": 128.36177777777777,
+                "predicted_per_second": 7.790481070862216,
+                "input_tokens": 81,
+                "output_tokens": 163,
+                "total_tokens": 244
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.367743267997866,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    },
+    {
+      "message": "Res\u00famelo en una frase.",
+      "ttft_s": 1.1996169210178778,
+      "elapsed_s": 4.867526254005497,
+      "text": "Soy una inteligencia artificial capaz de procesar informaci\u00f3n para responder dudas, redactar textos, programar y resolver problemas de diversa \u00edndole.",
+      "usage": {
+        "cache_n": 243,
+        "prompt_n": 22,
+        "prompt_ms": 1145.996,
+        "prompt_per_token_ms": 52.09072727272728,
+        "prompt_per_second": 19.19727468507743,
+        "predicted_n": 28,
+        "predicted_ms": 3655.63,
+        "predicted_per_token_ms": 135.39370370370372,
+        "predicted_per_second": 7.385867825791997,
+        "input_tokens": 265,
+        "output_tokens": 28,
+        "total_tokens": 293
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.029352498007938266,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.1995870600221679,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794589781,
+              "id": "chatcmpl-aGBzZji4UlvsQE2PoxKP87km4G3WiMmM",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.1996169210178778,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Soy"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.3260440340091009,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " una"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.4483908789989073,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " inteligencia"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.5709484010003507,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " artificial"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.6918196370243095,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " capaz"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.8147064330114517,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.9414640650211368,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " proces"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.0885863860021345,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.2480427250266075,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " informaci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.4332691470044665,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " para"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.605582135001896,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " responder"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.726083442015806,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " dudas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.864435117022367,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.987258342007408,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " redact"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.1096097720146645,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.2372395590064116,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " textos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.3562834309996106,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.4838727680034935,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " program"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.6041726100083906,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.7303015700017568,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 3.8822804860246833,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " resolver"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.011882762017194,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " problemas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.141671846009558,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.273686396016274,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " diversa"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.435602419020142,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00ednd"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.595569124998292,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ole"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.728516475006472,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_30fc0315a1cd4b12990b13f8",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.855383512011031,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 243,
+                "prompt_n": 22,
+                "prompt_ms": 1145.996,
+                "prompt_per_token_ms": 52.09072727272728,
+                "prompt_per_second": 19.19727468507743,
+                "predicted_n": 28,
+                "predicted_ms": 3655.63,
+                "predicted_per_token_ms": 135.39370370370372,
+                "predicted_per_second": 7.385867825791997,
+                "input_tokens": 265,
+                "output_tokens": 28,
+                "total_tokens": 293
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.855429715011269,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794589785,
+              "id": "chatcmpl-aGBzZji4UlvsQE2PoxKP87km4G3WiMmM",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 243,
+                "prompt_n": 22,
+                "prompt_ms": 1145.996,
+                "prompt_per_token_ms": 52.09072727272728,
+                "prompt_per_second": 19.19727468507743,
+                "predicted_n": 28,
+                "predicted_ms": 3655.63,
+                "predicted_per_token_ms": 135.39370370370372,
+                "predicted_per_second": 7.385867825791997
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.864333789999364,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "754aa589-9f9a-4079-afb4-374dcc36b567",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.865278953016968,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_30fc0315a1cd4b12990b13f8",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Soy una inteligencia artificial capaz de procesar informaci\u00f3n para responder dudas, redactar textos, programar y resolver problemas de diversa \u00edndole."
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency after-e-swa-full",
+              "usage": {
+                "cache_n": 243,
+                "prompt_n": 22,
+                "prompt_ms": 1145.996,
+                "prompt_per_token_ms": 52.09072727272728,
+                "prompt_per_second": 19.19727468507743,
+                "predicted_n": 28,
+                "predicted_ms": 3655.63,
+                "predicted_per_token_ms": 135.39370370370372,
+                "predicted_per_second": 7.385867825791997,
+                "input_tokens": 265,
+                "output_tokens": 28,
+                "total_tokens": 293
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.871913578012027,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    }
+  ]
+}

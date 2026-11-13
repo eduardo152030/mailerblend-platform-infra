@@ -1,0 +1,22 @@
+[Unit]
+Description=Chat local llama.cpp router (un modelo cargado como máximo)
+After=network-online.target
+Wants=network-online.target
+RequiresMountsFor=/models
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/llama.cpp
+ExecStart=/opt/llama.cpp/build/bin/llama-server --models-preset /etc/llama/models.ini --models-max 1 --host 0.0.0.0 --port 8080 --api-key-file /etc/llama/api.key --metrics
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=90
+KillMode=control-group
+NoNewPrivileges=true
+PrivateTmp=true
+UMask=0077
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

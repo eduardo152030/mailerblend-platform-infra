@@ -1,0 +1,25 @@
+{
+  "users": 0,
+  "models": [
+    [
+      "gemma-4-26b",
+      "Gemma 4 \u00b7 Chat",
+      "system"
+    ],
+    [
+      "qwen3.6-35b",
+      "Qwen3.6 \u00b7 C\u00f3digo y razonamiento",
+      "system"
+    ]
+  ],
+  "integrity_check": "ok",
+  "technical_token_http": 401,
+  "temporary_secret_file_absent": true,
+  "features": {
+    "auth": true,
+    "enable_signup": true,
+    "enable_login_form": true
+  },
+  "default_locale": "es-ES",
+  "first_owner_admin_pending": true
+}

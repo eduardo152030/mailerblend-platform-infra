@@ -1,0 +1,19 @@
+{
+  "db_exists": true,
+  "db_bytes": 843776,
+  "integrity_check": "ok",
+  "model_rows": [
+    [
+      "gemma-4-26b",
+      "Gemma 4 \u00b7 Chat"
+    ],
+    [
+      "qwen3.6-35b",
+      "Qwen3.6 \u00b7 C\u00f3digo y razonamiento"
+    ]
+  ],
+  "temporary_users": 1,
+  "cache_revisions": [
+    "cache/embedding/models/models--intfloat--multilingual-e5-small/snapshots/614241f622f53c4eeff9890bdc4f31cfecc418b3"
+  ]
+}

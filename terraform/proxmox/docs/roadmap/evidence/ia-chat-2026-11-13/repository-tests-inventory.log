@@ -1,0 +1,21 @@
+test_ct614_individual_inventory_is_primary (test_inventory.InventoryTests) ... ok
+test_ct614_notes_equal_the_service_source (test_inventory.InventoryTests) ... ok
+test_ct615_individual_inventory_is_primary (test_inventory.InventoryTests) ... ok
+test_ct615_notes_equal_source (test_inventory.InventoryTests) ... ok
+test_domain_requires_upstream_match (test_inventory.InventoryTests) ... ok
+test_failed_empty_plan_cannot_authorize_notes (test_inventory.InventoryTests) ... ok
+test_legacy_17_preserved_and_new_services_have_notes (test_inventory.InventoryTests) ... ok
+test_new_service_notes_and_observed_state (test_inventory.InventoryTests) ... ok
+test_only_expected_notes_may_apply (test_inventory.InventoryTests) ... ok
+test_recreation_and_unknowns_block_apply (test_inventory.InventoryTests) ... ok
+test_resource_changes_block_apply (test_inventory.InventoryTests) ... ok
+test_secret_assignments_are_rejected (test_inventory.InventoryTests) ... ok
+test_service_scope_rejects_other_resource_notes (test_inventory.InventoryTests) ... ok
+test_unexpected_description_and_resource_block_apply (test_inventory.InventoryTests) ... ok
+test_upstream_groups_resolved_exactly (test_inventory.InventoryTests) ... ok
+test_yaml_duplicate_is_rejected (test_inventory.InventoryTests) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.432s
+
+OK

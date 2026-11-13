@@ -1,0 +1,116 @@
+[
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/build.log",
+    "original_sha256": "5f3be5f58ec6d2c96b74880a62a463b384a5fdc6ddb0e8eaa2e3a876ba712cdb",
+    "published_sha256": "39dd2367e88624c5fac52e67921e152bf4da307e95bebf98cd28a9f53cc764d7",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/docker-install.log",
+    "original_sha256": "f7129e3a91fc068678fecfecc8df14ab0a3501c75999795eb723182cd77c435a",
+    "published_sha256": "eef7038bfe2f57943482ad3590f03b986dc2a8c4418abf12794526b9a58306b1",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/fixture-font-install.log",
+    "original_sha256": "c3ac133d218d72c36511f6dff6d254d5d1fbad7be010da8ca487a511c9621ac5",
+    "published_sha256": "1e4fa43308edfc3cc142a4932e2632cba99d1d3084a4ba9e0356d410e14a4ad6",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/images-pull.log",
+    "original_sha256": "526daa72089dc3f376551d6e53f28bf46c7d6626d861f5aa85f2db9ba7368a07",
+    "published_sha256": "ddef7027e25c486f01b227a350758bff86dce256740a58a7288d97001f5e67db",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/llama-context-adjustment.log",
+    "original_sha256": "940bdd6c6e45101a7401129535887c1c732ea3957cf0bbbebb49c060caf93535",
+    "published_sha256": "a128274861732545ed49ea419c6b447eae6455bc5d4f7dbf33bbb19c0d60bf68",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/llama-install.log",
+    "original_sha256": "940bdd6c6e45101a7401129535887c1c732ea3957cf0bbbebb49c060caf93535",
+    "published_sha256": "a128274861732545ed49ea419c6b447eae6455bc5d4f7dbf33bbb19c0d60bf68",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/network-configs.txt",
+    "original_sha256": "75ab757eaae2edf3e4f405ec25f39e26026dd247fd95c8d5207dc9fb69f4516b",
+    "published_sha256": "d622da28bb85ddbe35e76a2bc5627f3949a3e6e898ecf98aa61a9099f69df1f2",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/provision.log",
+    "original_sha256": "ac85fe77943cfb0e370359b014b738ed92b0936d144a2ee51cfa7e651044fe44",
+    "published_sha256": "f14acaa41f3d8eef8004062214ff4ce36e2907da035e196c0a32aed026e76864",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/rag-stt-concurrent.log",
+    "original_sha256": "0b42fb8d44fe77c3410588d9e4c1aa6e00bce78448a4ab96603dd4f773d9d8fb",
+    "published_sha256": "a652d5009b9188ab74a90c48deab97525b31032175c07eb29c11fd34f21d73e6",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/rag-stt-effective-base.log",
+    "original_sha256": "bea558135ced8918055165afb20467bf5eb63636d101fc780b0901dc386f189d",
+    "published_sha256": "8c23dc6ace2ca52a0c137604ff13794877ce729a719ed776faacd5c4454ecc16",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/small-budget-restart.log",
+    "original_sha256": "c93b0fa47dbf102458d1789fe405828c2b9ae43c5c11523fb003e32d44ff9a5b",
+    "published_sha256": "8ae917b0efc36942a86a03b7ee9752206420cbf418ec53720e69d302952d3475",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/stt-base-fp32.log",
+    "original_sha256": "2019dbb6ed60879b3daf1f9d639bf510be951053fdf46961552b37477fc9b68e",
+    "published_sha256": "67c5ba23e72d1bbe20f4914c38346197546c3655eb680a3a65a3722fa313b48a",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/stt-real-base-fp32.log",
+    "original_sha256": "47e25da2298ab00788f9062e02d59aed3f7eb9b85563dad36128677e381bc6ea",
+    "published_sha256": "0025e5cc4c68fb9f2729381c6d1a6c38ff6df955d7986bff7a027cfd81bf48e1",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/test-user-cleanup.log",
+    "original_sha256": "e589fac3703e46dd8ae291df313766aabf1d27246eeb10ec452b5b500411890d",
+    "published_sha256": "24a4b7eafc3a1cd14a9f52a7658c03461cc4c52217814e68ba507837f1850da6",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/tts-disabled.log",
+    "original_sha256": "c93b0fa47dbf102458d1789fe405828c2b9ae43c5c11523fb003e32d44ff9a5b",
+    "published_sha256": "8ae917b0efc36942a86a03b7ee9752206420cbf418ec53720e69d302952d3475",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/tts-static-source-corrected.log",
+    "original_sha256": "c93b0fa47dbf102458d1789fe405828c2b9ae43c5c11523fb003e32d44ff9a5b",
+    "published_sha256": "8ae917b0efc36942a86a03b7ee9752206420cbf418ec53720e69d302952d3475",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/webui-start.log",
+    "original_sha256": "b2b31413c8b843d6b4709ce69f3fb84eadf0f43dfc29477dc84fc9a5d5773166",
+    "published_sha256": "a567ab3c3ae482d708019c0d4c519ad7949d5fc1dd02166444243775cbf309aa",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/whisper-base-deploy.log",
+    "original_sha256": "7b9345b323eac61018dc7ce10988a75511c1e60c0e31a782a1022bf6ea279735",
+    "published_sha256": "9d5c51da57e2748f54c3ce71c55ef917c3af91753d133f8e82fceb4cee9e9964",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  },
+  {
+    "file": "docs/roadmap/evidence/ia-chat-2026-11-13/whisper-fp32-rollback.log",
+    "original_sha256": "c93b0fa47dbf102458d1789fe405828c2b9ae43c5c11523fb003e32d44ff9a5b",
+    "published_sha256": "8ae917b0efc36942a86a03b7ee9752206420cbf418ec53720e69d302952d3475",
+    "normalization": "CR/CRLF to LF; trailing whitespace removed; original retained privately"
+  }
+]

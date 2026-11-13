@@ -1,0 +1,135 @@
+{
+  "utc": "2026-11-13T15:34:39.257432+00:00",
+  "pass": true,
+  "no_recreation_reload_restart": true,
+  "original_protected_configs_unchanged": true,
+  "before": {
+    "protected": {
+      "/etc/pve/lxc/620.conf": "17ae5bd3e712ec2c58f7deb9d82fffd29d35fc40781ed720bac48ef99c75b534",
+      "/etc/pve/lxc/621.conf": "ac2bba7fe12cc7ee16701c418f1a46d7bfc48612a728673ddd81fa66edc22c40",
+      "/etc/pve/lxc/622.conf": "8192a357c960df3bafd3bb17565609605eb67830172f72d75d42311b37847620",
+      "/etc/pve/lxc/623.conf": "1c23ac15c980db51756aebb8720ecb626144984256d061a49a3724afda407b4c",
+      "/etc/pve/lxc/624.conf": "f945d65a129993d9007652b7cc85ce59beb7516fef3e394df3e422a6548ebc67",
+      "/etc/pve/lxc/625.conf": "cc82a509b23010e05edf3f4e1f5218734f24a26d0d04237dbe4d0f696c904e3d",
+      "/etc/pve/lxc/626.conf": "e03537f3c1c56d1c2ca2389400a93015d4ae3022d2386911ede74c53b3524dac",
+      "/etc/pve/lxc/627.conf": "d94723e2633bbd0c9999af0517f5e7b2a27834a109d7c1f8885e8e9ed8bdfb72",
+      "/etc/pve/lxc/610.conf": "aa31485ed2daa9b63bdc69af2b858e7d1652d49f82d67e0decacda15ddde81da",
+      "/etc/pve/lxc/611.conf": "5277b6c56d517cdb692786b33b93939cf7b68bd9a545eb2c4e5bec5f127c5079",
+      "/etc/pve/lxc/613.conf": "433d69cb350f48b86a4283c94ab00de2c9a7e5fa3a65f3e51c0ac4d156e459f9",
+      "/etc/pve/lxc/614.conf": "11aaa5f184b52aa23025946f380b01baa0f9fecd0566a1721d005f9c102a556b",
+      "/etc/pve/lxc/615.conf": "6d2f3c732171940a60b9643d474de1e2c7575a2f9caf03fe37a7baa67db32696",
+      "/etc/pve/lxc/616.conf": "78b47a37604ab91b26578282770156006c5866fbcc38b68903dff533bdc724b9",
+      "/etc/pve/lxc/617.conf": "8d81cd62fe44bb3b38893f6e456f1f5ae9919d2090d9f2b98c5d7c7e41a8510f",
+      "/etc/pve/lxc/618.conf": "10e59bf0523db1a24c9a5bbb9b54f8c43fff8a57b39aeeb03ffab0b5332c544f",
+      "/etc/pve/lxc/619.conf": "afb09985bd71bbbf57de67e46e1dc23e11ee89a630e10ead9156015c2a57f9c1",
+      "/etc/pve/lxc/101.conf": "17ca38e4106856c6517911d80726f0bc9b6fe3b007c2ee6b82514929e529e9c4",
+      "/etc/pve/lxc/103.conf": "be97bbc4a7967d3ba7fc2fac7947ec3142c5aeb7a28777a0e41f13213b326f21",
+      "/etc/pve/lxc/104.conf": "2aff6d2c47d308a227aca75f037ac6cc85c6b5ec6a81cc3d04775a6a2cf18f10",
+      "/etc/pve/lxc/105.conf": "9409ba1e5955b33bcfecf7a3765a802683f2c302d6c5015d5591a3a5e4ae6f9b",
+      "/etc/pve/lxc/106.conf": "115491492177b31124a5c64a6c32516a8533b655cd992b41bc32c6c1b4687e9d",
+      "/etc/pve/lxc/107.conf": "8b7aa4a0d4e7a3ac56d1bf511a32c019ba60c00220a1862f54165c99517258ca",
+      "/etc/pve/lxc/109.conf": "4d2469e95fbed964ec208b4ec9ff6e3c71afd715e34d3417b3fe863b373bc65f",
+      "/etc/pve/lxc/61211.conf": "bb097efcf9463ccd540a1ade55eaffe5d6ea636688a3412ece60839a172c6e1c",
+      "/etc/pve/lxc/630.conf": "f52bb3837245cb51ae37dafd3a8d4a83b48d82027da13ba1f58a614ca23c67b9",
+      "/etc/pve/lxc/631.conf": "25edd2eca6b22e8ef57a6ae0fc682cb70a8ec3b3bd03dccfebdcaddef7b6185b",
+      "/etc/pve/storage.cfg": "3e9b6f49027d0837772957c90b80cbc610134f173c53440d145e69237dff749d",
+      "/etc/network/interfaces": "886a44b3cec42cae3073d47ec3ad432845045da22821d8ba0564aa08b27180a9"
+    },
+    "llama": "MainPID=176\nNRestarts=0\nExecMainStartTimestampMonotonic=164649188317",
+    "containers": {
+      "ia-chat-open-webui-1": "78ba3362e7219bbe29c864e66c88e0957b1a68ad2ba2848706d893ec19f82707|sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14|2026-11-13T15:33:15.65108763Z|0|runc",
+      "ia-chat-searxng-1": "eeabd0eac4dd675e631a552b122a50c3f76151d92d2d58d5a4bace30e05aa026|sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2|2026-11-13T15:31:33.942354149Z|0|runc",
+      "cadvisor": "76be6828c7a3dadd9147c92b45f52105366bf30c383c554a9e60496f12eaf8f9|sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a|2026-11-13T15:31:33.911954298Z|0|runc"
+    },
+    "artifacts": {
+      "llama": "db128ab52c102c69937e60be3dbb94cac6a9d88b54fbf28ebeda2960b471a215  /etc/llama/models.ini\n19e029efe3695d113efb491fe687d63d07f7c13d37482a7a1ab7bf05d42bd157  /etc/systemd/system/llama-server.service",
+      "webui": "d92ff60d2394ac86a1ee41090ed91298f1522b0fc1f2199ce6ea3ecda2402628  /opt/ia-chat/docker-compose.yml\n1dd4f33331b70f743ead0f064d7b80506146a67d82fe779173c96a2bb0a8ae1e  /opt/ia-chat/custom.css"
+    }
+  },
+  "after": {
+    "protected": {
+      "/etc/pve/lxc/620.conf": "17ae5bd3e712ec2c58f7deb9d82fffd29d35fc40781ed720bac48ef99c75b534",
+      "/etc/pve/lxc/621.conf": "ac2bba7fe12cc7ee16701c418f1a46d7bfc48612a728673ddd81fa66edc22c40",
+      "/etc/pve/lxc/622.conf": "8192a357c960df3bafd3bb17565609605eb67830172f72d75d42311b37847620",
+      "/etc/pve/lxc/623.conf": "1c23ac15c980db51756aebb8720ecb626144984256d061a49a3724afda407b4c",
+      "/etc/pve/lxc/624.conf": "f945d65a129993d9007652b7cc85ce59beb7516fef3e394df3e422a6548ebc67",
+      "/etc/pve/lxc/625.conf": "cc82a509b23010e05edf3f4e1f5218734f24a26d0d04237dbe4d0f696c904e3d",
+      "/etc/pve/lxc/626.conf": "e03537f3c1c56d1c2ca2389400a93015d4ae3022d2386911ede74c53b3524dac",
+      "/etc/pve/lxc/627.conf": "d94723e2633bbd0c9999af0517f5e7b2a27834a109d7c1f8885e8e9ed8bdfb72",
+      "/etc/pve/lxc/610.conf": "aa31485ed2daa9b63bdc69af2b858e7d1652d49f82d67e0decacda15ddde81da",
+      "/etc/pve/lxc/611.conf": "5277b6c56d517cdb692786b33b93939cf7b68bd9a545eb2c4e5bec5f127c5079",
+      "/etc/pve/lxc/613.conf": "433d69cb350f48b86a4283c94ab00de2c9a7e5fa3a65f3e51c0ac4d156e459f9",
+      "/etc/pve/lxc/614.conf": "11aaa5f184b52aa23025946f380b01baa0f9fecd0566a1721d005f9c102a556b",
+      "/etc/pve/lxc/615.conf": "6d2f3c732171940a60b9643d474de1e2c7575a2f9caf03fe37a7baa67db32696",
+      "/etc/pve/lxc/616.conf": "78b47a37604ab91b26578282770156006c5866fbcc38b68903dff533bdc724b9",
+      "/etc/pve/lxc/617.conf": "8d81cd62fe44bb3b38893f6e456f1f5ae9919d2090d9f2b98c5d7c7e41a8510f",
+      "/etc/pve/lxc/618.conf": "10e59bf0523db1a24c9a5bbb9b54f8c43fff8a57b39aeeb03ffab0b5332c544f",
+      "/etc/pve/lxc/619.conf": "afb09985bd71bbbf57de67e46e1dc23e11ee89a630e10ead9156015c2a57f9c1",
+      "/etc/pve/lxc/101.conf": "17ca38e4106856c6517911d80726f0bc9b6fe3b007c2ee6b82514929e529e9c4",
+      "/etc/pve/lxc/103.conf": "be97bbc4a7967d3ba7fc2fac7947ec3142c5aeb7a28777a0e41f13213b326f21",
+      "/etc/pve/lxc/104.conf": "2aff6d2c47d308a227aca75f037ac6cc85c6b5ec6a81cc3d04775a6a2cf18f10",
+      "/etc/pve/lxc/105.conf": "9409ba1e5955b33bcfecf7a3765a802683f2c302d6c5015d5591a3a5e4ae6f9b",
+      "/etc/pve/lxc/106.conf": "115491492177b31124a5c64a6c32516a8533b655cd992b41bc32c6c1b4687e9d",
+      "/etc/pve/lxc/107.conf": "8b7aa4a0d4e7a3ac56d1bf511a32c019ba60c00220a1862f54165c99517258ca",
+      "/etc/pve/lxc/109.conf": "4d2469e95fbed964ec208b4ec9ff6e3c71afd715e34d3417b3fe863b373bc65f",
+      "/etc/pve/lxc/61211.conf": "bb097efcf9463ccd540a1ade55eaffe5d6ea636688a3412ece60839a172c6e1c",
+      "/etc/pve/lxc/630.conf": "f52bb3837245cb51ae37dafd3a8d4a83b48d82027da13ba1f58a614ca23c67b9",
+      "/etc/pve/lxc/631.conf": "25edd2eca6b22e8ef57a6ae0fc682cb70a8ec3b3bd03dccfebdcaddef7b6185b",
+      "/etc/pve/storage.cfg": "3e9b6f49027d0837772957c90b80cbc610134f173c53440d145e69237dff749d",
+      "/etc/network/interfaces": "886a44b3cec42cae3073d47ec3ad432845045da22821d8ba0564aa08b27180a9"
+    },
+    "llama": "MainPID=176\nNRestarts=0\nExecMainStartTimestampMonotonic=164649188317",
+    "containers": {
+      "ia-chat-open-webui-1": "78ba3362e7219bbe29c864e66c88e0957b1a68ad2ba2848706d893ec19f82707|sha256:46b59158e6558eeb980bc828e0f1b30238ad24d82ed84d5e5eda1dab2a082f14|2026-11-13T15:33:15.65108763Z|0|runc",
+      "ia-chat-searxng-1": "eeabd0eac4dd675e631a552b122a50c3f76151d92d2d58d5a4bace30e05aa026|sha256:287af61f1a13e86d02974fcde91a3413a9945788de38b61ffbc491d81a19bcc2|2026-11-13T15:31:33.942354149Z|0|runc",
+      "cadvisor": "76be6828c7a3dadd9147c92b45f52105366bf30c383c554a9e60496f12eaf8f9|sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a|2026-11-13T15:31:33.911954298Z|0|runc"
+    },
+    "artifacts": {
+      "llama": "db128ab52c102c69937e60be3dbb94cac6a9d88b54fbf28ebeda2960b471a215  /etc/llama/models.ini\n19e029efe3695d113efb491fe687d63d07f7c13d37482a7a1ab7bf05d42bd157  /etc/systemd/system/llama-server.service",
+      "webui": "d92ff60d2394ac86a1ee41090ed91298f1522b0fc1f2199ce6ea3ecda2402628  /opt/ia-chat/docker-compose.yml\n1dd4f33331b70f743ead0f064d7b80506146a67d82fe779173c96a2bb0a8ae1e  /opt/ia-chat/custom.css"
+    }
+  },
+  "outputs": {
+    "provision": "Terraform authoritative; checked separately with scoped no-op plan",
+    "llama": "gemma-4-26b hilos TG 3 hilos PP 4 tg128 {3: 7.960704, 4: 6.378334} pp512 {3: 16.3953, 4: 18.266529}\nqwen3.6-35b hilos TG 3 hilos PP 3 tg128 {3: 5.127122, 4: 4.423762} pp512 {3: 20.013556, 4: 19.488041}\n{\"changed_ini\": false, \"changed_unit\": false, \"service_restarted\": false, \"active\": \"active\"}",
+    "compose": "",
+    "jobs": {
+      "utc": "2026-11-13T15:34:34.530238+00:00",
+      "created": [],
+      "jobs": [
+        {
+          "compress": "zstd",
+          "enabled": 1,
+          "id": "ia-chat-webui-631",
+          "mode": "snapshot",
+          "next-run": 1794623400,
+          "node": "pve",
+          "prune-backups": {
+            "keep-daily": "7",
+            "keep-weekly": "4"
+          },
+          "schedule": "03:30",
+          "storage": "storage",
+          "type": "vzdump",
+          "vmid": "631"
+        },
+        {
+          "compress": "zstd",
+          "enabled": 1,
+          "id": "ia-chat-llm-630",
+          "mode": "snapshot",
+          "next-run": 1794711600,
+          "node": "pve",
+          "prune-backups": {
+            "keep-weekly": "4"
+          },
+          "schedule": "sun 04:00",
+          "storage": "storage",
+          "type": "vzdump",
+          "vmid": "630"
+        }
+      ],
+      "other_jobs_unchanged": true
+    }
+  }
+}

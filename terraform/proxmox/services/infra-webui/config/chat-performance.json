@@ -1,0 +1,8 @@
+{
+  "system": "Hoy es {{CURRENT_WEEKDAY}}, {{CURRENT_DATE}}. Responde en español salvo que se te pida otro idioma. Sé directo y conciso.",
+  "function_calling": "legacy",
+  "builtin_tools": false,
+  "title_generation": false,
+  "search_query_generation": false,
+  "cache_prompt": true
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "targets": [
+      "192.168.1.66:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "service": "infra-webui",
+      "vmid": "631",
+      "source": "inventory"
+    }
+  }
+]

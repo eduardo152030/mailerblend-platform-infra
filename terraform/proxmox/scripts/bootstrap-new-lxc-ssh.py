@@ -26,13 +26,15 @@ class Controller:
   # Only OpenSSH consumes the local signing identity. Python never opens/copies it.
   identity=public_source.with_suffix('')
   args=['ssh']+ssh_options(self.base/'known_hosts')+['-p','22','-o','IdentitiesOnly=yes','-i',str(identity),'-o','PreferredAuthentications=publickey','-o','PasswordAuthentication=no','-o','KbdInteractiveAuthentication=no','root@'+self.conf['ip'],'true']
-  p=self.run(args,capture_output=True,text=True,timeout=20)
+  p=self.run(args,capture_output=True,text=True,timeout=60 if self.conf.get("dhcp",False) else 20)
   assert p.returncode==0,'Owner key access not verified; no password fallback; output withheld'
  def execute(self):
   c=self.conf
   # Read only the selected CT; never sweep the 17 accepted LXCs.
   code="import subprocess,json;c=json.loads(subprocess.check_output(['pvesh','get',"+repr('/nodes/'+self.node+'/lxc/'+str(c['ct_id'])+'/config')+",'--output-format','json']));s=json.loads(subprocess.check_output(['pvesh','get',"+repr('/nodes/'+self.node+'/lxc/'+str(c['ct_id'])+'/status/current')+",'--output-format','json']));print(json.dumps({'hostname':c['hostname'],'net0':c['net0'],'status':s['status']}))"
-  state=json.loads(self.pve(['python3','-c',code]));assert state['hostname']==c['hostname'] and state['status']=='running' and ('ip='+c['ip']+'/') in state['net0'],'CT identity differs'
+  state=json.loads(self.pve(['python3','-c',code]));assert state['hostname']==c['hostname'] and state['status']=='running' and (('ip=dhcp' in state['net0']) if c.get('dhcp',False) else ('ip='+c['ip']+'/') in state['net0']),'CT identity differs'
+  if c.get('dhcp',False):
+   addresses=json.loads(self.pve(['pct','exec',str(c['ct_id']),'--','ip','-j','-4','addr','show','dev','eth0']));assert any(a['local']==c['ip'] for link in addresses for a in link.get('addr_info',[])),'DHCP lease mismatch'
   with socket.socket(socket.AF_INET,socket.SOCK_DGRAM) as sock:
    sock.connect((c['ip'],22));client=sock.getsockname()[0]
   self.context='user=root,host='+client+',addr='+client+',laddr='+c['ip']+',lport=22'

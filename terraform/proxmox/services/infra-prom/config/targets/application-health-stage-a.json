@@ -103,5 +103,35 @@
       "health_signal": "api_liveness",
       "source": "inventory"
     }
+  },
+  {
+    "targets": [
+      "http://192.168.1.67:8080/health"
+    ],
+    "labels": {
+      "service": "infra-llm",
+      "vmid": "630",
+      "module": "infra_llm_health",
+      "probe_id": "infra-llm-0",
+      "probe_type": "internal",
+      "source": "inventory",
+      "scope": "internal",
+      "health_signal": "api_liveness"
+    }
+  },
+  {
+    "targets": [
+      "http://192.168.1.66:3000/health"
+    ],
+    "labels": {
+      "service": "infra-webui",
+      "vmid": "631",
+      "module": "infra_webui_health",
+      "probe_id": "infra-webui-0",
+      "probe_type": "internal",
+      "source": "inventory",
+      "scope": "internal",
+      "health_signal": "api_liveness"
+    }
   }
 ]

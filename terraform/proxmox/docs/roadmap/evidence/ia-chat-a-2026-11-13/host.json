@@ -1,0 +1,215 @@
+{
+  "utc": "2026-11-13T11:23:58.147512+00:00",
+  "files": [
+    {
+      "path": "/srv/models/qwen3.6-35b-a3b/Qwen3.6-35B-A3B-UD-IQ4_XS.gguf",
+      "exists": false
+    },
+    {
+      "path": "/srv/models/qwen3.6-35b-a3b/mmproj-F16.gguf",
+      "exists": false
+    }
+  ],
+  "configs": {
+    "620": [
+      "hostname: infra-excraper",
+      "memory: 2048",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:64:03:46,ip=192.168.1.120/24,type=veth",
+      "onboot: 1"
+    ],
+    "621": [
+      "hostname: infra-project-gestion",
+      "memory: 2048",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:98:B0:B3,ip=192.168.1.121/24,type=veth",
+      "onboot: 1"
+    ],
+    "622": [
+      "hostname: infra-eva-assistant-bot",
+      "memory: 2048",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:A6:F9:9F,ip=192.168.1.122/24,type=veth",
+      "onboot: 1"
+    ],
+    "623": [
+      "hostname: infra-gestoria",
+      "memory: 4096",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:07:AC:49,ip=192.168.1.123/24,type=veth",
+      "onboot: 1"
+    ],
+    "624": [
+      "hostname: infra-journal-web",
+      "memory: 512",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:96:15:5B,ip=192.168.1.124/24,type=veth",
+      "onboot: 1"
+    ],
+    "625": [
+      "hostname: infra-journal-db",
+      "memory: 2048",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:F9:7D:B6,ip=192.168.1.125/24,type=veth",
+      "onboot: 1"
+    ],
+    "626": [
+      "hostname: infra-journal-api",
+      "memory: 2048",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:AB:8D:7E,ip=192.168.1.126/24,type=veth",
+      "onboot: 1"
+    ],
+    "627": [
+      "hostname: infra-voicebox",
+      "memory: 20480",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:DF:0E:F8,ip=192.168.1.127/24,type=veth",
+      "onboot: 1"
+    ],
+    "610": [
+      "hostname: infra-prom",
+      "memory: 2048",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:BE:7E:2D,ip=192.168.1.110/24,type=veth",
+      "onboot: 1"
+    ],
+    "611": [
+      "hostname: infra-grafana",
+      "memory: 1048",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:E9:FB:7D,ip=192.168.1.111/24,type=veth",
+      "onboot: 1"
+    ],
+    "613": [
+      "hostname: infra-hola",
+      "memory: 512",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:70:BA:70,ip=192.168.1.113/24,type=veth",
+      "onboot: 1"
+    ],
+    "614": [
+      "hostname: infra-nucleoedge",
+      "memory: 2048",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:CB:64:18,ip=192.168.1.114/24,type=veth",
+      "onboot: 1"
+    ],
+    "615": [
+      "hostname: infra-mailerblend-edge",
+      "memory: 2048",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:EB:F7:90,ip=192.168.1.115/24,type=veth",
+      "onboot: 1"
+    ],
+    "616": [
+      "hostname: infra-blackbox",
+      "memory: 512",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:CC:57:E6,ip=192.168.1.116/24,type=veth",
+      "onboot: 1"
+    ],
+    "617": [
+      "hostname: infra-orbit",
+      "memory: 512",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:AE:5B:BC,ip=192.168.1.117/24,type=veth",
+      "onboot: 1"
+    ],
+    "618": [
+      "hostname: infra-composable-crm",
+      "memory: 6144",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:DC:85:2B,ip=192.168.1.118/24,type=veth",
+      "onboot: 1"
+    ],
+    "619": [
+      "hostname: infra-pulpo",
+      "memory: 2048",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:09:F1:D4,ip=192.168.1.119/24,type=veth",
+      "onboot: 1"
+    ],
+    "101": [
+      "hostname: docmost",
+      "memory: 1024",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:96:52:39,ip=192.168.1.60/24,type=veth"
+    ],
+    "103": [
+      "hostname: aws-workshop",
+      "memory: 5048",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:4A:65:21,ip=dhcp,type=veth"
+    ],
+    "104": [
+      "hostname: nucleo",
+      "memory: 1024",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:D7:CD:A4,ip=dhcp,type=veth"
+    ],
+    "105": [
+      "hostname: n8n-server",
+      "memory: 2096",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:EA:D9:2F,ip=dhcp,type=veth"
+    ],
+    "106": [
+      "hostname: CT106",
+      "memory: 1080",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:26:15:A0,ip=dhcp,type=veth"
+    ],
+    "107": [
+      "hostname: drawio",
+      "memory: 1080",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=BC:24:11:B2:5D:1B,ip=dhcp,type=veth"
+    ],
+    "109": [
+      "hostname: edge-router",
+      "memory: 1080",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:46:2C:4C,ip=192.168.1.71/24,type=veth"
+    ],
+    "61211": [
+      "hostname: svc01",
+      "memory: 6656",
+      "net0: name=eth0,bridge=vmbr0,firewall=1,gw=192.168.1.254,hwaddr=BC:24:11:40:E4:45,ip=192.168.1.112/24,type=veth",
+      "onboot: 1"
+    ]
+  },
+  "resources": {
+    "rc": 0,
+    "stdout": "[{\"cpu\":0.00334590014046034,\"disk\":6338641920,\"diskread\":3968389120,\"diskwrite\":398336000,\"id\":\"lxc/101\",\"maxcpu\":2,\"maxdisk\":20957446144,\"maxmem\":1073741824,\"mem\":504102912,\"name\":\"docmost\",\"netin\":19725891,\"netout\":9259814,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.60\",\"template\":0,\"type\":\"lxc\",\"uptime\":149010,\"vmid\":101},{\"cpu\":0.000991377819395655,\"disk\":20425392128,\"diskread\":3963482112,\"diskwrite\":849616896,\"id\":\"lxc/103\",\"maxcpu\":3,\"maxdisk\":52521566208,\"maxmem\":5293211648,\"mem\":639266816,\"name\":\"aws-workshop\",\"netin\":18442348,\"netout\":73390,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.53\",\"template\":0,\"type\":\"lxc\",\"uptime\":149345,\"vmid\":103},{\"cpu\":0.000318657156234318,\"disk\":1696215040,\"diskread\":1891176448,\"diskwrite\":53207040,\"id\":\"lxc/104\",\"maxcpu\":1,\"maxdisk\":10464022528,\"maxmem\":1073741824,\"mem\":62877696,\"name\":\"nucleo\",\"netin\":18216142,\"netout\":62707,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.51\",\"template\":0,\"type\":\"lxc\",\"uptime\":149373,\"vmid\":104},{\"cpu\":0.000424876208312424,\"disk\":5050363904,\"diskread\":1939836928,\"diskwrite\":119767040,\"id\":\"lxc/105\",\"maxcpu\":2,\"maxdisk\":8350298112,\"maxmem\":2197815296,\"mem\":77742080,\"name\":\"n8n-server\",\"netin\":18241848,\"netout\":63752,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.50\",\"template\":0,\"type\":\"lxc\",\"uptime\":149503,\"vmid\":105},{\"cpu\":0,\"disk\":0,\"diskread\":0,\"diskwrite\":0,\"id\":\"lxc/106\",\"maxcpu\":3,\"maxdisk\":53687091200,\"maxmem\":1132462080,\"mem\":0,\"name\":\"CT106\",\"netin\":0,\"netout\":0,\"node\":\"pve\",\"pool\":\"infra\",\"status\":\"stopped\",\"tags\":\" \",\"template\":1,\"type\":\"lxc\",\"uptime\":0,\"vmid\":106},{\"cpu\":0.000743533364546741,\"disk\":4854718464,\"diskread\":4391489536,\"diskwrite\":1964068864,\"id\":\"lxc/107\",\"maxcpu\":3,\"maxdisk\":52521566208,\"maxmem\":1132462080,\"mem\":441368576,\"name\":\"drawio\",\"netin\":77839652,\"netout\":1479067,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.52\",\"template\":0,\"type\":\"lxc\",\"uptime\":149511,\"vmid\":107},{\"cpu\":0.000495688909697828,\"disk\":4036923392,\"diskread\":3792936960,\"diskwrite\":589127680,\"id\":\"lxc/109\",\"maxcpu\":3,\"maxdisk\":52521566208,\"maxmem\":1132462080,\"mem\":168210432,\"name\":\"edge-router\",\"netin\":247759007,\"netout\":404862974,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.71\",\"template\":0,\"type\":\"lxc\",\"uptime\":149561,\"vmid\":109},{\"cpu\":0.00483296686955382,\"disk\":8176713728,\"diskread\":4831248384,\"diskwrite\":2522112000,\"id\":\"lxc/610\",\"maxcpu\":2,\"maxdisk\":10464022528,\"maxmem\":2147483648,\"mem\":420372480,\"name\":\"infra-prom\",\"netin\":1592343753,\"netout\":129062945,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.110;infra;monitoring;prometheus\",\"template\":0,\"type\":\"lxc\",\"uptime\":149792,\"vmid\":610},{\"cpu\":0.00318657156234318,\"disk\":4832714752,\"diskread\":3285512192,\"diskwrite\":1048711168,\"id\":\"lxc/611\",\"maxcpu\":1,\"maxdisk\":10464022528,\"maxmem\":1098907648,\"mem\":350736384,\"name\":\"infra-grafana\",\"netin\":49530426,\"netout\":130599373,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.111;grafana;infra;monitoring\",\"template\":0,\"type\":\"lxc\",\"uptime\":149789,\"vmid\":611},{\"cpu\":0.00308035251026507,\"disk\":5644259328,\"diskread\":3562075873280,\"diskwrite\":438436667392,\"id\":\"lxc/61211\",\"maxcpu\":3,\"maxdisk\":42158374912,\"maxmem\":6979321856,\"mem\":369590272,\"name\":\"svc01\",\"netin\":22728264,\"netout\":89429381,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.112;generic;infra;internal;nocodb\",\"template\":0,\"type\":\"lxc\",\"uptime\":149658,\"vmid\":61211},{\"cpu\":0.0036114477706556,\"disk\":2090381312,\"diskread\":1923461120,\"diskwrite\":541933568,\"id\":\"lxc/613\",\"maxcpu\":1,\"maxdisk\":10464022528,\"maxmem\":536870912,\"mem\":125435904,\"name\":\"infra-hola\",\"netin\":22549435,\"netout\":79631660,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.113;demo;hola;infra\",\"template\":0,\"type\":\"lxc\",\"uptime\":149786,\"vmid\":613},{\"cpu\":0.00132773815097632,\"disk\":5327536128,\"diskread\":2794979328,\"diskwrite\":574803968,\"id\":\"lxc/614\",\"maxcpu\":2,\"maxdisk\":10464022528,\"maxmem\":2147483648,\"mem\":354156544,\"name\":\"infra-nucleoedge\",\"netin\":1597185907,\"netout\":192008042,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.114;infra;nucleo;prod;sgtm\",\"template\":0,\"type\":\"lxc\",\"uptime\":149784,\"vmid\":614},{\"cpu\":0.00175261435928875,\"disk\":3972669440,\"diskread\":2779590656,\"diskwrite\":565051392,\"id\":\"lxc/615\",\"maxcpu\":2,\"maxdisk\":10464022528,\"maxmem\":2147483648,\"mem\":312766464,\"name\":\"infra-mailerblend-edge\",\"netin\":1357525582,\"netout\":138974203,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.115;infra;mailerblend;prod;sgtm\",\"template\":0,\"type\":\"lxc\",\"uptime\":149776,\"vmid\":615},{\"cpu\":0.00499229544767098,\"disk\":2112413696,\"diskread\":2058645504,\"diskwrite\":575918080,\"id\":\"lxc/616\",\"maxcpu\":1,\"maxdisk\":10464022528,\"maxmem\":536870912,\"mem\":151609344,\"name\":\"infra-blackbox\",\"netin\":281513874,\"netout\":206781451,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.116;infra;mailerblend;monitoring;nucleotecnologico;prod;prometheus\",\"template\":0,\"type\":\"lxc\",\"uptime\":149771,\"vmid\":616},{\"cpu\":0.00233681914571833,\"disk\":5390114816,\"diskread\":2706087936,\"diskwrite\":618909696,\"id\":\"lxc/617\",\"maxcpu\":1,\"maxdisk\":10464022528,\"maxmem\":536870912,\"mem\":250482688,\"name\":\"infra-orbit\",\"netin\":36059302,\"netout\":102336175,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.117;analytics;infra;internal;nucleo-tecnologico\",\"template\":0,\"type\":\"lxc\",\"uptime\":149767,\"vmid\":617},{\"cpu\":0.0738753507203227,\"disk\":24628502528,\"diskread\":17230043525120,\"diskwrite\":769483575296,\"id\":\"lxc/618\",\"maxcpu\":2,\"maxdisk\":52723159040,\"maxmem\":6442450944,\"mem\":2046840832,\"name\":\"infra-composable-crm\",\"netin\":27311342,\"netout\":113450659,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.118;budibase_crm_ui;composable;crm;infra;internal;parte_linkedin_stealth_sourcing;supabase_postgresql\",\"template\":0,\"type\":\"lxc\",\"uptime\":149761,\"vmid\":618},{\"cpu\":0.00419565255708518,\"disk\":5663752192,\"diskread\":8667483553792,\"diskwrite\":1017555898368,\"id\":\"lxc/619\",\"maxcpu\":2,\"maxdisk\":10464022528,\"maxmem\":2147483648,\"mem\":772325376,\"name\":\"infra-pulpo\",\"netin\":26054531,\"netout\":136432051,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.119;automation;infra;internal;n8n;parte_linkedin_stealth_sourcing;server\",\"template\":0,\"type\":\"lxc\",\"uptime\":149756,\"vmid\":619},{\"cpu\":0.0246428200821206,\"disk\":5565472768,\"diskread\":186331385856,\"diskwrite\":761995264,\"id\":\"lxc/620\",\"maxcpu\":2,\"maxdisk\":10464022528,\"maxmem\":2147483648,\"mem\":354160640,\"name\":\"infra-excraper\",\"netin\":29512205,\"netout\":95421114,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.120;automation;infra;internal;linkedin-worker;parte_linkedin_stealth_sourcing;signals-worker\",\"template\":0,\"type\":\"lxc\",\"uptime\":149750,\"vmid\":620},{\"cpu\":0.00207127151552307,\"disk\":2268405760,\"diskread\":2236039168,\"diskwrite\":537460736,\"id\":\"lxc/621\",\"maxcpu\":2,\"maxdisk\":10464022528,\"maxmem\":2147483648,\"mem\":164507648,\"name\":\"infra-project-gestion\",\"netin\":23887603,\"netout\":84576678,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.121;apps;infra;internal;project-gestion\",\"template\":0,\"type\":\"lxc\",\"uptime\":149744,\"vmid\":621},{\"cpu\":0.0189069912699029,\"disk\":25854009344,\"diskread\":3095195648,\"diskwrite\":2050854912,\"id\":\"lxc/622\",\"maxcpu\":2,\"maxdisk\":42158374912,\"maxmem\":2147483648,\"mem\":500760576,\"name\":\"infra-eva-assistant-bot\",\"netin\":28164890,\"netout\":136385403,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.122;ai;infra;internal;telegram\",\"template\":0,\"type\":\"lxc\",\"uptime\":149739,\"vmid\":622},{\"cpu\":0.00308035251026507,\"disk\":7608852480,\"diskread\":15069771481088,\"diskwrite\":616594464768,\"id\":\"lxc/623\",\"maxcpu\":2,\"maxdisk\":52521566208,\"maxmem\":4294967296,\"mem\":649695232,\"name\":\"infra-gestoria\",\"netin\":22790226,\"netout\":91531154,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.123;infra;internal\",\"template\":0,\"type\":\"lxc\",\"uptime\":149718,\"vmid\":623},{\"cpu\":0.00796642890585794,\"disk\":3609395200,\"diskread\":4411412480,\"diskwrite\":1020747776,\"id\":\"lxc/624\",\"maxcpu\":1,\"maxdisk\":52521566208,\"maxmem\":536870912,\"mem\":200216576,\"name\":\"infra-journal-web\",\"netin\":25006563,\"netout\":111129459,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.124;infra;tradeintuit;web\",\"template\":0,\"type\":\"lxc\",\"uptime\":149714,\"vmid\":624},{\"cpu\":0.00100908099474201,\"disk\":3632787456,\"diskread\":3842539520,\"diskwrite\":2673332224,\"id\":\"lxc/625\",\"maxcpu\":2,\"maxdisk\":52521566208,\"maxmem\":2147483648,\"mem\":270839808,\"name\":\"infra-journal-db\",\"netin\":22995378,\"netout\":89884773,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.125;db;infra;postgres;tradeintuit\",\"template\":0,\"type\":\"lxc\",\"uptime\":149693,\"vmid\":625},{\"cpu\":0.000477985734351477,\"disk\":3452784640,\"diskread\":3283984384,\"diskwrite\":929189888,\"id\":\"lxc/626\",\"maxcpu\":2,\"maxdisk\":52521566208,\"maxmem\":2147483648,\"mem\":257482752,\"name\":\"infra-journal-api\",\"netin\":28165070,\"netout\":90018808,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.126;app;infra;tradeintuit\",\"template\":0,\"type\":\"lxc\",\"uptime\":149683,\"vmid\":626},{\"cpu\":0.00237222549641103,\"disk\":40048373760,\"diskread\":53463121920,\"diskwrite\":11214749696,\"id\":\"lxc/627\",\"maxcpu\":3,\"maxdisk\":105358065664,\"maxmem\":21474836480,\"mem\":805527552,\"name\":\"infra-voicebox\",\"netin\":578110678,\"netout\":203460755,\"node\":\"pve\",\"status\":\"running\",\"tags\":\"192.168.1.127;ai;infra;internal;voice-generation\",\"template\":0,\"type\":\"lxc\",\"uptime\":149669,\"vmid\":627}]",
+    "stderr": ""
+  },
+  "storage": {
+    "rc": 0,
+    "stdout": "Name             Type     Status           Total            Used       Available        %\nlocal             dir     active        67043328        23419596        43623732   34.93%\nlocal-lvm     lvmthin     active       419520512       232204603       187315908   55.35%\nstorage           dir     active      1464390028       125897068      1338492960    8.60%",
+    "stderr": ""
+  },
+  "templates": {
+    "rc": 0,
+    "stdout": "NAME                                                         SIZE",
+    "stderr": ""
+  },
+  "available_templates": {
+    "rc": 0,
+    "stdout": "system          almalinux-9-default_20240911_amd64.tar.xz\nsystem          alpine-3.23-default_20261105_amd64.tar.xz\nsystem          archlinux-base_20260420-1_amd64.tar.zst\nsystem          centos-9-stream-default_20240828_amd64.tar.xz\nsystem          debian-11-standard_11.7-1_amd64.tar.zst\nsystem          debian-12-standard_12.12-1_amd64.tar.zst\nsystem          debian-13-standard_13.6-1_amd64.tar.zst\nsystem          devuan-5.0-standard_5.0_amd64.tar.gz\nsystem          fedora-43-default_20260115_amd64.tar.xz\nsystem          gentoo-current-openrc_20250508_amd64.tar.xz\nsystem          openeuler-25.03-default_20250507_amd64.tar.xz\nsystem          opensuse-15.6-default_20240910_amd64.tar.xz\nsystem          rockylinux-9-default_20240912_amd64.tar.xz\nsystem          ubuntu-18.04-standard_18.04.1-1_amd64.tar.gz\nsystem          ubuntu-20.04-standard_20.04-1_amd64.tar.gz\nsystem          ubuntu-22.04-standard_22.04-1_amd64.tar.zst\nsystem          ubuntu-24.04-standard_24.04-2_amd64.tar.zst\nsystem          ubuntu-26.04-standard_26.04-1_amd64.tar.zst",
+    "stderr": ""
+  },
+  "link": {
+    "rc": 0,
+    "stdout": "Settings for eno1:\n\tSupported ports: [ TP ]\n\tSupported link modes:   10baseT/Half 10baseT/Full\n\t                        100baseT/Half 100baseT/Full\n\t                        1000baseT/Full\n\tSupported pause frame use: Symmetric Receive-only\n\tSupports auto-negotiation: Yes\n\tSupported FEC modes: Not reported\n\tAdvertised link modes:  10baseT/Half 10baseT/Full\n\t                        100baseT/Half 100baseT/Full\n\t                        1000baseT/Full\n\tAdvertised pause frame use: Symmetric Receive-only\n\tAdvertised auto-negotiation: Yes\n\tAdvertised FEC modes: Not reported\n\tLink partner advertised link modes:  10baseT/Half 10baseT/Full\n\t                                     100baseT/Half 100baseT/Full\n\t                                     1000baseT/Half 1000baseT/Full\n\tLink partner advertised pause frame use: No\n\tLink partner advertised auto-negotiation: Yes\n\tLink partner advertised FEC modes: Not reported\n\tSpeed: 1000Mb/s\n\tDuplex: Full\n\tAuto-negotiation: on\n\tPort: Twisted Pair\n\tPHYAD: 1\n\tTransceiver: internal\n\tMDI-X: on (auto)\n\tSupports Wake-on: pumbg\n\tWake-on: g\n        Current message level: 0x00000007 (7)\n                               drv probe link\n\tLink detected: yes",
+    "stderr": ""
+  },
+  "mem": {
+    "rc": 0,
+    "stdout": "total        used        free      shared  buff/cache   available\nMem:     33533042688  9457029120   804515840   198402048 23945564160 24076013568\nSwap:    17179865088  2651848704 14528016384",
+    "stderr": ""
+  },
+  "route": {
+    "rc": 0,
+    "stdout": "default via 192.168.1.254 dev vmbr0 proto kernel onlink \n192.168.1.0/24 dev vmbr0 proto kernel scope link src 192.168.1.100",
+    "stderr": ""
+  },
+  "neighbors_before": {
+    "rc": 0,
+    "stdout": "192.168.1.110 dev vmbr0 lladdr bc:24:11:be:7e:2d STALE \n192.168.1.56 dev vmbr0 lladdr 1c:83:41:29:f2:fb REACHABLE \nfe80::ccff:8b81:8f2b:be1 dev vmbr0 lladdr c8:b2:9b:0d:37:d9 STALE \nfe80::889:87b7:6448:f385 dev vmbr0 lladdr fa:25:aa:95:8f:76 STALE \nfe80::8c:9aff:fef6:dc49 dev vmbr0 lladdr 02:8c:9a:f6:dc:49 STALE \nfe80::ab:f5cf:9406:acc5 dev vmbr0 lladdr fa:25:aa:95:8f:76 STALE \nfe80::1c47:93ef:2e87:7f91 dev vmbr0 lladdr d0:81:7a:a7:67:14 STALE \nfe80::148c:ff8f:f7bf:62a0 dev vmbr0 lladdr 8e:62:16:0e:78:f5 STALE \nfe80::6783:f275:3faa:2d8c dev vmbr0 lladdr 1c:83:41:29:f2:fb STALE \nfe80::1411:11e6:6196:da82 dev vmbr0 lladdr fa:25:aa:95:8f:76 STALE",
+    "stderr": ""
+  },
+  "probes": {
+    "192.168.1.230": {
+      "rc": 1,
+      "stdout": "PING 192.168.1.230 (192.168.1.230) 56(84) bytes of data.\n\n--- 192.168.1.230 ping statistics ---\n3 packets transmitted, 0 received, 100% packet loss, time 2053ms",
+      "stderr": ""
+    },
+    "192.168.1.231": {
+      "rc": 1,
+      "stdout": "PING 192.168.1.231 (192.168.1.231) 56(84) bytes of data.\n\n--- 192.168.1.231 ping statistics ---\n3 packets transmitted, 0 received, 100% packet loss, time 2006ms",
+      "stderr": ""
+    }
+  },
+  "neighbors_after": {
+    "rc": 0,
+    "stdout": "192.168.1.110 dev vmbr0 lladdr bc:24:11:be:7e:2d DELAY \n192.168.1.230 dev vmbr0 FAILED \n192.168.1.231 dev vmbr0 INCOMPLETE \n192.168.1.56 dev vmbr0 lladdr 1c:83:41:29:f2:fb REACHABLE \nfe80::ccff:8b81:8f2b:be1 dev vmbr0 lladdr c8:b2:9b:0d:37:d9 STALE \nfe80::889:87b7:6448:f385 dev vmbr0 lladdr fa:25:aa:95:8f:76 STALE \nfe80::8c:9aff:fef6:dc49 dev vmbr0 lladdr 02:8c:9a:f6:dc:49 STALE \nfe80::ab:f5cf:9406:acc5 dev vmbr0 lladdr fa:25:aa:95:8f:76 STALE \nfe80::1c47:93ef:2e87:7f91 dev vmbr0 lladdr d0:81:7a:a7:67:14 STALE \nfe80::148c:ff8f:f7bf:62a0 dev vmbr0 lladdr 8e:62:16:0e:78:f5 STALE \nfe80::6783:f275:3faa:2d8c dev vmbr0 lladdr 1c:83:41:29:f2:fb STALE \nfe80::1411:11e6:6196:da82 dev vmbr0 lladdr fa:25:aa:95:8f:76 STALE",
+    "stderr": ""
+  }
+}

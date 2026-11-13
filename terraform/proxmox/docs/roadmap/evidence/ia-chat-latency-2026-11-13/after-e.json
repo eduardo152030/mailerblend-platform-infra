@@ -1,0 +1,3044 @@
+{
+  "stage": "after-e",
+  "chat_id": "8a7af531-6683-4a7a-a65a-c8f6ac8629e5",
+  "results": [
+    {
+      "message": "Hola, \u00bfqu\u00e9 tal?",
+      "ttft_s": 0.41325092801707797,
+      "elapsed_s": 2.237678934005089,
+      "text": "\u00a1Hola! Todo bien, \u00bfy t\u00fa? \u00bfEn qu\u00e9 puedo ayudarte?",
+      "usage": {
+        "cache_n": 38,
+        "prompt_n": 5,
+        "prompt_ms": 362.895,
+        "prompt_per_token_ms": 72.579,
+        "prompt_per_second": 13.778090081152952,
+        "predicted_n": 17,
+        "predicted_ms": 1810.397,
+        "predicted_per_token_ms": 113.1498125,
+        "predicted_per_second": 8.837840539947868,
+        "input_tokens": 43,
+        "output_tokens": 17,
+        "total_tokens": 60
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.029229117993963882,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.412972455000272,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794588909,
+              "id": "chatcmpl-PJdeEK2mJGUtGgi0arSQp7Oo7vSLxqBn",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.41325092801707797,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\u00a1"
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.5312543190084398,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Hola"
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.6442401520034764,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "!"
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.7611252120113932,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Todo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.871724210010143,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " bien"
+            }
+          }
+        },
+        {
+          "elapsed_s": 0.9960650239954703,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.1054453190008644,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.2142439809977077,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.3233616159996018,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " t\u00fa"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.4323370979982428,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.5403915049973875,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.6532214870094322,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "En"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.7621402380173095,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " qu\u00e9"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.8751083770184778,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " puedo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 1.987450439017266,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ayudarte"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.109918924019439,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_ff6ea843d31042c9b36cd931",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.22252104600193,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 38,
+                "prompt_n": 5,
+                "prompt_ms": 362.895,
+                "prompt_per_token_ms": 72.579,
+                "prompt_per_second": 13.778090081152952,
+                "predicted_n": 17,
+                "predicted_ms": 1810.397,
+                "predicted_per_token_ms": 113.1498125,
+                "predicted_per_second": 8.837840539947868,
+                "input_tokens": 43,
+                "output_tokens": 17,
+                "total_tokens": 60
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.222560733993305,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794588911,
+              "id": "chatcmpl-PJdeEK2mJGUtGgi0arSQp7Oo7vSLxqBn",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 38,
+                "prompt_n": 5,
+                "prompt_ms": 362.895,
+                "prompt_per_token_ms": 72.579,
+                "prompt_per_second": 13.778090081152952,
+                "predicted_n": 17,
+                "predicted_ms": 1810.397,
+                "predicted_per_token_ms": 113.1498125,
+                "predicted_per_second": 8.837840539947868
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.234410774020944,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "8a7af531-6683-4a7a-a65a-c8f6ac8629e5",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.2344590840220917,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_ff6ea843d31042c9b36cd931",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "\u00a1Hola! Todo bien, \u00bfy t\u00fa? \u00bfEn qu\u00e9 puedo ayudarte?"
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency after-e",
+              "usage": {
+                "cache_n": 38,
+                "prompt_n": 5,
+                "prompt_ms": 362.895,
+                "prompt_per_token_ms": 72.579,
+                "prompt_per_second": 13.778090081152952,
+                "predicted_n": 17,
+                "predicted_ms": 1810.397,
+                "predicted_per_token_ms": 113.1498125,
+                "predicted_per_second": 8.837840539947868,
+                "input_tokens": 43,
+                "output_tokens": 17,
+                "total_tokens": 60
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 2.241238685994176,
+          "event": {
+            "type": "chat:title",
+            "data": "Hola, \u00bfqu\u00e9 tal?"
+          }
+        },
+        {
+          "elapsed_s": 2.244740329013439,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    },
+    {
+      "message": "\u00bfY c\u00f3mo puedes ayudarme?",
+      "ttft_s": 4.298074838996399,
+      "elapsed_s": 23.029392074997304,
+      "text": "Puedo ayudarte en diversas tareas, principalmente:\n\n1.  **Responder preguntas:** Sobre cualquier tema (ciencia, historia, cultura, etc.).\n2.  **Redactar y corregir:** Escribir correos, ensayos, res\u00famenes, poemas o revisar tu gram\u00e1tica.\n3.  **Programaci\u00f3n:** Escribir, explicar o depurar c\u00f3digo en varios lenguajes.\n4.  **Traducci\u00f3n:** Traducir textos entre muchos idiomas.\n5.  **Organizaci\u00f3n:** Crear tablas, listas, planes de estudio o itinerarios de viaje.\n6.  **Creatividad:** Generar ideas para proyectos, nombres o historias.\n\n\u00bfTienes algo espec\u00edfico en mente?",
+      "usage": {
+        "cache_n": 38,
+        "prompt_n": 38,
+        "prompt_ms": 4243.581,
+        "prompt_per_token_ms": 111.67318421052632,
+        "prompt_per_second": 8.954701229928213,
+        "predicted_n": 150,
+        "predicted_ms": 18719.734,
+        "predicted_per_token_ms": 125.63579865771813,
+        "predicted_per_second": 7.959514809345047,
+        "input_tokens": 76,
+        "output_tokens": 150,
+        "total_tokens": 226
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.032069943990791216,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.298039024986792,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794588945,
+              "id": "chatcmpl-XTcdMIKHON1j882YA5HlDg4L7wPA10rj",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.298074838996399,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Pued"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.426568886003224,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.536666714004241,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ayudarte"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.852710545004811,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " en"
+            }
+          }
+        },
+        {
+          "elapsed_s": 4.972201652009971,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " diversas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.0832551030034665,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " tareas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.19777064898517,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.310378321999451,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " principalmente"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.4306327939848416,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.55214541600435,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.662848150997888,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "1"
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.7739943909982685,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.884594225004548,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "  "
+            }
+          }
+        },
+        {
+          "elapsed_s": 5.998207197000738,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.108946416003164,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Responder"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.233796952990815,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " preguntas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.343398741009878,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.461197766009718,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Sobre"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.574499131005723,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " cualquier"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.6885193469934165,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " tema"
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.805740315001458,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ("
+            }
+          }
+        },
+        {
+          "elapsed_s": 6.920780365995597,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ciencia"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.0396029250114225,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.152309450000757,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " historia"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.267486439988716,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.37740493399906,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " cultura"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.494151480001165,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.60786901100073,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " etc"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.72533993498655,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ".)."
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.83514927799115,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 7.945521223009564,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "2"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.058996751991799,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.171142225008225,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "  "
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.289207972004078,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.42293989600148,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Red"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.53396580700064,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "act"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.643701482011238,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.7670906780113,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.882111187995179,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " correg"
+            }
+          }
+        },
+        {
+          "elapsed_s": 8.99504877498839,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ir"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.10550222400343,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.219914410990896,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " E"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.332119630009402,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "scrib"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.443823242007056,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ir"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.572710667009233,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " corre"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.696237052994547,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "os"
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.824817404994974,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 9.941537967999466,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ensayos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.068879791011568,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.178179896989604,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " res"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.29110952600604,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\u00fa"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.451063443993917,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "menes"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.569660974986618,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.682171496009687,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " poem"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.796431033988483,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "as"
+            }
+          }
+        },
+        {
+          "elapsed_s": 10.909488590987166,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.021708662010496,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " revisar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.142436410998926,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " tu"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.261453596001957,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " gram"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.374587722995784,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\u00e1tica"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.485300380998524,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.60061542299809,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.712880523991771,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "3"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.83351534200483,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.945475549000548,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "  "
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.059835449996172,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.1742106009915,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Program"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.28684145299485,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "aci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.400365670007886,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.513551887008362,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " E"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.635898742999416,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "scrib"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.750326648994815,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ir"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.864569230005145,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.985001230990747,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " explicar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.100336036004592,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.221375279012136,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " dep"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.357953130005626,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "urar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.480521410994697,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " c\u00f3digo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.713028014986776,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " en"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.89582249399973,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " varios"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.180852147983387,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " leng"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.310090434009908,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "u"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.433705926989205,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ajes"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.547619958990254,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.662412792997202,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.808975391002605,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "4"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.943708336009877,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.088121504988521,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "  "
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.198606957012089,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.333150118007325,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Tr"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.450086956989253,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "adu"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.56887973000994,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "cci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.683388981997268,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.805383684986737,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Trad"
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.92297674898873,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "uc"
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.04364111198811,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ir"
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.165848506003385,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " textos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.28284056400298,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " entre"
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.406146155990427,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " muchos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.543688398000086,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " idiomas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.665128464985173,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.783117476006737,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 16.901160306006204,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "5"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.022153627010994,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.136906152009033,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "  "
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.24983303900808,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.369915408984525,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Organ"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.485637025994947,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "izaci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.60413724198588,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.728487885993673,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Crear"
+            }
+          }
+        },
+        {
+          "elapsed_s": 17.92195280798478,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " tablas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.053358906996436,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.197107034007786,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " listas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.34643041199888,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.47700175299542,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " planes"
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.64431032098946,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.767922739993082,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " estudio"
+            }
+          }
+        },
+        {
+          "elapsed_s": 18.900953258009395,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.04916332900757,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " itiner"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.178657820011722,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "arios"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.40363053898909,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.588635316991713,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " viaje"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.708941935008625,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.82383683498483,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 19.939545578992693,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "6"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.063254167005653,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.18834970498574,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "  "
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.310163415997522,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.444109011994442,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Creat"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.56597596599022,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ividad"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.692356557992753,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ":**"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.844348209007876,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Gener"
+            }
+          }
+        },
+        {
+          "elapsed_s": 20.975267075002193,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.09238160098903,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ideas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.21755898700212,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " para"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.331738857988967,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " proyectos"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.448974299011752,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.57221785999718,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " nombres"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.691524625988677,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.806977353000548,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " historias"
+            }
+          }
+        },
+        {
+          "elapsed_s": 21.92433480298496,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.061317206011154,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\n\n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.19118576598703,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.307844336988637,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Tienes"
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.42697086298722,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " algo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.543373403983423,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " espec\u00edfico"
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.659179949987447,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " en"
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.784663747996092,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " mente"
+            }
+          }
+        },
+        {
+          "elapsed_s": 22.899577490985394,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_d450937c663441c0a152b371",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 23.016754752985435,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 38,
+                "prompt_n": 38,
+                "prompt_ms": 4243.581,
+                "prompt_per_token_ms": 111.67318421052632,
+                "prompt_per_second": 8.954701229928213,
+                "predicted_n": 150,
+                "predicted_ms": 18719.734,
+                "predicted_per_token_ms": 125.63579865771813,
+                "predicted_per_second": 7.959514809345047,
+                "input_tokens": 76,
+                "output_tokens": 150,
+                "total_tokens": 226
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 23.016793674003566,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794588964,
+              "id": "chatcmpl-XTcdMIKHON1j882YA5HlDg4L7wPA10rj",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 38,
+                "prompt_n": 38,
+                "prompt_ms": 4243.581,
+                "prompt_per_token_ms": 111.67318421052632,
+                "prompt_per_second": 8.954701229928213,
+                "predicted_n": 150,
+                "predicted_ms": 18719.734,
+                "predicted_per_token_ms": 125.63579865771813,
+                "predicted_per_second": 7.959514809345047
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 23.02525504800724,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "8a7af531-6683-4a7a-a65a-c8f6ac8629e5",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 23.02602685301099,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_d450937c663441c0a152b371",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Puedo ayudarte en diversas tareas, principalmente:\n\n1.  **Responder preguntas:** Sobre cualquier tema (ciencia, historia, cultura, etc.).\n2.  **Redactar y corregir:** Escribir correos, ensayos, res\u00famenes, poemas o revisar tu gram\u00e1tica.\n3.  **Programaci\u00f3n:** Escribir, explicar o depurar c\u00f3digo en varios lenguajes.\n4.  **Traducci\u00f3n:** Traducir textos entre muchos idiomas.\n5.  **Organizaci\u00f3n:** Crear tablas, listas, planes de estudio o itinerarios de viaje.\n6.  **Creatividad:** Generar ideas para proyectos, nombres o historias.\n\n\u00bfTienes algo espec\u00edfico en mente?"
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency after-e",
+              "usage": {
+                "cache_n": 38,
+                "prompt_n": 38,
+                "prompt_ms": 4243.581,
+                "prompt_per_token_ms": 111.67318421052632,
+                "prompt_per_second": 8.954701229928213,
+                "predicted_n": 150,
+                "predicted_ms": 18719.734,
+                "predicted_per_token_ms": 125.63579865771813,
+                "predicted_per_second": 7.959514809345047,
+                "input_tokens": 76,
+                "output_tokens": 150,
+                "total_tokens": 226
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 23.031430872011697,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    },
+    {
+      "message": "Res\u00famelo en una frase.",
+      "ttft_s": 11.07532814500155,
+      "elapsed_s": 15.132141610985855,
+      "text": "Puedo procesar, generar y analizar informaci\u00f3n sobre casi cualquier tema para ayudarte con tareas de escritura, aprendizaje, resoluci\u00f3n de problemas y programaci\u00f3n.",
+      "usage": {
+        "cache_n": 71,
+        "prompt_n": 172,
+        "prompt_ms": 10978.965,
+        "prompt_per_token_ms": 63.83119186046512,
+        "prompt_per_second": 15.666321916501236,
+        "predicted_n": 29,
+        "predicted_ms": 4040.548,
+        "predicted_per_token_ms": 144.3052857142857,
+        "predicted_per_second": 6.9297530928973,
+        "input_tokens": 243,
+        "output_tokens": 29,
+        "total_tokens": 272
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.036169592989608645,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.0752983650018,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794589005,
+              "id": "chatcmpl-D1va79FFBpP9DisehKesjqfA4GB0uJnY",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.07532814500155,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Pued"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.248100680997595,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "o"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.507796343998052,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " proces"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.637803821999114,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "ar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.770845544000622,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 11.949531338992529,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " generar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.042706095002359,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.156164082989562,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " analizar"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.310149272991112,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " informaci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.467119782988448,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " sobre"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.582740601996193,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " casi"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.707222504977835,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " cualquier"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.830717196979094,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " tema"
+            }
+          }
+        },
+        {
+          "elapsed_s": 12.95243234100053,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " para"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.125434603978647,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ayudarte"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.276380700001027,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " con"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.47273155298899,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " tareas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.692161016981117,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.837154610984726,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " escritura"
+            }
+          }
+        },
+        {
+          "elapsed_s": 13.958206276991405,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.084370995988138,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " aprendizaje"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.206207804993028,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.342591002001427,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " resoluci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.477703363983892,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " de"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.610404136998113,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " problemas"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.732414111989783,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.855407297989586,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " programaci\u00f3n"
+            }
+          }
+        },
+        {
+          "elapsed_s": 14.990174726000987,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_90a9d7e9c65f4960a7fc1558",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "."
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.115357738977764,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 71,
+                "prompt_n": 172,
+                "prompt_ms": 10978.965,
+                "prompt_per_token_ms": 63.83119186046512,
+                "prompt_per_second": 15.666321916501236,
+                "predicted_n": 29,
+                "predicted_ms": 4040.548,
+                "predicted_per_token_ms": 144.3052857142857,
+                "predicted_per_second": 6.9297530928973,
+                "input_tokens": 243,
+                "output_tokens": 29,
+                "total_tokens": 272
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.115470061980886,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794589009,
+              "id": "chatcmpl-D1va79FFBpP9DisehKesjqfA4GB0uJnY",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 71,
+                "prompt_n": 172,
+                "prompt_ms": 10978.965,
+                "prompt_per_token_ms": 63.83119186046512,
+                "prompt_per_second": 15.666321916501236,
+                "predicted_n": 29,
+                "predicted_ms": 4040.548,
+                "predicted_per_token_ms": 144.3052857142857,
+                "predicted_per_second": 6.9297530928973
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.125376384996343,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "8a7af531-6683-4a7a-a65a-c8f6ac8629e5",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.125493038998684,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_90a9d7e9c65f4960a7fc1558",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Puedo procesar, generar y analizar informaci\u00f3n sobre casi cualquier tema para ayudarte con tareas de escritura, aprendizaje, resoluci\u00f3n de problemas y programaci\u00f3n."
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency after-e",
+              "usage": {
+                "cache_n": 71,
+                "prompt_n": 172,
+                "prompt_ms": 10978.965,
+                "prompt_per_token_ms": 63.83119186046512,
+                "prompt_per_second": 15.666321916501236,
+                "predicted_n": 29,
+                "predicted_ms": 4040.548,
+                "predicted_per_token_ms": 144.3052857142857,
+                "predicted_per_second": 6.9297530928973,
+                "input_tokens": 243,
+                "output_tokens": 29,
+                "total_tokens": 272
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 15.131695071991999,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": false,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ]
+    }
+  ]
+}

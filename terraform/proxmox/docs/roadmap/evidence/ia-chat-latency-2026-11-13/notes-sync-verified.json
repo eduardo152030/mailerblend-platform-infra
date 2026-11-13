@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-13T21:25:46.833732+00:00",
+  "result": "PASS",
+  "cts": [
+    {
+      "ct_id": 630,
+      "hostname": "infra-llm",
+      "notes_equal": true,
+      "configuration_writes": 0,
+      "allowed_field": "description",
+      "sha256": "e7a58e7e8eb351f2ca2f77a9d67cf12a884326abf604aad16467cd766dddcc61"
+    },
+    {
+      "ct_id": 631,
+      "hostname": "infra-webui",
+      "notes_equal": true,
+      "configuration_writes": 0,
+      "allowed_field": "description",
+      "sha256": "02c66b977067c614a8cd9d2f21ae15e26c26961d936cf7a154dd814b77d1c07b"
+    }
+  ],
+  "other_ct_configs_unchanged": true,
+  "runtime_identity_unchanged": true,
+  "restarts": 0,
+  "redeploys": 0,
+  "terraform_apply": false
+}

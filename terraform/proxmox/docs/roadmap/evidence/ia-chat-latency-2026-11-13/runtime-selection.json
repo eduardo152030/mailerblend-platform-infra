@@ -1,0 +1,30 @@
+[
+  {
+    "alias": "gemma-4-26b",
+    "label": "runtime-gemma-4-26b-1",
+    "candidate": {
+      "batch_size": 2048,
+      "ubatch_size": 512,
+      "pp512": 18.950077,
+      "pp2048": 17.809739,
+      "tg128": 8.215447,
+      "peak_resident_or_rss_gib": 13.949356079101562
+    },
+    "status": "PASS",
+    "long_prompt_tokens": 3000
+  },
+  {
+    "alias": "qwen3.6-35b",
+    "label": "runtime-qwen3.6-35b-1",
+    "candidate": {
+      "batch_size": 512,
+      "ubatch_size": 512,
+      "pp512": 27.148157,
+      "pp2048": 26.473267,
+      "tg128": 5.257699,
+      "peak_resident_or_rss_gib": 16.913726806640625
+    },
+    "status": "PASS",
+    "long_prompt_tokens": 3000
+  }
+]

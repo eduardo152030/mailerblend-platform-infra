@@ -1,0 +1,10 @@
+{
+  "ct_id": 631,
+  "hostname": "infra-webui",
+  "ip": "192.168.1.66",
+  "cpu": 2,
+  "memory_mib": 4096,
+  "docker": true,
+  "node_archive": "node_exporter-1.10.2.linux-amd64.tar.gz",
+  "node_sha256": "c46e5b6f53948477ff3a19d97c58307394a29fe64a01905646f026ddc32cb65b"
+}

@@ -1,0 +1,9 @@
+WebUI health HTTP200
+Traceback (most recent call last):
+  File "/root/webui-check.py", line 41, in <module>
+    else:check(code,data)
+         ^^^^^^^^^^^^^^^^
+  File "/root/webui-check.py", line 21, in check
+    if not 200<=code<300:raise RuntimeError('HTTP '+str(code)+' '+str(data)[:250])
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: HTTP 401 {'detail': 'Uh-oh! This model id is already registered. Please choose another model id string.'}

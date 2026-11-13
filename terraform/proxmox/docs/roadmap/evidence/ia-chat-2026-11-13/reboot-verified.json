@@ -1,0 +1,39 @@
+{
+  "utc_start": "2026-11-13T15:31:00.849573+00:00",
+  "630": {
+    "before": {
+      "ip": [
+        "192.168.1.67"
+      ],
+      "boot_id": "839167a7-93cb-439e-a0e3-7c64f9f36b5c"
+    },
+    "after": {
+      "ip": [
+        "192.168.1.67"
+      ],
+      "boot_id": "ca4057a0-3c36-4d85-adb8-bd2dbdca30d2"
+    },
+    "same_ip": true,
+    "boot_changed": true
+  },
+  "631": {
+    "before": {
+      "ip": [
+        "192.168.1.66"
+      ],
+      "boot_id": "cd5ef37a-f003-4add-a24b-97cf35ea5ed0"
+    },
+    "after": {
+      "ip": [
+        "192.168.1.66"
+      ],
+      "boot_id": "d5d02695-b4ff-426f-899a-c648eac35b83"
+    },
+    "same_ip": true,
+    "boot_changed": true
+  },
+  "api_after_reboot": "PASS",
+  "history_after_reboot": "Historial persistente/b\u00fasqueda tras reboot PASS",
+  "ui_http": 200,
+  "utc_end": "2026-11-13T15:32:04.188541+00:00"
+}

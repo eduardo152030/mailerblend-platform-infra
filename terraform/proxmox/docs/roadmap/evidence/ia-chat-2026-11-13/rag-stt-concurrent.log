@@ -1,0 +1,4 @@
+{"returncodes": {"rag": 0, "stt": 0}, "anomalies": [], "ct631_peak_working_gib": 2.4600486755371094, "ct631_peak_resident_gib": 2.4531593322753906}
+rag RAG chat PASS 7731
+
+stt STT aproximado ¡Hola! ¡Esto es una nueva! WER 0.2 exacto False

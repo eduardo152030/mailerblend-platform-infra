@@ -1,0 +1,417 @@
+{
+  "stage": "baseline",
+  "chat_id": "13c8df7d-3623-4bb7-8489-059954dfff4b",
+  "results": [
+    {
+      "message": "Hola, \u00bfqu\u00e9 tal?",
+      "ttft_s": 344.40141713200137,
+      "elapsed_s": 348.5118160159909,
+      "text": "\u00a1Hola! Todo bien por aqu\u00ed, \u00bfy t\u00fa? \u00bfEn qu\u00e9 puedo ayudarte hoy?",
+      "usage": {
+        "cache_n": 0,
+        "prompt_n": 5324,
+        "prompt_ms": 344264.731,
+        "prompt_per_token_ms": 64.66279695717506,
+        "prompt_per_second": 15.464842955405734,
+        "predicted_n": 20,
+        "predicted_ms": 4097.563,
+        "predicted_per_token_ms": 215.66121052631578,
+        "predicted_per_second": 4.636902471054136,
+        "input_tokens": 5324,
+        "output_tokens": 20,
+        "total_tokens": 5344
+      },
+      "error": null,
+      "events": [
+        {
+          "elapsed_s": 0.02867335098562762,
+          "event": {
+            "type": "chat:active",
+            "data": {
+              "active": true,
+              "folder_id": null,
+              "pending_approval": false
+            }
+          }
+        },
+        {
+          "elapsed_s": 344.40138565099915,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "delta": {
+                    "role": "assistant",
+                    "content": null
+                  }
+                }
+              ],
+              "created": 1794588585,
+              "id": "chatcmpl-sY5zdifUYyETwW6BDSv3VF2lrFC5Udwk",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk"
+            }
+          }
+        },
+        {
+          "elapsed_s": 344.40141713200137,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "\u00a1"
+            }
+          }
+        },
+        {
+          "elapsed_s": 344.6175773559953,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "Hola"
+            }
+          }
+        },
+        {
+          "elapsed_s": 344.8198792320036,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "!"
+            }
+          }
+        },
+        {
+          "elapsed_s": 345.0204108459875,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " Todo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 345.221056445007,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " bien"
+            }
+          }
+        },
+        {
+          "elapsed_s": 345.4240267490095,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " por"
+            }
+          }
+        },
+        {
+          "elapsed_s": 345.62784009598545,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " aqu\u00ed"
+            }
+          }
+        },
+        {
+          "elapsed_s": 345.84195064700907,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": ","
+            }
+          }
+        },
+        {
+          "elapsed_s": 346.06090392000624,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 346.3187253649812,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "y"
+            }
+          }
+        },
+        {
+          "elapsed_s": 346.5413532340026,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " t\u00fa"
+            }
+          }
+        },
+        {
+          "elapsed_s": 346.75341035600286,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 347.0318930729991,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " \u00bf"
+            }
+          }
+        },
+        {
+          "elapsed_s": 347.2569090909965,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "En"
+            }
+          }
+        },
+        {
+          "elapsed_s": 347.46196373700514,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " qu\u00e9"
+            }
+          }
+        },
+        {
+          "elapsed_s": 347.67807547500706,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " puedo"
+            }
+          }
+        },
+        {
+          "elapsed_s": 347.88460362900514,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " ayudarte"
+            }
+          }
+        },
+        {
+          "elapsed_s": 348.08614885798306,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": " hoy"
+            }
+          }
+        },
+        {
+          "elapsed_s": 348.28814004999003,
+          "event": {
+            "type": "response:completion",
+            "data": {
+              "type": "response.output_text.delta",
+              "item_id": "msg_0c9346d1587d43f58af7aa6d",
+              "output_index": 0,
+              "content_index": 0,
+              "delta": "?"
+            }
+          }
+        },
+        {
+          "elapsed_s": 348.49512731598224,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "usage": {
+                "cache_n": 0,
+                "prompt_n": 5324,
+                "prompt_ms": 344264.731,
+                "prompt_per_token_ms": 64.66279695717506,
+                "prompt_per_second": 15.464842955405734,
+                "predicted_n": 20,
+                "predicted_ms": 4097.563,
+                "predicted_per_token_ms": 215.66121052631578,
+                "predicted_per_second": 4.636902471054136,
+                "input_tokens": 5324,
+                "output_tokens": 20,
+                "total_tokens": 5344
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 348.49516702399706,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "delta": {}
+                }
+              ],
+              "created": 1794588589,
+              "id": "chatcmpl-sY5zdifUYyETwW6BDSv3VF2lrFC5Udwk",
+              "model": "gemma-4-26b",
+              "system_fingerprint": "b1-b1b770d",
+              "object": "chat.completion.chunk",
+              "timings": {
+                "cache_n": 0,
+                "prompt_n": 5324,
+                "prompt_ms": 344264.731,
+                "prompt_per_token_ms": 64.66279695717506,
+                "prompt_per_second": 15.464842955405734,
+                "predicted_n": 20,
+                "predicted_ms": 4097.563,
+                "predicted_per_token_ms": 215.66121052631578,
+                "predicted_per_second": 4.636902471054136
+              }
+            }
+          }
+        },
+        {
+          "elapsed_s": 348.51119441498304,
+          "event": {
+            "type": "chat:list",
+            "data": {
+              "chat_id": "13c8df7d-3623-4bb7-8489-059954dfff4b",
+              "folder_id": null
+            }
+          }
+        },
+        {
+          "elapsed_s": 348.51124387499294,
+          "event": {
+            "type": "chat:completion",
+            "data": {
+              "done": true,
+              "output": [
+                {
+                  "type": "message",
+                  "id": "msg_0c9346d1587d43f58af7aa6d",
+                  "status": "completed",
+                  "role": "assistant",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "\u00a1Hola! Todo bien por aqu\u00ed, \u00bfy t\u00fa? \u00bfEn qu\u00e9 puedo ayudarte hoy?"
+                    }
+                  ]
+                }
+              ],
+              "title": "IA latency baseline",
+              "usage": {
+                "cache_n": 0,
+                "prompt_n": 5324,
+                "prompt_ms": 344264.731,
+                "prompt_per_token_ms": 64.66279695717506,
+                "prompt_per_second": 15.464842955405734,
+                "predicted_n": 20,
+                "predicted_ms": 4097.563,
+                "predicted_per_token_ms": 215.66121052631578,
+                "predicted_per_second": 4.636902471054136,
+                "input_tokens": 5324,
+                "output_tokens": 20,
+                "total_tokens": 5344
+              }
+            }
+          }
+        }
+      ],
+      "ack_keys": [
+        "status",
+        "task_ids",
+        "chat_id"
+      ],
+      "initial_parser_reported_s": 348.51124387499294
+    }
+  ]
+}

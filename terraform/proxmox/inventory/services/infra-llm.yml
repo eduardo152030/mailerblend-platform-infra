@@ -1,0 +1,80 @@
+service:
+  name: infra-llm
+  vmid: 630
+  ip: 192.168.1.67/24
+resources:
+  cpu: 4
+  memory: 22528
+  swap: 1024
+  disk_gb: 16
+os:
+  template_file_id: local:vztmpl/debian-12-standard_12.12-1_amd64.tar.zst
+  name: Debian 12
+network:
+  gateway: 192.168.1.254
+  dns:
+  - 192.168.1.254
+  bridge: vmbr0
+  dhcp: true
+  mac_address: BC:24:11:6F:79:36
+storage:
+  name: local-lvm
+tags:
+- infra
+- ai
+- internal
+monitoring:
+  docker: false
+  node_exporter: true
+  blackbox:
+  - url: http://192.168.1.67:8080/health
+    module: infra_llm_health
+    contract: HTTP 200 y JSON de salud; sin inferencia ni carga de modelo
+    body_regex: '"status"\s*:\s*"ok"'
+provisioning:
+  unprivileged: true
+  environment: internal
+  purpose: Chat IA local — llama.cpp CPU con dos modelos y un solo modelo residente
+  owner: eduardo152030
+  applications:
+  - name: llama-server
+    runtime: systemd
+    ports:
+    - 8080/tcp LAN con API key
+  dependencies:
+  - Modelos GGUF verificados en /models solo lectura
+  domains: []
+  backup: PVE HDD domingo04:00 4weekly; /models excluido y descargable por SHA
+  known_issues:
+  - 'DHCP: reserva pendiente en router para BC:24:11:6F:79:36'
+  - UAT humana pendiente; no implica aceptación de calidad de voz
+  - Guarda MemAvailable host>=21GiB antes de cargar modelos
+  - systemd-logind NAMESPACE denegado por aislamiento LXC; SSH por clave verificado
+    con timeout60s, sin debilitar AppArmor630
+  verification:
+    result: PASS
+    ct_id: 630
+    service: infra-llm
+    observed_at_utc: '2026-11-13T15:26:35.226200+00:00'
+    source: read-only PVE+cgroup+Node verification
+    cpu_source: cgroup_v2_textfile
+    state: RUNNING
+    allocated_cores: 4
+    memory_mib: 22528
+    uptime_seconds: 10635
+    activation: CANDIDATE_ONLY_NOT_APPLIED
+    stability_acceptance: PENDING VERIFICATION
+    application_health: declared probe contracts checked; no business UAT
+  ssh:
+    enabled: true
+    method: pct-merge
+    state: VERIFIED
+documentation:
+  inventory_file: docs/inventory/630-LXC-INVENTORY.md
+  notes_file: services/infra-llm/NOTES.md
+mount_points:
+- volume: local-lvm
+  path: /models
+  size: 60G
+  backup: false
+  read_only: true
