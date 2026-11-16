@@ -1,0 +1,35 @@
+# Repositorios de infraestructura / IaC
+.terraform/
+.terragrunt-cache/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+crash.log
+
+# Secrets / env / keys
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+id_rsa
+id_ed25519
+
+# Evidence / artifacts
+.evidence/
+evidence/
+backups/
+backup/
+logs/
+*.log
+
+# Dependencies / generated files
+node_modules/
+vendor/
+.cache/
+_pycache_/
+
+# Local editor / OS
+.DS_Store
+.vscode/
