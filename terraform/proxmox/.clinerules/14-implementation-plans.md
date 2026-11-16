@@ -7,7 +7,7 @@ implementación aprobado o propuesto, sea generado por el agente o por el
 usuario), ese plan DEBE vivir en:
 
 ```text
-docs/roadmap/
+docs/roadmap/planes/
 ```
 
 Nunca en la raíz del repo, nunca en `reasoning-content/`, nunca suelto junto
@@ -15,7 +15,7 @@ al código (`terraform/`, `scripts/`, `tests/`), nunca como archivo
 temporal "que luego se mueve".
 
 Los planes de ejecución, propuestas, contratos y preparaciones de
-despliegue se almacenan en `docs/roadmap/planes` junto al roadmap, la
+despliegue se almacenan en `docs/roadmap/planes/` junto al roadmap, la
 estatal y las decisiones. Este directorio es la fuente única de verdad
 para el estado de la infraestructura.
 
@@ -88,3 +88,13 @@ Los planes de ejecución y propuestas de este repositorio viven en
 - `docs/roadmap/planes/PROGRESSIVE-ROLLOUT.md` — política rollout progresivo.
 - `docs/roadmap/planes/PHASE6-D055-UPTIME-PROPOSAL.md` — propuesta fase 6.
 - `docs/roadmap/planes/CT614-SGTM-D043.md` — ejecución CT614.
+
+## Worktree y plan de la tarea
+
+Antes de guardar un plan, abre o retoma el worktree y la rama de la tarea
+según `03-git-workflow.md`. Crea el plan en ese worktree, en la ruta que
+define esta regla, y registra en él la rama de la tarea.
+
+Al retomar la tarea, reutiliza el mismo plan. Antes de cerrarla, actualízalo
+con lo ejecutado, las validaciones y los pendientes. Para el cierre y los
+commits locales, aplica `15-task-commit-closeout.md`.
