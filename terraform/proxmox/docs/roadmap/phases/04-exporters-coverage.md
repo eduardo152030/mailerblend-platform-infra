@@ -1,4 +1,34 @@
 > D041: **DONE coberturaexporters17/17**, sinbloqueadosderollout.
+
+## IA-CHAT — integración desplegada y estabilidad PASS (2026-11-13, Europe/Madrid)
+
+Fase 7. IaC Reliability, Security & Disaster Recovery; complementos de Fases 4 y 6.
+Implementación y pruebas técnicas DONE: CT 630/631 adoptados en Terraform sin
+recreación, plan acotado no-op y 18 entradas anteriores del estado intactas.
+YAML y configuración canónica por servicio, inventario individual/global y Notes
+actualizados. CPU cgroup y RAM LXCFS verificadas; Node Exporter nativo en ambos,
+cAdvisor solo en 631 y cinco targets nuevos. Prometheus/Blackbox integrados de
+forma aditiva; Grafana Fleet/Details contempla cAdvisor N/A en 630.
+
+PASS: 600 segundos / 21 muestras sin anomalías, 136 consultas reales de Grafana,
+reinicio de ambos CT, autenticación, chat, visión, thinking, búsqueda, RAG e historial.
+Segunda aplicación sin escrituras de configuración, recargas ni reinicios.
+Backup final de 631 verificado por SHA256/zstd/tar; README operativo en PVE.
+27 hashes de configuración PVE protegidos iguales; CT 627 no intervenido.
+Sin commits ni push.
+
+Voz funcional con calidad limitada: small/int8, 4 de 5 palabras correctas en el WAV
+sintético (WER 20 %). Con RAG/STT y exporters, 631 alcanza 2,69 GiB residentes /
+2,85 GiB de working set; propuesta de 4096 MiB sin aplicar, límite de 3072 MiB
+conservado. Cuenta y Knowledge técnicos retirados; primer administrador disponible.
+
+Aceptación completa IN PROGRESS: reservas DHCP, administrador y UAT móvil/voz del
+propietario. Restauración funcional y recepción Telegram FIRING/RESOLVED de las
+nuevas cadenas no realizadas. No declararlas aceptadas bajo el contrato F4 ni cerrar
+la Fase 7 global. Siguiente paso: propietario reserva DHCP, crea su administrador,
+prueba voz/móvil y valora el margen de RAM; coordinar después la aceptación de
+alertas de 630/631. [Informe vigente](../IA-CHAT-EXECUTION-2026-11-13.md).
+
 > Complementos abiertos; F5 aceptada, Fleet F6 desplegado y seguridad F7 pendiente; [cierre](../EXPORTERS-D041-CLOSURE.md).
 
 # Fase 4. Exporters & Monitoring Coverage
@@ -243,3 +273,52 @@ solo local,no reintento niR6/R7. [Cierre](../CT61211-D035-EXECUTION.md).
 56inputs/identidades/recursos sin cambios. Fuentecomún de parser/captura/scope
 yvalidación, revisiónhash/auditfresh61211 preparados;sin despliegue ni aceptación
 nueva.8DONE/4BLOCKED/5PENDING,políticaBLOCKED. [Informe](../VALIDATION-FRAMEWORK.md).
+
+## D088 — incidencia cAdvisor623/618 y CRM
+
+13 de noviembre de 2026 (Europe/Madrid), DONE técnico. Recuperación autorizada
+por el propietario, acotada a623/618: límite cAdvisor128→384MiB en caliente,
+CPU y RAM PVE intactas; CRMAPI618 arrancado sin recreación y restartalways.
+Backups/restauración aislada e idempotenciaPASS. Dashboarddesplegado indica
+HEALTHY/0alertas para ambos. Observación600s/21 PASS: cero timeouts/alertas, sin OOM ni reinicios nuevos.
+Siguiente: vigilancia existente; recepción humana Telegram no verificada.
+[Informe y evidencias](../PHASES-D088-CADVISOR-CRM-RECOVERY.md).
+No modificar aceptación previa ni dar por aceptados pendientes heredados.
+
+## Auditoría de capacidad y respaldos — 13 de noviembre de 2026
+
+Auditoría DONE, ejecución TODO: cAdvisor619/61211 con presión activa y620menor;
+propuesta selectiva sin rollout. Clones9618/9622 candidatos a retirada conservando
+fuentes618/622; checksum actual pendiente. Raíz90%, traslado delbackupVM100 aHDD
+solo propuesto. Hardwareinventariado sinbenchmark. Sin cambios productivos ni
+commit/push; no se aceptan pendientesglobales de la fase.
+[Informe y siguiente paso](../CAPACITY-BACKUPS-AI-AUDIT-2026-11-13.md).
+
+## Capacidad y limpieza autorizadas — 13 de noviembre de 2026
+
+DONE técnico del alcance aprobado:619/61211a384MiB y620a256MiB,600s/21 porCT,
+idempotencia/backupsexternosPASS; sin OOM/reinicios ni cambios de aplicaciones.
+Clones9618/9622 retirados conservando fuentesverificadas/configs. BackupVM100
+trasladado alHDD conSHA256/zstd/VMAverifyPASS antes de eliminar origen.
+Raíz35%/41,60GiB libres; pool178,64GiB libres.25configsPVEajenas idénticas,
+18cAdvisorUP/ceroalertas, saludHTTP200. Sin commit/push ni cierre de pendientes
+globales. Siguiente: vigilancia existente, sin ampliación automática de alcance.
+[Resultado y límites](../CAPACITY-APPROVED-EXECUTION-2026-11-13.md).
+
+
+## IA-CHAT — ampliación de alcance aprobada: patrón del repositorio y observabilidad
+
+13nov2026 Europe/Madrid. El propietario solicita integración reproducible completa de
+630/631 en Terraform/inventario YAML, docs/inventory, monitorización y Grafana como
+el resto del pool; autoriza los cambios necesarios para ello. Aprobación limitada
+a los dos CT nuevos y modificaciones aditivas de observabilidad que los incorporen,
+con backup/rollback, validación e idempotencia. No rollout global de exporters,
+no cambios de aplicaciones/recursos de otros CT y **627 excluido por completo**.
+Sin commit/push ni aumento automático de RAM631. Mantener DHCP y reservas pendientes,
+unprivileged, volúmenes/modelos y contratos CPU/RAM del repositorio.
+
+Estado IN PROGRESS: la receta pct aislada anterior no basta como cierre del patrón
+solicitado; preparar adopción Terraform sin recreación, SSH verificado si procede,
+exporters apropiados para630sinDocker y631conDocker, integración aditiva enPrometheus/
+Blackbox/Grafana e inventario. Conservar cambios previos ajenos. La validación devoz
+sigue pendiente tras corregir WHISPER_MODEL persistido; no declararla aprobada.

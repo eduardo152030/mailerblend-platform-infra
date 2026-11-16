@@ -44,3 +44,11 @@ Prometheus y Alertmanager readiness 200; self-scrapes disponibles; reglas health
 - [Compose Prometheus](../../../services/infra-prom/compose/docker-compose.yml).
 - [Procedimiento operativo](../../../services/infra-prom/TELEGRAM.md).
 - [Ejecución previa](../../../services/infra-prom/PHASE2-INCIDENTS.md).
+
+## Incidencia operativa D083 — 12 de noviembre de 2026
+
+Monitorización central recuperada tras reiniciar PVE. FIRING/RESOLVED recibidos y
+confirmados; datasource Grafana OK, 18 hosts/CPU y 19 sondas. Políticas de arranque
+corregidas en IaC/runtime sin recrear contenedores. cAdvisor 618/623 con latencia
+intermitente, estabilidad global pendiente; CRM API 618 parada y alertada.
+Aceptación histórica conservada. [Informe y pruebas](../PHASES-D083-MONITORING-RECOVERY.md).

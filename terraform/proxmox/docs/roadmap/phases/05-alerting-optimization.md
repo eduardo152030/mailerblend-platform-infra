@@ -75,3 +75,22 @@ aumentan umbrales. F5 DONE — Accepted se mantiene; sin UAT de negocio nueva.
 26 alertas / 34 de grabación sanas, sin FIRING/PENDING; Prom/AMREADY 200.
 18 Blackbox actuales por ampliaciónF6;17 Node/17 cAdvisor conservados. No nuevo
 ensayoTelegram ni cambios de reglas. [Evidencia](../evidence/2026-11-09-d059-documentation-audit.json).
+
+## Incidencia operativa D083 — 12 de noviembre de 2026
+
+Monitorización central recuperada tras reiniciar PVE. FIRING/RESOLVED recibidos y
+confirmados; datasource Grafana OK, 18 hosts/CPU y 19 sondas. Políticas de arranque
+corregidas en IaC/runtime sin recrear contenedores. cAdvisor 618/623 con latencia
+intermitente, estabilidad global pendiente; CRM API 618 parada y alertada.
+Aceptación histórica conservada. [Informe y pruebas](../PHASES-D083-MONITORING-RECOVERY.md).
+
+## D088 — incidencia cAdvisor623/618 y CRM
+
+13 de noviembre de 2026 (Europe/Madrid), DONE técnico. Recuperación autorizada
+por el propietario, acotada a623/618: límite cAdvisor128→384MiB en caliente,
+CPU y RAM PVE intactas; CRMAPI618 arrancado sin recreación y restartalways.
+Backups/restauración aislada e idempotenciaPASS. Dashboarddesplegado indica
+HEALTHY/0alertas para ambos. Observación600s/21 PASS: cero timeouts/alertas, sin OOM ni reinicios nuevos.
+Siguiente: vigilancia existente; recepción humana Telegram no verificada.
+[Informe y evidencias](../PHASES-D088-CADVISOR-CRM-RECOVERY.md).
+No modificar aceptación previa ni dar por aceptados pendientes heredados.

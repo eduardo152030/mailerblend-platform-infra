@@ -1,4 +1,42 @@
+## CT610-DISK-20261114 — DONE técnico
+
+14/11/2026, Europe/Madrid. Fase 7. IaC Reliability, Security & Disaster Recovery
+continúa IN PROGRESS global. Ampliación explícitamente autorizada de CT610 en15GiB:
+real10→25GiB reconciliado con YAML existente mediante receta acotada, sin apply general.
+Backup completoHDD verificado porSHA256/lectura zstd/tar/extracción deconfiguración;
+LV/FS25GiB,≈15,53GiB disponibles (63,38%). Prometheus/AM ready, Node/cAdvisorUP,
+HostDiskFilling ausente dePrometheus yAlertmanager a16:26CET. Sin reinicios,
+IDs/inicios/restarts Docker yconfiguraciones ajenas intactos. Segunda aplicación
+ceroescrituras;16tests/generador/validate/diff PASS. Sin borrados, commit/push.
+No restauración funcional ni recepción humanaTelegram verificadas. Mantener respaldo;
+no encoger para rollback. Pendientes heredados intactos. Siguiente: vigilancia habitual.
+[Informe y evidencias](../CT610-DISK-20261114.md).
+
+## CLINE-QWEN-LOCAL — DONE documental (14/11/2026, Europe/Madrid)
+
+Fase 7. IaC Reliability, Security & Disaster Recovery global IN PROGRESS.
+[Runbook Windows/Cline](../../runbooks/CLINE-QWEN-LOCAL.md): API/clave por ruta, PowerShell,
+contexto real 32768, autonomía, perfil servidor, rendimiento medido y checklist.
+Evidencia: fuentes oficiales/gist y perfil/mediciones del 13/11; sin nueva lectura
+productiva ni inferencia. Enlaces locales y diff del alcance comprobados.
+Autorización exclusiva de lectura/documentación, sin CT/configuración, descargas,
+commit ni push. Integración/aceptación Windows TODO; timeout dependiente de versión,
+tool calling y caché de Cline pendientes de prueba. Ajustes de servidor son propuestas
+sin aplicar. Siguiente: propietario configura Cline y ejecuta checklist de cinco pasos;
+no se cierran pendientes heredados ni se alteran cambios ajenos.
+
 # Fase 7. IaC Reliability, Security & Disaster Recovery
+
+## IA-LLM-OPTIMIZE — PENDIENTE / BACKLOG (TODO)
+
+Fase 7. Registrada la evaluación futura de optimizaciones CPU en630: KVq8/flash
+attention, alias Qwen-code sinmmproj, ub1024, ik_llama.cpp, mmprojQ8 yMTP.
+Solo registro: no ejecutar, descargar ni tocar CT/configuración. Sin commit/push.
+Adopción condicionada a medición antes/después, guardas ycriterios por subtarea;
+MTP exige confirmación previa de descarga. Siguiente: programar evaluación;
+Fase7 global IN PROGRESS. [Tarea y criterios](../IA-LLM-OPTIMIZE.md).
+
+
 ## IA-CHAT-SWAP-631 — DONE técnico
 
 Fase 7. Swap631 ampliada mediante YAML/script versionado de1024 a1741MiB (~1,7GiB),
@@ -156,6 +194,17 @@ prueba voz/móvil y valora el margen de RAM; coordinar después la aceptación d
 alertas de 630/631. [Informe vigente](../IA-CHAT-EXECUTION-2026-11-13.md).
 
 
+## Red eno1 — 2026-11-13 — diagnóstico DONE, resolución TODO
+
+Fase 7, tarea NET-ENO1. Solo lectura autorizada, SSH estricto; NIC I219-LM/e1000e
+soporta/anuncia 1 Gb/s, vecino solo 10/100, negociado 100 Full/autoneg on.
+CRC/errores/colisiones cero; RX dropped 2605 acumulados sin causa demostrada.
+Sin configuración local forzada en rutas revisadas. Probable puerto vecino
+limitado/configurado a100; cable no descartado. Sin cambios productivos,
+instalaciones, cable-test, reinicios, commit/push. Siguiente: propietario verifica
+puerto gigabit y cable; test disruptivo/cambio de red requiere OK explícito.
+Fase7 global IN PROGRESS; pendientes ajenos conservados.
+[Informe](../NETWORK-ENO1-DIAGNOSTIC-2026-11-13.md).
 
 Estado: **IN PROGRESS**. Actualizado: 2026-11-13 (Europe/Madrid).
 [Roadmap](../ROADMAP.md) · [Estado actual](../CURRENT-STATUS.md) · [Decisiones](../DECISIONS.md)
@@ -836,6 +885,50 @@ verificada sin cambiar pesos. Producción Qwen es/en intacta y Chatterbox deshab
 D089 BLOCKED: no hay mediciones de activaciones/generación/decoder que acrediten
 margen. No despliegue ni audio. Propuesta pendiente de autorización: ensayo aislado
 instrumentado bajo guardas originales. Informe: [D088](../PHASE7-D088-CHATTERBOX-MEMORY-OPTIMIZATION.md). Sin commit/push.
+
+## Auditoría de capacidad y respaldos — 13 de noviembre de 2026
+
+Auditoría DONE, ejecución TODO: cAdvisor619/61211 con presión activa y620menor;
+propuesta selectiva sin rollout. Clones9618/9622 candidatos a retirada conservando
+fuentes618/622; checksum actual pendiente. Raíz90%, traslado delbackupVM100 aHDD
+solo propuesto. Hardwareinventariado sinbenchmark. Sin cambios productivos ni
+commit/push; no se aceptan pendientesglobales de la fase.
+[Informe y siguiente paso](../CAPACITY-BACKUPS-AI-AUDIT-2026-11-13.md).
+
+## Capacidad y limpieza autorizadas — 13 de noviembre de 2026
+
+DONE técnico del alcance aprobado:619/61211a384MiB y620a256MiB,600s/21 porCT,
+idempotencia/backupsexternosPASS; sin OOM/reinicios ni cambios de aplicaciones.
+Clones9618/9622 retirados conservando fuentesverificadas/configs. BackupVM100
+trasladado alHDD conSHA256/zstd/VMAverifyPASS antes de eliminar origen.
+Raíz35%/41,60GiB libres; pool178,64GiB libres.25configsPVEajenas idénticas,
+18cAdvisorUP/ceroalertas, saludHTTP200. Sin commit/push ni cierre de pendientes
+globales. Siguiente: vigilancia existente, sin ampliación automática de alcance.
+[Resultado y límites](../CAPACITY-APPROVED-EXECUTION-2026-11-13.md).
+
+## Inventario del host para LLM — 2026-11-13 — IN PROGRESS
+
+Fase 7. Inventario autorizado de solo lectura como root en PVE; sin instalaciones,
+benchmarks, inferencias ni cambios de guests/configuración. Única escritura remota
+solicitada: `/root/inventario-host.md`. Preparación del informe y evidencias locales.
+Siguiente: capturar hardware, memoria, guests y todos los storages con SSH estricto.
+
+### Inventario del host para LLM — resultado DONE
+
+13nov2026 Europe/Madrid, Fase 7. Lecturas como root por SSH estricto completadas.
+[Informe](../INVENTARIO-HOST-2026-11-13.md), copia idéntica SHA256 en `/root/inventario-host.md` del PVE;
+evidencia filtrada `2026-11-13-host-inventory.json` y scripts `scripts/inventory-host/`.
+RAM31,23GiB utilizable/MemFree1,17/MemAvailable22,49; compromisos69,66GiB,
+presupuesto sin sobrecompromiso0 incluso excluyendo onboot0. DDR4 A/B2133MT/s,
+34,128GB/s teóricos; modo efectivo/sostenido no medidos. SSDpool178,64GiB libres,
+HDD1276,49; virtual191,96%/uso55,35%; SMARTPASS con1bloqueNAND reasignado.
+Swap2,47GiB; ARC960bytes/sinpools; red100Mb/s. Riesgos documentados.
+Única escritura remota: informe solicitado; sin instalaciones, cambios operativos,
+benchmarks, inferencias, commits/push. Recomendación propuesta, no aprobación:
+SSD para modelos/rootfs; resolver presupuesto concurrente antes de nuevosCT.
+Fase7 permanece IN PROGRESS; siguiente: revisar planificación RAM y elegir alcance.
+
+
 ## IA-CHAT-A — preflight autorizado — IN PROGRESS
 
 13 de noviembre de 2026 (Europe/Madrid). Fase 7. IaC Reliability, Security & Disaster Recovery; subproyecto IA local, Fase A (la «Fase 1» del encargo no renumera el roadmap). Solo lecturas PVE/API pública, hashes y plan local. No crear CT, instalar, descargar pesos, cargar modelos ni modificar CT existentes/627/red/storage.cfg. Parada obligatoria tras plan, B–F requieren confirmación. Sin commit/push.

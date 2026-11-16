@@ -45,3 +45,11 @@ FIRING/RESOLVED recibidos y confirmados; 11 sondas base correctas; variantes con
 - [Validación desplegada](../../../services/infra-prom/PHASE2-INCIDENTS.md).
 - [Catálogo base](../../../services/infra-prom/config/targets/blackbox.json).
 - [Snapshot de targets/contadores](../evidence/2026-11-02-monitoring-audit.json).
+
+## Incidencia operativa D083 — 12 de noviembre de 2026
+
+Monitorización central recuperada tras reiniciar PVE. FIRING/RESOLVED recibidos y
+confirmados; datasource Grafana OK, 18 hosts/CPU y 19 sondas. Políticas de arranque
+corregidas en IaC/runtime sin recrear contenedores. cAdvisor 618/623 con latencia
+intermitente, estabilidad global pendiente; CRM API 618 parada y alertada.
+Aceptación histórica conservada. [Informe y pruebas](../PHASES-D083-MONITORING-RECOVERY.md).

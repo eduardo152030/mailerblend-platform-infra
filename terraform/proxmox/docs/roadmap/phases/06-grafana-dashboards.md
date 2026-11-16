@@ -1,5 +1,35 @@
 # Fase 6. Grafana & Dashboards
 
+## IA-CHAT — integración desplegada y estabilidad PASS (2026-11-13, Europe/Madrid)
+
+Fase 7. IaC Reliability, Security & Disaster Recovery; complementos de Fases 4 y 6.
+Implementación y pruebas técnicas DONE: CT 630/631 adoptados en Terraform sin
+recreación, plan acotado no-op y 18 entradas anteriores del estado intactas.
+YAML y configuración canónica por servicio, inventario individual/global y Notes
+actualizados. CPU cgroup y RAM LXCFS verificadas; Node Exporter nativo en ambos,
+cAdvisor solo en 631 y cinco targets nuevos. Prometheus/Blackbox integrados de
+forma aditiva; Grafana Fleet/Details contempla cAdvisor N/A en 630.
+
+PASS: 600 segundos / 21 muestras sin anomalías, 136 consultas reales de Grafana,
+reinicio de ambos CT, autenticación, chat, visión, thinking, búsqueda, RAG e historial.
+Segunda aplicación sin escrituras de configuración, recargas ni reinicios.
+Backup final de 631 verificado por SHA256/zstd/tar; README operativo en PVE.
+27 hashes de configuración PVE protegidos iguales; CT 627 no intervenido.
+Sin commits ni push.
+
+Voz funcional con calidad limitada: small/int8, 4 de 5 palabras correctas en el WAV
+sintético (WER 20 %). Con RAG/STT y exporters, 631 alcanza 2,69 GiB residentes /
+2,85 GiB de working set; propuesta de 4096 MiB sin aplicar, límite de 3072 MiB
+conservado. Cuenta y Knowledge técnicos retirados; primer administrador disponible.
+
+Aceptación completa IN PROGRESS: reservas DHCP, administrador y UAT móvil/voz del
+propietario. Restauración funcional y recepción Telegram FIRING/RESOLVED de las
+nuevas cadenas no realizadas. No declararlas aceptadas bajo el contrato F4 ni cerrar
+la Fase 7 global. Siguiente paso: propietario reserva DHCP, crea su administrador,
+prueba voz/móvil y valora el margen de RAM; coordinar después la aceptación de
+alertas de 630/631. [Informe vigente](../IA-CHAT-EXECUTION-2026-11-13.md).
+
+
 Estado: **DONE**. Cierre: **2026-11-10 (Europe/Madrid)**, D-060.
 [Roadmap](../ROADMAP.md) · [Estado actual](../CURRENT-STATUS.md) · [Decisiones](../DECISIONS.md)
 
@@ -68,3 +98,40 @@ Historial: [D052](../PHASE6-D052-EXECUTION.md),
 [D056](../PHASE6-D056-UPTIME-EXECUTION.md),
 [D057](../PHASE6-D057-COMPLETE-HEALTH.md). Bloqueos de esas etapas resueltos según
 informes posteriores; no reejecutarlos ni reutilizar permisos históricos.
+
+## Incidencia operativa D083 — 12 de noviembre de 2026
+
+Monitorización central recuperada tras reiniciar PVE. FIRING/RESOLVED recibidos y
+confirmados; datasource Grafana OK, 18 hosts/CPU y 19 sondas. Políticas de arranque
+corregidas en IaC/runtime sin recrear contenedores. cAdvisor 618/623 con latencia
+intermitente, estabilidad global pendiente; CRM API 618 parada y alertada.
+Aceptación histórica conservada. [Informe y pruebas](../PHASES-D083-MONITORING-RECOVERY.md).
+
+## D088 — incidencia cAdvisor623/618 y CRM
+
+13 de noviembre de 2026 (Europe/Madrid), DONE técnico. Recuperación autorizada
+por el propietario, acotada a623/618: límite cAdvisor128→384MiB en caliente,
+CPU y RAM PVE intactas; CRMAPI618 arrancado sin recreación y restartalways.
+Backups/restauración aislada e idempotenciaPASS. Dashboarddesplegado indica
+HEALTHY/0alertas para ambos. Observación600s/21 PASS: cero timeouts/alertas, sin OOM ni reinicios nuevos.
+Siguiente: vigilancia existente; recepción humana Telegram no verificada.
+[Informe y evidencias](../PHASES-D088-CADVISOR-CRM-RECOVERY.md).
+No modificar aceptación previa ni dar por aceptados pendientes heredados.
+
+
+## IA-CHAT — ampliación de alcance aprobada: patrón del repositorio y observabilidad
+
+13nov2026 Europe/Madrid. El propietario solicita integración reproducible completa de
+630/631 en Terraform/inventario YAML, docs/inventory, monitorización y Grafana como
+el resto del pool; autoriza los cambios necesarios para ello. Aprobación limitada
+a los dos CT nuevos y modificaciones aditivas de observabilidad que los incorporen,
+con backup/rollback, validación e idempotencia. No rollout global de exporters,
+no cambios de aplicaciones/recursos de otros CT y **627 excluido por completo**.
+Sin commit/push ni aumento automático de RAM631. Mantener DHCP y reservas pendientes,
+unprivileged, volúmenes/modelos y contratos CPU/RAM del repositorio.
+
+Estado IN PROGRESS: la receta pct aislada anterior no basta como cierre del patrón
+solicitado; preparar adopción Terraform sin recreación, SSH verificado si procede,
+exporters apropiados para630sinDocker y631conDocker, integración aditiva enPrometheus/
+Blackbox/Grafana e inventario. Conservar cambios previos ajenos. La validación devoz
+sigue pendiente tras corregir WHISPER_MODEL persistido; no declararla aprobada.
