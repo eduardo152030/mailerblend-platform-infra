@@ -1,0 +1,6 @@
+# D088: exclusivo CT618; aplicar mediante scripts/recover-cadvisor-crm-d088.py
+services:
+  cadvisor:
+    mem_limit: 384m
+    memswap_limit: 384m
+    cpus: '0.50'
