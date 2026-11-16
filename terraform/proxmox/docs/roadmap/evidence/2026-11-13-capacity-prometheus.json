@@ -1,0 +1,678 @@
+{
+  "up": [
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.121:8085",
+        "job": "cadvisor",
+        "service": "infra-project-gestion",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.124:8085",
+        "job": "cadvisor",
+        "service": "infra-journal-web",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.112:8085",
+        "job": "cadvisor",
+        "service": "svc01",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.111:8085",
+        "job": "cadvisor",
+        "service": "infra-grafana",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.120:8085",
+        "job": "cadvisor",
+        "service": "infra-excraper",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.115:8085",
+        "job": "cadvisor",
+        "service": "infra-mailerblend-edge",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.114:8085",
+        "job": "cadvisor",
+        "service": "infra-nucleoedge",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.126:8085",
+        "job": "cadvisor",
+        "service": "infra-journal-api",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.110:8085",
+        "job": "cadvisor",
+        "service": "infra-prom",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.113:8085",
+        "job": "cadvisor",
+        "service": "infra-hola",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.127:8085",
+        "job": "cadvisor",
+        "service": "infra-voicebox",
+        "source": "inventory",
+        "vmid": "627"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.122:8085",
+        "job": "cadvisor",
+        "service": "infra-eva-assistant-bot",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.123:8085",
+        "job": "cadvisor",
+        "service": "infra-gestoria",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.117:8085",
+        "job": "cadvisor",
+        "service": "infra-orbit",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.125:8085",
+        "job": "cadvisor",
+        "service": "infra-journal-db",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.119:8085",
+        "job": "cadvisor",
+        "service": "infra-pulpo",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.116:8085",
+        "job": "cadvisor",
+        "service": "infra-blackbox",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.118:8085",
+        "job": "cadvisor",
+        "service": "infra-composable-crm",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.842,
+        "1"
+      ]
+    }
+  ],
+  "failures_6h": [
+    {
+      "metric": {
+        "instance": "192.168.1.127:8085",
+        "job": "cadvisor",
+        "service": "infra-voicebox",
+        "source": "inventory",
+        "vmid": "627"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.110:8085",
+        "job": "cadvisor",
+        "service": "infra-prom",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.113:8085",
+        "job": "cadvisor",
+        "service": "infra-hola",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.115:8085",
+        "job": "cadvisor",
+        "service": "infra-mailerblend-edge",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.120:8085",
+        "job": "cadvisor",
+        "service": "infra-excraper",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.121:8085",
+        "job": "cadvisor",
+        "service": "infra-project-gestion",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.116:8085",
+        "job": "cadvisor",
+        "service": "infra-blackbox",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.125:8085",
+        "job": "cadvisor",
+        "service": "infra-journal-db",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.126:8085",
+        "job": "cadvisor",
+        "service": "infra-journal-api",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.111:8085",
+        "job": "cadvisor",
+        "service": "infra-grafana",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.112:8085",
+        "job": "cadvisor",
+        "service": "svc01",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.114:8085",
+        "job": "cadvisor",
+        "service": "infra-nucleoedge",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.119:8085",
+        "job": "cadvisor",
+        "service": "infra-pulpo",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.122:8085",
+        "job": "cadvisor",
+        "service": "infra-eva-assistant-bot",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.117:8085",
+        "job": "cadvisor",
+        "service": "infra-orbit",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.118:8085",
+        "job": "cadvisor",
+        "service": "infra-composable-crm",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.123:8085",
+        "job": "cadvisor",
+        "service": "infra-gestoria",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.124:8085",
+        "job": "cadvisor",
+        "service": "infra-journal-web",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.845,
+        "0"
+      ]
+    }
+  ],
+  "max_scrape_6h": [
+    {
+      "metric": {
+        "instance": "192.168.1.110:8085",
+        "job": "cadvisor",
+        "service": "infra-prom",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.060197323"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.111:8085",
+        "job": "cadvisor",
+        "service": "infra-grafana",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.045901913"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.112:8085",
+        "job": "cadvisor",
+        "service": "svc01",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "1.774038981"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.113:8085",
+        "job": "cadvisor",
+        "service": "infra-hola",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.031230515"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.114:8085",
+        "job": "cadvisor",
+        "service": "infra-nucleoedge",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.041254279"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.115:8085",
+        "job": "cadvisor",
+        "service": "infra-mailerblend-edge",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.046031701"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.116:8085",
+        "job": "cadvisor",
+        "service": "infra-blackbox",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.014703262"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.117:8085",
+        "job": "cadvisor",
+        "service": "infra-orbit",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.054797564"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.118:8085",
+        "job": "cadvisor",
+        "service": "infra-composable-crm",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.051585325"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.119:8085",
+        "job": "cadvisor",
+        "service": "infra-pulpo",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "3.421267614"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.120:8085",
+        "job": "cadvisor",
+        "service": "infra-excraper",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.039768794"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.121:8085",
+        "job": "cadvisor",
+        "service": "infra-project-gestion",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.022700158"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.122:8085",
+        "job": "cadvisor",
+        "service": "infra-eva-assistant-bot",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.050842893"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.123:8085",
+        "job": "cadvisor",
+        "service": "infra-gestoria",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.060733889"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.124:8085",
+        "job": "cadvisor",
+        "service": "infra-journal-web",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.021494505"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.125:8085",
+        "job": "cadvisor",
+        "service": "infra-journal-db",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.044226562"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.126:8085",
+        "job": "cadvisor",
+        "service": "infra-journal-api",
+        "source": "inventory"
+      },
+      "value": [
+        1794562562.851,
+        "0.040307924"
+      ]
+    },
+    {
+      "metric": {
+        "instance": "192.168.1.127:8085",
+        "job": "cadvisor",
+        "service": "infra-voicebox",
+        "source": "inventory",
+        "vmid": "627"
+      },
+      "value": [
+        1794562562.851,
+        "0.033647521"
+      ]
+    }
+  ],
+  "alerts": []
+}

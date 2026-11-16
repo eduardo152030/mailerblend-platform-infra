@@ -1,0 +1,22 @@
+{
+  "status": "PROPOSED_NOT_EXECUTED",
+  "clone_ids": [
+    9618,
+    9622
+  ],
+  "expected_names": {
+    "9618": "crm-recovery-9618",
+    "9622": "eva-recovery-9622"
+  },
+  "volumes": [
+    "local-lvm:vm-9618-disk-0",
+    "local-lvm:vm-9622-disk-0"
+  ],
+  "estimated_mapped_gib": 54.881,
+  "logical_gib": 90,
+  "root_space_recovered_by_clone_removal": 0,
+  "preserve_source_backups": true,
+  "source_backup_checksums_revalidated_this_session": false,
+  "separate_proposal": "Copy local:backup/vzdump-qemu-100-2025_03_23-23_03_29.vma.zst to HDD, verify then request source removal",
+  "production_changes": false
+}

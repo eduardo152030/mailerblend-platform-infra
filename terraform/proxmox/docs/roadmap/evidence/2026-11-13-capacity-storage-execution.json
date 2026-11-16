@@ -1,0 +1,151 @@
+{
+  "status": "DONE",
+  "stages": [
+    {
+      "stage": "preflight",
+      "capacity": {
+        "df": "Filesystem               1B-blocks        Used     Available Use% Mounted on\n/dev/mapper/pve-root   68652367872 61131661312    7520706560  90% /\n/dev/sdb             1499535388672 91769298944 1407766089728   7% /mnt/storage",
+        "pool": {
+          "report": [
+            {
+              "lv": [
+                {
+                  "lv_size": "429589004288",
+                  "data_percent": "69.06",
+                  "metadata_percent": "2.80"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "stage": "clone_config_saved",
+      "ct": 9618,
+      "sha256": "11456eb5a7ee2d7c59c2f593065c098a8ef099947dc00608acb23eedbcaef244"
+    },
+    {
+      "stage": "clone_config_saved",
+      "ct": 9622,
+      "sha256": "aae790d04abdd4ae452dd5307ca6e3699f84d0db02e25ca9fa383408399ffd95"
+    },
+    {
+      "stage": "source_checksum_PASS",
+      "production_ct": 618,
+      "sha256": "5ee3e20c4361b327f4ae859e4815091310d7b927034dd122f7105a834414c35e",
+      "bytes": 4342436833
+    },
+    {
+      "stage": "source_archive_readable_PASS",
+      "production_ct": 618,
+      "entries": 200150
+    },
+    {
+      "stage": "source_checksum_PASS",
+      "production_ct": 622,
+      "sha256": "9cf0496285b4061959c8a56004ef9ba77fbee9ac94474c885ef9010d51e335ae",
+      "bytes": 12600126707
+    },
+    {
+      "stage": "source_archive_readable_PASS",
+      "production_ct": 622,
+      "entries": 472964
+    },
+    {
+      "stage": "clone_removed",
+      "ct": 9618
+    },
+    {
+      "stage": "clone_removed",
+      "ct": 9622
+    },
+    {
+      "stage": "clones_complete",
+      "capacity": {
+        "df": "Filesystem               1B-blocks        Used     Available Use% Mounted on\n/dev/mapper/pve-root   68652367872 61129588736    7522779136  90% /\n/dev/sdb             1499535388672 91769311232 1407766077440   7% /mnt/storage",
+        "pool": {
+          "report": [
+            {
+              "lv": [
+                {
+                  "lv_size": "429589004288",
+                  "data_percent": "55.34",
+                  "metadata_percent": "2.34"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "production_ids_unchanged": true
+    },
+    {
+      "stage": "copy_progress",
+      "bytes": 7096762368,
+      "total": 37149277192
+    },
+    {
+      "stage": "copy_progress",
+      "bytes": 12348030976,
+      "total": 37149277192
+    },
+    {
+      "stage": "copy_progress",
+      "bytes": 17230200832,
+      "total": 37149277192
+    },
+    {
+      "stage": "copy_progress",
+      "bytes": 22103982080,
+      "total": 37149277192
+    },
+    {
+      "stage": "copy_progress",
+      "bytes": 26952597504,
+      "total": 37149277192
+    },
+    {
+      "stage": "copy_progress",
+      "bytes": 31784435712,
+      "total": 37149277192
+    },
+    {
+      "stage": "copy_progress",
+      "bytes": 36633051136,
+      "total": 37149277192
+    },
+    {
+      "stage": "vm100_copy_checksum_PASS",
+      "bytes": 37149277192,
+      "sha256": "b0ded7e248a7fc0e3d957155554355762d390e7c2a3fa64ce0b2c4795cd1b1f2"
+    },
+    {
+      "stage": "vm100_archive_readable_PASS",
+      "destination": "/mnt/storage/dump/vzdump-qemu-100-2025_03_23-23_03_29.vma.zst",
+      "sha256": "b0ded7e248a7fc0e3d957155554355762d390e7c2a3fa64ce0b2c4795cd1b1f2"
+    },
+    {
+      "stage": "complete",
+      "capacity": {
+        "df": "Filesystem               1B-blocks         Used     Available Use% Mounted on\n/dev/mapper/pve-root   68652367872  23980834816   44671533056  35% /\n/dev/sdb             1499535388672 128918614016 1370616774656   9% /mnt/storage",
+        "pool": {
+          "report": [
+            {
+              "lv": [
+                {
+                  "lv_size": "429589004288",
+                  "data_percent": "55.35",
+                  "metadata_percent": "2.34"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "vm100_preserved": "/mnt/storage/dump/vzdump-qemu-100-2025_03_23-23_03_29.vma.zst",
+      "source_removed": true
+    }
+  ],
+  "time_utc": "2026-11-13T10:11:15.196392+00:00"
+}

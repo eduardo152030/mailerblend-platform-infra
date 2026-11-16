@@ -1,0 +1,1539 @@
+{
+  "utc": "2026-11-13T10:19:54.974600+00:00",
+  "missing": [],
+  "pve": "proxmox-ve: 8.3.0 (running kernel: 6.8.12-4-pve)\npve-manager: 8.3.0 (running version: 8.3.0/c1689ccb1065a83b)\nproxmox-kernel-helper: 8.1.0\nproxmox-kernel-6.8: 6.8.12-4\nproxmox-kernel-6.8.12-4-pve-signed: 6.8.12-4",
+  "kernel": "6.8.12-4-pve",
+  "hostname": "pve",
+  "cpu": "Architecture:                         x86_64\nCPU op-mode(s):                       32-bit, 64-bit\nAddress sizes:                        39 bits physical, 48 bits virtual\nByte Order:                           Little Endian\nCPU(s):                               4\nOn-line CPU(s) list:                  0-3\nVendor ID:                            GenuineIntel\nBIOS Vendor ID:                       Intel(R) Corporation\nModel name:                           Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz\nBIOS Model name:                      Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz To Be Filled By O.E.M. CPU @ 3.2GHz\nBIOS CPU family:                      205\nCPU family:                           6\nModel:                                94\nThread(s) per core:                   1\nCore(s) per socket:                   4\nSocket(s):                            1\nStepping:                             3\nCPU(s) scaling MHz:                   93%\nCPU max MHz:                          3600.0000\nCPU min MHz:                          800.0000\nBogoMIPS:                             6399.96\nFlags:                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb pti ibrs ibpb stibp tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp vnmi\nVirtualization:                       VT-x\nL1d cache:                            128 KiB (4 instances)\nL1i cache:                            128 KiB (4 instances)\nL2 cache:                             1 MiB (4 instances)\nL3 cache:                             6 MiB (1 instance)\nNUMA node(s):                         1\nNUMA node0 CPU(s):                    0-3\nVulnerability Gather data sampling:   Vulnerable: No microcode\nVulnerability Itlb multihit:          KVM: Mitigation: VMX disabled\nVulnerability L1tf:                   Mitigation; PTE Inversion; VMX conditional cache flushes, SMT disabled\nVulnerability Mds:                    Vulnerable: Clear CPU buffers attempted, no microcode; SMT disabled\nVulnerability Meltdown:               Mitigation; PTI\nVulnerability Mmio stale data:        Vulnerable: Clear CPU buffers attempted, no microcode; SMT disabled\nVulnerability Reg file data sampling: Not affected\nVulnerability Retbleed:               Mitigation; IBRS\nVulnerability Spec rstack overflow:   Not affected\nVulnerability Spec store bypass:      Vulnerable\nVulnerability Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:             Mitigation; IBRS; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                  Vulnerable: No microcode\nVulnerability Tsx async abort:        Vulnerable: Clear CPU buffers attempted, no microcode; SMT disabled",
+  "free": "total        used        free      shared  buff/cache   available\nMem:            31Gi       8.7Gi       1.2Gi       188Mi        21Gi        22Gi\nSwap:           15Gi       2.5Gi        13Gi",
+  "swap": "NAME      TYPE      SIZE USED PRIO\n/dev/dm-0 partition  16G 2.5G   -2",
+  "pvs": "PV         VG  Fmt  Attr PSize    PFree\n  /dev/sda3  pve lvm2 a--  <488.05g    0",
+  "vgs": "VG  #PV #LV #SN Attr   VSize    VFree\n  pve   1  28   0 wz--n- <488.05g    0",
+  "lvs": "LV              VG  LSize    Data%  Meta%  Pool\n  base-106-disk-0 pve   50.00g               data\n  data            pve <400.09g 55.35  2.34       \n  [data_tdata]    pve <400.09g                   \n  [data_tmeta]    pve    3.98g                   \n  [lvol0_pmspare] pve    3.98g                   \n  root            pve   64.00g                   \n  swap            pve   16.00g                   \n  vm-101-disk-0   pve   20.00g 31.93         data\n  vm-103-disk-0   pve   50.00g 40.30         data\n  vm-104-disk-0   pve   10.00g 18.69         data\n  vm-105-disk-0   pve    8.00g 61.29         data\n  vm-107-disk-0   pve   50.00g 13.55         data\n  vm-109-disk-0   pve   50.00g 9.64          data\n  vm-610-disk-0   pve   10.00g 93.22         data\n  vm-611-disk-0   pve   10.00g 47.14         data\n  vm-61211-disk-0 pve   40.00g 15.02         data\n  vm-613-disk-0   pve   10.00g 21.71         data\n  vm-614-disk-0   pve   10.00g 51.43         data\n  vm-615-disk-0   pve   10.00g 38.25         data\n  vm-616-disk-0   pve   10.00g 22.04         data\n  vm-617-disk-0   pve   10.00g 53.16         data\n  vm-618-disk-0   pve   50.00g 47.60         data\n  vm-619-disk-0   pve   10.00g 55.83         data\n  vm-620-disk-0   pve   10.00g 54.83         data\n  vm-621-disk-0   pve   10.00g 23.66         data\n  vm-622-disk-0   pve   40.00g 63.17         data\n  vm-623-disk-0   pve   50.00g 15.87         data\n  vm-624-disk-0   pve   50.00g 8.98          data\n  vm-625-disk-0   pve   50.00g 8.80          data\n  vm-626-disk-0   pve   50.00g 8.37          data\n  vm-627-disk-0   pve  100.00g 49.46         data",
+  "df": "Filesystem           Type      Size  Used Avail Use% Mounted on\n/dev/mapper/pve-root xfs        64G   23G   42G  35% /\nefivarfs             efivarfs  150K   85K   61K  59% /sys/firmware/efi/efivars\n/dev/sda2            vfat     1022M   12M 1011M   2% /boot/efi\n/dev/sdb             xfs       1.4T  121G  1.3T   9% /mnt/storage\n/dev/fuse            fuse      128M   44K  128M   1% /etc/pve",
+  "storage_status": "Name             Type     Status           Total            Used       Available        %\nlocal             dir     active        67043328        23419020        43624308   34.93%\nlocal-lvm     lvmthin     active       419520512       232204603       187315908   55.35%\nstorage           dir     active      1464390028       125897068      1338492960    8.60%",
+  "gpu": "00:02.0 VGA compatible controller [0300]: Intel Corporation HD Graphics 530 [8086:1912] (rev 06)",
+  "network": "lo               UNKNOWN        127.0.0.1/8 ::1/128 \neno1             UP             \nvmbr0            UP             192.168.1.100/24 fe80::1262:e5ff:fe19:13cd/64 \nveth610i0@if2    UP             \nfwbr610i0        UP             \nfwpr610p0@fwln610i0 UP             \nfwln610i0@fwpr610p0 UP             \nveth611i0@if2    UP             \nfwbr611i0        UP             \nfwpr611p0@fwln611i0 UP             \nfwln611i0@fwpr611p0 UP             \nveth613i0@if2    UP             \nfwbr613i0        UP             \nfwpr613p0@fwln613i0 UP             \nfwln613i0@fwpr613p0 UP             \nveth614i0@if2    UP             \nfwbr614i0        UP             \nfwpr614p0@fwln614i0 UP             \nfwln614i0@fwpr614p0 UP             \nveth615i0@if2    UP             \nfwbr615i0        UP             \nfwpr615p0@fwln615i0 UP             \nfwln615i0@fwpr615p0 UP             \nveth616i0@if2    UP             \nfwbr616i0        UP             \nfwpr616p0@fwln616i0 UP             \nfwln616i0@fwpr616p0 UP             \nveth617i0@if2    UP             \nfwbr617i0        UP             \nfwpr617p0@fwln617i0 UP             \nfwln617i0@fwpr617p0 UP             \nveth618i0@if2    UP             \nfwbr618i0        UP             \nfwpr618p0@fwln618i0 UP             \nfwln618i0@fwpr618p0 UP             \nveth619i0@if2    UP             \nfwbr619i0        UP             \nfwpr619p0@fwln619i0 UP             \nfwln619i0@fwpr619p0 UP             \nveth620i0@if2    UP             \nfwbr620i0        UP             \nfwpr620p0@fwln620i0 UP             \nfwln620i0@fwpr620p0 UP             \nveth621i0@if2    UP             \nfwbr621i0        UP             \nfwpr621p0@fwln621i0 UP             \nfwln621i0@fwpr621p0 UP             \nveth622i0@if2    UP             \nfwbr622i0        UP             \nfwpr622p0@fwln622i0 UP             \nfwln622i0@fwpr622p0 UP             \nveth623i0@if2    UP             \nfwbr623i0        UP             \nfwpr623p0@fwln623i0 UP             \nfwln623i0@fwpr623p0 UP             \nveth624i0@if2    UP             \nfwbr624i0        UP             \nfwpr624p0@fwln624i0 UP             \nfwln624i0@fwpr624p0 UP             \nveth625i0@if2    UP             \nfwbr625i0        UP             \nfwpr625p0@fwln625i0 UP             \nfwln625i0@fwpr625p0 UP             \nveth626i0@if2    UP             \nfwbr626i0        UP             \nfwpr626p0@fwln626i0 UP             \nfwln626i0@fwpr626p0 UP             \nveth627i0@if2    UP             \nfwbr627i0        UP             \nfwpr627p0@fwln627i0 UP             \nfwln627i0@fwpr627p0 UP             \nveth61211i0@if2  UP             \nfwbr61211i0      UP             \nfwpr61211p0@fwln61211i0 UP             \nfwln61211i0@fwpr61211p0 UP             \nveth109i0@if2    UP             \nfwbr109i0        UP             \nfwpr109p0@fwln109i0 UP             \nfwln109i0@fwpr109p0 UP             \nveth107i0@if2    UP             \nfwbr107i0        UP             \nfwpr107p0@fwln107i0 UP             \nfwln107i0@fwpr107p0 UP             \nveth105i0@if2    UP             \nfwbr105i0        UP             \nfwpr105p0@fwln105i0 UP             \nfwln105i0@fwpr105p0 UP             \nveth104i0@if2    UP             \nfwbr104i0        UP             \nfwpr104p0@fwln104i0 UP             \nfwln104i0@fwpr104p0 UP             \nveth103i0@if2    UP             \nfwbr103i0        UP             \nfwpr103p0@fwln103i0 UP             \nfwln103i0@fwpr103p0 UP             \nveth101i0@if2    UP             \nfwbr101i0        UP             \nfwpr101p0@fwln101i0 UP             \nfwln101i0@fwpr101p0 UP",
+  "uptime": "11:19:56 up 1 day, 16:32,  0 user,  load average: 0.46, 1.15, 1.95",
+  "processes": "PID USER     COMMAND           RSS %CPU %MEM\n  72765 root     pt_main_thread  370452 0.1  1.1\n1865510 999      uvicorn         327216 0.2  0.9\n  22294 root     node            279952 0.0  0.8\n  54646 1001     java            279048 0.1  0.8\n  22312 root     node            240456 0.0  0.7\n  29232 root     node            228712 0.0  0.6\n  29063 root     node            217928 0.0  0.6\n  99034 101000   node            213232 0.0  0.6\n   4246 472      grafana         206000 0.9  0.6\n 974467 nobody   prometheus      205160 0.7  0.6",
+  "top": "top - 11:20:56 up 1 day, 16:33,  0 user,  load average: 1.16, 1.26, 1.94\nTasks: 1441 total,   4 running, 1231 sleeping,   0 stopped, 206 zombie\n%Cpu(s):  6.7 us, 20.0 sy,  0.0 ni, 73.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st \nMiB Mem :  31979.6 total,   1243.7 free,   8905.0 used,  22473.6 buff/cache     \nMiB Swap:  16384.0 total,  13853.2 free,   2530.8 used.  23074.6 avail Mem \n\n    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\n2207318 root      20   0   27140  20168   9984 R  63.2   0.1   0:00.12 python\n2207303 root      20   0   14136   6728   3784 R  15.8   0.0   0:00.06 top\n2207337 root      20   0    8732   2944   2176 S  10.5   0.0   0:00.02 pg_isre+\n  21133 root      20   0 1341452  56636  18048 S   5.3   0.2   0:16.10 node\n  21880 999       20   0   39368   3584   2304 S   5.3   0.0   9:35.52 redis-s+\n2070936 root      20   0       0      0      0 R   5.3   0.0   0:01.08 kworker+\n3693974 root      20   0 1233840  11932   7296 S   5.3   0.0   0:16.59 contain+\n      1 root      20   0  170732  13740   8876 S   0.0   0.0   0:17.62 systemd\n      2 root      20   0       0      0      0 S   0.0   0.0   0:00.07 kthreadd\n      3 root      20   0       0      0      0 S   0.0   0.0   0:00.00 pool_wo+\n      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+\n      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+\n      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+",
+  "meminfo": "MemTotal:       32747112 kB\nMemFree:         1228744 kB\nMemAvailable:   23577452 kB\nBuffers:         1040860 kB\nCached:         17749900 kB\nSwapCached:       182468 kB\nActive:          7072208 kB\nInactive:       18629520 kB\nActive(anon):    4367508 kB\nInactive(anon):  2737244 kB\nActive(file):    2704700 kB\nInactive(file): 15892276 kB\nUnevictable:       30664 kB\nMlocked:           30540 kB\nSwapTotal:      16777212 kB\nSwapFree:       14185980 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:              4624 kB\nWriteback:             0 kB\nAnonPages:       6814480 kB\nMapped:          2736112 kB\nShmem:            193508 kB\nKReclaimable:    4215996 kB\nSlab:            5161512 kB\nSReclaimable:    4215996 kB\nSUnreclaim:       945516 kB\nKernelStack:       71472 kB\nPageTables:       190864 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    33150768 kB\nCommitted_AS:   40122016 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      179784 kB\nVmallocChunk:          0 kB\nPercpu:            22000 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:     12288 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:   2086912 kB\nFilePmdMapped:         0 kB\nUnaccepted:            0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      673384 kB\nDirectMap2M:    23320576 kB\nDirectMap1G:     9437184 kB",
+  "governor": "performance",
+  "dmi": "# dmidecode 3.4\nGetting SMBIOS data from sysfs.\nSMBIOS 3.0.0 present.\n\nHandle 0x0000, DMI type 16, 23 bytes\nPhysical Memory Array\n\tLocation: System Board Or Motherboard\n\tUse: System Memory\n\tError Correction Type: None\n\tMaximum Capacity: 32 GB\n\tError Information Handle: Not Provided\n\tNumber Of Devices: 2\n\nHandle 0x002E, DMI type 17, 40 bytes\nMemory Device\n\tArray Handle: 0x0000\n\tError Information Handle: Not Provided\n\tTotal Width: 64 bits\n\tData Width: 64 bits\n\tSize: 16 GB\n\tForm Factor: SODIMM\n\tSet: None\n\tLocator: DIMM1\n\tBank Locator: ChannelB\n\tType: DDR4\n\tType Detail: Synchronous Unbuffered (Unregistered)\n\tSpeed: 2133 MT/s\n\tManufacturer: Unknown - [0x5D07]\n\n\n\n\tRank: 2\n\tConfigured Memory Speed: 2133 MT/s\n\tMinimum Voltage: Unknown\n\tMaximum Voltage: Unknown\n\tConfigured Voltage: 1.2 V\n\nHandle 0x0002, DMI type 17, 40 bytes\nMemory Device\n\tArray Handle: 0x0000\n\tError Information Handle: Not Provided\n\tTotal Width: 64 bits\n\tData Width: 64 bits\n\tSize: 16 GB\n\tForm Factor: SODIMM\n\tSet: None\n\tLocator: DIMM3\n\tBank Locator: ChannelA\n\tType: DDR4\n\tType Detail: Synchronous Unbuffered (Unregistered)\n\tSpeed: 2133 MT/s\n\tManufacturer: Unknown - [0x5D07]\n\n\n\n\tRank: 2\n\tConfigured Memory Speed: 2133 MT/s\n\tMinimum Voltage: Unknown\n\tMaximum Voltage: Unknown\n\tConfigured Voltage: 1.2 V",
+  "ksm": "0",
+  "ksmtuned": "active",
+  "arcstats": "c_min                           4    1047907584\nc_max                           4    16766521344\nsize                            4    960",
+  "zfs_conf": "",
+  "guests": [
+    {
+      "vmid": 621,
+      "name": "infra-project-gestion",
+      "status": "running",
+      "mem": 163233792,
+      "maxmem": 2147483648,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "2048",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-621-disk-0,size=10G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 107,
+      "name": "drawio",
+      "status": "running",
+      "mem": 436760576,
+      "maxmem": 1132462080,
+      "cpus": 3,
+      "type": "lxc",
+      "config": {
+        "cores": "3",
+        "memory": "1080",
+        "rootfs": "local-lvm:vm-107-disk-0,size=50G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 615,
+      "name": "infra-mailerblend-edge",
+      "status": "running",
+      "mem": 313618432,
+      "maxmem": 2147483648,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "2048",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-615-disk-0,size=10G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 614,
+      "name": "infra-nucleoedge",
+      "status": "running",
+      "mem": 354304000,
+      "maxmem": 2147483648,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "2048",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-614-disk-0,size=10G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 623,
+      "name": "infra-gestoria",
+      "status": "running",
+      "mem": 645074944,
+      "maxmem": 4294967296,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "4096",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-623-disk-0,size=50G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 610,
+      "name": "infra-prom",
+      "status": "running",
+      "mem": 417447936,
+      "maxmem": 2147483648,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "2048",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-610-disk-0,size=10G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 103,
+      "name": "aws-workshop",
+      "status": "running",
+      "mem": 639254528,
+      "maxmem": 5293211648,
+      "cpus": 3,
+      "type": "lxc",
+      "config": {
+        "cores": "3",
+        "memory": "5048",
+        "rootfs": "local-lvm:vm-103-disk-0,size=50G",
+        "swap": "804"
+      }
+    },
+    {
+      "vmid": 619,
+      "name": "infra-pulpo",
+      "status": "running",
+      "mem": 772730880,
+      "maxmem": 2147483648,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "2048",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-619-disk-0,size=10G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 61211,
+      "name": "svc01",
+      "status": "running",
+      "mem": 368967680,
+      "maxmem": 6979321856,
+      "cpus": 3,
+      "type": "lxc",
+      "config": {
+        "cores": "3",
+        "memory": "6656",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-61211-disk-0,size=40G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 618,
+      "name": "infra-composable-crm",
+      "status": "running",
+      "mem": 2045128704,
+      "maxmem": 6442450944,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "6144",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-618-disk-0,size=50G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 616,
+      "name": "infra-blackbox",
+      "status": "running",
+      "mem": 153178112,
+      "maxmem": 536870912,
+      "cpus": 1,
+      "type": "lxc",
+      "config": {
+        "cores": "1",
+        "memory": "512",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-616-disk-0,size=10G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 101,
+      "name": "docmost",
+      "status": "running",
+      "mem": 504213504,
+      "maxmem": 1073741824,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "1024",
+        "rootfs": "local-lvm:vm-101-disk-0,size=20G",
+        "swap": "1024"
+      }
+    },
+    {
+      "vmid": 627,
+      "name": "infra-voicebox",
+      "status": "running",
+      "mem": 804859904,
+      "maxmem": 21474836480,
+      "cpus": 3,
+      "type": "lxc",
+      "config": {
+        "cores": "3",
+        "memory": "20480",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-627-disk-0,size=100G",
+        "swap": "2048"
+      }
+    },
+    {
+      "vmid": 611,
+      "name": "infra-grafana",
+      "status": "running",
+      "mem": 336543744,
+      "maxmem": 1098907648,
+      "cpus": 1,
+      "type": "lxc",
+      "config": {
+        "cores": "1",
+        "memory": "1048",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-611-disk-0,size=10G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 106,
+      "name": "CT106",
+      "status": "stopped",
+      "mem": 0,
+      "maxmem": 1132462080,
+      "cpus": 3,
+      "type": "lxc",
+      "config": {
+        "cores": "3",
+        "memory": "1080",
+        "rootfs": "local-lvm:base-106-disk-0,size=50G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 624,
+      "name": "infra-journal-web",
+      "status": "running",
+      "mem": 200785920,
+      "maxmem": 536870912,
+      "cpus": 1,
+      "type": "lxc",
+      "config": {
+        "cores": "1",
+        "memory": "512",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-624-disk-0,size=50G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 625,
+      "name": "infra-journal-db",
+      "status": "running",
+      "mem": 270385152,
+      "maxmem": 2147483648,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "2048",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-625-disk-0,size=50G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 109,
+      "name": "edge-router",
+      "status": "running",
+      "mem": 168194048,
+      "maxmem": 1132462080,
+      "cpus": 3,
+      "type": "lxc",
+      "config": {
+        "cores": "3",
+        "memory": "1080",
+        "rootfs": "local-lvm:vm-109-disk-0,size=50G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 613,
+      "name": "infra-hola",
+      "status": "running",
+      "mem": 125046784,
+      "maxmem": 536870912,
+      "cpus": 1,
+      "type": "lxc",
+      "config": {
+        "cores": "1",
+        "memory": "512",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-613-disk-0,size=10G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 620,
+      "name": "infra-excraper",
+      "status": "running",
+      "mem": 352858112,
+      "maxmem": 2147483648,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "2048",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-620-disk-0,size=10G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 622,
+      "name": "infra-eva-assistant-bot",
+      "status": "running",
+      "mem": 498937856,
+      "maxmem": 2147483648,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "2048",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-622-disk-0,size=40G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 104,
+      "name": "nucleo",
+      "status": "running",
+      "mem": 62877696,
+      "maxmem": 1073741824,
+      "cpus": 1,
+      "type": "lxc",
+      "config": {
+        "cores": "1",
+        "memory": "1024",
+        "rootfs": "local-lvm:vm-104-disk-0,size=10G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 105,
+      "name": "n8n-server",
+      "status": "running",
+      "mem": 77725696,
+      "maxmem": 2197815296,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "2096",
+        "rootfs": "local-lvm:vm-105-disk-0,size=8G",
+        "swap": "1048"
+      }
+    },
+    {
+      "vmid": 617,
+      "name": "infra-orbit",
+      "status": "running",
+      "mem": 251867136,
+      "maxmem": 536870912,
+      "cpus": 1,
+      "type": "lxc",
+      "config": {
+        "cores": "1",
+        "memory": "512",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-617-disk-0,size=10G",
+        "swap": "512"
+      }
+    },
+    {
+      "vmid": 626,
+      "name": "infra-journal-api",
+      "status": "running",
+      "mem": 258035712,
+      "maxmem": 2147483648,
+      "cpus": 2,
+      "type": "lxc",
+      "config": {
+        "cores": "2",
+        "memory": "2048",
+        "onboot": "1",
+        "rootfs": "local-lvm:vm-626-disk-0,size=50G",
+        "swap": "512"
+      }
+    }
+  ],
+  "node": {
+    "memory": {
+      "free": 20364951552,
+      "total": 33533042688,
+      "used": 13168091136
+    },
+    "cpu": 0,
+    "loadavg": [
+      "0.84",
+      "1.19",
+      "1.95"
+    ],
+    "swap": {
+      "free": 14526181376,
+      "total": 17179865088,
+      "used": 2653683712
+    }
+  },
+  "storages": [
+    {
+      "active": 1,
+      "avail": 191811490415,
+      "content": "rootdir,images",
+      "enabled": 1,
+      "shared": 0,
+      "storage": "local-lvm",
+      "total": 429589004288,
+      "type": "lvmthin",
+      "used": 237777513873,
+      "used_fraction": 0.55349999999905
+    },
+    {
+      "active": 1,
+      "avail": 1370616791040,
+      "content": "snippets,vztmpl,rootdir,images,backup",
+      "enabled": 1,
+      "shared": 0,
+      "storage": "storage",
+      "total": 1499535388672,
+      "type": "dir",
+      "used": 128918597632,
+      "used_fraction": 0.0859723609098491
+    },
+    {
+      "active": 1,
+      "avail": 44671270912,
+      "content": "backup,iso,vztmpl",
+      "enabled": 1,
+      "shared": 0,
+      "storage": "local",
+      "total": 68652367872,
+      "type": "dir",
+      "used": 23981096960,
+      "used_fraction": 0.349312015059873
+    }
+  ],
+  "storage_cfg": "dir: local\n\tpath /var/lib/vz\n\tcontent iso,vztmpl,backup\nlvmthin: local-lvm\n\tthinpool data\n\tvgname pve\n\tcontent images,rootdir\ndir: storage\n\tpath /mnt/storage\n\tcontent images,snippets,vztmpl,rootdir,backup\n\tshared 0",
+  "disks": {
+    "blockdevices": [
+      {
+        "name": "sda",
+        "size": 525112713216,
+        "type": "disk",
+        "rota": false,
+        "tran": "sata",
+        "model": "Crucial_CT525MX300SSD1",
+        "serial": "…9492",
+        "fstype": null,
+        "mountpoints": [
+          null
+        ],
+        "children": [
+          {
+            "name": "sda1",
+            "size": 1031168,
+            "type": "part",
+            "rota": false,
+            "tran": null,
+            "model": null,
+            "serial": null,
+            "fstype": null,
+            "mountpoints": [
+              null
+            ]
+          },
+          {
+            "name": "sda2",
+            "size": 1073741824,
+            "type": "part",
+            "rota": false,
+            "tran": null,
+            "model": null,
+            "serial": null,
+            "fstype": "vfat",
+            "mountpoints": [
+              "/boot/efi"
+            ]
+          },
+          {
+            "name": "sda3",
+            "size": 524037905920,
+            "type": "part",
+            "rota": false,
+            "tran": null,
+            "model": null,
+            "serial": null,
+            "fstype": "LVM2_member",
+            "mountpoints": [
+              null
+            ],
+            "children": [
+              {
+                "name": "pve-swap",
+                "size": 17179869184,
+                "type": "lvm",
+                "rota": false,
+                "tran": null,
+                "model": null,
+                "serial": null,
+                "fstype": "swap",
+                "mountpoints": [
+                  "[SWAP]"
+                ]
+              },
+              {
+                "name": "pve-root",
+                "size": 68719476736,
+                "type": "lvm",
+                "rota": false,
+                "tran": null,
+                "model": null,
+                "serial": null,
+                "fstype": "xfs",
+                "mountpoints": [
+                  "/"
+                ]
+              },
+              {
+                "name": "pve-data_tmeta",
+                "size": 4273995776,
+                "type": "lvm",
+                "rota": false,
+                "tran": null,
+                "model": null,
+                "serial": null,
+                "fstype": null,
+                "mountpoints": [
+                  null
+                ],
+                "children": [
+                  {
+                    "name": "pve-data-tpool",
+                    "size": 429589004288,
+                    "type": "lvm",
+                    "rota": false,
+                    "tran": null,
+                    "model": null,
+                    "serial": null,
+                    "fstype": null,
+                    "mountpoints": [
+                      null
+                    ],
+                    "children": [
+                      {
+                        "name": "pve-data",
+                        "size": 429589004288,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": null,
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--101--disk--0",
+                        "size": 21474836480,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--105--disk--0",
+                        "size": 8589934592,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--103--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--107--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--109--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--104--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--613--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--610--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--61211--disk--0",
+                        "size": 42949672960,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--611--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--614--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--615--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--616--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--617--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--618--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--619--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--620--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--621--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--622--disk--0",
+                        "size": 42949672960,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--623--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--624--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--626--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--625--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--627--disk--0",
+                        "size": 107374182400,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "pve-data_tdata",
+                "size": 429589004288,
+                "type": "lvm",
+                "rota": false,
+                "tran": null,
+                "model": null,
+                "serial": null,
+                "fstype": null,
+                "mountpoints": [
+                  null
+                ],
+                "children": [
+                  {
+                    "name": "pve-data-tpool",
+                    "size": 429589004288,
+                    "type": "lvm",
+                    "rota": false,
+                    "tran": null,
+                    "model": null,
+                    "serial": null,
+                    "fstype": null,
+                    "mountpoints": [
+                      null
+                    ],
+                    "children": [
+                      {
+                        "name": "pve-data",
+                        "size": 429589004288,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": null,
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--101--disk--0",
+                        "size": 21474836480,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--105--disk--0",
+                        "size": 8589934592,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--103--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--107--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--109--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--104--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--613--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--610--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--61211--disk--0",
+                        "size": 42949672960,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--611--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--614--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--615--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--616--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--617--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--618--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--619--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--620--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--621--disk--0",
+                        "size": 10737418240,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--622--disk--0",
+                        "size": 42949672960,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--623--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--624--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--626--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--625--disk--0",
+                        "size": 53687091200,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      },
+                      {
+                        "name": "pve-vm--627--disk--0",
+                        "size": 107374182400,
+                        "type": "lvm",
+                        "rota": false,
+                        "tran": null,
+                        "model": null,
+                        "serial": null,
+                        "fstype": "ext4",
+                        "mountpoints": [
+                          null
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "sdb",
+        "size": 1500267937792,
+        "type": "disk",
+        "rota": true,
+        "tran": "usb",
+        "model": "WDC WD15JDRW-11C7VS1",
+        "serial": "…9V49",
+        "fstype": "xfs",
+        "mountpoints": [
+          "/mnt/storage"
+        ]
+      }
+    ]
+  },
+  "smart": {
+    "/dev/sda": "SMART overall-health self-assessment test result: PASSED\n  9 Power_On_Hours          0x0032   100   100   000    Old_age   Always       -       47771\n196 Reallocated_Event_Count 0x0032   100   100   000    Old_age   Always       -       1\n198 Offline_Uncorrectable   0x0030   100   100   000    Old_age   Offline      -       0\n  5 Reallocate_NAND_Blk_Cnt 0x0032   100   100   010    Old_age   Always       -       1\n173 Ave_Block-Erase_Count   0x0032   077   077   000    Old_age   Always       -       359\n202 Percent_Lifetime_Remain 0x0030   077   077   001    Old_age   Offline      -       23",
+    "/dev/sdb": "SMART overall-health self-assessment test result: PASSED\n  5 Reallocated_Sector_Ct   0x0033   200   200   140    Pre-fail  Always       -       0\n  9 Power_On_Hours          0x0032   080   080   000    Old_age   Always       -       14638\n196 Reallocated_Event_Count 0x0032   200   200   000    Old_age   Always       -       0\n197 Current_Pending_Sector  0x0032   200   200   000    Old_age   Always       -       0\n198 Offline_Uncorrectable   0x0030   100   253   000    Old_age   Offline      -       0"
+  },
+  "lvm_json": {
+    "report": [
+      {
+        "lv": [
+          {
+            "lv_name": "base-106-disk-0",
+            "vg_name": "pve",
+            "lv_size": "53687091200",
+            "data_percent": "",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "data",
+            "vg_name": "pve",
+            "lv_size": "429589004288",
+            "data_percent": "55.35",
+            "metadata_percent": "2.34",
+            "pool_lv": ""
+          },
+          {
+            "lv_name": "root",
+            "vg_name": "pve",
+            "lv_size": "68719476736",
+            "data_percent": "",
+            "metadata_percent": "",
+            "pool_lv": ""
+          },
+          {
+            "lv_name": "swap",
+            "vg_name": "pve",
+            "lv_size": "17179869184",
+            "data_percent": "",
+            "metadata_percent": "",
+            "pool_lv": ""
+          },
+          {
+            "lv_name": "vm-101-disk-0",
+            "vg_name": "pve",
+            "lv_size": "21474836480",
+            "data_percent": "31.93",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-103-disk-0",
+            "vg_name": "pve",
+            "lv_size": "53687091200",
+            "data_percent": "40.30",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-104-disk-0",
+            "vg_name": "pve",
+            "lv_size": "10737418240",
+            "data_percent": "18.69",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-105-disk-0",
+            "vg_name": "pve",
+            "lv_size": "8589934592",
+            "data_percent": "61.29",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-107-disk-0",
+            "vg_name": "pve",
+            "lv_size": "53687091200",
+            "data_percent": "13.55",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-109-disk-0",
+            "vg_name": "pve",
+            "lv_size": "53687091200",
+            "data_percent": "9.64",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-610-disk-0",
+            "vg_name": "pve",
+            "lv_size": "10737418240",
+            "data_percent": "93.22",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-611-disk-0",
+            "vg_name": "pve",
+            "lv_size": "10737418240",
+            "data_percent": "47.14",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-61211-disk-0",
+            "vg_name": "pve",
+            "lv_size": "42949672960",
+            "data_percent": "15.02",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-613-disk-0",
+            "vg_name": "pve",
+            "lv_size": "10737418240",
+            "data_percent": "21.71",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-614-disk-0",
+            "vg_name": "pve",
+            "lv_size": "10737418240",
+            "data_percent": "51.43",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-615-disk-0",
+            "vg_name": "pve",
+            "lv_size": "10737418240",
+            "data_percent": "38.25",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-616-disk-0",
+            "vg_name": "pve",
+            "lv_size": "10737418240",
+            "data_percent": "22.04",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-617-disk-0",
+            "vg_name": "pve",
+            "lv_size": "10737418240",
+            "data_percent": "53.16",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-618-disk-0",
+            "vg_name": "pve",
+            "lv_size": "53687091200",
+            "data_percent": "47.60",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-619-disk-0",
+            "vg_name": "pve",
+            "lv_size": "10737418240",
+            "data_percent": "55.83",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-620-disk-0",
+            "vg_name": "pve",
+            "lv_size": "10737418240",
+            "data_percent": "54.83",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-621-disk-0",
+            "vg_name": "pve",
+            "lv_size": "10737418240",
+            "data_percent": "23.66",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-622-disk-0",
+            "vg_name": "pve",
+            "lv_size": "42949672960",
+            "data_percent": "63.17",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-623-disk-0",
+            "vg_name": "pve",
+            "lv_size": "53687091200",
+            "data_percent": "15.87",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-624-disk-0",
+            "vg_name": "pve",
+            "lv_size": "53687091200",
+            "data_percent": "8.98",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-625-disk-0",
+            "vg_name": "pve",
+            "lv_size": "53687091200",
+            "data_percent": "8.80",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-626-disk-0",
+            "vg_name": "pve",
+            "lv_size": "53687091200",
+            "data_percent": "8.37",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          },
+          {
+            "lv_name": "vm-627-disk-0",
+            "vg_name": "pve",
+            "lv_size": "107374182400",
+            "data_percent": "49.46",
+            "metadata_percent": "",
+            "pool_lv": "data"
+          }
+        ]
+      }
+    ]
+  },
+  "zpool": "no pools available",
+  "zpool_status": "",
+  "zfs": "",
+  "directories": {
+    "/srv": "0\t/srv",
+    "/var/lib/vz": "16G\t/var/lib/vz",
+    "/mnt/storage": "111G\t/mnt/storage",
+    "/mnt/vzsnap0": "0\t/mnt/vzsnap0"
+  },
+  "bridges": "iface vmbr0 inet static\n\taddress 192.168.1.100/24\n\tgateway 192.168.1.254\n\tbridge-ports eno1\n\tbridge-stp off\n\tbridge-fd 0\n\nsource /etc/network/interfaces.d/*",
+  "links": {
+    "eno1": "Speed: 100Mb/s"
+  },
+  "qm_list": "",
+  "pct_list": "VMID       Status     Lock         Name                \n101        running                 docmost             \n103        running                 aws-workshop        \n104        running                 nucleo              \n105        running                 n8n-server          \n106        stopped                 CT106               \n107        running                 drawio              \n109        running                 edge-router         \n610        running                 infra-prom          \n611        running                 infra-grafana       \n613        running                 infra-hola          \n614        running                 infra-nucleoedge    \n615        running                 infra-mailerblend-edge\n616        running                 infra-blackbox      \n617        running                 infra-orbit         \n618        running                 infra-composable-crm\n619        running                 infra-pulpo         \n620        running                 infra-excraper      \n621        running                 infra-project-gestion\n622        running                 infra-eva-assistant-bot\n623        running                 infra-gestoria      \n624        running                 infra-journal-web   \n625        running                 infra-journal-db    \n626        running                 infra-journal-api   \n627        running                 infra-voicebox      \n61211      running                 svc01"
+}

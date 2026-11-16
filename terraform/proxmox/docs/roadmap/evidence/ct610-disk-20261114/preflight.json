@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-14T15:18:45.915031+00:00",
+  "ct": 610,
+  "before_bytes": 10737418240,
+  "after_bytes": 10737418240,
+  "filesystem_bytes": 10737418240,
+  "before": {
+    "total": 10464022528,
+    "available": 1498927104,
+    "free_percent": 14.32457833485276
+  },
+  "after": {
+    "total": 10464022528,
+    "available": 1498894336,
+    "free_percent": 14.324265185679845
+  },
+  "writes": 0,
+  "backup": null,
+  "same_ct_pid_and_container_identities": true,
+  "other_ct_configs_unchanged": true,
+  "prometheus_alertmanager_ready": true
+}

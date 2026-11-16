@@ -1,0 +1,1007 @@
+{
+  "time_utc": "2026-11-13T09:37:24.777452+00:00",
+  "pve": "pve-manager/8.3.0/c1689ccb1065a83b (running kernel: 6.8.12-4-pve)",
+  "os": {
+    "PRETTY_NAME": "\"Debian GNU/Linux 12 (bookworm)\"",
+    "NAME": "\"Debian GNU/Linux\"",
+    "VERSION_ID": "\"12\"",
+    "VERSION": "\"12 (bookworm)\"",
+    "VERSION_CODENAME": "bookworm",
+    "ID": "debian",
+    "HOME_URL": "\"https://www.debian.org/\"",
+    "SUPPORT_URL": "\"https://www.debian.org/support\"",
+    "BUG_REPORT_URL": "\"https://bugs.debian.org/\""
+  },
+  "architecture": "x86_64",
+  "kernel": "6.8.12-4-pve",
+  "cpu": {
+    "CPU(s):": "4",
+    "Model name:": "Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz",
+    "Thread(s) per core:": "1",
+    "Core(s) per socket:": "4",
+    "Socket(s):": "1",
+    "CPU max MHz:": "3600.0000",
+    "Flags:": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb pti ibrs ibpb stibp tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp vnmi"
+  },
+  "memory_devices": [
+    {
+      "Size": "16 GB",
+      "Form Factor": "SODIMM",
+      "Locator": "DIMM1",
+      "Type": "DDR4",
+      "Speed": "2133 MT/s",
+      "Configured Memory Speed": "2133 MT/s"
+    },
+    {
+      "Size": "16 GB",
+      "Form Factor": "SODIMM",
+      "Locator": "DIMM3",
+      "Type": "DDR4",
+      "Speed": "2133 MT/s",
+      "Configured Memory Speed": "2133 MT/s"
+    }
+  ],
+  "meminfo": {
+    "MemTotal": "32747112 kB",
+    "MemAvailable": "22557792 kB",
+    "SwapTotal": "16777212 kB",
+    "SwapFree": "15179516 kB"
+  },
+  "gpu_pci": [
+    "00:02.0 VGA compatible controller [0300]: Intel Corporation HD Graphics 530 [8086:1912] (rev 06)"
+  ],
+  "disks": {
+    "blockdevices": [
+      {
+        "name": "sda",
+        "model": "Crucial_CT525MX300SSD1",
+        "size": 525112713216,
+        "rota": false,
+        "tran": "sata",
+        "type": "disk",
+        "mountpoint": null,
+        "children": [
+          {
+            "name": "sda1",
+            "model": null,
+            "size": 1031168,
+            "rota": false,
+            "tran": null,
+            "type": "part",
+            "mountpoint": null
+          },
+          {
+            "name": "sda2",
+            "model": null,
+            "size": 1073741824,
+            "rota": false,
+            "tran": null,
+            "type": "part",
+            "mountpoint": "/boot/efi"
+          },
+          {
+            "name": "sda3",
+            "model": null,
+            "size": 524037905920,
+            "rota": false,
+            "tran": null,
+            "type": "part",
+            "mountpoint": null,
+            "children": [
+              {
+                "name": "pve-swap",
+                "model": null,
+                "size": 17179869184,
+                "rota": false,
+                "tran": null,
+                "type": "lvm",
+                "mountpoint": "[SWAP]"
+              },
+              {
+                "name": "pve-root",
+                "model": null,
+                "size": 68719476736,
+                "rota": false,
+                "tran": null,
+                "type": "lvm",
+                "mountpoint": "/"
+              },
+              {
+                "name": "pve-data_tmeta",
+                "model": null,
+                "size": 4273995776,
+                "rota": false,
+                "tran": null,
+                "type": "lvm",
+                "mountpoint": null,
+                "children": [
+                  {
+                    "name": "pve-data-tpool",
+                    "model": null,
+                    "size": 429589004288,
+                    "rota": false,
+                    "tran": null,
+                    "type": "lvm",
+                    "mountpoint": null,
+                    "children": [
+                      {
+                        "name": "pve-data",
+                        "model": null,
+                        "size": 429589004288,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--101--disk--0",
+                        "model": null,
+                        "size": 21474836480,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--105--disk--0",
+                        "model": null,
+                        "size": 8589934592,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--103--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--107--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--109--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--104--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--613--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--610--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--61211--disk--0",
+                        "model": null,
+                        "size": 42949672960,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--611--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--614--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--615--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--616--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--617--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--618--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--619--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--620--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--621--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--622--disk--0",
+                        "model": null,
+                        "size": 42949672960,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--623--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--624--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--626--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--625--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--9618--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--9622--disk--0",
+                        "model": null,
+                        "size": 42949672960,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--627--disk--0",
+                        "model": null,
+                        "size": 107374182400,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "pve-data_tdata",
+                "model": null,
+                "size": 429589004288,
+                "rota": false,
+                "tran": null,
+                "type": "lvm",
+                "mountpoint": null,
+                "children": [
+                  {
+                    "name": "pve-data-tpool",
+                    "model": null,
+                    "size": 429589004288,
+                    "rota": false,
+                    "tran": null,
+                    "type": "lvm",
+                    "mountpoint": null,
+                    "children": [
+                      {
+                        "name": "pve-data",
+                        "model": null,
+                        "size": 429589004288,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--101--disk--0",
+                        "model": null,
+                        "size": 21474836480,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--105--disk--0",
+                        "model": null,
+                        "size": 8589934592,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--103--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--107--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--109--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--104--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--613--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--610--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--61211--disk--0",
+                        "model": null,
+                        "size": 42949672960,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--611--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--614--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--615--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--616--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--617--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--618--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--619--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--620--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--621--disk--0",
+                        "model": null,
+                        "size": 10737418240,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--622--disk--0",
+                        "model": null,
+                        "size": 42949672960,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--623--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--624--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--626--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--625--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--9618--disk--0",
+                        "model": null,
+                        "size": 53687091200,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--9622--disk--0",
+                        "model": null,
+                        "size": 42949672960,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      },
+                      {
+                        "name": "pve-vm--627--disk--0",
+                        "model": null,
+                        "size": 107374182400,
+                        "rota": false,
+                        "tran": null,
+                        "type": "lvm",
+                        "mountpoint": null
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "sdb",
+        "model": "WDC WD15JDRW-11C7VS1",
+        "size": 1500267937792,
+        "rota": true,
+        "tran": "usb",
+        "type": "disk",
+        "mountpoint": "/mnt/storage"
+      }
+    ]
+  },
+  "filesystems": "Filesystem           Type     1B-blocks        Used     Available Use% Mounted on\n/dev/mapper/pve-root xfs    68652367872 61130481664    7521886208  90% /\n/dev/sdb             xfs  1499535388672 91769298944 1407766089728   7% /mnt/storage",
+  "storage": [
+    {
+      "active": 1,
+      "avail": 132914837927,
+      "content": "images,rootdir",
+      "enabled": 1,
+      "shared": 0,
+      "storage": "local-lvm",
+      "total": 429589004288,
+      "type": "lvmthin",
+      "used": 296674166361,
+      "used_fraction": 0.690599999999318
+    },
+    {
+      "active": 1,
+      "avail": 7521886208,
+      "content": "iso,backup,vztmpl",
+      "enabled": 1,
+      "shared": 0,
+      "storage": "local",
+      "total": 68652367872,
+      "type": "dir",
+      "used": 61130481664,
+      "used_fraction": 0.890435152622495
+    },
+    {
+      "active": 1,
+      "avail": 1407766089728,
+      "content": "backup,images,snippets,rootdir,vztmpl",
+      "enabled": 1,
+      "shared": 0,
+      "storage": "storage",
+      "total": 1499535388672,
+      "type": "dir",
+      "used": 91769298944,
+      "used_fraction": 0.0611984883032815
+    }
+  ],
+  "lvm": {
+    "report": [
+      {
+        "lv": [
+          {
+            "lv_name": "base-106-disk-0",
+            "lv_size": "53687091200",
+            "pool_lv": "data",
+            "data_percent": "",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "data",
+            "lv_size": "429589004288",
+            "pool_lv": "",
+            "data_percent": "69.06",
+            "metadata_percent": "2.80",
+            "origin": ""
+          },
+          {
+            "lv_name": "root",
+            "lv_size": "68719476736",
+            "pool_lv": "",
+            "data_percent": "",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "swap",
+            "lv_size": "17179869184",
+            "pool_lv": "",
+            "data_percent": "",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-101-disk-0",
+            "lv_size": "21474836480",
+            "pool_lv": "data",
+            "data_percent": "31.93",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-103-disk-0",
+            "lv_size": "53687091200",
+            "pool_lv": "data",
+            "data_percent": "40.30",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-104-disk-0",
+            "lv_size": "10737418240",
+            "pool_lv": "data",
+            "data_percent": "18.69",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-105-disk-0",
+            "lv_size": "8589934592",
+            "pool_lv": "data",
+            "data_percent": "61.29",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-107-disk-0",
+            "lv_size": "53687091200",
+            "pool_lv": "data",
+            "data_percent": "13.55",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-109-disk-0",
+            "lv_size": "53687091200",
+            "pool_lv": "data",
+            "data_percent": "9.64",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-610-disk-0",
+            "lv_size": "10737418240",
+            "pool_lv": "data",
+            "data_percent": "93.22",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-611-disk-0",
+            "lv_size": "10737418240",
+            "pool_lv": "data",
+            "data_percent": "47.14",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-61211-disk-0",
+            "lv_size": "42949672960",
+            "pool_lv": "data",
+            "data_percent": "15.02",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-613-disk-0",
+            "lv_size": "10737418240",
+            "pool_lv": "data",
+            "data_percent": "21.71",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-614-disk-0",
+            "lv_size": "10737418240",
+            "pool_lv": "data",
+            "data_percent": "51.43",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-615-disk-0",
+            "lv_size": "10737418240",
+            "pool_lv": "data",
+            "data_percent": "38.25",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-616-disk-0",
+            "lv_size": "10737418240",
+            "pool_lv": "data",
+            "data_percent": "22.04",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-617-disk-0",
+            "lv_size": "10737418240",
+            "pool_lv": "data",
+            "data_percent": "53.15",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-618-disk-0",
+            "lv_size": "53687091200",
+            "pool_lv": "data",
+            "data_percent": "47.59",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-619-disk-0",
+            "lv_size": "10737418240",
+            "pool_lv": "data",
+            "data_percent": "55.83",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-620-disk-0",
+            "lv_size": "10737418240",
+            "pool_lv": "data",
+            "data_percent": "54.83",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-621-disk-0",
+            "lv_size": "10737418240",
+            "pool_lv": "data",
+            "data_percent": "23.66",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-622-disk-0",
+            "lv_size": "42949672960",
+            "pool_lv": "data",
+            "data_percent": "63.17",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-623-disk-0",
+            "lv_size": "53687091200",
+            "pool_lv": "data",
+            "data_percent": "15.86",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-624-disk-0",
+            "lv_size": "53687091200",
+            "pool_lv": "data",
+            "data_percent": "8.98",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-625-disk-0",
+            "lv_size": "53687091200",
+            "pool_lv": "data",
+            "data_percent": "8.80",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-626-disk-0",
+            "lv_size": "53687091200",
+            "pool_lv": "data",
+            "data_percent": "8.37",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-627-disk-0",
+            "lv_size": "107374182400",
+            "pool_lv": "data",
+            "data_percent": "49.46",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-9618-disk-0",
+            "lv_size": "53687091200",
+            "pool_lv": "data",
+            "data_percent": "46.05",
+            "metadata_percent": "",
+            "origin": ""
+          },
+          {
+            "lv_name": "vm-9622-disk-0",
+            "lv_size": "42949672960",
+            "pool_lv": "data",
+            "data_percent": "79.64",
+            "metadata_percent": "",
+            "origin": ""
+          }
+        ]
+      }
+    ]
+  },
+  "clones": {
+    "9618": {
+      "status": "status: stopped",
+      "config": {
+        "cores": "2",
+        "hostname": "crm-recovery-9618",
+        "memory": "6144",
+        "onboot": "0",
+        "protection": "0",
+        "rootfs": "local-lvm:vm-9618-disk-0,size=50G"
+      },
+      "network_isolated": true,
+      "snapshots": "`-> current                                             You are here!"
+    },
+    "9622": {
+      "status": "status: stopped",
+      "config": {
+        "cores": "2",
+        "hostname": "eva-recovery-9622",
+        "memory": "2048",
+        "onboot": "0",
+        "protection": "0",
+        "rootfs": "local-lvm:vm-9622-disk-0,size=40G"
+      },
+      "network_isolated": true,
+      "snapshots": "`-> current                                             You are here!"
+    }
+  },
+  "backup_files": [
+    {
+      "path": "/var/lib/vz/dump/vzdump-qemu-100-2025_03_23-23_03_29.vma.zst",
+      "bytes": 37149277192,
+      "mtime_utc": "2025-03-28T09:49:23+00:00"
+    },
+    {
+      "path": "/mnt/storage/mailerblend-recovery/20261102T100708Z/crm/vzdump-lxc-618-2026_11_02-11_09_28.tar.zst",
+      "bytes": 4342436833,
+      "mtime_utc": "2026-11-02T10:12:19.091454+00:00"
+    },
+    {
+      "path": "/mnt/storage/mailerblend-recovery/20261102T100708Z/crm/vzdump-lxc-618-2026_11_02-11_09_28.tar.zst.sha256",
+      "bytes": 164,
+      "mtime_utc": "2026-11-02T10:15:38.839799+00:00"
+    },
+    {
+      "path": "/mnt/storage/mailerblend-recovery/20261102T100708Z/eva/vzdump-lxc-622-2026_11_02-11_41_01.tar.zst",
+      "bytes": 12600126707,
+      "mtime_utc": "2026-11-02T10:47:01.368901+00:00"
+    },
+    {
+      "path": "/mnt/storage/mailerblend-recovery/20261102T100708Z/eva/vzdump-lxc-622-2026_11_02-11_41_01.tar.zst.sha256",
+      "bytes": 164,
+      "mtime_utc": "2026-11-02T11:00:10.609934+00:00"
+    },
+    {
+      "path": "/mnt/storage/mailerblend-recovery/20261102T100708Z/eva/vzdump-lxc-622-2026_11_02-11_41_01.tar.zst.gpg",
+      "bytes": 12603203210,
+      "mtime_utc": "2026-11-02T13:23:47.981528+00:00"
+    },
+    {
+      "path": "/mnt/storage/mailerblend-recovery/20261102T100708Z/eva/vzdump-lxc-622-2026_11_02-11_41_01.tar.zst.gpg.ready",
+      "bytes": 8,
+      "mtime_utc": "2026-11-02T13:29:39.081466+00:00"
+    }
+  ],
+  "backup_jobs": []
+}

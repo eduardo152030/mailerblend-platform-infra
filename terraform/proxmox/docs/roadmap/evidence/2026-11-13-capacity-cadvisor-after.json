@@ -1,0 +1,524 @@
+{
+  "time_utc": "2026-11-13T09:37:09.973614+00:00",
+  "containers": [
+    {
+      "ct": 625,
+      "name": "infra-journal-db",
+      "status": "running",
+      "id": "a57b4fbae95ae07903990dda5973572fc8bd4a45ae260cd463792a8f53767841",
+      "started": "2026-11-11T17:49:31.31161944Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "55128064",
+        "memory.max": "134217728",
+        "memory.swap.current": "0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=173085\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=167131"
+      },
+      "stat": {
+        "anon": 16703488,
+        "file": 18132992,
+        "kernel": 20291584,
+        "slab_reclaimable": 19507960,
+        "pgmajfault": 262
+      }
+    },
+    {
+      "ct": 619,
+      "name": "infra-pulpo",
+      "status": "running",
+      "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+      "started": "2026-11-11T17:48:09.067703199Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 268435456,
+      "swap_limit": 536870912,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "268201984",
+        "memory.max": "268435456",
+        "memory.swap.current": "17375232",
+        "memory.events": "low 0\nhigh 0\nmax 11635655\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=9.95 avg60=5.38 avg300=4.31 total=7221352847\nfull avg10=9.64 avg60=5.24 avg300=4.20 total=7054018122"
+      },
+      "stat": {
+        "anon": 741376,
+        "file": 5255168,
+        "kernel": 262094848,
+        "slab_reclaimable": 261255240,
+        "pgmajfault": 141247090
+      }
+    },
+    {
+      "ct": 9622,
+      "name": "eva-recovery-9622",
+      "status": "stopped"
+    },
+    {
+      "ct": 623,
+      "name": "infra-gestoria",
+      "status": "running",
+      "id": "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7",
+      "started": "2026-11-11T17:49:03.884455504Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 402653184,
+      "swap_limit": 402653184,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "322777088",
+        "memory.max": "402653184",
+        "memory.swap.current": "3497984",
+        "memory.events": "low 0\nhigh 0\nmax 17906437\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=9292789537\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=9089771215"
+      },
+      "stat": {
+        "anon": 16232448,
+        "file": 78438400,
+        "kernel": 227827712,
+        "slab_reclaimable": 226478832,
+        "pgmajfault": 135867945
+      }
+    },
+    {
+      "ct": 627,
+      "name": "infra-voicebox",
+      "status": "running",
+      "id": "81c5c86257703e8bc4a51556e8ceab4052f588a6c7606f4f014bf8ce5f2db255",
+      "started": "2026-11-11T17:49:51.509428374Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 0,
+      "swap_limit": 0,
+      "cpu_limit": 0,
+      "cgroup": {
+        "memory.current": "292274176",
+        "memory.max": "max",
+        "memory.swap.current": "0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3996\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=3774"
+      },
+      "stat": {
+        "anon": 16973824,
+        "file": 66412544,
+        "kernel": 208887808,
+        "slab_reclaimable": 208109952,
+        "pgmajfault": 236
+      }
+    },
+    {
+      "ct": 618,
+      "name": "infra-composable-crm",
+      "status": "running",
+      "id": "7a110a7339fe9762643a954d11511e0002fb5708773ad06baa9f59d8f8aec4dc",
+      "started": "2026-11-11T17:48:05.723846763Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 402653184,
+      "swap_limit": 402653184,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "397807616",
+        "memory.max": "402653184",
+        "memory.swap.current": "3952640",
+        "memory.events": "low 0\nhigh 0\nmax 20550253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10677932373\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10441886694"
+      },
+      "stat": {
+        "anon": 13770752,
+        "file": 82898944,
+        "kernel": 300756992,
+        "slab_reclaimable": 297289216,
+        "pgmajfault": 167565627
+      }
+    },
+    {
+      "ct": 107,
+      "name": "drawio",
+      "status": "running",
+      "error": "sin cAdvisor accesible o Python3/Docker disponible"
+    },
+    {
+      "ct": 103,
+      "name": "aws-workshop",
+      "status": "running",
+      "error": "sin cAdvisor accesible o Python3/Docker disponible"
+    },
+    {
+      "ct": 9618,
+      "name": "crm-recovery-9618",
+      "status": "stopped"
+    },
+    {
+      "ct": 105,
+      "name": "n8n-server",
+      "status": "running",
+      "error": "sin cAdvisor accesible o Python3/Docker disponible"
+    },
+    {
+      "ct": 620,
+      "name": "infra-excraper",
+      "status": "running",
+      "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+      "started": "2026-11-11T17:48:26.445241709Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "134025216",
+        "memory.max": "134217728",
+        "memory.swap.current": "5804032",
+        "memory.events": "low 0\nhigh 0\nmax 185265\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26571204\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=24757233"
+      },
+      "stat": {
+        "anon": 11853824,
+        "file": 21225472,
+        "kernel": 100941824,
+        "slab_reclaimable": 100117704,
+        "pgmajfault": 87425
+      }
+    },
+    {
+      "ct": 611,
+      "name": "infra-grafana",
+      "status": "running",
+      "id": "f9673058c559ae468051eac85a88a241fa11604609aec5932821033ec12d64a1",
+      "started": "2026-11-11T17:47:28.936596677Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "76271616",
+        "memory.max": "134217728",
+        "memory.swap.current": "0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=35218\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=29383"
+      },
+      "stat": {
+        "anon": 15556608,
+        "file": 21581824,
+        "kernel": 39133184,
+        "slab_reclaimable": 38445600,
+        "pgmajfault": 255
+      }
+    },
+    {
+      "ct": 616,
+      "name": "infra-blackbox",
+      "status": "running",
+      "id": "7e9561465b2d30d6e8d7e98233b9eb44ef5bb9af9fdce941a3151735e1eb76fe",
+      "started": "2026-11-11T17:47:49.478922697Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "40407040",
+        "memory.max": "134217728",
+        "memory.swap.current": "61440",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=35125\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=30107"
+      },
+      "stat": {
+        "anon": 15462400,
+        "file": 16588800,
+        "kernel": 8355840,
+        "slab_reclaimable": 7669952,
+        "pgmajfault": 253
+      }
+    },
+    {
+      "ct": 614,
+      "name": "infra-nucleoedge",
+      "status": "running",
+      "id": "f798612c31daac404ad8594c1a04a906341621f3aabc4a4378e7c887fe1b01f5",
+      "started": "2026-11-11T17:47:39.95458816Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "130494464",
+        "memory.max": "134217728",
+        "memory.swap.current": "3108864",
+        "memory.events": "low 0\nhigh 0\nmax 187\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=264494\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=207179"
+      },
+      "stat": {
+        "anon": 13254656,
+        "file": 23113728,
+        "kernel": 94089216,
+        "slab_reclaimable": 93299760,
+        "pgmajfault": 639
+      }
+    },
+    {
+      "ct": 624,
+      "name": "infra-journal-web",
+      "status": "running",
+      "id": "d57db65229d970e0fcbc2c36c98d1f4f52ecbcffee347a2faea7fa4e3526d2af",
+      "started": "2026-11-11T17:49:21.087772201Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "46870528",
+        "memory.max": "134217728",
+        "memory.swap.current": "3076096",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=72886\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=71024"
+      },
+      "stat": {
+        "anon": 12136448,
+        "file": 18628608,
+        "kernel": 16093184,
+        "slab_reclaimable": 15352784,
+        "pgmajfault": 459
+      }
+    },
+    {
+      "ct": 626,
+      "name": "infra-journal-api",
+      "status": "running",
+      "id": "b2d16e00c7fbeeb82a358e0d76250fb761c9d07178fd851aa587c9b07703f3dc",
+      "started": "2026-11-11T17:49:42.78884648Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "57331712",
+        "memory.max": "134217728",
+        "memory.swap.current": "0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=28833\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=27829"
+      },
+      "stat": {
+        "anon": 16125952,
+        "file": 21094400,
+        "kernel": 20111360,
+        "slab_reclaimable": 19327192,
+        "pgmajfault": 254
+      }
+    },
+    {
+      "ct": 621,
+      "name": "infra-project-gestion",
+      "status": "running",
+      "id": "7e5ab08e74c153b975d2a8b0b9c1d0d978ac2545338cd24505e049b7da67cee5",
+      "started": "2026-11-11T17:48:26.3390535Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "48369664",
+        "memory.max": "134217728",
+        "memory.swap.current": "0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=37270\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=28268"
+      },
+      "stat": {
+        "anon": 15298560,
+        "file": 17244160,
+        "kernel": 15826944,
+        "slab_reclaimable": 15076536,
+        "pgmajfault": 265
+      }
+    },
+    {
+      "ct": 610,
+      "name": "infra-prom",
+      "status": "running",
+      "id": "5cbccbf4a8888f451224a2c5efb431a76248319b958b6befe3d0c4dc21bd9648",
+      "started": "2026-11-11T17:47:27.715632275Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "73281536",
+        "memory.max": "134217728",
+        "memory.swap.current": "0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=19284\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=16036"
+      },
+      "stat": {
+        "anon": 16207872,
+        "file": 27516928,
+        "kernel": 29556736,
+        "slab_reclaimable": 28735168,
+        "pgmajfault": 256
+      }
+    },
+    {
+      "ct": 109,
+      "name": "edge-router",
+      "status": "running",
+      "error": "sin cAdvisor accesible o Python3/Docker disponible"
+    },
+    {
+      "ct": 622,
+      "name": "infra-eva-assistant-bot",
+      "status": "running",
+      "id": "f6cb02f9cbfa384f9150e54ba8497b6dabde1741562c7585d9813112beaab86b",
+      "started": "2026-11-11T17:48:55.623561117Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "130076672",
+        "memory.max": "134217728",
+        "memory.swap.current": "3833856",
+        "memory.events": "low 0\nhigh 0\nmax 265\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=506115\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=431894"
+      },
+      "stat": {
+        "anon": 13520896,
+        "file": 22523904,
+        "kernel": 94011392,
+        "slab_reclaimable": 93154352,
+        "pgmajfault": 1091
+      }
+    },
+    {
+      "ct": 61211,
+      "name": "svc01",
+      "status": "running",
+      "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+      "started": "2026-11-11T17:49:53.304515018Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "134008832",
+        "memory.max": "134217728",
+        "memory.swap.current": "16207872",
+        "memory.events": "low 0\nhigh 0\nmax 4733080\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=1.47 avg60=1.54 avg300=1.35 total=2753511105\nfull avg10=1.32 avg60=1.49 avg300=1.31 total=2698340455"
+      },
+      "stat": {
+        "anon": 1781760,
+        "file": 7499776,
+        "kernel": 124579840,
+        "slab_reclaimable": 123755896,
+        "pgmajfault": 59018920
+      }
+    },
+    {
+      "ct": 101,
+      "name": "docmost",
+      "status": "running",
+      "error": "sin cAdvisor accesible o Python3/Docker disponible"
+    },
+    {
+      "ct": 106,
+      "name": "CT106",
+      "status": "stopped"
+    },
+    {
+      "ct": 104,
+      "name": "nucleo",
+      "status": "running",
+      "error": "sin cAdvisor accesible o Python3/Docker disponible"
+    },
+    {
+      "ct": 615,
+      "name": "infra-mailerblend-edge",
+      "status": "running",
+      "id": "260a1a49d6d8f491ff18729768450f0df32847da7bff583baaf7f26862f8a2b1",
+      "started": "2026-11-11T17:47:47.929526227Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "130289664",
+        "memory.max": "134217728",
+        "memory.swap.current": "2994176",
+        "memory.events": "low 0\nhigh 0\nmax 173\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=163405\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=130099"
+      },
+      "stat": {
+        "anon": 13529088,
+        "file": 22716416,
+        "kernel": 94035968,
+        "slab_reclaimable": 93243056,
+        "pgmajfault": 465
+      }
+    },
+    {
+      "ct": 617,
+      "name": "infra-orbit",
+      "status": "running",
+      "id": "8b60ef6095971303c033f36fb06bf23acdb0179c0de895bab68d1892da7b071a",
+      "started": "2026-11-11T17:47:59.354782685Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "84279296",
+        "memory.max": "134217728",
+        "memory.swap.current": "2887680",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=105773\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=77165"
+      },
+      "stat": {
+        "anon": 15708160,
+        "file": 25690112,
+        "kernel": 42856448,
+        "slab_reclaimable": 42141664,
+        "pgmajfault": 336
+      }
+    },
+    {
+      "ct": 613,
+      "name": "infra-hola",
+      "status": "running",
+      "id": "eb114f7ac1c01c7f7bb2498299809a79bd4b652d001d76a6d0bb6f80929cf4ef",
+      "started": "2026-11-11T17:47:38.831765434Z",
+      "restarts": 0,
+      "oom": false,
+      "memory_limit": 134217728,
+      "swap_limit": 268435456,
+      "cpu_limit": 500000000,
+      "cgroup": {
+        "memory.current": "42323968",
+        "memory.max": "134217728",
+        "memory.swap.current": "172032",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41831\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=38356"
+      },
+      "stat": {
+        "anon": 15101952,
+        "file": 20619264,
+        "kernel": 6602752,
+        "slab_reclaimable": 5929552,
+        "pgmajfault": 262
+      }
+    }
+  ]
+}

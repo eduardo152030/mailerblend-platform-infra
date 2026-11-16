@@ -1,0 +1,185 @@
+{
+  "interval_seconds": 104.820573,
+  "containers": [
+    {
+      "ct": 625,
+      "name": "infra-journal-db",
+      "limit_mib": 128.0,
+      "current_mib": 52.57,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 619,
+      "name": "infra-pulpo",
+      "limit_mib": 256.0,
+      "current_mib": 255.78,
+      "delta_max": 10499,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 5.063,
+      "restarts": 0
+    },
+    {
+      "ct": 623,
+      "name": "infra-gestoria",
+      "limit_mib": 384.0,
+      "current_mib": 307.82,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 627,
+      "name": "infra-voicebox",
+      "limit_mib": 0.0,
+      "current_mib": 278.73,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 618,
+      "name": "infra-composable-crm",
+      "limit_mib": 384.0,
+      "current_mib": 379.38,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 620,
+      "name": "infra-excraper",
+      "limit_mib": 128.0,
+      "current_mib": 127.82,
+      "delta_max": 192,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.018,
+      "restarts": 0
+    },
+    {
+      "ct": 611,
+      "name": "infra-grafana",
+      "limit_mib": 128.0,
+      "current_mib": 72.74,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 616,
+      "name": "infra-blackbox",
+      "limit_mib": 128.0,
+      "current_mib": 38.54,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 614,
+      "name": "infra-nucleoedge",
+      "limit_mib": 128.0,
+      "current_mib": 124.45,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 624,
+      "name": "infra-journal-web",
+      "limit_mib": 128.0,
+      "current_mib": 44.7,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 626,
+      "name": "infra-journal-api",
+      "limit_mib": 128.0,
+      "current_mib": 54.68,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 621,
+      "name": "infra-project-gestion",
+      "limit_mib": 128.0,
+      "current_mib": 46.13,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 610,
+      "name": "infra-prom",
+      "limit_mib": 128.0,
+      "current_mib": 69.89,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 622,
+      "name": "infra-eva-assistant-bot",
+      "limit_mib": 128.0,
+      "current_mib": 124.05,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 61211,
+      "name": "svc01",
+      "limit_mib": 128.0,
+      "current_mib": 127.8,
+      "delta_max": 4556,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 1.977,
+      "restarts": 0
+    },
+    {
+      "ct": 615,
+      "name": "infra-mailerblend-edge",
+      "limit_mib": 128.0,
+      "current_mib": 124.25,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 617,
+      "name": "infra-orbit",
+      "limit_mib": 128.0,
+      "current_mib": 80.38,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    },
+    {
+      "ct": 613,
+      "name": "infra-hola",
+      "limit_mib": 128.0,
+      "current_mib": 40.36,
+      "delta_max": 0,
+      "delta_oom": 0,
+      "psi_stall_percent_interval": 0.0,
+      "restarts": 0
+    }
+  ]
+}

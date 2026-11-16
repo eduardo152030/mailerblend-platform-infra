@@ -1,0 +1,117 @@
+{
+  "free_percent": [
+    {
+      "metric": {
+        "cpu_contract": "lxc_cgroup_v1",
+        "device": "/dev/mapper/pve-vm--610--disk--0",
+        "fstype": "ext4",
+        "instance": "192.168.1.110:9100",
+        "job": "node_exporter",
+        "mountpoint": "/",
+        "service": "infra-prom",
+        "source": "inventory",
+        "vmid": "610"
+      },
+      "value": [
+        1794669568.609,
+        "14.322934301694959"
+      ]
+    }
+  ],
+  "size_bytes": [
+    {
+      "metric": {
+        "__name__": "node_filesystem_size_bytes",
+        "cpu_contract": "lxc_cgroup_v1",
+        "device": "/dev/mapper/pve-vm--610--disk--0",
+        "fstype": "ext4",
+        "instance": "192.168.1.110:9100",
+        "job": "node_exporter",
+        "mountpoint": "/",
+        "service": "infra-prom",
+        "source": "inventory",
+        "vmid": "610"
+      },
+      "value": [
+        1794669568.61,
+        "10464022528"
+      ]
+    }
+  ],
+  "up": [
+    {
+      "metric": {
+        "__name__": "up",
+        "cpu_contract": "lxc_cgroup_v1",
+        "instance": "192.168.1.110:9100",
+        "job": "node_exporter",
+        "service": "infra-prom",
+        "source": "inventory",
+        "vmid": "610"
+      },
+      "value": [
+        1794669568.611,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.110:8085",
+        "job": "cadvisor",
+        "service": "infra-prom",
+        "source": "inventory"
+      },
+      "value": [
+        1794669568.611,
+        "1"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "labels": {
+        "alertname": "HostDiskFilling",
+        "cpu_contract": "lxc_cgroup_v1",
+        "device": "/dev/mapper/pve-vm--610--disk--0",
+        "fstype": "ext4",
+        "instance": "192.168.1.110:9100",
+        "job": "node_exporter",
+        "mountpoint": "/",
+        "resource": "disk",
+        "service": "infra-prom",
+        "severity": "warning",
+        "source": "inventory",
+        "vmid": "610"
+      },
+      "state": "firing",
+      "activeAt": "2026-11-14T13:51:08.62460346Z"
+    }
+  ],
+  "alertmanager": [
+    {
+      "labels": {
+        "alertname": "HostDiskFilling",
+        "cpu_contract": "lxc_cgroup_v1",
+        "device": "/dev/mapper/pve-vm--610--disk--0",
+        "fstype": "ext4",
+        "instance": "192.168.1.110:9100",
+        "job": "node_exporter",
+        "mountpoint": "/",
+        "resource": "disk",
+        "service": "infra-prom",
+        "severity": "warning",
+        "source": "inventory",
+        "vmid": "610"
+      },
+      "status": {
+        "inhibitedBy": [],
+        "mutedBy": [],
+        "silencedBy": [],
+        "state": "active"
+      },
+      "endsAt": "2026-11-14T15:23:08.624Z"
+    }
+  ],
+  "utc": "2026-11-14T15:19:29.697233+00:00"
+}

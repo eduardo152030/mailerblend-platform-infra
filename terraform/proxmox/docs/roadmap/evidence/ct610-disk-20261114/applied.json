@@ -1,0 +1,29 @@
+{
+  "utc": "2026-11-14T15:26:02.841390+00:00",
+  "ct": 610,
+  "before_bytes": 10737418240,
+  "after_bytes": 26843545600,
+  "filesystem_bytes": 26843545600,
+  "before": {
+    "total": 10464022528,
+    "available": 1498755072,
+    "free_percent": 14.322934301694959
+  },
+  "after": {
+    "total": 26309095424,
+    "available": 16674037760,
+    "free_percent": 63.37746506019894
+  },
+  "writes": 1,
+  "backup": {
+    "archive": "/mnt/storage/dump/vzdump-lxc-610-2026_11_14-16_18_59.tar.zst",
+    "bytes": 3773886355,
+    "sha256": "fb785f897cc283bd5aa0956e8e9cdbf57ca7a13edbd9f8c74df22edc3e46cb57",
+    "full_zstd_and_tar_read": true,
+    "config_extract_verified": true,
+    "functional_restore_test": false
+  },
+  "same_ct_pid_and_container_identities": true,
+  "other_ct_configs_unchanged": true,
+  "prometheus_alertmanager_ready": true
+}

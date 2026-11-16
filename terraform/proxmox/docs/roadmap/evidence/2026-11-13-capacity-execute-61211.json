@@ -1,0 +1,1834 @@
+{
+  "ct": 61211,
+  "status": "DONE",
+  "samples": [
+    {
+      "time_utc": "2026-11-13T09:55:42.320804+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "133824512",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=1.31 avg60=1.18 avg300=1.04 total=2769120641\nfull avg10=1.31 avg60=1.17 avg300=1.02 total=2713544615",
+        "memory.swap.current": "15802368"
+      },
+      "elapsed": 1.1397430939996411,
+      "scrape_duration": 0.632640506,
+      "metrics_bytes": 138136,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794563742.466,
+          "1.6228322222221683"
+        ]
+      },
+      "psi_avg10": 1.31
+    },
+    {
+      "time_utc": "2026-11-13T09:56:12.430680+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "154710016",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.06 avg60=0.71 avg300=0.94 total=2769129628\nfull avg10=0.06 avg60=0.71 avg300=0.92 total=2713553571",
+        "memory.swap.current": "9457664"
+      },
+      "elapsed": 31.224808695998945,
+      "scrape_duration": 0.012719384,
+      "metrics_bytes": 138147,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794563772.47,
+          "1.6555138271604972"
+        ]
+      },
+      "psi_avg10": 0.06
+    },
+    {
+      "time_utc": "2026-11-13T09:56:42.528216+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "195780608",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.43 avg300=0.84 total=2769129628\nfull avg10=0.00 avg60=0.42 avg300=0.82 total=2713553571",
+        "memory.swap.current": "8159232"
+      },
+      "elapsed": 61.31109142999958,
+      "scrape_duration": 0.010589517,
+      "metrics_bytes": 138144,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794563802.563,
+          "1.7505616049382093"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:57:12.253578+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "195993600",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.25 avg300=0.75 total=2769129628\nfull avg10=0.00 avg60=0.25 avg300=0.74 total=2713553571",
+        "memory.swap.current": "8159232"
+      },
+      "elapsed": 91.14370627599965,
+      "scrape_duration": 0.019953765,
+      "metrics_bytes": 138138,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794563832.287,
+          "1.7563255555555375"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:57:42.596120+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "196911104",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.15 avg300=0.68 total=2769131602\nfull avg10=0.00 avg60=0.15 avg300=0.66 total=2713555545",
+        "memory.swap.current": "7426048"
+      },
+      "elapsed": 121.21196313200016,
+      "scrape_duration": 0.007797533,
+      "metrics_bytes": 138141,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794563862.633,
+          "1.5850308641975175"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:58:12.543802+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "195448832",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.09 avg300=0.61 total=2769131602\nfull avg10=0.00 avg60=0.09 avg300=0.59 total=2713555545",
+        "memory.swap.current": "7426048"
+      },
+      "elapsed": 151.2188929669992,
+      "scrape_duration": 0.006029883,
+      "metrics_bytes": 138148,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794563892.579,
+          "1.584800740740747"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:58:42.538457+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "196628480",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.05 avg300=0.54 total=2769131602\nfull avg10=0.00 avg60=0.05 avg300=0.53 total=2713555545",
+        "memory.swap.current": "7426048"
+      },
+      "elapsed": 181.20926533499915,
+      "scrape_duration": 0.009126726,
+      "metrics_bytes": 138144,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794563922.576,
+          "1.3957914814815282"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:59:12.441626+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "197312512",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.02 avg300=0.49 total=2769131602\nfull avg10=0.00 avg60=0.02 avg300=0.48 total=2713555545",
+        "memory.swap.current": "7426048"
+      },
+      "elapsed": 211.137665844999,
+      "scrape_duration": 0.013508887,
+      "metrics_bytes": 138139,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794563952.477,
+          "1.3879479012345577"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:59:42.472990+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "196702208",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.01 avg300=0.44 total=2769131602\nfull avg10=0.00 avg60=0.01 avg300=0.43 total=2713555545",
+        "memory.swap.current": "7426048"
+      },
+      "elapsed": 241.19295627999963,
+      "scrape_duration": 0.007445006,
+      "metrics_bytes": 138131,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794563982.514,
+          "1.2287485185185723"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:00:12.284350+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "196251648",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.39 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.38 total=2713555545",
+        "memory.swap.current": "7426048"
+      },
+      "elapsed": 271.06824336200043,
+      "scrape_duration": 0.007426804,
+      "metrics_bytes": 138144,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564012.318,
+          "1.1882393827160325"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:00:42.364329+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "196751360",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.35 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.34 total=2713555545",
+        "memory.swap.current": "7426048"
+      },
+      "elapsed": 301.19909506600015,
+      "scrape_duration": 0.018005306,
+      "metrics_bytes": 138150,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564042.398,
+          "1.206498641975284"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:01:12.334990+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "194924544",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.31 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.30 total=2713555545",
+        "memory.swap.current": "7102464"
+      },
+      "elapsed": 331.1382748489996,
+      "scrape_duration": 0.0109253,
+      "metrics_bytes": 138149,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564072.368,
+          "0.8708041975308861"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:01:42.350950+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "196894720",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.28 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.27 total=2713555545",
+        "memory.swap.current": "6955008"
+      },
+      "elapsed": 361.14447309500065,
+      "scrape_duration": 0.006398658,
+      "metrics_bytes": 138146,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564102.384,
+          "0.9184341975309015"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:02:12.390575+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "195600384",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.25 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.24 total=2713555545",
+        "memory.swap.current": "6955008"
+      },
+      "elapsed": 391.1682828739995,
+      "scrape_duration": 0.006245319,
+      "metrics_bytes": 138139,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564132.424,
+          "0.8411712345678323"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:02:42.421232+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "196923392",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.22 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.21 total=2713555545",
+        "memory.swap.current": "6922240"
+      },
+      "elapsed": 421.18556530299975,
+      "scrape_duration": 0.008049714,
+      "metrics_bytes": 138145,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564162.455,
+          "0.8899438271604326"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:03:12.503418+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "197431296",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.19 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.19 total=2713555545",
+        "memory.swap.current": "6922240"
+      },
+      "elapsed": 451.25178723499994,
+      "scrape_duration": 0.008213459,
+      "metrics_bytes": 138147,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564192.543,
+          "0.8380064197530216"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:03:42.418223+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "196939776",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.17 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.17 total=2713555545",
+        "memory.swap.current": "6922240"
+      },
+      "elapsed": 481.15064843899927,
+      "scrape_duration": 0.007289681,
+      "metrics_bytes": 138148,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564222.451,
+          "0.8882058024690556"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:04:12.447082+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "198066176",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.15 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.15 total=2713555545",
+        "memory.swap.current": "6922240"
+      },
+      "elapsed": 511.1687743429993,
+      "scrape_duration": 0.0071428,
+      "metrics_bytes": 138148,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564252.481,
+          "0.838699135802466"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:04:42.420910+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "196960256",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.13 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.13 total=2713555545",
+        "memory.swap.current": "6922240"
+      },
+      "elapsed": 541.1294787749994,
+      "scrape_duration": 0.007598381,
+      "metrics_bytes": 138139,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564282.453,
+          "0.8862906172839478"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:05:12.545465+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "196464640",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.12 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.11 total=2713555545",
+        "memory.swap.current": "6922240"
+      },
+      "elapsed": 571.257026927,
+      "scrape_duration": 0.007197993,
+      "metrics_bytes": 138147,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564312.586,
+          "0.8367238271605374"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:05:42.388663+00:00",
+      "ct": 61211,
+      "bind": "192.168.1.112",
+      "containers": {
+        "cadvisor": {
+          "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:49:53.304515018Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 402653184,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:49:53.289934889Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+        },
+        "infra-svc01-nocodb": {
+          "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+          "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+          "started": "2026-11-11T17:49:53.355832966Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 5905580032,
+          "swap": 11811160064,
+          "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+        },
+        "infra-svc01-nocodb-db": {
+          "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+          "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+          "started": "2026-11-11T17:49:53.341662346Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+        }
+      },
+      "cgroup": {
+        "memory.current": "197095424",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.10 total=2769131602\nfull avg10=0.00 avg60=0.00 avg300=0.10 total=2713555545",
+        "memory.swap.current": "6922240"
+      },
+      "elapsed": 601.0980489529993,
+      "scrape_duration": 0.007282588,
+      "metrics_bytes": 138144,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "61211",
+          "instance": "192.168.1.112:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "svc01"
+        },
+        "value": [
+          1794564342.421,
+          "0.8837728395061547"
+        ]
+      },
+      "psi_avg10": 0.0
+    }
+  ],
+  "baseline": {
+    "time_utc": "2026-11-13T09:55:38.776100+00:00",
+    "ct": 61211,
+    "bind": "192.168.1.112",
+    "containers": {
+      "cadvisor": {
+        "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started": "2026-11-11T17:49:53.304515018Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 500000000,
+        "memory": 134217728,
+        "swap": 268435456,
+        "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+      },
+      "node_exporter": {
+        "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started": "2026-11-11T17:49:53.289934889Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 200000000,
+        "memory": 50331648,
+        "swap": 100663296,
+        "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+      },
+      "infra-svc01-nocodb": {
+        "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+        "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+        "started": "2026-11-11T17:49:53.355832966Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 0,
+        "memory": 5905580032,
+        "swap": 11811160064,
+        "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+      },
+      "infra-svc01-nocodb-db": {
+        "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+        "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+        "started": "2026-11-11T17:49:53.341662346Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+      }
+    },
+    "cgroup": {
+      "memory.current": "133824512",
+      "memory.max": "134217728",
+      "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=1.96 avg60=1.26 avg300=1.06 total=2769120641\nfull avg10=1.96 avg60=1.25 avg300=1.03 total=2713544615",
+      "memory.swap.current": "15802368"
+    }
+  },
+  "external_config_restore": "PASS",
+  "applied": {
+    "time_utc": "2026-11-13T09:55:41.192306+00:00",
+    "ct": 61211,
+    "bind": "192.168.1.112",
+    "containers": {
+      "cadvisor": {
+        "id": "214f8634b665ac1e5ef2839fb96951ecfafb1b478beae76192c12e6bf57d6d53",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started": "2026-11-11T17:49:53.304515018Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 500000000,
+        "memory": 402653184,
+        "swap": 402653184,
+        "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+      },
+      "node_exporter": {
+        "id": "ef9079c4c182ec45f5fd50abec6eba84a3bf8611d8b035b4767a89a3f8cf202f",
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started": "2026-11-11T17:49:53.289934889Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 200000000,
+        "memory": 50331648,
+        "swap": 100663296,
+        "mounts_sha256": "aa4d7305c3ef97ff37a411fc599aa2630fa93d59ec5660f050f2b6b9311ac7c0"
+      },
+      "infra-svc01-nocodb": {
+        "id": "a528fe7a9427505799eed23907e17814ba3485ffca3da822526f4f0b4797f202",
+        "image": "sha256:d3aba4f7e89bd18fc01d6853eea0fa82476b161a678f7f0ff52380f4c52bb87f",
+        "started": "2026-11-11T17:49:53.355832966Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 0,
+        "memory": 5905580032,
+        "swap": 11811160064,
+        "mounts_sha256": "651bb302ec51849372ee42360f49fb9d3a45cd460cf680bc76799e5351a3fddf"
+      },
+      "infra-svc01-nocodb-db": {
+        "id": "f6a6a3389e1265e8d95c34abe8e6f1cdf3434f8517a10dca7499c76162179200",
+        "image": "sha256:4327b9fd295502f326f44153a1045a7170ddbfffed1c3829798328556cfd09e2",
+        "started": "2026-11-11T17:49:53.341662346Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "b5ef87a52b96a28fd7b623a0db7caac25f29b23ca60e7946c6fe4022c805b085"
+      }
+    },
+    "cgroup": {
+      "memory.current": "133824512",
+      "memory.max": "402653184",
+      "memory.events": "low 0\nhigh 0\nmax 4775253\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=1.60 avg60=1.22 avg300=1.05 total=2769120641\nfull avg10=1.60 avg60=1.21 avg300=1.03 total=2713544615",
+      "memory.swap.current": "15802368"
+    }
+  },
+  "idempotence": "PASS",
+  "finished_utc": "2026-11-13T10:05:43.804853+00:00"
+}

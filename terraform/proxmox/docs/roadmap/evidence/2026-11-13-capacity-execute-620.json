@@ -1,0 +1,2110 @@
+{
+  "ct": 620,
+  "status": "DONE",
+  "samples": [
+    {
+      "time_utc": "2026-11-13T10:05:48.471398+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "133046272",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26829434\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=24996462",
+        "memory.swap.current": "5804032"
+      },
+      "elapsed": 1.0901837749988772,
+      "scrape_duration": 0.010291095,
+      "metrics_bytes": 163389,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564348.513,
+          "1.3291746296296745"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:06:18.653950+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "145125376",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26833444\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25000412",
+        "memory.swap.current": "5804032"
+      },
+      "elapsed": 31.26617561400053,
+      "scrape_duration": 0.015577713,
+      "metrics_bytes": 163395,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564378.691,
+          "1.3275661111111328"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:06:48.604268+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "147496960",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26833969\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25000938",
+        "memory.swap.current": "5804032"
+      },
+      "elapsed": 61.213177780999104,
+      "scrape_duration": 0.010611555,
+      "metrics_bytes": 163386,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564408.641,
+          "1.5252414814814006"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:07:18.533485+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "146817024",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26834561\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25001530",
+        "memory.swap.current": "5509120"
+      },
+      "elapsed": 91.15825995799969,
+      "scrape_duration": 0.009620439,
+      "metrics_bytes": 163377,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564438.568,
+          "1.5413668518517962"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:07:48.598596+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "147681280",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26834772\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25001741",
+        "memory.swap.current": "5509120"
+      },
+      "elapsed": 121.22707371499928,
+      "scrape_duration": 0.012723698,
+      "metrics_bytes": 163387,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564468.634,
+          "1.594147407407339"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:08:18.548909+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "147525632",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26835306\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25002274",
+        "memory.swap.current": "5509120"
+      },
+      "elapsed": 151.2016056779994,
+      "scrape_duration": 0.008815674,
+      "metrics_bytes": 163386,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564498.585,
+          "1.6045125925925445"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:08:48.567040+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "147554304",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26835649\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25002614",
+        "memory.swap.current": "5509120"
+      },
+      "elapsed": 181.27165833899926,
+      "scrape_duration": 0.009618243,
+      "metrics_bytes": 163388,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564528.607,
+          "1.6579992592592474"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:09:18.450432+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "146890752",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836614\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003579",
+        "memory.swap.current": "5509120"
+      },
+      "elapsed": 211.23971203099973,
+      "scrape_duration": 0.007726094,
+      "metrics_bytes": 163383,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564558.485,
+          "1.7183974074074557"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:09:48.425161+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "148611072",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836614\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003579",
+        "memory.swap.current": "5509120"
+      },
+      "elapsed": 241.19519191200015,
+      "scrape_duration": 0.008526434,
+      "metrics_bytes": 163377,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564588.466,
+          "1.7216535185185355"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:10:18.440771+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "148537344",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836614\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003579",
+        "memory.swap.current": "5509120"
+      },
+      "elapsed": 271.2018877520004,
+      "scrape_duration": 0.013715135,
+      "metrics_bytes": 163384,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564618.476,
+          "1.8029196296295897"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:10:48.515871+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "149344256",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836614\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003579",
+        "memory.swap.current": "5509120"
+      },
+      "elapsed": 301.2516100619996,
+      "scrape_duration": 0.008542691,
+      "metrics_bytes": 163391,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564648.555,
+          "1.774185185185144"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:11:18.414201+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "149348352",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836771\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003736",
+        "memory.swap.current": "5509120"
+      },
+      "elapsed": 331.1209329209996,
+      "scrape_duration": 0.009831181,
+      "metrics_bytes": 163389,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564678.45,
+          "1.6778611111111854"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:11:48.696705+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "149958656",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836771\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003736",
+        "memory.swap.current": "5369856"
+      },
+      "elapsed": 361.38767368499975,
+      "scrape_duration": 0.009324545,
+      "metrics_bytes": 163390,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564708.732,
+          "1.6348661111111242"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:12:18.759090+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "148606976",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836771\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003736",
+        "memory.swap.current": "5156864"
+      },
+      "elapsed": 391.43399553699965,
+      "scrape_duration": 0.007691516,
+      "metrics_bytes": 163397,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564738.795,
+          "1.6724433333333597"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:12:48.539948+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "149479424",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836771\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003736",
+        "memory.swap.current": "5156864"
+      },
+      "elapsed": 421.20285915099885,
+      "scrape_duration": 0.009367163,
+      "metrics_bytes": 163383,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564768.579,
+          "1.622168703703732"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:13:18.788242+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "148738048",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836771\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003736",
+        "memory.swap.current": "5156864"
+      },
+      "elapsed": 451.4383384009998,
+      "scrape_duration": 0.007702458,
+      "metrics_bytes": 163382,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564798.823,
+          "1.6564298148148704"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:13:48.841291+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "150515712",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836771\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003736",
+        "memory.swap.current": "5156864"
+      },
+      "elapsed": 481.48817396899904,
+      "scrape_duration": 0.008183393,
+      "metrics_bytes": 163387,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564828.877,
+          "1.6018235185184595"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:14:18.722082+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "148885504",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836771\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003736",
+        "memory.swap.current": "5156864"
+      },
+      "elapsed": 511.36831511699893,
+      "scrape_duration": 0.006575214,
+      "metrics_bytes": 163389,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564858.757,
+          "1.6333159259259582"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:14:48.595441+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "148250624",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836771\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003736",
+        "memory.swap.current": "5156864"
+      },
+      "elapsed": 541.4661556520005,
+      "scrape_duration": 0.006721808,
+      "metrics_bytes": 163390,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564888.632,
+          "1.6003238888889528"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:15:18.238495+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "148881408",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836780\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003745",
+        "memory.swap.current": "5156864"
+      },
+      "elapsed": 571.4118194940002,
+      "scrape_duration": 0.00725772,
+      "metrics_bytes": 163385,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564918.273,
+          "1.628637407407462"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T10:15:48.241967+00:00",
+      "ct": 620,
+      "bind": "192.168.1.120",
+      "containers": {
+        "cadvisor": {
+          "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:26.445241709Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 268435456,
+          "swap": 268435456,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:26.42368763Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+        },
+        "infra-excraper-linkedin-worker-1": {
+          "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+          "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+          "started": "2026-11-11T17:48:26.521131237Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+        },
+        "infra-excraper-signals-worker-1": {
+          "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+          "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+          "started": "2026-11-11T17:48:26.43579427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+        },
+        "infra-excraper-redis-1": {
+          "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+          "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+          "started": "2026-11-11T17:48:26.452065427Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+        }
+      },
+      "cgroup": {
+        "memory.current": "150122496",
+        "memory.max": "268435456",
+        "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26836780\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25003745",
+        "memory.swap.current": "5156864"
+      },
+      "elapsed": 601.4172079300006,
+      "scrape_duration": 0.008329723,
+      "metrics_bytes": 163388,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "620",
+          "instance": "192.168.1.120:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-excraper"
+        },
+        "value": [
+          1794564948.278,
+          "1.5680777777777588"
+        ]
+      },
+      "psi_avg10": 0.0
+    }
+  ],
+  "baseline": {
+    "time_utc": "2026-11-13T10:05:45.072437+00:00",
+    "ct": 620,
+    "bind": "192.168.1.120",
+    "containers": {
+      "cadvisor": {
+        "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started": "2026-11-11T17:48:26.445241709Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 500000000,
+        "memory": 134217728,
+        "swap": 268435456,
+        "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+      },
+      "node_exporter": {
+        "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started": "2026-11-11T17:48:26.42368763Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 200000000,
+        "memory": 50331648,
+        "swap": 100663296,
+        "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+      },
+      "infra-excraper-linkedin-worker-1": {
+        "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+        "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+        "started": "2026-11-11T17:48:26.521131237Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+      },
+      "infra-excraper-signals-worker-1": {
+        "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+        "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+        "started": "2026-11-11T17:48:26.43579427Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+      },
+      "infra-excraper-redis-1": {
+        "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+        "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+        "started": "2026-11-11T17:48:26.452065427Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+      }
+    },
+    "cgroup": {
+      "memory.current": "133726208",
+      "memory.max": "134217728",
+      "memory.events": "low 0\nhigh 0\nmax 187857\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26828885\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=24996006",
+      "memory.swap.current": "5804032"
+    }
+  },
+  "external_config_restore": "PASS",
+  "applied": {
+    "time_utc": "2026-11-13T10:05:47.385490+00:00",
+    "ct": 620,
+    "bind": "192.168.1.120",
+    "containers": {
+      "cadvisor": {
+        "id": "ee7b14363e776d31cf9e5decc07424ad289cd2741ab98b4769d8e99ef422752f",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started": "2026-11-11T17:48:26.445241709Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 500000000,
+        "memory": 268435456,
+        "swap": 268435456,
+        "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+      },
+      "node_exporter": {
+        "id": "272e23722794bde6bac913751235bf41f426188ec1ce216c4320a9b70da93575",
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started": "2026-11-11T17:48:26.42368763Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 200000000,
+        "memory": 50331648,
+        "swap": 100663296,
+        "mounts_sha256": "82020962f822b82f362083fe7aa126afc476410dd79a024525b84e2e4a3270be"
+      },
+      "infra-excraper-linkedin-worker-1": {
+        "id": "539d45cc381b81a75c90d5907517260188ef1023f241254e4a8cebb7218a76a2",
+        "image": "sha256:2b2d3da1a2e7c4e26c614a07298f7f0894ed544b4ea0c24ff17995032126473b",
+        "started": "2026-11-11T17:48:26.521131237Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "16c4bd514c05be252648bf86647075bb862919189d97a406f0cfb3abf8831176"
+      },
+      "infra-excraper-signals-worker-1": {
+        "id": "df4e3f9d5572c430694de40acd65440e3562615d9a445c511298e610abaee92b",
+        "image": "sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf",
+        "started": "2026-11-11T17:48:26.43579427Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "d344b5d24dd50c31beab5ad2918b842a7ec360b9764fa77cb105c696db1a5a3d"
+      },
+      "infra-excraper-redis-1": {
+        "id": "12aca7dd3b2e22dcd32da5761c3915df1a1364e1328d7e3f8d732ae184016cc3",
+        "image": "sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf",
+        "started": "2026-11-11T17:48:26.452065427Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "49f1a56dfe2000541b8c5af6fa527a1f1b27f8dbe20813d72b490aad14def426"
+      }
+    },
+    "cgroup": {
+      "memory.current": "132833280",
+      "memory.max": "268435456",
+      "memory.events": "low 0\nhigh 0\nmax 187867\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=26829434\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=24996462",
+      "memory.swap.current": "5804032"
+    }
+  },
+  "idempotence": "PASS",
+  "finished_utc": "2026-11-13T10:15:49.752698+00:00"
+}

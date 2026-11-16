@@ -1,0 +1,1834 @@
+{
+  "ct": 619,
+  "status": "DONE",
+  "samples": [
+    {
+      "time_utc": "2026-11-13T09:45:35.705283+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "268283904",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11680941\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.25 avg60=2.97 avg300=3.89 total=7243077018\nfull avg10=0.25 avg60=2.88 avg300=3.80 total=7075371452",
+        "memory.swap.current": "16515072"
+      },
+      "elapsed": 1.2366307890006283,
+      "scrape_duration": 0.371915408,
+      "metrics_bytes": 130039,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563135.954,
+          "5.968330000000101"
+        ]
+      },
+      "psi_avg10": 0.25
+    },
+    {
+      "time_utc": "2026-11-13T09:46:05.908546+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402579456",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11681274\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.01 avg60=1.80 avg300=3.50 total=7243094122\nfull avg10=0.01 avg60=1.75 avg300=3.42 total=7075388095",
+        "memory.swap.current": "11456512"
+      },
+      "elapsed": 31.424889309999344,
+      "scrape_duration": 0.025191669,
+      "metrics_bytes": 130046,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563165.942,
+          "6.146958888888953"
+        ]
+      },
+      "psi_avg10": 0.01
+    },
+    {
+      "time_utc": "2026-11-13T09:46:35.920464+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "401575936",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11681277\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=1.09 avg300=3.16 total=7243094461\nfull avg10=0.00 avg60=1.06 avg300=3.08 total=7075388434",
+        "memory.swap.current": "11427840"
+      },
+      "elapsed": 61.42032464099975,
+      "scrape_duration": 0.006364194,
+      "metrics_bytes": 130050,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563195.956,
+          "5.308602592592622"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:47:05.687680+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402411520",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11681617\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.66 avg300=2.84 total=7243110412\nfull avg10=0.00 avg60=0.64 avg300=2.78 total=7075404093",
+        "memory.swap.current": "11378688"
+      },
+      "elapsed": 91.16697344800014,
+      "scrape_duration": 0.005852754,
+      "metrics_bytes": 130039,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563225.722,
+          "4.970621851851791"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:47:35.828014+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402120704",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11681618\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.39 avg300=2.56 total=7243112151\nfull avg10=0.00 avg60=0.38 avg300=2.50 total=7075405721",
+        "memory.swap.current": "11374592"
+      },
+      "elapsed": 121.29289676400003,
+      "scrape_duration": 0.01096836,
+      "metrics_bytes": 130042,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563255.862,
+          "5.342331666666656"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:48:06.033926+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402452480",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11681820\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.23 avg300=2.31 total=7243129711\nfull avg10=0.00 avg60=0.23 avg300=2.26 total=7075421042",
+        "memory.swap.current": "11411456"
+      },
+      "elapsed": 151.48726225599967,
+      "scrape_duration": 0.006176375,
+      "metrics_bytes": 130047,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563286.07,
+          "4.1351779629631995"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:48:35.680519+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "401125376",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11681959\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.14 avg300=2.08 total=7243141791\nfull avg10=0.00 avg60=0.13 avg300=2.03 total=7075431408",
+        "memory.swap.current": "11403264"
+      },
+      "elapsed": 181.11569732799944,
+      "scrape_duration": 0.007723196,
+      "metrics_bytes": 130040,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563315.713,
+          "4.1050620370370545"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:49:05.746929+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402403328",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11681964\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.08 avg300=1.87 total=7243144714\nfull avg10=0.00 avg60=0.08 avg300=1.83 total=7075434200",
+        "memory.swap.current": "11403264"
+      },
+      "elapsed": 211.1715939580008,
+      "scrape_duration": 0.007135271,
+      "metrics_bytes": 130053,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563345.782,
+          "4.062261296296331"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:49:35.769657+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "401846272",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11682308\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.04 avg300=1.68 total=7243163453\nfull avg10=0.00 avg60=0.04 avg300=1.65 total=7075452776",
+        "memory.swap.current": "11464704"
+      },
+      "elapsed": 241.18620474300042,
+      "scrape_duration": 0.011259039,
+      "metrics_bytes": 130038,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563375.802,
+          "3.460457777777669"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:50:05.766785+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402141184",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11682315\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.02 avg300=1.52 total=7243164169\nfull avg10=0.00 avg60=0.02 avg300=1.48 total=7075453396",
+        "memory.swap.current": "11317248"
+      },
+      "elapsed": 271.1802921109993,
+      "scrape_duration": 0.005255299,
+      "metrics_bytes": 130044,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563405.801,
+          "2.8261012962960836"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:50:35.759456+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "401932288",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11682651\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.01 avg300=1.36 total=7243194317\nfull avg10=0.00 avg60=0.01 avg300=1.33 total=7075482911",
+        "memory.swap.current": "11354112"
+      },
+      "elapsed": 301.1812696369998,
+      "scrape_duration": 0.010525603,
+      "metrics_bytes": 130033,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563435.792,
+          "2.635191851852007"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:51:05.799964+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "401666048",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11682657\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=1.23 total=7243197606\nfull avg10=0.00 avg60=0.00 avg300=1.20 total=7075485978",
+        "memory.swap.current": "11313152"
+      },
+      "elapsed": 331.2280526180002,
+      "scrape_duration": 0.012592778,
+      "metrics_bytes": 130037,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563465.833,
+          "2.5509651851849346"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:51:35.808460+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "401555456",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11682989\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=1.10 total=7243221110\nfull avg10=0.00 avg60=0.00 avg300=1.08 total=7075508464",
+        "memory.swap.current": "11259904"
+      },
+      "elapsed": 361.2555337970007,
+      "scrape_duration": 0.006662554,
+      "metrics_bytes": 130037,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563495.84,
+          "2.554988333333515"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:52:05.869061+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402608128",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11682993\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.99 total=7243221259\nfull avg10=0.00 avg60=0.00 avg300=0.97 total=7075508614",
+        "memory.swap.current": "11255808"
+      },
+      "elapsed": 391.3411724380003,
+      "scrape_duration": 0.009079118,
+      "metrics_bytes": 130035,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563525.906,
+          "2.5720522222221645"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:52:35.783957+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "401813504",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11683320\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.89 total=7243243690\nfull avg10=0.00 avg60=0.00 avg300=0.87 total=7075528868",
+        "memory.swap.current": "11247616"
+      },
+      "elapsed": 421.3414813260006,
+      "scrape_duration": 0.011335632,
+      "metrics_bytes": 130033,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563555.821,
+          "2.572427777777867"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:53:05.677303+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402419712",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11683324\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.80 total=7243244646\nfull avg10=0.00 avg60=0.00 avg300=0.78 total=7075529778",
+        "memory.swap.current": "11100160"
+      },
+      "elapsed": 451.22165601899906,
+      "scrape_duration": 0.006031885,
+      "metrics_bytes": 130034,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563585.712,
+          "2.5597764814817006"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:53:35.703331+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402415616",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11683667\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.72 total=7243261629\nfull avg10=0.00 avg60=0.00 avg300=0.70 total=7075546470",
+        "memory.swap.current": "11120640"
+      },
+      "elapsed": 481.2438346660001,
+      "scrape_duration": 0.00749945,
+      "metrics_bytes": 130043,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563615.735,
+          "2.5656816666667983"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:54:05.737821+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402468864",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11683670\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.64 total=7243262831\nfull avg10=0.00 avg60=0.00 avg300=0.63 total=7075547452",
+        "memory.swap.current": "11120640"
+      },
+      "elapsed": 511.2693935520001,
+      "scrape_duration": 0.009250937,
+      "metrics_bytes": 130032,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563645.773,
+          "2.5617090740740456"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:54:35.739641+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402182144",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11684019\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.58 total=7243279971\nfull avg10=0.00 avg60=0.00 avg300=0.56 total=7075563863",
+        "memory.swap.current": "11186176"
+      },
+      "elapsed": 541.2354485420001,
+      "scrape_duration": 0.007704896,
+      "metrics_bytes": 130032,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563675.775,
+          "2.5534412962965525"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:55:06.036974+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "397721600",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11684019\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.52 total=7243301251\nfull avg10=0.00 avg60=0.00 avg300=0.50 total=7075584912",
+        "memory.swap.current": "11169792"
+      },
+      "elapsed": 571.5261100839998,
+      "scrape_duration": 0.012086084,
+      "metrics_bytes": 132638,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563706.081,
+          "2.9318857407408228"
+        ]
+      },
+      "psi_avg10": 0.0
+    },
+    {
+      "time_utc": "2026-11-13T09:55:35.802965+00:00",
+      "ct": 619,
+      "bind": "192.168.1.119",
+      "containers": {
+        "cadvisor": {
+          "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+          "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+          "started": "2026-11-11T17:48:09.067703199Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 500000000,
+          "memory": 402653184,
+          "swap": 536870912,
+          "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+        },
+        "node_exporter": {
+          "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+          "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+          "started": "2026-11-11T17:48:09.08032076Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 200000000,
+          "memory": 50331648,
+          "swap": 100663296,
+          "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+        },
+        "infra-pulpo-n8n-1": {
+          "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+          "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+          "started": "2026-11-11T17:48:09.09464253Z",
+          "restarts": 0,
+          "oom": false,
+          "health": null,
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+        },
+        "infra-pulpo-postgres-1": {
+          "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+          "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+          "started": "2026-11-11T17:48:09.086057734Z",
+          "restarts": 0,
+          "oom": false,
+          "health": "healthy",
+          "cpu": 0,
+          "memory": 0,
+          "swap": 0,
+          "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+        }
+      },
+      "cgroup": {
+        "memory.current": "402636800",
+        "memory.max": "402653184",
+        "memory.events": "low 0\nhigh 0\nmax 11684161\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.46 total=7243313268\nfull avg10=0.00 avg60=0.00 avg300=0.45 total=7075593414",
+        "memory.swap.current": "11124736"
+      },
+      "elapsed": 601.2699993660008,
+      "scrape_duration": 0.01004183,
+      "metrics_bytes": 132638,
+      "lxc_cpu": {
+        "metric": {
+          "__name__": "lxc:cpu_usage:percent",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "619",
+          "instance": "192.168.1.119:9100",
+          "job": "node_exporter",
+          "resource_scope": "lxc",
+          "service": "infra-pulpo"
+        },
+        "value": [
+          1794563735.847,
+          "2.5632153703706235"
+        ]
+      },
+      "psi_avg10": 0.0
+    }
+  ],
+  "baseline": {
+    "time_utc": "2026-11-13T09:45:32.047113+00:00",
+    "ct": 619,
+    "bind": "192.168.1.119",
+    "containers": {
+      "cadvisor": {
+        "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started": "2026-11-11T17:48:09.067703199Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 500000000,
+        "memory": 268435456,
+        "swap": 536870912,
+        "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+      },
+      "node_exporter": {
+        "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started": "2026-11-11T17:48:09.08032076Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 200000000,
+        "memory": 50331648,
+        "swap": 100663296,
+        "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+      },
+      "infra-pulpo-n8n-1": {
+        "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+        "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+        "started": "2026-11-11T17:48:09.09464253Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+      },
+      "infra-pulpo-postgres-1": {
+        "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+        "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+        "started": "2026-11-11T17:48:09.086057734Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+      }
+    },
+    "cgroup": {
+      "memory.current": "268259328",
+      "memory.max": "268435456",
+      "memory.events": "low 0\nhigh 0\nmax 11680941\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.38 avg60=3.17 avg300=3.94 total=7243077018\nfull avg10=0.38 avg60=3.08 avg300=3.85 total=7075371452",
+      "memory.swap.current": "16707584"
+    }
+  },
+  "external_config_restore": "PASS",
+  "applied": {
+    "time_utc": "2026-11-13T09:45:34.464042+00:00",
+    "ct": 619,
+    "bind": "192.168.1.119",
+    "containers": {
+      "cadvisor": {
+        "id": "f1b11c591622d87e404c996ebb4eb06207776f236e52320a2512ab23f2230f85",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started": "2026-11-11T17:48:09.067703199Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 500000000,
+        "memory": 402653184,
+        "swap": 536870912,
+        "mounts_sha256": "0f786121cd9862df2c3603adb5b7c2f9c3e58cbd16f6220473d22571e498f7e9"
+      },
+      "node_exporter": {
+        "id": "b904f0f953d7f9d30eb73d49e030210307e30b5712d5ba61e12a38d159645005",
+        "image": "sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3",
+        "started": "2026-11-11T17:48:09.08032076Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 200000000,
+        "memory": 50331648,
+        "swap": 100663296,
+        "mounts_sha256": "8439d8dcae8b24f04e1ffa2889acfe080333a87a20e9fdf16755c70d3d75b198"
+      },
+      "infra-pulpo-n8n-1": {
+        "id": "c2f723a4998fa2b8509821cb07cc2bb57a54d2f01e0da9fb94fb7daa28f9fbe4",
+        "image": "sha256:53004142b0e93de1e9e31943e601ed9bd4b24ca82a307864ccadf1820b627e5e",
+        "started": "2026-11-11T17:48:09.09464253Z",
+        "restarts": 0,
+        "oom": false,
+        "health": null,
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "07a0e72462293efff44f5a5d04203e7b997c97075e6d2368c286b1d27321fee6"
+      },
+      "infra-pulpo-postgres-1": {
+        "id": "6ee8d171fef2fec9897f8e92b71308793c99b8b48eb8f9be2d2ff1c5c2542a3f",
+        "image": "sha256:97ff59a4e30e08d1c11bdcd9455e7832368c0572b576c9092cde2df4ae5552a3",
+        "started": "2026-11-11T17:48:09.086057734Z",
+        "restarts": 0,
+        "oom": false,
+        "health": "healthy",
+        "cpu": 0,
+        "memory": 0,
+        "swap": 0,
+        "mounts_sha256": "4bf1177ac08b3580b21abbe00ae0deef9a8d144852b5a8c8441269701b891809"
+      }
+    },
+    "cgroup": {
+      "memory.current": "268259328",
+      "memory.max": "402653184",
+      "memory.events": "low 0\nhigh 0\nmax 11680941\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=0.31 avg60=3.07 avg300=3.91 total=7243077018\nfull avg10=0.31 avg60=2.98 avg300=3.83 total=7075371452",
+      "memory.swap.current": "16515072"
+    }
+  },
+  "idempotence": "PASS",
+  "finished_utc": "2026-11-13T09:55:37.440417+00:00"
+}

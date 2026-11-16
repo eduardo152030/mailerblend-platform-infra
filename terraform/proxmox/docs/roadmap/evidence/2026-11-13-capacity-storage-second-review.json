@@ -1,0 +1,16 @@
+{
+  "time_utc": "2026-11-13T10:16:30.310333+00:00",
+  "status": "PASS",
+  "mode": "read-only second review",
+  "clones_absent": [
+    9618,
+    9622
+  ],
+  "source_backups_preserved": [
+    618,
+    622
+  ],
+  "vm100_destination_present": true,
+  "vm100_source_absent": true,
+  "new_changes": false
+}

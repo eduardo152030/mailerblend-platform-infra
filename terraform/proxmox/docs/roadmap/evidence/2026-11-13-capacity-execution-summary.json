@@ -1,0 +1,42 @@
+{
+  "status": "DONE technical",
+  "containers": {
+    "619": {
+      "memory_mib": 384.0,
+      "combined_memory_swap_mib": 512.0,
+      "samples": 21,
+      "seconds": 601.2699993660008,
+      "max_scrape_seconds": 0.371915408,
+      "final_psi_avg10": 0.0,
+      "new_oom": 0,
+      "new_restarts": 0,
+      "idempotence": "PASS"
+    },
+    "61211": {
+      "memory_mib": 384.0,
+      "combined_memory_swap_mib": 384.0,
+      "samples": 21,
+      "seconds": 601.0980489529993,
+      "max_scrape_seconds": 0.632640506,
+      "final_psi_avg10": 0.0,
+      "new_oom": 0,
+      "new_restarts": 0,
+      "idempotence": "PASS"
+    },
+    "620": {
+      "memory_mib": 256.0,
+      "combined_memory_swap_mib": 256.0,
+      "samples": 21,
+      "seconds": 601.4172079300006,
+      "max_scrape_seconds": 0.015577713,
+      "final_psi_avg10": 0.0,
+      "new_oom": 0,
+      "new_restarts": 0,
+      "idempotence": "PASS"
+    }
+  },
+  "unchanged_pve_configs": 25,
+  "storage_second_review": "PASS",
+  "telegram_human_receipt": "no new test or receipt claimed",
+  "final_alerts": []
+}
