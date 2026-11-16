@@ -87,7 +87,7 @@ async def fb_create_card(reminder: Reminder, user: User) -> str | None:
     elif reminder.is_persistent and reminder.repeat_every_minutes:
         recurrence = f" ↻ {reminder.repeat_every_minutes}min"
 
-    opt_id = STATUS_OPTIONS.get(reminder.status, "opt_pendiente")
+    opt_id = STATUS_OPTIONS.get(reminder.status, STATUS_OPTIONS.get("scheduled", "aoptscheduled000000000000001"))
     now_ms = int(time.time() * 1000)
     card_id = uuid.uuid4().hex[:26]  # Focalboard usa IDs de 26 chars
 
@@ -380,6 +380,7 @@ async def sync_from_focalboard() -> int:
             ).scalar_one_or_none()
 
             # Tarjeta sin reminder asociado — adoptarla si tiene status relevante
+            now = datetime.now(TZ)  # define now early — used in orphan block and below
             if not reminder:
                 props_check = card.get("fields", {}).get("properties", {})
                 opt_check = props_check.get(STATUS_PROP_ID)
@@ -411,7 +412,6 @@ async def sync_from_focalboard() -> int:
                     continue
 
             props = card.get("fields", {}).get("properties", {})
-            now = datetime.now(TZ)
             changed = False
             notify_msg = None
 
@@ -522,8 +522,19 @@ async def sync_from_focalboard() -> int:
                     if fb_ts_ms:
                         fb_dt = datetime.fromtimestamp(fb_ts_ms / 1000, tz=TZ)
                         current_dt = to_local(reminder.remind_at) if reminder.remind_at else None
-                        # Solo actualizar si la diferencia es > 2 minutos (evitar loops)
-                        if not current_dt or abs((fb_dt - current_dt).total_seconds()) > 120:
+
+                        # Guard: if EVA recently updated this reminder (ACK advancing to next cycle),
+                        # the FB date is stale (previous cycle). Don't overwrite DB with stale date.
+                        _synced_at = reminder.focalboard_synced_at
+                        _eva_updated_recently = False
+                        if _synced_at:
+                            _synced_tz = _synced_at if _synced_at.tzinfo else _synced_at.replace(tzinfo=TZ)
+                            _eva_updated_recently = (now - _synced_tz).total_seconds() < 300
+
+                        # Only update if:
+                        # - Date changed by more than 2 min (not a sync loop echo)
+                        # - AND EVA didn't just update this reminder (ACK/reschedule)
+                        if (not current_dt or abs((fb_dt - current_dt).total_seconds()) > 120) and not _eva_updated_recently:
                             old_dt = current_dt
                             reminder.remind_at = fb_dt
                             if reminder.status in ("completed", "cancelled"):
@@ -538,6 +549,10 @@ async def sync_from_focalboard() -> int:
                                          event_value=str(reminder.id), source="focalboard",
                                          payload={"card_id": cid, "new_dt": fb_dt.isoformat()}))
                             print(f"[sync] ✅ reminder {reminder.id} rescheduled to {fb_dt} via Focalboard")
+                        elif _eva_updated_recently and current_dt and abs((fb_dt - current_dt).total_seconds()) > 120:
+                            print(f"[sync] ⚠️  skip date overwrite of [{reminder.id}] — "
+                                  f"EVA updated {(now - _synced_tz).total_seconds():.0f}s ago "
+                                  f"(FB={fb_dt.strftime('%d/%m %H:%M')} DB={current_dt.strftime('%d/%m %H:%M')})")
                 except Exception as exc:
                     print(f"[sync] fecha parse error for card {cid}: {exc}")
 
