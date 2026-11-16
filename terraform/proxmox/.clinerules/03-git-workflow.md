@@ -15,14 +15,34 @@ git worktree list
 git status --short --branch --untracked-files=all
 ```
 
-- **Tarea nueva.** Crea una rama y un worktree para la tarea desde `main` local,
-  salvo que el usuario indique otra base o que el plan dependa de otra rama
-  confirmada. Usa una ruta fuera del árbol de trabajo existente.
-- **Tarea en curso.** Reutiliza el worktree y la rama ya asignados. Revisa
-  el estado de Git y el último paso registrado en el plan antes de seguir.
-- Conserva los cambios que encuentres en otros worktrees. Si la tarea depende
-  de cambios pendientes de otra rama, identifica la dependencia y acuerda
-  cómo integrarla antes de incorporarla.
+### 1.1. Sincronizar con el remoto
+
+Antes de cualquier otra acción, ejecuta:
+
+```bash
+git fetch origin main
+```
+
+Si `origin/main` tiene commits que no tienes local (`git rev-parse origin/main != HEAD`),
+haz `git merge origin/main` para sincronizar.
+
+### 1.2. Tarea nueva
+
+Crea una rama y un worktree para la tarea desde `origin/main`,
+salvo que el usuario indique otra base o que el plan dependa de otra rama
+confirmada. Usa una ruta fuera del árbol de trabajo existente.
+
+### 1.3. Tarea en curso
+
+Reutiliza el worktree y la rama ya asignados. Revisa
+el estado de Git y el último paso registrado en el plan antes de seguir.
+
+### 1.4. Dependencias entre tareas
+
+Conserva los cambios que encuentres en otros worktrees. Si la tarea depende
+de cambios pendientes de otra rama, identifica la dependencia y acuerda
+cómo integrarla antes de incorporarla. Los PRs abiertos de otros trabajos
+no bloquean una tarea independiente.
 
 Ejemplo para la tarea de swap del CT618, ejecutado desde la raíz Git:
 
@@ -37,6 +57,51 @@ en el nuevo worktree. En VS Code, abre el worktree como carpeta de la sesión.
 Si usas la terminal para ejecutar comandos, verifica su directorio de trabajo.
 El plan, las ediciones, las validaciones, el staging y los commits de la tarea
 se hacen desde ese worktree.
+
+## 1.5. Consultar estado de PRs al iniciar o retomar una tarea
+
+Antes de crear el plan (sección 2), consulta el PR asociado a la tarea.
+Si la tarea no tiene un PR abierto, omite esta sección.
+
+Para una **tarea nueva**, verifica que `origin/main` está actualizado (sección 1.1)
+y crea la rama desde él. Si la tarea depende de un PR anterior, consulta ese PR
+por número o URL:
+
+```bash
+gh pr view <número-o-rama> --json state,reviewDecision,isDraft,mergeStateStatus,headRefOid,url
+```
+
+- **`MERGED`**. El PR ya está integrado en `main`. Continúa desde
+  `origin/main` actualizado. Registra el cierre en el plan.
+- **Abierto**. Indica la dependencia en el plan. Los PRs abiertos de otras
+  tareas no bloquean una tarea independiente.
+
+Para una **tarea en curso**, reutiliza su worktree y consulta el PR asociado,
+incluso si ya está cerrado o integrado:
+
+```bash
+gh pr view <número-o-rama> --json state,reviewDecision,isDraft,mergeStateStatus,headRefOid,url
+```
+
+- **`MERGED`**. Registra el cierre y refresca `origin/main` para el siguiente
+  trabajo:
+  ```bash
+  git fetch origin main && git merge origin/main
+  ```
+- **`CHANGES_REQUESTED`**. Lee la revisión en GitHub, corrige lo que corresponda
+  en la misma rama y haz `git push` para que la IA revisora vuelva a evaluarlo.
+  Actualiza el plan con los cambios realizados.
+- **Pendiente o decisión vacía**. Deja el PR en revisión. Una decisión vacía
+  (`reviewDecision == ""`) no cuenta como aprobación.
+- **`APPROVED` y abierto**. Comprueba que la aprobación sigue vigente para el
+  cambio actual y que GitHub permite integrarlo. Consulta los checks requeridos:
+  ```bash
+  gh pr checks <número> --required --json name,state,bucket
+  ```
+  Si los checks están en `SUCCESS` y no hay conflictos (`mergeStateStatus != "BEHIND"`),
+  ejecuta el merge. Si el merge corresponde a otra persona, informa que el PR
+  está listo para integrar. En ambos casos, toma la aprobación de GitHub como
+  autoridad.
 
 ## 2. Crear o retomar el plan de implementación
 
@@ -99,3 +164,38 @@ En el resumen final, indica la **rama**, la **ruta del plan**, los **hashes de
 los commits** y cualquier **cambio pendiente**. Conserva el worktree mientras
 la tarea tenga cambios pendientes o deba retomarse. El push y la integración
 en `main` requieren autorización para esa tarea.
+
+## 6. Integración automática tras aprobación
+
+Cuando la revisión está aprobada (`reviewDecision == "APPROVED"`) y los checks
+requeridos están en `SUCCESS`:
+
+1. Verificar que no hay conflictos:
+     ```bash
+     gh pr view <número> --json mergeStateStatus --jq '.mergeStateStatus'
+     ```
+   Si `mergeStateStatus` es `CLEAN` o `HAS_HOOKS`, procede. Si es `BEHIND`,
+   actualiza la rama con `main` primero.
+
+2. Hacer merge del PR:
+     ```bash
+     gh pr merge <número> --squash --delete-branch
+     ```
+
+3. Actualizar `main` local:
+     ```bash
+     git fetch origin main && git merge origin/main
+     ```
+
+4. Limpiar el worktree de la tarea si ya no es necesario:
+     ```bash
+     git branch -d <rama>
+     git worktree remove <ruta-del-worktree>
+     git remote prune origin
+     ```
+
+5. Actualizar el plan con el resultado de la integración.
+
+Si el merge corresponde a otra persona (por política del repositorio o
+autorización del usuario), informa que el PR está listo para integrar y
+proporciona el enlace al PR. No ejecutes el merge en ese caso.
