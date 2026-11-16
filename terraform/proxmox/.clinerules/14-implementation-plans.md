@@ -15,7 +15,7 @@ al código (`terraform/`, `scripts/`, `tests/`), nunca como archivo
 temporal "que luego se mueve".
 
 Los planes de ejecución, propuestas, contratos y preparaciones de
-despliegue se almacenan en `docs/roadmap/` junto al roadmap, la
+despliegue se almacenan en `docs/roadmap/planes` junto al roadmap, la
 estatal y las decisiones. Este directorio es la fuente única de verdad
 para el estado de la infraestructura.
 
@@ -25,12 +25,12 @@ El nombre del archivo debe identificar la feature/dominio/CT sin necesidad
 de abrirlo. Formato `UPPER-KEBAB-CASE` con sufijo descriptivo:
 
 ```text
-docs/roadmap/CT624-PILOT-EXECUTION.md              ✅
-docs/roadmap/CPU-CONTRACT.md                        ✅
-docs/roadmap/INCREMENTAL-INTEGRATION.md             ✅
-docs/roadmap/PROGRESSIVE-ROLLOUT.md                 ✅
-docs/roadmap/PHASE6-D055-UPTIME-PROPOSAL.md         ✅
-docs/roadmap/CT614-SGTM-D043.md                     ✅
+docs/roadmap/planes/CT624-PILOT-EXECUTION.md              ✅
+docs/roadmap/planes/CPU-CONTRACT.md                        ✅
+docs/roadmap/planes/INCREMENTAL-INTEGRATION.md             ✅
+docs/roadmap/planes/PROGRESSIVE-ROLLOUT.md                 ✅
+docs/roadmap/planes/PHASE6-D055-UPTIME-PROPOSAL.md         ✅
+docs/roadmap/planes/CT614-SGTM-D043.md                     ✅
 ```
 
 Prohibidos los nombres genéricos:
@@ -55,7 +55,7 @@ versiones anteriores del mismo plan.
 ## Un plan por feature (evitar duplicados y conflictos de nombre)
 
 - Antes de crear un plan nuevo, comprobar si ya existe uno para la misma
-  feature/CT en `docs/roadmap/` (y en decisiones relacionadas).
+  feature/CT en `docs/roadmap/planes/` (y en decisiones relacionadas).
 - Un plan aprobado es un **documento vivo**: se edita en el mismo archivo,
   actualizando su contenido, no se crea un archivo paralelo.
 - Solo si un plan sufre un rediseño total se crea `*-V2-*.md`, dejando
@@ -70,10 +70,10 @@ explícitamente o con confirmación del usuario.
 
 ## Relación con otros documentos
 
-- `docs/roadmap/ROADMAP.md` — visión general de fases.
-- `docs/roadmap/CURRENT-STATUS.md` — estado actualizado del rollout.
-- `docs/roadmap/DECISIONS.md` — decisiones técnicas aprobadas.
-- `docs/runbooks/` — procedimientos operativos (documentación de proceso,
+- `docs/roadmap/planes/ROADMAP.md` — visión general de fases.
+- `docs/roadmap/planes/CURRENT-STATUS.md` — estado actualizado del rollout.
+- `docs/roadmap/planes/DECISIONS.md` — decisiones técnicas aprobadas.
+- `docs/runbooks/planes` — procedimientos operativos (documentación de proceso,
   no planes de implementación).
 - `docs/plans/` — no existe en este repo; no crearlo.
 
@@ -82,9 +82,9 @@ explícitamente o con confirmación del usuario.
 Los planes de ejecución y propuestas de este repositorio viven en
 `docs/roadmap/`. Ejemplos vigentes:
 
-- `docs/roadmap/CT624-PILOT-EXECUTION.md` — piloto validado.
-- `docs/roadmap/CPU-CONTRACT.md` — contrato CPU aceptado.
-- `docs/roadmap/INCREMENTAL-INTEGRATION.md` — preparación rollout.
-- `docs/roadmap/PROGRESSIVE-ROLLOUT.md` — política rollout progresivo.
-- `docs/roadmap/PHASE6-D055-UPTIME-PROPOSAL.md` — propuesta fase 6.
-- `docs/roadmap/CT614-SGTM-D043.md` — ejecución CT614.
+- `docs/roadmap/planes/CT624-PILOT-EXECUTION.md` — piloto validado.
+- `docs/roadmap/planes/CPU-CONTRACT.md` — contrato CPU aceptado.
+- `docs/roadmap/planes/INCREMENTAL-INTEGRATION.md` — preparación rollout.
+- `docs/roadmap/planes/PROGRESSIVE-ROLLOUT.md` — política rollout progresivo.
+- `docs/roadmap/planes/PHASE6-D055-UPTIME-PROPOSAL.md` — propuesta fase 6.
+- `docs/roadmap/planes/CT614-SGTM-D043.md` — ejecución CT614.
