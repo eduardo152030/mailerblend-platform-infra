@@ -63,14 +63,30 @@ y la implementación queda pendiente. Si Plan mode impide escribir el archivo,
 prepara el contenido y deja indicada su ruta. Si el usuario cambia a Act
 solo para guardarlo, el alcance de Act se limita a crear o actualizar ese plan.
 
-## 3. Trabajar en paralelo
+## 3. Implementar y abrir PR
 
-- Cada tarea activa usa una combinación distinta de rama y worktree. Esto
-  también aplica cuando se trabaja con distintas IA o herramientas.
-- Si dos tareas necesitan editar los mismos archivos, identifica el punto
-  de solapamiento y coordina el orden de integración.
-- El aislamiento Git separa los archivos y el staging. Coordina aparte las
-  operaciones que compartan estado o infraestructura, como Terraform o Proxmox.
+La IA implementadora trabaja en la rama y el worktree de la tarea.
+Una vez completados los cambios y validados contra el plan aprobado:
+
+1. **Validar.** Ejecuta las pruebas y verificaciones que exige el plan.
+   Registra los resultados. Si hay desviaciones, documentalas y obtén
+   aprobación antes de continuar.
+2. **Commitear.** Crea los commits locales siguiendo `15-task-commit-closeout.md`.
+3. **Publicar rama.** Sube la rama al remoto:
+   ```bash
+   git push -u origin <rama-de-la-tarea>
+   ```
+4. **Abrir PR.** Abre un pull request desde la rama de la tarea hacia `main`.
+   El PR debe referenciar el plan aprobado (ruta y versión) e incluir un
+   resumen del diff, las pruebas ejecutadas con sus resultados y cualquier
+   desviación aprobada.
+5. **Entregar para revisión.** Deja la integración pendiente de la revisión
+   independiente y de las comprobaciones requeridas. En el resumen final,
+   indica la **rama**, el **enlace al PR**, la **ruta del plan**, los
+   **hashes de los commits** y el **estado de las comprobaciones**.
+
+La revisión la realiza **otra IA**, en una sesión separada. La IA
+implementadora no aprueba su propio PR.
 
 ## 4. Cerrar la tarea
 

@@ -98,3 +98,30 @@ define esta regla, y registra en él la rama de la tarea.
 Al retomar la tarea, reutiliza el mismo plan. Antes de cerrarla, actualízalo
 con lo ejecutado, las validaciones y los pendientes. Para el cierre y los
 commits locales, aplica `15-task-commit-closeout.md`.
+
+## Contenido mínimo del plan aprobado
+
+Un plan aprobado debe incluir, como mínimo:
+
+- **Alcance.** Qué se va a cambiar y qué se excluye.
+- **Criterios de aceptación verificables.** Cada criterio debe ser
+  comprobable con una prueba o verificación concreta.
+- **Pruebas requeridas.** Qué pruebas se ejecutarán y qué resultado se
+  considera aceptable.
+- **Ruta y versión del plan.** La ruta relativa al repositorio y la versión
+  del documento que se aprobó.
+
+El PR debe identificar la ruta y la versión del plan que se aprobó. El plan
+puede actualizarse con resultados y evidencias después de la implementación.
+
+## Desviaciones
+
+Si durante la implementación cambia el alcance o un criterio de aceptación,
+registra la desviación en el plan y obtén aprobación antes de darla por
+válida. Sin aprobación explícita, la desviación no se considera válida.
+
+## Tareas de solo planificación
+
+Si el encargo es solo planificar, la entrega sigue siendo el documento del
+plan y la implementación queda pendiente. El plan debe marcarse como
+"propuesto" hasta que el usuario lo apruebe.
