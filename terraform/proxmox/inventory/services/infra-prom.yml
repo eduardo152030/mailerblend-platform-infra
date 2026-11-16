@@ -6,6 +6,7 @@ service:
 resources:
   cpu: 2
   memory: 2048
+  # CT610-DISK-20261114: reconciliar10→25GiB; receta services/infra-prom/resize-20261114/README.md
   disk_gb: 25
 
 tags:

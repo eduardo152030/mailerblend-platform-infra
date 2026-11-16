@@ -17,8 +17,8 @@ No se atribuye un dominio por su nombre. Recursos distintos no se reconcilian aq
 | 616 | infra-blackbox | Sondas HTTP externas de disponibilidad | 192.168.1.116 | Not verified | infra-blackbox | Parcial: observación verificada; funcionalidad pendiente | [CRITICAL-D039-EXECUTION.md](../../docs/roadmap/CRITICAL-D039-EXECUTION.md) |
 | 617 | infra-orbit | Pasarela de ingestión de analítica y proxy de acceso | 192.168.1.117 | edge.nucleotecnologico.es | analytics-ingest-gateway, orbit-gateway-proxy | Parcial: observación verificada; funcionalidad pendiente | [EXPORTERS-D041-CLOSURE.md](../../docs/roadmap/EXPORTERS-D041-CLOSURE.md) |
 | 618 | infra-composable-crm | CRM componible con interfaz Budibase y API | 192.168.1.118 | infra-svc01.mailerblend.com | budibase-app, crm-api, budibase-redis, budibase-couchdb, supabase-db | Parcial: observación verificada; funcionalidad pendiente | [RECOVERY.md](../../services/infra-composable-crm/recovery/RECOVERY.md) |
-| 619 | infra-pulpo | Automatización de flujos con n8n | 192.168.1.119 | infra-pulpo.mailerblend.com | infra-pulpo-n8n-1, infra-pulpo-postgres-1 | Parcial: observación verificada; funcionalidad pendiente | [PHASE4-HANDOFF.md](../../docs/roadmap/PHASE4-HANDOFF.md) |
-| 620 | infra-excraper | Workers LinkedIn y señales con Redis | 192.168.1.120 | Not verified | infra-excraper-linkedin-worker-1, infra-excraper-signals-worker-1, infra-excraper-redis-1 | Parcial: observación verificada; funcionalidad pendiente | [R2-621-620.md](../../docs/roadmap/R2-621-620.md) |
+| 619 | infra-pulpo | Automatización de flujos con n8n | 192.168.1.119 | infra-pulpo.mailerblend.com | infra-pulpo-n8n-1, infra-pulpo-postgres-1 | Parcial: observación verificada; funcionalidad pendiente | [619-LXC-INVENTORY.md](../../docs/inventory/619-LXC-INVENTORY.md) |
+| 620 | infra-excraper | Workers LinkedIn y señales con Redis | 192.168.1.120 | Not verified | infra-excraper-linkedin-worker-1, infra-excraper-signals-worker-1, infra-excraper-redis-1 | Parcial: observación verificada; funcionalidad pendiente | [620-LXC-INVENTORY.md](../../docs/inventory/620-LXC-INVENTORY.md) |
 | 621 | infra-project-gestion | Gestión de proyectos con Focalboard | 192.168.1.121 | Not verified | focalboard | Parcial: observación verificada; funcionalidad pendiente | [R2-621-620.md](../../docs/roadmap/R2-621-620.md) |
 | 622 | infra-eva-assistant-bot | Asistente EVA con API, tareas programadas y Focalboard | 192.168.1.122 | infra-eva.mailerblend.com, infra-focalboard.mailerblend.com | eva-cron-digest, eva-sync, eva-scheduler, focalboard, eva-postgres, eva-docker-cleanup, eva-api | Parcial: observación verificada; funcionalidad pendiente | [STORAGE-PLAN.md](../../services/infra-eva-assistant-bot/recovery/STORAGE-PLAN.md) |
 | 623 | infra-gestoria | Gestoría con Odoo y PostgreSQL | 192.168.1.123 | Not verified | infra-gestoria-odoo-1, infra-gestoria-db-1, test-nginx | Parcial: observación verificada; funcionalidad pendiente | [PHASE4-HANDOFF.md](../../docs/roadmap/PHASE4-HANDOFF.md) |
@@ -251,74 +251,11 @@ Dependencias externas y su disponibilidad: Not verified.
 
 ## CT 619 — infra-pulpo
 
-**Función:** Automatización de flujos con n8n
-**Entorno:** Not verified | **Categoría:** Automatización
-**Proyecto:** infra-pulpo | **Ciclo de vida:** En servicio (LXC en ejecución; aceptación funcional independiente)
-
-**Infraestructura declarada:** CT 619 | IP 192.168.1.119/24 | CPU 2 | RAM 2048 MiB | disco 16 GiB
-**Observada (2026-11-06T21:45:05.721883+00:00):** nodo pve | status: running | CPU 2 | RAM 2048 MiB | rootfs local-lvm:vm-619-disk-0,size=10G | SO Ubuntu 22.04.5 LTS
-
-**Aplicaciones observadas (estado de proceso, no prueba funcional):**
-- infra-pulpo-n8n-1: Editor y ejecución de flujos; puertos 192.168.1.119:15678->5678/tcp; Docker not configured; imagen n8nio/n8n:latest
-- infra-pulpo-postgres-1: Persistencia de n8n; puertos sin publicación; Docker healthy; imagen postgres:16-alpine
-
-**Dominios:** infra-pulpo.mailerblend.com (asociación de upstream en Nginx CT109; no prueba pública extremo a extremo).
-**Dependencias declaradas en Compose:** n8n -> postgres
-Dependencias externas y su disponibilidad: Not verified.
-
-**Operación:**
-- Healthchecks: infra-pulpo-n8n-1: not configured; infra-pulpo-postgres-1: configured (command withheld)
-- Monitorización: Node Exporter :9100, cAdvisor :8085; aceptación F4 D041. Estado actual de targets: comprobar Prometheus, no inferir de Docker.
-- Alertas: Prometheus -> Alertmanager -> Telegram; cobertura específica de aplicación Not verified.
-- Despliegue: Compose del servicio y procedimiento del runbook; no usar deploy-all.
-- Configuración activa observada: /opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor.yml,/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-limits.yml,/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/cadvisor-containerd.yml; /opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node.yml,/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-limits.yml,/opt/exporter-phase4-pilot/integration-20261102T223431Z-619/node-cgroup.yml; /opt/infra-pulpo/docker-compose.yml
-- IaC: inventory/services/infra-pulpo.yml; services/infra-pulpo/ (puede contener configuración histórica; contrastar con activa).
-- Runbook: docs/roadmap/PHASE4-HANDOFF.md
-
-**Repositorio IaC:** https://github.com/eduardo152030/mailerblend-platform-infra
-**Repositorio de aplicación:** Not verified
-**Funcionalidad confirmada:** Not verified: esta tarea no certifica funcionalidad de negocio
-**Pendiente:** Entorno y responsable operativo por confirmar; Repositorio de aplicación independiente por confirmar; Prueba funcional y dependencias externas pendientes
-
-**Conservados detenidos (no reactivar automáticamente):** cadvisor-phase4-619-rejected-1, cadvisor-pre-phase4-619, node_exporter-pre-phase4-619
-
-**Nota previa conservada:** Managed by Terraform - Service: infra-pulpo
+Ficha principal: [619-LXC-INVENTORY.md](../../docs/inventory/619-LXC-INVENTORY.md). No duplicar aquí su contenido.
 
 ## CT 620 — infra-excraper
 
-**Función:** Workers LinkedIn y señales con Redis
-**Entorno:** Not verified | **Categoría:** Automatización
-**Proyecto:** infra-excraper | **Ciclo de vida:** En servicio (LXC en ejecución; aceptación funcional independiente)
-
-**Infraestructura declarada:** CT 620 | IP 192.168.1.120/24 | CPU 2 | RAM 2048 MiB | disco 20 GiB
-**Observada (2026-11-06T21:45:05.721883+00:00):** nodo pve | status: running | CPU 2 | RAM 2048 MiB | rootfs local-lvm:vm-620-disk-0,size=10G | SO Ubuntu 22.04.5 LTS
-
-**Aplicaciones observadas (estado de proceso, no prueba funcional):**
-- infra-excraper-linkedin-worker-1: Worker LinkedIn; alcance funcional Pending documentation; puertos *:3000->3000/tcp; Docker not configured; imagen mcr.microsoft.com/playwright:v1.41.0-jammy
-- infra-excraper-signals-worker-1: Procesamiento de señales; alcance funcional Pending documentation; puertos *:3001->3001/tcp; Docker not configured; imagen python:3.11-slim
-- infra-excraper-redis-1: Cola/caché compartida; puertos sin publicación; Docker healthy; imagen redis:7-alpine
-
-**Dominios:** Not verified (asociación de upstream en Nginx CT109; no prueba pública extremo a extremo).
-**Dependencias declaradas en Compose:** linkedin-worker -> redis; signals-worker -> redis
-Dependencias externas y su disponibilidad: Not verified.
-
-**Operación:**
-- Healthchecks: infra-excraper-linkedin-worker-1: not configured; infra-excraper-signals-worker-1: not configured; infra-excraper-redis-1: configured (command withheld)
-- Monitorización: Node Exporter :9100, cAdvisor :8085; aceptación F4 D041. Estado actual de targets: comprobar Prometheus, no inferir de Docker.
-- Alertas: Prometheus -> Alertmanager -> Telegram; cobertura específica de aplicación Not verified.
-- Despliegue: Compose del servicio y procedimiento del runbook; no usar deploy-all.
-- Configuración activa observada: /opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor.yml,/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-limits.yml,/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/cadvisor-containerd.yml; /opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node.yml,/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-limits.yml,/opt/exporter-phase4-pilot/integration-20261102T223431Z-620/node-cgroup.yml; /opt/infra-excraper/docker-compose.yml
-- IaC: inventory/services/infra-excraper.yml; services/infra-excraper/ (puede contener configuración histórica; contrastar con activa).
-- Runbook: docs/roadmap/R2-621-620.md
-
-**Repositorio IaC:** https://github.com/eduardo152030/mailerblend-platform-infra
-**Repositorio de aplicación:** Not verified
-**Funcionalidad confirmada:** Not verified: esta tarea no certifica funcionalidad de negocio
-**Pendiente:** Entorno y responsable operativo por confirmar; Repositorio de aplicación independiente por confirmar; Prueba funcional y dependencias externas pendientes
-
-**Conservados detenidos (no reactivar automáticamente):** cadvisor-pre-phase4-620, node_exporter-pre-phase4-620
-
-**Nota previa conservada:** Managed by Terraform - Service: infra-excraper
+Ficha principal: [620-LXC-INVENTORY.md](../../docs/inventory/620-LXC-INVENTORY.md). No duplicar aquí su contenido.
 
 ## CT 621 — infra-project-gestion
 

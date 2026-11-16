@@ -9,8 +9,13 @@ resources:
   disk_gb: 20
 
 tags:
+  - 192.168.1.120
   - automation
   - internal
-  - Parte_LinkedIn_Stealth_Sourcing
   - linkedin-worker
-  - signals-worker 
+  - parte_linkedin_stealth_sourcing
+  - signals-worker
+
+documentation:
+  notes_file: services/infra-excraper/NOTES.md
+  inventory_file: docs/inventory/620-LXC-INVENTORY.md

@@ -9,7 +9,13 @@ resources:
   disk_gb: 16
 
 tags:
-  - internal
+  - 192.168.1.119
   - automation
-  - n8n server
-  - Parte_LinkedIn_Stealth_Sourcing
+  - internal
+  - n8n
+  - parte_linkedin_stealth_sourcing
+  - server
+
+documentation:
+  notes_file: services/infra-pulpo/NOTES.md
+  inventory_file: docs/inventory/619-LXC-INVENTORY.md
