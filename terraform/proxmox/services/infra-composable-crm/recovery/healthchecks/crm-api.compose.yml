@@ -1,5 +1,6 @@
 services:
   crm-api:
+    restart: always
     healthcheck:
       test:
       - CMD

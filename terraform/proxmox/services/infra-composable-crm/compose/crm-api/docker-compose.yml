@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     image: infra-composable-crm/crm-api:local
     container_name: crm-api
-    restart: unless-stopped
+    restart: always
     environment:
       CRM_DB_DSN: "${CRM_DB_DSN}"
       CRM_API_KEY: "${CRM_API_KEY}"
