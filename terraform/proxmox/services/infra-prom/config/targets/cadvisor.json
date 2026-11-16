@@ -6,9 +6,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-blackbox",
-      "vmid": "616",
-      "collector_scope": "lxc"
+      "service": "infra-blackbox"
     }
   },
   {
@@ -18,9 +16,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-composable-crm",
-      "vmid": "618",
-      "collector_scope": "lxc"
+      "service": "infra-composable-crm"
     }
   },
   {
@@ -30,9 +26,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-eva-assistant-bot",
-      "vmid": "622",
-      "collector_scope": "lxc"
+      "service": "infra-eva-assistant-bot"
     }
   },
   {
@@ -42,9 +36,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-excraper",
-      "vmid": "620",
-      "collector_scope": "lxc"
+      "service": "infra-excraper"
     }
   },
   {
@@ -54,9 +46,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-gestoria",
-      "vmid": "623",
-      "collector_scope": "lxc"
+      "service": "infra-gestoria"
     }
   },
   {
@@ -66,9 +56,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-grafana",
-      "vmid": "611",
-      "collector_scope": "lxc"
+      "service": "infra-grafana"
     }
   },
   {
@@ -78,45 +66,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-hola",
-      "vmid": "613",
-      "collector_scope": "lxc"
-    }
-  },
-  {
-    "targets": [
-      "192.168.1.126:8085"
-    ],
-    "labels": {
-      "job": "cadvisor",
-      "source": "inventory",
-      "service": "infra-journal-api",
-      "vmid": "626",
-      "collector_scope": "lxc"
-    }
-  },
-  {
-    "targets": [
-      "192.168.1.125:8085"
-    ],
-    "labels": {
-      "job": "cadvisor",
-      "source": "inventory",
-      "service": "infra-journal-db",
-      "vmid": "625",
-      "collector_scope": "lxc"
-    }
-  },
-  {
-    "targets": [
-      "192.168.1.124:8085"
-    ],
-    "labels": {
-      "job": "cadvisor",
-      "source": "inventory",
-      "service": "infra-journal-web",
-      "vmid": "624",
-      "collector_scope": "lxc"
+      "service": "infra-hola"
     }
   },
   {
@@ -126,9 +76,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-mailerblend-edge",
-      "vmid": "615",
-      "collector_scope": "lxc"
+      "service": "infra-mailerblend-edge"
     }
   },
   {
@@ -138,9 +86,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-nucleoedge",
-      "vmid": "614",
-      "collector_scope": "lxc"
+      "service": "infra-nucleoedge"
     }
   },
   {
@@ -150,9 +96,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-orbit",
-      "vmid": "617",
-      "collector_scope": "lxc"
+      "service": "infra-orbit"
     }
   },
   {
@@ -162,9 +106,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-project-gestion",
-      "vmid": "621",
-      "collector_scope": "lxc"
+      "service": "infra-project-gestion"
     }
   },
   {
@@ -174,9 +116,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-prom",
-      "vmid": "610",
-      "collector_scope": "lxc"
+      "service": "infra-prom"
     }
   },
   {
@@ -186,9 +126,7 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "infra-pulpo",
-      "vmid": "619",
-      "collector_scope": "lxc"
+      "service": "infra-pulpo"
     }
   },
   {
@@ -198,9 +136,37 @@
     "labels": {
       "job": "cadvisor",
       "source": "inventory",
-      "service": "svc01",
-      "vmid": "61211",
-      "collector_scope": "lxc"
+      "service": "svc01"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.124:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "infra-journal-web"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.125:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "infra-journal-db"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.126:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "source": "inventory",
+      "service": "infra-journal-api"
     }
   },
   {
