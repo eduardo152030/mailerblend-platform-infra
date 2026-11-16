@@ -1,0 +1,203 @@
+{
+  "at_utc": "2026-11-12T13:50:03.906577+00:00",
+  "containers": [
+    {
+      "name": "/prometheus",
+      "same_id": true,
+      "same_image": true,
+      "same_mounts": true,
+      "running": true,
+      "started_utc": "2026-11-12T13:43:17.639016532Z",
+      "restarts": 0,
+      "policy": "always"
+    },
+    {
+      "name": "/alertmanager",
+      "same_id": true,
+      "same_image": true,
+      "same_mounts": true,
+      "running": true,
+      "started_utc": "2026-11-12T13:43:18.25284142Z",
+      "restarts": 0,
+      "policy": "always"
+    },
+    {
+      "name": "/infra-blackbox",
+      "same_id": true,
+      "same_image": true,
+      "same_mounts": true,
+      "running": true,
+      "started_utc": "2026-11-12T13:44:02.601686933Z",
+      "restarts": 0,
+      "policy": "always"
+    }
+  ],
+  "up": [
+    {
+      "metric": {
+        "job": "node_exporter"
+      },
+      "value": [
+        1794491403.819,
+        "18"
+      ]
+    },
+    {
+      "metric": {
+        "job": "blackbox"
+      },
+      "value": [
+        1794491403.819,
+        "19"
+      ]
+    },
+    {
+      "metric": {
+        "job": "cadvisor"
+      },
+      "value": [
+        1794491403.819,
+        "17"
+      ]
+    },
+    {
+      "metric": {
+        "job": "pve_uptime"
+      },
+      "value": [
+        1794491403.819,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "job": "alertmanager"
+      },
+      "value": [
+        1794491403.819,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "job": "prometheus"
+      },
+      "value": [
+        1794491403.819,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "job": "blackbox_exporter"
+      },
+      "value": [
+        1794491403.819,
+        "1"
+      ]
+    }
+  ],
+  "down": [
+    {
+      "metric": {
+        "__name__": "up",
+        "instance": "192.168.1.118:8085",
+        "job": "cadvisor",
+        "service": "infra-composable-crm",
+        "source": "inventory"
+      },
+      "value": [
+        1794491403.822,
+        "0"
+      ]
+    }
+  ],
+  "cpu_count": [
+    {
+      "metric": {},
+      "value": [
+        1794491403.824,
+        "18"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "metric": {
+        "__name__": "ALERTS",
+        "alertname": "ExporterDown",
+        "alertstate": "pending",
+        "instance": "192.168.1.118:8085",
+        "job": "cadvisor",
+        "service": "infra-composable-crm",
+        "severity": "critical",
+        "source": "inventory"
+      },
+      "value": [
+        1794491403.826,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "__name__": "ALERTS",
+        "alertname": "ApplicationContainerMissing",
+        "alertstate": "firing",
+        "ct_id": "618",
+        "instance": "192.168.1.118:8085",
+        "name": "crm-api",
+        "service": "infra-composable-crm",
+        "severity": "critical"
+      },
+      "value": [
+        1794491403.826,
+        "1"
+      ]
+    }
+  ],
+  "test_removed": true,
+  "telegram_total": [
+    {
+      "metric": {},
+      "value": [
+        1794491403.83,
+        "3"
+      ]
+    }
+  ],
+  "telegram_failed": [
+    {
+      "metric": {},
+      "value": [
+        1794491403.832,
+        "0"
+      ]
+    }
+  ],
+  "human_confirmed": [
+    "FIRING",
+    "RESOLVED"
+  ],
+  "rule_failures": [
+    {
+      "metric": {},
+      "value": [
+        1794491403.834,
+        "0"
+      ]
+    }
+  ],
+  "reload_successful": [
+    {
+      "metric": {
+        "__name__": "prometheus_config_last_reload_successful",
+        "instance": "127.0.0.1:9090",
+        "job": "prometheus"
+      },
+      "value": [
+        1794491403.836,
+        "1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,961 @@
+[
+  {
+    "at_utc": "2026-11-12T13:45:58Z",
+    "up": [
+      {
+        "metric": {
+          "job": "node_exporter"
+        },
+        "value": [
+          1794491158.203,
+          "18"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox"
+        },
+        "value": [
+          1794491158.203,
+          "19"
+        ]
+      },
+      {
+        "metric": {
+          "job": "cadvisor"
+        },
+        "value": [
+          1794491158.203,
+          "17"
+        ]
+      },
+      {
+        "metric": {
+          "job": "pve_uptime"
+        },
+        "value": [
+          1794491158.203,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "alertmanager"
+        },
+        "value": [
+          1794491158.203,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "prometheus"
+        },
+        "value": [
+          1794491158.203,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox_exporter"
+        },
+        "value": [
+          1794491158.203,
+          "1"
+        ]
+      }
+    ],
+    "down": [
+      {
+        "metric": {
+          "__name__": "up",
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "value": [
+          1794491158.206,
+          "0"
+        ]
+      }
+    ],
+    "cpu_count": [
+      {
+        "metric": {},
+        "value": [
+          1794491158.208,
+          "18"
+        ]
+      }
+    ],
+    "probe_failures": [],
+    "alerts": [
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "MonitoringRecoveryVerification",
+          "alertstate": "firing",
+          "cpu_source": "cgroup_v2",
+          "ct_id": "610",
+          "instance": "192.168.1.110:9100",
+          "job": "node_exporter",
+          "recovery_test": "d083",
+          "resource_scope": "lxc",
+          "service": "infra-prom",
+          "severity": "info"
+        },
+        "value": [
+          1794491158.212,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "ExporterDown",
+          "alertstate": "pending",
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "severity": "critical",
+          "source": "inventory"
+        },
+        "value": [
+          1794491158.212,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "ApplicationContainerMissing",
+          "alertstate": "firing",
+          "ct_id": "618",
+          "instance": "192.168.1.118:8085",
+          "name": "crm-api",
+          "service": "infra-composable-crm",
+          "severity": "critical"
+        },
+        "value": [
+          1794491158.212,
+          "1"
+        ]
+      }
+    ],
+    "telegram_sent": [
+      {
+        "metric": {},
+        "value": [
+          1794491158.215,
+          "1"
+        ]
+      }
+    ],
+    "telegram_failed": [
+      {
+        "metric": {},
+        "value": [
+          1794491158.217,
+          "0"
+        ]
+      }
+    ],
+    "collector_stale": [],
+    "collector_failed": [],
+    "rule_failures": [
+      {
+        "metric": {},
+        "value": [
+          1794491158.223,
+          "0"
+        ]
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-11-12T13:46:28Z",
+    "up": [
+      {
+        "metric": {
+          "job": "node_exporter"
+        },
+        "value": [
+          1794491188.257,
+          "18"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox"
+        },
+        "value": [
+          1794491188.257,
+          "19"
+        ]
+      },
+      {
+        "metric": {
+          "job": "cadvisor"
+        },
+        "value": [
+          1794491188.257,
+          "18"
+        ]
+      },
+      {
+        "metric": {
+          "job": "pve_uptime"
+        },
+        "value": [
+          1794491188.257,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "alertmanager"
+        },
+        "value": [
+          1794491188.257,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "prometheus"
+        },
+        "value": [
+          1794491188.257,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox_exporter"
+        },
+        "value": [
+          1794491188.257,
+          "1"
+        ]
+      }
+    ],
+    "down": [],
+    "cpu_count": [
+      {
+        "metric": {},
+        "value": [
+          1794491188.262,
+          "18"
+        ]
+      }
+    ],
+    "probe_failures": [],
+    "alerts": [
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "ApplicationContainerMissing",
+          "alertstate": "firing",
+          "ct_id": "618",
+          "instance": "192.168.1.118:8085",
+          "name": "crm-api",
+          "service": "infra-composable-crm",
+          "severity": "critical"
+        },
+        "value": [
+          1794491188.267,
+          "1"
+        ]
+      }
+    ],
+    "telegram_sent": [
+      {
+        "metric": {},
+        "value": [
+          1794491188.269,
+          "2"
+        ]
+      }
+    ],
+    "telegram_failed": [
+      {
+        "metric": {},
+        "value": [
+          1794491188.271,
+          "0"
+        ]
+      }
+    ],
+    "collector_stale": [],
+    "collector_failed": [],
+    "rule_failures": [
+      {
+        "metric": {},
+        "value": [
+          1794491188.277,
+          "0"
+        ]
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-11-12T13:46:58Z",
+    "up": [
+      {
+        "metric": {
+          "job": "node_exporter"
+        },
+        "value": [
+          1794491218.31,
+          "18"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox"
+        },
+        "value": [
+          1794491218.31,
+          "19"
+        ]
+      },
+      {
+        "metric": {
+          "job": "cadvisor"
+        },
+        "value": [
+          1794491218.31,
+          "17"
+        ]
+      },
+      {
+        "metric": {
+          "job": "pve_uptime"
+        },
+        "value": [
+          1794491218.31,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "alertmanager"
+        },
+        "value": [
+          1794491218.31,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "prometheus"
+        },
+        "value": [
+          1794491218.31,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox_exporter"
+        },
+        "value": [
+          1794491218.31,
+          "1"
+        ]
+      }
+    ],
+    "down": [
+      {
+        "metric": {
+          "__name__": "up",
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "value": [
+          1794491218.312,
+          "0"
+        ]
+      }
+    ],
+    "cpu_count": [
+      {
+        "metric": {},
+        "value": [
+          1794491218.314,
+          "18"
+        ]
+      }
+    ],
+    "probe_failures": [],
+    "alerts": [
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "ApplicationContainerMissing",
+          "alertstate": "firing",
+          "ct_id": "618",
+          "instance": "192.168.1.118:8085",
+          "name": "crm-api",
+          "service": "infra-composable-crm",
+          "severity": "critical"
+        },
+        "value": [
+          1794491218.318,
+          "1"
+        ]
+      }
+    ],
+    "telegram_sent": [
+      {
+        "metric": {},
+        "value": [
+          1794491218.321,
+          "3"
+        ]
+      }
+    ],
+    "telegram_failed": [
+      {
+        "metric": {},
+        "value": [
+          1794491218.322,
+          "0"
+        ]
+      }
+    ],
+    "collector_stale": [],
+    "collector_failed": [],
+    "rule_failures": [
+      {
+        "metric": {},
+        "value": [
+          1794491218.328,
+          "0"
+        ]
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-11-12T13:47:28Z",
+    "up": [
+      {
+        "metric": {
+          "job": "node_exporter"
+        },
+        "value": [
+          1794491248.358,
+          "18"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox"
+        },
+        "value": [
+          1794491248.358,
+          "19"
+        ]
+      },
+      {
+        "metric": {
+          "job": "cadvisor"
+        },
+        "value": [
+          1794491248.358,
+          "18"
+        ]
+      },
+      {
+        "metric": {
+          "job": "pve_uptime"
+        },
+        "value": [
+          1794491248.358,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "alertmanager"
+        },
+        "value": [
+          1794491248.358,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "prometheus"
+        },
+        "value": [
+          1794491248.358,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox_exporter"
+        },
+        "value": [
+          1794491248.358,
+          "1"
+        ]
+      }
+    ],
+    "down": [],
+    "cpu_count": [
+      {
+        "metric": {},
+        "value": [
+          1794491248.362,
+          "18"
+        ]
+      }
+    ],
+    "probe_failures": [],
+    "alerts": [
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "ApplicationContainerMissing",
+          "alertstate": "firing",
+          "ct_id": "618",
+          "instance": "192.168.1.118:8085",
+          "name": "crm-api",
+          "service": "infra-composable-crm",
+          "severity": "critical"
+        },
+        "value": [
+          1794491248.368,
+          "1"
+        ]
+      }
+    ],
+    "telegram_sent": [
+      {
+        "metric": {},
+        "value": [
+          1794491248.37,
+          "3"
+        ]
+      }
+    ],
+    "telegram_failed": [
+      {
+        "metric": {},
+        "value": [
+          1794491248.372,
+          "0"
+        ]
+      }
+    ],
+    "collector_stale": [],
+    "collector_failed": [],
+    "rule_failures": [
+      {
+        "metric": {},
+        "value": [
+          1794491248.378,
+          "0"
+        ]
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-11-12T13:47:58Z",
+    "up": [
+      {
+        "metric": {
+          "job": "node_exporter"
+        },
+        "value": [
+          1794491278.394,
+          "18"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox"
+        },
+        "value": [
+          1794491278.394,
+          "19"
+        ]
+      },
+      {
+        "metric": {
+          "job": "cadvisor"
+        },
+        "value": [
+          1794491278.394,
+          "18"
+        ]
+      },
+      {
+        "metric": {
+          "job": "pve_uptime"
+        },
+        "value": [
+          1794491278.394,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "alertmanager"
+        },
+        "value": [
+          1794491278.394,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "prometheus"
+        },
+        "value": [
+          1794491278.394,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox_exporter"
+        },
+        "value": [
+          1794491278.394,
+          "1"
+        ]
+      }
+    ],
+    "down": [],
+    "cpu_count": [
+      {
+        "metric": {},
+        "value": [
+          1794491278.399,
+          "18"
+        ]
+      }
+    ],
+    "probe_failures": [],
+    "alerts": [
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "ApplicationContainerMissing",
+          "alertstate": "firing",
+          "ct_id": "618",
+          "instance": "192.168.1.118:8085",
+          "name": "crm-api",
+          "service": "infra-composable-crm",
+          "severity": "critical"
+        },
+        "value": [
+          1794491278.403,
+          "1"
+        ]
+      }
+    ],
+    "telegram_sent": [
+      {
+        "metric": {},
+        "value": [
+          1794491278.405,
+          "3"
+        ]
+      }
+    ],
+    "telegram_failed": [
+      {
+        "metric": {},
+        "value": [
+          1794491278.408,
+          "0"
+        ]
+      }
+    ],
+    "collector_stale": [],
+    "collector_failed": [],
+    "rule_failures": [
+      {
+        "metric": {},
+        "value": [
+          1794491278.415,
+          "0"
+        ]
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-11-12T13:48:28Z",
+    "up": [
+      {
+        "metric": {
+          "job": "node_exporter"
+        },
+        "value": [
+          1794491308.43,
+          "18"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox"
+        },
+        "value": [
+          1794491308.43,
+          "19"
+        ]
+      },
+      {
+        "metric": {
+          "job": "cadvisor"
+        },
+        "value": [
+          1794491308.43,
+          "18"
+        ]
+      },
+      {
+        "metric": {
+          "job": "pve_uptime"
+        },
+        "value": [
+          1794491308.43,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "alertmanager"
+        },
+        "value": [
+          1794491308.43,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "prometheus"
+        },
+        "value": [
+          1794491308.43,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox_exporter"
+        },
+        "value": [
+          1794491308.43,
+          "1"
+        ]
+      }
+    ],
+    "down": [],
+    "cpu_count": [
+      {
+        "metric": {},
+        "value": [
+          1794491308.435,
+          "18"
+        ]
+      }
+    ],
+    "probe_failures": [],
+    "alerts": [
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "ApplicationContainerMissing",
+          "alertstate": "firing",
+          "ct_id": "618",
+          "instance": "192.168.1.118:8085",
+          "name": "crm-api",
+          "service": "infra-composable-crm",
+          "severity": "critical"
+        },
+        "value": [
+          1794491308.439,
+          "1"
+        ]
+      }
+    ],
+    "telegram_sent": [
+      {
+        "metric": {},
+        "value": [
+          1794491308.442,
+          "3"
+        ]
+      }
+    ],
+    "telegram_failed": [
+      {
+        "metric": {},
+        "value": [
+          1794491308.444,
+          "0"
+        ]
+      }
+    ],
+    "collector_stale": [],
+    "collector_failed": [],
+    "rule_failures": [
+      {
+        "metric": {},
+        "value": [
+          1794491308.45,
+          "0"
+        ]
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-11-12T13:48:58Z",
+    "up": [
+      {
+        "metric": {
+          "job": "node_exporter"
+        },
+        "value": [
+          1794491338.472,
+          "18"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox"
+        },
+        "value": [
+          1794491338.472,
+          "19"
+        ]
+      },
+      {
+        "metric": {
+          "job": "cadvisor"
+        },
+        "value": [
+          1794491338.472,
+          "17"
+        ]
+      },
+      {
+        "metric": {
+          "job": "pve_uptime"
+        },
+        "value": [
+          1794491338.472,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "alertmanager"
+        },
+        "value": [
+          1794491338.472,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "prometheus"
+        },
+        "value": [
+          1794491338.472,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "job": "blackbox_exporter"
+        },
+        "value": [
+          1794491338.472,
+          "1"
+        ]
+      }
+    ],
+    "down": [
+      {
+        "metric": {
+          "__name__": "up",
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "value": [
+          1794491338.475,
+          "0"
+        ]
+      }
+    ],
+    "cpu_count": [
+      {
+        "metric": {},
+        "value": [
+          1794491338.477,
+          "18"
+        ]
+      }
+    ],
+    "probe_failures": [],
+    "alerts": [
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "ApplicationContainerMissing",
+          "alertstate": "firing",
+          "ct_id": "618",
+          "instance": "192.168.1.118:8085",
+          "name": "crm-api",
+          "service": "infra-composable-crm",
+          "severity": "critical"
+        },
+        "value": [
+          1794491338.481,
+          "1"
+        ]
+      }
+    ],
+    "telegram_sent": [
+      {
+        "metric": {},
+        "value": [
+          1794491338.483,
+          "3"
+        ]
+      }
+    ],
+    "telegram_failed": [
+      {
+        "metric": {},
+        "value": [
+          1794491338.485,
+          "0"
+        ]
+      }
+    ],
+    "collector_stale": [],
+    "collector_failed": [],
+    "rule_failures": [
+      {
+        "metric": {},
+        "value": [
+          1794491338.493,
+          "0"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,989 @@
+[
+  {
+    "time_utc": "2026-11-13T00:12:24.762059+00:00",
+    "elapsed": 0.0006845379975857213,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.19793114,
+        "lastScrape": "2026-11-13T00:11:55.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.008474802,
+        "lastScrape": "2026-11-13T00:12:18.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.030347313004313037,
+        "bytes": 154071,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.04621760699956212,
+        "bytes": 208403,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:12:55.707604+00:00",
+    "elapsed": 30.024031870998442,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.00840965,
+        "lastScrape": "2026-11-13T00:12:48.20315916Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.014850305,
+        "lastScrape": "2026-11-13T00:12:25.826388177Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.030711933999555185,
+        "bytes": 154080,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.03654356999322772,
+        "bytes": 208434,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:13:26.704198+00:00",
+    "elapsed": 60.02495723300672,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.010569683,
+        "lastScrape": "2026-11-13T00:13:25.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.007781653,
+        "lastScrape": "2026-11-13T00:13:18.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.03627669000707101,
+        "bytes": 154074,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.039542643004097044,
+        "bytes": 208422,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:13:56.705049+00:00",
+    "elapsed": 90.02580684299755,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.010121835,
+        "lastScrape": "2026-11-13T00:13:55.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.007242075,
+        "lastScrape": "2026-11-13T00:13:48.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.027965533998212777,
+        "bytes": 154070,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.03686754599038977,
+        "bytes": 208431,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:14:27.609244+00:00",
+    "elapsed": 120.02411023399327,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.009590229,
+        "lastScrape": "2026-11-13T00:14:25.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.008385418,
+        "lastScrape": "2026-11-13T00:14:18.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.025642100008553825,
+        "bytes": 154074,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.035091137993731536,
+        "bytes": 208438,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:14:58.555123+00:00",
+    "elapsed": 150.02838647599856,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.008202971,
+        "lastScrape": "2026-11-13T00:14:48.20315916Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.011330071,
+        "lastScrape": "2026-11-13T00:14:55.826388177Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.027144874999066815,
+        "bytes": 154059,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.03539782599546015,
+        "bytes": 208442,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:15:29.491622+00:00",
+    "elapsed": 180.0282138409966,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.008779592,
+        "lastScrape": "2026-11-13T00:15:25.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.006245293,
+        "lastScrape": "2026-11-13T00:15:18.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.03041386500990484,
+        "bytes": 154062,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.03586481600359548,
+        "bytes": 208430,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:16:00.445257+00:00",
+    "elapsed": 210.02941987699887,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.012384175,
+        "lastScrape": "2026-11-13T00:15:55.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.013093526,
+        "lastScrape": "2026-11-13T00:15:48.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.0365617900097277,
+        "bytes": 154066,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.03097277900087647,
+        "bytes": 208448,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:16:31.388602+00:00",
+    "elapsed": 240.02913173400157,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.009617376,
+        "lastScrape": "2026-11-13T00:16:25.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.008589492,
+        "lastScrape": "2026-11-13T00:16:18.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.036084138992009684,
+        "bytes": 154076,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.035061654009041376,
+        "bytes": 208421,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:17:02.331734+00:00",
+    "elapsed": 270.02541473999736,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.008891064,
+        "lastScrape": "2026-11-13T00:16:55.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.007894433,
+        "lastScrape": "2026-11-13T00:16:48.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.03335005699773319,
+        "bytes": 154070,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.03640134500165004,
+        "bytes": 208418,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:17:33.281389+00:00",
+    "elapsed": 300.02658011499443,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.010260829,
+        "lastScrape": "2026-11-13T00:17:25.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.008167467,
+        "lastScrape": "2026-11-13T00:17:18.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.03140940501180012,
+        "bytes": 154070,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.037980972992954776,
+        "bytes": 208415,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:18:04.235037+00:00",
+    "elapsed": 330.0263369220047,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.012502722,
+        "lastScrape": "2026-11-13T00:17:55.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.010754037,
+        "lastScrape": "2026-11-13T00:17:48.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.03019162200507708,
+        "bytes": 154078,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.03686695899523329,
+        "bytes": 208441,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:18:35.207889+00:00",
+    "elapsed": 360.0264201120008,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.008825626,
+        "lastScrape": "2026-11-13T00:18:18.20315916Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.009580625,
+        "lastScrape": "2026-11-13T00:18:25.826388177Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.03440105100162327,
+        "bytes": 154072,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.029303734001587145,
+        "bytes": 208437,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:19:06.170257+00:00",
+    "elapsed": 390.0286211430066,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.009969957,
+        "lastScrape": "2026-11-13T00:18:55.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.008885738,
+        "lastScrape": "2026-11-13T00:18:48.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.03301571001065895,
+        "bytes": 154077,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.036548147996654734,
+        "bytes": 208447,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:19:37.097746+00:00",
+    "elapsed": 420.0223329529981,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.008235152,
+        "lastScrape": "2026-11-13T00:19:25.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.008662923,
+        "lastScrape": "2026-11-13T00:19:18.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.026765151997096837,
+        "bytes": 154069,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.03572842199355364,
+        "bytes": 208417,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:20:08.071978+00:00",
+    "elapsed": 450.02932558399334,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.009191485,
+        "lastScrape": "2026-11-13T00:19:55.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.00676122,
+        "lastScrape": "2026-11-13T00:19:48.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.03303476300789043,
+        "bytes": 154074,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.0357555090013193,
+        "bytes": 208447,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:20:38.967830+00:00",
+    "elapsed": 480.028340260993,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.007205802,
+        "lastScrape": "2026-11-13T00:20:18.20315916Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.013371239,
+        "lastScrape": "2026-11-13T00:20:25.826388177Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.02902123099192977,
+        "bytes": 154073,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.03714437699818518,
+        "bytes": 208426,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:21:08.943010+00:00",
+    "elapsed": 510.0035191909992,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.007914732,
+        "lastScrape": "2026-11-13T00:20:48.20315916Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.011897906,
+        "lastScrape": "2026-11-13T00:20:55.826388177Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.03240325300430413,
+        "bytes": 154072,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.03552316800050903,
+        "bytes": 208441,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:21:39.886069+00:00",
+    "elapsed": 540.0247899690003,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.009033618,
+        "lastScrape": "2026-11-13T00:21:25.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.00733234,
+        "lastScrape": "2026-11-13T00:21:18.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.026670788996852934,
+        "bytes": 154059,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.03568208000797313,
+        "bytes": 208431,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:22:10.854074+00:00",
+    "elapsed": 570.0219659300055,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.009728262,
+        "lastScrape": "2026-11-13T00:21:55.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.006258951,
+        "lastScrape": "2026-11-13T00:21:48.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.029791749999276362,
+        "bytes": 154067,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.035326158002135344,
+        "bytes": 208451,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  },
+  {
+    "time_utc": "2026-11-13T00:22:41.853634+00:00",
+    "elapsed": 600.0292721250007,
+    "targets": [
+      {
+        "labels": {
+          "instance": "192.168.1.118:8085",
+          "job": "cadvisor",
+          "service": "infra-composable-crm",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.010002923,
+        "lastScrape": "2026-11-13T00:22:25.826388177Z"
+      },
+      {
+        "labels": {
+          "instance": "192.168.1.123:8085",
+          "job": "cadvisor",
+          "service": "infra-gestoria",
+          "source": "inventory"
+        },
+        "health": "up",
+        "lastError": "",
+        "lastScrapeDuration": 0.007882562,
+        "lastScrape": "2026-11-13T00:22:18.20315916Z"
+      }
+    ],
+    "alerts": [],
+    "direct": {
+      "623": {
+        "ok": true,
+        "seconds": 0.03411651300848462,
+        "bytes": 154073,
+        "cpu": true,
+        "ram": true
+      },
+      "618": {
+        "ok": true,
+        "seconds": 0.036375733994646,
+        "bytes": 208444,
+        "cpu": true,
+        "ram": true
+      }
+    }
+  }
+]

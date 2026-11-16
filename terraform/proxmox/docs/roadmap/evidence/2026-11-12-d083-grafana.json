@@ -1,0 +1,76 @@
+{
+  "grafana": {
+    "database": "ok",
+    "version": "12.3.1",
+    "commit": "3a1c80ca7ce612f309fdc99338dd3c5e486339be"
+  },
+  "datasource": {
+    "details": {
+      "application": "Prometheus",
+      "features": {
+        "rulerApiEnabled": false
+      }
+    },
+    "message": "Successfully queried the Prometheus API.",
+    "status": "OK"
+  },
+  "dashboards": [
+    {
+      "uid": "proxmox-lxc-fleet",
+      "title": "Proxmox \u00b7 LXC Fleet Overview",
+      "provisioned": true
+    },
+    {
+      "uid": "proxmox-lxc-details",
+      "title": "Proxmox \u00b7 LXC Details",
+      "provisioned": true
+    }
+  ],
+  "queries": {
+    "count(up{job=\"node_exporter\"} == 1)": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1794491177.246,
+              "18"
+            ]
+          }
+        ]
+      }
+    },
+    "count(lxc:cpu_usage:percent)": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1794491177.265,
+              "18"
+            ]
+          }
+        ]
+      }
+    },
+    "count(up{job=\"cadvisor\"} == 1)": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1794491177.282,
+              "18"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

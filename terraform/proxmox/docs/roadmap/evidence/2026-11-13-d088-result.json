@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "samples": 21,
+  "seconds": 600.0292721250007,
+  "start_utc": "2026-11-13T00:12:24.762059+00:00",
+  "end_utc": "2026-11-13T00:22:41.853634+00:00",
+  "max_scrape_seconds": 0.19793114,
+  "max_direct_seconds": 0.04621760699956212,
+  "new_oom": 0,
+  "exporter_restarts": 0,
+  "human_telegram_receipt": "not_verified"
+}

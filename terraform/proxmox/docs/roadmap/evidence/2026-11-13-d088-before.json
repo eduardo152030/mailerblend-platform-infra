@@ -1,0 +1,174 @@
+{
+  "623": {
+    "time_utc": "2026-11-13T00:10:59.054024+00:00",
+    "host": "infra-gestoria",
+    "containers": {
+      "cadvisor": {
+        "id": "0e05edfa47c9bc49d246c7b8fc3f6467bc0ca56203f51642022d6a55ca8876f7",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started": "2026-11-11T17:49:03.884455504Z",
+        "running": true,
+        "health": "healthy",
+        "restarts": 0,
+        "memory": 134217728,
+        "swap": 268435456,
+        "cpu": 500000000,
+        "restart": {
+          "Name": "unless-stopped",
+          "MaximumRetryCount": 0
+        },
+        "mounts": [
+          {
+            "Type": "bind",
+            "Source": "/",
+            "Destination": "/rootfs",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rslave"
+          },
+          {
+            "Type": "bind",
+            "Source": "/run/containerd/containerd.sock",
+            "Destination": "/run/containerd/containerd.sock",
+            "Mode": "",
+            "RW": false,
+            "Propagation": "rprivate"
+          },
+          {
+            "Type": "bind",
+            "Source": "/sys",
+            "Destination": "/sys",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rprivate"
+          },
+          {
+            "Type": "bind",
+            "Source": "/var/lib/containerd",
+            "Destination": "/var/lib/containerd",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rprivate"
+          },
+          {
+            "Type": "bind",
+            "Source": "/var/lib/docker",
+            "Destination": "/var/lib/docker",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rslave"
+          },
+          {
+            "Type": "bind",
+            "Source": "/var/run/docker.sock",
+            "Destination": "/var/run/docker.sock",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rprivate"
+          }
+        ]
+      }
+    },
+    "cgroup": {
+      "memory.current": "134000640",
+      "memory.max": "134217728",
+      "memory.swap.current": "51810304",
+      "memory.events": "low 0\nhigh 0\nmax 17901473\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=14.35 avg60=16.43 avg300=16.28 total=9288729368\nfull avg10=13.93 avg60=16.09 avg300=15.95 total=9085807339"
+    }
+  },
+  "618": {
+    "time_utc": "2026-11-13T00:11:00.150047+00:00",
+    "host": "infra-composable-crm",
+    "containers": {
+      "cadvisor": {
+        "id": "7a110a7339fe9762643a954d11511e0002fb5708773ad06baa9f59d8f8aec4dc",
+        "image": "sha256:b8e7d1093144fd088f425ff003d75a4aa405de075db78dae3bc563730b1bd07a",
+        "started": "2026-11-11T17:48:05.723846763Z",
+        "running": true,
+        "health": "healthy",
+        "restarts": 0,
+        "memory": 134217728,
+        "swap": 268435456,
+        "cpu": 500000000,
+        "restart": {
+          "Name": "unless-stopped",
+          "MaximumRetryCount": 0
+        },
+        "mounts": [
+          {
+            "Type": "bind",
+            "Source": "/",
+            "Destination": "/rootfs",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rslave"
+          },
+          {
+            "Type": "bind",
+            "Source": "/run/containerd/containerd.sock",
+            "Destination": "/run/containerd/containerd.sock",
+            "Mode": "",
+            "RW": false,
+            "Propagation": "rprivate"
+          },
+          {
+            "Type": "bind",
+            "Source": "/sys",
+            "Destination": "/sys",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rprivate"
+          },
+          {
+            "Type": "bind",
+            "Source": "/var/lib/containerd",
+            "Destination": "/var/lib/containerd",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rprivate"
+          },
+          {
+            "Type": "bind",
+            "Source": "/var/lib/docker",
+            "Destination": "/var/lib/docker",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rslave"
+          },
+          {
+            "Type": "bind",
+            "Source": "/var/run/docker.sock",
+            "Destination": "/var/run/docker.sock",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rprivate"
+          }
+        ]
+      },
+      "crm-api": {
+        "id": "605bd20580170f90af661ce947bf4e7c1913b69b7f0d688fd18bf3d576600597",
+        "image": "sha256:de8e5ff20722fa1e19990161cbc4ce525d2d9d4b7e4955007ff0e5a49a7bb0d3",
+        "started": "2026-11-07T14:55:13.053988552Z",
+        "running": false,
+        "health": "unhealthy",
+        "restarts": 0,
+        "memory": 0,
+        "swap": 0,
+        "cpu": 0,
+        "restart": {
+          "Name": "unless-stopped",
+          "MaximumRetryCount": 0
+        },
+        "mounts": []
+      }
+    },
+    "cgroup": {
+      "memory.current": "134217728",
+      "memory.max": "134217728",
+      "memory.swap.current": "21024768",
+      "memory.events": "low 0\nhigh 0\nmax 20539033\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.pressure": "some avg10=17.68 avg60=12.22 avg300=12.07 total=10672740212\nfull avg10=17.07 avg60=11.93 avg300=11.82 total=10436923735"
+    }
+  }
+}
