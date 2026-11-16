@@ -2058,6 +2058,48 @@ trader→tréider comprobado ysubtítulos originales separados deltexto fonétic
 F7global y7.2/7.3 fueraalcance permanecen; no funcionalidades nuevas tras elcierre.
 [Informe final D082](PHASE7-D082-VOICEBOX-FINAL-ACCEPTANCE.md).
 
+## D083 — recuperación de monitorización tras reinicio — IN PROGRESS
+
+12 de noviembre de 2026 (Europe/Madrid). El propietario solicita recuperar hosts
+en Grafana y alertas tras reiniciar PVE para ampliar RAM. Autoriza diagnóstico y
+recuperación acotada de la monitorización existente (CT610/611), sin rollout,
+recursos ni aplicaciones. Fases 1/2/5/6: incidencia operativa, aceptación previa
+conservada. SSH estricto verificado. CT610 activo, Docker activo; Prometheus y
+Alertmanager parados desde 11nov17:30 UTC, sin OOM marcado. Grafana activo.
+Antes de cambios: conservar configuración privada, identidad e imágenes/volúmenes;
+arrancar contenedores existentes y corregir persistencia de arranque de forma
+versionada. Validar targets, consultas de Grafana, reglas, entrega y estabilidad;
+no confundir aceptación API con recepción humana. Sin commits/push.
+
+
+### D083 — alcance Blackbox confirmado antes de recuperación
+
+CT616 activo, infra-blackbox parado desde el reinicio. La petición vigente de
+recuperar alertas incluye la sonda central existente: arrancar solo infra-blackbox
+y persistir restart always, con backup/rollback, sin modificar exporters ni apps.
+Se amplía el diagnóstico inicial610/611 a616 antes de ejecutar esta corrección.
+
+### D083 — resultado y aceptación de cadena
+
+12nov2026, Europe/Madrid. Incidencia operativa fases1/2/5/6. Prometheus y
+Alertmanager610 yBlackbox616 estaban parados después delreinicio; recuperados
+sinrecrear ni cambiar imágenes/volúmenes. Compose/runtime restartalways,
+backup verificado ysegunda aplicación sinreinicios. Grafana datasourceOK,
+18hosts/18CPU LXC/19sondas;18cAdvisor enlectura puntual. Regla desdeCPU610:
+FIRING yRESOLVED recibidos yconfirmados porpropietario; prueba retirada,
+3envíosTelegram/0fallos. Recuperacióncentral DONE técnico ycadena aceptada.
+Observación180s/7 contimeouts intermitentescAdvisor618/623: estabilidadglobal
+NOacreditada; seguimiento TODO. CRMAPI618 realmente parado,alertaFIRING,
+sinintervenirapps. Vigilancia externa aPVE propuesta,no desplegada.
+Sincommit/push; cambiosprevios ajenos preservados. [Informe ylímites](PHASES-D083-MONITORING-RECOVERY.md).
+Siguiente: diagnosticar latenciacAdvisor618/623 ytramitar recuperaciónCRM
+porseparado; diseñar vigilanciaexterna para caídatotaldePVE. F7.4 aceptada intacta.
+
+
+Propuestas no aprobadas: vigilanciaexterna ycorrección latenciacAdvisor;
+recuperaciónCRM requiere alcance deaplicación. La petición actual no autoriza
+rollout ni recursoPVE ni nueva funcionalidad. No se ha ensayado rebootPVE.
+
 ### D083 Voicebox — preparación bilingüe y evaluación Chatterbox autorizadas
 
 Nueva intervención Fase7.4, distinta deD083 de recuperación de monitorización
@@ -2296,6 +2338,38 @@ Propuesta pendiente: eventosdurablesporfase y optimizarcopias/mapeosdelcargador
 CB; no másRAMCT niajustesdeguardas automáticos.
 [InformeD087](PHASE7-D087-QWEN-CHATTERBOX-PRODUCTION-VALIDATION.md).
 
+## D088 — recuperación cAdvisor623/618 y CRM — IN PROGRESS
+
+13 de noviembre de 2026 (Europe/Madrid). Petición del propietario: solucionar
+alertas repetidas y estado crítico623/618, con aumento moderado de memoria si
+hay presión. Alcance aprobado: recuperación acotada de estos servicios, backups,
+IaC y validación; sin rollout, otrosCT, commit/push. Fases4/5/6, incidencia operativa.
+Diagnóstico: CT6234096MiB/3570disponibles, CT6186144/4175; cAdvisor ambos128MiB
+saturados, millones de memory.events max y PSI. Propuesta ejecutable: límite
+cAdvisor384MiB conservando CPU0,5; sin ampliar recursosPVE. CRMAPI618 detenido
+tras reinicio; recuperar contenedor existente y persistencia de arranque.
+Siguiente: backup verificable, aplicación en caliente y observación600s/21;
+no declarar estabilidad por lectura puntual. Evidencia e informe D088 pendientes.
+
+### D088 — resultado técnico y seguimiento
+
+13 de noviembre de 2026 (Europe/Madrid), incidencia operativa Fases4/5/6.
+Autorización del propietario: solucionar alertas623/618 con ajuste moderado si
+hay presión. cAdvisor limitado a128MiB sufría reclaim/swap;256 insuficiente,
+384MiB aplicado en caliente solo a esos exporters, CPU0,5 intacta. RecursosPVE
+sin cambios (CT6234GiB, CT6186GiB). CRMAPI618 arrancado sobre mismoID/imagen,
+healthy yready200; restartalways enruntime/Compose/IaC. Gestoría200/PGready.
+600s/21muestras PASS: ambos targetsUP, máximoscrape0,198s/directo0,047s,
+CPU/RAM presentes, ceroalertas; consultasdelFleetdesplegado HEALTHY enambos.
+PSI10/60s0 alfinal, OOM0/sinreinicios exporters; idempotenciaPASS. Backupsconfig
+externos extraídos/hashverificados; sin cambiosdatos/volúmenes/otrosCT/commit/push.
+RecepciónhumanaTelegram noverificada; reboot noensayado. Slabrecuperable618
+cerca dellímite siguebajovigilancia, no justifica ampliarRAMLXC automáticamente.
+[Informe](PHASES-D088-CADVISOR-CRM-RECOVERY.md),
+[resultado](evidence/2026-11-13-d088-result.json).
+Siguiente: vigilancia existentePrometheus/AM; si reaparece latencia, medir crecimiento
+de slab y revisar alcance antes de ampliarrecursos. Pendientesajenos conservados.
+
 ### D088 Voicebox — diagnóstico y dos cargas comparativas autorizadas
 
 Fase7.4,13nov2026 Europe/Madrid. Esta D088 es independiente de la recuperación
@@ -2436,6 +2510,94 @@ Qwen/CBes/en/Kokoro/Piper saludables, sinOOM/activos/CTrestart/otrosLXC/pipeline
 400tokens/EOS/20sWAV/300s/guardas intactos. Sin suite ni inferencias. Despliegue
 DONE; narración completa1200TODO por propietario, sin atribuir aceptación acústica
 a esta ampliación. [Informe](VOICEBOX-CHATTERBOX-INPUT-1200.md).
+
+## Auditoría de capacidad y respaldos — 2026-11-13 — IN PROGRESS
+
+Alcance solicitado: auditar cAdvisor en todos los CT, revisar limpieza segura de
+respaldos/CT9618 y9622, e inventariar hardware para IA local. Fases4/7, solo lectura
+del host y preparación versionada; sin rollout de límites, borrados, destrucción de
+clones, inferencias, reinicios ni commit/push. El propietario pide revisar cómo
+eliminar de forma segura: se entregará manifiesto concreto antes de eliminación.
+No confundir clones restaurados con archivos vzdump ni extender D088 a toda la flota.
+Siguiente: métricas cgroup/Prometheus, dependencias de recuperación y capacidad real.
+
+
+### Auditoría de capacidad — resultado y propuestas no aprobadas
+
+Fases4/7: auditoría y preparación completadas, sin cambios productivos. 18cAdvisor
+UP y ceroalertas; comparación104,82s confirma presión619(256MiB,PSI5,063%) y
+61211(128MiB,1,977%);620presiónmenor. Propuesta:384MiB en619/61211,256en620,
+no rolloutglobal.618/623correcciónD088 estable;627sinlímiteDocker explícito,
+no cambiar automáticamente. Otros6CTactivos fuera de cobertura de esta receta.
+9618/9622 son clones apagados/aislados,90GiBvirtuales≈54,88GiBmapeados. Retirada
+propuesta conserva backups fuente618/622; checksums actuales y permiso concreto
+pendientes. Raíz90%,7,01GiB libres; backupVM10034,60GiB candidato a traslado
+verificado aHDD, no borrado. PoolSSD123,79GiB/HDD1311,08GiB libres.
+Hardware:i5-6500,4núcleos/4hilos,32GiB DDR4a2133MT/s,unaHD530integrada sin
+VRAMdedicada;PVE8.3/Debian12/x86_64. No benchmark/inferencia ni compra propuesta.
+[Informe](CAPACITY-BACKUPS-AI-AUDIT-2026-11-13.md) y evidencias enlazadas.
+Sin despliegues, recursos, arranques, borrados, commit/push. Siguiente: revisión y
+autorización de objetivos concretos; revalidar backups antes de retirar clones.
+
+## Capacidad y limpieza autorizadas — 2026-11-13 — IN PROGRESS
+
+El propietario «autorizo la propuesta»: límites cAdvisor619→61211 a384MiB y620
+a256MiB, secuenciales con backup/rollback,600s/21 porCT e idempotencia; retirar
+solo clones9618/9622 tras revalidar fuentes y guardar configuraciones; copiar
+backupVM100 aHDD, verificar tamaño/SHA256/legibilidad y eliminar solo origen.
+Se conservan respaldos fuente618/622, copiaVM100 verificada, rollback y evidencias.
+Sin otrosCT/recursosPVE/reglas/discovery/inferencias/commit/push. Fases4/7.
+La aprobación actual sustituye el estado pendiente de autorización de la auditoría.
+Siguiente: preflights y ejecución acotada; fallo de seguridad bloquea paso dependiente.
+
+### Capacidad y limpieza — resultado de ejecución autorizada
+
+Fases 4/7. Propuesta aprobada por el propietario y ejecutada: cAdvisor619/61211
+384MiB,620256MiB, secuenciales;600s/21 porCT PASS, PSI final0, cero OOM/reinicios,
+ID/imagen/inicio/mounts/CPU/apps intactos y segunda aplicación sin cambios.
+18cAdvisorUP; n8n/NocoDB/CRM/EVA/Focalboard/Prom/AM HTTP200, ceroalertas finales.
+Backupsconfig externos extraídos/hashverificados antes de aplicar.
+Clones9618/9622 retirados tras SHA256/lectura completa de fuentes618/622 y guardar
+configs privadas también fueraPVE;25configs restantes idénticas. Fuentes conservadas.
+VM10037149277192bytes copiado alHDD, SHA256idéntico/zstd/VMAverifyPASS, registrado
+enProxmox antes de eliminar solo origen. Raíz90→35%,41,60GiB libres; pool178,64GiB
+libres,≈54,9GiB recuperados porclones. HDD1276,49GiB libres. Segunda revisión
+sinmutacionesPASS. No restauraciónfuncional nueva ni pruebaTelegram/recepciónhumana.
+[Informe y evidencia](CAPACITY-APPROVED-EXECUTION-2026-11-13.md).
+Sin otrosCT/recursosPVE/reglas/discovery/inferencias/commit/push. Pendientesglobales
+conservados. Siguiente: vigilancia existente; no ampliar límites ni borrar otrascopias
+automáticamente. Esta entrada sustituye el pendiente de autorización de la auditoría.
+
+## Inventario del host para LLM — 2026-11-13 — IN PROGRESS
+
+Fase 7. Inventario autorizado de solo lectura como root en PVE; sin instalaciones,
+benchmarks, inferencias ni cambios de guests/configuración. Única escritura remota
+solicitada: `/root/inventario-host.md`. Preparación del informe y evidencias locales.
+Siguiente: capturar hardware, memoria, guests y todos los storages con SSH estricto.
+
+### Inventario del host para LLM — resultado DONE
+
+13nov2026 Europe/Madrid, Fase 7. Lecturas como root por SSH estricto completadas.
+[Informe](INVENTARIO-HOST-2026-11-13.md), copia idéntica SHA256 en `/root/inventario-host.md` del PVE;
+evidencia filtrada `2026-11-13-host-inventory.json` y scripts `scripts/inventory-host/`.
+RAM31,23GiB utilizable/MemFree1,17/MemAvailable22,49; compromisos69,66GiB,
+presupuesto sin sobrecompromiso0 incluso excluyendo onboot0. DDR4 A/B2133MT/s,
+34,128GB/s teóricos; modo efectivo/sostenido no medidos. SSDpool178,64GiB libres,
+HDD1276,49; virtual191,96%/uso55,35%; SMARTPASS con1bloqueNAND reasignado.
+Swap2,47GiB; ARC960bytes/sinpools; red100Mb/s. Riesgos documentados.
+Única escritura remota: informe solicitado; sin instalaciones, cambios operativos,
+benchmarks, inferencias, commits/push. Recomendación propuesta, no aprobación:
+SSD para modelos/rootfs; resolver presupuesto concurrente antes de nuevosCT.
+Fase7 permanece IN PROGRESS; siguiente: revisar planificación RAM y elegir alcance.
+# Red eno1 — alcance autorizado 2026-11-13
+
+Diagnóstico de solo lectura e informe solicitados; sin cambios de red ni reinicios.
+Test de cable potencialmente disruptivo requiere OK previo. Instalación de iperf3
+no realizada por regla de solo lectura. Propuestas físicas no equivalen a ejecución.
+Resultado y siguiente paso: [informe](NETWORK-ENO1-DIAGNOSTIC-2026-11-13.md).
+Sin autorización nueva de despliegue ni cierre de Fase7 global.
+
+
 ## IA-CHAT-A — autorización del encargo, 2026-11-13
 
 Aprobado: preflight de solo lectura y plan para infra-llm/infra-webui nuevos, bajo Fase 7; ningún CT existente se modifica. Punto de parada obligatorio antes de crear nada. Propuestas B–F aún no aprobadas. Guardas: MemAvailable host >=21 GiB antes de modelo grande, secretos600, SSH estricto, versiones fijas; no cambios red/storage.cfg/627 ni commit/push.
@@ -2618,6 +2780,7 @@ por usar carpetas o búsqueda. [Plan y criterios](IA-CHAT-CONTEXT-PLAN.md).
 Commit principal2d945b0 publicado y comprobado en origin/main. Documentación DONE;
 plan de ampliación de contexto TODO, sin nueva autorización de despliegue.
 [Recibo de publicación](evidence/ia-chat-latency-2026-11-13/publication-verified.json).
+
 ## IA-CHAT-SWAP-631 — autorizado
 
 El propietario autoriza swap631 de1024 a1741MiB (~1,7GiB), IaC, commit ypush.
@@ -2626,3 +2789,25 @@ no crea swap física en el host ni garantiza mayor velocidad.
 
 Resultado técnico:1741MiB aplicados, segunda aplicación0escrituras, PVE/cgroup/
 Node/Prometheus PASS, sin reinicios ni cambios aotrosCT. [Informe](IA-CHAT-SWAP-631.md).
+
+## IA-LLM-OPTIMIZE — registro de backlog, sin ejecución
+
+El propietario solicita registrar la tarea TODO/PENDIENTE/BACKLOG. Las
+recomendaciones externas se aceptan como candidatas para probar, no para aplicar.
+No se ejecutan pruebas, descargas ni cambios de CT/configuración en este registro.
+No commit/push. Descarga MTP (~18GB) requiere confirmación específica previa.
+Criterios, propuestas y descartes: [IA-LLM-OPTIMIZE](IA-LLM-OPTIMIZE.md).
+
+## CT610-DISK-20261114 — AUTORIZADO por solicitud expresa
+
+14/11/2026, Europe/Madrid. Fase 7. IaC Reliability, Security & Disaster Recovery.
+Propietario autoriza ampliar disco de CT610 en15GiB para alerta de raíz <15% libre.
+Lectura SSH estricta: rootfs real10GiB, YAML ya25GiB; reconciliar a25GiB absolutos,
+sin sumar15 al YAML ni aplicar Terraform global (disk ignorado por lifecycle).
+Alcance: backup verificado, receta versionada acotada610, resize online, comprobación
+FS/servicios/Prometheus e idempotencia. Sin reinicios, borrados, otrosCT, commit/push.
+Resultado14/11/2026 16:26CET: DONE técnico,10→25GiB,63,38%libre; backupHDD
+completoSHA256/zstd/tar/configPASS, sin reinicios ni otrosCT. Segunda aplicación
+0escrituras; Prometheus/AM sinHostDiskFilling, exportersUP. No restauraciónfuncional
+ni recepciónhumanaTelegram verificadas. Mantener respaldos y vigilancia habitual;
+Fase7 globalIN PROGRESS. [Informe](CT610-DISK-20261114.md).

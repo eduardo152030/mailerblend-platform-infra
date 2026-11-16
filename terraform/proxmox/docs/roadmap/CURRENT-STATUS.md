@@ -1,3 +1,39 @@
+## CT610-DISK-20261114 — DONE técnico
+
+14/11/2026, Europe/Madrid. Fase 7. IaC Reliability, Security & Disaster Recovery
+continúa IN PROGRESS global. Ampliación explícitamente autorizada de CT610 en15GiB:
+real10→25GiB reconciliado con YAML existente mediante receta acotada, sin apply general.
+Backup completoHDD verificado porSHA256/lectura zstd/tar/extracción deconfiguración;
+LV/FS25GiB,≈15,53GiB disponibles (63,38%). Prometheus/AM ready, Node/cAdvisorUP,
+HostDiskFilling ausente dePrometheus yAlertmanager a16:26CET. Sin reinicios,
+IDs/inicios/restarts Docker yconfiguraciones ajenas intactos. Segunda aplicación
+ceroescrituras;16tests/generador/validate/diff PASS. Sin borrados, commit/push.
+No restauración funcional ni recepción humanaTelegram verificadas. Mantener respaldo;
+no encoger para rollback. Pendientes heredados intactos. Siguiente: vigilancia habitual.
+[Informe y evidencias](CT610-DISK-20261114.md).
+
+## CLINE-QWEN-LOCAL — DONE documental (14/11/2026, Europe/Madrid)
+
+Fase 7. IaC Reliability, Security & Disaster Recovery global IN PROGRESS.
+[Runbook Windows/Cline](../runbooks/CLINE-QWEN-LOCAL.md): API/clave por ruta, PowerShell,
+contexto real 32768, autonomía, perfil servidor, rendimiento medido y checklist.
+Evidencia: fuentes oficiales/gist y perfil/mediciones del 13/11; sin nueva lectura
+productiva ni inferencia. Enlaces locales y diff del alcance comprobados.
+Autorización exclusiva de lectura/documentación, sin CT/configuración, descargas,
+commit ni push. Integración/aceptación Windows TODO; timeout dependiente de versión,
+tool calling y caché de Cline pendientes de prueba. Ajustes de servidor son propuestas
+sin aplicar. Siguiente: propietario configura Cline y ejecuta checklist de cinco pasos;
+no se cierran pendientes heredados ni se alteran cambios ajenos.
+
+## IA-LLM-OPTIMIZE — PENDIENTE / BACKLOG (TODO)
+
+Fase 7. Registrada la evaluación futura de optimizaciones CPU en630: KVq8/flash
+attention, alias Qwen-code sinmmproj, ub1024, ik_llama.cpp, mmprojQ8 yMTP.
+Solo registro: no ejecutar, descargar ni tocar CT/configuración. Sin commit/push.
+Adopción condicionada a medición antes/después, guardas ycriterios por subtarea;
+MTP exige confirmación previa de descarga. Siguiente: programar evaluación;
+Fase7 global IN PROGRESS. [Tarea y criterios](IA-LLM-OPTIMIZE.md).
+
 ## IA-CHAT-SWAP-631 — DONE técnico
 
 Fase 7. Swap631 ampliada mediante YAML/script versionado de1024 a1741MiB (~1,7GiB),
@@ -163,8 +199,57 @@ alertas de 630/631. [Informe vigente](IA-CHAT-EXECUTION-2026-11-13.md).
 
 # Estado actual del proyecto
 
+## Red eno1 — 2026-11-13 — diagnóstico DONE, resolución TODO
+
+Fase 7, tarea NET-ENO1. Solo lectura autorizada, SSH estricto; NIC I219-LM/e1000e
+soporta/anuncia 1 Gb/s, vecino solo 10/100, negociado 100 Full/autoneg on.
+CRC/errores/colisiones cero; RX dropped 2605 acumulados sin causa demostrada.
+Sin configuración local forzada en rutas revisadas. Probable puerto vecino
+limitado/configurado a100; cable no descartado. Sin cambios productivos,
+instalaciones, cable-test, reinicios, commit/push. Siguiente: propietario verifica
+puerto gigabit y cable; test disruptivo/cambio de red requiere OK explícito.
+Fase7 global IN PROGRESS; pendientes ajenos conservados.
+[Informe](NETWORK-ENO1-DIAGNOSTIC-2026-11-13.md).
+
 Actualizado: **2026-11-13 (Europe/Madrid)**. Voicebox entrada1200 desplegada; narración larga Chatterbox pendiente del propietario.
 [Roadmap](ROADMAP.md) · [Decisiones](DECISIONS.md) · [Informe F6](PHASE6-D060-CLOSURE.md).
+
+## Capacidad y limpieza autorizadas — 2026-11-13 — DONE técnico
+
+Fases 4/7. Propuesta aprobada por el propietario y ejecutada: cAdvisor619/61211
+384MiB,620256MiB, secuenciales;600s/21 porCT PASS, PSI final0, cero OOM/reinicios,
+ID/imagen/inicio/mounts/CPU/apps intactos y segunda aplicación sin cambios.
+18cAdvisorUP; n8n/NocoDB/CRM/EVA/Focalboard/Prom/AM HTTP200, ceroalertas finales.
+Backupsconfig externos extraídos/hashverificados antes de aplicar.
+Clones9618/9622 retirados tras SHA256/lectura completa de fuentes618/622 y guardar
+configs privadas también fueraPVE;25configs restantes idénticas. Fuentes conservadas.
+VM10037149277192bytes copiado alHDD, SHA256idéntico/zstd/VMAverifyPASS, registrado
+enProxmox antes de eliminar solo origen. Raíz90→35%,41,60GiB libres; pool178,64GiB
+libres,≈54,9GiB recuperados porclones. HDD1276,49GiB libres. Segunda revisión
+sinmutacionesPASS. No restauraciónfuncional nueva ni pruebaTelegram/recepciónhumana.
+[Informe y evidencia](CAPACITY-APPROVED-EXECUTION-2026-11-13.md).
+Sin otrosCT/recursosPVE/reglas/discovery/inferencias/commit/push. Pendientesglobales
+conservados. Siguiente: vigilancia existente; no ampliar límites ni borrar otrascopias
+automáticamente. Esta entrada sustituye el pendiente de autorización de la auditoría.
+
+
+## Auditoría de capacidad y respaldos — 2026-11-13 — DONE
+
+Fases4/7: auditoría y preparación completadas, sin cambios productivos. 18cAdvisor
+UP y ceroalertas; comparación104,82s confirma presión619(256MiB,PSI5,063%) y
+61211(128MiB,1,977%);620presiónmenor. Propuesta:384MiB en619/61211,256en620,
+no rolloutglobal.618/623correcciónD088 estable;627sinlímiteDocker explícito,
+no cambiar automáticamente. Otros6CTactivos fuera de cobertura de esta receta.
+9618/9622 son clones apagados/aislados,90GiBvirtuales≈54,88GiBmapeados. Retirada
+propuesta conserva backups fuente618/622; checksums actuales y permiso concreto
+pendientes. Raíz90%,7,01GiB libres; backupVM10034,60GiB candidato a traslado
+verificado aHDD, no borrado. PoolSSD123,79GiB/HDD1311,08GiB libres.
+Hardware:i5-6500,4núcleos/4hilos,32GiB DDR4a2133MT/s,unaHD530integrada sin
+VRAMdedicada;PVE8.3/Debian12/x86_64. No benchmark/inferencia ni compra propuesta.
+[Informe](CAPACITY-BACKUPS-AI-AUDIT-2026-11-13.md) y evidencias enlazadas.
+Sin despliegues, recursos, arranques, borrados, commit/push. Siguiente: revisión y
+autorización de objetivos concretos; revalidar backups antes de retirar clones.
+
 
 ## Chatterbox: entrada1200 desplegada; narración larga pendiente
 
@@ -210,6 +295,26 @@ Qwen es/en y Voicebox healthy, misma app sin reinicio; recursos/datos intactos.
 Siguiente: autorización específica de ensayo aislado instrumentado, sin producción.
 [Informe D088 y puerta D089](PHASE7-D088-CHATTERBOX-MEMORY-OPTIMIZATION.md).
 No confundir con D088 cAdvisor/CRM, completada e independiente.
+
+## D088 — cAdvisor623/618 y CRM recuperados — DONE técnico
+
+13 de noviembre de 2026 (Europe/Madrid), incidencia operativa Fases4/5/6.
+Autorización del propietario: solucionar alertas623/618 con ajuste moderado si
+hay presión. cAdvisor limitado a128MiB sufría reclaim/swap;256 insuficiente,
+384MiB aplicado en caliente solo a esos exporters, CPU0,5 intacta. RecursosPVE
+sin cambios (CT6234GiB, CT6186GiB). CRMAPI618 arrancado sobre mismoID/imagen,
+healthy yready200; restartalways enruntime/Compose/IaC. Gestoría200/PGready.
+600s/21muestras PASS: ambos targetsUP, máximoscrape0,198s/directo0,047s,
+CPU/RAM presentes, ceroalertas; consultasdelFleetdesplegado HEALTHY enambos.
+PSI10/60s0 alfinal, OOM0/sinreinicios exporters; idempotenciaPASS. Backupsconfig
+externos extraídos/hashverificados; sin cambiosdatos/volúmenes/otrosCT/commit/push.
+RecepciónhumanaTelegram noverificada; reboot noensayado. Slabrecuperable618
+cerca dellímite siguebajovigilancia, no justifica ampliarRAMLXC automáticamente.
+[Informe](PHASES-D088-CADVISOR-CRM-RECOVERY.md),
+[resultado](evidence/2026-11-13-d088-result.json).
+Siguiente: vigilancia existentePrometheus/AM; si reaparece latencia, medir crecimiento
+de slab y revisar alcance antes de ampliarrecursos. Pendientesajenos conservados.
+
 
 ## D087b — Qwen bilingüe DONE / ACCEPTED; Chatterbox BLOCKED
 
@@ -328,6 +433,25 @@ perfiles ydatos intactos. CandidatoQwenbilingüe ytests conservados; Chatterbox
 pausado. No resize,descargas,movimientos,reinicios,inferencias,commit/push.
 Propuesta autorizada y ejecutada posteriormente en D084; no aplicar losplanes deauditoría.
 Estaentrada es F7.4; elD083 de monitorización inferior esunaintervención separada.
+
+
+## D083 — visibilidad y alertas recuperadas; latencia cAdvisor pendiente
+
+12 de noviembre de 2026, Europe/Madrid. Incidencia operativa de las fases 1/2/5/6.
+Prometheus y Alertmanager (610) y Blackbox (616) estaban parados tras el reinicio.
+Recuperados sin recrear contenedores ni cambiar imágenes o volúmenes. Política
+`restart: always` en Compose y runtime; backup verificado y segunda aplicación
+sin reinicios. Grafana: datasource OK, 18 hosts y CPU LXC, 19 sondas.
+FIRING y RESOLVED de la prueba desde CPU real recibidos y confirmados por el
+propietario; prueba retirada, tres envíos Telegram y cero fallos.
+Recuperación central DONE técnico y cadena aceptada. Observación de 180 s / siete
+muestras con timeouts intermitentes de cAdvisor en 618/623: estabilidad global
+no acreditada, seguimiento TODO. Última lectura: 17/18 cAdvisor, CT 618 con timeout.
+CRM API en 618 realmente parada, alerta FIRING; aplicación sin modificar.
+Vigilancia externa a PVE propuesta, sin desplegar. Sin commit/push; cambios ajenos
+preservados. [Informe y límites](PHASES-D083-MONITORING-RECOVERY.md).
+Siguiente: diagnosticar latencia cAdvisor 618/623, tramitar recuperación CRM por
+separado y diseñar vigilancia externa para caída total de PVE. F7.4 intacta.
 
 
 ## D082 — D081 ACCEPTED / PRODUCTION; Fase7.4 DONE / ACCEPTED
@@ -878,6 +1002,30 @@ del primer alta real. Sin hardening/DR global ni rotación histórica.
 
 D063 completa elprimeralta Docker627; los límites sinDocker deD061 anteriores
 permanecen históricos yno autorizan cambios globales en servicios existentes.
+
+## Inventario del host para LLM — 2026-11-13 — IN PROGRESS
+
+Fase 7. Inventario autorizado de solo lectura como root en PVE; sin instalaciones,
+benchmarks, inferencias ni cambios de guests/configuración. Única escritura remota
+solicitada: `/root/inventario-host.md`. Preparación del informe y evidencias locales.
+Siguiente: capturar hardware, memoria, guests y todos los storages con SSH estricto.
+
+### Inventario del host para LLM — resultado DONE
+
+13nov2026 Europe/Madrid, Fase 7. Lecturas como root por SSH estricto completadas.
+[Informe](INVENTARIO-HOST-2026-11-13.md), copia idéntica SHA256 en `/root/inventario-host.md` del PVE;
+evidencia filtrada `2026-11-13-host-inventory.json` y scripts `scripts/inventory-host/`.
+RAM31,23GiB utilizable/MemFree1,17/MemAvailable22,49; compromisos69,66GiB,
+presupuesto sin sobrecompromiso0 incluso excluyendo onboot0. DDR4 A/B2133MT/s,
+34,128GB/s teóricos; modo efectivo/sostenido no medidos. SSDpool178,64GiB libres,
+HDD1276,49; virtual191,96%/uso55,35%; SMARTPASS con1bloqueNAND reasignado.
+Swap2,47GiB; ARC960bytes/sinpools; red100Mb/s. Riesgos documentados.
+Única escritura remota: informe solicitado; sin instalaciones, cambios operativos,
+benchmarks, inferencias, commits/push. Recomendación propuesta, no aprobación:
+SSD para modelos/rootfs; resolver presupuesto concurrente antes de nuevosCT.
+Fase7 permanece IN PROGRESS; siguiente: revisar planificación RAM y elegir alcance.
+
+
 ## IA-CHAT-A — preflight autorizado — IN PROGRESS
 
 13 de noviembre de 2026 (Europe/Madrid). Fase 7. IaC Reliability, Security & Disaster Recovery; subproyecto IA local, Fase A (la «Fase 1» del encargo no renumera el roadmap). Solo lecturas PVE/API pública, hashes y plan local. No crear CT, instalar, descargar pesos, cargar modelos ni modificar CT existentes/627/red/storage.cfg. Parada obligatoria tras plan, B–F requieren confirmación. Sin commit/push.
@@ -981,3 +1129,16 @@ solicitado; preparar adopción Terraform sin recreación, SSH verificado si proc
 exporters apropiados para630sinDocker y631conDocker, integración aditiva enPrometheus/
 Blackbox/Grafana e inventario. Conservar cambios previos ajenos. La validación devoz
 sigue pendiente tras corregir WHISPER_MODEL persistido; no declararla aprobada.
+
+## NOTA — 2026-11-16: Incidente de bucle `read_files` y regla 18
+
+Durante la preparación del plan de swap para CT618, Cline entró en un bucle de
+llamadas idénticas a `read_files` que impidió avanzar. La tarea se reanudó al
+cambiar a `run_commands` con `cat` para leer el inventario.
+
+**Acción tomada**: se creó la regla `.clinerules/18-avoid-read-files-loop.md`
+que obliga a usar `run_commands` (`cat`, `sed`, `rg`, `git diff`) en lugar de
+`read_files` para inspeccionar archivos en este repositorio.
+
+**Causa raíz**: no confirmada. Posibles causas: permisos, ruta relativa vs
+absoluta, o límite de tamaño del archivo.
