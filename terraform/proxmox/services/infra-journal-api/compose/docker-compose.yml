@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - perm.env
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=192.168.1.125
+      - DB_PORT=5432
+      - DB_USER=cline_agent
+      - DB_NAME=tradeintuit
+    ports:
+      - "192.168.1.126:3000:3000"
