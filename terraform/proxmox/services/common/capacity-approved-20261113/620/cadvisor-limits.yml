@@ -1,0 +1,6 @@
+# Autorizado 13nov2026; exclusivo CT620.
+services:
+  cadvisor:
+    mem_limit: 256m
+    memswap_limit: 256m
+    cpus: '0.50'

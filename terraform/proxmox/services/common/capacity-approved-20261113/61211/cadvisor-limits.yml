@@ -1,0 +1,6 @@
+# Autorizado 13nov2026; exclusivo CT61211.
+services:
+  cadvisor:
+    mem_limit: 384m
+    memswap_limit: 384m
+    cpus: '0.50'
