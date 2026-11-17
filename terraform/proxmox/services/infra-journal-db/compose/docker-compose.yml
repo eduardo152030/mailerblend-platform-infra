@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file:
+      - perm.env
+    environment:
+      - POSTGRES_DB=tradeintuit
+      - POSTGRES_USER=tradeintuit
+    ports:
+      - "192.168.1.125:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
