@@ -6,6 +6,7 @@ service:
 resources:
   cpu: 2
   memory: 6144
+  swap: 1229
   disk_gb: 50
 
 tags:
