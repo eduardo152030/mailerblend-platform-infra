@@ -1,0 +1,71 @@
+
+[![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/account-financial-tools&target_branch=17.0)
+[![Pre-commit Status](https://github.com/OCA/account-financial-tools/actions/workflows/pre-commit.yml/badge.svg?branch=17.0)](https://github.com/OCA/account-financial-tools/actions/workflows/pre-commit.yml?query=branch%3A17.0)
+[![Build Status](https://github.com/OCA/account-financial-tools/actions/workflows/test.yml/badge.svg?branch=17.0)](https://github.com/OCA/account-financial-tools/actions/workflows/test.yml?query=branch%3A17.0)
+[![codecov](https://codecov.io/gh/OCA/account-financial-tools/branch/17.0/graph/badge.svg)](https://codecov.io/gh/OCA/account-financial-tools)
+[![Translation Status](https://translation.odoo-community.org/widgets/account-financial-tools-17-0/-/svg-badge.svg)](https://translation.odoo-community.org/engage/account-financial-tools-17-0/?utm_source=widget)
+
+<!-- /!\ do not modify above this line -->
+
+# account-financial-tools
+
+TODO: add repo description.
+
+<!-- /!\ do not modify below this line -->
+
+<!-- prettier-ignore-start -->
+
+[//]: # (addons)
+
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[account_account_tag_code](account_account_tag_code/) | 17.0.1.0.0 |  | Add a code field to the accounts tags
+[account_asset_force_account](account_asset_force_account/) | 17.0.1.1.0 | <a href='https://github.com/BernatObrador'><img src='https://github.com/BernatObrador.png' width='32' height='32' style='border-radius:50%;' alt='BernatObrador'/></a> | This module allows you to enforce specific accounts for assets, including depreciation and expense accounts, through asset profiles and forms.
+[account_asset_management](account_asset_management/) | 17.0.1.2.2 |  | Assets Management
+[account_asset_management_stock_lot](account_asset_management_stock_lot/) | 17.0.1.0.0 |  | Assets Management Stock Lot
+[account_bank_statement_chatter](account_bank_statement_chatter/) | 17.0.1.0.0 | <a href='https://github.com/cubells'><img src='https://github.com/cubells.png' width='32' height='32' style='border-radius:50%;' alt='cubells'/></a> | Chatter on bank statements
+[account_chart_update](account_chart_update/) | 17.0.1.1.2 |  | Wizard to update a company's account chart from a template
+[account_chart_update_l10n_eu_oss](account_chart_update_l10n_eu_oss/) | 17.0.1.0.0 | <a href='https://github.com/LoisRForgeFlow'><img src='https://github.com/LoisRForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='LoisRForgeFlow'/></a> | Account Chart update OSS
+[account_check_deposit](account_check_deposit/) | 17.0.1.0.0 |  | Manage deposit of checks to the bank
+[account_fiscal_month](account_fiscal_month/) | 17.0.1.0.0 |  | Provide a fiscal month date range type
+[account_fiscal_year](account_fiscal_year/) | 17.0.1.1.0 | <a href='https://github.com/eLBati'><img src='https://github.com/eLBati.png' width='32' height='32' style='border-radius:50%;' alt='eLBati'/></a> | Create Account Fiscal Year
+[account_journal_lock_date](account_journal_lock_date/) | 17.0.1.0.0 |  | Lock each journal independently
+[account_journal_restrict_mode](account_journal_restrict_mode/) | 17.0.1.0.0 |  | Lock All Posted Entries of Journals.
+[account_loan](account_loan/) | 17.0.2.2.1 | <a href='https://github.com/etobella'><img src='https://github.com/etobella.png' width='32' height='32' style='border-radius:50%;' alt='etobella'/></a> | Account Loan management
+[account_lock_date_update](account_lock_date_update/) | 17.0.1.0.1 |  | Allow an Account adviser to update locking date without having access to all technical settings
+[account_lock_to_date](account_lock_to_date/) | 17.0.1.0.1 |  | Allows to set an account lock date in the future.
+[account_move_budget](account_move_budget/) | 17.0.1.0.0 |  | Create Accounting Budgets
+[account_move_line_purchase_info](account_move_line_purchase_info/) | 17.0.2.0.0 |  | Introduces the purchase order line to the journal items
+[account_move_line_sale_info](account_move_line_sale_info/) | 17.0.1.0.0 |  | Introduces the purchase order line to the journal items
+[account_move_line_tax_editable](account_move_line_tax_editable/) | 17.0.1.0.0 |  | Allows to edit taxes on non-posted account move lines
+[account_move_name_sequence](account_move_name_sequence/) | 17.0.1.0.5 | <a href='https://github.com/alexis-via'><img src='https://github.com/alexis-via.png' width='32' height='32' style='border-radius:50%;' alt='alexis-via'/></a> <a href='https://github.com/moylop260'><img src='https://github.com/moylop260.png' width='32' height='32' style='border-radius:50%;' alt='moylop260'/></a> <a href='https://github.com/luisg123v'><img src='https://github.com/luisg123v.png' width='32' height='32' style='border-radius:50%;' alt='luisg123v'/></a> | Generate journal entry number from sequence
+[account_move_post_date_user](account_move_post_date_user/) | 17.0.1.0.0 | <a href='https://github.com/JordiMForgeFlow'><img src='https://github.com/JordiMForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='JordiMForgeFlow'/></a> | Trace journal entry posting date and user.
+[account_move_print](account_move_print/) | 17.0.1.0.0 | <a href='https://github.com/JordiBForgeFlow'><img src='https://github.com/JordiBForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='JordiBForgeFlow'/></a> | Adds the option to print Journal Entries
+[account_move_template](account_move_template/) | 17.0.1.0.1 |  | Templates for recurring Journal Entries
+[account_netting](account_netting/) | 17.0.1.0.0 |  | Compensate AR/AP accounts from the same partner
+[account_partner_required](account_partner_required/) | 17.0.1.0.0 | <a href='https://github.com/alexis-via'><img src='https://github.com/alexis-via.png' width='32' height='32' style='border-radius:50%;' alt='alexis-via'/></a> | Adds an option 'partner policy' on accounts
+[account_sequence_option](account_sequence_option/) | 17.0.1.0.0 | <a href='https://github.com/kittiu'><img src='https://github.com/kittiu.png' width='32' height='32' style='border-radius:50%;' alt='kittiu'/></a> | Manage sequence options for account.move, i.e., invoice, bill, entry
+[account_spread_cost_revenue](account_spread_cost_revenue/) | 17.0.1.0.0 |  | Spread costs and revenues over a custom period
+[account_tax_repartition_line_tax_group_account](account_tax_repartition_line_tax_group_account/) | 17.0.1.0.0 |  | Set a default account from tax group to tax repartition lines
+[account_usability](account_usability/) | 17.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Adds missing menu entries for Account module and adds the option to enable Saxon Accounting
+[mail_template_substitute_account_move](mail_template_substitute_account_move/) | 17.0.1.0.0 | <a href='https://github.com/SodexisTeam'><img src='https://github.com/SodexisTeam.png' width='32' height='32' style='border-radius:50%;' alt='SodexisTeam'/></a> | Module to support Mail Template Substitution for Account Move
+[purchase_unreconciled](purchase_unreconciled/) | 17.0.2.1.0 | <a href='https://github.com/AaronHForgeFlow'><img src='https://github.com/AaronHForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='AaronHForgeFlow'/></a> | Purchase Unreconciled
+
+[//]: # (end addons)
+
+<!-- prettier-ignore-end -->
+
+## Licenses
+
+This repository is licensed under [AGPL-3.0](LICENSE).
+
+However, each module can have a totally different license, as long as they adhere to Odoo Community Association (OCA)
+policy. Consult each module's `__manifest__.py` file, which contains a `license` key
+that explains its license.
+
+----
+OCA, or the [Odoo Community Association](http://odoo-community.org/), is a nonprofit
+organization whose mission is to support the collaborative development of Odoo features
+and promote its widespread use.
