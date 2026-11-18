@@ -12,3 +12,7 @@ resources:
 tags:
   - monitoring
   - prometheus
+
+documentation:
+  notes: services/infra-prom/NOTES.md
+  inventory: docs/inventory/610-LXC-INVENTORY.md
