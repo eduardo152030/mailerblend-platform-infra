@@ -6,8 +6,12 @@ service:
 resources:
   cpu: 1
   memory: 1048
-  disk_gb: 15
+  disk_gb: 10
 
 tags:
   - monitoring
   - grafana
+
+documentation:
+  notes_file: services/infra-grafana/NOTES.md
+  inventory_file: docs/inventory/611-LXC-INVENTORY.md
