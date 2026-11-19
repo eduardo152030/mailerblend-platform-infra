@@ -48,3 +48,20 @@ imágenes y red interna de prueba. No usar CT618 como banco de ensayo.
 Ronda de resolución de conflictos. SHA inicial `fac40053`, base
 `main` actualizada a `05c99dee`. Roadmap, estado y fase conservan los
 registros del #22 integrado y el seguimiento del #23.
+
+## Preflight de solo lectura
+
+Rama `ops/crm-couchdb-rotation-preflight`, worktree hermano
+`mailerblend-platform-infra-crm-rotation-preflight`, inicio `db4ff8a3`.
+[Script de preflight](../../../scripts/check-crm-couchdb-rotation.py).
+Recibe rutas del entorno legado, Compose CouchDB y Compose privado D051.
+Renderiza ambos con Docker Compose y compara solo las claves esperadas,
+sin imprimir los modelos. Bloquea secretos con permisos distintos de 0600,
+claves duplicadas, overrides del entorno y credenciales no coincidentes.
+La réplica debe usar el mismo formato D051. El preflight evalúa archivos,
+mientras que la autenticación del motor y el login requieren el ensayo aislado.
+
+Cinco casos sintéticos PASS con Compose simulado: coincidencia, discrepancia,
+error de render con salida sensible, permisos y duplicados. Pendientes Docker
+real, backup restaurado, helper de mutación/rollback y una ventana operativa.
+Sin ejecución en CT618. El recambio general sigue diferido en [#36](https://github.com/eduardo152030/mailerblend-platform-infra/issues/36).
