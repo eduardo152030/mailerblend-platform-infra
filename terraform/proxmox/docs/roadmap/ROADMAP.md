@@ -1267,3 +1267,10 @@ Rotación general diferida al #36 tras las pruebas.
 
 Seguimiento #23: generación de candidatos privados y validación Compose
 simulada completadas. Sin aplicación; ensayo de motor y rollback pendientes.
+
+
+## CT618 — preview CRM UI (#24, IN PROGRESS)
+
+19/11/2026 Europe/Madrid. Traslado neutral, build y pruebas locales de
+preview. API real desconectada. Pendientes Docker, proxy/TLS y lint heredado.
+Sin despliegue. [Plan y evidencia](planes/CRM-UI-PREVIEW-PLAN.md).
