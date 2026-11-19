@@ -1309,3 +1309,6 @@ simulada completadas. Sin aplicación; ensayo de motor y rollback pendientes.
 Seguimiento #23: ensayo aislado de CouchDB preparado con digest observado.
 Sintaxis Bash validada. GitHub rechazó publicar el workflow (403); ejecución
 Docker y prueba de consumidor siguen pendientes.
+
+Seguimiento #23: Docker temporal arrancó localmente. El mapeo de grupos
+bloqueó la extracción de la imagen. Ensayo y rotación siguen pendientes.

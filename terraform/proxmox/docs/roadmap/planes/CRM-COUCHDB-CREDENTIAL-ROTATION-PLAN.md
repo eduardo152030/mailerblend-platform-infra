@@ -89,3 +89,15 @@ Entrega del ensayo en [PR #38](https://github.com/eduardo152030/mailerblend-plat
 rama `ops/crm-couchdb-rehearsal`, worktree hermano
 `mailerblend-platform-infra-crm-rehearsal`, base de ronda `18743981`.
 El avance se trasladó al PR #38 después de integrarse el PR #37.
+
+Ronda 02 del PR #38, 19/11/2026 Europe/Madrid, SHA inicial `b8e66c96`.
+Prueba local con binarios Docker 27.5.1 en un directorio temporal y un espacio
+de nombres de usuario, montaje y PID. El daemon arrancó con socket y estado
+privados, VFS y bridge y reglas de red del daemon deshabilitados. Docker Hub
+entregó capas de la imagen fijada, pero el registro de la primera capa falló:
+el mapeo de un solo UID/GID no permite aplicar el GID 42 de un archivo de la
+imagen. El daemon temporal terminó. No se creó el volumen de prueba, no
+arrancó CouchDB y no se ensayó la rotación. El entorno carece de los helpers
+`newuidmap` y `newgidmap` para usar los rangos subordinados configurados.
+Próxima ejecución: un motor Docker aislado con mapeo suficiente para instalar
+las capas de las imágenes. Ningún cambio en CT618.
