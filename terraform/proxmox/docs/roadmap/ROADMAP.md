@@ -1,3 +1,19 @@
+## PR15 / D-091 — DONE local; despliegue TODO
+
+19/11/2026, Europe/Madrid. Fase 7.4: corregido el worker optimizado real de
+Chatterbox, fragmentación sin pérdida, 400 tokens/EOS por fragmento, referencia
+preparada una vez, fragmentos persistentes y WAV final atómico. 92 pruebas Python
+3.12 y 9 pruebas UI PASS, sin modelos ni grabación personal. Locks/readiness
+coherentes; producción D089, Qwen y recursos sin cambios en esta intervención.
+Corrección, revisión y fusión de PR15 autorizadas por el propietario. El estado
+de integración es el del [PR15](https://github.com/eduardo152030/mailerblend-platform-infra/pull/15).
+Narración larga, continuidad acústica y cumplimiento del presupuesto global de
+300s siguen TODO; no se deducen de las pruebas simuladas. Fase7 global IN PROGRESS.
+Siguiente: preparar despliegue con baseline real/backup/rollback y obtener
+autorización para desplegar y realizar un ensayo real acotado.
+[Informe](planes/PHASE7-D091-CHATTERBOX-CHUNKING-IMPL.md) ·
+[Evidencias](evidence/2026-11-19-d091-pr15-local.json).
+
 ## CLINE-LXC-PLAN — DONE local
 
 19/11/2026, Europe/Madrid. Fase 7. El propietario detuvo la sesión CT611

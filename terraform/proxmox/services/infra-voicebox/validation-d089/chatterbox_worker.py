@@ -4,6 +4,7 @@ import argparse,json,hashlib,time,os,contextlib,importlib
 from telemetry import Events
 from load_probe import TensorTracker,instrument_loader,lazy_chinese,install_runtime_events
 from engine_policy import validate,CB
+from chatterbox_chunks import generate_chunks,split_text
 
 def sha(p):
     h=hashlib.sha256()
@@ -23,6 +24,7 @@ def bounded_inference(model,metrics):
         tokens=original(*args,**kwargs)
         count=int(tokens.shape[-1]);eos=int(tokens[0,-1])==model.t3.hp.stop_speech_token
         metrics.update(tokens=count,eos=eos,token_seconds=time.monotonic()-start)
+        if not 0<count<=CB['max_tokens']:raise RuntimeError('Chatterbox excedió el límite de tokens; no ejecutar decoder')
         if not eos:raise RuntimeError('Chatterbox no emitió EOS; no ejecutar decoder ni aceptar audio incompleto')
         return tokens
     model.t3.inference=bounded
@@ -32,6 +34,7 @@ def execute(job,models,reference):
     tracker=TensorTracker();events=Events(job/'events.jsonl',tracker.summary);events.emit('worker.start')
     request=validate(json.loads((job/'request.json').read_text()))
     assert request['engine']=='chatterbox' and (job/'text.txt').read_text()==request['text']
+    chunks=split_text(request['text'],CB['max_chunk_chars'],CB['max_chunks'])
     assert not (job/'checkpoint').exists(),'Qwen checkpoints never enter Chatterbox'
     from d077_contract import REFERENCE_SHA
     assert sha(reference)==REFERENCE_SHA
@@ -50,8 +53,9 @@ def execute(job,models,reference):
         # Verify selected-language tokenizer before loading weights; no Chinese download.
         with lazy_chinese(tokenmod,events):
             tok=mtl.MTLTokenizer(str(models/'grapheme_mtl_merged_expanded_v1.json'))
-            ids=tok.text_to_tokens(request['text'],language_id=request['language'])
-            assert ids.numel()>0
+            for chunk in chunks:
+                ids=tok.text_to_tokens(chunk,language_id=request['language'])
+                assert ids.numel()>0
         events.emit('tokenizer.preflight.pass')
         t=time.monotonic();events.emit('load.before')
         with lazy_chinese(tokenmod,events),instrument_loader(mtl,torch,tracker,events,assign=True):
@@ -60,20 +64,25 @@ def execute(job,models,reference):
         events.emit('load.after')
         for component in [model.t3,model.s3gen,model.ve]:
             component.float();assert all(p.dtype==torch.float32 for p in component.parameters() if p.is_floating_point())
-        stats['load_seconds']=time.monotonic()-t;bounded_inference(model,stats)
+        stats['load_seconds']=time.monotonic()-t
+        chunk_metrics={};bounded_inference(model,chunk_metrics)
         install_runtime_events(model,events)
+        def generate_chunk(text):
+            with torch.inference_mode():
+                wav=model.generate(text,language_id=request['language'],audio_prompt_path=None,exaggeration=.5,cfg_weight=.5)
+            return wav.squeeze().detach().cpu().numpy(),model.sr
+        # One conditioning pass, unchanged original reference; no prompt re-encoding per chunk.
         with torch.inference_mode():
-            wav=model.generate(request['text'],language_id=request['language'],audio_prompt_path=str(reference),exaggeration=.5,cfg_weight=.5)
-        audio=wav.squeeze().detach().cpu().numpy();assert audio.ndim==1 and len(audio)>0 and np.isfinite(audio).all()
-        assert model.sr==24000 and len(audio)/model.sr<=20,'Short-pilot duration limit'
-        events.emit('write.before')
-        target=job/'chatterbox.wav';assert not target.exists()
-        part=job/'chatterbox.partial';sf.write(part,audio,model.sr,format='WAV',subtype='PCM_16')
-        with part.open('rb') as f:os.fsync(f.fileno())
-        part.chmod(0o600);os.replace(part,target)
-        info=sf.info(target);assert info.frames==len(audio) and info.samplerate==24000 and info.channels==1
-        events.emit('write.after')
-        stats.update(success=True,seconds=len(audio)/model.sr,wav_sha256=sha(target))
+            model.prepare_conditionals(str(reference),exaggeration=.5)
+        events.emit('chunks.before')
+        stats.update(generate_chunks(job,request['text'],generate_chunk,CB,chunk_metrics,
+                                     start+CB['timeout_seconds'],identity={
+                                         'language':request['language'],'seed':42,'dtype':'float32',
+                                         'model_revision':manifest['model_revision'],
+                                         'model_manifest_sha256':sha(models/'manifest.json'),
+                                         'reference_sha256':REFERENCE_SHA,'worker_sha256':sha(Path(__file__))}))
+        events.emit('chunks.after')
+        stats['success']=True
     except BaseException as e:
         stats.update(success=False,error=str(e));raise
     finally:
