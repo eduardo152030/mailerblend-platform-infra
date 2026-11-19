@@ -41,3 +41,24 @@ devuelven el index; assets coinciden byte a byte y un asset inexistente
 devuelve 404; GET/POST de API devuelven 503; se comprueba CSP del mismo
 origen. Esto valida Nginx y las rutas de la preview. Pendientes Compose
 real, idempotencia, digest del release y TLS externo. Sin cambios en CT618.
+
+## Validación de Compose y proxy TLS de laboratorio
+
+19/11/2026 Europe/Madrid. Rama `test/crm-ui-preview-validation`,
+worktree hermano `mailerblend-platform-infra-crm-preview-validation`,
+SHA inicial `0d6c345de8166130da400e79f3899b19f3a11ac9`. El PR #39 ya se integró.
+[PR de validación #40](https://github.com/eduardo152030/mailerblend-platform-infra/pull/40).
+
+- Docker Compose 2.32.4 descargado y comprobado con el SHA256 de la release.
+  `docker compose config --format json` PASS con valores por defecto y
+  overrides sintéticos de imagen y puerto. Ambos modelos conservan loopback,
+  destino 8080 y healthcheck; no inyectan variables de CRMAPI.
+- Nginx de la imagen fijada, en el rootfs aislado, recibió un virtual host
+  temporal con TLS y autenticación básica, upstream loopback y credenciales
+  de prueba. Curl validó cadena de confianza local y SAN sin excepciones:
+  solicitud anónima 401, /contactos autenticado equivalente al index, POST a
+  API 503. La adaptación de UID del ensayo anterior sigue aplicando.
+- El certificado, las credenciales y el host sintético son solo de laboratorio.
+  Esto no activa TLS en el dominio real ni prueba el ciclo de vida de Compose.
+  Pendientes build de imagen final, idempotencia del servicio y acceso TLS
+  en el proxy definitivo con DNS y titularidad confirmados. CT618 intacto.

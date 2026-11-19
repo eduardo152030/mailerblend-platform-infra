@@ -1330,3 +1330,7 @@ Sin despliegue. [Plan y evidencia](planes/CRM-UI-PREVIEW-PLAN.md).
 
 Seguimiento #24: Nginx por digest, health, SPA, assets y API
 bloqueada verificados en entorno aislado. Compose y TLS pendientes.
+
+Seguimiento #24: Compose config real y proxy TLS local probado con acceso
+anónimo 401, ruta autenticada 200 y API 503. Pendientes ejecución Compose,
+idempotencia y TLS en el proxy definitivo. Sin despliegue.
