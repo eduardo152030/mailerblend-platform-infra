@@ -22,3 +22,10 @@ workflow se verifica localmente antes de la revisión del PR.
 Inicio `29d9f684caadc868016223ea56debe6f6bd03ff4`. El propietario aclara que
 el flujo debe servir para cualquier VMID del inventario. Se generalizan las
 instrucciones y se comprueba la resolución de un VMID existente y uno ausente.
+
+## Ronda review-03
+
+Inicio `970a92758cec25e422da30f3e9adedb3ca6f17fe`. Se integra la base
+`origin/main` en `8de2af28` y se resuelven los tres conflictos documentales
+conservando las entradas de ambas ramas. El workflow conserva el alcance
+aprobado. Próximo paso: revisión y prueba en una sesión nueva de Cline.

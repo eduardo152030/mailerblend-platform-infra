@@ -1130,3 +1130,13 @@ fallido y drift bloqueado: PASS. No se ejecutó un plan real ni se aplicó
 en CT611. Publicación por PR autorizada; pendiente revisión independiente.
 Siguiente: tras integrar y rotar la credencial expuesta, retomar CT611
 desde §6.1. Fase 7 global IN PROGRESS.
+
+
+## CT618 — migración de interfaz CRM (TODO)
+
+19/11/2026 Europe/Madrid. Diagnóstico Git y runtime de solo lectura completado.
+[Plan propuesto e issues](../planes/CRM-UI-MIGRATION-PLAN.md). Los tres proyectos
+requieren aceptación secuencial. Autenticación, enrutamiento y retención por
+resolver. Diez issues publicados con autorización del propietario. Cline empieza
+por [#22](https://github.com/eduardo152030/mailerblend-platform-infra/issues/22).
+Sin autorización de corte ni retirada en esta ronda.

@@ -33,7 +33,9 @@
    indica que está pendiente. Revisa el estado local y cualquier cambio
    propio que falte subir. Reporta los checks como aprobados, pendientes,
    fallidos o ausentes según GitHub. Registra la ausencia de checks como
-   tal. Usa las etiquetas del repositorio que correspondan a la tarea.
+   tal. Usa las etiquetas del repositorio que correspondan a la tarea. Reutiliza
+   la evidencia válida del mismo estado según la [regla 01](01-reasoning.md)
+   y pasa al mensaje final cuando el cierre esté resuelto.
 7. Empieza el mensaje final con **PR: [#número](URL)**. A continuación
    indica rama, ruta del worktree, plan o issue, SHA, estado de los checks
    y datos del artefacto diferencial.

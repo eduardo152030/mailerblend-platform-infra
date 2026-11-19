@@ -4,8 +4,18 @@
 automáticamente cualquier VMID declarado, con un plan guardado y
 validado para la clave de su YAML. Un VMID ausente bloquea el flujo. El encargo
 «solo documentación» conserva el cierre local. La etiqueta IP de CT611
-está declarada. Pendientes revisión y prueba en una sesión nueva de Cline.
+está declarada. Conflicto con la actualización de las reglas de Cline
+resuelto. Pendientes revisión y prueba en una sesión nueva de Cline.
 [Plan](planes/LXC-NOTES-TAGS.md).
+
+## CLINE-VERIFICACIÓN — límite de verificaciones IN PROGRESS
+
+19/11/2026 Europe/Madrid, Fase 7. Tras el bucle de cierre de CT611, se
+acota a dos la comprobación del mismo criterio sobre el mismo estado y
+se cierra el criterio al obtener evidencia concluyente. Cambio documental
+autorizado y preparado localmente. Pendientes revisión y prueba en una
+sesión nueva de Cline.
+[Plan y evidencia](planes/CLINE-LIMITE-VERIFICACIONES.md).
 
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS
 
@@ -1249,3 +1259,13 @@ que obliga a usar `run_commands` (`cat`, `sed`, `rg`, `git diff`) en lugar de
 
 **Causa raíz**: no confirmada. Posibles causas: permisos, ruta relativa vs
 absoluta, o límite de tamaño del archivo.
+
+
+## CT618 — migración de interfaz CRM (TODO)
+
+19/11/2026 Europe/Madrid. Diagnóstico Git y runtime de solo lectura completado.
+[Plan propuesto e issues](planes/CRM-UI-MIGRATION-PLAN.md). Los tres proyectos
+requieren aceptación secuencial. Autenticación, enrutamiento y retención por
+resolver. Diez issues publicados con autorización del propietario. Cline empieza
+por [#22](https://github.com/eduardo152030/mailerblend-platform-infra/issues/22).
+Sin autorización de corte ni retirada en esta ronda.

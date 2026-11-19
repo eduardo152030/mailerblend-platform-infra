@@ -14,7 +14,7 @@ las validaciones distintas que exige el plan, el issue o el runbook.
   que todavía no vas a ejecutar.
 - No vuelvas a planificar una tarea salvo que aparezca información nueva
   que cambie materialmente el enfoque.
-- Evita reescrituras completas Usa replace_in_file para cambios parciales. No reescribas archivos completos a menos de que sea necesario,  Sé conciso, sin introducciones ni resúmenes finales.
+- Evita reescrituras completas Usa replace_in_file para cambios parciales. No reescribas archivos completos a menos de que sea necesario,  Sé conciso y entrega el cierre breve que requiera la tarea.
 
 ## 2. Uso de herramientas y verificación
 
@@ -31,6 +31,21 @@ las validaciones distintas que exige el plan, el issue o el runbook.
 - No repitas una llamada con los mismos argumentos después de un fallo.
 
 ## 3. Política anti-bucles
+
+- Realiza como máximo dos verificaciones del mismo criterio sobre el mismo
+  estado: la inicial y una segunda solo si falta un dato concreto o hay una
+  contradicción. Si el resultado ya es concluyente, regístralo y avanza.
+- Cuenta como la misma verificación releer el mismo plan con otros filtros,
+  repetir la consulta del mismo SHA o estado Git, o comprobar el mismo dato
+  con otra herramienta. Alternar comprobaciones o compactar/reanudar el
+  contexto conserva el recuento y la evidencia disponible.
+- Tras la segunda comprobación, si el criterio sigue sin resolverse, indica
+  qué evidencia falta y detén el paso dependiente. Si ya completaste los
+  pasos autorizados, entrega el resumen final y termina el turno.
+- Las verificaciones de criterios distintos y las de un estado que cambió
+  materialmente (por ejemplo, controles antes y después de un cambio
+  autorizado) se cuentan por separado. Los reintentos por errores de
+  ejecución siguen el límite indicado abajo.
 
 - Máximo tres intentos para el mismo error o bloqueo:
   un intento inicial y dos reintentos.

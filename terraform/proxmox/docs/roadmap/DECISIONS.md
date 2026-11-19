@@ -2843,3 +2843,8 @@ el plan guardado y validado del CT objetivo al usar el workflow completo.
 Alcance de actualización: descripción y reordenación de las mismas
 etiquetas. «Solo documentación» termina localmente.
 [Plan](planes/LXC-NOTES-TAGS.md).
+
+## CLINE-VERIFICACIÓN — límite aprobado por el propietario
+
+19/11/2026 Europe/Madrid. Hasta dos verificaciones equivalentes. El cierre
+avanza con un resultado concluyente. [Plan](planes/CLINE-LIMITE-VERIFICACIONES.md).
