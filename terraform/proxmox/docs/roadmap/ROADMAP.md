@@ -1274,3 +1274,7 @@ Docker y prueba de consumidor siguen pendientes.
 
 Seguimiento #23: Docker temporal arrancó localmente. El mapeo de grupos
 bloqueó la extracción de la imagen. Ensayo y rotación siguen pendientes.
+
+Seguimiento #23: CouchDB 3.5.1 ejecutado desde capas verificadas en
+aislación local. Cambio y reversión PASS, credencial retirada 401 y base
+conservada 200. Pendiente ensayo Docker y Budibase D051.

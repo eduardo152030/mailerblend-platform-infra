@@ -101,3 +101,28 @@ arrancó CouchDB y no se ensayó la rotación. El entorno carece de los helpers
 `newuidmap` y `newgidmap` para usar los rangos subordinados configurados.
 Próxima ejecución: un motor Docker aislado con mapeo suficiente para instalar
 las capas de las imágenes. Ningún cambio en CT618.
+
+## Ensayo del motor con la imagen verificada
+
+Ronda 03 del PR #38, 19/11/2026 22:02 CET. SHA inicial `580280ac`.
+Se verificaron por SHA256 el manifiesto, el manifiesto amd64 cuando corresponde
+y las capas del digest observado. Se extrajeron a un directorio temporal y se
+ejecutó el binario CouchDB **3.5.1** dentro del rootfs en espacios de nombres
+de usuario, montaje, PID y red. Solo loopback; credenciales y base sintéticas.
+Se sobrescribió exclusivamente el INI de prueba, con reinicio del motor en
+cada paso y el mismo directorio de datos.
+
+| Evidencia | Resultado |
+| --- | --- |
+| Arranque y creación de base sintética con el valor inicial | PASS |
+| Arranque con valor candidato, valor anterior rechazado y base accesible | HTTP 401 / 200 |
+| Reversión al valor inicial, candidato rechazado y base accesible | HTTP 401 / 200 |
+
+El entrypoint de la imagen crea el administrador desde el entorno solo si
+no lo encuentra en los INI existentes. Confirmar en el ensayo Docker la
+persistencia efectiva de esos INI al recrear el contenedor; un reinicio del
+mismo contenedor no acredita por sí solo la rotación. El ensayo anterior
+prueba el comportamiento del motor con configuración explícita y datos
+persistidos. No ejercitó la recreación Docker, la configuración D051 ni el
+login de Budibase. Esos pasos siguen siendo condiciones de la rotación.
+Sin cambios en CT618.
