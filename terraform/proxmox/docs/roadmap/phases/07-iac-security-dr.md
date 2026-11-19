@@ -1213,3 +1213,6 @@ Pendientes proxy y TLS definitivos. Sin despliegue en CT618.
 Seguimiento #23: ensayo Docker CouchDB PASS en VM desechable.
 Reversión y persistencia sintética verificadas. Réplica D051 en pruebas;
 CT618 sin cambios.
+
+Preflight #23: Budibase usa una URL autenticada persistida en /data/.env.
+Rotación y reversión deben incluir esa tercera fuente. Sin cambios en CT618.

@@ -186,3 +186,17 @@ La diferencia de la capa escribible de CouchDB solo muestra, bajo
 El único volumen observado de CouchDB monta los datos. Conservar copia
 privada de la configuración para el rollback y revalidar montajes y
 diferencias al preparar el procedimiento. Sin escrituras en CT618.
+
+### Tercera fuente de credenciales en Budibase
+
+El [runner de Budibase 3.27.4](https://github.com/Budibase/budibase/blob/3.27.4/hosting/single/runner.sh)
+carga y exporta `/data/.env` después de recibir el entorno del contenedor.
+Una lectura filtrada en CT618 encontró una única clave en ese archivo,
+`COUCH_DB_URL`, con autenticación embebida. Usuario y contraseña coinciden
+con CouchDB activo (comparación en memoria, solo resultados booleanos).
+En el Compose D051 la URL no contiene credenciales. Por tanto, el candidato
+de dos archivos preparado en #37 **no completa la rotación**. La receta
+debe respaldar y cambiar de forma coordinada el entorno legado, el Compose
+D051 y la URL efectiva del volumen `/data`, preservando propietario y modo.
+La reversión debe recuperar los tres. El ensayo de réplica incorpora este
+archivo en un volumen nuevo. No se imprimieron valores ni se cambió CT618.
