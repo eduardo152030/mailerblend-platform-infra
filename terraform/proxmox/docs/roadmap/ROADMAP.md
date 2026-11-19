@@ -2,9 +2,9 @@
 
 19/11/2026 Europe/Madrid, Fase 7. Reglas actualizadas en el worktree dedicado.
 La regla 03 exige plan o issue, comprobación previa de ruta y rama y enlace
-recíproco con el PR. La regla de documentación LXC pasa a 18. Numeración,
+recíproco con el PR. Las diez reglas se numeran del 01 al 10. Numeración,
 referencias y diff verificados. El cierre exige URL y SHA verificados del
-PR del worktree y el diff diferencial local de la ronda según la regla 19.
+PR del worktree y el diff diferencial local de la ronda según la regla 10.
 Pendiente revisión del propietario.
 [Plan y evidencia](planes/CLINE-TRAZABILIDAD-GIT-PLAN.md).
 

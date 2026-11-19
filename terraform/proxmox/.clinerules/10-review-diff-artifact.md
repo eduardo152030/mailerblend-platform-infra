@@ -1,4 +1,4 @@
-# 19 — Diff diferencial de revisión
+# 10 — Diff diferencial de revisión
 
 Cada tarea con cambios entrega un archivo `.diff` local junto con su PR.
 La implementación inicial y cada ronda de correcciones tienen su propio
@@ -67,7 +67,7 @@ incompleto. Identifica la entrega como pendiente, con cambios sin commit.
 
 ## 4. Informe de revisión
 
-Aplica la [regla 15](15-task-commit-closeout.md). Tras el enlace al PR,
+Aplica la [regla 06](06-task-commit-closeout.md). Tras el enlace al PR,
 indica la ronda, los SHA inicial y final, la ruta del `.diff`, el número
 de archivos y líneas y el resultado de verificar el alcance. Para cambios
 sin commit, identifica el extremo final como árbol de trabajo. El SHA final

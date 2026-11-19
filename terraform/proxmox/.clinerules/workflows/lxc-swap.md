@@ -68,6 +68,6 @@ ejecutar**.
 - Solo `apply -parallelism=1 -target=proxmox_virtual_environment_container.svc["<service>"]`.
   Nunca `apply` general ni `make deploy-all`.
 - El swap se aplica en caliente; no reiniciar el CT.
-- El cierre Git sigue las reglas 03 y 15, dentro del alcance autorizado.
+- El cierre Git sigue las reglas 03 y 06, dentro del alcance autorizado.
 - Ante cualquier anomalía o cambio no esperado en el plan, **detener** y
   reportar; no avanzar.

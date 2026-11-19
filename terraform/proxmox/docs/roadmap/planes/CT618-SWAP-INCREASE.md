@@ -73,7 +73,7 @@ No se modifican `cpu`, `memory`, `disk_gb` ni ningún otro campo.
 ## 4. Cronología de ejecución (desviación del workflow)
 
 > **ADVERTENCIA**: Los pasos se ejecutaron fuera de orden, violando las reglas
-> de `16-lxc-swap-workflow-routing.md` y `clinerules/workflows/lxc-swap.md`.
+> de [la regla de swap](../../../.clinerules/07-lxc-swap-workflow-routing.md) y [su workflow](../../../.clinerules/workflows/lxc-swap.md).
 > El `terraform apply` se ejecutó directamente en producción sin PR previo,
 > sin revisión ni merge. Esta sección documenta la desviación.
 

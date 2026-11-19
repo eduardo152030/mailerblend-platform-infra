@@ -20,7 +20,7 @@ git status --short --branch
 ```
 
 1. Identifica el plan o issue existente. Si falta, define la ruta del plan
-   breve según la [regla 14](14-implementation-plans.md).
+   breve según la [regla 05](05-implementation-plans.md).
 2. Para una tarea nueva, ejecuta `git fetch origin main` y crea la rama y el
    worktree desde `origin/main` actualizado, salvo que exista otra base acordada.
    El worktree se crea fuera del checkout actual. Desde la raíz Git:
@@ -62,7 +62,7 @@ y contenga el alcance, los criterios y verificaciones, la rama, la ubicación
 relativa del worktree, la referencia base y el siguiente paso. Un plan breve
 basta para tareas pequeñas. Si el issue ya contiene estos datos, úsalo como
 referencia principal. Registra las ampliaciones antes de ejecutarlas. Captura el SHA de inicio
-de cada ronda antes de editar, según la [regla 19](19-review-diff-artifact.md).
+de cada ronda antes de editar, según la [regla 10](10-review-diff-artifact.md).
 
 En un encargo de solo planificación, el cambio del PR es el plan y, cuando
 corresponda, el seguimiento asociado. Marca el plan como propuesto hasta
@@ -70,7 +70,7 @@ que el propietario apruebe su ejecución.
 
 ## 3. Validar, publicar y enlazar
 
-Aplica el [cierre de la regla 15](15-task-commit-closeout.md) desde el
+Aplica el [cierre de la regla 06](06-task-commit-closeout.md) desde el
 worktree dedicado. Peticiones breves como «haz commit», «haz push» o
 «crea el PR» activan el cierre completo de la tarea. Un límite explícito,
 como «solo commit local», deja la publicación pendiente.

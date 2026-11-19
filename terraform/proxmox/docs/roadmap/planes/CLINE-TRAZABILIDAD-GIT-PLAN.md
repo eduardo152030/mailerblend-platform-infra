@@ -28,3 +28,10 @@
   enlazarla al cierre con PR y generar el artefacto de esta ronda.
 - Verificación: numeración, enlaces, diff de la ronda, comprobación inversa
   del parche y ausencia del artefacto en los commits.
+
+## Ronda 02 — numeración consecutiva
+
+- Baseline `d75f0a9d369497cd0c9160f2e24922fddf9cc5db`, capturado antes de editar.
+- Alcance: numerar las diez reglas activas del 01 al 10, conservando Git
+  como 03. Actualizar referencias y conservar el historial de las rondas.
+- Verificación: secuencia, títulos, enlaces locales, diff y parche de la ronda.

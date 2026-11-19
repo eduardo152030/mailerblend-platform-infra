@@ -1,4 +1,4 @@
-# 17 — Principio IaC-only: ningún cambio manual en producción
+# 08 — Principio IaC-only: ningún cambio manual en producción
 
 ## Regla principal
 
@@ -107,10 +107,10 @@ Después de cualquier `terraform apply`:
 
 ## Relación con otras reglas
 
-- `00-reasoning.md` §6 — principio IaC-only general.
-- `18-lxc-docs-workflow-routing.md` — workflow de documentación aplica
+- `01-reasoning.md` §6 — principio IaC-only general.
+- `09-lxc-docs-workflow-routing.md` — workflow de documentación aplica
   el plan guardado, validado y autorizado según el runbook.
-- `16-lxc-swap-workflow-routing.md` — workflow de swap usa
+- `07-lxc-swap-workflow-routing.md` — workflow de swap usa
   `terraform apply -target=`.
-- `11-test-command-loop-prevention.md` — las pruebas validan la IaC
+- `04-test-command-loop-prevention.md` — las pruebas validan la IaC
   antes de desplegar.

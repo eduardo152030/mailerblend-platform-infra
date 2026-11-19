@@ -7,7 +7,7 @@ desde el inicio. Vincula un plan o issue, un worktree y una rama dedicados y
 el PR de la tarea. Verifica la ruta y la rama antes de modificar archivos,
 incluidas las tareas documentales y los workflows operativos. En tareas con
 cambios, el cierre de Cline empieza con el enlace al PR verificado de ese
-worktree. Adjunta el [diff diferencial](.clinerules/19-review-diff-artifact.md)
+worktree. Adjunta el [diff diferencial](.clinerules/10-review-diff-artifact.md)
 de la ronda. Si falta el PR, la entrega queda pendiente.
 
 Antes de iniciar una tarea, leer `docs/roadmap/ROADMAP.md`,

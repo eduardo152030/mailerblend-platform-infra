@@ -1,4 +1,4 @@
-# 14 — Implementation plans: ubicación y naming en repositorio de infraestructura
+# 05 — Implementation plans: ubicación y naming en repositorio de infraestructura
 
 ## Regla principal
 
@@ -83,7 +83,7 @@ plan versionado según la [regla 03](03-git-workflow.md).
 
 Al retomar la tarea, reutiliza el mismo plan. Antes de cerrarla, actualízalo
 con lo ejecutado, las validaciones y los pendientes. Para el cierre y los
-commits locales, aplica `15-task-commit-closeout.md`.
+commits locales, aplica `06-task-commit-closeout.md`.
 
 ## Contenido mínimo del plan aprobado
 

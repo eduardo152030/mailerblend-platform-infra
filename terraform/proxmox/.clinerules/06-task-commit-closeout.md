@@ -1,4 +1,4 @@
-# 15 — Cierre de tarea: commits, PR y revisión
+# 06 — Cierre de tarea: commits, PR y revisión
 
 ## Implementación
 
@@ -16,7 +16,7 @@
    base y rama con `gh pr create --base <base> --head <rama>`. Incluye
    el enlace al plan o issue, el resumen, las pruebas y las desviaciones
    aprobadas. Registra la URL del PR en la referencia de la tarea.
-6. Genera y comprueba el [diff diferencial](19-review-diff-artifact.md)
+6. Genera y comprueba el [diff diferencial](10-review-diff-artifact.md)
    después del último commit de la ronda. Verifica el resultado final
    después del último push:
 

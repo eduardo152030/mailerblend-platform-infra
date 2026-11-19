@@ -1,4 +1,4 @@
-# 00 — Reglas de acción directa y control de bucles
+# 01 — Reglas de acción directa y control de bucles
 
 PRIORIDAD ALTA: Estas reglas controlan la ejecución, los reintentos,
 la verificación y la detención de tareas. Toda tarea empieza con
@@ -41,7 +41,7 @@ las validaciones distintas que exige el plan, el issue o el runbook.
 - Para procesos en segundo plano, consulta su estado como máximo dos veces.
   No hagas polling repetitivo.
   Para suites de tests/builds, la salida final del comando es
-  autoritativa — ver `.clinerules/11-test-command-loop-prevention.md`.
+  autoritativa — ver `.clinerules/04-test-command-loop-prevention.md`.
 
 ## 4. Detención y reporte
 
