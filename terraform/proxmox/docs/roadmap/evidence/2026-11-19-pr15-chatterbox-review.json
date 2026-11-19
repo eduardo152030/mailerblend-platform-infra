@@ -1,0 +1,78 @@
+{
+  "review_date": "2026-11-19 Europe/Madrid",
+  "pr": {
+    "number": 15,
+    "url": "https://github.com/eduardo152030/mailerblend-platform-infra/pull/15",
+    "state": "open",
+    "merged": false,
+    "head_sha": "9505e13bea69a29b398143c01db0b42487b9e6af",
+    "changed_files": [
+      "candidate-d085/chatterbox_worker.py",
+      "candidate-d085/engine_policy.py",
+      "tests/voicebox/test_d085.py"
+    ]
+  },
+  "runtime": {
+    "at_utc": "2026-11-19T15:50:16.584860+00:00",
+    "image": "sha256:218dc413361d9f928e79ece96b9979ad9041ef4f2126b7c8175cc92cf91645d6",
+    "healthy": true,
+    "source_link": "src-input1200-3987cab-r2",
+    "worker_sha256": "331f12b86aff72bb3a5d1816add1ea25f7b7c98690c01e869d367e03de202d68",
+    "worker_hash_matches_receipt": true,
+    "chunking_present": false,
+    "assign_optimization_present": true,
+    "bounded_inference_called": true,
+    "chatterbox_max_chars": 1200,
+    "max_tokens": 400,
+    "qwen_ready": true,
+    "chatterbox_ready": true,
+    "active_jobs": []
+  },
+  "local_text_only_probes": [
+    {
+      "case": "within1200_loses_tail",
+      "input_chars": 1008,
+      "chunk_lengths": [
+        250,
+        251,
+        251,
+        251
+      ],
+      "text_preserved": false,
+      "characters_lost": 5,
+      "all_chunks_at_most300": true
+    },
+    {
+      "case": "within1200_oversize_last_chunk",
+      "input_chars": 1200,
+      "chunk_lengths": [
+        299,
+        300,
+        300,
+        301
+      ],
+      "text_preserved": true,
+      "characters_lost": 0,
+      "all_chunks_at_most300": false
+    },
+    {
+      "case": "existing_PR_test_max_chunks",
+      "input_chars": 45000,
+      "chunk_lengths": [
+        300,
+        300,
+        300,
+        44100
+      ],
+      "text_preserved": true,
+      "characters_lost": 0,
+      "all_chunks_at_most300": false
+    }
+  ],
+  "pr_execute_calls_bounded_inference": false,
+  "tts_inferences": 0,
+  "audio_processed": false,
+  "production_modifications": false,
+  "merge_commit_push_or_pr_comment": false,
+  "result": "CHANGES_REQUIRED_LONG_NARRATION_NOT_VERIFIED"
+}
