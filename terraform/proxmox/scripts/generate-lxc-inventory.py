@@ -31,6 +31,35 @@ def assert_public(data):
     patterns = [r'(?i)(?:password|passwd|token|secret|container_config|authorization|connection_string)\s*["\s]*[:=]\s*[^\s,}]+',
                 r'https?://[^\s/]+:[^\s/]+@', r'-----BEGIN .*PRIVATE KEY-----', r'gh[pousr]_[A-Za-z0-9]{20,}']
     assert not any(re.search(p, text) for p in patterns), 'Potential secret detected (value withheld)'
+def validate_service_keys(declared, legacy_services=()):
+    """Validate that every declared service has the required documentation keys.
+    Returns a list of (service, error) tuples. Fails on unknown keys too."""
+    errors = []
+    for svc, data in declared.items():
+        if svc in legacy_services and 'documentation' not in data:
+            continue
+        doc = data.get('documentation', {})
+        if not isinstance(doc, dict):
+            errors.append((svc, 'documentation is not a mapping'))
+            continue
+        if 'notes' in doc:
+            errors.append((svc, 'deprecated key "notes" found; use "notes_file"'))
+        if 'inventory' in doc:
+            errors.append((svc, 'deprecated key "inventory" found; use "inventory_file"'))
+        nf = doc.get('notes_file')
+        inf = doc.get('inventory_file')
+        if not nf and not inf:
+            errors.append((svc, 'missing both "notes_file" and "inventory_file"'))
+        if nf and not isinstance(nf, str):
+            errors.append((svc, '"notes_file" is not a string'))
+        if inf and not isinstance(inf, str):
+            errors.append((svc, '"inventory_file" is not a string'))
+        allowed = {'notes_file', 'inventory_file'}
+        unknown = set(doc.keys()) - allowed
+        if unknown:
+            errors.append((svc, 'unknown documentation keys: ' + ', '.join(sorted(unknown))))
+    return errors
+
 def load(root=ROOT):
     declared = {p.stem:read_yaml(p) for p in sorted((root/'inventory/services').glob('*.yml'))}
     meta = read_yaml(root/'inventory/documentation.yml')
@@ -54,6 +83,9 @@ def load(root=ROOT):
         assert (root/m['runbook']).is_file(), 'Missing runbook: '+key
         ipaddress.ip_interface(declared[key]['service']['ip'])
     assert_public([declared,meta,observed,routes])
+    errs = validate_service_keys(declared, meta['services'])
+    if errs:
+        raise ValueError('Service key validation failed: ' + chr(10).join(s + ': ' + e for s, e in errs))
     return declared,meta['services'],observed,routes,read_yaml(root/'inventory/defaults.yml')['lxc']
 def domains_for(ip,routes):
     groups={g['name']:g['servers'] for g in routes.get('upstream_groups',[])}
@@ -147,7 +179,6 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--check',action='store_true');ap.add_argument('--root',type=Path,default=ROOT);args=ap.parse_args();ROOT=args.root.resolve()
     notes,markdown=build(ROOT);outputs={ROOT/'inventory/generated/lxc-notes.json':json.dumps(notes,ensure_ascii=False,indent=2)+'\n',ROOT/'docs/inventory/LXC-INVENTORY.md':markdown}
     sources = [ROOT/'inventory/documentation.yml', ROOT/'inventory/lxc-observed.json', ROOT/'docs/inventory/routing-observed.json', ROOT/'inventory/defaults.yml', ROOT/'scripts/generate-lxc-inventory.py', ROOT/'scripts/lxc_provisioning.py', ROOT/'templates/lxc-notes.tftpl'] + sorted((ROOT/'inventory/services').glob('*.yml'))
-    sources += [ROOT/d['documentation']['notes_file'] for d in (read_yaml(p) for p in sorted((ROOT/'inventory/services').glob('*.yml'))) if d.get('documentation',{}).get('notes_file')]
     sources += [ROOT/d['documentation']['notes_file'] for d in (read_yaml(p) for p in sorted((ROOT/'inventory/services').glob('*.yml'))) if d.get('documentation',{}).get('notes_file')]
     sources += [ROOT/d['documentation']['inventory_file'] for d in (read_yaml(p) for p in sorted((ROOT/'inventory/services').glob('*.yml'))) if d.get('documentation',{}).get('inventory_file')]
     manifest = {str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}

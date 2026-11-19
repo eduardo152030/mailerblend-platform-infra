@@ -58,4 +58,63 @@ class InventoryTests(unittest.TestCase):
  def test_unexpected_description_and_resource_block_apply(self):
   self.assertFalse(p.review(self.plan(),{'x':'different'})['apply_permitted'])
   x=self.plan();x['resource_changes'][0]['type']='other';self.assertFalse(p.review(x,{'x':'new'})['apply_permitted'])
+
+class ValidateServiceKeysTests(unittest.TestCase):
+    """Tests for validate_service_keys() in generate-lxc-inventory.py"""
+    def _load_declared(self, svc_name, doc_dict):
+        """Helper to create a minimal declared dict for testing."""
+        return {svc_name: {'documentation': doc_dict}}
+
+    def test_legacy_metadata_allows_absent_block_only(self):
+        self.assertEqual(g.validate_service_keys({'legacy': {}}, {'legacy'}), [])
+        self.assertTrue(g.validate_service_keys({'legacy': {'documentation': {}}}, {'legacy'}))
+
+    def test_deprecated_notes_key_is_rejected(self):
+        result = g.validate_service_keys(self._load_declared('svc', {'notes': 'foo'}))
+        self.assertTrue(any('deprecated key' in e[1] for e in result))
+        self.assertTrue(any('notes_file' in e[1] for e in result))
+
+    def test_deprecated_inventory_key_is_rejected(self):
+        result = g.validate_service_keys(self._load_declared('svc', {'inventory': 'foo'}))
+        self.assertTrue(any('deprecated key' in e[1] for e in result))
+        self.assertTrue(any('inventory_file' in e[1] for e in result))
+
+    def test_missing_both_notes_and_inventory_is_rejected(self):
+        result = g.validate_service_keys(self._load_declared('svc', {}))
+        self.assertTrue(any('missing both' in e[1] for e in result))
+
+    def test_valid_notes_file_only_passes(self):
+        result = g.validate_service_keys(self._load_declared('svc', {'notes_file': 'NOTES.md'}))
+        self.assertEqual(result, [])
+
+    def test_valid_inventory_file_only_passes(self):
+        result = g.validate_service_keys(self._load_declared('svc', {'inventory_file': 'INV.md'}))
+        self.assertEqual(result, [])
+
+    def test_valid_both_files_passes(self):
+        result = g.validate_service_keys(self._load_declared('svc', {'notes_file': 'NOTES.md', 'inventory_file': 'INV.md'}))
+        self.assertEqual(result, [])
+
+    def test_unknown_documentation_keys_are_rejected(self):
+        result = g.validate_service_keys(self._load_declared('svc', {'notes_file': 'NOTES.md', 'unknown_key': 'foo'}))
+        self.assertTrue(any('unknown documentation keys' in e[1] for e in result))
+
+    def test_non_string_notes_file_is_rejected(self):
+        result = g.validate_service_keys(self._load_declared('svc', {'notes_file': 123}))
+        self.assertTrue(any('not a string' in e[1] for e in result))
+
+    def test_non_string_inventory_file_is_rejected(self):
+        result = g.validate_service_keys(self._load_declared('svc', {'inventory_file': 456}))
+        self.assertTrue(any('not a string' in e[1] for e in result))
+
+    def test_documentation_not_a_mapping_is_rejected(self):
+        result = g.validate_service_keys(self._load_declared('svc', 'not a dict'))
+        self.assertTrue(any('not a mapping' in e[1] for e in result))
+
+    def test_multiple_services_report_all_errors(self):
+        result = g.validate_service_keys({
+            'svc-a': {'documentation': {'notes': 'old'}},
+            'svc-b': {'documentation': {}},
+        })
+        self.assertEqual(len(result), 4)  # deprecated notes + missing both + unknown key for svc-a, missing both for svc-b
 if __name__=='__main__':unittest.main()

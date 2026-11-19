@@ -1,3 +1,41 @@
+## CLINE-LXC-LOOKUP — DONE documental
+
+19/11/2026, Europe/Madrid. Fase 7. El propietario detuvo la prueba de CT611.
+La traza confirma lectura del workflow y runbook; la búsqueda recursiva no
+resolvió el VMID y alcanzó salidas de `.runtime`. Se corrigió el workflow:
+búsqueda exacta en YAML, una coincidencia validada para 611 (infra-grafana),
+modo CREAR por ausencia de ficha. Prueba local del comando y diff PASS.
+Alcance documental. CT611 sin plan ni aplicación; siguiente: el propietario
+repite «documentar CT611» en Cline. Fase 7 global IN PROGRESS.
+El propietario autorizó publicar en `origin/main` el workflow, la
+documentación de CT610 y sus cambios asociados de inventario y pruebas.
+
+## CT610-NOTES-20261119 — DONE técnico
+
+19/11/2026, Europe/Madrid. Fase 7. IaC Reliability, Security & Disaster Recovery.
+Revisión del PR #16 (`832e1b73`). Lectura por API PVE vía SSH estricto: CT610
+conserva una descripción de 43 caracteres distinta de la nota fuente.
+En una copia del commit, el manifiesto quedó desactualizado y el generador
+ignoró `notes` e `inventory`. Al corregir las claves, la etiqueta de Telegram
+activó el filtro de secretos por la referencia a una ruta. Con ambas correcciones
+en la copia, generación, `--check`, igualdad con la fuente y 16 pruebas PASS.
+La validación global añadida en la copia de trabajo bloquea 12 servicios legacy.
+El runbook también pasa el plan binario a un validador que espera JSON.
+Seguimiento 19/11: ficha y Notes actualizadas con lectura real (25 GiB, 16 GiB
+disponibles, componentes y puertos vigentes). Generador compatible con metadatos
+legacy, workflow y runbook corregidos. Frescura, 28 pruebas, Terraform validate y
+diff PASS. Solo cambia la nota generada de CT610. Terraform acotado con TLS:
+primer plan bloqueado por retirada de la etiqueta IP. Se declaró la etiqueta
+existente y el segundo plan guardado dio PASS con un cambio, `description`.
+El propietario autorizó aplicar ese plan. Resultado Terraform: 0 altas,
+1 cambio, 0 bajas. La API PVE verificó igualdad byte por byte de la nota
+(SHA256 `295b31e460b7ca3eb3fef619e1c370499ad1dadfe1311e62d0a79a3c7e29defa`)
+y configuración restante idéntica, excluido el digest. Segundo plan
+acotado con TLS: cero cambios. Copia previa guardada en privado.
+Fase 7 global IN PROGRESS. Sin commit ni push. Siguiente: usar el workflow
+de Cline con el próximo CT solicitado; esta autorización cubrió solo CT610.
+[Ejemplo ejecutado](../runbooks/LXC-DOCUMENTATION-PROCESS.md#7-ejemplo-ejecutado--ct610-19112026).
+
 ## CT610-DISK-20261114 — DONE técnico
 
 14/11/2026, Europe/Madrid. Fase 7. IaC Reliability, Security & Disaster Recovery

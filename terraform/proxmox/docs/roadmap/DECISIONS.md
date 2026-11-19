@@ -2811,3 +2811,11 @@ completoSHA256/zstd/tar/configPASS, sin reinicios ni otrosCT. Segunda aplicació
 0escrituras; Prometheus/AM sinHostDiskFilling, exportersUP. No restauraciónfuncional
 ni recepciónhumanaTelegram verificadas. Mantener respaldos y vigilancia habitual;
 Fase7 globalIN PROGRESS. [Informe](CT610-DISK-20261114.md).
+
+
+## CT610-NOTES-20261119 — autorización de aplicación
+
+19/11/2026, Europe/Madrid. El propietario aprobó el plan previamente validado
+que actualizaba únicamente `description` de CT610. Aplicación y verificación
+de PVE completadas, con plan posterior sin cambios. Autorización limitada
+a ese plan y CT. [Cierre](CURRENT-STATUS.md#ct610-notes-20261119--done-técnico).
