@@ -1,0 +1,74 @@
+# CT618 — contrato de migración de las tres aplicaciones CRM
+
+[PR #34](https://github.com/eduardo152030/mailerblend-platform-infra/pull/34) · [Issue #22](https://github.com/eduardo152030/mailerblend-platform-infra/issues/22) · [Plan de migración](CRM-UI-MIGRATION-PLAN.md). Fase 7, IaC Reliability, Security & Disaster Recovery. Diagnóstico ejecutado el 19/11/2026, 21:31 CET. Estado IN PROGRESS en revisión. Rama `docs/crm-ui-issue-22`, worktree hermano `mailerblend-platform-infra-crm-22`, inicio `2175f1b4` (base origin/main). Solo lectura de producción. Sin UAT ni pruebas funcionales de escritura. La matriz registra explícitamente la evidencia que falta.
+
+## Línea base de NT_Crm_FormEntries
+
+Origen legado común a las filas de UI: aplicación identificada por el propietario como NT_Crm_FormEntries, accesible a través del dominio compartido. El inventario autenticado de pantallas, campos, permisos y automatizaciones de esa app no está disponible en Git ni se verificó con una cuenta de auditoría. Para esas filas, el origen describe la responsabilidad a localizar en el catálogo legado, sin asignar un nombre de pantalla no observado. Roles en la tabla son perfiles de prueba propuestos. Los roles efectivos y la lista de usuarios quedan pendientes. Responsable funcional por confirmar por el propietario; el equipo CRM es responsable técnico propuesto de UI/API, y el dueño de cada integración confirma sus efectos. Las rutas de API se expresan bajo `/v1` interno, publicado bajo `/_svc/v1`.
+
+| Origen / flujo | Destino Lovable y contrato | Rol, registro y efecto | Prueba de aceptación prevista y evidencia actual |
+| --- | --- | --- | --- |
+| Acceso y selección del proyecto | `/` y `CRMLayout`; el selector navega a `/dashboard`. La UI carece de sesión y guardas. | Usuario habilitado del proyecto; identidades y permisos legacy en CouchDB. Inspección de roles pendiente. | Sesión válida, expiración, logout y acceso directo / cruzado denegado. Bloqueo #25/#26. |
+| Resumen CRM | `/dashboard` (`Index.tsx`), consultas de contactos, oportunidades, pendientes y presupuestos. El dashboard también consulta gastos y su serie temporal, e incluye un panel LSS. | Lector autorizado; datos PostgreSQL vía CRMAPI; lectura. | Comparar totales, filtros y vacíos con datos sintéticos. Contratos base publicados; equivalencia de KPIs legacy pendiente. Para el corte #28, probar con un usuario de FormEntries que el dashboard no consulta ni presenta datos financieros o LinkedIn fuera de sus permisos, y acordar cómo quedan esos paneles. |
+| Clientes y altas | `/contactos`; GET/POST `/contacts`, GET `/contacts/{id}` y `/snapshot`. | Lector/editor; PostgreSQL, alta y potencial deduplicación según contrato. | Probar listado y detalle, alta repetida y filtros. OpenAPI de listado solo declara `limit`, `offset`, `q`. Revisar `estado`, `origen`, `pack_asignado`, `tipo_empresa` y límites de score enviados por Lovable. El botón Editar abre el formulario con valores existentes, pero Guardar llama a la misma mutación de alta (POST, sin ID). El mensaje «Contacto actualizado» depende del modo del diálogo. Bloqueo del #28: demostrar actualización del mismo ID sin alta ni mensaje de éxito engañoso, o retirar esa acción del alcance acordado. |
+| Gestión de oportunidades | `/oportunidades`; GET colección, GET/PATCH por ID y GET snapshot; hooks de pendientes y presupuestos relacionados. | Comercial/editor; PostgreSQL; cambio de estado y tareas asociadas. | Probar transición válida/inválida, relaciones, duplicados y persistencia posterior. Contrato método/ruta publicado; automatizaciones y roles legacy pendientes. |
+| Tareas | `/pendientes` y detalle de oportunidad; GET/POST colección, GET/PATCH por ID y GET `/metadata/allowed-values`. | Editor asignado y supervisor de prueba; PostgreSQL; tarea y asignación. | Crear, reasignar y cambiar estado usando valores admitidos; comprobar tareas vinculadas. API también declara DELETE, cuya necesidad en legado requiere confirmación. |
+| Presupuestos | `/presupuestos` y bloques contextuales; GET/POST colección y GET/PATCH por ID. | Comercial/editor; PostgreSQL; escritura vinculada a oportunidad. | Fixture para importes, estado y persistencia; comprobar efectos posteriores con responsable comercial. API también declara DELETE; uso en legado pendiente. |
+| Atribución e historial | `/utm`, timeline contextual; GET `/utm`, detalle, `/stats`, `/stats2`, `/stats-conversions` y `/timeline`. | Analista/lector; PostgreSQL; lectura. | Contrastar rangos, agrupaciones y relaciones esperadas. El selector actual asigna UTM a FormEntries. Confirmar ownership antes de extender a Smart management. |
+| Conversiones offline | `/conversiones`; GET `/conversiones-offline`, `/stats` y por ID; POST `/conversiones-offline/{id}/retry`. | Analista y operador de reintento; PostgreSQL según esquema; reintento puede disparar integración externa. Dueño y semántica pendientes. | Las cuatro operaciones faltan en OpenAPI desplegado. Definir contrato o diferir el flujo con aceptación explícita. Probar cola/histórico y reintento idempotente con destino simulado. |
+| Intake web externo | `POST /intake/webform` en CRMAPI; no hay llamada equivalente en el cliente Lovable. Se mantiene como integración de servicio. | Productor externo autenticado con control propio; PostgreSQL; puede crear o actualizar contactos y oportunidades. | Usar `database-schemas/golden_test_intake_webform*.sh` con URLs, credenciales y datos de prueba aislados; probar duplicado, autorización negativa y no duplicación de efectos. Documentación menciona n8n/Lambda/lead-ingest; confirmar configuración y propietarios efectivos. |
+| Adjuntos, objetos y automatizaciones legacy | Destino por decidir tras exportar metadatos y dependencias de la aplicación. Mantener operación existente durante inventario. | Operador autorizado; CouchDB para configuración, MinIO en `/data` y Redis persistente potencialmente con colas; PostgreSQL para negocio. | Registrar por app los adjuntos requeridos, disparadores, destinos y dueño; verificar restauración aislada #27. Sin catálogo autenticado, no se puede probar que un cambio es solo visual. |
+
+## Límites de las siguientes aplicaciones
+
+| Proyecto / origen legacy pendiente de cotejo | Destino y contrato | Rol, registro y efecto | Evidencia y prueba prevista |
+| --- | --- | --- | --- |
+| Smart management, Gestión inteligente | `/gastos` y `/proveedores`; GET/POST colecciones, GET/PATCH por ID, informes y agregados de gastos; GET `/gastos/stats-summary` invocado por cliente y ausente del contrato. | Finanzas lector/editor; PostgreSQL; altas/ediciones de gastos y proveedores; responsable financiero por confirmar. | API declara filtro `project_key` en gastos. Probar aislamiento, estados y totales por fixture, resolver el agregado faltante y confirmar informes/adjuntos legacy en #29. UTM y conversiones pertenecen al menú FormEntries en la UI actual. |
+| NT_LinkedIn Stealth Sourcing | `/linkedin-sourcing`; dashboard, leads, importación, detalle, aprobaciones, conversaciones, outcomes y configuración bajo `/linkedin-sourcing`. Dashboard sí declarado; GET `/linkedin-sourcing/leads/stats` no declarado. | Operador, aprobador y administrador de configuración propuestos; PostgreSQL y sistemas de automatización por confirmar; acciones pueden iniciar flujos externos. | Revisar referencias de constantes y fixtures frente a datos reales, comprobar aislamiento y transiciones con destinos simulados. Dueño operativo, colas y clientes pendientes; #30. |
+
+## Evidencia y decisiones pendientes
+
+- GET HTTPS de `/_svc/openapi.json` con TLS verificado y GET por PVE SSH estricto de `http://192.168.1.118:18088/openapi.json` desde CT618. Los dos JSON son iguales como objetos. Comparación por método y plantilla normalizada de parámetro: 79 operaciones cliente, 94 desplegadas, 73 coincidencias, seis faltantes detalladas arriba. Esta comprobación detecta diferencias de superficie. Payloads y respuestas requieren fixtures. El esquema carece de `securitySchemes` y declaraciones de seguridad por operación. Intake anuncia `X-Ingest-Secret`; revisar controles efectivos de servidor, sesión y acceso directo en #25 sin inferirlos del esquema.
+- Docker, por PVE de solo lectura: la red `nucleo_network` muestra `budibase-app`, `budibase-couchdb`, `budibase-redis`, `crm-api` y `supabase-db`. Persistencia observada en /data de la app y Redis, /opt/couchdb/data y el directorio de datos PostgreSQL. El [runbook](../../../services/infra-composable-crm/recovery/RECOVERY.md) identifica objetos MinIO y Redis RDB/AOF. Los miembros de red no prueban quién consume cada servicio; falta inventario de configuraciones efectivas y telemetría sanitizada durante ventana acordada. Bloquea la retirada #31.
+- El [inventario de routing](../../inventory/routing-observed.json) identifica el nombre compartido y ambos upstreams del CT. Se confirma la ruta pública del esquema y la ruta directa desde CT. No se verificó titularidad del DNS ni se identificó una fuente declarativa autorizada para editar el router real. Confirmar con el propietario en #24; distinguir revisión de alcance, DNS y cambios TLS.
+- Para cerrar los pendientes del catálogo legado, usar una cuenta de auditoría aprobada o un export privado sanitizado por proyecto con identificadores de pantallas y permisos, lista de adjuntos y vínculos de automatización. No se imprimieron secretos, datos CRM, cuentas ni cuerpos de registros. La remediación de la credencial documentada se sigue en #23.
+- Decisiones propuestas pendientes: proveedor de identidad y mapeo de roles (#25/#26), hostname y fuente IaC de DNS/proxy (#24), responsables de automatizaciones y período de retención (#27/#31). El primer corte #28 queda bloqueado hasta resolver estos puntos para FormEntries y aceptar la paridad, incluida la decisión sobre conversiones. Continuar revisión del #22. Ninguna operación de producción autorizada o ejecutada por este diagnóstico.
+
+## Cotejo del catálogo documentado de FormEntries
+
+Ronda 02, 19/11/2026 Europe/Madrid. Inicio `d7dba562`. Fuentes: [guía funcional](../../../services/infra-composable-crm/database-schemas/crm_guia_v2_completa.md), [ERD y pantallas recomendadas](../../../services/infra-composable-crm/database-schemas/crm_diagrama_v2_completo.md), [esquema SQL](../../../services/infra-composable-crm/database-schemas/00_crm_schema_v2_robusto.sql), [implementación de intake](../../../services/infra-composable-crm/api/app/routers/v1/intake.py), [golden test](../../../services/infra-composable-crm/database-schemas/golden_test_intake_webform2.sh) y [detalle de contacto en Lovable](../../../services/infra-composable-crm/compose/budibase/crm-core-main/src/pages/ContactosPage.tsx). El ERD describe recomendaciones. Su presencia permite contrastar funciones, pero no certifica qué pantallas están publicadas.
+
+| Responsabilidad documentada | Correspondencia y criterio para el primer corte |
+| --- | --- |
+| Respuestas y atribución de formularios | La guía enlaza `formulario_web`, `parametros_utm`, contactos, oportunidades e historial. Lovable muestra formularios y atribución en el detalle del contacto. Verificar con un fixture que cada respuesta queda asociada al contacto correcto y conserva mensaje, servicio, urgencia, consentimiento y atribución. Confirmar si el legado ofrece además listado global o edición de respuestas. |
+| Captación web y triage | El router requiere nombre, email y un objeto de formulario con servicio y mensaje. UTM y consentimientos tienen sus propios campos; urgencia pasa una validación específica. La transacción reutiliza el contacto por email, inserta la respuesta y escribe oportunidad e historial según el triage. Dedupe del contacto no equivale a idempotencia del envío: no se observa contrato `Idempotency-Key` en OpenAPI ni en el handler. En #28, repetir el envío en un entorno aislado y contar respuestas, oportunidades y eventos además de contactos. Confirmar si algún productor deduplica antes de invocar CRMAPI. |
+| Pipeline comercial | El ERD propone Kanban y arrastre. Lovable ofrece listado, detalle y actualización de oportunidad. La matriz requiere comprobar con el propietario si el gesto de arrastre es un requisito o si basta con cambiar el estado desde el detalle. |
+| Tareas y calendario | El ERD propone vistas mensual y semanal, prioridades y avisos. Lovable tiene listado y edición de pendientes. Verificar si el calendario y los disparadores de vencimiento están en uso antes de retirar rutas legacy. |
+| Presupuestos y facturas | La guía y el ERD describen estados, plantillas, PDFs y seguimiento de cobros. Lovable ofrece listado de presupuestos y muestra facturas relacionadas en el snapshot de contactos. El router del primer corte no acredita un flujo de facturación autónomo ni generación de PDF. Confirmar qué funciones se usan y de dónde se sirven los documentos. |
+| Roles, adjuntos y automatizaciones | La guía propone RLS y el runbook confirma persistencia de metadatos y objetos. Mantener pendientes la matriz efectiva por aplicación, los destinos de automatización y los objetos exigidos por cada flujo. |
+
+Resultado: cotejo documental ampliado. El catálogo efectivo sigue pendiente. Los golden tests contienen llamadas POST y no se ejecutaron durante la auditoría. En la revisión de #22, confirmar si el alcance documental y los bloqueos explícitos satisfacen el criterio del issue y mantener los pendientes como condiciones de aceptación de #28.
+
+## Qué revisar antes de avanzar
+
+Ronda 03, 19/11/2026 Europe/Madrid. Inicio `157abb5f`. Inspección estática de
+`ContactosPage.tsx`, `hooks/use-api.ts`, `lib/api.ts` y del router `contacts.py`.
+Los cuatro métodos de Conversiones Offline tienen consumidores en hooks.
+Las rutas faltantes de resumen de Gastos y estadísticas de leads LinkedIn
+aparecen únicamente como definiciones en `lib/api.ts` en esta revisión.
+Verificar su necesidad en #29 y #30 antes de implementar endpoints.
+
+- **Para aceptar la auditoría #22:** revisar este PR y decidir si el catálogo
+  publicado debe cotejarse antes de cerrar el issue o si sus incógnitas quedan
+  como condiciones obligatorias del #28. La aceptación del inventario no
+  equivale a aceptar la migración.
+- **Información funcional mínima:** identificar formularios publicados y
+  roles que realmente usan FormEntries. Confirmar si edición de contactos,
+  Conversiones Offline, calendario, Kanban, PDFs/facturas, adjuntos y
+  automatizaciones se usan y quién puede aprobar sus pruebas. Una revisión
+  guiada de pantallas y reglas puede cubrir ese contraste sin compartir
+  contraseñas ni registros.
+- **Siguiente trabajo de seguridad:** #23 puede preparar de forma local la
+  retirada del valor expuesto y su receta de rotación/rollback. La ejecución
+  sobre CT618 requiere autorización y ventana. DNS, proveedor de identidad
+  y UAT se resuelven antes de los pasos dependientes, no en la auditoría.
