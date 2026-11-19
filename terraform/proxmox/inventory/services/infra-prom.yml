@@ -10,5 +10,10 @@ resources:
   disk_gb: 25
 
 tags:
+  - 192.168.1.110
   - monitoring
   - prometheus
+
+documentation:
+  notes_file: services/infra-prom/NOTES.md
+  inventory_file: docs/inventory/610-LXC-INVENTORY.md

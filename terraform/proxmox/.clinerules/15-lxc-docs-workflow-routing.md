@@ -26,13 +26,12 @@ pasos.
 4. SSH al CT **solo lectura**; SSH estricto
    (`UserKnownHostsFile=$HOME/.ssh/known_hosts`, `StrictHostKeyChecking=yes`,
    `BatchMode=yes`).
-5. Solo `terraform apply -parallelism=1 -target=proxmox_virtual_environment_container.svc["<service>"]`.
-   Nunca `apply` general ni `make deploy-all`.
-6. Si falta `<service>`/`<CT>` o el modo (CREAR/ACTUALIZAR) es ambiguo,
-   preguntar antes de ejecutar.
+5. Aplicar únicamente el binario acotado, validado y autorizado según §6 del runbook.
+6. Deducir CREAR/ACTUALIZAR de la existencia de la ficha. Preguntar si
+   falta la identidad o hay más de una coincidencia.
 
 ### Ejemplos de invocación
 
-- "documentar CT621" → dispara `lxc-docs.md` → MODO CREAR.
+- "documentar CT621" → dispara `lxc-docs.md` → elegir modo según existencia de la ficha.
 - "actualizar la ficha de infra-pulpo" → MODO ACTUALIZAR.
 - "sincronizar Notes de infra-excraper" → regenerar + plan + validar + STOP.

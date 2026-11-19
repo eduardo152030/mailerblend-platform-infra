@@ -9,7 +9,7 @@ No se atribuye un dominio por su nombre. Recursos distintos no se reconcilian aq
 
 | CT | Servicio | Funcionalidad | IP | Dominio según proxy | Aplicaciones activas | Documentación | Runbook |
 |---|---|---|---|---|---|---|---|
-| 610 | infra-prom | Recolección de métricas y enrutamiento de alertas | 192.168.1.110 | Not verified | eloquent_ganguly, prometheus, alertmanager | Parcial: observación verificada; funcionalidad pendiente | [PHASE2-EXECUTION.md](../../services/infra-prom/PHASE2-EXECUTION.md) |
+| 610 | infra-prom | Recolección de métricas y enrutamiento de alertas | 192.168.1.110 | Not verified | eloquent_ganguly, prometheus, alertmanager | Parcial: observación verificada; funcionalidad pendiente | [610-LXC-INVENTORY.md](../../docs/inventory/610-LXC-INVENTORY.md) |
 | 611 | infra-grafana | Visualización de métricas con Grafana | 192.168.1.111 | Not verified | grafana | Parcial: observación verificada; funcionalidad pendiente | [CRITICAL-D039-EXECUTION.md](../../docs/roadmap/CRITICAL-D039-EXECUTION.md) |
 | 613 | infra-hola | Servicio demo hola declarado; aplicación no observada en ejecución | 192.168.1.113 | Not verified | Sin aplicación Docker activa | Parcial: observación verificada; funcionalidad pendiente | [R1-613.md](../../docs/roadmap/R1-613.md) |
 | 614 | infra-nucleoedge | Google Tag Manager Server-Side de Núcleo Tecnológico | 192.168.1.114 | edge.nucleotecnologico.es | infra-nucleoedge-sgtm-1, infra-nucleoedge-sgtm_preview-1 | Parcial: observación verificada; funcionalidad pendiente | [614-LXC-INVENTORY.md](../../docs/inventory/614-LXC-INVENTORY.md) |
@@ -32,39 +32,7 @@ No se atribuye un dominio por su nombre. Recursos distintos no se reconcilian aq
 
 ## CT 610 — infra-prom
 
-**Función:** Recolección de métricas y enrutamiento de alertas
-**Entorno:** Not verified | **Categoría:** Observabilidad
-**Proyecto:** infra-prom | **Ciclo de vida:** En servicio (LXC en ejecución; aceptación funcional independiente)
-
-**Infraestructura declarada:** CT 610 | IP 192.168.1.110/24 | CPU 2 | RAM 2048 MiB | disco 25 GiB
-**Observada (2026-11-06T21:45:05.721883+00:00):** nodo pve | status: running | CPU 2 | RAM 2048 MiB | rootfs local-lvm:vm-610-disk-0,size=10G | SO Ubuntu 22.04.5 LTS
-
-**Aplicaciones observadas (estado de proceso, no prueba funcional):**
-- eloquent_ganguly: Not verified: Alertmanager adicional sin puertos publicados; puertos sin publicación; Docker not configured; imagen prom/alertmanager:v0.33.0
-- prometheus: Series temporales y evaluación de reglas; puertos *:9090->9090/tcp; Docker not configured; imagen prom/prometheus:v3.12.0
-- alertmanager: Agrupación y envío de alertas Telegram; puertos *:9093->9093/tcp; Docker not configured; imagen prom/alertmanager:v0.33.0
-
-**Dominios:** Not verified (asociación de upstream en Nginx CT109; no prueba pública extremo a extremo).
-**Dependencias declaradas en Compose:** Not verified / no depends_on declarado
-Dependencias externas y su disponibilidad: Not verified.
-
-**Operación:**
-- Healthchecks: eloquent_ganguly: not configured; prometheus: not configured; alertmanager: not configured
-- Monitorización: Node Exporter :9100, cAdvisor :8085; aceptación F4 D041. Estado actual de targets: comprobar Prometheus, no inferir de Docker.
-- Alertas: Prometheus -> Alertmanager -> Telegram; cobertura específica de aplicación Not verified.
-- Despliegue: Compose del servicio y procedimiento del runbook; no usar deploy-all.
-- Configuración activa observada: /opt/exporter-phase4-pilot/integration-20261106T174253610Z-610/cadvisor.yml,/opt/exporter-phase4-pilot/integration-20261106T174253610Z-610/cadvisor-limits.yml,/opt/exporter-phase4-pilot/integration-20261106T174253610Z-610/cadvisor-containerd.yml; /opt/exporter-phase4-pilot/integration-20261106T174253610Z-610/node.yml,/opt/exporter-phase4-pilot/integration-20261106T174253610Z-610/node-limits.yml,/opt/exporter-phase4-pilot/integration-20261106T174253610Z-610/node-cgroup.yml; /opt/infra-prom/docker-compose.yml
-- IaC: inventory/services/infra-prom.yml; services/infra-prom/ (puede contener configuración histórica; contrastar con activa).
-- Runbook: services/infra-prom/PHASE2-EXECUTION.md
-
-**Repositorio IaC:** https://github.com/eduardo152030/mailerblend-platform-infra
-**Repositorio de aplicación:** Not verified
-**Funcionalidad confirmada:** Not verified: esta tarea no certifica funcionalidad de negocio
-**Pendiente:** Entorno y responsable operativo por confirmar; Repositorio de aplicación independiente por confirmar; Prueba funcional y dependencias externas pendientes
-
-**Conservados detenidos (no reactivar automáticamente):** node_exporter-pre-phase4-610, cadvisor-pre-phase4-610
-
-**Nota previa conservada:** Managed by Terraform - Service: infra-prom
+Ficha principal: [610-LXC-INVENTORY.md](../../docs/inventory/610-LXC-INVENTORY.md). No duplicar aquí su contenido.
 
 ## CT 611 — infra-grafana
 

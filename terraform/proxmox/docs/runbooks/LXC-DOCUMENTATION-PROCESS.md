@@ -78,18 +78,19 @@ Por eso **regenerar antes de planear es obligatorio**, no opcional.
 
 ## 2. Reglas de seguridad (aplican a AMBOS modos)
 
-1. **Acceso al CT solo lectura.** SSH a `infra-pulpo` / `infra-excraper`
-   (o el alias del CT) **solo** para leer estado: `pct status`, `pct config`,
-   `docker ps`, `docker inspect`, `cat` de compose, `df`, `free`. **Nunca**
-   `pct start/stop/restart/destroy`, `docker down -v`, `prune`, `rm`, ni
-   escritura de configuración.
-2. **SSH estricto.** Usar siempre `UserKnownHostsFile=$HOME/.ssh/known_hosts`,
-   `StrictHostKeyChecking=yes`, `BatchMode=yes`. No aceptar `keyscan` como
-   verificación de identidad. (Ver D-025 reanudado.)
+1. **Lecturas por SSH.** En el nodo PVE se ejecutan `pvesh`, `pct status`
+   y `pct config`. Dentro del CT se ejecutan `hostname`, `df`, `free`
+   y consultas de Docker. Usar la ruta de §3 paso 2 también en ACTUALIZAR.
+2. **SSH estricto desde el primer intento.** Usar
+   `UserKnownHostsFile=$HOME/.ssh/known_hosts`, `StrictHostKeyChecking=yes`
+   y `BatchMode=yes`. Si falla la clave del alias del CT, usar un nodo PVE
+   ya verificado y `pct exec` para las consultas internas. Si PVE tampoco
+   se puede verificar, detener las lecturas remotas y reportar el bloqueo.
+   Mantener la verificación activa, sin `keyscan` como prueba de identidad
+   ni cambios en la configuración SSH del propietario.
 3. **Nunca `terraform apply` general ni `make apply`/`make deploy-all`.**
-   Solo `terraform apply -parallelism=1 -target=proxmox_virtual_environment_container.svc["<service>"]`
-   y **solo** tras el paso de validación del plan (§4 paso 6) y confirmación
-   explícita del usuario.
+   Aplicar únicamente el binario acotado y validado según §6, tras
+   confirmación explícita del usuario.
 4. **Regla de parada del plan.** Si el plan muestra **cualquier** cambio que
    no sea `description` del CT objetivo (tags, memory, cpu, disk, start_on_boot,
    otro recurso, otro CT) → **PARAR**. No aplicar. Reportar el diff y pedir
@@ -115,22 +116,43 @@ este runbook solo documenta.
 
 ### Paso 1 — Confirmar identidad y alcance
 - `inventory/services/<service>.yml`: `service.vmid`, `service.name`, `service.ip`.
-- Confirmar con el usuario el CTID y que el modo es **CREAR** (no existe
-  `docs/inventory/<CT>-LXC-INVENTORY.md`).
+- Confirmar el CTID en el inventario y elegir **CREAR** si falta
+  `docs/inventory/<CT>-LXC-INVENTORY.md`.
 
 ### Paso 2 — Lectura de estado real (SSH solo lectura)
-Con el alias del CT (p. ej. `infra-pulpo`), comandos **solo lectura**:
 
-```sh
-ssh infra-pulpo 'pct status 619; pct config 619 | grep -E "hostname|cores|memory|rootfs|net0|tags"'
-ssh infra-pulpo 'docker ps --format "{{.Names}}\t{{.Status}}\t{{.Ports}}"'
-ssh infra-pulpo 'docker inspect --format "{{.Config.Image}}" <container>'
-ssh infra-pulpo 'cat /opt/<app>/docker-compose.yml'   # o la ruta real del compose
-ssh infra-pulpo 'df -h; free -h'
+**Primero, PVE.** El alias habitual del nodo es `pve`. Confirma el nodo
+propietario del VMID en el clúster si hay varios nodos. Ejecuta `pct` solo
+en ese nodo. Ejemplo para CT611:
+
+```bash
+ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" -o StrictHostKeyChecking=yes -o BatchMode=yes pve \
+  'pct status 611 && pct config 611 | grep -E "^(hostname|cores|memory|swap|rootfs|net0|tags):"'
 ```
 
-Registrar: estado RUNNING, hostname, CPU/RAM/rootfs reales, contenedores
-activos, puertos, imágenes, compose activo. **No ejecutar nada mutante.**
+**Después, dentro del CT.** El propietario suele conectarse con
+`ssh infra-grafana`. Para automatizar la lectura, prueba el alias con SSH
+estricto. El alias del CT abre el sistema invitado, donde `pct` no existe.
+
+```bash
+ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" -o StrictHostKeyChecking=yes -o BatchMode=yes infra-grafana hostname
+```
+
+Si el hostname coincide, usa ese acceso para las lecturas internas. Si la
+clave del alias no está verificada, usa el nodo PVE ya verificado para esas
+mismas lecturas. Este ejemplo se probó con CT611:
+
+```bash
+ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" -o StrictHostKeyChecking=yes -o BatchMode=yes pve \
+  'pct exec 611 -- sh -c '"'"'hostname; df -h /; free -m; sed -n "/^PRETTY_NAME=/p" /etc/os-release; if command -v docker >/dev/null 2>&1; then docker ps -a --format "{{.Names}} | {{.Image}} | {{.Status}} | {{.Ports}}"; else printf "Docker CLI no encontrada\n"; fi'"'"''
+```
+
+Sustituye VMID y alias por los del CT solicitado. Si el CT está parado,
+registra ese estado y omite las lecturas internas. Registra por separado
+un fallo de SSH, un error de Docker y la ausencia de la CLI. Evita agrupar
+todo bajo `|| echo "no docker"`. Documenta valores observados y conserva
+como pendientes los datos que falten. Para inspeccionar Docker, limita
+la salida a los campos necesarios, sin volcar el entorno.
 
 ### Paso 3 — Crear la ficha
 Crear `docs/inventory/<CT>-LXC-INVENTORY.md` con el estado observado,
@@ -158,60 +180,30 @@ documentation:
   inventory_file: docs/inventory/<CT>-LXC-INVENTORY.md
 ```
 
-### Paso 6 — Regenerar artefactos
-```sh
-python3 scripts/generate-lxc-inventory.py
-```
-Escribe `lxc-notes.json`, `lxc-notes-manifest.json` y `LXC-INVENTORY.md`.
-Si falla, es un error de esquema/identidad/secreto: corregir la fuente y
-repetir. No se "arregla" editando la salida.
+### Pasos 6–9 — Regenerar, probar y validar el plan
 
-### Paso 7 — Verificar frescura
-```sh
-python3 scripts/generate-lxc-inventory.py --check
-```
-Debe imprimir `PASS: ... freshness`. Si dice `Stale generated file`, hay
-fuentes que cambiaron tras el paso 6: regenerar de nuevo.
+Ejecutar §6.1. Si el informe devuelve `BLOCKED`, detener la aplicación y
+registrar los campos que bloquean el plan. Si devuelve `PASS` sin cambios,
+pasar directamente a la verificación en producción.
 
-### Paso 8 — Plan Terraform (target)
-```sh
-terraform plan -parallelism=1 \
-  -target=proxmox_virtual_environment_container.svc["<service>"] \
-  -out=/tmp/lxc-docs-<service>.plan.json
-```
-El precondition de Notes-fresh debe pasar (si no, volver al paso 6).
+### Pasos 10–11 — Confirmar y aplicar
 
-### Paso 9 — Validar que el plan es SOLO `description`
-```sh
-python3 scripts/validate-lxc-notes-plan.py /tmp/lxc-docs-<service>.plan.json \
-  --report /tmp/lxc-docs-<service>.report.json --service <service>
-```
-- `result: PASS` / `apply_permitted: true` → continuar.
-- `result: BLOCKED` → **PARAR** (regla de seguridad §2.4). Revisar
-  `report.json`, corregir y repetir desde el paso 8.
+Seguir §6.2 con el plan binario validado.
 
-### Paso 10 — Confirmación del usuario (STOP)
-Mostrar el diff del plan (solo `description` del CT) y **pedir confirmación
-explícita** antes de aplicar. Sin confirmación, no aplicar.
+### Paso 12 — Verificar en producción
 
-### Paso 11 — Aplicar (target)
-```sh
-terraform apply -parallelism=1 \
-  -target=proxmox_virtual_environment_container.svc["<service>"] \
-  /tmp/lxc-docs-<service>.plan.json
-```
-
-### Paso 12 — Verificar en producción (SSH solo lectura)
-```sh
-ssh infra-pulpo 'pct config 619 | grep -A2 description'   # o pct list / API
-```
-Confirmar que la `description` del CT coincide con el título/cuerpo de
-`NOTES.md`. Confirmar que **no** cambió nada más (tags, recursos).
+Leer `/nodes/<node>/lxc/<CT>/config` con `pvesh get` en el nodo PVE vía SSH
+estricto y `--output-format json`. Comparar el campo `description` completo
+con la salida del generador (título, cuerpo y salto final). Antes de aplicar,
+guardar una copia privada de la configuración PVE. Después, comparar el resto
+de campos excluyendo `description` y `digest`. Comunicar los resultados de las
+comparaciones sin mostrar la configuración completa. Volver a planear con el
+mismo alcance y exigir cero cambios. Si hay diferencias, registrar el bloqueo.
 
 ### Paso 13 — Cerrar
 - `git diff --check` y revisar el diff (solo los 4 artefactos + fuentes).
-- Actualizar `docs/roadmap/CURRENT-STATUS.md` (estado, evidencia, fecha
-  Europe/Madrid).
+- Actualizar el documento de fase, `ROADMAP.md` y `CURRENT-STATUS.md`
+  (estado, evidencia, fecha Europe/Madrid y siguiente paso).
 - Registrar decisión en `docs/roadmap/DECISIONS.md` si aplica.
 - **No** commit/push salvo autorización explícita.
 
@@ -237,27 +229,14 @@ Confirmar que la `description` del CT coincide con el título/cuerpo de
 > marcará `BLOCKED`. Separar la actualización documental del cambio de
 > recursos.
 
-### Paso 3 — Regenerar
-```sh
-python3 scripts/generate-lxc-inventory.py
-python3 scripts/generate-lxc-inventory.py --check
-```
+### Pasos 3–4 — Regenerar, probar y validar el plan
 
-### Paso 4 — Plan + validar (solo `description`)
-```sh
-terraform plan -parallelism=1 \
-  -target=proxmox_virtual_environment_container.svc["<service>"] \
-  -out=/tmp/lxc-docs-<service>.plan.json
-python3 scripts/validate-lxc-notes-plan.py /tmp/lxc-docs-<service>.plan.json \
-  --report /tmp/lxc-docs-<service>.report.json --service <service>
-```
-`PASS` obligatorio. `BLOCKED` → parar y diagnosticar.
+Ejecutar §6.1.
 
-### Paso 5 — Confirmación del usuario (STOP)
-Mostrar diff del plan y pedir confirmación explícita.
+### Pasos 5–6 — Confirmar, aplicar y verificar
 
-### Paso 6 — Aplicar (target) + verificar
-Igual que MODO CREAR pasos 11–12.
+Seguir §6.2 y verificar según §3 paso 12. Con un plan sin cambios, verificar
+directamente la descripción real y cerrar solamente si coincide.
 
 ### Paso 7 — Cerrar
 Igual que MODO CREAR paso 13.
@@ -323,25 +302,63 @@ declaración con la realidad. No forzar.
 
 ---
 
-## 6. Comandos de referencia (resumen)
+## 6. Plan y aplicación de Notes
 
-```sh
-# Regenerar artefactos generados
-python3 scripts/generate-lxc-inventory.py
-# Verificar frescura (no escribe)
-python3 scripts/generate-lxc-inventory.py --check
-# Plan acotado al CT
-terraform plan -parallelism=1 \
-  -target=proxmox_virtual_environment_container.svc["<service>"] \
-  -out=/tmp/lxc-docs-<service>.plan.json
-# Validar que el plan es solo description
-python3 scripts/validate-lxc-notes-plan.py /tmp/lxc-docs-<service>.plan.json \
-  --report /tmp/lxc-docs-<service>.report.json --service <service>
-# Aplicar (tras confirmación del usuario)
-terraform apply -parallelism=1 \
-  -target=proxmox_virtual_environment_container.svc["<service>"] \
-  /tmp/lxc-docs-<service>.plan.json
+### 6.1 — Generar, guardar y validar
+
+Desde `terraform/proxmox`, ejecuta este comando en una llamada y sustituye
+`infra-grafana` por la clave exacta del servicio.
+
+```bash
+bash scripts/prepare-lxc-notes-plan.sh infra-grafana
 ```
 
-`<service>` es el nombre del archivo del inventario sin extensión
-(`infra-pulpo`, `infra-excraper`). `<CT>` es el `vmid` (619, 620).
+El script regenera, prueba y valida. Obtiene la CA desde `pve` por SSH
+estricto y crea el plan acotado con TLS verificado. Requiere el Terraform
+inicializado y las credenciales locales vigentes. Conserva CA, binario,
+JSON, informe y registros en un directorio privado cuya ruta imprime.
+
+Comparte únicamente el informe seguro y un resumen de la nota. Ante un
+fallo, comunica la etapa indicada y detente. Si necesitas revisar un
+registro privado, extrae solo la causa sin credenciales. El comando no
+aplica cambios. `PASS` con `changes: []` exige verificar la nota real
+antes de cerrar. Con un cambio en `description`, sigue §6.2.
+
+### 6.2 — Confirmar y aplicar el plan guardado
+
+Mostrar el CT, el resumen de la nota y los campos validados. Esperar confirmación
+explícita para aplicar ese plan. Si cambian el plan o las fuentes, repetir §6.1
+y mostrar el nuevo resultado. Con la confirmación y la copia previa privada
+del paso 12, usar el mismo binario y la CA privada. En el comando,
+`notes_dir` debe apuntar al directorio que imprimió el script.
+
+```sh
+SSL_CERT_FILE="$notes_dir/pve-ca.pem" terraform apply -input=false -parallelism=1 "$notes_dir/notes.tfplan"
+```
+
+Verificar según §3 paso 12. Registrar por separado ficha generada, plan validado,
+aplicación y verificación en PVE.
+
+## 7. Ejemplo ejecutado — CT610, 19/11/2026
+
+`documentar CT610` resolvió la clave `infra-prom`. La ficha ya existía, por lo
+que se siguió **ACTUALIZAR**. Se comprobó el disco de 25 GiB y los componentes
+activos en PVE y Docker. Se corrigieron la ficha, las Notes y sus referencias
+en el YAML. La regeneración modificó únicamente las Notes de ese servicio.
+
+El primer plan propuso quitar la etiqueta IP existente y devolvió `BLOCKED`.
+Se declaró la etiqueta observada en el YAML. El nuevo plan conservó las
+etiquetas y devolvió `PASS` con una sola actualización en `description`.
+Tras autorización del propietario, se aplicó ese binario guardado. La API
+PVE devolvió la misma nota byte por byte y el resto de la configuración
+coincidió con la copia previa (excluido `digest`). Un segundo plan acotado
+confirmó cero cambios.
+
+La misma secuencia sirve para otro VMID o clave del inventario. Si la ficha
+falta, usar CREAR. Si ya existe y las fuentes están vigentes, «sincronizar
+Notes» puede empezar en §6.1. Cada aplicación usa el plan validado para el CT
+solicitado y la autorización correspondiente.
+
+- [Ficha CT610](../inventory/610-LXC-INVENTORY.md)
+- [Notes de infra-prom](../../services/infra-prom/NOTES.md)
+- [Estado y evidencia de cierre](../roadmap/CURRENT-STATUS.md)
