@@ -9,4 +9,5 @@
   `git diff --check`. Revisar escenarios de inicio, reanudación y cierre.
 - Evidencia local: nueve prefijos únicos con sus títulos, enlaces revisados,
   referencia antigua retirada y `git diff --check` limpio.
+- PR de revisión: [#20](https://github.com/eduardo152030/mailerblend-platform-infra/pull/20).
 - Siguiente paso: revisión del PR por el propietario.
