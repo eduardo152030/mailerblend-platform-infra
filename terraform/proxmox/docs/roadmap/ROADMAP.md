@@ -1202,3 +1202,13 @@ solicitado; preparar adopción Terraform sin recreación, SSH verificado si proc
 exporters apropiados para630sinDocker y631conDocker, integración aditiva enPrometheus/
 Blackbox/Grafana e inventario. Conservar cambios previos ajenos. La validación devoz
 sigue pendiente tras corregir WHISPER_MODEL persistido; no declararla aprobada.
+
+
+## CT618 — migración de interfaz CRM (TODO)
+
+19/11/2026 Europe/Madrid. Diagnóstico Git y runtime de solo lectura completado.
+[Plan propuesto e issues](planes/CRM-UI-MIGRATION-PLAN.md). Los tres proyectos
+requieren aceptación secuencial. Autenticación, enrutamiento y retención por
+resolver. Diez issues publicados con autorización del propietario. Cline empieza
+por [#22](https://github.com/eduardo152030/mailerblend-platform-infra/issues/22).
+Sin autorización de corte ni retirada en esta ronda.
