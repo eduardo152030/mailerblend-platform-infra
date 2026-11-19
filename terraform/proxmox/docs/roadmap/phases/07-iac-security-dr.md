@@ -1191,3 +1191,13 @@ conservada 200. Pendiente ensayo Docker y Budibase D051.
 Seguimiento #23: entrypoint aislado confirmó que cambiar solo el entorno
 con INI persistente conserva el valor anterior. INI nuevo y reversión PASS
 con datos sintéticos. Pendiente prueba conjunta Docker y Budibase D051.
+
+
+## CT618 — preview CRM UI (#24, IN PROGRESS)
+
+19/11/2026 Europe/Madrid. Traslado neutral, build y pruebas locales de
+preview. API real desconectada. Pendientes Docker, proxy/TLS y lint heredado.
+Sin despliegue. [Plan y evidencia](../planes/CRM-UI-PREVIEW-PLAN.md).
+
+Seguimiento #24: Nginx por digest, health, SPA, assets y API
+bloqueada verificados en entorno aislado. Compose y TLS pendientes.

@@ -1,4 +1,4 @@
-const BASE_URL = "https://infra-svc01.mailerblend.com/_svc/v1";
+const BASE_URL = "/_svc/v1";
 
 export interface PaginatedResponse<T = Record<string, unknown>> {
   items: T[];
@@ -194,7 +194,7 @@ export const linkedinSourcing = {
       ),
     delete: (id: string) =>
       request<void>(`/linkedin-sourcing/leads/${id}`, { method: "DELETE" }),
-    stats: (p: {} = {}) =>
+    stats: (p: Record<string, unknown> = {}) =>
       request<Record<string, unknown>>(`/linkedin-sourcing/leads/stats${qs(p)}`),
     attempts: (id: string) =>
       request<PaginatedResponse>(`/linkedin-sourcing/leads/${id}/attempts`),
