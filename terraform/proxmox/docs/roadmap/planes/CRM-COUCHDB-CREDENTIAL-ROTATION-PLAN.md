@@ -1,5 +1,7 @@
 # CT618 — remediación de la credencial de CouchDB
 
+[PR #35](https://github.com/eduardo152030/mailerblend-platform-infra/pull/35).
+
 [Issue #23](https://github.com/eduardo152030/mailerblend-platform-infra/issues/23). Fase 7, IN PROGRESS. 19/11/2026 Europe/Madrid. Rama `docs/crm-ui-issue-23`, worktree hermano `mailerblend-platform-infra-crm-23`, SHA inicial `2175f1b403cf99376175b38fe4e483d53fd98684`. El propietario aceptó el avance del inventario #22 y el cotejo del catálogo como condición de #28. El PR #34 sigue sujeto a revisión del propietario. Este PR parte de main y no depende de sus cambios de archivos.
 
 ## Alcance y resultado local
