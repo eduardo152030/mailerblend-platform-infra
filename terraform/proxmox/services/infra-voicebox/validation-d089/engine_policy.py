@@ -7,6 +7,7 @@ LANGUAGES = ['es','en']
 # Input admission only; complete narration at this length is not validated.
 CHATTERBOX_MAX_CHARS = 1200
 CB = {'engine':'chatterbox','variant':'multilingual-v3','model_size':'default',
+      'max_chunk_chars':150,'max_chunks':8,'max_chunk_seconds':20,'max_final_seconds':80,
       'max_chars':CHATTERBOX_MAX_CHARS,'max_tokens':400,'timeout_seconds':300,
       'worker_hard_bytes':8*2**30,'worker_stop_bytes':7*2**30,
       'predicted_increment_bytes':7*2**30,'margin_bytes':512*2**20}

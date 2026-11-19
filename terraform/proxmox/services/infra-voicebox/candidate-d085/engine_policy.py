@@ -9,8 +9,7 @@ CHATTERBOX_MAX_CHARS = 1200
 CB = {'engine':'chatterbox','variant':'multilingual-v3','model_size':'default',
       'max_chars':CHATTERBOX_MAX_CHARS,'max_tokens':400,'timeout_seconds':300,
       'worker_hard_bytes':8*2**30,'worker_stop_bytes':7*2**30,
-      'predicted_increment_bytes':7*2**30,'margin_bytes':512*2**20,
-      'max_chunk':300,'max_chunks':4}
+      'predicted_increment_bytes':7*2**30,'margin_bytes':512*2**20}
 
 def validate(request):
     engine=request.get('engine','qwen')

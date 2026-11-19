@@ -1,13 +1,15 @@
 {
   "worker": {
-    "chatterbox_worker.py": "331f12b86aff72bb3a5d1816add1ea25f7b7c98690c01e869d367e03de202d68",
+    "chatterbox_worker.py": "b32c7b8ed594cff330055e932ad3fc19b29a62c5550f5ed5368d34d0ec4d1ffe",
     "load_probe.py": "9405813b8f562f54026391cc5b78f49fcf3ad9bcbe8c0ca8131d6bfa23f6343b",
     "telemetry.py": "537f9075d19a4ba96818f4d55664c5c786b9f56a02f10b2044c0a7df28b2c32d",
-    "engine_policy.py": "0aa1a5ce968304d38074e40907eb28426fac242c175e3de6d94083b1b876617d"
+    "engine_policy.py": "e25eb8446567e95dba4ca3d1bc3c9d0e0173f86178e7ee58911f3e4b50e4a972",
+    "chatterbox_chunks.py": "69ce213c23856f54e1b93c404b800b39ee978bad78c38a6ebd077287f6740111"
   },
   "controller": {
-    "readiness.py": "4652aaebfb64dc9d4cbfa8eb262af48531893d1f5e9ca14fabe47fd2a9ef7a9a",
-    "engine_policy.py": "0aa1a5ce968304d38074e40907eb28426fac242c175e3de6d94083b1b876617d"
+    "readiness.py": "57036c1af62dcca7e9666cb51081f7c200e5060350392904c5e53a9489c74e74",
+    "engine_policy.py": "e25eb8446567e95dba4ca3d1bc3c9d0e0173f86178e7ee58911f3e4b50e4a972",
+    "supervise_chatterbox.py": "42757ec87624039bb374703fa3894dfc224b17c8e5ba1d24fc1d240cbd639bf8"
   },
   "original_source_hashes": {
     "supervise_chatterbox.py": "44c381d8f62f023b2a8a222d373087bb30671e6d0bda034d9a6e58009aaab821",
@@ -29,6 +31,6 @@
   },
   "app_image_unchanged": "sha256:212703647c03d428adc30f8bf4b864af82690eb41f4fe8ca052ff10dbaa45386",
   "chatterbox_max_chars": 1200,
-  "source_status": "INPUT_1200_CODE_ONLY_NOT_TESTED_NOT_DEPLOYED",
+  "source_status": "D091_CHUNKING_LOCAL_CANDIDATE_NOT_DEPLOYED",
   "original_hashes_role": "Preserved D089 rollback/source baseline; not target hashes"
 }

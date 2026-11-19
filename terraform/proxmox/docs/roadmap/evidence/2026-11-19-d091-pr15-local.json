@@ -1,0 +1,45 @@
+{
+  "date_local": "2026-11-19 Europe/Madrid",
+  "phase": "7.4",
+  "scope": "local correction and review of PR15; no deployment, no ML inference",
+  "python": "3.12",
+  "dependencies": {
+    "numpy": "1.26.4",
+    "soundfile": "0.13.1",
+    "cffi": "1.17.1",
+    "pycparser": "2.22",
+    "PyYAML": "6.0.2"
+  },
+  "commands": [
+    {
+      "command": "python -m unittest discover -s tests/voicebox -v",
+      "passed": 92,
+      "failed": 0
+    },
+    {
+      "command": "node --test tests/voicebox/test_d083_ui.mjs tests/voicebox/test_d085_ui.mjs",
+      "passed": 9,
+      "failed": 0
+    }
+  ],
+  "not_validated": [
+    "real ML generation",
+    "acoustic continuity",
+    "1200 characters in global 300 seconds",
+    "production deployment"
+  ],
+  "production_modified": false,
+  "models_loaded": false,
+  "personal_reference_used": false,
+  "target_source_hashes": {
+    "supervise_isolated.py": "4b47e96c66b02f9574ccd2079b25724ddc0f856512ed0c0a201deac36edbb293",
+    "load_probe.py": "9405813b8f562f54026391cc5b78f49fcf3ad9bcbe8c0ca8131d6bfa23f6343b",
+    "qwen_language_policy.py": "32015eab1359d7c7ddc38d85f05bcedb0f3c4070d58e6cb6b08b773fcac70fe0",
+    "d077_contract.py": "e30e0367d4bf17b87b1ce5b8237eec9f51e628d382d3b50b52a5631da04f7450",
+    "engine_policy.py": "e25eb8446567e95dba4ca3d1bc3c9d0e0173f86178e7ee58911f3e4b50e4a972",
+    "telemetry.py": "537f9075d19a4ba96818f4d55664c5c786b9f56a02f10b2044c0a7df28b2c32d",
+    "chatterbox_worker.py": "b32c7b8ed594cff330055e932ad3fc19b29a62c5550f5ed5368d34d0ec4d1ffe",
+    "chatterbox_chunks.py": "69ce213c23856f54e1b93c404b800b39ee978bad78c38a6ebd077287f6740111",
+    "supervise_chatterbox.py": "42757ec87624039bb374703fa3894dfc224b17c8e5ba1d24fc1d240cbd639bf8"
+  }
+}

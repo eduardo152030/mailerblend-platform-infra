@@ -6,6 +6,9 @@ from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[2];SRC=ROOT/'services/infra-voicebox/validation-d089'
 def load():
  with patch.dict(sys.modules):
+  # Load the candidate bundle, not modules cached by legacy D085 fixtures.
+  for name in ['engine_policy','qwen_language_policy','load_probe','telemetry','chatterbox_chunks']:
+   sys.modules.pop(name,None)
   old=sys.path[:];sys.path.insert(0,str(SRC))
   try:
    spec=importlib.util.spec_from_file_location('d089_worker_contract',SRC/'chatterbox_worker.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
@@ -42,7 +45,7 @@ class Candidate(unittest.TestCase):
    self.assertTrue(fixture.chatterbox_ready(jobs,code)['ready'])
    self.assertFalse(candidate.chatterbox_ready(jobs,code)['ready'])
    p=code/'chatterbox-release.json';release=json.loads(p.read_text())
-   for n in ['load_probe.py','telemetry.py']:
+   for n in ['load_probe.py','telemetry.py','chatterbox_chunks.py']:
     (src/n).write_bytes((SRC/n).read_bytes());release['worker_hashes'][n]=hashlib.sha256((src/n).read_bytes()).hexdigest()
    (code/'readiness.py').write_bytes((SRC/'readiness.py').read_bytes());release['source_hashes']['readiness.py']=hashlib.sha256((code/'readiness.py').read_bytes()).hexdigest();p.write_text(json.dumps(release))
    self.assertTrue(candidate.chatterbox_ready(jobs,code)['ready'])

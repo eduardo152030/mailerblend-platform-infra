@@ -14,7 +14,7 @@ def chatterbox_ready(jobs,code):
         receipt=json.loads((env/'environment-receipt.json').read_text())
         if receipt.get('imports')!='PASS' or receipt.get('weight_loads')!=0:raise ValueError('Dependency preflight unavailable')
         if set(release['source_hashes']) != {'agent.py','engine_policy.py','readiness.py','supervise_chatterbox.py','qwen_language_policy.py','guards.py','supervise.py'}:raise ValueError('Incomplete controller bundle')
-        if set(release['worker_hashes']) != {'worker.py','qwen_language_policy.py','d077_contract.py','chatterbox_worker.py','engine_policy.py','guards.py','supervise.py','load_probe.py','telemetry.py'}:raise ValueError('Incomplete worker bundle')
+        if set(release['worker_hashes']) != {'worker.py','qwen_language_policy.py','d077_contract.py','chatterbox_worker.py','engine_policy.py','guards.py','supervise.py','load_probe.py','telemetry.py','chatterbox_chunks.py'}:raise ValueError('Incomplete worker bundle')
         for rel,digest in release['source_hashes'].items():
             if '/' in rel or hashlib.sha256((Path(code)/rel).read_bytes()).hexdigest()!=digest:raise ValueError('Candidate source mismatch')
         for rel,digest in release['worker_hashes'].items():
