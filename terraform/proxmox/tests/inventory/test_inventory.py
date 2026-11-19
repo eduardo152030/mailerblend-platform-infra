@@ -48,6 +48,16 @@ class InventoryTests(unittest.TestCase):
   self.assertFalse(p.review({'errored':True,'resource_changes':[]},{'x':'new'})['apply_permitted'])
   self.assertFalse(p.review({'checks':[{'status':'fail'}],'resource_changes':[]},{'x':'new'})['apply_permitted'])
  def test_only_expected_notes_may_apply(self):self.assertTrue(p.review(self.plan(),{'x':'new'})['apply_permitted'])
+ def test_scoped_tag_reordering_preserves_membership(self):
+  plan = self.plan()
+  change = plan['resource_changes'][0]['change']
+  change['before']['tags'] = ['192.168.1.111', 'grafana', 'infra', 'monitoring']
+  change['after']['tags'] = ['192.168.1.111', 'infra', 'monitoring', 'grafana']
+  self.assertTrue(p.review(plan, {'x':'new'}, allow_tag_reorder=True)['apply_permitted'])
+  self.assertFalse(p.review(plan, {'x':'new'})['apply_permitted'])
+  change['after']['tags'].remove('192.168.1.111')
+  self.assertFalse(p.review(plan, {'x':'new'}, allow_tag_reorder=True)['apply_permitted'])
+
  def test_resource_changes_block_apply(self):
   x=self.plan();x['resource_changes'][0]['change']['after']['cpu']=[{'cores':3}]
   self.assertFalse(p.review(x,{'x':'new'})['apply_permitted'])

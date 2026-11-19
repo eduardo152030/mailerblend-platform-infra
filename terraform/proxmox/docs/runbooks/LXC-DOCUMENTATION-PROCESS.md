@@ -21,7 +21,7 @@ runbook. **No duplica sus pasos**: los referencia.
 
 ## Cierre documental
 
-Para «documentar», «crear ficha» o «actualizar ficha», recoge los datos en
+Si el encargo indica «solo documentación», recoge los datos en
 modo lectura, actualiza las fuentes según CREAR o ACTUALIZAR y documenta las
 etiquetas observadas. Al alinear el YAML con las etiquetas verificadas,
 conserva las existentes, incluida la etiqueta IP de CT611.
@@ -36,8 +36,7 @@ git diff --check
 Revisa el diff y las referencias de ficha, Notes e inventario. Registra el
 resultado documental según §3 paso 13 y entrega el resumen sin pedir
 confirmación. Este cierre se completa sin Terraform ni cambios en Proxmox.
-Los pasos de plan y aplicación de CREAR y ACTUALIZAR corresponden a una
-solicitud separada de sincronización de Notes en PVE.
+Para el workflow completo, continúa con la sincronización de §6.
 
 ---
 
@@ -108,12 +107,11 @@ Por eso **regenerar antes de planear es obligatorio**, no opcional.
    Mantener la verificación activa, sin `keyscan` como prueba de identidad
    ni cambios en la configuración SSH del propietario.
 3. **Nunca `terraform apply` general ni `make apply`/`make deploy-all`.**
-   Aplicar únicamente el binario acotado y validado según §6, tras
-   confirmación explícita del usuario.
-4. **Regla de parada del plan.** Si el plan muestra **cualquier** cambio que
-   no sea `description` del CT objetivo (tags, memory, cpu, disk, start_on_boot,
-   otro recurso, otro CT) → **PARAR**. No aplicar. Reportar el diff y pedir
-   autorización. `validate-lxc-notes-plan.py` automatiza esta comprobación.
+   Aplicar únicamente el binario guardado, acotado y validado según §6.
+4. **Regla de parada del plan.** Para el CT objetivo se admite la descripción
+   generada y la reordenación de las mismas etiquetas. Las altas y bajas
+   de etiquetas, cambios de recursos y cambios de otros CT bloquean la
+   aplicación. `validate-lxc-notes-plan.py` verifica el alcance.
 5. **No editar artefactos generados a mano.** `lxc-notes.json`,
    `lxc-notes-manifest.json` y `LXC-INVENTORY.md` se regeneran. Editar la
    fuente (`NOTES.md`, ficha, `.yml`) y volver a generar.
@@ -205,7 +203,7 @@ Ejecutar §6.1. Si el informe devuelve `BLOCKED`, detener la aplicación y
 registrar los campos que bloquean el plan. Si devuelve `PASS` sin cambios,
 pasar directamente a la verificación en producción.
 
-### Pasos 10–11 — Confirmar y aplicar
+### Pasos 10–11 — Aplicar
 
 Seguir §6.2 con el plan binario validado.
 
@@ -215,7 +213,8 @@ Leer `/nodes/<node>/lxc/<CT>/config` con `pvesh get` en el nodo PVE vía SSH
 estricto y `--output-format json`. Comparar el campo `description` completo
 con la salida del generador (título, cuerpo y salto final). Antes de aplicar,
 guardar una copia privada de la configuración PVE. Después, comparar el resto
-de campos excluyendo `description` y `digest`. Comunicar los resultados de las
+de campos excluyendo `description`, `tags` y `digest`. Comprobar que las
+etiquetas coinciden con las anteriores al aplicar, independientemente del orden. Comunicar los resultados de las
 comparaciones sin mostrar la configuración completa. Volver a planear con el
 mismo alcance y exigir cero cambios. Si hay diferencias, registrar el bloqueo.
 
@@ -242,17 +241,15 @@ mismo alcance y exigir cero cambios. Si hay diferencias, registrar el bloqueo.
 - Ficha → `docs/inventory/<CT>-LXC-INVENTORY.md`.
 - Recursos/identidad → `inventory/services/<service>.yml`.
 
-> Si cambian **recursos** (cpu/memory/disk) o **tags**, el plan ya NO será
-> solo `description`. En ese caso el flujo de Notes no cubre el cambio:
-> requiere autorización de recursos aparte y `validate-lxc-notes-plan.py`
-> marcará `BLOCKED`. Separar la actualización documental del cambio de
-> recursos.
+> Si cambian recursos o se añaden o quitan etiquetas, el validador marca
+> `BLOCKED`. Una reordenación de las mismas etiquetas puede acompañar a
+> las Notes del CT en un plan acotado.
 
 ### Pasos 3–4 — Regenerar, probar y validar el plan
 
 Ejecutar §6.1.
 
-### Pasos 5–6 — Confirmar, aplicar y verificar
+### Pasos 5–6 — Aplicar y verificar
 
 Seguir §6.2 y verificar según §3 paso 12. Con un plan sin cambios, verificar
 directamente la descripción real y cerrar solamente si coincide.
@@ -264,31 +261,13 @@ Igual que MODO CREAR paso 13.
 
 ## 5. Troubleshooting
 
-### 5.1 Drift de `tags` (caso real 619/620)
-**Síntoma:** el plan muestra un cambio en `tags` además de `description`, y
-`validate-lxc-notes-plan.py` devuelve `BLOCKED` ("Change is not
-description-only").
+### 5.1 Diferencias en `tags`
 
-**Causa:** `main.tf` añade la IP al array de tags y devuelve los tags
-**ordenados** (`sort(distinct(concat(tags, [ip])))`) para CTs con
-`provisioning.ssh.enabled`. Si el `.yml` declara los tags sin la IP o en otro
-orden, Terraform ve un cambio de `tags` aunque el contenido sea equivalente.
-
-**Solución:** alinear el array `tags` del `.yml` con el orden que PVE
-devolverá (orden alfabético, IP incluida). Ejemplo real de 619:
-
-```yaml
-tags:
-  - 192.168.1.119
-  - automation
-  - internal
-  - n8n
-  - parte_linkedin_stealth_sourcing
-  - server
-```
-
-Tras alinear, regenerar y re-planear: el plan debe quedar **solo**
-`description`. No forzar el apply con `tags` en el diff.
+El plan acotado admite cambiar el orden cuando las etiquetas coinciden antes
+y después, incluida su multiplicidad. Si el plan modifica el contenido,
+revisa el inventario observado y corrige la fuente dentro del encargo. El
+plan histórico de CT611 proponía eliminar `192.168.1.111`. La etiqueta
+existente se declaró en su YAML para conservarla.
 
 ### 5.2 Precondition "LXC notes are stale or incomplete"
 **Causa:** `lxc-notes-manifest.json` no coincide con los hashes de las
@@ -341,15 +320,16 @@ Comparte únicamente el informe seguro y un resumen de la nota. Ante un
 fallo, comunica la etapa indicada y detente. Si necesitas revisar un
 registro privado, extrae solo la causa sin credenciales. El comando no
 aplica cambios. `PASS` con `changes: []` exige verificar la nota real
-antes de cerrar. Con un cambio en `description`, sigue §6.2.
+antes de cerrar. Con cambios permitidos, continúa en §6.2.
 
-### 6.2 — Confirmar y aplicar el plan guardado
+### 6.2 — Aplicar el plan guardado
 
-Mostrar el CT, el resumen de la nota y los campos validados. Esperar confirmación
-explícita para aplicar ese plan. Si cambian el plan o las fuentes, repetir §6.1
-y mostrar el nuevo resultado. Con la confirmación y la copia previa privada
-del paso 12, usar el mismo binario y la CA privada. En el comando,
-`notes_dir` debe apuntar al directorio que imprimió el script.
+El workflow completo autoriza sincronizar el CT identificado con un informe
+`PASS`. Continúa automáticamente cuando haya cambios validados y se haya
+guardado la copia previa privada del paso 12. Si el plan o sus fuentes
+cambian, genera y valida uno nuevo según §6.1. Aplica el mismo binario
+guardado con la CA privada, usando como `notes_dir` el directorio indicado
+por el script.
 
 ```sh
 SSL_CERT_FILE="$notes_dir/pve-ca.pem" terraform apply -input=false -parallelism=1 "$notes_dir/notes.tfplan"

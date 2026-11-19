@@ -1,9 +1,9 @@
 ## LXC-NOTES-TAGS — IN PROGRESS
 
-19/11/2026 Europe/Madrid, Fase 7. CREAR y ACTUALIZAR cierran con
-validaciones locales sin solicitar confirmación. El YAML de CT611 conserva
-su etiqueta IP. Pruebas de inventario y frescura verificadas. Pendiente
-revisión y prueba en una sesión nueva de Cline.
+19/11/2026 Europe/Madrid, Fase 7. El workflow completo sincroniza
+automáticamente el CT objetivo con un plan guardado y validado. El encargo
+«solo documentación» conserva el cierre local. La etiqueta IP de CT611
+está declarada. Pendientes revisión y prueba en una sesión nueva de Cline.
 [Plan](planes/LXC-NOTES-TAGS.md).
 
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS

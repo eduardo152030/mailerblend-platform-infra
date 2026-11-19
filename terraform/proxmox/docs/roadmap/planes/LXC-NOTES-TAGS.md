@@ -8,3 +8,11 @@
 - Validar con pruebas de inventario, frescura y diff. Siguiente paso: revisión y prueba en una sesión nueva de Cline.
 
 [PR #33](https://github.com/eduardo152030/mailerblend-platform-infra/pull/33)
+
+## Ronda review-01
+
+Base e inicio `a58e4e07689b9c9106500581543edf75992d5269`. El propietario
+solicita sincronización automática con plan guardado y validado para el CT
+objetivo. «Solo documentación» conserva el cierre local. El plan admite
+la descripción generada y reordenar las mismas etiquetas. El cambio del
+workflow se verifica localmente antes de la revisión del PR.

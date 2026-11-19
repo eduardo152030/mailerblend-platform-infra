@@ -44,11 +44,13 @@ Disparadores: «documentar CT<VMID>» (por ejemplo, «documentar CT611»), «doc
    `inventory_file` en el YAML. Documenta las etiquetas observadas en la
    ficha. Conserva las etiquetas existentes al alinear el YAML con la lectura
    verificada del CT. Para CT611, incluye `192.168.1.111`.
-4. Para «documentar», «crear ficha» y «actualizar ficha», completa el
+4. Si el encargo dice «solo documentación», completa el
    [cierre documental](../../docs/runbooks/LXC-DOCUMENTATION-PROCESS.md#cierre-documental)
-   y termina el turno. Ejecuta las validaciones locales y entrega el resumen
-   sin pedir confirmación. Terraform queda fuera de este recorrido.
-5. Para «sincronizar Notes», sigue §6 del runbook, únicamente cuando el
-   encargo solicite la sincronización en PVE. Si el informe devuelve
-   `BLOCKED`, reporta los campos que bloquean el plan y termina. Reutiliza
-   el informe ya obtenido para el mismo plan.
+   y termina. En los demás casos, sigue §6 del runbook para sincronizar
+   automáticamente las Notes del CT identificado.
+5. Ejecuta una vez el script de §6.1 para ese servicio. Si el informe
+   devuelve `BLOCKED` o falla alguna comprobación, reporta la causa y
+   termina. Con `PASS` y cambios, aplica el binario guardado según §6.2
+   sin pedir confirmación adicional. Con `PASS` sin cambios, verifica la
+   nota real y cierra. Tras aplicar, verifica PVE y exige un plan posterior
+   sin cambios. Reutiliza el informe disponible para el mismo plan.

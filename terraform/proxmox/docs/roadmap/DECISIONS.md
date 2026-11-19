@@ -2835,3 +2835,11 @@ recursos. La aceptación acústica de D089 no valida narraciones fragmentadas.
 19/11/2026 Europe/Madrid. CREAR y ACTUALIZAR concluyen con verificaciones
 locales. La etiqueta IP de CT611 se conserva en YAML. La sincronización
 en PVE sigue su procedimiento separado. [Plan](planes/LXC-NOTES-TAGS.md).
+
+## LXC-NOTES-TAGS — sincronización automática aprobada
+
+19/11/2026 Europe/Madrid. El propietario autoriza aplicar automáticamente
+el plan guardado y validado del CT objetivo al usar el workflow completo.
+Alcance de actualización: descripción y reordenación de las mismas
+etiquetas. «Solo documentación» termina localmente.
+[Plan](planes/LXC-NOTES-TAGS.md).

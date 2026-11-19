@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail closed unless a saved full Terraform plan changes only the 17 LXC descriptions.
+"""Validate LXC descriptions and permit tag reordering on scoped plans.
 Input JSON is private (may contain credentials). Output contains names/field names only.
 """
 import argparse,json
@@ -8,7 +8,14 @@ ROOT=Path(__file__).resolve().parents[1]
 def descriptions():
  d=json.loads((ROOT/'inventory/generated/lxc-notes.json').read_text())
  return {k:'# '+v['title']+'\n\n'+'\n\n'.join(v['sections'])+'\n' for k,v in d.items()}
-def review(plan,expected):
+def same_tags(before,after):
+ if not all(isinstance(tags,list) for tags in (before,after)):
+  return False
+ if not all(isinstance(tag,str) for tag in before+after):
+  return False
+ return sorted(before)==sorted(after)
+
+def review(plan,expected,*,allow_tag_reorder=False):
  issues=[];changes=[]
  if plan.get('errored') or any(x.get('status') in ('fail','error') for x in plan.get('checks',[])):
   issues.append({'reason':'Terraform plan failed; never authorize an incomplete saved plan'})
@@ -21,9 +28,12 @@ def review(plan,expected):
   key=r.get('index');entry={'address':r['address'],'actions':actions,'fields':fields};changes.append(entry)
   if r.get('type')!='proxmox_virtual_environment_container' or r.get('name')!='svc' or key not in expected:
    issues.append({'address':r['address'],'reason':'Outside authorized LXC notes scope'});continue
-  if actions!=['update'] or fields!=['description'] or c.get('replace_paths'):
-   issues.append({'address':r['address'],'reason':'Change is not description-only','fields':fields});continue
-  if after['description']!=expected[key]:issues.append({'address':r['address'],'reason':'Description differs from generated inventory'})
+  allowed_fields={'description'}
+  if allow_tag_reorder and len(expected)==1 and same_tags(before.get('tags'),after.get('tags')):
+   allowed_fields.add('tags')
+  if actions!=['update'] or not fields or set(fields)-allowed_fields or c.get('replace_paths'):
+   issues.append({'address':r['address'],'reason':'Outside allowed description and tag ordering changes','fields':fields});continue
+  if after.get('description')!=expected[key]:issues.append({'address':r['address'],'reason':'Description differs from generated inventory'})
   if any(v for k,v in c.get('after_unknown',{}).items()):issues.append({'address':r['address'],'reason':'Unknown planned attributes'})
  return {'result':'BLOCKED' if issues else 'PASS','changes':changes,'issues':issues,'apply_permitted':not issues}
 def main():
@@ -32,5 +42,5 @@ def main():
  if a.service:
   assert a.service in expected, 'Unknown service'
   expected={a.service:expected[a.service]}
- result=review(json.loads(a.plan_json.read_text()),expected);a.report.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2));raise SystemExit(1 if result['issues'] else 0)
+ result=review(json.loads(a.plan_json.read_text()),expected,allow_tag_reorder=bool(a.service));a.report.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2));raise SystemExit(1 if result['issues'] else 0)
 if __name__=='__main__':main()

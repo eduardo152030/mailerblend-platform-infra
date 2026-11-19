@@ -19,12 +19,11 @@ pasos.
 ## Reglas
 
 1. Antes de ejecutar, leer el workflow y las secciones 1–2 del runbook.
-2. **Documentar, crear ficha y actualizar ficha** terminan con el cierre
-   documental local. Completa las comprobaciones y entrega el resumen sin
-   pedir confirmación ni ejecutar Terraform.
-3. Para una solicitud de **sincronizar Notes en PVE**, sigue §6 del
-   runbook. Si el validador devuelve `BLOCKED`, reporta el motivo y detén
-   la sincronización.
+2. Documentar, crear o actualizar ficha y sincronizar Notes siguen §6 del
+   runbook para sincronizar el CT automáticamente. «Solo documentación»
+   termina con las validaciones locales.
+3. Si el validador devuelve `BLOCKED`, reporta el motivo y detén la
+   sincronización.
 4. SSH al CT **solo lectura**; SSH estricto
    (`UserKnownHostsFile=$HOME/.ssh/known_hosts`, `StrictHostKeyChecking=yes`,
    `BatchMode=yes`).
