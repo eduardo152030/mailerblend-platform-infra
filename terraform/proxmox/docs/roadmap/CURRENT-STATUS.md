@@ -1,3 +1,15 @@
+## CLINE-LXC-SSH — DONE documental
+
+19/11/2026, Europe/Madrid. Fase 7. La prueba de CT611 mostró que el alias
+directo entra al invitado y que SSH estricto rechaza su clave ED25519 ausente.
+Lectura reproducida: alias directo 255, PVE con SSH estricto PASS,
+`pct status/config` y lecturas internas con `pct exec 611` PASS. CT611
+en ejecución, Docker presente. Workflow y runbook distinguen las dos vías
+y fijan el fallback verificado. Alcance documental y lectura, sin cambios
+SSH/PVE, plan ni aplicación. Fase 7 global IN PROGRESS. Siguiente: repetir
+«documentar CT611» en Cline y usar la vía PVE verificada.
+Publicación autorizada en rama propia con PR hacia `main` y revisión pendiente.
+
 ## CLINE-LXC-LOOKUP — DONE documental
 
 19/11/2026, Europe/Madrid. Fase 7. El propietario detuvo la prueba de CT611.

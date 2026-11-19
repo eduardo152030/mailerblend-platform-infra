@@ -78,14 +78,16 @@ Por eso **regenerar antes de planear es obligatorio**, no opcional.
 
 ## 2. Reglas de seguridad (aplican a AMBOS modos)
 
-1. **Acceso al CT solo lectura.** SSH a `infra-pulpo` / `infra-excraper`
-   (o el alias del CT) **solo** para leer estado: `pct status`, `pct config`,
-   `docker ps`, `docker inspect`, `cat` de compose, `df`, `free`. **Nunca**
-   `pct start/stop/restart/destroy`, `docker down -v`, `prune`, `rm`, ni
-   escritura de configuración.
-2. **SSH estricto.** Usar siempre `UserKnownHostsFile=$HOME/.ssh/known_hosts`,
-   `StrictHostKeyChecking=yes`, `BatchMode=yes`. No aceptar `keyscan` como
-   verificación de identidad. (Ver D-025 reanudado.)
+1. **Lecturas por SSH.** En el nodo PVE se ejecutan `pvesh`, `pct status`
+   y `pct config`. Dentro del CT se ejecutan `hostname`, `df`, `free`
+   y consultas de Docker. Usar la ruta de §3 paso 2 también en ACTUALIZAR.
+2. **SSH estricto desde el primer intento.** Usar
+   `UserKnownHostsFile=$HOME/.ssh/known_hosts`, `StrictHostKeyChecking=yes`
+   y `BatchMode=yes`. Si falla la clave del alias del CT, usar un nodo PVE
+   ya verificado y `pct exec` para las consultas internas. Si PVE tampoco
+   se puede verificar, detener las lecturas remotas y reportar el bloqueo.
+   Mantener la verificación activa, sin `keyscan` como prueba de identidad
+   ni cambios en la configuración SSH del propietario.
 3. **Nunca `terraform apply` general ni `make apply`/`make deploy-all`.**
    Aplicar únicamente el binario acotado y validado según §6, tras
    confirmación explícita del usuario.
@@ -118,18 +120,39 @@ este runbook solo documenta.
   `docs/inventory/<CT>-LXC-INVENTORY.md`.
 
 ### Paso 2 — Lectura de estado real (SSH solo lectura)
-Con el alias del CT (p. ej. `infra-pulpo`), comandos **solo lectura**:
 
-```sh
+**Primero, PVE.** El alias habitual del nodo es `pve`. Confirma el nodo
+propietario del VMID en el clúster si hay varios nodos. Ejecuta `pct` solo
+en ese nodo. Ejemplo para CT611:
+
+```bash
 ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" -o StrictHostKeyChecking=yes -o BatchMode=yes pve \
-  'pct status 619; pct config 619 | grep -E "^(hostname|cores|memory|rootfs|net0|tags):"'
-ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" -o StrictHostKeyChecking=yes -o BatchMode=yes infra-pulpo 'docker ps --format "{{.Names}}\t{{.Status}}\t{{.Ports}}"'
-ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" -o StrictHostKeyChecking=yes -o BatchMode=yes infra-pulpo 'docker inspect --format "{{.Config.Image}}" <container>'
-ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" -o StrictHostKeyChecking=yes -o BatchMode=yes infra-pulpo 'df -h; free -h'
+  'pct status 611 && pct config 611 | grep -E "^(hostname|cores|memory|swap|rootfs|net0|tags):"'
 ```
 
-Registrar: estado RUNNING, hostname, CPU/RAM/rootfs reales, contenedores
-activos, puertos, imágenes, compose activo. **No ejecutar nada mutante.**
+**Después, dentro del CT.** El propietario suele conectarse con
+`ssh infra-grafana`. Para automatizar la lectura, prueba el alias con SSH
+estricto. El alias del CT abre el sistema invitado, donde `pct` no existe.
+
+```bash
+ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" -o StrictHostKeyChecking=yes -o BatchMode=yes infra-grafana hostname
+```
+
+Si el hostname coincide, usa ese acceso para las lecturas internas. Si la
+clave del alias no está verificada, usa el nodo PVE ya verificado para esas
+mismas lecturas. Este ejemplo se probó con CT611:
+
+```bash
+ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" -o StrictHostKeyChecking=yes -o BatchMode=yes pve \
+  'pct exec 611 -- sh -c '"'"'hostname; df -h /; free -m; sed -n "/^PRETTY_NAME=/p" /etc/os-release; if command -v docker >/dev/null 2>&1; then docker ps -a --format "{{.Names}} | {{.Image}} | {{.Status}} | {{.Ports}}"; else printf "Docker CLI no encontrada\n"; fi'"'"''
+```
+
+Sustituye VMID y alias por los del CT solicitado. Si el CT está parado,
+registra ese estado y omite las lecturas internas. Registra por separado
+un fallo de SSH, un error de Docker y la ausencia de la CLI. Evita agrupar
+todo bajo `|| echo "no docker"`. Documenta valores observados y conserva
+como pendientes los datos que falten. Para inspeccionar Docker, limita
+la salida a los campos necesarios, sin volcar el entorno.
 
 ### Paso 3 — Crear la ficha
 Crear `docs/inventory/<CT>-LXC-INVENTORY.md` con el estado observado,

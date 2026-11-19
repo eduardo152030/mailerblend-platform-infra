@@ -31,7 +31,13 @@ Disparadores: «documentar CT<VMID>» (por ejemplo, «documentar CT611»), «doc
    - Usa **CREAR** si falta `docs/inventory/<CT>-LXC-INVENTORY.md`, o
      **ACTUALIZAR** si existe. Para CT611, la clave es `infra-grafana` y
      corresponde **CREAR** al 19/11/2026. Comprueba los datos reales
-     mediante las lecturas del runbook.
+     mediante §3 paso 2 del runbook.
+   - Usa SSH estricto desde el primer intento. Ejecuta `pct status` y
+     `pct config` en el nodo PVE. Usa el alias directo del CT para lecturas
+     internas si su clave está verificada. Si falla la verificación del alias,
+     usa `pct exec <VMID> -- ...` desde PVE verificado. Para CT611 el alias
+     directo es `infra-grafana` y la ruta verificada es `pve` → `pct exec 611`.
+     Si falla también la verificación de PVE, detén las lecturas remotas.
 3. Actualiza la ficha y las Notes a partir de lo observado. En el YAML,
    enlázalas con `notes_file` e `inventory_file`. Para «sincronizar Notes»,
    reutiliza las fuentes si están vigentes. Ejecuta §6.1 para regenerar,
