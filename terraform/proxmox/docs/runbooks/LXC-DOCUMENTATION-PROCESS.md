@@ -306,42 +306,34 @@ declaración con la realidad. No forzar.
 
 ### 6.1 — Generar, guardar y validar
 
-Ejecutar desde `terraform/proxmox`. Usar las credenciales existentes y una CA
-PVE confiable. Mantener el plan binario y su JSON en un directorio privado:
-ambos pueden contener credenciales. Compartir únicamente el informe del
-validador y el resumen de los cambios de la nota.
+Desde `terraform/proxmox`, ejecuta este comando en una llamada y sustituye
+`infra-grafana` por la clave exacta del servicio.
 
-```sh
-set -eu
-service=infra-prom  # Sustituir por la clave exacta del inventario
-target="proxmox_virtual_environment_container.svc[\"$service\"]"
-umask 077
-notes_dir=$(mktemp -d)
-
-python3 scripts/generate-lxc-inventory.py
-python3 scripts/generate-lxc-inventory.py --check
-python3 -m unittest discover -s tests/inventory -q
-terraform validate
-terraform plan -input=false -parallelism=1 -var=proxmox_tls_insecure=false \
-  -target="$target" -out="$notes_dir/notes.tfplan" > "$notes_dir/plan.log" 2>&1
-terraform show -json "$notes_dir/notes.tfplan" > "$notes_dir/plan.json"
-python3 scripts/validate-lxc-notes-plan.py "$notes_dir/plan.json" \
-  --report "$notes_dir/report.json" --service "$service"
+```bash
+bash scripts/prepare-lxc-notes-plan.sh infra-grafana
 ```
 
-Ante un fallo, consultar los archivos privados y comunicar solo la causa y los
-campos seguros. `PASS` con `changes: []` exige verificar la nota real antes de
-cerrar. `PASS` con un cambio en `description` habilita el paso de confirmación.
+El script regenera, prueba y valida. Obtiene la CA desde `pve` por SSH
+estricto y crea el plan acotado con TLS verificado. Requiere el Terraform
+inicializado y las credenciales locales vigentes. Conserva CA, binario,
+JSON, informe y registros en un directorio privado cuya ruta imprime.
+
+Comparte únicamente el informe seguro y un resumen de la nota. Ante un
+fallo, comunica la etapa indicada y detente. Si necesitas revisar un
+registro privado, extrae solo la causa sin credenciales. El comando no
+aplica cambios. `PASS` con `changes: []` exige verificar la nota real
+antes de cerrar. Con un cambio en `description`, sigue §6.2.
 
 ### 6.2 — Confirmar y aplicar el plan guardado
 
 Mostrar el CT, el resumen de la nota y los campos validados. Esperar confirmación
 explícita para aplicar ese plan. Si cambian el plan o las fuentes, repetir §6.1
 y mostrar el nuevo resultado. Con la confirmación y la copia previa privada
-del paso 12, usar el mismo binario, con el mismo acceso TLS.
+del paso 12, usar el mismo binario y la CA privada. En el comando,
+`notes_dir` debe apuntar al directorio que imprimió el script.
 
 ```sh
-terraform apply -input=false -parallelism=1 "$notes_dir/notes.tfplan"
+SSL_CERT_FILE="$notes_dir/pve-ca.pem" terraform apply -input=false -parallelism=1 "$notes_dir/notes.tfplan"
 ```
 
 Verificar según §3 paso 12. Registrar por separado ficha generada, plan validado,
