@@ -23,3 +23,21 @@ antiguos.
 Pendientes: Compose y Nginx con Docker real, idempotencia y digest del release.
 Para una preview externa, confirmar DNS, fuente declarativa del proxy y
 control de acceso antes de configurar TLS. Sin despliegue en CT618.
+
+## Validación del servidor estático
+
+Ronda 02, 19/11/2026 Europe/Madrid. Inicio `b29ef9b4`; base integrada
+`b14f555f`. Resueltos los conflictos de seguimiento conservando en orden
+el avance integrado de #23 y la preview de #24.
+
+Se extrajo la imagen Nginx fijada por digest, verificando manifiestos y
+capas por SHA256. Se ejecutó el binario dentro del rootfs en un namespace
+local con red limitada a loopback, usando el nginx.conf del repositorio y
+el build de Lovable. Solo se adaptó el usuario del archivo global de
+Nginx en el rootfs temporal para el mapeo de UID local.
+
+PASS: nginx -t; health por wget; raíz, /contactos y /linkedin-sourcing
+devuelven el index; assets coinciden byte a byte y un asset inexistente
+devuelve 404; GET/POST de API devuelven 503; se comprueba CSP del mismo
+origen. Esto valida Nginx y las rutas de la preview. Pendientes Compose
+real, idempotencia, digest del release y TLS externo. Sin cambios en CT618.
