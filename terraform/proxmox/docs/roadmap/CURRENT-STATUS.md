@@ -1269,3 +1269,11 @@ requieren aceptación secuencial. Autenticación, enrutamiento y retención por
 resolver. Diez issues publicados con autorización del propietario. Cline empieza
 por [#22](https://github.com/eduardo152030/mailerblend-platform-infra/issues/22).
 Sin autorización de corte ni retirada en esta ronda.
+
+
+## CT618 — credencial expuesta (#23, IN PROGRESS)
+
+19/11/2026 Europe/Madrid. Inventario #22 aceptado para avanzar; cotejo de
+catálogo publicado requerido en #28 antes del corte. Valor anterior retirado
+de las fuentes activas de la rama. Pendientes helper y ensayo aislado. Sin
+rotación en producción. [Plan y evidencia](planes/CRM-COUCHDB-CREDENTIAL-ROTATION-PLAN.md).

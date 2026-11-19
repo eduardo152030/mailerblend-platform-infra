@@ -98,11 +98,10 @@ CAMPOS: email, password (bcrypt hash), roles, builder, admin, tenantId, status
 
 ### 2.4. Credenciales de CouchDB
 
-Las credenciales de CouchDB están en `compose/budibase/.env`:
-- `COUCHDB_USER=admin`
-- `COUCHDB_PASSWORD=slPVZ2x13ahRlPr_bVI_2026`
-
-> ⚠️ Hay dos líneas `COUCHDB_USER` y `COUCHDB_PASSWORD` en el `.env` (una duplicada con valor diferente). Usar el último valor definido: `slPVZ2x13ahRlPr_bVI_2026`.
+El despliegue recibe las credenciales desde archivos privados fuera de Git.
+Consultar el [plan de rotación](../../docs/roadmap/planes/CRM-COUCHDB-CREDENTIAL-ROTATION-PLAN.md)
+para identificar el consumidor efectivo y validar el cambio. Un valor
+documentado anteriormente se considera expuesto y requiere rotación.
 
 ---
 
@@ -245,7 +244,7 @@ services/infra-composable-crm/
 
 ## 6. Credenciales y Seguridad
 
-> ⚠️ **Este documento NO contiene contraseñas en claro.** Las credenciales están en los archivos `.env` de cada compose.
+> Gestionar las credenciales en archivos privados de cada despliegue. Verificar la configuración efectiva antes de rotar.
 
 | Servicio | Usuario | Dónde encontrar password |
 |----------|---------|-------------------------|
