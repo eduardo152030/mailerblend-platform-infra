@@ -1148,3 +1148,7 @@ Sin autorización de corte ni retirada en esta ronda.
 catálogo publicado requerido en #28 antes del corte. Valor anterior retirado
 de las fuentes activas de la rama. Pendientes helper y ensayo aislado. Sin
 rotación en producción. [Plan y evidencia](../planes/CRM-COUCHDB-CREDENTIAL-ROTATION-PLAN.md).
+
+Seguimiento #23: identificados los dos proyectos Compose activos y los
+originales detenidos. Archivo privado D051 0600; entorno heredado 0644.
+Pendientes runtime aislado, helper y ensayo de rotación/rollback.

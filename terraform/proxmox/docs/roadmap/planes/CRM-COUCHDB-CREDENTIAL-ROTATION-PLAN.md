@@ -19,3 +19,28 @@ El [Compose legado](../../../services/infra-composable-crm/compose/budibase/dock
 5. Tras autorización separada y ventana aprobada, ejecutar la receta ensayada en CT618, observar servicios y conservar evidencias filtradas. Si es imprescindible revertir temporalmente a la credencial expuesta, registrar ese estado y coordinar nueva rotación. Mantener worker/originales detenidos. No restaurar una copia sobre los volúmenes vivos.
 
 Pendiente: helper ejecutable y ensayo de integración. El entorno local de esta revisión carece de cliente Docker. No se ejecutó una rotación ni se comprobó si el valor histórico sigue siendo el efectivo.
+
+## Consumidores observados en CT618
+
+Ronda 02 del 19/11/2026, 21:44 CET. Inicio `de88da2e`. SSH estricto vía PVE y
+lectura de etiquetas Compose, nombres de entradas, destinos de montaje y modos
+de archivo. Se excluyeron valores de credenciales.
+
+| Contenedor | Estado y fuente Compose | Evidencia y tratamiento |
+| --- | --- | --- |
+| budibase-couchdb | Activo, proyecto `budibase`, `/opt/infra-composable-crm/budibase/docker-compose.yml` | `COUCHDB_USER` y `COUCHDB_PASSWORD`; volumen en `/opt/couchdb/data`. Confirmar mecanismo efectivo de rotación en la réplica. |
+| budibase-app | Activo, proyecto `d051-budibase-app`, `/opt/healthcheck-d051/budibase-app/compose.private.json` | Incluye `COUCH_DB_URL`, `COUCHDB_USER` y `COUCHDB_PASSWORD`; volumen `/data`. Fuente privada modo 0600, propietario root. Actualizarla coordinadamente en la receta. |
+| budibase-worker, budibase-app-d051-original, budibase-app-pre-recovery | Detenidos; proyectos histórico y de recuperación | Los tres conservan referencias CouchDB y montaje `/data`. Preservar y mantener detenidos. El ensayo de rollback debe comprobar compatibilidad con el secreto nuevo antes de considerar su activación. |
+| crm-api | Activo, proyecto `d051-crm-api` | No presenta esas tres entradas. Conservar su configuración y usar health/readiness como controles de regresión. |
+
+El `.env` heredado tiene modo **0644**. Incorporar comprobación de propietario
+efectivo en el CT y protección a 0600 en el procedimiento, después de comprobar
+quién necesita leerlo. El propietario del archivo apareció sin resolución de
+nombre en esta lectura. La presencia de variables no prueba igualdad de valores
+ni excluye clientes externos. No se ha modificado el modo del archivo.
+
+Siguiente paso del ensayo: usar infraestructura Docker aislada, las imágenes
+efectivas y datos sintéticos. Replicar ambos proyectos Compose y sus volúmenes
+separados. Medir cambio de credencial en CouchDB, propagación a la app D051 y
+rollback. El insumo pendiente es un runtime Docker aislado con acceso a las
+imágenes y red interna de prueba. No usar CT618 como banco de ensayo.
