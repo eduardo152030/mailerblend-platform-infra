@@ -169,3 +169,20 @@ Lectura filtrada de CT618 confirmó que `COUCH_DB_URL` utiliza HTTP en
 credenciales sintéticas y dos proyectos Compose en red privada. La
 recreación conjunta y el login D051 siguen pendientes hasta que termine
 el ensayo. No se usaron volúmenes ni credenciales de CT618.
+
+### Preflight de las fuentes activas
+
+Por SSH estricto vía PVE, se evaluó en memoria la configuración Compose
+de ambos proyectos y se comparó con el entorno de sus dos contenedores.
+Solo se emitieron booleanos. Referencias presentes, coincidencia entre los
+consumidores, Compose legado igual a CouchDB activo y Compose D051 igual
+a Budibase activo: cuatro PASS. El `.env` legado contiene dos asignaciones
+de cada clave. Antes de generar candidatos, normalizar una copia privada
+a una única asignación por clave y comprobar que su render sigue siendo
+equivalente al activo. El archivo original y sus permisos se conservaron.
+
+La diferencia de la capa escribible de CouchDB solo muestra, bajo
+`/opt/couchdb/etc`, el INI generado `local.d/docker.ini` y sus directorios.
+El único volumen observado de CouchDB monta los datos. Conservar copia
+privada de la configuración para el rollback y revalidar montajes y
+diferencias al preparar el procedimiento. Sin escrituras en CT618.
