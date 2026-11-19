@@ -10,7 +10,7 @@ Origen legado común a las filas de UI: aplicación identificada por el propieta
 | --- | --- | --- | --- |
 | Acceso y selección del proyecto | `/` y `CRMLayout`; el selector navega a `/dashboard`. La UI carece de sesión y guardas. | Usuario habilitado del proyecto; identidades y permisos legacy en CouchDB. Inspección de roles pendiente. | Sesión válida, expiración, logout y acceso directo / cruzado denegado. Bloqueo #25/#26. |
 | Resumen CRM | `/dashboard` (`Index.tsx`), consultas de contactos, oportunidades, pendientes y presupuestos. El dashboard también consulta gastos y su serie temporal, e incluye un panel LSS. | Lector autorizado; datos PostgreSQL vía CRMAPI; lectura. | Comparar totales, filtros y vacíos con datos sintéticos. Contratos base publicados; equivalencia de KPIs legacy pendiente. Para el corte #28, probar con un usuario de FormEntries que el dashboard no consulta ni presenta datos financieros o LinkedIn fuera de sus permisos, y acordar cómo quedan esos paneles. |
-| Clientes y altas | `/contactos`; GET/POST `/contacts`, GET `/contacts/{id}` y `/snapshot`. | Lector/editor; PostgreSQL, alta y potencial deduplicación según contrato. | Probar listado y detalle, alta repetida y filtros. OpenAPI de listado solo declara `limit`, `offset`, `q`. Revisar `estado`, `origen`, `pack_asignado`, `tipo_empresa` y límites de score enviados por Lovable. Verificar si editar en la pantalla tiene persistencia; el cliente y OpenAPI no presentan PATCH de contactos. |
+| Clientes y altas | `/contactos`; GET/POST `/contacts`, GET `/contacts/{id}` y `/snapshot`. | Lector/editor; PostgreSQL, alta y potencial deduplicación según contrato. | Probar listado y detalle, alta repetida y filtros. OpenAPI de listado solo declara `limit`, `offset`, `q`. Revisar `estado`, `origen`, `pack_asignado`, `tipo_empresa` y límites de score enviados por Lovable. El botón Editar abre el formulario con valores existentes, pero Guardar llama a la misma mutación de alta (POST, sin ID). El mensaje «Contacto actualizado» depende del modo del diálogo. Bloqueo del #28: demostrar actualización del mismo ID sin alta ni mensaje de éxito engañoso, o retirar esa acción del alcance acordado. |
 | Gestión de oportunidades | `/oportunidades`; GET colección, GET/PATCH por ID y GET snapshot; hooks de pendientes y presupuestos relacionados. | Comercial/editor; PostgreSQL; cambio de estado y tareas asociadas. | Probar transición válida/inválida, relaciones, duplicados y persistencia posterior. Contrato método/ruta publicado; automatizaciones y roles legacy pendientes. |
 | Tareas | `/pendientes` y detalle de oportunidad; GET/POST colección, GET/PATCH por ID y GET `/metadata/allowed-values`. | Editor asignado y supervisor de prueba; PostgreSQL; tarea y asignación. | Crear, reasignar y cambiar estado usando valores admitidos; comprobar tareas vinculadas. API también declara DELETE, cuya necesidad en legado requiere confirmación. |
 | Presupuestos | `/presupuestos` y bloques contextuales; GET/POST colección y GET/PATCH por ID. | Comercial/editor; PostgreSQL; escritura vinculada a oportunidad. | Fixture para importes, estado y persistencia; comprobar efectos posteriores con responsable comercial. API también declara DELETE; uso en legado pendiente. |
@@ -48,3 +48,27 @@ Ronda 02, 19/11/2026 Europe/Madrid. Inicio `d7dba562`. Fuentes: [guía funcional
 | Roles, adjuntos y automatizaciones | La guía propone RLS y el runbook confirma persistencia de metadatos y objetos. Mantener pendientes la matriz efectiva por aplicación, los destinos de automatización y los objetos exigidos por cada flujo. |
 
 Resultado: cotejo documental ampliado. El catálogo efectivo sigue pendiente. Los golden tests contienen llamadas POST y no se ejecutaron durante la auditoría. En la revisión de #22, confirmar si el alcance documental y los bloqueos explícitos satisfacen el criterio del issue y mantener los pendientes como condiciones de aceptación de #28.
+
+## Qué revisar antes de avanzar
+
+Ronda 03, 19/11/2026 Europe/Madrid. Inicio `157abb5f`. Inspección estática de
+`ContactosPage.tsx`, `hooks/use-api.ts`, `lib/api.ts` y del router `contacts.py`.
+Los cuatro métodos de Conversiones Offline tienen consumidores en hooks.
+Las rutas faltantes de resumen de Gastos y estadísticas de leads LinkedIn
+aparecen únicamente como definiciones en `lib/api.ts` en esta revisión.
+Verificar su necesidad en #29 y #30 antes de implementar endpoints.
+
+- **Para aceptar la auditoría #22:** revisar este PR y decidir si el catálogo
+  publicado debe cotejarse antes de cerrar el issue o si sus incógnitas quedan
+  como condiciones obligatorias del #28. La aceptación del inventario no
+  equivale a aceptar la migración.
+- **Información funcional mínima:** identificar formularios publicados y
+  roles que realmente usan FormEntries. Confirmar si edición de contactos,
+  Conversiones Offline, calendario, Kanban, PDFs/facturas, adjuntos y
+  automatizaciones se usan y quién puede aprobar sus pruebas. Una revisión
+  guiada de pantallas y reglas puede cubrir ese contraste sin compartir
+  contraseñas ni registros.
+- **Siguiente trabajo de seguridad:** #23 puede preparar de forma local la
+  retirada del valor expuesto y su receta de rotación/rollback. La ejecución
+  sobre CT618 requiere autorización y ventana. DNS, proveedor de identidad
+  y UAT se resuelven antes de los pasos dependientes, no en la auditoría.

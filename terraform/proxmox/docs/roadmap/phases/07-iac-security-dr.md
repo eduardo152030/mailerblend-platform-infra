@@ -1154,3 +1154,7 @@ Seguimiento #22, 19/11/2026: contrastados guía, ERD, esquema e intake.
 Registrados candidatos de paridad para formularios, pipeline, calendario y
 facturación, y prueba pendiente de reenvío de intake. Pendiente cotejo del
 catálogo publicado efectivo. Sin escrituras en producción.
+
+Seguimiento #22: Lovable guarda la edición de contacto mediante la mutación
+de alta. Brecha registrada como condición del primer corte. Próximo trabajo
+preparatorio: #23, con rotación efectiva sujeta a autorización.
