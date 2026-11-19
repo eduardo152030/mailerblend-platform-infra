@@ -1305,3 +1305,18 @@ Rotación general diferida al #36 tras las pruebas.
 
 Seguimiento #23: generación de candidatos privados y validación Compose
 simulada completadas. Sin aplicación; ensayo de motor y rollback pendientes.
+
+Seguimiento #23: ensayo aislado de CouchDB preparado con digest observado.
+Sintaxis Bash validada. GitHub rechazó publicar el workflow (403); ejecución
+Docker y prueba de consumidor siguen pendientes.
+
+Seguimiento #23: Docker temporal arrancó localmente. El mapeo de grupos
+bloqueó la extracción de la imagen. Ensayo y rotación siguen pendientes.
+
+Seguimiento #23: CouchDB 3.5.1 ejecutado desde capas verificadas en
+aislación local. Cambio y reversión PASS, credencial retirada 401 y base
+conservada 200. Pendiente ensayo Docker y Budibase D051.
+
+Seguimiento #23: entrypoint aislado confirmó que cambiar solo el entorno
+con INI persistente conserva el valor anterior. INI nuevo y reversión PASS
+con datos sintéticos. Pendiente prueba conjunta Docker y Budibase D051.
