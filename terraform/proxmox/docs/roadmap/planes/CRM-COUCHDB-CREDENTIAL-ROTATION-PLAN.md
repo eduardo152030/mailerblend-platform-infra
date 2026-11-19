@@ -51,6 +51,8 @@ registros del #22 integrado y el seguimiento del #23.
 
 ## Preflight de solo lectura
 
+[PR #37](https://github.com/eduardo152030/mailerblend-platform-infra/pull/37).
+
 Rama `ops/crm-couchdb-rotation-preflight`, worktree hermano
 `mailerblend-platform-infra-crm-rotation-preflight`, inicio `db4ff8a3`.
 [Script de preflight](../../../scripts/check-crm-couchdb-rotation.py).

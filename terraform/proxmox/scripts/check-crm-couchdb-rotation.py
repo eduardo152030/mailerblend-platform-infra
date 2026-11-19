@@ -14,12 +14,16 @@ from pathlib import Path
 KEYS = ("COUCHDB_USER", "COUCHDB_PASSWORD")
 
 
+class PreflightError(Exception):
+    """A preflight failure with a message safe to print."""
+
+
 def private_file(path, label):
     metadata = path.lstat()
     if not stat.S_ISREG(metadata.st_mode):
-        raise ValueError(f"{label}: se requiere un archivo regular sin enlaces")
+        raise PreflightError(f"{label}: se requiere un archivo regular sin enlaces")
     if stat.S_IMODE(metadata.st_mode) != 0o600:
-        raise ValueError(f"{label}: se requiere modo 0600")
+        raise PreflightError(f"{label}: se requiere modo 0600")
 
 
 def compose_environment(compose, service, env_file):
@@ -31,7 +35,7 @@ def compose_environment(compose, service, env_file):
         command, capture_output=True, check=False, timeout=30, cwd=compose.parent,
     )
     if result.returncode:
-        raise ValueError("Compose no pudo renderizar uno de los modelos")
+        raise PreflightError("Compose no pudo renderizar uno de los modelos")
     return json.loads(result.stdout)["services"][service]["environment"]
 
 
@@ -39,24 +43,24 @@ def run(args):
     private_file(args.env_file, "Entorno CouchDB")
     private_file(args.app_compose, "Compose privado D051")
     if not args.couch_compose.is_file():
-        raise ValueError("Compose CouchDB: archivo ausente")
+        raise PreflightError("Compose CouchDB: archivo ausente")
     with args.env_file.open(encoding="utf-8") as env:
         assignments = [line.partition("=")[0].strip().removeprefix("export ").strip()
                        for line in env if "=" in line]
     if any(assignments.count(key) != 1 for key in KEYS):
-        raise ValueError("Entorno CouchDB: debe haber una asignación por cada clave")
+        raise PreflightError("Entorno CouchDB: debe haber una asignación por cada clave")
     # Compose reads the legacy env for interpolation. Shell overrides would
     # defeat this comparison, so require callers to unset those keys first.
     if any(key in os.environ for key in KEYS):
-        raise ValueError("El entorno del proceso contiene overrides de CouchDB")
+        raise PreflightError("El entorno del proceso contiene overrides de CouchDB")
     couch = compose_environment(args.couch_compose, "couchdb", args.env_file)
     app = compose_environment(args.app_compose, "budibase-app", Path("/dev/null"))
     for key in KEYS:
         source, consumer = couch.get(key), app.get(key)
         if not isinstance(source, str) or not isinstance(consumer, str) or not source or not consumer:
-            raise ValueError("Falta una referencia de credencial en los modelos")
+            raise PreflightError("Falta una referencia de credencial en los modelos")
         if not hmac.compare_digest(source.encode(), consumer.encode()):
-            raise ValueError("Los modelos CouchDB y D051 no coinciden")
+            raise PreflightError("Los modelos CouchDB y D051 no coinciden")
     print("PASS: archivos privados y referencias Compose coincidentes")
 
 
@@ -71,10 +75,10 @@ def main():
         setattr(args, key, path.absolute())
     try:
         run(args)
-    except (OSError, KeyError, TypeError, json.JSONDecodeError, subprocess.TimeoutExpired):
+    except (OSError, KeyError, TypeError, UnicodeError, json.JSONDecodeError, subprocess.TimeoutExpired):
         print("BLOCKED: no se pudo validar la entrada privada o el modelo Compose", file=sys.stderr)
         return 1
-    except ValueError as error:
+    except PreflightError as error:
         print(f"BLOCKED: {error}", file=sys.stderr)
         return 1
     return 0
