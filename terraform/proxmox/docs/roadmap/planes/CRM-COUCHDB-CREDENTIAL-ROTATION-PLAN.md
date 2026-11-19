@@ -76,3 +76,11 @@ los archivos fuente, y no inicia ni recrea servicios. Usar una ubicación privad
 fuera del repositorio. Prueba con Compose simulado PASS, incluyendo permisos
 del destino, coincidencia del valor nuevo y ausencia de valores en salida.
 No aplicar estos archivos antes del ensayo real de autenticación y rollback.
+
+Ronda 03, inicio `a5fd8add`. Digest de CouchDB confirmado por lectura de
+`RepoDigests` en CT618. [Ensayo de motor aislado](../../../scripts/rehearse-crm-couchdb-rotation.sh):
+crea un volumen sintético y contenedores temporales, conserva una base de
+prueba durante cambio y reversión, y exige HTTP 401 con la credencial retirada.
+Se validó sintaxis Bash. No se ejecutó el ensayo: la integración GitHub devolvió
+403 al publicar un workflow, y no hay Docker local. Aún falta el ensayo con
+Budibase D051 y la prueba de rollback del consumidor. Sin cambios en CT618.

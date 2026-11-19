@@ -1267,3 +1267,7 @@ Rotación general diferida al #36 tras las pruebas.
 
 Seguimiento #23: generación de candidatos privados y validación Compose
 simulada completadas. Sin aplicación; ensayo de motor y rollback pendientes.
+
+Seguimiento #23: ensayo aislado de CouchDB preparado con digest observado.
+Sintaxis Bash validada. GitHub rechazó publicar el workflow (403); ejecución
+Docker y prueba de consumidor siguen pendientes.
