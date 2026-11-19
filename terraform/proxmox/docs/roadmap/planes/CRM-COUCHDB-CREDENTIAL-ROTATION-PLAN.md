@@ -84,3 +84,8 @@ prueba durante cambio y reversión, y exige HTTP 401 con la credencial retirada.
 Se validó sintaxis Bash. No se ejecutó el ensayo: la integración GitHub devolvió
 403 al publicar un workflow, y no hay Docker local. Aún falta el ensayo con
 Budibase D051 y la prueba de rollback del consumidor. Sin cambios en CT618.
+
+Entrega del ensayo en [PR #38](https://github.com/eduardo152030/mailerblend-platform-infra/pull/38),
+rama `ops/crm-couchdb-rehearsal`, worktree hermano
+`mailerblend-platform-infra-crm-rehearsal`, base de ronda `18743981`.
+El avance se trasladó al PR #38 después de integrarse el PR #37.
