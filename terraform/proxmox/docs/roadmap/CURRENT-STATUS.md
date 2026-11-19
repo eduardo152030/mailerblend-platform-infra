@@ -3,7 +3,8 @@
 19/11/2026 Europe/Madrid, Fase 7. Reglas actualizadas en el worktree dedicado.
 La regla 03 exige plan o issue, comprobación previa de ruta y rama y enlace
 recíproco con el PR. La regla de documentación LXC pasa a 18. Numeración,
-referencias y diff verificados. Pendiente revisión del propietario.
+referencias y diff verificados. El cierre exige URL y SHA verificados del
+PR del worktree. Pendiente revisión del propietario.
 [Plan y evidencia](planes/CLINE-TRAZABILIDAD-GIT-PLAN.md).
 
 ## CRM Core Main — cierre local DONE

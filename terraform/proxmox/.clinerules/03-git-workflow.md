@@ -4,8 +4,9 @@ Aplica esta regla al recibir cada tarea, incluidas las tareas pequeñas,
 documentales, de solo planificación y las que disparan un workflow específico.
 La trazabilidad une **plan o issue → worktree dedicado y rama propia → PR**.
 Si el encargo limita una acción, registra el estado real y el siguiente paso
-en el plan o issue. La preparación y publicación del PR tienen su propio alcance,
-igual que la integración y cualquier operación en producción.
+en el plan o issue. Para tareas con cambios, el cierre normal incluye commit, push y PR.
+La aprobación, la integración y las operaciones en producción son pasos
+separados.
 
 ## 1. Identificar la tarea y abrir o retomar su worktree
 
@@ -29,9 +30,18 @@ git status --short --branch
    ```
 
 3. Para una tarea en curso, reutiliza su worktree y rama. Revisa el estado
-   local, la referencia de seguimiento y el PR existente antes de actuar.
+   local, la referencia de seguimiento y el PR existente antes de actuar:
+
+   ```bash
+   gh pr list --head <rama> --state all --json number,state,url
+   ```
+
+   Distingue una lista vacía de un fallo de consulta.
    Un PR integrado cierra esa rama de trabajo. Si queda trabajo con otro alcance,
-   abre una tarea desde la base actualizada.
+   abre una tarea con rama y worktree nuevos desde la base actualizada.
+   Conserva las ramas anteriores para trazabilidad y cualquier trabajo pendiente.
+   La limpieza de ramas y la reescritura de historia requieren un encargo
+   específico.
 4. **Antes de escribir, mover, borrar, preparar artefactos, hacer staging o
    ejecutar un paso del workflow que cambie el entorno**, comprueba la ruta con
    `git rev-parse --show-toplevel` y la rama con `git branch --show-current`.
@@ -39,7 +49,11 @@ git status --short --branch
    En Proxmox, continúa desde `terraform/proxmox/` dentro del worktree dedicado.
    Copia allí los archivos de entrada que el usuario dejó en otro checkout y
    conserva el origen. Si existe una dependencia de otra rama, regístrala y
-   acuerda la base antes de incorporarla.
+   acuerda la base antes de incorporarla. Identifica el PR previo y el orden
+   de integración en el plan o issue y en el PR dependiente. Tras integrarse
+   el PR previo, actualiza la base acordada y vuelve a validar el diff y el PR
+   dependiente antes de entregarlo. Si avanza la base de cualquier PR que
+   estés gestionando, vuelve a consultar su estado antes de declararlo listo.
 
 ## 2. Registrar alcance, evidencia y estado
 
@@ -55,16 +69,23 @@ que el propietario apruebe su ejecución.
 
 ## 3. Validar, publicar y enlazar
 
-Aplica el [cierre de la regla 15](15-task-commit-closeout.md). Comprueba
-que el diff contra la base contiene solo cambios de la tarea. Publica la rama
-y abre su PR hacia la base acordada cuando el encargo lo autorice. Si la rama
-ya tiene PR, actualiza el mismo PR. Si el alcance termina en un commit local,
-registra el PR como pendiente y conserva el worktree para publicarlo más tarde.
+Aplica el [cierre de la regla 15](15-task-commit-closeout.md) desde el
+worktree dedicado. Peticiones breves como «haz commit», «haz push» o
+«crea el PR» activan el cierre completo de la tarea. Un límite explícito,
+como «solo commit local», deja la publicación pendiente.
 
-En el PR, enlaza el issue o el plan con su ruta y revisión, e incluye el
-resumen y las verificaciones. Registra también la URL del PR en el issue o
-plan correspondiente. Para un plan versionado, incorpora el enlace en la
-misma rama antes de solicitar la revisión.
+El cierre de una tarea con cambios exige un PR abierto y listo para revisión
+cuya rama de origen corresponda al worktree y cuyo último commit sea el que
+se acaba de verificar. Reutiliza el PR abierto de la tarea. Enlaza el plan
+o issue en el PR y registra la URL del PR en la referencia de la tarea. Si
+el enlace se incorpora en un commit posterior, publícalo y comprueba de
+nuevo el SHA del PR.
+
+El primer dato del mensaje de cierre es el **enlace al PR**. Si falta el
+PR, la publicación falla o queda un conflicto, comunica **entrega pendiente**
+con el motivo y el siguiente paso. Las consultas de solo lectura se
+reportan como diagnóstico. Un encargo de solo planificación que modifica
+un documento versionado sí sigue el cierre con PR.
 
 ## 4. Revisar e integrar
 
@@ -79,9 +100,8 @@ gh pr checks <número-o-rama> --required
   aprobación válida para el cambio actual.
 - **Cambios solicitados**. Revisa el feedback, registra las correcciones en la
   referencia de la tarea y actualiza la misma rama y PR según el alcance.
-- **Aprobado**. La integración requiere autorización para la tarea, que el PR
-  sea integrable y que pasen las comprobaciones requeridas. La IA que
-  implementa no aprueba su propio PR.
+- **Aprobado**. Cline entrega el enlace y se detiene. El propietario decide
+  la aprobación y la integración desde GitHub.
 - **Integrado**. Registra el cierre con el PR y el commit de integración.
   Si se solicita actualizar `main`, inspecciona primero su estado, preserva
   cambios ajenos y verifica el resultado contra `origin/main`.

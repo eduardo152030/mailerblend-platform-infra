@@ -11,3 +11,12 @@
   referencia antigua retirada y `git diff --check` limpio.
 - PR de revisión: [#20](https://github.com/eduardo152030/mailerblend-platform-infra/pull/20).
 - Siguiente paso: revisión del PR por el propietario.
+
+## Ampliación aprobada del cierre
+
+- Una tarea con cambios solo se declara terminada tras publicar y verificar
+  el PR de su worktree. El informe final empieza con su enlace.
+- Una petición breve de commit, push o PR ejecuta el flujo de cierre para
+  la tarea activa. Un límite explícito o un bloqueo deja la entrega pendiente.
+- Verificar rama, base, SHA publicado, conflictos y checks en GitHub. La
+  aprobación e integración corresponden al propietario.
