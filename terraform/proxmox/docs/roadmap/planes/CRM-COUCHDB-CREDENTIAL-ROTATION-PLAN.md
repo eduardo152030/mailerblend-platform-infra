@@ -76,3 +76,75 @@ los archivos fuente, y no inicia ni recrea servicios. Usar una ubicación privad
 fuera del repositorio. Prueba con Compose simulado PASS, incluyendo permisos
 del destino, coincidencia del valor nuevo y ausencia de valores en salida.
 No aplicar estos archivos antes del ensayo real de autenticación y rollback.
+
+Ronda 03, inicio `a5fd8add`. Digest de CouchDB confirmado por lectura de
+`RepoDigests` en CT618. [Ensayo de motor aislado](../../../scripts/rehearse-crm-couchdb-rotation.sh):
+crea un volumen sintético y contenedores temporales, conserva una base de
+prueba durante cambio y reversión, y exige HTTP 401 con la credencial retirada.
+Se validó sintaxis Bash. No se ejecutó el ensayo: la integración GitHub devolvió
+403 al publicar un workflow, y no hay Docker local. Aún falta el ensayo con
+Budibase D051 y la prueba de rollback del consumidor. Sin cambios en CT618.
+
+Entrega del ensayo en [PR #38](https://github.com/eduardo152030/mailerblend-platform-infra/pull/38),
+rama `ops/crm-couchdb-rehearsal`, worktree hermano
+`mailerblend-platform-infra-crm-rehearsal`, base de ronda `18743981`.
+El avance se trasladó al PR #38 después de integrarse el PR #37.
+
+Ronda 02 del PR #38, 19/11/2026 Europe/Madrid, SHA inicial `b8e66c96`.
+Prueba local con binarios Docker 27.5.1 en un directorio temporal y un espacio
+de nombres de usuario, montaje y PID. El daemon arrancó con socket y estado
+privados, VFS y bridge y reglas de red del daemon deshabilitados. Docker Hub
+entregó capas de la imagen fijada, pero el registro de la primera capa falló:
+el mapeo de un solo UID/GID no permite aplicar el GID 42 de un archivo de la
+imagen. El daemon temporal terminó. No se creó el volumen de prueba, no
+arrancó CouchDB y no se ensayó la rotación. El entorno carece de los helpers
+`newuidmap` y `newgidmap` para usar los rangos subordinados configurados.
+Próxima ejecución: un motor Docker aislado con mapeo suficiente para instalar
+las capas de las imágenes. Ningún cambio en CT618.
+
+## Ensayo del motor con la imagen verificada
+
+Ronda 03 del PR #38, 19/11/2026 22:02 CET. SHA inicial `580280ac`.
+Se verificaron por SHA256 el manifiesto, el manifiesto amd64 cuando corresponde
+y las capas del digest observado. Se extrajeron a un directorio temporal y se
+ejecutó el binario CouchDB **3.5.1** dentro del rootfs en espacios de nombres
+de usuario, montaje, PID y red. Solo loopback; credenciales y base sintéticas.
+Se sobrescribió exclusivamente el INI de prueba, con reinicio del motor en
+cada paso y el mismo directorio de datos.
+
+| Evidencia | Resultado |
+| --- | --- |
+| Arranque y creación de base sintética con el valor inicial | PASS |
+| Arranque con valor candidato, valor anterior rechazado y base accesible | HTTP 401 / 200 |
+| Reversión al valor inicial, candidato rechazado y base accesible | HTTP 401 / 200 |
+
+El entrypoint de la imagen crea el administrador desde el entorno solo si
+no lo encuentra en los INI existentes. Confirmar en el ensayo Docker la
+persistencia efectiva de esos INI al recrear el contenedor; un reinicio del
+mismo contenedor no acredita por sí solo la rotación. El ensayo anterior
+prueba el comportamiento del motor con configuración explícita y datos
+persistidos. No ejercitó la recreación Docker, la configuración D051 ni el
+login de Budibase. Esos pasos siguen siendo condiciones de la rotación.
+Sin cambios en CT618.
+
+## Comportamiento del entrypoint
+
+Ronda 04 del PR #38, 19/11/2026 Europe/Madrid. Inicio `4cf01874`.
+Se ejecutó el entrypoint original de la imagen verificada en un rootfs de
+prueba y una red aislada. Para esta prueba local se adaptó el usuario del
+rootfs temporal y se sustituyó únicamente el cambio de UID/GID de setpriv,
+que el kernel bloqueaba en el namespace. El entrypoint y el binario CouchDB
+no se editaron. Se reutilizó el mismo directorio de datos sintético.
+
+- Reinicio con INI existente y un valor nuevo en el entorno: el valor
+  anterior siguió funcionando (200) y el candidato fue rechazado (401).
+- Arranque con INI nuevo y el candidato en el entorno: valor anterior
+  rechazado (401), candidato válido y base conservada (200).
+- Reversión con INI nuevo y valor inicial: candidato rechazado (401) y base
+  accesible con el valor inicial (200).
+
+El procedimiento debe distinguir la persistencia del INI del volumen de datos.
+En la prueba Docker verificar los montajes y conservar toda personalización
+vigente antes de preparar la recreación. Exigir prueba funcional de Budibase
+D051 tras propagación y rollback. El ensayo de entrypoint no sustituye esa
+prueba conjunta. Sin cambios en CT618.
