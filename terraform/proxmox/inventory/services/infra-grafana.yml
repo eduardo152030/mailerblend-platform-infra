@@ -9,6 +9,7 @@ resources:
   disk_gb: 15
 
 tags:
+  - 192.168.1.111
   - infra
   - monitoring
   - grafana

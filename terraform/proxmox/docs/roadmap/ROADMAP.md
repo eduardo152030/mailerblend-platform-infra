@@ -1,3 +1,13 @@
+## LXC-NOTES-TAGS — IN PROGRESS
+
+19/11/2026 Europe/Madrid, Fase 7. El workflow completo sincroniza
+automáticamente cualquier VMID declarado, con un plan guardado y
+validado para la clave de su YAML. Un VMID ausente bloquea el flujo. El encargo
+«solo documentación» conserva el cierre local. La etiqueta IP de CT611
+está declarada. Conflicto con la actualización de las reglas de Cline
+resuelto. Pendientes revisión y prueba en una sesión nueva de Cline.
+[Plan](planes/LXC-NOTES-TAGS.md).
+
 ## CLINE-VERIFICACIÓN — límite de verificaciones IN PROGRESS
 
 19/11/2026 Europe/Madrid, Fase 7. Tras el bucle de cierre de CT611, se

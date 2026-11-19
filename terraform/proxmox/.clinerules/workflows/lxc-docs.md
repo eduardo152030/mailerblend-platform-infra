@@ -14,14 +14,14 @@ Disparadores: «documentar CT<VMID>» (por ejemplo, «documentar CT611»), «doc
 2. Resuelve la identidad **solo en los YAML de `inventory/services/`**.
 
    - Si la petición trae un VMID, extrae los dígitos después de `CT` y
-     busca el campo `vmid` completo. Para «documentar CT611», ejecuta:
+     busca el campo `vmid` completo. Asigna a `vmid` el ID numérico solicitado
+     antes de ejecutar:
 
      ```bash
-     vmid=611  # Sustituye por el VMID solicitado
+     : "${vmid:?Asigna el VMID solicitado}"
      rg -n "^[[:space:]]*vmid:[[:space:]]*${vmid}[[:space:]]*(#.*)?$" inventory/services/*.yml
      ```
 
-     Resultado esperado: `inventory/services/infra-grafana.yml:3:  vmid: 611`.
      Si `rg` no está disponible, usa `grep -En` con el mismo patrón y los
      mismos archivos.
    - Si la petición trae una clave de servicio, abre directamente
@@ -31,29 +31,29 @@ Disparadores: «documentar CT<VMID>» (por ejemplo, «documentar CT611»), «doc
      sin `.yml`. Con cero o varias coincidencias, o si falla el comando,
      detente e informa. Evita búsquedas recursivas y consultas al estado
      Terraform, a `.runtime` o a los inventarios generados para resolver el CT.
+     Si el VMID falta en el inventario, informa del bloqueo antes de SSH o
+     Terraform. No crees un CT desde este workflow.
    - Usa **CREAR** si falta `docs/inventory/<CT>-LXC-INVENTORY.md`, o
-     **ACTUALIZAR** si existe. Para CT611, la clave es `infra-grafana` y
-     corresponde **CREAR** al 19/11/2026. Comprueba los datos reales
-     mediante §3 paso 2 del runbook.
-   - Usa SSH estricto desde el primer intento. Ejecuta `pct status` y
-     `pct config` en el nodo PVE. Usa el alias directo del CT para lecturas
-     internas si su clave está verificada. Si falla la verificación del alias,
-     usa `pct exec <VMID> -- ...` desde PVE verificado. Para CT611 el alias
-     directo es `infra-grafana` y la ruta verificada es `pve` → `pct exec 611`.
-     Si falla también la verificación de PVE, detén las lecturas remotas.
-3. Actualiza la ficha y las Notes a partir de lo observado. En el YAML,
-   enlázalas con `notes_file` e `inventory_file`. Para «sincronizar Notes»,
-   reutiliza las fuentes si están vigentes. Si retomas CT611 con la ficha y
-   las Notes ya preparadas, preserva esos borradores y continúa en §6.1.
-   Para preparar el plan, ejecuta una sola llamada a
-   `bash scripts/prepare-lxc-notes-plan.sh infra-grafana` (sustituye la clave
-   para otros CT). Usa el script versionado tal cual, sin reconstruir su
-   bloque de comandos, encadenar reintentos ni borrar el directorio privado.
-4. Si hay un fallo o drift ajeno a `description`, informa del bloqueo y
-   detén la aplicación. Con un plan sin cambios, verifica la nota real.
-   Con un cambio validado, muestra el informe seguro y espera la confirmación
-   explícita para aplicar el plan guardado según §6.2.
-5. Verifica la descripción completa en PVE y comprueba con un segundo
-   plan que repetir el proceso produciría cero cambios. Registra por separado ficha, artefactos,
-   plan, aplicación y verificación. Sigue el cierre del runbook y comunica
-   fase, estado y siguiente paso.
+     **ACTUALIZAR** si existe.
+     Comprueba los datos reales mediante §3 paso 2 del runbook.
+   - Usa SSH estricto desde el primer intento. Identifica el nodo PVE que
+     aloja el VMID y úsalo para `pct status` y `pct config`. Si hay un alias
+     verificado para ese CT, úsalo para las lecturas internas. En otro caso,
+     usa `pct exec <VMID> -- ...` desde el nodo PVE verificado. Si no puedes
+     verificar la identidad del nodo o del CT, detén el workflow.
+3. Actualiza la ficha, las Notes y sus referencias `notes_file` e
+   `inventory_file` en el YAML. Documenta las etiquetas observadas en la
+   ficha. Conserva las etiquetas existentes al alinear el YAML con la lectura
+   verificada del CT, incluida su etiqueta IP si existe.
+4. Si el encargo dice «solo documentación», completa el
+   [cierre documental](../../docs/runbooks/LXC-DOCUMENTATION-PROCESS.md#cierre-documental)
+   y termina. En los demás casos, sigue §6 del runbook para sincronizar
+   automáticamente las Notes del CT identificado.
+5. Pasa al script de §6.1 la clave exacta del YAML resuelto. El script
+   construye el target con esa clave, y la comprobación en PVE usa el
+   VMID y el nodo identificados en el paso 2. Si el informe
+   devuelve `BLOCKED` o falla alguna comprobación, reporta la causa y
+   termina. Con `PASS` y cambios, aplica el binario guardado según §6.2
+   sin pedir confirmación adicional. Con `PASS` sin cambios, verifica la
+   nota real y cierra. Tras aplicar, verifica PVE y exige un plan posterior
+   sin cambios. Reutiliza el informe disponible para el mismo plan.
