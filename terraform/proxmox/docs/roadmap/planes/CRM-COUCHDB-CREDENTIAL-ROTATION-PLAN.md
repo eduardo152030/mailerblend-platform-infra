@@ -67,3 +67,12 @@ Cinco casos sintéticos PASS con Compose simulado: coincidencia, discrepancia,
 error de render con salida sensible, permisos y duplicados. Pendientes Docker
 real, backup restaurado, helper de mutación/rollback y una ventana operativa.
 Sin ejecución en CT618. El recambio general sigue diferido en [#36](https://github.com/eduardo152030/mailerblend-platform-infra/issues/36).
+
+Ronda 02 del PR #37, inicio `e2f2f404`. El modo opcional
+`--prepare-candidate DIRECTORIO_PRIVADO` genera dos candidatos con un valor
+nuevo y valida ambos modelos Compose. Requiere directorio propio 0700.
+Los candidatos quedan en un subdirectorio privado con archivos 0600, conserva
+los archivos fuente, y no inicia ni recrea servicios. Usar una ubicación privada
+fuera del repositorio. Prueba con Compose simulado PASS, incluyendo permisos
+del destino, coincidencia del valor nuevo y ausencia de valores en salida.
+No aplicar estos archivos antes del ensayo real de autenticación y rollback.

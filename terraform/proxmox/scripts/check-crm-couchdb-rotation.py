@@ -5,9 +5,12 @@ import argparse
 import hmac
 import json
 import os
+import re
+import secrets
 import stat
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 
@@ -39,6 +42,43 @@ def compose_environment(compose, service, env_file):
     return json.loads(result.stdout)["services"][service]["environment"]
 
 
+def prepare_candidate(args):
+    parent = args.prepare_candidate
+    metadata = parent.lstat()
+    if (not stat.S_ISDIR(metadata.st_mode) or metadata.st_uid != os.geteuid()
+            or stat.S_IMODE(metadata.st_mode) != 0o700):
+        raise PreflightError("El directorio de candidatos debe ser propio y de modo 0700")
+    password = secrets.token_urlsafe(36)
+    legacy_env = args.env_file.read_text(encoding="utf-8")
+    candidate_env, changed = re.subn(
+        r"(?m)^[ \t]*(?:export[ \t]+)?COUCHDB_PASSWORD[ \t]*=[^\n]*$",
+        lambda _: f"COUCHDB_PASSWORD={password}", legacy_env,
+    )
+    if changed != 1:
+        raise PreflightError("No se pudo reemplazar la asignación de CouchDB")
+    app_model = json.loads(args.app_compose.read_text(encoding="utf-8"))
+    app_model["services"]["budibase-app"]["environment"]["COUCHDB_PASSWORD"] = password
+
+    with tempfile.TemporaryDirectory(prefix="crm-rotation-check-", dir=parent) as tmp:
+        candidate = Path(tmp)
+        files = {".env": candidate_env, "compose.private.json": json.dumps(app_model, indent=2) + "\n"}
+        for name, content in files.items():
+            fd = os.open(candidate / name, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+            with os.fdopen(fd, "w", encoding="utf-8") as output:
+                output.write(content)
+        couch = compose_environment(args.couch_compose, "couchdb", candidate / ".env")
+        app = compose_environment(candidate / "compose.private.json", "budibase-app", Path("/dev/null"))
+        if any(model.get("COUCHDB_PASSWORD") != password for model in (couch, app)):
+            raise PreflightError("Compose no conserva el valor candidato")
+        if couch.get("COUCHDB_USER") != app.get("COUCHDB_USER"):
+            raise PreflightError("Los usuarios candidatos no coinciden")
+
+        destination = Path(tempfile.mkdtemp(prefix="crm-rotation-candidate-", dir=parent))
+        for name in files:
+            (candidate / name).rename(destination / name)
+    print(f"PASS: archivos candidatos privados generados en {destination}")
+
+
 def run(args):
     private_file(args.env_file, "Entorno CouchDB")
     private_file(args.app_compose, "Compose privado D051")
@@ -61,7 +101,10 @@ def run(args):
             raise PreflightError("Falta una referencia de credencial en los modelos")
         if not hmac.compare_digest(source.encode(), consumer.encode()):
             raise PreflightError("Los modelos CouchDB y D051 no coinciden")
-    print("PASS: archivos privados y referencias Compose coincidentes")
+    if args.prepare_candidate:
+        prepare_candidate(args)
+    else:
+        print("PASS: archivos privados y referencias Compose coincidentes")
 
 
 def main():
@@ -69,10 +112,12 @@ def main():
     parser.add_argument("--env-file", type=Path, required=True)
     parser.add_argument("--couch-compose", type=Path, required=True)
     parser.add_argument("--app-compose", type=Path, required=True)
+    parser.add_argument("--prepare-candidate", type=Path, metavar="DIRECTORIO_PRIVADO")
     args = parser.parse_args()
     for key in vars(args):
         path = getattr(args, key)
-        setattr(args, key, path.absolute())
+        if path is not None:
+            setattr(args, key, path.absolute())
     try:
         run(args)
     except (OSError, KeyError, TypeError, UnicodeError, json.JSONDecodeError, subprocess.TimeoutExpired):
