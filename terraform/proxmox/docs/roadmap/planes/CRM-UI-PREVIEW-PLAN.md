@@ -1,5 +1,7 @@
 # CT618 — preparación de preview CRM UI
 
+[PR #39](https://github.com/eduardo152030/mailerblend-platform-infra/pull/39).
+
 [Issue #24](https://github.com/eduardo152030/mailerblend-platform-infra/issues/24).
 Fase 7, IN PROGRESS, 19/11/2026 Europe/Madrid.
 Rama `feat/crm-ui-preview`, worktree hermano `mailerblend-platform-infra-crm-preview`,
