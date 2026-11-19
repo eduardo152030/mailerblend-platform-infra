@@ -1,3 +1,12 @@
+## CLINE-VERIFICACIÓN — límite de verificaciones IN PROGRESS
+
+19/11/2026 Europe/Madrid, Fase 7. Tras el bucle de cierre de CT611, se
+acota a dos la comprobación del mismo criterio sobre el mismo estado y
+se cierra el criterio al obtener evidencia concluyente. Cambio documental
+autorizado y preparado localmente. Pendientes revisión y prueba en una
+sesión nueva de Cline.
+[Plan y evidencia](planes/CLINE-LIMITE-VERIFICACIONES.md).
+
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS
 
 19/11/2026 Europe/Madrid, Fase 7. Reglas actualizadas en el worktree dedicado.
