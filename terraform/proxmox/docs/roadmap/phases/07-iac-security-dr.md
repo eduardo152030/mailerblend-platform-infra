@@ -1149,3 +1149,8 @@ coincidentes, seis operaciones del cliente sin coincidencia. Matriz por proyecto
 y bloqueos registrados. Pendiente cotejo del catálogo legado autenticado,
 roles, automatizaciones y titularidad DNS/proxy. Solo diagnóstico, sin corte
 ni UAT. [Evidencia y siguiente paso](../planes/CRM-UI-COMPOSABLE-CONTRACT.md).
+
+Seguimiento #22, 19/11/2026: contrastados guía, ERD, esquema e intake.
+Registrados candidatos de paridad para formularios, pipeline, calendario y
+facturación, y prueba pendiente de reenvío de intake. Pendiente cotejo del
+catálogo publicado efectivo. Sin escrituras en producción.
