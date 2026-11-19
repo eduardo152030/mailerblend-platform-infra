@@ -1334,3 +1334,7 @@ bloqueada verificados en entorno aislado. Compose y TLS pendientes.
 Seguimiento #24: Compose config real y proxy TLS local probado con acceso
 anónimo 401, ruta autenticada 200 y API 503. Pendientes ejecución Compose,
 idempotencia y TLS en el proxy definitivo. Sin despliegue.
+
+Seguimiento #24: build y dos aplicaciones Compose reales PASS en VM
+desechable. Mismo contenedor, inicio, imagen y health. API bloqueada.
+Pendientes proxy y TLS definitivos. Sin despliegue en CT618.
