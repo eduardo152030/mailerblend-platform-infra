@@ -2829,3 +2829,8 @@ modelos y aprobar/fusionar cuando pase la revisión. Alcance Fase7.4: worker
 optimizado real, fragmentación sin pérdida, EOS por fragmento, pruebas WAV
 sintéticas y manifiestos. No autoriza despliegue, inferencias ni cambios de
 recursos. La aceptación acústica de D089 no valida narraciones fragmentadas.
+
+## CLINE-VERIFICACIÓN — límite aprobado por el propietario
+
+19/11/2026 Europe/Madrid. Hasta dos verificaciones equivalentes. El cierre
+avanza con un resultado concluyente. [Plan](planes/CLINE-LIMITE-VERIFICACIONES.md).
