@@ -1202,3 +1202,12 @@ solicitado; preparar adopción Terraform sin recreación, SSH verificado si proc
 exporters apropiados para630sinDocker y631conDocker, integración aditiva enPrometheus/
 Blackbox/Grafana e inventario. Conservar cambios previos ajenos. La validación devoz
 sigue pendiente tras corregir WHISPER_MODEL persistido; no declararla aprobada.
+
+
+## CT618 — migración de interfaz CRM (TODO)
+
+19/11/2026 Europe/Madrid. Diagnóstico Git y runtime de solo lectura completado.
+[Plan propuesto y borradores](planes/CRM-UI-MIGRATION-PLAN.md). Los tres proyectos
+requieren aceptación secuencial. Autenticación, enrutamiento y retención por
+resolver. Pendiente revisión del propietario antes de publicar issues.
+Sin autorización de corte ni retirada en esta ronda.
