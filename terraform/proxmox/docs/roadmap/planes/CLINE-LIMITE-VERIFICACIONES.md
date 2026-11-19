@@ -8,3 +8,5 @@
 - Evidencia: en CT611 Cline releyó el log del mismo plan y comprobó repetidamente el mismo HEAD y estado Git, después de obtener resultados concluyentes. La sesión se detuvo manualmente. La antigua regla 00 pasó a ser la 01 en el PR #20.
 - Criterio: una comprobación concluyente cierra ese criterio. Se admite una segunda si falta evidencia concreta. Cambiar de comando o compactar el contexto no reinicia el límite. Las comprobaciones distintas del workflow siguen siendo obligatorias.
 - Siguiente paso: revisión del propietario y prueba en una sesión nueva de Cline. El cumplimiento durante una sesión real queda pendiente.
+
+[PR #32](https://github.com/eduardo152030/mailerblend-platform-infra/pull/32)
