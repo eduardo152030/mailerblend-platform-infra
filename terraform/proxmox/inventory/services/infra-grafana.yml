@@ -9,5 +9,10 @@ resources:
   disk_gb: 15
 
 tags:
+  - infra
   - monitoring
   - grafana
+
+documentation:
+  notes_file: services/infra-grafana/NOTES.md
+  inventory_file: docs/inventory/611-LXC-INVENTORY.md

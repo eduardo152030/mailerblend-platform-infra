@@ -10,7 +10,7 @@ No se atribuye un dominio por su nombre. Recursos distintos no se reconcilian aq
 | CT | Servicio | Funcionalidad | IP | Dominio según proxy | Aplicaciones activas | Documentación | Runbook |
 |---|---|---|---|---|---|---|---|
 | 610 | infra-prom | Recolección de métricas y enrutamiento de alertas | 192.168.1.110 | Not verified | eloquent_ganguly, prometheus, alertmanager | Parcial: observación verificada; funcionalidad pendiente | [610-LXC-INVENTORY.md](../../docs/inventory/610-LXC-INVENTORY.md) |
-| 611 | infra-grafana | Visualización de métricas con Grafana | 192.168.1.111 | Not verified | grafana | Parcial: observación verificada; funcionalidad pendiente | [CRITICAL-D039-EXECUTION.md](../../docs/roadmap/CRITICAL-D039-EXECUTION.md) |
+| 611 | infra-grafana | Visualización de métricas con Grafana | 192.168.1.111 | Not verified | grafana | Parcial: observación verificada; funcionalidad pendiente | [611-LXC-INVENTORY.md](../../docs/inventory/611-LXC-INVENTORY.md) |
 | 613 | infra-hola | Servicio demo hola declarado; aplicación no observada en ejecución | 192.168.1.113 | Not verified | Sin aplicación Docker activa | Parcial: observación verificada; funcionalidad pendiente | [R1-613.md](../../docs/roadmap/R1-613.md) |
 | 614 | infra-nucleoedge | Google Tag Manager Server-Side de Núcleo Tecnológico | 192.168.1.114 | edge.nucleotecnologico.es | infra-nucleoedge-sgtm-1, infra-nucleoedge-sgtm_preview-1 | Parcial: observación verificada; funcionalidad pendiente | [614-LXC-INVENTORY.md](../../docs/inventory/614-LXC-INVENTORY.md) |
 | 615 | infra-mailerblend-edge | Google Tag Manager Server-Side de Mailerblend | 192.168.1.115 | edge.mailerblend.com | mailerblend-sgtm-serving, mailerblend-sgtm-preview | Parcial: observación verificada; funcionalidad pendiente | [615-LXC-INVENTORY.md](../../docs/inventory/615-LXC-INVENTORY.md) |
@@ -36,37 +36,7 @@ Ficha principal: [610-LXC-INVENTORY.md](../../docs/inventory/610-LXC-INVENTORY.m
 
 ## CT 611 — infra-grafana
 
-**Función:** Visualización de métricas con Grafana
-**Entorno:** Not verified | **Categoría:** Observabilidad
-**Proyecto:** infra-grafana | **Ciclo de vida:** En servicio (LXC en ejecución; aceptación funcional independiente)
-
-**Infraestructura declarada:** CT 611 | IP 192.168.1.111/24 | CPU 1 | RAM 1048 MiB | disco 15 GiB
-**Observada (2026-11-06T21:45:05.721883+00:00):** nodo pve | status: running | CPU 1 | RAM 1048 MiB | rootfs local-lvm:vm-611-disk-0,size=10G | SO Ubuntu 22.04.5 LTS
-
-**Aplicaciones observadas (estado de proceso, no prueba funcional):**
-- grafana: Dashboards y consulta de métricas; puertos *:3010->3000/tcp; Docker not configured; imagen grafana/grafana:latest
-
-**Dominios:** Not verified (asociación de upstream en Nginx CT109; no prueba pública extremo a extremo).
-**Dependencias declaradas en Compose:** Not verified / no depends_on declarado
-Dependencias externas y su disponibilidad: Not verified.
-
-**Operación:**
-- Healthchecks: grafana: not configured
-- Monitorización: Node Exporter :9100, cAdvisor :8085; aceptación F4 D041. Estado actual de targets: comprobar Prometheus, no inferir de Docker.
-- Alertas: Prometheus -> Alertmanager -> Telegram; cobertura específica de aplicación Not verified.
-- Despliegue: Compose del servicio y procedimiento del runbook; no usar deploy-all.
-- Configuración activa observada: /opt/exporter-phase4-pilot/integration-20261106T174253611Z-611/cadvisor.yml,/opt/exporter-phase4-pilot/integration-20261106T174253611Z-611/cadvisor-limits.yml,/opt/exporter-phase4-pilot/integration-20261106T174253611Z-611/cadvisor-containerd.yml; /opt/exporter-phase4-pilot/integration-20261106T174253611Z-611/node.yml,/opt/exporter-phase4-pilot/integration-20261106T174253611Z-611/node-limits.yml,/opt/exporter-phase4-pilot/integration-20261106T174253611Z-611/node-cgroup.yml; /opt/infra-grafana/docker-compose.yml
-- IaC: inventory/services/infra-grafana.yml; services/infra-grafana/ (puede contener configuración histórica; contrastar con activa).
-- Runbook: docs/roadmap/CRITICAL-D039-EXECUTION.md
-
-**Repositorio IaC:** https://github.com/eduardo152030/mailerblend-platform-infra
-**Repositorio de aplicación:** Not verified
-**Funcionalidad confirmada:** Not verified: esta tarea no certifica funcionalidad de negocio
-**Pendiente:** Entorno y responsable operativo por confirmar; Repositorio de aplicación independiente por confirmar; Prueba funcional y dependencias externas pendientes
-
-**Conservados detenidos (no reactivar automáticamente):** cadvisor-pre-phase4-611, node_exporter-pre-phase4-611
-
-**Nota previa conservada:** Managed by Terraform - Service: infra-grafana
+Ficha principal: [611-LXC-INVENTORY.md](../../docs/inventory/611-LXC-INVENTORY.md). No duplicar aquí su contenido.
 
 ## CT 613 — infra-hola
 
