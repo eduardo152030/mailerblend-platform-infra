@@ -1209,3 +1209,7 @@ idempotencia y TLS en el proxy definitivo. Sin despliegue.
 Seguimiento #24: build y dos aplicaciones Compose reales PASS en VM
 desechable. Mismo contenedor, inicio, imagen y health. API bloqueada.
 Pendientes proxy y TLS definitivos. Sin despliegue en CT618.
+
+Seguimiento #23: ensayo Docker CouchDB PASS en VM desechable.
+Reversión y persistencia sintética verificadas. Réplica D051 en pruebas;
+CT618 sin cambios.

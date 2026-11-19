@@ -148,3 +148,23 @@ En la prueba Docker verificar los montajes y conservar toda personalización
 vigente antes de preparar la recreación. Exigir prueba funcional de Budibase
 D051 tras propagación y rollback. El ensayo de entrypoint no sustituye esa
 prueba conjunta. Sin cambios en CT618.
+
+## Ensayo Docker en VM desechable
+
+19/11/2026 Europe/Madrid. Rama `test/crm-budibase-rotation`, worktree
+hermano `mailerblend-platform-infra-crm-budibase-rotation`, base
+`78ecfeec58050aacb2a6c84d9a41e898c51c06fe`, con #41 integrado.
+
+En la misma VM QEMU/Alpine del ensayo de preview se ejecutó
+`scripts/rehearse-crm-couchdb-rotation.sh` con Docker 28.3.3 y CouchDB
+fijado al digest observado. Un intento inicial falló al publicar el puerto
+porque loopback todavía no estaba levantado en el invitado. Tras habilitarlo,
+el script terminó con el marcador `CRM_COUCHDB_DOCKER_PASS`. Recreación y
+reversión sobre el mismo volumen de datos sintéticos: ambas credenciales
+sustituidas obtuvieron HTTP 401 y la base de prueba siguió accesible.
+
+Lectura filtrada de CT618 confirmó que `COUCH_DB_URL` utiliza HTTP en
+5984 y sin usuario embebido. La réplica se prepara con ese modelo,
+credenciales sintéticas y dos proyectos Compose en red privada. La
+recreación conjunta y el login D051 siguen pendientes hasta que termine
+el ensayo. No se usaron volúmenes ni credenciales de CT618.
