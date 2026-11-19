@@ -2,6 +2,8 @@
 
 Estado **TODO · Propuesto**, 19/11/2026 Europe/Madrid. Fase 7, IaC Reliability, Security & Disaster Recovery. Diagnóstico de lectura completado. Rama `docs/crm-ui-migration`, worktree hermano `mailerblend-platform-infra-crm-ui-migration`, base y SHA inicial `ac9335262082f4a47010299a381615366212a024`. La aprobación del plan, la publicación de issues, la ejecución en producción y la aceptación de cada proyecto son hitos distintos.
 
+[PR de planificación #21](https://github.com/eduardo152030/mailerblend-platform-infra/pull/21).
+
 ## Arquitectura comprobada
 
 - CT618 (192.168.1.118) aloja tres responsabilidades de aplicación: UI/workflows, CRMAPI (FastAPI) y PostgreSQL. La UI activa es una instancia all-in-one recuperada; el worker separado y originales de rollback están detenidos. CouchDB y Redis están activos en la red externa compartida `nucleo_network`, con CRMAPI, PostgreSQL y la UI. El inventario de la red identifica miembros, pero no prueba quién consume cada dependencia.
