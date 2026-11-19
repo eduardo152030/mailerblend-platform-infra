@@ -1158,3 +1158,14 @@ catálogo publicado efectivo. Sin escrituras en producción.
 Seguimiento #22: Lovable guarda la edición de contacto mediante la mutación
 de alta. Brecha registrada como condición del primer corte. Próximo trabajo
 preparatorio: #23, con rotación efectiva sujeta a autorización.
+
+## CT618 — credencial expuesta (#23, IN PROGRESS)
+
+19/11/2026 Europe/Madrid. Inventario #22 aceptado para avanzar; cotejo de
+catálogo publicado requerido en #28 antes del corte. Valor anterior retirado
+de las fuentes activas de la rama. Pendientes helper y ensayo aislado. Sin
+rotación en producción. [Plan y evidencia](../planes/CRM-COUCHDB-CREDENTIAL-ROTATION-PLAN.md).
+
+Seguimiento #23: identificados los dos proyectos Compose activos y los
+originales detenidos. Archivo privado D051 0600; entorno heredado 0644.
+Pendientes runtime aislado, helper y ensayo de rotación/rollback.
