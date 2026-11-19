@@ -16,7 +16,9 @@
    base y rama con `gh pr create --base <base> --head <rama>`. Incluye
    el enlace al plan o issue, el resumen, las pruebas y las desviaciones
    aprobadas. Registra la URL del PR en la referencia de la tarea.
-6. Verifica el resultado final después del último push:
+6. Genera y comprueba el [diff diferencial](19-review-diff-artifact.md)
+   después del último commit de la ronda. Verifica el resultado final
+   después del último push:
 
    ```bash
    git status --short --branch
@@ -33,8 +35,9 @@
    fallidos o ausentes según GitHub. Registra la ausencia de checks como
    tal. Usa las etiquetas del repositorio que correspondan a la tarea.
 7. Empieza el mensaje final con **PR: [#número](URL)**. A continuación
-   indica rama, ruta del worktree, plan o issue, SHA y estado de los checks.
-   Si falta el PR, el SHA no coincide o existe un bloqueo de entrega,
+   indica rama, ruta del worktree, plan o issue, SHA, estado de los checks
+   y datos del artefacto diferencial.
+   Si falta el PR o el diff, el SHA no coincide o existe un bloqueo de entrega,
    indica **entrega pendiente** con la causa. Cline termina su intervención
    al entregar el PR para revisión. El propietario decide cuándo aprobarlo
    y fusionarlo.

@@ -20,3 +20,11 @@
   la tarea activa. Un límite explícito o un bloqueo deja la entrega pendiente.
 - Verificar rama, base, SHA publicado, conflictos y checks en GitHub. La
   aprobación e integración corresponden al propietario.
+
+## Ronda 01 — artefacto diferencial de revisión
+
+- Baseline `59a3dd6387e63b979d6ba98b7e090f2bbcb6ef8c`, capturado antes de editar.
+- Alcance: añadir la regla 19 para guardar el diff de cada ronda en el worktree,
+  enlazarla al cierre con PR y generar el artefacto de esta ronda.
+- Verificación: numeración, enlaces, diff de la ronda, comprobación inversa
+  del parche y ausencia del artefacto en los commits.

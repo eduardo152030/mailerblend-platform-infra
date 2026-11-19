@@ -61,7 +61,8 @@ Antes de implementar, usa un plan versionado o un issue que identifique la tarea
 y contenga el alcance, los criterios y verificaciones, la rama, la ubicación
 relativa del worktree, la referencia base y el siguiente paso. Un plan breve
 basta para tareas pequeñas. Si el issue ya contiene estos datos, úsalo como
-referencia principal. Registra las ampliaciones antes de ejecutarlas.
+referencia principal. Registra las ampliaciones antes de ejecutarlas. Captura el SHA de inicio
+de cada ronda antes de editar, según la [regla 19](19-review-diff-artifact.md).
 
 En un encargo de solo planificación, el cambio del PR es el plan y, cuando
 corresponda, el seguimiento asociado. Marca el plan como propuesto hasta

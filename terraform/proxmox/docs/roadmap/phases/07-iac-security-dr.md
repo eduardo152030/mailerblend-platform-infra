@@ -4,7 +4,8 @@
 La regla 03 exige plan o issue, comprobación previa de ruta y rama y enlace
 recíproco con el PR. La regla de documentación LXC pasa a 18. Numeración,
 referencias y diff verificados. El cierre exige URL y SHA verificados del
-PR del worktree. Pendiente revisión del propietario.
+PR del worktree y el diff diferencial local de la ronda según la regla 19.
+Pendiente revisión del propietario.
 [Plan y evidencia](../planes/CLINE-TRAZABILIDAD-GIT-PLAN.md).
 
 ## CRM Core Main — cierre local DONE
