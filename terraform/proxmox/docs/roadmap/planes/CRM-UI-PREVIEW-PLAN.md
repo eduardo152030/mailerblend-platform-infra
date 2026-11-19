@@ -68,6 +68,7 @@ SHA inicial `0d6c345de8166130da400e79f3899b19f3a11ac9`. El PR #39 ya se integró
 19/11/2026 Europe/Madrid. Rama `test/crm-ui-compose-runtime`, worktree
 hermano `mailerblend-platform-infra-crm-compose-runtime`. Base
 `4e8b5013d87125c394a53dc445eaadebfb317e20`, con #40 integrado.
+[PR de ejecución #41](https://github.com/eduardo152030/mailerblend-platform-infra/pull/41).
 
 QEMU 6.2 con TCG, Alpine 3.22, Docker 28.3.3 y Compose 2.32.4.
 VM local temporal sin volúmenes, credenciales ni red de producción.
