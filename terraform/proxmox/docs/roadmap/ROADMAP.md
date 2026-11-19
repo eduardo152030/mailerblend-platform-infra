@@ -1260,3 +1260,10 @@ rotación en producción. [Plan y evidencia](planes/CRM-COUCHDB-CREDENTIAL-ROTAT
 Seguimiento #23: identificados los dos proyectos Compose activos y los
 originales detenidos. Archivo privado D051 0600; entorno heredado 0644.
 Pendientes runtime aislado, helper y ensayo de rotación/rollback.
+
+Seguimiento #23: preflight de archivos privados y coincidencia Compose
+preparado, cinco casos sintéticos PASS. Pendiente ensayo Docker aislado.
+Rotación general diferida al #36 tras las pruebas.
+
+Seguimiento #23: generación de candidatos privados y validación Compose
+simulada completadas. Sin aplicación; ensayo de motor y rollback pendientes.
