@@ -1,14 +1,22 @@
 # Trabajo en terraform/proxmox
 
-## Gestión del proyecto
+## Reglas para Codex y Cline
 
-Para cada tarea de Cline, aplica el [flujo Git 03](.clinerules/03-git-workflow.md)
-desde el inicio. Vincula un plan o issue, un worktree y una rama dedicados y
-el PR de la tarea. Verifica la ruta y la rama antes de modificar archivos,
-incluidas las tareas documentales y los workflows operativos. En tareas con
-cambios, el cierre de Cline empieza con el enlace al PR verificado de ese
-worktree. Adjunta el [diff diferencial](.clinerules/10-review-diff-artifact.md)
-de la ronda. Si falta el PR, la entrega queda pendiente.
+Ambos agentes deben seguir las diez reglas versionadas de [`.clinerules/`](.clinerules/)
+en este módulo. Al recibir una tarea, abre la [regla 03](.clinerules/03-git-workflow.md)
+y consulta las demás reglas aplicables al trabajo. Adapta los nombres de
+herramientas al entorno de la sesión, manteniendo los mismos controles y
+criterios de entrega.
+
+Vincula cada tarea con su plan o issue, worktree, rama y PR. Antes de editar,
+verifica la ruta y la rama y registra el SHA de inicio de la ronda. En tareas
+con cambios, aplica el [cierre 06](.clinerules/06-task-commit-closeout.md)
+y el [diff diferencial 10](.clinerules/10-review-diff-artifact.md). La respuesta
+de entrega empieza con el enlace al PR verificado de ese worktree e incluye
+el diff local de la ronda. Si falta el PR o el diff, comunica que la entrega
+queda pendiente e indica el motivo. El propietario aprueba e integra el PR.
+
+## Gestión del proyecto
 
 Antes de iniciar una tarea, leer `docs/roadmap/ROADMAP.md`,
 `docs/roadmap/CURRENT-STATUS.md` y las decisiones aplicables en

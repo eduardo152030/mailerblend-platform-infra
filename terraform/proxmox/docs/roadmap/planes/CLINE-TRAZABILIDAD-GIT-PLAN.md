@@ -35,3 +35,11 @@
 - Alcance: numerar las diez reglas activas del 01 al 10, conservando Git
   como 03. Actualizar referencias y conservar el historial de las rondas.
 - Verificación: secuencia, títulos, enlaces locales, diff y parche de la ronda.
+
+## Ronda 03 — reglas compartidas con Codex
+
+- Baseline `10fcbb9df8bcf68d00ff9888922db9ac8dd8463c`, capturado antes de editar.
+- Alcance aprobado: hacer que Codex siga las mismas diez reglas del módulo,
+  con las herramientas equivalentes de su sesión.
+- Verificación: referencias en AGENTS.md, diff diferencial, SHA del PR y
+  worktree limpio. Pendiente comprobar la carga en una sesión nueva.
