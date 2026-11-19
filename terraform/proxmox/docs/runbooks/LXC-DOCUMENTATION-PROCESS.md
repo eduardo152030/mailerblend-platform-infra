@@ -24,7 +24,7 @@ runbook. **No duplica sus pasos**: los referencia.
 Si el encargo indica «solo documentación», recoge los datos en
 modo lectura, actualiza las fuentes según CREAR o ACTUALIZAR y documenta las
 etiquetas observadas. Al alinear el YAML con las etiquetas verificadas,
-conserva las existentes, incluida la etiqueta IP de CT611.
+conserva las existentes, incluida la etiqueta IP del CT si existe.
 
 ```bash
 python3 scripts/generate-lxc-inventory.py
@@ -147,9 +147,8 @@ ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" -o StrictHostKeyChecking=yes 
   'pct status 611 && pct config 611 | grep -E "^(hostname|cores|memory|swap|rootfs|net0|tags):"'
 ```
 
-**Después, dentro del CT.** El propietario suele conectarse con
-`ssh infra-grafana`. Para automatizar la lectura, prueba el alias con SSH
-estricto. El alias del CT abre el sistema invitado, donde `pct` no existe.
+**Después, dentro del CT.** Usa el alias verificado del servicio si existe.
+El siguiente comando es un ejemplo exclusivo de CT611. El alias del CT abre el sistema invitado, donde `pct` no existe.
 
 ```bash
 ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" -o StrictHostKeyChecking=yes -o BatchMode=yes infra-grafana hostname
@@ -304,11 +303,11 @@ declaración con la realidad. No forzar.
 
 ### 6.1 — Generar, guardar y validar
 
-Desde `terraform/proxmox`, ejecuta este comando en una llamada y sustituye
-`infra-grafana` por la clave exacta del servicio.
+Desde `terraform/proxmox`, asigna a `service` el nombre sin extensión del
+YAML resuelto para el VMID solicitado. Ejecuta el script en una llamada.
 
 ```bash
-bash scripts/prepare-lxc-notes-plan.sh infra-grafana
+bash scripts/prepare-lxc-notes-plan.sh "${service:?Asigna la clave del YAML resuelto}"
 ```
 
 El script regenera, prueba y valida. Obtiene la CA desde `pve` por SSH

@@ -16,3 +16,9 @@ solicita sincronización automática con plan guardado y validado para el CT
 objetivo. «Solo documentación» conserva el cierre local. El plan admite
 la descripción generada y reordenar las mismas etiquetas. El cambio del
 workflow se verifica localmente antes de la revisión del PR.
+
+## Ronda review-02
+
+Inicio `29d9f684caadc868016223ea56debe6f6bd03ff4`. El propietario aclara que
+el flujo debe servir para cualquier VMID del inventario. Se generalizan las
+instrucciones y se comprueba la resolución de un VMID existente y uno ausente.
