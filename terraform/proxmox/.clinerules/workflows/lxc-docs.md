@@ -1,5 +1,8 @@
 # Documentar un LXC
 
+Antes de modificar archivos, aplica la [regla 03](../03-git-workflow.md)
+para identificar el plan o issue y preparar el worktree dedicado.
+
 Disparadores: «documentar CT<VMID>» (por ejemplo, «documentar CT611»), «documentar <service>»,
 «crear ficha de <service>», «actualizar la ficha de <service>» y
 «sincronizar Notes de <service>».

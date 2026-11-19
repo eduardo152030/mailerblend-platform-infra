@@ -1,4 +1,4 @@
-# Test/command loop prevention — output is authoritative, not PIDs
+# 04 — Test/command loop prevention — output is authoritative, not PIDs
 
 Concrete failure mode this rule exists to prevent: Cline ran a test suite,
 the captured output showed a complete successful summary, yet the agent kept
@@ -7,7 +7,7 @@ because `pgrep` still matched a residual worker — until the identical-call
 loop protection aborted the task.
 
 This rule extends the general anti-loop policy in
-`.clinerules/00-reasoning.md` §3 (max attempts, no repeated identical
+`.clinerules/01-reasoning.md` §3 (max attempts, no repeated identical
 calls, background-process status checked at most twice) with
 test-specific rules. It applies to any test/build/lint command in this repo:
 Python unittest (`python -m pytest`, `python3 -m unittest`), `python3 scripts/*.py`,

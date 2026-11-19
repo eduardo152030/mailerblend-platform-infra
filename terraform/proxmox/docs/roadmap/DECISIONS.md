@@ -8,6 +8,7 @@ anteriores no se extienden automáticamente a otros despliegues.
 
 | ID | Decisión | Evidencia / límites |
 |---|---|---|
+| CLINE-GIT | Vincular cada tarea con plan o issue, worktree y rama dedicados y su PR verificado y el diff diferencial de cada ronda. Codex y Cline siguen las reglas compartidas y entregan el enlace. El propietario aprueba e integra | Aprobado por el propietario el 19/11/2026. [Plan de la tarea](planes/CLINE-TRAZABILIDAD-GIT-PLAN.md). |
 | D-001 | Mantener Terraform + inventario YAML, scripts existentes y Docker Compose como mecanismos actuales | [README](../../README.md), `main.tf`, runbooks de recuperación. No introducir otra plataforma en esta intervención |
 | D-002 | IaC transversal: correcciones y documentación deben quedar declaradas y reproducibles | Requisitos del propietario; [reglas de trabajo](../../AGENTS.md). No usar un cambio manual remoto como entrega definitiva |
 | D-003 | Telegram es el receptor principal actual, con FIRING y RESOLVED | [TELEGRAM](../../services/infra-prom/TELEGRAM.md), confirmación del propietario y pruebas de entrega. No se ha aprobado separación por severidad |

@@ -60,3 +60,6 @@ services/infra-voicebox/**/*.tar*
 services/infra-voicebox/**/*.zip
 services/infra-voicebox/**/*.whl
 docs/roadmap/evidence/*-d0[6-8][0-9]-*.png
+
+# Artefactos locales de revisión de Cline
+/reasoning-content/Diff/*.diff

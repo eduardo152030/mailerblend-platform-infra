@@ -1,7 +1,9 @@
-# Reglas de acción directa y control de bucles
+# 01 — Reglas de acción directa y control de bucles
 
 PRIORIDAD ALTA: Estas reglas controlan la ejecución, los reintentos,
-la verificación y la detención de tareas.
+la verificación y la detención de tareas. Toda tarea empieza con
+la [regla 03](03-git-workflow.md). Los límites de reintentos respetan
+las validaciones distintas que exige el plan, el issue o el runbook.
 
 ## 1. Ejecución directa
 
@@ -18,7 +20,8 @@ la verificación y la detención de tareas.
 
 - Confía en los resultados exitosos de las herramientas.
 - Después de una edición exitosa, realiza como máximo una verificación
-  dirigida: `git diff`, una prueba concreta o una lectura del fragmento afectado.
+  dirigida por comprobación necesaria: `git diff`, una prueba concreta o una
+  lectura del fragmento afectado.
 - No releas un archivo únicamente para confirmar algo que una herramienta
   ya confirmó correctamente.
 - No leas el mismo archivo más de dos veces en una tarea, salvo que:
@@ -38,7 +41,7 @@ la verificación y la detención de tareas.
 - Para procesos en segundo plano, consulta su estado como máximo dos veces.
   No hagas polling repetitivo.
   Para suites de tests/builds, la salida final del comando es
-  autoritativa — ver `.clinerules/11-test-command-loop-prevention.md`.
+  autoritativa — ver `.clinerules/04-test-command-loop-prevention.md`.
 
 ## 4. Detención y reporte
 

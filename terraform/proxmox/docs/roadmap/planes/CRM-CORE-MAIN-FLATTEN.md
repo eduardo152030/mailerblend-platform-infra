@@ -15,7 +15,7 @@ autorizó abrir un PR desde `feat/crm-core-main-review` sobre
   `eslint.config.js`, `postcss.config.js` y `src/vite-env.d.ts`.
 - Se corrigen espacios finales en tres archivos para cumplir `git diff --check`.
 - La regla 03 se aplica al abrir la tarea. El cierre local y la publicación
-  quedan sujetos al alcance autorizado, también en la regla 15.
+  quedan sujetos al alcance autorizado, también en la regla de cierre de tareas (06).
 - Criterios verificados: 129 archivos rastreados, sin carpeta duplicada ni
   archivos `:Zone.Identifier`, y diff de la tarea limpio.
 
