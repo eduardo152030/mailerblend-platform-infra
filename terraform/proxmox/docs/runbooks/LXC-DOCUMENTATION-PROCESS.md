@@ -12,13 +12,32 @@ Dos modos:
 
 - **MODO CREAR** — el CT ya existe en producción pero no tiene ficha
   (`docs/inventory/<CT>-LXC-INVENTORY.md`) ni `NOTES.md`. Se crea la
-  documentación y se sincronizan las Notes de Proxmox.
+  documentación.
 - **MODO ACTUALIZAR** — el CT ya está documentado; cambió su estado,
-  recursos, apps o decisiones. Se regeneran los artefactos y se re-sincronizan
-  las Notes.
+  recursos, apps o decisiones. Se regeneran los artefactos documentales.
 
 El workflow de Cline (`.clinerules/workflows/lxc-docs.md`) orquesta este
 runbook. **No duplica sus pasos**: los referencia.
+
+## Cierre documental
+
+Para «documentar», «crear ficha» o «actualizar ficha», recoge los datos en
+modo lectura, actualiza las fuentes según CREAR o ACTUALIZAR y documenta las
+etiquetas observadas. Al alinear el YAML con las etiquetas verificadas,
+conserva las existentes, incluida la etiqueta IP de CT611.
+
+```bash
+python3 scripts/generate-lxc-inventory.py
+python3 scripts/generate-lxc-inventory.py --check
+python3 -m unittest discover -s tests/inventory -q
+git diff --check
+```
+
+Revisa el diff y las referencias de ficha, Notes e inventario. Registra el
+resultado documental según §3 paso 13 y entrega el resumen sin pedir
+confirmación. Este cierre se completa sin Terraform ni cambios en Proxmox.
+Los pasos de plan y aplicación de CREAR y ACTUALIZAR corresponden a una
+solicitud separada de sincronización de Notes en PVE.
 
 ---
 

@@ -19,10 +19,12 @@ pasos.
 ## Reglas
 
 1. Antes de ejecutar, leer el workflow y las secciones 1–2 del runbook.
-2. **STOP obligatorio** antes de `terraform apply`: confirmación explícita del
-   usuario. Nunca aplicar sin ella.
-3. **STOP** ante `BLOCKED` de `validate-lxc-notes-plan.py` o ante un plan que
-   no sea solo `description`.
+2. **Documentar, crear ficha y actualizar ficha** terminan con el cierre
+   documental local. Completa las comprobaciones y entrega el resumen sin
+   pedir confirmación ni ejecutar Terraform.
+3. Para una solicitud de **sincronizar Notes en PVE**, sigue §6 del
+   runbook. Si el validador devuelve `BLOCKED`, reporta el motivo y detén
+   la sincronización.
 4. SSH al CT **solo lectura**; SSH estricto
    (`UserKnownHostsFile=$HOME/.ssh/known_hosts`, `StrictHostKeyChecking=yes`,
    `BatchMode=yes`).
@@ -34,4 +36,4 @@ pasos.
 
 - "documentar CT621" → dispara `lxc-docs.md` → elegir modo según existencia de la ficha.
 - "actualizar la ficha de infra-pulpo" → MODO ACTUALIZAR.
-- "sincronizar Notes de infra-excraper" → regenerar + plan + validar + STOP.
+- "sincronizar Notes de infra-excraper" → seguir §6 del runbook.

@@ -2829,3 +2829,9 @@ modelos y aprobar/fusionar cuando pase la revisión. Alcance Fase7.4: worker
 optimizado real, fragmentación sin pérdida, EOS por fragmento, pruebas WAV
 sintéticas y manifiestos. No autoriza despliegue, inferencias ni cambios de
 recursos. La aceptación acústica de D089 no valida narraciones fragmentadas.
+
+## LXC-NOTES-TAGS — cierre documental automático aprobado
+
+19/11/2026 Europe/Madrid. CREAR y ACTUALIZAR concluyen con verificaciones
+locales. La etiqueta IP de CT611 se conserva en YAML. La sincronización
+en PVE sigue su procedimiento separado. [Plan](planes/LXC-NOTES-TAGS.md).
