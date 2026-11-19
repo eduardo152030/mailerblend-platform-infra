@@ -44,3 +44,7 @@ efectivas y datos sintéticos. Replicar ambos proyectos Compose y sus volúmenes
 separados. Medir cambio de credencial en CouchDB, propagación a la app D051 y
 rollback. El insumo pendiente es un runtime Docker aislado con acceso a las
 imágenes y red interna de prueba. No usar CT618 como banco de ensayo.
+
+Ronda de resolución de conflictos. SHA inicial `fac40053`, base
+`main` actualizada a `05c99dee`. Roadmap, estado y fase conservan los
+registros del #22 integrado y el seguimiento del #23.

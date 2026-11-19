@@ -1233,6 +1233,23 @@ por [#22](https://github.com/eduardo152030/mailerblend-platform-infra/issues/22)
 Sin autorización de corte ni retirada en esta ronda.
 
 
+## CT618 — contratos de migración CRM (IN PROGRESS)
+
+19/11/2026 Europe/Madrid. Issue #22 en revisión. OpenAPI público e interno
+coincidentes, seis operaciones del cliente sin coincidencia. Matriz por proyecto
+y bloqueos registrados. Pendiente cotejo del catálogo legado autenticado,
+roles, automatizaciones y titularidad DNS/proxy. Solo diagnóstico, sin corte
+ni UAT. [Evidencia y siguiente paso](planes/CRM-UI-COMPOSABLE-CONTRACT.md).
+
+Seguimiento #22, 19/11/2026: contrastados guía, ERD, esquema e intake.
+Registrados candidatos de paridad para formularios, pipeline, calendario y
+facturación, y prueba pendiente de reenvío de intake. Pendiente cotejo del
+catálogo publicado efectivo. Sin escrituras en producción.
+
+Seguimiento #22: Lovable guarda la edición de contacto mediante la mutación
+de alta. Brecha registrada como condición del primer corte. Próximo trabajo
+preparatorio: #23, con rotación efectiva sujeta a autorización.
+
 ## CT618 — credencial expuesta (#23, IN PROGRESS)
 
 19/11/2026 Europe/Madrid. Inventario #22 aceptado para avanzar; cotejo de
