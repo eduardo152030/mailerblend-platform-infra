@@ -200,3 +200,13 @@ debe respaldar y cambiar de forma coordinada el entorno legado, el Compose
 D051 y la URL efectiva del volumen `/data`, preservando propietario y modo.
 La reversión debe recuperar los tres. El ensayo de réplica incorpora este
 archivo en un volumen nuevo. No se imprimieron valores ni se cambió CT618.
+
+El generador de candidatos ahora exige `--app-persisted-env`, compara
+usuario y contraseña decodificados de la URL con Compose y prepara un
+tercer archivo privado, `budibase-data.env`, junto con ambos candidatos
+Compose. Admite el formato observado de una única asignación HTTP a
+CouchDB:5984. Bloquea formatos fuera de ese contrato y entradas que no
+coinciden. Prueba con Docker Compose 2.32.4 y datos sintéticos: tres
+candidatos coherentes en modo 0600, rechazo por discrepancia o ausencia,
+sin valores en salida ni cambios en los archivos de origen. El generador
+no instala los candidatos, no cambia volúmenes ni inicia contenedores.

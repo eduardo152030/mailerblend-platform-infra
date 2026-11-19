@@ -12,6 +12,7 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+from urllib.parse import quote, unquote, urlsplit
 
 
 KEYS = ("COUCHDB_USER", "COUCHDB_PASSWORD")
@@ -42,7 +43,23 @@ def compose_environment(compose, service, env_file):
     return json.loads(result.stdout)["services"][service]["environment"]
 
 
-def prepare_candidate(args):
+def persisted_couch_url(path, couch):
+    private_file(path, "Entorno persistido de Budibase")
+    text = path.read_text(encoding="utf-8")
+    match = re.fullmatch(r"COUCH_DB_URL=(http://[A-Za-z0-9._~%:@/-]+)\n?", text)
+    if not match:
+        raise PreflightError("Entorno persistido: formato de URL no reconocido")
+    url = urlsplit(match.group(1))
+    if (url.username is None or url.password is None or url.port != 5984
+            or not url.hostname or url.path not in ("", "/")):
+        raise PreflightError("Entorno persistido: endpoint de CouchDB no reconocido")
+    for key, value in zip(KEYS, (url.username, url.password)):
+        if not hmac.compare_digest(couch[key].encode(), unquote(value).encode()):
+            raise PreflightError("La URL persistida y los modelos Compose no coinciden")
+    return url
+
+
+def prepare_candidate(args, persisted):
     parent = args.prepare_candidate
     metadata = parent.lstat()
     if (not stat.S_ISDIR(metadata.st_mode) or metadata.st_uid != os.geteuid()
@@ -61,7 +78,14 @@ def prepare_candidate(args):
 
     with tempfile.TemporaryDirectory(prefix="crm-rotation-check-", dir=parent) as tmp:
         candidate = Path(tmp)
-        files = {".env": candidate_env, "compose.private.json": json.dumps(app_model, indent=2) + "\n"}
+        endpoint = persisted.netloc.rsplit("@", 1)[-1]
+        username = quote(unquote(persisted.username), safe="")
+        candidate_url = persisted._replace(netloc=f"{username}:{password}@{endpoint}")
+        files = {
+            ".env": candidate_env,
+            "compose.private.json": json.dumps(app_model, indent=2) + "\n",
+            "budibase-data.env": f"COUCH_DB_URL={candidate_url.geturl()}\n",
+        }
         for name, content in files.items():
             fd = os.open(candidate / name, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
             with os.fdopen(fd, "w", encoding="utf-8") as output:
@@ -101,8 +125,12 @@ def run(args):
             raise PreflightError("Falta una referencia de credencial en los modelos")
         if not hmac.compare_digest(source.encode(), consumer.encode()):
             raise PreflightError("Los modelos CouchDB y D051 no coinciden")
+    if args.prepare_candidate and not args.app_persisted_env:
+        raise PreflightError("Se requiere --app-persisted-env para preparar los tres candidatos")
+    if args.app_persisted_env:
+        persisted = persisted_couch_url(args.app_persisted_env, couch)
     if args.prepare_candidate:
-        prepare_candidate(args)
+        prepare_candidate(args, persisted)
     else:
         print("PASS: archivos privados y referencias Compose coincidentes")
 
@@ -112,6 +140,7 @@ def main():
     parser.add_argument("--env-file", type=Path, required=True)
     parser.add_argument("--couch-compose", type=Path, required=True)
     parser.add_argument("--app-compose", type=Path, required=True)
+    parser.add_argument("--app-persisted-env", type=Path)
     parser.add_argument("--prepare-candidate", type=Path, metavar="DIRECTORIO_PRIVADO")
     args = parser.parse_args()
     for key in vars(args):
@@ -120,7 +149,7 @@ def main():
             setattr(args, key, path.absolute())
     try:
         run(args)
-    except (OSError, KeyError, TypeError, UnicodeError, json.JSONDecodeError, subprocess.TimeoutExpired):
+    except (OSError, KeyError, TypeError, ValueError, subprocess.TimeoutExpired):
         print("BLOCKED: no se pudo validar la entrada privada o el modelo Compose", file=sys.stderr)
         return 1
     except PreflightError as error:
