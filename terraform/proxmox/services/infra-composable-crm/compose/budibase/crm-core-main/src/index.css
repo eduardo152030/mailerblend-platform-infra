@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 16% 93%;
+    --secondary-foreground: 220 25% 10%;
+
+    --muted: 210 14% 95%;
+    --muted-foreground: 215 14% 46%;
+
+    --accent: 210 16% 93%;
+    --accent-foreground: 220 25% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 160 84% 39%;
+
+    --radius: 0.5rem;
+
+    /* CRM specific */
+    --sidebar-bg: 220 26% 14%;
+    --sidebar-fg: 210 20% 80%;
+    --sidebar-active: 160 84% 39%;
+    --sidebar-hover: 220 20% 20%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 210 90% 55%;
+    --info-foreground: 0 0% 100%;
+
+    --sidebar-background: 220 26% 14%;
+    --sidebar-foreground: 210 20% 80%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 20%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 20% 22%;
+    --sidebar-ring: 160 84% 39%;
+
+    --shadow-login: 0 24px 60px -30px hsl(var(--foreground) / 0.35);
+  }
+
+  .dark {
+    --background: 220 26% 8%;
+    --foreground: 210 20% 90%;
+
+    --card: 220 26% 12%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 220 26% 12%;
+    --popover-foreground: 210 20% 90%;
+
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 215 14% 60%;
+
+    --accent: 220 20% 18%;
+    --accent-foreground: 210 20% 90%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 20% 90%;
+
+    --border: 220 20% 22%;
+    --input: 220 20% 22%;
+    --ring: 160 84% 39%;
+
+    --sidebar-background: 220 26% 8%;
+    --sidebar-foreground: 210 20% 70%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 20% 15%;
+    --sidebar-ring: 160 84% 39%;
+
+    --shadow-login: 0 28px 70px -32px hsl(0 0% 0% / 0.75);
+  }
+}
+
+@layer components {
+  .login-shell {
+    background:
+      radial-gradient(55rem 32rem at 50% -10%, hsl(var(--primary) / 0.14), transparent 65%),
+      radial-gradient(40rem 28rem at 100% 110%, hsl(var(--info) / 0.10), transparent 60%),
+      hsl(var(--background));
+  }
+  .login-card {
+    box-shadow: var(--shadow-login);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}

@@ -2,8 +2,8 @@
 
 ## Flujo de cierre
 
-El cierre se divide en dos fases: la IA implementadora abre el PR y la IA
-revisora lo verifica. Antes de cualquier acción, confirma que estás en la
+Cuando el alcance autoriza un PR, la IA implementadora lo abre y la IA
+revisora lo verifica. Un encargo limitado al commit termina con el cierre local. Antes de cualquier acción, confirma que estás en la
 rama y el worktree asignados por `03-git-workflow.md`. Abre el plan creado
 según `14-implementation-plans.md` y compara su alcance con el diff real.
 
@@ -48,7 +48,7 @@ Si hay errores, corrígelos antes de continuar.
 
 ### 6. Commit
 
-Crea el commit con un mensaje descriptivo que identifique la tarea y el
+Si el alcance permite commits, crea el commit con un mensaje descriptivo que identifique la tarea y el
 servicio/CT si corresponde:
 ```bash
 git commit -m "docs(cline): <descripción del cambio>"
@@ -66,7 +66,8 @@ Si hay archivos untracked no deseados, elimínalos o añádelos al `.gitignore`.
 
 ### 8. Publicar rama y abrir PR
 
-Publica la rama y abre el PR hacia `main`. El PR debe incluir:
+Publica la rama y abre el PR hacia `main` cuando ambas acciones estén
+autorizadas. El PR debe incluir:
 
 - **Referencia al plan aprobado.** Ruta y versión del documento.
 - **Resumen del diff.** Qué archivos se tocan y por qué.

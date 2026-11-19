@@ -2,7 +2,10 @@
 
 Cada tarea del repositorio empieza en un **worktree dedicado y una rama propia**.
 Esto aplica aunque solo haya una IA trabajando y aunque la tarea consista
-únicamente en preparar un plan.
+únicamente en preparar un plan. Aplica esta regla al recibir la tarea, antes
+de editar, mover o borrar archivos, incluso si el usuario dejó los archivos
+de entrada en el worktree principal. Identifica esas entradas y cópialas al
+worktree dedicado para trabajar allí.
 
 ## 1. Abrir o retomar el worktree
 
@@ -23,8 +26,7 @@ Antes de cualquier otra acción, ejecuta:
 git fetch origin main
 ```
 
-Si `origin/main` tiene commits que no tienes local (`git rev-parse origin/main != HEAD`),
-haz `git merge origin/main` para sincronizar.
+Usa la referencia actualizada para la base de una tarea nueva.
 
 ### 1.2. Tarea nueva
 
@@ -89,7 +91,8 @@ gh pr view <número-o-rama> --json state,reviewDecision,isDraft,mergeStateStatus
   git fetch origin main && git merge origin/main
   ```
 - **`CHANGES_REQUESTED`**. Lee la revisión en GitHub, corrige lo que corresponda
-  en la misma rama y haz `git push` para que la IA revisora vuelva a evaluarlo.
+  en la misma rama. Si la publicación está autorizada, haz `git push` para
+  solicitar otra revisión.
   Actualiza el plan con los cambios realizados.
 - **Pendiente o decisión vacía**. Deja el PR en revisión. Una decisión vacía
   (`reviewDecision == ""`) no cuenta como aprobación.
@@ -99,8 +102,8 @@ gh pr view <número-o-rama> --json state,reviewDecision,isDraft,mergeStateStatus
   gh pr checks <número> --required --json name,state,bucket
   ```
   Si los checks están en `SUCCESS` y no hay conflictos (`mergeStateStatus != "BEHIND"`),
-  ejecuta el merge. Si el merge corresponde a otra persona, informa que el PR
-  está listo para integrar. En ambos casos, toma la aprobación de GitHub como
+  ejecuta el merge si está autorizado. Si el merge corresponde a otra persona,
+  informa que el PR está listo para integrar. En ambos casos, toma la aprobación de GitHub como
   autoridad.
 
 ## 2. Crear o retomar el plan de implementación
@@ -136,17 +139,19 @@ Una vez completados los cambios y validados contra el plan aprobado:
 1. **Validar.** Ejecuta las pruebas y verificaciones que exige el plan.
    Registra los resultados. Si hay desviaciones, documentalas y obtén
    aprobación antes de continuar.
-2. **Commitear.** Crea los commits locales siguiendo `15-task-commit-closeout.md`.
-3. **Publicar rama.** Sube la rama al remoto:
+2. **Commitear.** Si el alcance permite commits, créalos siguiendo
+   `15-task-commit-closeout.md`.
+3. **Publicar rama.** Si el alcance autoriza publicación, sube la rama al remoto:
    ```bash
    git push -u origin <rama-de-la-tarea>
    ```
-4. **Abrir PR.** Abre un pull request desde la rama de la tarea hacia `main`.
+4. **Abrir PR.** Si el alcance autoriza abrir el PR, créalo hacia `main`.
    El PR debe referenciar el plan aprobado (ruta y versión) e incluir un
    resumen del diff, las pruebas ejecutadas con sus resultados y cualquier
    desviación aprobada.
 5. **Entregar para revisión.** Deja la integración pendiente de la revisión
-   independiente y de las comprobaciones requeridas. En el resumen final,
+   independiente y de las comprobaciones requeridas. Si el alcance termina
+   en el commit local, entrega el cierre de la sección 4. En el resumen final,
    indica la **rama**, el **enlace al PR**, la **ruta del plan**, los
    **hashes de los commits** y el **estado de las comprobaciones**.
 
@@ -165,10 +170,10 @@ los commits** y cualquier **cambio pendiente**. Conserva el worktree mientras
 la tarea tenga cambios pendientes o deba retomarse. El push y la integración
 en `main` requieren autorización para esa tarea.
 
-## 6. Integración automática tras aprobación
+## 6. Integración tras aprobación
 
-Cuando la revisión está aprobada (`reviewDecision == "APPROVED"`) y los checks
-requeridos están en `SUCCESS`:
+Cuando la integración está autorizada para la tarea, la revisión está aprobada
+(`reviewDecision == "APPROVED"`) y los checks requeridos están en `SUCCESS`:
 
 1. Verificar que no hay conflictos:
      ```bash
