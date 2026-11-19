@@ -210,3 +210,10 @@ coinciden. Prueba con Docker Compose 2.32.4 y datos sintéticos: tres
 candidatos coherentes en modo 0600, rechazo por discrepancia o ausencia,
 sin valores en salida ni cambios en los archivos de origen. El generador
 no instala los candidatos, no cambia volúmenes ni inicia contenedores.
+
+La fuente persistida activa coincide con el formato del generador y tiene
+modo 0644. Como el preflight requiere 0600, trabajar con una copia privada
+0600 del archivo persistido y con la copia normalizada del entorno legado.
+La receta de instalación debe comprobar qué UID lee el archivo y restringir
+el modo sin impedir el arranque. La comprobación de formato y modo fue de
+solo lectura.
