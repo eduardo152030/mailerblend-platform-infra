@@ -1245,7 +1245,8 @@ absoluta, o límite de tamaño del archivo.
 ## CT618 — migración de interfaz CRM (TODO)
 
 19/11/2026 Europe/Madrid. Diagnóstico Git y runtime de solo lectura completado.
-[Plan propuesto y borradores](planes/CRM-UI-MIGRATION-PLAN.md). Los tres proyectos
+[Plan propuesto e issues](planes/CRM-UI-MIGRATION-PLAN.md). Los tres proyectos
 requieren aceptación secuencial. Autenticación, enrutamiento y retención por
-resolver. Pendiente revisión del propietario antes de publicar issues.
+resolver. Diez issues publicados con autorización del propietario. Cline empieza
+por [#22](https://github.com/eduardo152030/mailerblend-platform-infra/issues/22).
 Sin autorización de corte ni retirada en esta ronda.
