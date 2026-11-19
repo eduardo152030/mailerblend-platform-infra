@@ -154,6 +154,7 @@ prueba conjunta. Sin cambios en CT618.
 19/11/2026 Europe/Madrid. Rama `test/crm-budibase-rotation`, worktree
 hermano `mailerblend-platform-infra-crm-budibase-rotation`, base
 `78ecfeec58050aacb2a6c84d9a41e898c51c06fe`, con #41 integrado.
+[PR de ensayo #42](https://github.com/eduardo152030/mailerblend-platform-infra/pull/42).
 
 En la misma VM QEMU/Alpine del ensayo de preview se ejecutó
 `scripts/rehearse-crm-couchdb-rotation.sh` con Docker 28.3.3 y CouchDB
