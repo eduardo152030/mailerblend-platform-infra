@@ -62,3 +62,28 @@ SHA inicial `0d6c345de8166130da400e79f3899b19f3a11ac9`. El PR #39 ya se integró
   Esto no activa TLS en el dominio real ni prueba el ciclo de vida de Compose.
   Pendientes build de imagen final, idempotencia del servicio y acceso TLS
   en el proxy definitivo con DNS y titularidad confirmados. CT618 intacto.
+
+## Ejecución de Compose en VM desechable
+
+19/11/2026 Europe/Madrid. Rama `test/crm-ui-compose-runtime`, worktree
+hermano `mailerblend-platform-infra-crm-compose-runtime`. Base
+`4e8b5013d87125c394a53dc445eaadebfb317e20`, con #40 integrado.
+[PR de ejecución #41](https://github.com/eduardo152030/mailerblend-platform-infra/pull/41).
+
+QEMU 6.2 con TCG, Alpine 3.22, Docker 28.3.3 y Compose 2.32.4.
+VM local temporal sin volúmenes, credenciales ni red de producción.
+El primer build agotó el espacio de tmpfs después de npm ci. Se movieron
+los datos de Docker al disco virtual desechable de 12 GB y se reintentó
+con la misma fuente y digests. El build terminó y el servicio quedó healthy.
+
+- Imagen local: `sha256:152feba841af890ee593b7f371eeab39ecb981db16482bcd654731992869ea78`,
+  linux/amd64. Identificador de imagen local; sin publicación a un registro.
+- Dos ejecuciones consecutivas de `docker compose up -d --wait`: PASS.
+  ID, StartedAt, imagen y estado healthy idénticos. ID `bc3fd3a117b5`;
+  StartedAt `2026-11-19T21:26:42.356782965Z` (UTC).
+- Verificación HTTP por loopback: health devuelve ok, raíz y /contactos
+  devuelven HTML idéntico y la ruta de API devuelve 503. PASS.
+
+Sigue pendiente la exposición restringida en el proxy y dominio definitivos,
+la validación TLS allí y, si se publica una imagen, el digest del registro.
+Esta prueba no modifica CT618 ni certifica el lint global heredado.
