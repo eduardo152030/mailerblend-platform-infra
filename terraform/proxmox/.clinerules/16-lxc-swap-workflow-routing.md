@@ -30,7 +30,7 @@ pasos.
 6. El swap se aplica en caliente; no reiniciar el CT.
 7. Si falta `<service>`/`<CT>` o el objetivo es ambiguo, preguntar antes de
    ejecutar.
-8. No hacer commit/push salvo autorización explícita.
+8. El cierre Git sigue las reglas 03 y 15, dentro del alcance autorizado.
 
 ### Ejemplos de invocación
 

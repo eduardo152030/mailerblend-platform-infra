@@ -15,9 +15,8 @@ al código (`terraform/`, `scripts/`, `tests/`), nunca como archivo
 temporal "que luego se mueve".
 
 Los planes de ejecución, propuestas, contratos y preparaciones de
-despliegue se almacenan en `docs/roadmap/planes/` junto al roadmap, la
-estatal y las decisiones. Este directorio es la fuente única de verdad
-para el estado de la infraestructura.
+despliegue se almacenan en `docs/roadmap/planes/` junto al roadmap, el estado actual y las decisiones. El estado de la
+infraestructura se registra en el roadmap y CURRENT-STATUS.md.
 
 ## Naming obligatorio
 
@@ -25,12 +24,9 @@ El nombre del archivo debe identificar la feature/dominio/CT sin necesidad
 de abrirlo. Formato `UPPER-KEBAB-CASE` con sufijo descriptivo:
 
 ```text
-docs/roadmap/planes/CT624-PILOT-EXECUTION.md              ✅
-docs/roadmap/planes/CPU-CONTRACT.md                        ✅
-docs/roadmap/planes/INCREMENTAL-INTEGRATION.md             ✅
-docs/roadmap/planes/PROGRESSIVE-ROLLOUT.md                 ✅
-docs/roadmap/planes/PHASE6-D055-UPTIME-PROPOSAL.md         ✅
-docs/roadmap/planes/CT614-SGTM-D043.md                     ✅
+docs/roadmap/planes/CLINE-LXC-SSH-PLAN.md
+docs/roadmap/planes/CT618-SWAP-INCREASE.md
+docs/roadmap/planes/PHASE7-D091-CHATTERBOX-CHUNKING-IMPL.md
 ```
 
 Prohibidos los nombres genéricos:
@@ -46,7 +42,7 @@ Reglas de naming:
 
 1. Incluir el CT o servicio (`CT624-`, `CRM-`, `JOURNAL-`, `PHASE6-`)
 cuando el nombre no sea obvio por sí solo.
-2. Incluir la versión (`-V1`, `-V2`) solo cuando existan o existierones
+2. Incluir la versión (`-V1`, `-V2`) solo cuando existan o existieron
 versiones anteriores del mismo plan.
 3. Usar sufijos descriptivos: `EXECUTION.md`, `PROPOSAL.md`, `PLAN.md`,
 `RECOVERY.md`, `CONTRACT.md`, `PREPARATION.md`.
@@ -70,30 +66,20 @@ explícitamente o con confirmación del usuario.
 
 ## Relación con otros documentos
 
-- `docs/roadmap/planes/ROADMAP.md` — visión general de fases.
-- `docs/roadmap/planes/CURRENT-STATUS.md` — estado actualizado del rollout.
-- `docs/roadmap/planes/DECISIONS.md` — decisiones técnicas aprobadas.
-- `docs/runbooks/planes` — procedimientos operativos (documentación de proceso,
+- `docs/roadmap/ROADMAP.md` — visión general de fases.
+- `docs/roadmap/CURRENT-STATUS.md` — estado actualizado del rollout.
+- `docs/roadmap/DECISIONS.md` — decisiones técnicas aprobadas.
+- `docs/runbooks/` — procedimientos operativos (documentación de proceso,
   no planes de implementación).
 - `docs/plans/` — no existe en este repo; no crearlo.
-
-## Estado actual (al crear esta regla)
-
-Los planes de ejecución y propuestas de este repositorio viven en
-`docs/roadmap/`. Ejemplos vigentes:
-
-- `docs/roadmap/planes/CT624-PILOT-EXECUTION.md` — piloto validado.
-- `docs/roadmap/planes/CPU-CONTRACT.md` — contrato CPU aceptado.
-- `docs/roadmap/planes/INCREMENTAL-INTEGRATION.md` — preparación rollout.
-- `docs/roadmap/planes/PROGRESSIVE-ROLLOUT.md` — política rollout progresivo.
-- `docs/roadmap/planes/PHASE6-D055-UPTIME-PROPOSAL.md` — propuesta fase 6.
-- `docs/roadmap/planes/CT614-SGTM-D043.md` — ejecución CT614.
 
 ## Worktree y plan de la tarea
 
 Antes de guardar un plan, abre o retoma el worktree y la rama de la tarea
 según `03-git-workflow.md`. Crea el plan en ese worktree, en la ruta que
-define esta regla, y registra en él la rama de la tarea.
+define esta regla, y registra en él la rama, el worktree y la base de la
+tarea. Un issue con el alcance y las comprobaciones puede sustituir al
+plan versionado según la [regla 03](03-git-workflow.md).
 
 Al retomar la tarea, reutiliza el mismo plan. Antes de cerrarla, actualízalo
 con lo ejecutado, las validaciones y los pendientes. Para el cierre y los
@@ -111,7 +97,8 @@ Un plan aprobado debe incluir, como mínimo:
 - **Ruta y versión del plan.** La ruta relativa al repositorio y la versión
   del documento que se aprobó.
 
-El PR debe identificar la ruta y la versión del plan que se aprobó. El plan
+Enlaza en el PR el issue o la ruta y revisión del plan. Registra la URL
+del PR en la referencia de la tarea. El plan
 puede actualizarse con resultados y evidencias después de la implementación.
 
 ## Desviaciones

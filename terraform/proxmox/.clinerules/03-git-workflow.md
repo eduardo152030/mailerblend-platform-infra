@@ -1,206 +1,90 @@
 # 03 — Flujo Git por tarea
 
-Cada tarea del repositorio empieza en un **worktree dedicado y una rama propia**.
-Esto aplica aunque solo haya una IA trabajando y aunque la tarea consista
-únicamente en preparar un plan. Aplica esta regla al recibir la tarea, antes
-de editar, mover o borrar archivos, incluso si el usuario dejó los archivos
-de entrada en el worktree principal. Identifica esas entradas y cópialas al
-worktree dedicado para trabajar allí.
+Aplica esta regla al recibir cada tarea, incluidas las tareas pequeñas,
+documentales, de solo planificación y las que disparan un workflow específico.
+La trazabilidad une **plan o issue → worktree dedicado y rama propia → PR**.
+Si el encargo limita una acción, registra el estado real y el siguiente paso
+en el plan o issue. La preparación y publicación del PR tienen su propio alcance,
+igual que la integración y cualquier operación en producción.
 
-## 1. Abrir o retomar el worktree
+## 1. Identificar la tarea y abrir o retomar su worktree
 
-Antes de editar, ejecuta:
+Empieza con estas comprobaciones de lectura:
 
 ```bash
 git rev-parse --show-toplevel
 git rev-parse --show-prefix
 git worktree list
-git status --short --branch --untracked-files=all
+git status --short --branch
 ```
 
-### 1.1. Sincronizar con el remoto
+1. Identifica el plan o issue existente. Si falta, define la ruta del plan
+   breve según la [regla 14](14-implementation-plans.md).
+2. Para una tarea nueva, ejecuta `git fetch origin main` y crea la rama y el
+   worktree desde `origin/main` actualizado, salvo que exista otra base acordada.
+   El worktree se crea fuera del checkout actual. Desde la raíz Git:
 
-Antes de cualquier otra acción, ejecuta:
-
-```bash
-git fetch origin main
-```
-
-Usa la referencia actualizada para la base de una tarea nueva.
-
-### 1.2. Tarea nueva
-
-Crea una rama y un worktree para la tarea desde `origin/main`,
-salvo que el usuario indique otra base o que el plan dependa de otra rama
-confirmada. Usa una ruta fuera del árbol de trabajo existente.
-
-### 1.3. Tarea en curso
-
-Reutiliza el worktree y la rama ya asignados. Revisa
-el estado de Git y el último paso registrado en el plan antes de seguir.
-
-### 1.4. Dependencias entre tareas
-
-Conserva los cambios que encuentres en otros worktrees. Si la tarea depende
-de cambios pendientes de otra rama, identifica la dependencia y acuerda
-cómo integrarla antes de incorporarla. Los PRs abiertos de otros trabajos
-no bloquean una tarea independiente.
-
-Ejemplo para la tarea de swap del CT618, ejecutado desde la raíz Git:
-
-```bash
-git worktree add -b ops/ct618-swap \
-  ../mailerblend-platform-infra-ct618-swap main
-```
-
-Confirma la ruta y la rama del nuevo worktree. Si el módulo Proxmox está en
-`terraform/proxmox/` dentro de la raíz Git, continúa desde ese mismo subdirectorio
-en el nuevo worktree. En VS Code, abre el worktree como carpeta de la sesión.
-Si usas la terminal para ejecutar comandos, verifica su directorio de trabajo.
-El plan, las ediciones, las validaciones, el staging y los commits de la tarea
-se hacen desde ese worktree.
-
-## 1.5. Consultar estado de PRs al iniciar o retomar una tarea
-
-Antes de crear el plan (sección 2), consulta el PR asociado a la tarea.
-Si la tarea no tiene un PR abierto, omite esta sección.
-
-Para una **tarea nueva**, verifica que `origin/main` está actualizado (sección 1.1)
-y crea la rama desde él. Si la tarea depende de un PR anterior, consulta ese PR
-por número o URL:
-
-```bash
-gh pr view <número-o-rama> --json state,reviewDecision,isDraft,mergeStateStatus,headRefOid,url
-```
-
-- **`MERGED`**. El PR ya está integrado en `main`. Continúa desde
-  `origin/main` actualizado. Registra el cierre en el plan.
-- **Abierto**. Indica la dependencia en el plan. Los PRs abiertos de otras
-  tareas no bloquean una tarea independiente.
-
-Para una **tarea en curso**, reutiliza su worktree y consulta el PR asociado,
-incluso si ya está cerrado o integrado:
-
-```bash
-gh pr view <número-o-rama> --json state,reviewDecision,isDraft,mergeStateStatus,headRefOid,url
-```
-
-- **`MERGED`**. Registra el cierre y refresca `origin/main` para el siguiente
-  trabajo:
-  ```bash
-  git fetch origin main && git merge origin/main
-  ```
-- **`CHANGES_REQUESTED`**. Lee la revisión en GitHub, corrige lo que corresponda
-  en la misma rama. Si la publicación está autorizada, haz `git push` para
-  solicitar otra revisión.
-  Actualiza el plan con los cambios realizados.
-- **Pendiente o decisión vacía**. Deja el PR en revisión. Una decisión vacía
-  (`reviewDecision == ""`) no cuenta como aprobación.
-- **`APPROVED` y abierto**. Comprueba que la aprobación sigue vigente para el
-  cambio actual y que GitHub permite integrarlo. Consulta los checks requeridos:
-  ```bash
-  gh pr checks <número> --required --json name,state,bucket
-  ```
-  Si los checks están en `SUCCESS` y no hay conflictos (`mergeStateStatus != "BEHIND"`),
-  ejecuta el merge si está autorizado. Si el merge corresponde a otra persona,
-  informa que el PR está listo para integrar. En ambos casos, toma la aprobación de GitHub como
-  autoridad.
-
-## 2. Crear o retomar el plan de implementación
-
-Con el worktree asignado, crea o abre el plan según
-`14-implementation-plans.md`. Para el módulo Proxmox, usa la ubicación
-`docs/roadmap/planes/` relativa al módulo, siguiendo la convención de esa regla.
-
-El plan se guarda en el worktree de la tarea, no en el worktree principal.
-Esto permite que cada tarea tenga su propia línea de cambios independiente.
-
-Al inicio, deja registrado en el plan:
-
-- El objetivo y alcance de la tarea, con el servicio o CT si corresponde.
-- La rama y la referencia base elegida.
-- Los archivos previstos y las validaciones que se van a ejecutar.
-- El estado actual y el siguiente paso.
-
-En una tarea pequeña, basta un plan breve. En una tarea retomada, actualiza
-el plan existente. Si el alcance cambia, actualízalo antes de seguir con el
-nuevo trabajo.
-
-Si el encargo es **solo planificación**, el archivo del plan es el entregable
-y la implementación queda pendiente. Si Plan mode impide escribir el archivo,
-prepara el contenido y deja indicada su ruta. Si el usuario cambia a Act
-solo para guardarlo, el alcance de Act se limita a crear o actualizar ese plan.
-
-## 3. Implementar y abrir PR
-
-La IA implementadora trabaja en la rama y el worktree de la tarea.
-Una vez completados los cambios y validados contra el plan aprobado:
-
-1. **Validar.** Ejecuta las pruebas y verificaciones que exige el plan.
-   Registra los resultados. Si hay desviaciones, documentalas y obtén
-   aprobación antes de continuar.
-2. **Commitear.** Si el alcance permite commits, créalos siguiendo
-   `15-task-commit-closeout.md`.
-3. **Publicar rama.** Si el alcance autoriza publicación, sube la rama al remoto:
    ```bash
-   git push -u origin <rama-de-la-tarea>
+   git worktree add -b ops/ct618-swap ../mailerblend-platform-infra-ct618-swap origin/main
    ```
-4. **Abrir PR.** Si el alcance autoriza abrir el PR, créalo hacia `main`.
-   El PR debe referenciar el plan aprobado (ruta y versión) e incluir un
-   resumen del diff, las pruebas ejecutadas con sus resultados y cualquier
-   desviación aprobada.
-5. **Entregar para revisión.** Deja la integración pendiente de la revisión
-   independiente y de las comprobaciones requeridas. Si el alcance termina
-   en el commit local, entrega el cierre de la sección 4. En el resumen final,
-   indica la **rama**, el **enlace al PR**, la **ruta del plan**, los
-   **hashes de los commits** y el **estado de las comprobaciones**.
 
-La revisión la realiza **otra IA**, en una sesión separada. La IA
-implementadora no aprueba su propio PR.
+3. Para una tarea en curso, reutiliza su worktree y rama. Revisa el estado
+   local, la referencia de seguimiento y el PR existente antes de actuar.
+   Un PR integrado cierra esa rama de trabajo. Si queda trabajo con otro alcance,
+   abre una tarea desde la base actualizada.
+4. **Antes de escribir, mover, borrar, preparar artefactos, hacer staging o
+   ejecutar un paso del workflow que cambie el entorno**, comprueba la ruta con
+   `git rev-parse --show-toplevel` y la rama con `git branch --show-current`.
+   Si no coinciden con la tarea, corrige el directorio de trabajo primero.
+   En Proxmox, continúa desde `terraform/proxmox/` dentro del worktree dedicado.
+   Copia allí los archivos de entrada que el usuario dejó en otro checkout y
+   conserva el origen. Si existe una dependencia de otra rama, regístrala y
+   acuerda la base antes de incorporarla.
 
-## 4. Cerrar la tarea
+## 2. Registrar alcance, evidencia y estado
 
-Desde el mismo worktree, aplica `15-task-commit-closeout.md`. Actualiza el
-plan con los cambios realizados, las validaciones ejecutadas y los pendientes.
-Si el alcance permite commits, crea los commits locales de la tarea con sus
-cambios y su documentación.
+Antes de implementar, usa un plan versionado o un issue que identifique la tarea
+y contenga el alcance, los criterios y verificaciones, la rama, la ubicación
+relativa del worktree, la referencia base y el siguiente paso. Un plan breve
+basta para tareas pequeñas. Si el issue ya contiene estos datos, úsalo como
+referencia principal. Registra las ampliaciones antes de ejecutarlas.
 
-En el resumen final, indica la **rama**, la **ruta del plan**, los **hashes de
-los commits** y cualquier **cambio pendiente**. Conserva el worktree mientras
-la tarea tenga cambios pendientes o deba retomarse. El push y la integración
-en `main` requieren autorización para esa tarea.
+En un encargo de solo planificación, el cambio del PR es el plan y, cuando
+corresponda, el seguimiento asociado. Marca el plan como propuesto hasta
+que el propietario apruebe su ejecución.
 
-## 6. Integración tras aprobación
+## 3. Validar, publicar y enlazar
 
-Cuando la integración está autorizada para la tarea, la revisión está aprobada
-(`reviewDecision == "APPROVED"`) y los checks requeridos están en `SUCCESS`:
+Aplica el [cierre de la regla 15](15-task-commit-closeout.md). Comprueba
+que el diff contra la base contiene solo cambios de la tarea. Publica la rama
+y abre su PR hacia la base acordada cuando el encargo lo autorice. Si la rama
+ya tiene PR, actualiza el mismo PR. Si el alcance termina en un commit local,
+registra el PR como pendiente y conserva el worktree para publicarlo más tarde.
 
-1. Verificar que no hay conflictos:
-     ```bash
-     gh pr view <número> --json mergeStateStatus --jq '.mergeStateStatus'
-     ```
-   Si `mergeStateStatus` es `CLEAN` o `HAS_HOOKS`, procede. Si es `BEHIND`,
-   actualiza la rama con `main` primero.
+En el PR, enlaza el issue o el plan con su ruta y revisión, e incluye el
+resumen y las verificaciones. Registra también la URL del PR en el issue o
+plan correspondiente. Para un plan versionado, incorpora el enlace en la
+misma rama antes de solicitar la revisión.
 
-2. Hacer merge del PR:
-     ```bash
-     gh pr merge <número> --squash --delete-branch
-     ```
+## 4. Revisar e integrar
 
-3. Actualizar `main` local:
-     ```bash
-     git fetch origin main && git merge origin/main
-     ```
+Consulta el estado con:
 
-4. Limpiar el worktree de la tarea si ya no es necesario:
-     ```bash
-     git branch -d <rama>
-     git worktree remove <ruta-del-worktree>
-     git remote prune origin
-     ```
+```bash
+gh pr view <número-o-rama> --json state,reviewDecision,isDraft,mergeStateStatus,headRefOid,url
+gh pr checks <número-o-rama> --required
+```
 
-5. Actualizar el plan con el resultado de la integración.
+- **Abierto o en borrador**. Conserva el estado pendiente hasta tener una
+  aprobación válida para el cambio actual.
+- **Cambios solicitados**. Revisa el feedback, registra las correcciones en la
+  referencia de la tarea y actualiza la misma rama y PR según el alcance.
+- **Aprobado**. La integración requiere autorización para la tarea, que el PR
+  sea integrable y que pasen las comprobaciones requeridas. La IA que
+  implementa no aprueba su propio PR.
+- **Integrado**. Registra el cierre con el PR y el commit de integración.
+  Si se solicita actualizar `main`, inspecciona primero su estado, preserva
+  cambios ajenos y verifica el resultado contra `origin/main`.
 
-Si el merge corresponde a otra persona (por política del repositorio o
-autorización del usuario), informa que el PR está listo para integrar y
-proporciona el enlace al PR. No ejecutes el merge en ese caso.
+Conserva el worktree mientras haya cambios pendientes o trabajo por retomar.
+Comprueba su estado y el de la rama antes de retirarlo.

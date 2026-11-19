@@ -21,8 +21,7 @@ problema de permisos, ruta relativa vs absoluta o límite de tamaño).
 
 - Usar `run_commands` con `cat <ruta>`, `sed -n 'N,Mp' <ruta>`,
   `rg 'patrón' <ruta>` o `git diff` para inspeccionar archivos.
-- Nunca emitir `read_files` salvo que el usuario lo solicite explícitamente
-  para un archivo concreto.
+- Reservar `read_files` para los casos de la sección Excepciones.
 
 ### Si la lectura funciona
 

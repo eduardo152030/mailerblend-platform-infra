@@ -1,5 +1,8 @@
 # Workflow — Aumento de swap de un LXC
 
+Antes de modificar archivos, aplica la [regla 03](../03-git-workflow.md)
+para identificar el plan o issue y preparar el worktree dedicado.
+
 Orquesta el runbook `docs/runbooks/LXC-SWAP-INCREASE.md`. No duplicar sus
 pasos; referenciarlos.
 
@@ -65,6 +68,6 @@ ejecutar**.
 - Solo `apply -parallelism=1 -target=proxmox_virtual_environment_container.svc["<service>"]`.
   Nunca `apply` general ni `make deploy-all`.
 - El swap se aplica en caliente; no reiniciar el CT.
-- No hacer commit/push salvo autorización explícita.
+- El cierre Git sigue las reglas 03 y 15, dentro del alcance autorizado.
 - Ante cualquier anomalía o cambio no esperado en el plan, **detener** y
   reportar; no avanzar.

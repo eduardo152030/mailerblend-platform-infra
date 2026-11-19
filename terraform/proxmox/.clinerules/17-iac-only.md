@@ -108,8 +108,8 @@ Después de cualquier `terraform apply`:
 ## Relación con otras reglas
 
 - `00-reasoning.md` §6 — principio IaC-only general.
-- `15-lxc-docs-workflow-routing.md` — workflow de documentación usa
-  `terraform apply -target=`.
+- `18-lxc-docs-workflow-routing.md` — workflow de documentación aplica
+  el plan guardado, validado y autorizado según el runbook.
 - `16-lxc-swap-workflow-routing.md` — workflow de swap usa
   `terraform apply -target=`.
 - `11-test-command-loop-prevention.md` — las pruebas validan la IaC

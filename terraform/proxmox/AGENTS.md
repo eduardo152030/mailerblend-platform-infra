@@ -2,6 +2,11 @@
 
 ## Gestión del proyecto
 
+Para cada tarea de Cline, aplica el [flujo Git 03](.clinerules/03-git-workflow.md)
+desde el inicio. Vincula un plan o issue, un worktree y una rama dedicados y
+el PR de la tarea. Verifica la ruta y la rama antes de modificar archivos,
+incluidas las tareas documentales y los workflows operativos.
+
 Antes de iniciar una tarea, leer `docs/roadmap/ROADMAP.md`,
 `docs/roadmap/CURRENT-STATUS.md` y las decisiones aplicables en
 `docs/roadmap/DECISIONS.md`. Identificar fase y tarea; registrar cualquier ampliación

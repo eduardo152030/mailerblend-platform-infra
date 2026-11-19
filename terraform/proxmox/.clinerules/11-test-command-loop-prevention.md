@@ -1,4 +1,4 @@
-# Test/command loop prevention — output is authoritative, not PIDs
+# 11 — Test/command loop prevention — output is authoritative, not PIDs
 
 Concrete failure mode this rule exists to prevent: Cline ran a test suite,
 the captured output showed a complete successful summary, yet the agent kept
