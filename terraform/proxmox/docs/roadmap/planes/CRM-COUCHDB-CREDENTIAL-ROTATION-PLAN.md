@@ -126,3 +126,25 @@ prueba el comportamiento del motor con configuración explícita y datos
 persistidos. No ejercitó la recreación Docker, la configuración D051 ni el
 login de Budibase. Esos pasos siguen siendo condiciones de la rotación.
 Sin cambios en CT618.
+
+## Comportamiento del entrypoint
+
+Ronda 04 del PR #38, 19/11/2026 Europe/Madrid. Inicio `4cf01874`.
+Se ejecutó el entrypoint original de la imagen verificada en un rootfs de
+prueba y una red aislada. Para esta prueba local se adaptó el usuario del
+rootfs temporal y se sustituyó únicamente el cambio de UID/GID de setpriv,
+que el kernel bloqueaba en el namespace. El entrypoint y el binario CouchDB
+no se editaron. Se reutilizó el mismo directorio de datos sintético.
+
+- Reinicio con INI existente y un valor nuevo en el entorno: el valor
+  anterior siguió funcionando (200) y el candidato fue rechazado (401).
+- Arranque con INI nuevo y el candidato en el entorno: valor anterior
+  rechazado (401), candidato válido y base conservada (200).
+- Reversión con INI nuevo y valor inicial: candidato rechazado (401) y base
+  accesible con el valor inicial (200).
+
+El procedimiento debe distinguir la persistencia del INI del volumen de datos.
+En la prueba Docker verificar los montajes y conservar toda personalización
+vigente antes de preparar la recreación. Exigir prueba funcional de Budibase
+D051 tras propagación y rollback. El ensayo de entrypoint no sustituye esa
+prueba conjunta. Sin cambios en CT618.

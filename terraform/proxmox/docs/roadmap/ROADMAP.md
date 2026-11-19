@@ -1278,3 +1278,7 @@ bloqueó la extracción de la imagen. Ensayo y rotación siguen pendientes.
 Seguimiento #23: CouchDB 3.5.1 ejecutado desde capas verificadas en
 aislación local. Cambio y reversión PASS, credencial retirada 401 y base
 conservada 200. Pendiente ensayo Docker y Budibase D051.
+
+Seguimiento #23: entrypoint aislado confirmó que cambiar solo el entorno
+con INI persistente conserva el valor anterior. INI nuevo y reversión PASS
+con datos sintéticos. Pendiente prueba conjunta Docker y Budibase D051.
