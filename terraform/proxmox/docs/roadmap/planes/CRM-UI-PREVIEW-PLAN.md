@@ -47,6 +47,7 @@ real, idempotencia, digest del release y TLS externo. Sin cambios en CT618.
 19/11/2026 Europe/Madrid. Rama `test/crm-ui-preview-validation`,
 worktree hermano `mailerblend-platform-infra-crm-preview-validation`,
 SHA inicial `0d6c345de8166130da400e79f3899b19f3a11ac9`. El PR #39 ya se integró.
+[PR de validación #40](https://github.com/eduardo152030/mailerblend-platform-infra/pull/40).
 
 - Docker Compose 2.32.4 descargado y comprobado con el SHA256 de la release.
   `docker compose config --format json` PASS con valores por defecto y
