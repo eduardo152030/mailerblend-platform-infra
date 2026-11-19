@@ -1,46 +1,24 @@
-# CRM Core Main — Flattening and Cleanup
+# CRM Core Main — estructura y cierre Git
 
-## Estado: Propuesto
+## Estado
 
-## Rama
-`feat/crm-core-main-flatten`
+DONE local, 19/11/2026 Europe/Madrid. Rama `feat/crm-core-main-flatten`,
+base local original `main` en `5420968a`. Para publicar, el propietario
+autorizó abrir un PR desde `feat/crm-core-main-review` sobre
+`origin/main` (`95687975`).
 
-## Base
-`origin/main` (commit 5420968a)
+## Alcance y validación
 
-## Alcance
-- Aplanar la estructura de directorios de `crm-core-main` eliminando la carpeta
-  anidada `crm-core-main/crm-core-main/`.
-- Eliminar todos los archivos `:Zone.Identifier` (artefactos de Windows ADS
-  copiados a ext4).
+- El commit `adecd384` incorporó la estructura aplanada y el plan en el worktree
+  dedicado. La copia original del propietario se conserva.
+- Se incluyen los tres archivos que omitió el ignore general:
+  `eslint.config.js`, `postcss.config.js` y `src/vite-env.d.ts`.
+- Se corrigen espacios finales en tres archivos para cumplir `git diff --check`.
+- La regla 03 se aplica al abrir la tarea. El cierre local y la publicación
+  quedan sujetos al alcance autorizado, también en la regla 15.
+- Criterios verificados: 129 archivos rastreados, sin carpeta duplicada ni
+  archivos `:Zone.Identifier`, y diff de la tarea limpio.
 
-## Lo que NO incluye
-- Modificaciones de código.
-- Commits ni pushes (solo preparación del worktree y verificación).
-- Cambios en `.gitignore` (ya contiene `*Zone.Identifier`).
+## Siguiente paso
 
-## Criterios de aceptación verificables
-1. No existe el directorio `services/infra-composable-crm/compose/budibase/crm-core-main/crm-core-main/`.
-2. No existen archivos `:Zone.Identifier` dentro de `crm-core-main/`.
-3. El directorio `crm-core-main/` contiene 129 archivos y ~21 directorios.
-4. `git diff --cached --check` no reporta errores.
-
-## Pruebas requeridas
-- `find ... -type f | wc -l` == 129
-- `find ... -name ':Zone.Identifier' | wc -l` == 0
-- `find ... -type d | wc -l` == ~21
-- `git diff --cached --check` limpio
-
-## Archivos afectados
-- `services/infra-composable-crm/compose/budibase/crm-core-main/` (directorio completo, nuevo en git)
-
-## Pasos
-1. Crear worktree dedicado `feat/crm-core-main-flatten`.
-2. Copiar la estructura aplanada desde el worktree principal.
-3. Verificar estructura y limpieza.
-4. Staging y commit.
-5. Publicar rama y abrir PR.
-
-## Pendiente
-- Validar que la aplicación funciona con la nueva estructura.
-- Revisar referencias de rutas internas en el código.
+Revisión y aprobación del PR por el propietario. Validación funcional del CRM pendiente.

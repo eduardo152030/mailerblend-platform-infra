@@ -1,3 +1,12 @@
+## CRM Core Main — cierre local DONE
+
+19/11/2026 Europe/Madrid, Fase 7. Importación completa en la rama dedicada:
+129 archivos, sin directorio duplicado ni artefactos Zone.Identifier. Se aclaró
+el inicio obligatorio del flujo Git y el cierre según el alcance autorizado.
+Validación estructural y diff limpio. El propietario autorizó publicar
+la rama de revisión y abrir el PR. Aprobación y validación funcional pendientes.
+[Plan y evidencia](../planes/CRM-CORE-MAIN-FLATTEN.md).
+
 ## PR15 / D-091 — DONE local; despliegue TODO
 
 19/11/2026, Europe/Madrid. Fase 7.4: corregido el worker optimizado real de

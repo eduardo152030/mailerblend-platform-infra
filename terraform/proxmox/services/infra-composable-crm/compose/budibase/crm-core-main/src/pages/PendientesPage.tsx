@@ -481,20 +481,20 @@ export default function PendientesPage() {
                 </div>
                 <div className="space-y-1">
                   <Label>Hora</Label>
-                  <Input 
-                    type="time" 
+                  <Input
+                    type="time"
                     key={String(editData.due_time ?? d.due_time ?? "")}
                     defaultValue={String(editData.due_time ?? d.due_time ?? "").substring(0, 5)}
-                    onChange={(e) => setEditData((p) => ({ ...p, due_time: e.target.value || null }))} 
+                    onChange={(e) => setEditData((p) => ({ ...p, due_time: e.target.value || null }))}
                   />
                   <div className="flex gap-1 mt-1">
                     {["09:00", "10:00", "14:00"].map((t) => (
-                      <Button 
-                        key={t} 
+                      <Button
+                        key={t}
                         type="button"
-                        variant="outline" 
-                        size="sm" 
-                        className="h-6 px-2 text-[10px] text-muted-foreground" 
+                        variant="outline"
+                        size="sm"
+                        className="h-6 px-2 text-[10px] text-muted-foreground"
                         onClick={() => setEditData((p) => ({ ...p, due_time: t }))}
                       >
                         {t}
@@ -585,12 +585,12 @@ export default function PendientesPage() {
                   onChange={(e) => setCreateData((p) => ({ ...p, due_time: e.target.value ? e.target.value + ":00" : null }))} />
                 <div className="flex gap-1 mt-1">
                   {["09:00", "10:00", "14:00"].map((t) => (
-                    <Button 
-                      key={t} 
+                    <Button
+                      key={t}
                       type="button"
-                      variant="outline" 
-                      size="sm" 
-                      className="h-6 px-2 text-[10px] text-muted-foreground" 
+                      variant="outline"
+                      size="sm"
+                      className="h-6 px-2 text-[10px] text-muted-foreground"
                       onClick={() => setCreateData((p) => ({ ...p, due_time: t + ":00" }))}
                     >
                       {t}

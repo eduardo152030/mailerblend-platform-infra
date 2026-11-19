@@ -814,12 +814,12 @@ export default function OportunidadesPage() {
                 <Input type="time" value={String(taskData.due_time ?? "").substring(0, 5)} onChange={(e) => setTaskData((p) => ({ ...p, due_time: e.target.value ? e.target.value + ":00" : null }))} />
                 <div className="flex gap-1 mt-1">
                   {["09:00", "10:00", "14:00"].map((t) => (
-                    <Button 
-                      key={t} 
+                    <Button
+                      key={t}
                       type="button"
-                      variant="outline" 
-                      size="sm" 
-                      className="h-6 px-2 text-[10px] text-muted-foreground" 
+                      variant="outline"
+                      size="sm"
+                      className="h-6 px-2 text-[10px] text-muted-foreground"
                       onClick={() => setTaskData((p) => ({ ...p, due_time: t + ":00" }))}
                     >
                       {t}
@@ -907,12 +907,12 @@ export default function OportunidadesPage() {
                   <Input type="time" value={String(editingTask.due_time ?? "").substring(0, 5)} onChange={(e) => setEditingTask((p) => p ? { ...p, due_time: e.target.value } : p)} />
                   <div className="flex gap-1 mt-1">
                     {["09:00", "10:00", "14:00"].map((t) => (
-                      <Button 
-                        key={t} 
+                      <Button
+                        key={t}
                         type="button"
-                        variant="outline" 
-                        size="sm" 
-                        className="h-6 px-2 text-[10px] text-muted-foreground" 
+                        variant="outline"
+                        size="sm"
+                        className="h-6 px-2 text-[10px] text-muted-foreground"
                         onClick={() => setEditingTask((p) => p ? { ...p, due_time: t } : p)}
                       >
                         {t}
