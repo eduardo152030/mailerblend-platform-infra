@@ -40,8 +40,12 @@ Disparadores: «documentar CT<VMID>» (por ejemplo, «documentar CT611»), «doc
      Si falla también la verificación de PVE, detén las lecturas remotas.
 3. Actualiza la ficha y las Notes a partir de lo observado. En el YAML,
    enlázalas con `notes_file` e `inventory_file`. Para «sincronizar Notes»,
-   reutiliza las fuentes si están vigentes. Ejecuta §6.1 para regenerar,
-   probar y validar el plan.
+   reutiliza las fuentes si están vigentes. Si retomas CT611 con la ficha y
+   las Notes ya preparadas, preserva esos borradores y continúa en §6.1.
+   Para preparar el plan, ejecuta una sola llamada a
+   `bash scripts/prepare-lxc-notes-plan.sh infra-grafana` (sustituye la clave
+   para otros CT). Usa el script versionado tal cual, sin reconstruir su
+   bloque de comandos, encadenar reintentos ni borrar el directorio privado.
 4. Si hay un fallo o drift ajeno a `description`, informa del bloqueo y
    detén la aplicación. Con un plan sin cambios, verifica la nota real.
    Con un cambio validado, muestra el informe seguro y espera la confirmación

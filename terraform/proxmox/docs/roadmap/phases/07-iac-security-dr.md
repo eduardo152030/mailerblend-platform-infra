@@ -1082,3 +1082,15 @@ y fijan el fallback verificado. Alcance documental y lectura, sin cambios
 SSH/PVE, plan ni aplicación. Fase 7 global IN PROGRESS. Siguiente: repetir
 «documentar CT611» en Cline y usar la vía PVE verificada.
 Publicación autorizada en rama propia con PR hacia `main` y revisión pendiente.
+
+## CLINE-LXC-PLAN — DONE local
+
+19/11/2026, Europe/Madrid. Fase 7. El propietario detuvo la sesión CT611
+tras fallos de preparación. Los borradores de ficha y Notes quedan en el
+workspace original. El workflow ahora invoca un script versionado para CA
+PVE, plan privado, validación y parada ante el primer error.
+28 pruebas, frescura, Bash y simulaciones de éxito, SSH fallido, Terraform
+fallido y drift bloqueado: PASS. No se ejecutó un plan real ni se aplicó
+en CT611. Publicación por PR autorizada; pendiente revisión independiente.
+Siguiente: tras integrar y rotar la credencial expuesta, retomar CT611
+desde §6.1. Fase 7 global IN PROGRESS.
