@@ -84,3 +84,17 @@ verificación. No implica un tiempo medido en producción. Iniciar la
 reversión si el candidato no alcanza readiness funcional en cinco minutos
 desde la recreación de Budibase o antes si falla una guarda crítica.
 La ventana y el permiso efectivo siguen por fijar.
+
+## Evidencia disponible y orden de fusión
+
+El snapshot actual y la restauración funcional del 20/11/2026 se verificaron
+en CT9618. Se conservan el archivo, su checksum y el clon apagado. El
+respaldo está en otro disco del mismo PVE. Revalidar alcance, antigüedad y
+requisitos de copia separada para la ventana. El arranque aislado incluyó
+espera de red y Docker, por lo que no se usa como medida de indisponibilidad
+de producción. La estimación de 5–10 minutos y la reserva de 30 minutos
+se mantienen como presupuesto inicial con criterio explícito de reversión.
+
+#44 y #45 están integrados en main. Esta entrega parte de ese main y
+puede fusionarse directamente. La fusión solo publica los procedimientos
+y evidencias. La intervención en CT618 queda pendiente de autorización.

@@ -2848,3 +2848,15 @@ etiquetas. «Solo documentación» termina localmente.
 
 19/11/2026 Europe/Madrid. Hasta dos verificaciones equivalentes. El cierre
 avanza con un resultado concluyente. [Plan](planes/CLINE-LIMITE-VERIFICACIONES.md).
+
+## CT618 — autorización de respaldo y restauración de #23
+
+20/11/2026 Europe/Madrid. El propietario autorizó respaldo actual en caliente
+sin detener servicios y restauración aislada desechable con prueba de CouchDB,
+Budibase D051 y login sintético. La rotación real exige una ventana y OK
+posteriores. Se usó el almacenamiento `storage` documentado de recuperación.
+[Resultado, plan y punto de parada](planes/CRM-CT618-SNAPSHOT-RESTORE-PLAN.md).
+
+Para la preview #24 se autoriza un virtual host separado en CT109 sujeto a los
+datos concretos de hostname, DNS y certificado y a la conservación de los 200
+de Budibase/CRMAPI. Los valores recibidos eran marcadores; no se aplicó el vhost.

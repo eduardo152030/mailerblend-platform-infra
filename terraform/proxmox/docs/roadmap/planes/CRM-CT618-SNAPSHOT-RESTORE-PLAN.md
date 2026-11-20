@@ -41,3 +41,21 @@ credenciales ni registros. Preparar runbook final y detenerse antes de rotar.
   en loopback del clon. La primera comprobación funcional salió antes
   de acreditar CouchDB. Se apagó el clon y se reanudó sobre el mismo
   volumen con espera de readiness y señalización de la etapa.
+
+## Restauración funcional verificada
+
+20/11/2026 08:56 CET. CouchDB autenticado y cinco bases enumeradas, incluida
+`global-db`. El Budibase restaurado pasó el healthcheck Docker D051 y
+reportó salud funcional en 3.27.4. Un override Compose temporal y exclusivo
+del clon aprovisionó una cuenta sintética. En la validación final se obtuvo
+una cookie de sesión y se confirmó en la respuesta autenticada la identidad
+de esa cuenta por correo. Los valores privados y los registros se quedaron
+en el clon. Los dos intentos anteriores quedan explicados por espera
+insuficiente de CouchDB y una comprobación de perfil demasiado restrictiva.
+No hubo una segunda restauración del archivo.
+
+CT9618 quedó apagado, `onboot=0` y NIC desconectada. Sin destrucción del
+clon ni del archivo. CT618 running al final; GET de login y CRMAPI 200
+con TLS verificado. El [runbook de rotación](CRM-CT618-ROTATION-RUNBOOK.md)
+está preparado. Parada antes de cambiar credenciales o reiniciar servicios
+en CT618, a la espera de la ventana y del OK explícito.
