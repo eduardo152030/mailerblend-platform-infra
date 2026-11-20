@@ -25,3 +25,19 @@ desconectada y sin salida, con IP de producción únicamente en loopback del
 clon, siguiendo el [aislamiento existente](../../../services/infra-composable-crm/recovery/isolation/README.md).
 Probar CouchDB, Budibase D051 y login con cuenta sintética sin exportar
 credenciales ni registros. Preparar runbook final y detenerse antes de rotar.
+
+## Evidencia del respaldo actual
+
+- Backup `storage:backup/vzdump-lxc-618-2026_11_20-08_23_42.tar.zst`,
+  4.580.840.105 bytes, 08:23:42–08:33:39 CET. El log confirma modo snapshot
+  y limpieza del snapshot temporal. Estado running y los cinco IDs e inicios
+  de Docker iguales antes y después. Budibase y CRMAPI respondieron 200.
+- SHA256 `00ee6dede0762aabba15676411f64971c5396540de617f8b688a3a0cf0fba30b`,
+  checksum comprobado y `zstd -t` PASS. Archivo y checksum 0600. El
+  archivo se conserva en un disco distinto del rootfs del CT, en el mismo
+  host PVE. Copia fuera del host sin comprobar.
+- Restauración al volumen nuevo en CT9618, extracción y confinamiento
+  `onboot=0`, NIC desconectada, cero rutas por defecto IPv4/IPv6 y bind
+  en loopback del clon. La primera comprobación funcional salió antes
+  de acreditar CouchDB. Se apagó el clon y se reanudó sobre el mismo
+  volumen con espera de readiness y señalización de la etapa.
