@@ -31,3 +31,17 @@ lote. Las pruebas HTTP aisladas verificaron el 400 de lote vacío, el 401 sin
 token de servicio y el 422 para un cuerpo mal formado. Gastos rechaza nuevas
 referencias de adjuntos HTTP o con credenciales embebidas con 422. Omitir el
 campo conserva las referencias existentes al editar un gasto.
+
+## Release #58 en CT618
+
+20/11/2026, 13:32 Europe/Madrid. UI y CRMAPI activos con la etiqueta
+`0d8a23ee`. CT109 conservó el vhost y las excepciones existentes.
+El primer intento generó dos alertas pendientes de health durante la
+recreación. Se restauraron las imágenes anteriores y se verificó el
+rollback. El segundo intento lanzó ambos servicios tras el scrape de
+cAdvisor. TLS, health 200, contactos anónimo 401, lectura con JWT,
+webform golden y LinkedIn golden con deduplicación pasaron. Siete
+consultas de Prometheus a intervalos de cinco segundos sin alertas
+nuevas. Respaldo del API `compose.before-20261120T123157Z.json` y de la
+UI en `/opt/crm-ui-release/before-58.KJGFP2`, con etiqueta previa
+`39e9aad67c16`. El resto de #49 sigue en curso.
