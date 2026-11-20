@@ -1475,3 +1475,9 @@ administrador. Dry-run de GoTrue en producción sin cambios. Ensayo de
 repetición tras un fallo parcial, cuenta deshabilitada y rol inesperado
 sin duplicación ni elevación. La convivencia se canceló por decisión del
 propietario y no constituye una prueba ejecutada.
+
+20/11/2026 Europe/Madrid. #27. Ensayo aislado con Nginx y backends
+sintéticos: candidato inválido rechazado, vhost previo recuperado, Budibase
+200 y CRMAPI 401/200 según autenticación. La repetición no recarga Nginx.
+El rollback real del corte quedó registrado en #52. El ensayo actual no
+interviene el vhost JWT de producción.
