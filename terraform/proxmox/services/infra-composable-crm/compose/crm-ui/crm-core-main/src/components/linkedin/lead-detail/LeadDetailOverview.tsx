@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
-import { PACK_COLORS } from "@/lib/linkedin-mock-data";
+import { linkedinProfileUrl, PACK_COLORS } from "@/lib/linkedin-presentation";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { formatDistanceToNow } from "date-fns";
@@ -41,7 +41,7 @@ export default function LeadDetailOverview({ lead, attempts, conversations, appr
         <div className="grid grid-cols-2 gap-3">
           <Field label="LinkedIn">
             {lead.linkedin_url ? (
-              <a href={lead.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm truncate block">
+              <a href={linkedinProfileUrl(lead.linkedin_url)} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm truncate block">
                 {lead.linkedin_url.replace("https://linkedin.com/in/", "")}
               </a>
             ) : "—"}

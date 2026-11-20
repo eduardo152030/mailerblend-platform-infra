@@ -286,7 +286,7 @@ export default function GastosDashboard() {
               <ResponsiveContainer width="100%" height={280}>
                 <BarChart data={barData} layout="vertical" margin={{ left: 20, right: 20 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                  <XAxis type="number" tickFormatter={(v) => `€${v.toLocaleString("es-ES")}`} stroke="hsl(var(--muted-foreground))" fontSize={11} />
+                  <XAxis type="number" tickFormatter={formatCurrency} stroke="hsl(var(--muted-foreground))" fontSize={11} />
                   <YAxis type="category" dataKey="name" width={100} stroke="hsl(var(--muted-foreground))" fontSize={11} />
                   <Tooltip formatter={(v: number) => formatCurrency(v)} contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} />
                   <Bar dataKey="total" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
@@ -311,7 +311,7 @@ export default function GastosDashboard() {
                 <LineChart data={lineData} margin={{ left: 10, right: 10 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={11} />
-                  <YAxis tickFormatter={(v) => `€${v.toLocaleString("es-ES")}`} stroke="hsl(var(--muted-foreground))" fontSize={11} />
+                  <YAxis tickFormatter={formatCurrency} stroke="hsl(var(--muted-foreground))" fontSize={11} />
                   <Tooltip formatter={(v: number) => formatCurrency(v)} contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} />
                   <Legend />
                   <Line type="monotone" dataKey="total" name="Total" stroke="hsl(var(--primary))" strokeWidth={2} dot={{ r: 4 }} />

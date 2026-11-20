@@ -1,18 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { PACK_COLORS } from "@/lib/linkedin-mock-data";
-import { Send, UserCheck, MessageSquare, CalendarCheck, TrendingUp, Users, Zap, Info, Bell, Check, X, Bot } from "lucide-react";
-import { useLSSDashboard, useLSSOutcomes, useLSSLeads, useLSSApproveApproval, useLSSRejectApproval, useLSSRateLimitStatus } from "@/hooks/use-api";
-import { toast } from "@/hooks/use-toast";
+import { PACK_COLORS } from "@/lib/linkedin-presentation";
+import { Send, UserCheck, MessageSquare, CalendarCheck, TrendingUp, Users, Zap, Info, Bot } from "lucide-react";
+import { useLSSDashboard, useLSSOutcomes, useLSSLeads, useLSSRateLimitStatus } from "@/hooks/use-api";
 import { useState } from "react";
 import LSSLeadDetail from "./LSSLeadDetail";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 const KPI_TOOLTIPS: Record<string, { icon: string; title: string; desc: string; sections: { label: string; text: string }[] }> = {
@@ -80,8 +76,6 @@ export default function LSSDashboard() {
   const [convertidosOpen, setConvertidosOpen] = useState(false);
   const [approvalsOpen, setApprovalsOpen] = useState(false);
   const [selectedLead, setSelectedLead] = useState<Record<string, any> | null>(null);
-  const [approveTarget, setApproveTarget] = useState<Record<string, any> | null>(null);
-  const [finalMessage, setFinalMessage] = useState("");
 
   const { data: bookedData, isLoading: bookedLoading } = useLSSOutcomes(
     { outcome: "BOOKED", limit: 50 }
@@ -98,8 +92,6 @@ export default function LSSDashboard() {
 
   // "Por Pack" usa by_pack del dashboard endpoint
 
-  const approveMut = useLSSApproveApproval();
-  const rejectMut = useLSSRejectApproval();
 
   const handleBookedClick = () => setBookedOpen(true);
   const handleConversacionesClick = () => setConversacionesOpen(true);
@@ -498,23 +490,6 @@ export default function LSSDashboard() {
                             }}>
                               Ver lead →
                             </Button>
-                            <Button size="sm" onClick={() => {
-                              setApproveTarget(ap);
-                              setFinalMessage(ap.draft_message || "");
-                            }}>
-                              <Check size={14} className="mr-1" /> Aprobar
-                            </Button>
-                            <Button size="sm" variant="outline" className="text-destructive" onClick={() => {
-                              rejectMut.mutate(
-                                { id: ap.approval_id, data: { human_note: "Rechazado desde dashboard" } },
-                                {
-                                  onSuccess: () => toast({ title: "❌ Draft rechazado" }),
-                                  onError: () => toast({ title: "Error al rechazar", variant: "destructive" }),
-                                }
-                              );
-                            }}>
-                              <X size={14} className="mr-1" /> Rechazar
-                            </Button>
                           </div>
                         </CardContent>
                       </Card>
@@ -524,39 +499,6 @@ export default function LSSDashboard() {
               </ScrollArea>
             );
           })()}
-        </DialogContent>
-      </Dialog>
-
-      {/* Quick Approve dialog */}
-      <Dialog open={!!approveTarget} onOpenChange={() => setApproveTarget(null)}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Aprobar Draft</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4">
-            <div>
-              <label className="text-xs font-medium text-muted-foreground">Mensaje final</label>
-              <Textarea value={finalMessage} onChange={(e) => setFinalMessage(e.target.value)} rows={4} />
-            </div>
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setApproveTarget(null)}>Cancelar</Button>
-            <Button onClick={() => {
-              if (!approveTarget) return;
-              approveMut.mutate(
-                { id: approveTarget.approval_id || approveTarget.id, data: { final_message: finalMessage } },
-                {
-                  onSuccess: () => {
-                    toast({ title: "✅ Mensaje aprobado y enviado" });
-                    setApproveTarget(null);
-                  },
-                  onError: () => toast({ title: "Error al aprobar", variant: "destructive" }),
-                }
-              );
-            }} disabled={approveMut.isPending}>
-              <Check size={14} className="mr-1" /> Aprobar y Enviar
-            </Button>
-          </DialogFooter>
         </DialogContent>
       </Dialog>
 

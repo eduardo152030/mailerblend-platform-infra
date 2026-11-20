@@ -1,16 +1,15 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { PACK_COLORS, STATUS_COLORS } from "@/lib/linkedin-mock-data";
-import { ExternalLink, Pencil, Zap, Trash2 } from "lucide-react";
+import { linkedinProfileUrl, PACK_COLORS, STATUS_COLORS } from "@/lib/linkedin-presentation";
+import { ExternalLink } from "lucide-react";
 
 interface Props {
   lead: Record<string, any>;
   outcome?: Record<string, any> | null;
-  onDelete?: () => void;
 }
 
-export default function LeadDetailHeader({ lead, outcome, onDelete }: Props) {
+export default function LeadDetailHeader({ lead, outcome }: Props) {
   const pack = PACK_COLORS[lead.pack_candidate] || PACK_COLORS.NONE;
   const score = lead.lead_score ?? 0;
   const initials = (lead.full_name || "?")
@@ -54,21 +53,11 @@ export default function LeadDetailHeader({ lead, outcome, onDelete }: Props) {
 
       {/* Action buttons */}
       <div className="flex flex-wrap gap-2">
-        {lead.linkedin_url && (
+        {linkedinProfileUrl(lead.linkedin_url) && (
           <Button variant="outline" size="sm" asChild>
-            <a href={lead.linkedin_url} target="_blank" rel="noopener noreferrer">
+            <a href={linkedinProfileUrl(lead.linkedin_url)} target="_blank" rel="noopener noreferrer">
               <ExternalLink size={14} className="mr-1" /> LinkedIn
             </a>
-          </Button>
-        )}
-        {lead.status === "CONVERTED" && (
-          <Button variant="outline" size="sm">
-            <Zap size={14} className="mr-1" /> Crear Oportunidad
-          </Button>
-        )}
-        {onDelete && (
-          <Button variant="outline" size="sm" className="text-destructive hover:text-destructive" onClick={onDelete}>
-            <Trash2 size={14} className="mr-1" /> Eliminar
           </Button>
         )}
       </div>

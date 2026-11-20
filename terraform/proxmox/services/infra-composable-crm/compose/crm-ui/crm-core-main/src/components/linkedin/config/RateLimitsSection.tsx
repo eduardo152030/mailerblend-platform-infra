@@ -1,13 +1,9 @@
-import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useLSSRateLimitStatus, useLSSRateLimits, useLSSPatchRateLimit } from "@/hooks/use-api";
-import { toast } from "@/hooks/use-toast";
-import { AlertTriangle, Check, Send, MessageSquare } from "lucide-react";
+import { useLSSRateLimitStatus, useLSSRateLimits } from "@/hooks/use-api";
+import { AlertTriangle, Send, MessageSquare } from "lucide-react";
 
 function StatusCard({ icon: Icon, title, sent, cap, remaining, canSend }: {
   icon: React.ElementType; title: string; sent: number; cap: number; remaining: number; canSend: boolean;
@@ -35,55 +31,28 @@ function StatusCard({ icon: Icon, title, sent, cap, remaining, canSend }: {
   );
 }
 
-function LimitConfigCard({ limit, onUpdate }: { limit: Record<string, any>; onUpdate: (v: number) => void }) {
-  const [editing, setEditing] = useState(false);
-  const [value, setValue] = useState(String(limit.limit_value));
-
-  const handleSave = () => {
-    const n = parseInt(value);
-    if (isNaN(n) || n < 1) return;
-    onUpdate(n);
-    setEditing(false);
-  };
-
+function LimitConfigCard({ limit }: { limit: Record<string, any> }) {
   return (
     <Card>
-      <CardContent className="pt-4 space-y-2">
-        <p className="text-sm font-medium">{limit.limit_type}</p>
-        <p className="text-xs text-muted-foreground">{limit.description}</p>
-        <div className="flex items-center gap-2">
-          {editing ? (
-            <>
-              <Input type="number" value={value} onChange={(e) => setValue(e.target.value)} className="h-8 w-24 text-xs" min={1} max={200} />
-              <Button size="sm" variant="default" className="h-8 text-xs" onClick={handleSave}><Check size={12} className="mr-1" /> Guardar</Button>
-              <Button size="sm" variant="ghost" className="h-8 text-xs" onClick={() => setEditing(false)}>Cancelar</Button>
-            </>
-          ) : (
-            <>
-              <span className="text-sm font-bold">{limit.limit_value}</span>
-              <Button size="sm" variant="outline" className="h-7 text-xs ml-auto" onClick={() => { setValue(String(limit.limit_value)); setEditing(true); }}>Editar</Button>
-            </>
-          )}
+      <CardContent className="flex items-center justify-between gap-3 py-4">
+        <div>
+          <p className="font-medium">{limit.limit_type}</p>
+          <p className="text-xs text-muted-foreground">{limit.description}</p>
         </div>
+        <span>{limit.limit_value} · {limit.is_active ? "Activo" : "Inactivo"}</span>
       </CardContent>
     </Card>
   );
 }
 
 export default function RateLimitsSection() {
-  const { data: statusData, isLoading: loadingStatus } = useLSSRateLimitStatus();
+  const { data: statusData, isLoading: loadingStatus , isError } = useLSSRateLimitStatus();
   const { data: limitsData, isLoading: loadingLimits } = useLSSRateLimits();
-  const patchLimit = useLSSPatchRateLimit();
 
   const status = statusData as any;
   const limits = (limitsData as any)?.items ?? [];
 
-  const handleUpdate = (limitType: string, newValue: number) => {
-    patchLimit.mutate({ limitType, data: { limit_value: newValue } }, {
-      onSuccess: () => toast({ title: "Límite actualizado", description: `${limitType} → ${newValue}` }),
-      onError: () => toast({ title: "Error", description: "No se pudo actualizar", variant: "destructive" }),
-    });
-  };
+  if (isError) return <p role="alert" className="text-destructive">No se pudo cargar esta configuración.</p>;
 
   return (
     <div className="space-y-6">
@@ -117,7 +86,7 @@ export default function RateLimitsSection() {
         ) : (
           <div className="space-y-3">
             {limits.map((limit: any) => (
-              <LimitConfigCard key={limit.limit_type} limit={limit} onUpdate={(v) => handleUpdate(limit.limit_type, v)} />
+              <LimitConfigCard key={limit.limit_type} limit={limit} />
             ))}
           </div>
         )}
