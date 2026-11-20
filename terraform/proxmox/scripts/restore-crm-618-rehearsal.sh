@@ -8,7 +8,7 @@ set -euo pipefail
 }
 volume=$1
 archive=$(pvesm path "$volume")
-[[ "$archive" == /mnt/storage/dump/vzdump-lxc-618-*.tar.zst && -f "$archive" && ! -L "$archive" ]]
+[[ "$archive" == /mnt/storage/dump/vzdump-lxc-618-*.tar.zst && -f "$archive" && ! -L "$archive" && -O "$archive" ]]
 [[ $(find "$archive" -maxdepth 0 -mmin -720 -print) == "$archive" ]]
 log=${archive%.tar.zst}.log
 grep -q 'backup mode: snapshot' "$log"
@@ -19,15 +19,19 @@ grep -q 'Finished Backup of VM 618' "$log"
 pvesm status | awk '$1 == "storage" && $3 == "active" && $6 >= 104857600 { ok=1 } END { exit !ok }'
 [[ $(awk '/^MemAvailable:/ {print $2}' /proc/meminfo) -ge 10485760 ]]
 
+chmod 600 -- "$archive"
 ionice -c 3 nice -n 15 zstd -t -- "$archive"
 (
     cd "$(dirname "$archive")"
     file=$(basename "$archive")
     umask 077
     set -o noclobber
-    checksum=$(ionice -c 3 nice -n 15 sha256sum -- "$file")
-    printf '%s\n' "$checksum" > "$file.sha256"
-    sha256sum -c -- "$file.sha256"
+    if [[ ! -e "$file.sha256" ]]; then
+        checksum=$(ionice -c 3 nice -n 15 sha256sum -- "$file")
+        printf '%s\n' "$checksum" > "$file.sha256"
+    fi
+    [[ -f "$file.sha256" && ! -L "$file.sha256" && -O "$file.sha256" ]]
+    ionice -c 3 nice -n 15 sha256sum -c -- "$file.sha256"
 )
 info=$(pvesm extractconfig "$volume")
 awk -F: '
