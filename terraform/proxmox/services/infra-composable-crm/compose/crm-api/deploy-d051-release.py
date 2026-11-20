@@ -28,7 +28,9 @@ def run(path):
 
 
 def main():
-    image, = sys.argv[1:]
+    if len(sys.argv) not in (2, 3) or (len(sys.argv) == 3 and sys.argv[2] != "--fast-start"):
+        raise SystemExit("Usage: deploy-d051-release.py IMAGE [--fast-start]")
+    image = sys.argv[1]
     settings = json.load(sys.stdin)
     if not settings or settings.keys() - {
         "CRM_LINKEDIN_IMPORT_TOKEN", "CRM_AUTH_ENABLED", "CRM_AUTH_ISSUER", "CRM_AUTH_JWT_SECRET", "CRM_UI_ORIGIN"
@@ -48,6 +50,8 @@ def main():
     write_private(backup, config)
     service["image"] = image
     service["environment"].update(settings)
+    if len(sys.argv) == 3:
+        service["healthcheck"].update(start_period="15s", start_interval="1s")
     stage = ROOT / f"compose.release-{stamp}.json"
     write_private(stage, config)
     stage.replace(CONFIG)
