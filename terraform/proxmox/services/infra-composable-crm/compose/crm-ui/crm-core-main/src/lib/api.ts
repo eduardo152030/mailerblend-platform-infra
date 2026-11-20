@@ -109,20 +109,18 @@ export const gastos = {
     request<Record<string, unknown>>(`/gastos`, { method: "POST", body: JSON.stringify(data) }),
   patch: (id: string, data: Record<string, unknown>) =>
     request<Record<string, unknown>>(`/gastos/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
-  stats: (p: { group_by?: string; from?: string; to?: string; project_key?: string } = {}) =>
+  stats: (p: { group_by?: string; from?: string; to?: string; project_key?: string; currency?: string } = {}) =>
     request<{ group_by: string; items: Record<string, unknown>[] }>(`/gastos/stats${qs(p)}`),
-  stats2: (p: { group_by?: string; from?: string; to?: string; project_key?: string } = {}) =>
+  stats2: (p: { group_by?: string; from?: string; to?: string; project_key?: string; currency?: string } = {}) =>
     request<{ group_by: string; items: Record<string, unknown>[] }>(`/gastos/stats2${qs(p)}`),
-  statsTimeseries: (p: { bucket?: string; from?: string; to?: string; project_key?: string } = {}) =>
+  statsTimeseries: (p: { bucket?: string; from?: string; to?: string; project_key?: string; currency?: string } = {}) =>
     request<{ bucket: string; items: Record<string, unknown>[] }>(`/gastos/stats-timeseries${qs(p)}`),
-  taxSummary: (p: { from: string; to: string }) =>
+  taxSummary: (p: { from: string; to: string; project_key?: string; currency?: string }) =>
     request<Record<string, unknown>>(`/gastos/tax-summary${qs(p)}`),
   pnlMonthly: (p: { from?: string; to?: string } = {}) =>
     request<{ items: Record<string, unknown>[] }>(`/gastos/pnl-monthly${qs(p)}`),
-  pnlSummary: (p: { from?: string; to?: string } = {}) =>
+  pnlSummary: (p: { from?: string; to?: string; project_key?: string; currency?: string } = {}) =>
     request<Record<string, unknown>>(`/gastos/pnl-summary${qs(p)}`),
-  statsSummary: (p: { from?: string; to?: string } = {}) =>
-    request<Record<string, unknown>>(`/gastos/stats-summary${qs(p)}`),
   exportCsv: async (p: Record<string, unknown> = {}) => {
     const res = await crmFetch(`${BASE_URL}/gastos/export.csv${qs(p)}`);
     if (!res.ok) throw new Error(`Exportación CSV: ${res.status}`);
@@ -132,6 +130,8 @@ export const gastos = {
 
 // Proveedores
 export const proveedores = {
+  expenseSummary: (id: string) =>
+    request<{ items: { currency: "EUR" | "USD"; count: number; total: number }[] }>(`/proveedores/${id}/gastos`),
   list: (p: { limit?: number; offset?: number; q?: string; tipo?: string } = {}) =>
     request<PaginatedResponse>(`/proveedores${qs(p)}`),
   get: (id: string) => request<Record<string, unknown>>(`/proveedores/${id}`),
