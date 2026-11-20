@@ -13,7 +13,7 @@ locals {
     for k, s in local.services_raw : k => {
       name = s.service.name
       vmid = s.service.vmid
-      ip   = s.service.ip
+      ip   = try(s.service.ip, null)
 
       cpu     = try(s.resources.cpu, local.defaults.lxc.cpu)
       memory  = try(s.resources.memory, local.defaults.lxc.memory)

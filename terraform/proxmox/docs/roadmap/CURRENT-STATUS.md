@@ -1446,3 +1446,7 @@ dns1.nominalia.com. El plan Terraform dirigido a infra-mail muestra
 únicamente alta de CT 632. Instalador y reglas de cola preparados;
 reserva de IP, ensayo Mailpit, recarga de Prometheus y recepción real
 pendientes. Mantener #68 detrás de #69.
+
+20/11/2026 Europe/Madrid. #69, dirección LAN vía DHCP por decisión del
+propietario. Plan acotado verificado con una alta y IPv4 DHCP. El ensayo
+en VM desechable cubre autenticación, cuota y entrega a Mailpit.

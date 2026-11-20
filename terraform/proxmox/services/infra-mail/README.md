@@ -26,8 +26,8 @@ y autenticación del mensaje en el buzón destino después del ensayo Mailpit.
 ## Provisión
 
 El plan con destino `proxmox_virtual_environment_container.svc["infra-mail"]`
-debe mostrar únicamente la creación del CT 632. Confirma la reserva de su
-IP antes de aplicarlo. Instala y valida Node Exporter con el
+debe mostrar únicamente la creación del CT 632. Registra la concesión
+DHCP observada tras el alta y comprueba la resolución antes de activar clientes. Instala y valida Node Exporter con el
 [runbook de provisión](../../docs/runbooks/NEW-LXC-PROVISIONING.md).
 El instalador `install-relay.sh` requiere un CT dedicado y los siguientes
 ficheros en `/etc/infra-mail/private` con acceso solo de root.

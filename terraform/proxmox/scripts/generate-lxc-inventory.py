@@ -104,7 +104,7 @@ def build(root=ROOT):
         s=d['service']
         if key not in meta:
             notes[key]=pending_notes(d,key)
-            ct=s['vmid'];ip=s['ip'].split('/')[0]
+            ct=s['vmid'];ip=(s.get('ip') or 'DHCP').split('/')[0]
             receipt=d['provisioning'].get('verification')
             state='Observado RUNNING; aceptación funcional: ver ficha' if receipt else 'Declarado, no desplegado'
             notes_file=d.get('documentation',{}).get('notes_file')
