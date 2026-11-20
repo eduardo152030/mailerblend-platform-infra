@@ -16,6 +16,8 @@ from urllib.parse import quote, unquote, urlsplit
 
 
 KEYS = ("COUCHDB_USER", "COUCHDB_PASSWORD")
+ASSIGNMENT = re.compile(r"^[ \t]*(?:export[ \t]+)?([A-Za-z_][A-Za-z0-9_]*)[ \t]*=")
+SIMPLE_VALUE = re.compile(r"""[ \t]*(?:'[^']*'|"[^"]*"|[^'"\\]*)(?:[ \t]+#.*)?""")
 
 
 class PreflightError(Exception):
@@ -30,7 +32,7 @@ def private_file(path, label):
         raise PreflightError(f"{label}: se requiere modo 0600")
 
 
-def compose_environment(compose, service, env_file):
+def compose_model(compose, env_file):
     command = [
         "docker", "compose", "--project-directory", str(compose.parent),
         "--env-file", str(env_file), "-f", str(compose), "config", "--format", "json",
@@ -40,7 +42,33 @@ def compose_environment(compose, service, env_file):
     )
     if result.returncode:
         raise PreflightError("Compose no pudo renderizar uno de los modelos")
-    return json.loads(result.stdout)["services"][service]["environment"]
+    return json.loads(result.stdout)
+
+
+def compose_environment(compose, service, env_file):
+    return compose_model(compose, env_file)["services"][service]["environment"]
+
+
+def legacy_assignments(text):
+    positions = {key: [] for key in KEYS}
+    for index, line in enumerate(text.splitlines()):
+        match = ASSIGNMENT.match(line)
+        if match and match[1] in positions:
+            positions[match[1]].append(index)
+    return positions
+
+
+def normalize_legacy_env(text, positions):
+    discarded = {index for indexes in positions.values() for index in indexes[:-1]}
+    lines = text.splitlines(keepends=True)
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        match = ASSIGNMENT.match(stripped)
+        if not match or not SIMPLE_VALUE.fullmatch(stripped[match.end():]):
+            raise PreflightError("Entorno legado: normalización limitada a asignaciones de una línea")
+    return "".join(line for index, line in enumerate(lines) if index not in discarded)
 
 
 def persisted_couch_url(path, couch):
@@ -59,14 +87,13 @@ def persisted_couch_url(path, couch):
     return url
 
 
-def prepare_candidate(args, persisted):
+def prepare_candidate(args, persisted, legacy_env, legacy_model):
     parent = args.prepare_candidate
     metadata = parent.lstat()
     if (not stat.S_ISDIR(metadata.st_mode) or metadata.st_uid != os.geteuid()
             or stat.S_IMODE(metadata.st_mode) != 0o700):
         raise PreflightError("El directorio de candidatos debe ser propio y de modo 0700")
     password = secrets.token_urlsafe(36)
-    legacy_env = args.env_file.read_text(encoding="utf-8")
     candidate_env, changed = re.subn(
         r"(?m)^[ \t]*(?:export[ \t]+)?COUCHDB_PASSWORD[ \t]*=[^\n]*$",
         lambda _: f"COUCHDB_PASSWORD={password}", legacy_env,
@@ -78,6 +105,13 @@ def prepare_candidate(args, persisted):
 
     with tempfile.TemporaryDirectory(prefix="crm-rotation-check-", dir=parent) as tmp:
         candidate = Path(tmp)
+        if args.normalize_legacy_env:
+            normalized = candidate / "normalized.env"
+            fd = os.open(normalized, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+            with os.fdopen(fd, "w", encoding="utf-8") as output:
+                output.write(legacy_env)
+            if compose_model(args.couch_compose, normalized) != legacy_model:
+                raise PreflightError("Normalizar el entorno cambió el modelo Compose")
         endpoint = persisted.netloc.rsplit("@", 1)[-1]
         username = quote(unquote(persisted.username), safe="")
         candidate_url = persisted._replace(netloc=f"{username}:{password}@{endpoint}")
@@ -108,16 +142,22 @@ def run(args):
     private_file(args.app_compose, "Compose privado D051")
     if not args.couch_compose.is_file():
         raise PreflightError("Compose CouchDB: archivo ausente")
-    with args.env_file.open(encoding="utf-8") as env:
-        assignments = [line.partition("=")[0].strip().removeprefix("export ").strip()
-                       for line in env if "=" in line]
-    if any(assignments.count(key) != 1 for key in KEYS):
+    legacy_env = args.env_file.read_text(encoding="utf-8")
+    positions = legacy_assignments(legacy_env)
+    if args.normalize_legacy_env and not args.prepare_candidate:
+        raise PreflightError("--normalize-legacy-env solo se usa al preparar candidatos")
+    if any(not indexes for indexes in positions.values()):
+        raise PreflightError("Entorno CouchDB: faltan asignaciones requeridas")
+    if args.normalize_legacy_env:
+        legacy_env = normalize_legacy_env(legacy_env, positions)
+    elif any(len(indexes) != 1 for indexes in positions.values()):
         raise PreflightError("Entorno CouchDB: debe haber una asignación por cada clave")
     # Compose reads the legacy env for interpolation. Shell overrides would
     # defeat this comparison, so require callers to unset those keys first.
     if any(key in os.environ for key in KEYS):
         raise PreflightError("El entorno del proceso contiene overrides de CouchDB")
-    couch = compose_environment(args.couch_compose, "couchdb", args.env_file)
+    legacy_model = compose_model(args.couch_compose, args.env_file)
+    couch = legacy_model["services"]["couchdb"]["environment"]
     app = compose_environment(args.app_compose, "budibase-app", Path("/dev/null"))
     for key in KEYS:
         source, consumer = couch.get(key), app.get(key)
@@ -130,7 +170,7 @@ def run(args):
     if args.app_persisted_env:
         persisted = persisted_couch_url(args.app_persisted_env, couch)
     if args.prepare_candidate:
-        prepare_candidate(args, persisted)
+        prepare_candidate(args, persisted, legacy_env, legacy_model)
     else:
         print("PASS: archivos privados y referencias Compose coincidentes")
 
@@ -142,10 +182,11 @@ def main():
     parser.add_argument("--app-compose", type=Path, required=True)
     parser.add_argument("--app-persisted-env", type=Path)
     parser.add_argument("--prepare-candidate", type=Path, metavar="DIRECTORIO_PRIVADO")
+    parser.add_argument("--normalize-legacy-env", action="store_true")
     args = parser.parse_args()
     for key in vars(args):
         path = getattr(args, key)
-        if path is not None:
+        if isinstance(path, Path):
             setattr(args, key, path.absolute())
     try:
         run(args)
