@@ -44,3 +44,12 @@ ficheros en `/etc/infra-mail/private` con acceso solo de root.
 Publica el target individual de Node Exporter y las reglas de
 `services/infra-prom/config/rules/infra-mail.yml` solo después del ensayo
 aislado. La ruta existente de Alertmanager envía estas alertas a Telegram.
+
+## Ensayo con Mailpit
+
+En el entorno desechable, ejecuta `install-mailpit.sh` y después
+`install-relay.sh --mailpit`. El instalador fija el upstream del ensayo a
+`127.0.0.1:1025`. Usa certificados e identidades sintéticas. Comprueba
+desde un cliente SMTP que se exige STARTTLS, que el servicio solo puede
+usar su remitente y que el mensaje aparece en la API de Mailpit en
+`127.0.0.1:8025`. El ensayo no necesita las credenciales del proveedor.
