@@ -1376,3 +1376,5 @@ Auditoría CRM #49 en curso. [Resultados y pendientes](planes/CRM-HARDENING-AUDI
 20/11/2026. #49 desplegado y verificado con 5 min sin FIRING relacionados. Siguiente #28.
 
 20/11/2026. FormEntries #28 desplegado y verificado. Reencolado diferido en #62. Siguiente #29.
+
+20/11/2026. #28, #29 y #30 desplegados y verificados. #31 queda propuesto; Budibase y sus volúmenes se conservan. [Inventario y retirada propuesta](planes/CRM-LEGACY-EXIT.md).
