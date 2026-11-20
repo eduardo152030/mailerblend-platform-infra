@@ -1316,3 +1316,8 @@ D051 PASS tras reversión. Rotación real pendiente; CT618 sin cambios.
 probada con Compose y coherencia de los tres candidatos. Solo hay evidencia
 localizada de copia histórica. Siguiente paso: respaldo actual y restauración
 verificada en ventana operativa; parada antes de cambios en CT618.
+
+20/11/2026 Europe/Madrid. #24: CT109 confirmado como proxy vigente.
+Vhost separado versionado y probado con TLS de laboratorio. Pendiente
+confirmar host, DNS y certificado para la ventana de publicación.
+Sin cambios en producción.
