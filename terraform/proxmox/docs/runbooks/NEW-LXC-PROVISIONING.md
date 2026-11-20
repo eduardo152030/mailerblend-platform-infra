@@ -134,6 +134,35 @@ posterior y el bootstrap. Cerrar el proceso que contiene la sesión al terminar.
 Si falla el bootstrap después de crear el CT, inspeccionar primero PVE y el
 estado Terraform. Conservar el CT y sus discos antes de decidir cómo continuar.
 
+### Excepción AppArmor aprobada para CT633–635
+
+En PVE 8.3 con `lxc-pve 6.0.0-1`, Docker puede iniciar el daemon y
+fallar al crear contenedores en `runc` con
+`open sysctl net.ipv4.ip_unprivileged_port_start ... permission denied`.
+En CT635 la excepción `lxc.apparmor.profile: unconfined` permitió arrancar
+PlantUML y renderizar SVG y PNG. Desactiva el confinamiento AppArmor exterior
+en esos CT y conserva el modo LXC sin privilegios. Su autorización alcanza
+solo CT633–635 y sus reinicios. El perfil global del nodo queda fuera.
+
+El [script versionado](../../scripts/knowledge-platform/apparmor-exception.py)
+comprueba VMID, hostname, `unprivileged`, `nesting` y `keyctl`. Conserva
+la configuración original en `/var/lib/knowledge-platform-apparmor/<VMID>.before.conf`
+dentro del nodo PVE, reinicia solo el CT seleccionado y verifica el resultado.
+La segunda aplicación devuelve `no changes` sin reiniciar. Para aplicar en
+un CT autorizado, desde el módulo y con su VMID explícito:
+
+```sh
+ssh -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
+  -o StrictHostKeyChecking=yes -o BatchMode=yes pve \
+  'umask 077; python3 - apply 635' \
+  < scripts/knowledge-platform/apparmor-exception.py
+```
+
+Para revertir la excepción administrada, usar `rollback` en lugar de
+`apply` con el mismo VMID. Esto elimina la directiva y reinicia el CT,
+preservando otras ediciones de configuración. Confirmar el servicio en
+loopback y su prueba funcional antes de habilitar acceso de red.
+
 ## 4. Creación y exporters: autorización necesaria
 
 ```sh
