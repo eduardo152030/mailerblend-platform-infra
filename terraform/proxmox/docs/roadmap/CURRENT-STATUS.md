@@ -1273,6 +1273,10 @@ Sin autorización de corte ni retirada en esta ronda.
 
 ## CRM UI — contrato de acceso (#25, IN PROGRESS)
 
+20/11/2026. GoTrue y Mailpit validados con PostgreSQL 16 sintético en CT9618.
+Supabase JS: login, refresh, logout, expiración y revocación de refresh PASS.
+Pendiente política de acceso de negocio, validación JWT en CRMAPI y 401/403.
+
 20/11/2026 Europe/Madrid. Permisos y pruebas de sesión, API e
 integraciones preparados. Pendientes proveedor, roles efectivos y
 publicación del #24. Sin despliegue. [Contrato](planes/CRM-UI-AUTH-CONTRACT-PLAN.md).

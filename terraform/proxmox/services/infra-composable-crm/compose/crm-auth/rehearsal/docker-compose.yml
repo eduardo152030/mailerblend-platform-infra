@@ -1,0 +1,46 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: ${CRM_REHEARSAL_DB_PASSWORD:?Generate a synthetic database password}
+    volumes:
+      - ./initialize.sh:/docker-entrypoint-initdb.d/10-crm-auth.sh:ro
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "127.0.0.1", "-U", "postgres"]
+      interval: 3s
+      timeout: 2s
+      retries: 15
+
+  mailpit:
+    image: axllent/mailpit:v1.26.0
+
+  auth:
+    image: supabase/gotrue:v2.197.0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+    environment:
+      API_EXTERNAL_URL: http://auth:9999
+      GOTRUE_API_HOST: 0.0.0.0
+      GOTRUE_API_PORT: "9999"
+      GOTRUE_DB_DRIVER: postgres
+      GOTRUE_DB_DATABASE_URL: postgres://crm_auth:${CRM_REHEARSAL_DB_PASSWORD}@postgres:5432/postgres?sslmode=disable
+      GOTRUE_DB_DB_NAMESPACE: auth
+      GOTRUE_SITE_URL: http://auth:9999
+      GOTRUE_JWT_SECRET: ${CRM_REHEARSAL_JWT_SECRET:?Generate a synthetic signing key}
+      GOTRUE_JWT_EXP: "60"
+      GOTRUE_JWT_AUD: authenticated
+      GOTRUE_JWT_DEFAULT_GROUP_NAME: authenticated
+      GOTRUE_JWT_ADMIN_ROLES: service_role
+      GOTRUE_DISABLE_SIGNUP: "true"
+      GOTRUE_EXTERNAL_EMAIL_ENABLED: "true"
+      GOTRUE_SMTP_HOST: mailpit
+      GOTRUE_SMTP_PORT: "1025"
+      GOTRUE_SMTP_ADMIN_EMAIL: auth@example.com
+      GOTRUE_SMTP_SENDER_NAME: CRM rehearsal
+
+networks:
+  default:
+    internal: true
