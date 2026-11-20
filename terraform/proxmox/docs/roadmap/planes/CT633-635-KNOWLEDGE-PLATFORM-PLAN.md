@@ -256,3 +256,43 @@ exitosa. Constituye prueba de base de datos. El respaldo integral con los
 volúmenes fuera de PostgreSQL y los secretos sigue pendiente.
 
 [PR #87](https://github.com/eduardo152030/mailerblend-platform-infra/pull/87).
+
+## Integración operativa para agentes
+
+Ronda `implementation`, base `91e5617a385ce8b653082256152a61a0cab92e79`,
+rama `ops/knowledge-platform-agent-guide`, worktree
+`../mailerblend-platform-infra-knowledge-agent`. PR #87 y #88 fusionados.
+Alcance autorizado: publicación segura, verificación MCP, guía reproducible,
+DNS/TLS, Draw.io, SMTP, observabilidad y recuperación. Conservar contenido
+humano y accesos existentes. La publicación de diagramas se limita a un
+bloque con marcas explícitas y usa la revisión de Outline para las
+escrituras concurrentes.
+
+Resultado 21/11/2026 (Europe/Madrid): un documento de validación conservó
+su introducción y conclusión. El patch de diagrama quedó protegido por
+`lastRevision`, el servidor devolvió 409 a una revisión obsoleta y la
+repetición preservó la revisión y adjuntos. El binario en imagen v1.13.0
+acepta IDs de adjunto explícitos UUIDv4. MCP Streamable HTTP con una clave
+`read` devolvió ocho herramientas de lectura en `tools/list` y ninguna
+de escritura. Se crearon y verificaron seis colecciones de proyecto sin
+compartición pública; se usó la terminología nativa de Outline.
+
+Las tres sondas funcionales loopback se incorporaron por textfile a Node
+Exporter y devolvieron 1 con frescura. Se cargó y verificó una alerta con
+promtool y recarga controlada. El datasource de Grafana devolvió las tres
+sondas por su API. Se probaron ocho archivos cifrados AES256,
+cron a las 04:40 Europe/Madrid y retención de 30 días en el directorio
+dedicado, con guarda de generación verificada. El dump cifrado se descifró y restauró en PostgreSQL aislado sin red.
+Se listó el archivo de adjuntos. La copia de la clave a custodia
+independiente y la restauración integral del stack siguen pendientes.
+
+El resolver interno devuelve NXDOMAIN para los nombres finales y no hay
+un flujo de administración del resolver disponible en el repositorio.
+CT109 tiene un certificado wildcard compatible. No se publicaron rutas
+provisorias ni se cambió el issuer del workspace. Draw.io conserva el
+endpoint loopback. CT632 negocia STARTTLS con una CA válida; con
+`SMTP_SECURE=false` Outline v1.13.0 usa `rejectUnauthorized: false`.
+Se mantiene pendiente un transporte TLS verificable hacia el relay.
+No se cambiaron sus identidades ni se enviaron mensajes en esta ronda.
+
+[Guía de integración para agentes](../../runbooks/KNOWLEDGE-PLATFORM-AI-INTEGRATION.md).

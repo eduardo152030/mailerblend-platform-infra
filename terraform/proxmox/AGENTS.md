@@ -159,3 +159,7 @@ rollback, recarga controlada,17 fuentes/11Blackbox y legacy restante conservados
 No migrar exporters610 ni intervenir618/622/611/616. No apps/DB/recursosPVE ni
 volúmenes ni commits/push.623 tras incidencia exige600s/21;R4/R5 inicial180s/7,
 anomalías veto y extensión>=600s. Consultar CURRENT-STATUS; no repetir siete PASS.
+
+## Plataforma de conocimiento
+
+Para operar Outline, MCP y PlantUML desde un agente, seguir la [guía de integración y operaciones](docs/runbooks/KNOWLEDGE-PLATFORM-AI-INTEGRATION.md).

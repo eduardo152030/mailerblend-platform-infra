@@ -1,0 +1,8 @@
+[Unit]
+Description=Functional health probe for the Knowledge Platform application
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/lxc-monitoring/knowledge-health.sh
+NoNewPrivileges=yes

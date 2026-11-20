@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "observed_date": "2026-11-21",
+  "timezone": "Europe/Madrid",
+  "services": [
+    {
+      "vmid": 633,
+      "name": "infra-knowledge",
+      "observed_ip": "192.168.1.72",
+      "application": "Outline Community 1.13.0",
+      "private_origin": "https://knowledge.test:18443",
+      "remote_port": 18443,
+      "rest_path": "/api",
+      "mcp_path": "/mcp",
+      "identity": "Dex OIDC",
+      "tls": "private CA",
+      "cadvisor": true
+    },
+    {
+      "vmid": 634,
+      "name": "infra-diagrams",
+      "observed_ip": "192.168.1.63",
+      "application": "Draw.io 32.7.4",
+      "loopback_origin": "http://127.0.0.1:8080",
+      "native_integration": "pending browser-reachable HTTPS origin",
+      "cadvisor": true
+    },
+    {
+      "vmid": 635,
+      "name": "infra-modeling",
+      "observed_ip": "192.168.1.64",
+      "application": "PlantUML Server 1.2026.10",
+      "loopback_origin": "http://127.0.0.1:8080",
+      "security_profile": "SANDBOX",
+      "cadvisor": true
+    },
+    {
+      "vmid": 632,
+      "name": "infra-mail",
+      "observed_ip": "192.168.1.65",
+      "submission_port": 587,
+      "smtp_tls": "STARTTLS required",
+      "outline_smtp": "pending certificate-verifying transport",
+      "cadvisor": false
+    }
+  ],
+  "final_dns_and_tls": "pending internal DNS administration and trusted certificates",
+  "mcp": {
+    "transport": "Streamable HTTP",
+    "verified_scope": "read",
+    "tools": [
+      "list_collections",
+      "list_comments",
+      "list_documents",
+      "list_collection_documents",
+      "fetch",
+      "get_document_changes",
+      "list_templates",
+      "list_users"
+    ],
+    "write": "not tested or granted by the verified read key"
+  },
+  "plantuml_publisher": {
+    "document_control": "explicit UUID, matching markers, editMode patch, lastRevision",
+    "scopes": [
+      "documents.info",
+      "documents.update",
+      "attachments.create",
+      "attachments.redirect"
+    ]
+  },
+  "projects": {
+    "workspace": "single",
+    "organization": "native collections",
+    "default_permission": "read",
+    "names": [
+      "Proxmox Infrastructure",
+      "Mailerblend Platform",
+      "Monitoring & Observability",
+      "Automation",
+      "Networking",
+      "Operations & Runbooks"
+    ]
+  },
+  "application_monitoring": {
+    "job": "node_exporter",
+    "metric": "knowledge_app_probe_success",
+    "alert": "KnowledgePlatformApplicationUnavailable"
+  },
+  "backup": {
+    "schedule": "04:40 Europe/Madrid on operator host",
+    "retention_days": 30,
+    "encryption": "GnuPG AES256",
+    "archives_verified": 8,
+    "isolated_postgresql_restore": "passed",
+    "separate_key_custody": "pending"
+  }
+}

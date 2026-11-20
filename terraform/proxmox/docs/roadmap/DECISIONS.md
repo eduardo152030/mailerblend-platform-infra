@@ -2910,3 +2910,12 @@ El alcance autorizado permite un proveedor alternativo si CRM carece de
 OIDC compatible. Se eligió Dex dedicado en CT633, con dos identidades y
 persistencia SQLite. La variante inicial queda en loopback con CA privada.
 La publicación mediante CT109 queda pendiente de comprobar DNS y TLS.
+
+### CT633 — convenciones de proyectos y escritura de agentes
+
+Usar un workspace con colecciones por proyecto, acceso de lectura inicial
+y escritura por permiso asignado. Los diagramas se publican mediante patch
+de bloque con revisión. MCP de lectura y REST de escritura usan claves
+separadas. Las DNS definitivas y el transporte SMTP verificable se mantienen
+pendientes. La primera programación de backups cifrados usa el cron del
+equipo operador, con retención de 30 días en su directorio dedicado.

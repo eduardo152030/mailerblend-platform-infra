@@ -1,0 +1,1 @@
+40 4 * * * /bin/bash -c 'set -a; . "$HOME/.config/knowledge-platform/backup.conf"; exec "$HOME/.local/libexec/knowledge-platform/backup-scheduled.sh"' >> "$HOME/.local/state/knowledge-platform-backups/cron.log" 2>&1 # knowledge-platform-backup
