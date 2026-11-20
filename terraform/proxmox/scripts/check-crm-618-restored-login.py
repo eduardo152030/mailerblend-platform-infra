@@ -6,6 +6,7 @@ import http.cookiejar
 import json
 import os
 from pathlib import Path
+import re
 import secrets
 import socket
 import subprocess
@@ -74,27 +75,51 @@ def wait_for_budibase(opener):
     raise RuntimeError("Budibase D051 did not become healthy")
 
 
-def contains_email(value, email):
+def contains_value(value, expected):
     if isinstance(value, dict):
-        return value.get("email") == email or any(contains_email(item, email) for item in value.values())
+        return any(contains_value(item, expected) for item in value.values())
     if isinstance(value, list):
-        return any(contains_email(item, email) for item in value)
-    return False
+        return any(contains_value(item, expected) for item in value)
+    return value == expected
 
 
-def verify_login():
+def check_synthetic_session(opener, cookies, email, password):
+    body = json.dumps({"username": email, "password": password}).encode()
+    login = request(opener, BASE + "/api/global/auth/default/login", body, {"Content-Type": "application/json"})
+    user = request(opener, BASE + "/api/global/self")
+    user_id = login.get("userId") if isinstance(login, dict) else None
+    session = any(cookie.name == "budibase:auth" and cookie.value for cookie in cookies)
+    email_match = contains_value(user, email)
+    id_match = bool(user_id and contains_value(user, user_id))
+    print(
+        f"fixture_session_cookie={session} profile_email_matches={email_match} profile_id_matches={id_match}",
+        flush=True,
+    )
+    if not session or not (email_match or id_match):
+        raise RuntimeError("synthetic authenticated identity not verified")
+
+
+def verify_login(recheck):
     global stage
+    cookies = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(
         urllib.request.ProxyHandler({}),
-        urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()),
+        urllib.request.HTTPCookieProcessor(cookies),
     )
     verify_isolation()
     stage = "compose_identity"
     budibase = inspect("budibase-app")
     labels = budibase["Config"]["Labels"]
+    configs = labels["com.docker.compose.project.config_files"]
+    expected_config = str(D051)
+    if recheck:
+        expected_config = re.escape(expected_config) + r",/tmp/crm-restore-login-[a-z0-9_]+/fixture\.yml"
+        valid_config = bool(re.fullmatch(expected_config, configs))
+    else:
+        valid_config = configs == expected_config
     if (labels["com.docker.compose.project"] != "d051-budibase-app"
             or labels["com.docker.compose.service"] != "budibase-app"
-            or labels["com.docker.compose.project.config_files"] != str(D051)):
+            or not valid_config):
         raise RuntimeError("unexpected restored Compose identity")
     stage = "couch_readiness"
     for attempt in range(30):
@@ -108,6 +133,17 @@ def verify_login():
     stage = "d051_baseline"
     wait_for_budibase(opener)
     print("PASS: Budibase D051 restaurado, healthy antes de la prueba de login.", flush=True)
+
+    if recheck:
+        stage = "fixture_recheck"
+        fixture_env = dict(value.split("=", 1) for value in budibase["Config"]["Env"])
+        email = fixture_env.get("BB_ADMIN_USER_EMAIL", "")
+        password = fixture_env.get("BB_ADMIN_USER_PASSWORD", "")
+        if not re.fullmatch(r"crm-restore-[a-f0-9]{16}@example\.invalid", email) or not password:
+            raise RuntimeError("synthetic credentials missing")
+        check_synthetic_session(opener, cookies, email, password)
+        print("PASS: login sintético e identidad de sesión verificados en CT9618.", flush=True)
+        return
 
     email = f"crm-restore-{secrets.token_hex(8)}@example.invalid"
     password = secrets.token_urlsafe(36)
@@ -129,18 +165,16 @@ def verify_login():
         )
         wait_for_budibase(opener)
         stage = "fixture_login"
-        body = json.dumps({"username": email, "password": password}).encode()
-        login = request(opener, BASE + "/api/global/auth/default/login", body, {"Content-Type": "application/json"})
-        user = request(opener, BASE + "/api/global/self")
-        if not login.get("userId") or not contains_email(user, email):
-            raise RuntimeError("synthetic authenticated identity not verified")
+        check_synthetic_session(opener, cookies, email, password)
     elapsed = round(time.monotonic() - started)
     print(f"PASS: login sintético e identidad en CT9618; recreación a login={elapsed}s.", flush=True)
 
 
 if __name__ == "__main__":
     try:
-        verify_login()
+        if sys.argv[1:] not in ([], ["--recheck-fixture"]):
+            raise ValueError("unknown fixture check mode")
+        verify_login(bool(sys.argv[1:]))
     except Exception as error:
         print(f"BLOCKED: etapa={stage}; tipo={type(error).__name__}; detalle privado omitido.", file=sys.stderr)
         sys.exit(1)
