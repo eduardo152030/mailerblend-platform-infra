@@ -9,6 +9,7 @@ from datetime import datetime
 
 from fastapi import APIRouter, Depends, Query, HTTPException, Body, Header
 from asyncpg import Connection
+from pydantic import BaseModel, Field
 
 from app.db import get_db
 
@@ -79,10 +80,15 @@ def require_linkedin_import_token(
         raise HTTPException(status_code=401, detail="Invalid LinkedIn import token")
 
 
+class LinkedInImport(BaseModel):
+    leads: list[dict[str, Any]] = Field(default_factory=list)
+    auto_classify: bool = True
+
+
 @service_router.post("/import/service", dependencies=[Depends(require_linkedin_import_token)])
 @router.post("/import")
 async def import_leads(
-    payload: Dict[str, Any] = Body(...),
+    payload: LinkedInImport,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -104,8 +110,8 @@ async def import_leads(
         "auto_classify": true  # Si true, clasifica automáticamente si no viene pack_candidate
     }
     """
-    leads = payload.get("leads", [])
-    auto_classify = payload.get("auto_classify", True)
+    leads = payload.leads
+    auto_classify = payload.auto_classify
     
     if not leads:
         raise HTTPException(status_code=400, detail="No leads provided")
