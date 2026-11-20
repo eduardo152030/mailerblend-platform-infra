@@ -27,11 +27,16 @@ inventory() {
 
 before=$(inventory)
 awk '$3 != "true" { fail=1 } END { exit (fail || NR != 5) }' <<< "$before"
-prior=$(pvesm list "$storage" --vmid "$vmid" --content backup --output-format json)
+archives() {
+    pvesh get "/nodes/$(hostname)/storage/$storage/content" --vmid "$vmid" \
+        --content backup --output-format json
+}
+
+prior=$(archives)
 vzdump "$vmid" --mode snapshot --storage "$storage" --compress zstd --remove 0 --bwlimit 40960 --ionice 7
 [[ "$(pct status "$vmid")" == "status: running" ]]
 [[ "$before" == "$(inventory)" ]]
-pvesm list "$storage" --vmid "$vmid" --content backup --output-format json |
+archives |
     CRM_PRIOR_ARCHIVES="$prior" python3 -c '
 import json, os, sys
 before={item["volid"] for item in json.loads(os.environ["CRM_PRIOR_ARCHIVES"])}
