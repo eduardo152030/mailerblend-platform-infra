@@ -1,5 +1,6 @@
 """Provision the single production CRM operator through the private GoTrue API."""
 import base64
+from datetime import datetime, timezone
 import hashlib
 import hmac
 import json
@@ -31,22 +32,27 @@ def request(path, payload=None, authorization=None):
         return json.load(response)
 
 
-def main():
-    config = json.load(sys.stdin)
-    key = config["CRM_AUTH_JWT_SECRET"]
-    if sys.argv[1:] == ["public-key"]:
-        print(sign(key, "anon", 365 * 24 * 3600))
-        return
-    auth = sign(key, "service_role", 120)
-    users = request("/admin/users", authorization=auth)["users"]
+def reconcile(config, *, dry_run=False):
+    auth = sign(config["CRM_AUTH_JWT_SECRET"], "service_role", 120)
+    users = request("/admin/users?per_page=2", authorization=auth)["users"]
     email = config["email"]
+    if users:
+        if len(users) != 1 or users[0]["email"] != email:
+            raise SystemExit("Unexpected pre-existing GoTrue accounts")
+        user = users[0]
+        blocked = user.get("banned_until")
+        if blocked and datetime.fromisoformat(blocked.replace("Z", "+00:00")) > datetime.now(timezone.utc):
+            raise SystemExit("Existing operator is disabled")
+        if user.get("app_metadata", {}).get("crm_role") != "admin":
+            raise SystemExit("Existing operator lacks the approved role")
+    if dry_run:
+        print(f"Dry-run: altas={int(not users)}, bajas=0, cambios de rol=0")
+        return
     if not users:
         request("/admin/users", {
             "email": email, "password": config["password"], "email_confirm": True,
             "app_metadata": {"crm_role": "admin"},
         }, auth)
-    elif len(users) != 1 or users[0]["email"] != email:
-        raise SystemExit("Unexpected pre-existing GoTrue accounts")
     result = request("/token?grant_type=password", {"email": email, "password": config["password"]})
     if result["user"]["app_metadata"].get("crm_role") != "admin":
         raise SystemExit("Missing operator grants")
@@ -54,6 +60,17 @@ def main():
     if claims.get("iss") != issuer:
         raise SystemExit("Unexpected GoTrue token issuer")
     print("Single administrator provisioned and login verified.")
+
+
+def main():
+    config = json.load(sys.stdin)
+    key = config["CRM_AUTH_JWT_SECRET"]
+    if sys.argv[1:] == ["public-key"]:
+        print(sign(key, "anon", 365 * 24 * 3600))
+        return
+    if sys.argv[1:] not in ([], ["--dry-run"]):
+        raise SystemExit("Unknown bootstrap mode")
+    reconcile(config, dry_run=sys.argv[1:] == ["--dry-run"])
 
 
 if __name__ == "__main__":
