@@ -281,4 +281,5 @@ Se reaplican los dos commits del #43 con contenido idéntico, en la rama
 `ops/crm-couchdb-normalize-main`, worktree hermano
 `mailerblend-platform-infra-crm-normalize-main`, SHA de inicio
 `98bbc34a04ccdbb9dafdc05fd8b373a171724075`, PR directo a main.
+[PR directo #44](https://github.com/eduardo152030/mailerblend-platform-infra/pull/44).
 Sin cambios en CT618.
