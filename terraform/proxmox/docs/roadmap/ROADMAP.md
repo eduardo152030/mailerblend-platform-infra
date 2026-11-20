@@ -1387,3 +1387,7 @@ CT, el ensayo Mailpit y los avisos a Telegram forman parte de #69.
 20/11/2026 Europe/Madrid. #28–#30 verificados. #31 autorizado por etapas.
 El [inventario y plan de retirada](planes/CRM-LEGACY-EXIT.md) exige verificar
 #68, restaurar el respaldo final y observar 24 horas antes del borrado.
+
+20/11/2026 Europe/Madrid. #68 dispone de [procedimiento de release](../../services/infra-composable-crm/compose/crm-notifications/README.md)
+y evidencia de despliegue en el issue. La retirada #31 conserva su puerta de
+respaldo, restauración aislada y observación posterior de 24 horas.

@@ -1460,3 +1460,8 @@ se limita al enrutamiento de avisos de Proxmox.
 20/11/2026 Europe/Madrid. #28–#30 verificados. #31 autorizado por etapas.
 El [inventario y plan de retirada](planes/CRM-LEGACY-EXIT.md) exige verificar
 #68, restaurar el respaldo final y observar 24 horas antes del borrado.
+
+20/11/2026 Europe/Madrid. #68 desplegado con imágenes e7193974 tras migración de
+PostgreSQL. Se verificaron acceso de administrador, configuración de avisos,
+ambas ingestiones y aceptación SMTP de los dos mensajes de prueba. El rollback
+del release conserva los estados previos de los tres servicios y del vhost.

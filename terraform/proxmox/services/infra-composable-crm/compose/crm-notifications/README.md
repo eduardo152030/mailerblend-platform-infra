@@ -33,3 +33,11 @@ validación de permisos desde el navegador.
 
 GoTrue entrega la recuperación al email confirmado de la cuenta de acceso.
 La cuenta de producción usa el buzón de Hotmail confirmado por el propietario.
+
+El procedimiento `release.py` ejecuta la migración antes de cambiar CRMAPI y
+respalda Compose y sus variables privadas. Requiere las imágenes API y UI con
+el tag verificado, y un directorio privado `--stage` con la estructura
+`database-schemas/` y `compose/` de este servicio, además de `ca.crt`,
+`crm.password` y `gotrue.password`. Pasa la dirección observada del relay con
+`--relay-ip`. Aplica el script de proxy por separado en CT109 y valida las
+rutas públicas y los dos envíos.
