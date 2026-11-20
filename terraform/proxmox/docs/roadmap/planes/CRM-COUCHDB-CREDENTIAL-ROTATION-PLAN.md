@@ -243,3 +243,31 @@ restauración de la copia real y automatizar la transacción productiva con
 el procedimiento acordado. No se modificaron CT618, sus archivos ni
 sus credenciales. El propietario ha fijado la parada antes de cualquier
 acción mutante en producción.
+
+## Normalización previa y punto de parada
+
+20/11/2026 Europe/Madrid. Rama `ops/crm-couchdb-rotation-normalize`,
+worktree hermano `mailerblend-platform-infra-crm-rotation-normalize`.
+Base de ronda `f465661c1ab48ba829f74fae46a50cc3e3a812e6`.
+Dependencia apilada sobre [#42](https://github.com/eduardo152030/mailerblend-platform-infra/pull/42),
+que aporta el candidato de la URL persistida.
+[PR de normalización #43](https://github.com/eduardo152030/mailerblend-platform-infra/pull/43).
+
+El modo `--normalize-legacy-env` funciona solo con `--prepare-candidate`.
+Acepta una copia privada del formato legado con duplicados, conserva la
+última asignación de usuario y contraseña, y verifica que el modelo Compose
+completo renderizado es idéntico antes de generar los tres candidatos.
+Conserva comentarios y asignaciones ajenas y rechaza entradas multilínea.
+Sin el flag los duplicados siguen bloqueando. Los archivos de entrada no
+se editan y no se inicia Docker. Prueba con Compose 2.32.4 real PASS para
+duplicados, preservación, resultado 0600 y rechazo de multilínea.
+
+Consulta de PVE de solo lectura: se encontró una copia histórica de CT618
+del 02/11/2026 en almacenamiento, fuera de la lista registrada de backups
+de PVE. No se verificó de nuevo su integridad ni representa el estado
+actual. El login público y la salud de CRMAPI respondieron 200 con TLS
+verificado. El siguiente paso operativo requiere una ventana para la copia
+actual consistente, la verificación fuera del host y la restauración aislada
+conforme al [runbook de recuperación](../../../services/infra-composable-crm/recovery/RECOVERY.md).
+El propietario fijó parada antes de acciones en CT618. Ningún archivo ni
+servicio de producción se modificó.
