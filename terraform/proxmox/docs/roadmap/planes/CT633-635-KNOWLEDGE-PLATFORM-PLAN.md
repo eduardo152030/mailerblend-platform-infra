@@ -172,3 +172,37 @@ documenta SMTP AUTH:587 con STARTTLS obligatorio y mapa de remitente;
 no se creó identidad ni se envió correo. Pendientes también la configuración
 efectiva del editor en Outline, cuentas de prueba, publicación real,
 monitorización, backups y restauración aislada.
+
+## Reanudación tras la fusión — BLOCKED
+
+Ronda `implementation` en `ops/knowledge-platform-rollout`, worktree
+`../mailerblend-platform-infra-knowledge-rollout`, base
+`576e2c719bb906b785eeb7f36e02ba308c4fcae4`. El propietario autorizó un token
+temporal de `root@pam` para los tres planes acotados y su revocación.
+El plan estricto de CT635 identificó exactamente una alta, con Debian 12,
+firewall, DHCP, nesting y keyctl. PVE respondió HTTP 403 al apply con el
+token sin separación de privilegios. El código instalado de PVE trata la
+autenticación del usuario y la del token como identidades diferentes para
+esta guarda. Se revocó y comprobó la ausencia del token. Los tres VMID
+permanecen libres. No se intentaron las otras dos altas bajo el mismo bloqueo.
+
+[PR de seguimiento #85](https://github.com/eduardo152030/mailerblend-platform-infra/pull/85).
+
+## Ronda de autenticación directa
+
+Ronda `review-01`, base `664eb7c101ebd83627b157f18f70f187c40402a2`,
+en el worktree de PR #85. El propietario autorizó continuar con la sesión
+directa temporal y solicitó documentar el runbook de alta vigente.
+
+La sesión directa verificó TLS con la CA del nodo y usó el mecanismo de
+preautenticación del proveedor. Alta secuencial 635 → 634 → 633 confirmada
+por Terraform, con PASS de bootstrap y cero cambios en cada plan posterior.
+IPs observadas por DHCP el 21/11/2026 Europe/Madrid: 192.168.1.64 (635),
+192.168.1.63 (634) y 192.168.1.72 (633). Están en ejecución en PVE. Los valores
+son concesiones observadas, pendientes de reserva. El método se documenta en
+[el runbook de alta](../../runbooks/NEW-LXC-PROVISIONING.md#docker-sin-privilegios-y-la-guarda-keyctl).
+
+Docker 29.9.3 y Compose 5.7.1 verificados en los tres CT.
+En CT634 y CT635, el arranque de Draw.io y PlantUML quedó bloqueado por runc al abrir
+`net.ipv4.ip_unprivileged_port_start` dentro del LXC. El host usa
+`lxc-pve 6.0.0-1`. No se cambió el perfil AppArmor ni se expusieron servicios.

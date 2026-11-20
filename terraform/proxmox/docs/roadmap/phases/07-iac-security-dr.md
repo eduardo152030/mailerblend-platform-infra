@@ -1,18 +1,19 @@
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS
 
-## CT633–635 — Plataforma interna de conocimiento y diagramas — BLOCKED
+## CT633–635 — Plataforma interna de conocimiento y diagramas — alta DONE, aplicaciones BLOCKED
 
-20/11/2026 (Europe/Madrid). Ejecución autorizada en PR #84. Inventario, Notes,
-Compose y scripts preparados. Terraform fmt/validate, tres Compose config y
-validadores locales PASS. Tres planes acotados mostraron una sola alta cada
-uno. Tras verificar la CA PVE por SSH estricto, el apply de CT635 recibió
-HTTP 403 porque la identidad API actual no puede configurar `keyctl`
-(reservado a root@pam). CT633/634/635 siguen disponibles. Sin altas,
-publicación de red ni cambios de datos de servicios compartidos.
+21/11/2026 (Europe/Madrid). Alta Terraform DONE para los tres CT, cada uno
+con 1 alta / 0 cambios / 0 bajas. Bootstrap SSH estricto PASS y plan posterior
+sin cambios para cada CT. DHCP observado: CT633 192.168.1.72, CT634 192.168.1.63,
+CT635 192.168.1.64. Los tres están RUNNING. Docker 29.9.3 y Compose 5.7.1
+instalados y verificados con receta versionada.
 
-Estado BLOCKED en aprovisionamiento. Siguiente paso: disponer de una identidad
-PVE aprobada con ese permiso para aplicar los planes acotados. Pendientes
-integración, backups, pruebas de recuperación y aceptación.
+Despliegue de aplicaciones BLOCKED. En CT634 y CT635, runc rechazó el arranque en
+loopback al abrir `net.ipv4.ip_unprivileged_port_start`. El nodo sigue en
+`lxc-pve 6.0.0-1`. El antecedente CT631 conserva su alcance y no se modificó
+AppArmor. Siguiente paso: resolver compatibilidad conservando el confinamiento,
+con un cambio de host evaluado y autorizado por separado si resulta necesario.
+DNS/TLS, identidad, monitorización, backups e integración pendientes.
 [Plan](../planes/CT633-635-KNOWLEDGE-PLATFORM-PLAN.md).
 
 CRM Auth #25 aplicado y verificado el 20/11/2026.

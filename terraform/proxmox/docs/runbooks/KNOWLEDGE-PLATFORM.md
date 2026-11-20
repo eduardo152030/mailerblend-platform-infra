@@ -5,8 +5,9 @@ y el [runbook de alta LXC](NEW-LXC-PROVISIONING.md) para aprovisionamiento, SSH,
 observabilidad y rollback. Las definiciones de servicio y volúmenes están en
 los Compose a los que enlaza el [inventario](../inventory/LXC-INVENTORY.md).
 
-Después del alta, instalar el runtime por el procedimiento aprobado,
-verificar SSH y observar la concesión DHCP. Usar ficheros privados 0600 con
+Después del alta, verificar SSH y observar la concesión DHCP. Instalar el
+runtime con `scripts/knowledge-platform/install-docker.sh` a través de SSH
+estricto, pasando el hostname exacto del CT como argumento. Usar ficheros privados 0600 con
 las variables de `.env.example`. Generar la contraseña PostgreSQL en
 hexadecimal. Ejecutar `scripts/knowledge-platform/deploy-compose.sh <servicio>
 <directorio-ssh> <env-privado>`. El script valida el candidato y conserva

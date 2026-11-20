@@ -105,6 +105,35 @@ sin target para evitar discrepancias heredadas. Un plan mock no autoriza apply.
 El TLS legacy del provider es deuda fuera del alcance de esta preparación, no una
 certificación de hardening; no se desactiva SSH/TLS para superar bloqueos nuevos.
 
+### Docker sin privilegios y la guarda `keyctl`
+
+Si un alta con `nesting=1,keyctl=1` devuelve HTTP 403, confirmar la guarda
+en el nodo PVE y que el VMID sigue disponible. En PVE 8.3, esa operación
+requiere la identidad exacta `root@pam`. Una identidad con sufijo de token
+queda fuera de la excepción, incluso sin separación de privilegios.
+El CT106 legado ya incluye ambas opciones, pero es una plantilla Ubuntu
+privilegiada de 50 GiB. Para un alta Debian sin privilegios, mantener las
+opciones y recursos declarados del CT candidato.
+
+Con autorización explícita, el acceso root existente por SSH estricto puede
+emitir una sesión corta mediante `PVE::AccessControl` en el nodo, siguiendo
+el [mecanismo del proveedor](https://github.com/bpg/terraform-provider-proxmox/blob/main/proxmox/api/root_ticket_auth.go).
+En bpg/proxmox 0.94.0 se entrega esa sesión por
+`PROXMOX_VE_AUTH_TICKET` y `PROXMOX_VE_CSRF_PREVENTION_TOKEN`, según
+[la documentación de la versión fijada](https://registry.terraform.io/providers/bpg/proxmox/0.94.0/docs/index).
+Mantener ambos valores solo en el proceso que ejecuta Terraform, con trazas
+desactivadas. Excluir `PROXMOX_VE_API_TOKEN` de ese entorno y cargar al final un fichero privado `.tfvars.json` con
+`{"proxmox_api_token":null,"proxmox_tls_insecure":false}` al generar el plan
+del CT concreto. Terraform interpreta `-var='proxmox_api_token=null'`
+como la cadena literal `null` para esta variable de tipo string. El resto
+de ejecuciones conserva la autenticación habitual. Validar TLS con la CA
+del nodo obtenida por SSH estricto y `-var='proxmox_tls_insecure=false'`.
+
+Aplicar únicamente el binario validado para ese CT y verificar el plan
+posterior y el bootstrap. Cerrar el proceso que contiene la sesión al terminar.
+Si falla el bootstrap después de crear el CT, inspeccionar primero PVE y el
+estado Terraform. Conservar el CT y sus discos antes de decidir cómo continuar.
+
 ## 4. Creación y exporters: autorización necesaria
 
 ```sh
