@@ -90,13 +90,26 @@ export default function GastosLista() {
     { key: "metodo_pago", label: "Pago" },
   ];
 
-  const csvUrl = api.gastos.exportCsv({
+  const csvFilters = {
     categoria: categoria || undefined,
     estado: estado || undefined,
     project_key: projectKey || undefined,
     from: from || undefined,
     to: to || undefined,
-  });
+  };
+
+  const downloadCsv = async () => {
+    try {
+      const url = URL.createObjectURL(await api.gastos.exportCsv(csvFilters));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "gastos.csv";
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 30_000);
+    } catch {
+      window.alert("No se pudo exportar el CSV.");
+    }
+  };
 
   const resetFilters = () => {
     setCategoria("");
@@ -122,8 +135,8 @@ export default function GastosLista() {
             <Button size="sm" variant="outline" onClick={() => setShowFilters(!showFilters)} className={cn("gap-1", hasFilters && "border-primary text-primary")}>
               <Filter size={14} /> Filtros {hasFilters && "•"}
             </Button>
-            <Button size="sm" variant="outline" asChild>
-              <a href={csvUrl} target="_blank" rel="noreferrer" className="gap-1"><Download size={14} /> CSV</a>
+            <Button size="sm" variant="outline" className="gap-1" onClick={() => void downloadCsv()}>
+              <Download size={14} /> CSV
             </Button>
             <Button size="sm" onClick={() => { setEditingGasto(null); setShowForm(true); }} className="gap-1">
               <Plus size={16} /> Registrar gasto

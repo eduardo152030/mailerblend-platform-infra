@@ -5,7 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  preview: { headers: { "Content-Security-Policy": "connect-src 'self'" } },
   server: {
+    headers: { "Content-Security-Policy": "connect-src 'self'" },
     host: "::",
     port: 8080,
     hmr: {

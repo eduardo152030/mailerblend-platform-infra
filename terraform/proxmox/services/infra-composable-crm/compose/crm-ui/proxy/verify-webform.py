@@ -29,10 +29,15 @@ post = urllib.request.Request(
 with urllib.request.urlopen(post, timeout=15) as response:
     assert response.status == 200
     contact_id = json.load(response)["contact_id"]
-login, _, password = netrc.netrc(os.environ["CRM_OPERATOR_NETRC"]).authenticators(host)
-basic = base64.b64encode(f"{login}:{password}".encode()).decode()
+token = os.environ.get("CRM_ACCESS_TOKEN")
+if token:
+    authorization = f"Bearer {token}"
+else:
+    login, _, password = netrc.netrc(os.environ["CRM_OPERATOR_NETRC"]).authenticators(host)
+    basic = base64.b64encode(f"{login}:{password}".encode()).decode()
+    authorization = f"Basic {basic}"
 request = urllib.request.Request(
-    base + f"contacts/{contact_id}/snapshot", headers={"Authorization": f"Basic {basic}"}
+    base + f"contacts/{contact_id}/snapshot", headers={"Authorization": authorization}
 )
 with urllib.request.urlopen(request, timeout=15) as response:
     assert response.status == 200

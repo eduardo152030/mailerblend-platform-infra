@@ -85,3 +85,7 @@ def require_crm_access(
     if not credentials or not key or not issuer:
         raise HTTPException(status_code=401, detail="CRM session required")
     return validate_gotrue_token(credentials.credentials, key=key, issuer=issuer)
+
+
+def crm_auth_enabled() -> bool:
+    return getenv("CRM_AUTH_ENABLED") == "1"

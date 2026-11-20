@@ -1,4 +1,6 @@
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS
+CRM Auth #25 aplicado y verificado el 20/11/2026.
+[Release y reversión](../planes/CRM-AUTH-RELEASE.md).
 El ensayo aislado de identidad CRM (#25) validó GoTrue y Supabase JS el
 20/11/2026. La autorización por proyecto en CRMAPI queda pendiente.
 

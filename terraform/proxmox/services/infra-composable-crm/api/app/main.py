@@ -1,7 +1,10 @@
-from fastapi import FastAPI
+from os import getenv
+
+from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
+from app.core.crm_access import bearer, crm_auth_enabled, require_crm_access
 from app.db import get_pool, close_pool
 from app.routers import health
 
@@ -40,7 +43,7 @@ app = FastAPI(
 # ============================================================
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[origin for origin in getenv("CRM_UI_ORIGIN", "").split(",") if origin and origin != "*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -50,34 +53,50 @@ app.add_middleware(
 # -----------------------------
 # Routers principales
 # -----------------------------
-app.include_router(health.router)
-app.include_router(contacts_router)
-app.include_router(intake_router)
-app.include_router(oportunidades_router)
-app.include_router(pendientes_router)
+def project_access(project):
+    def authorize(request: Request, credentials=Depends(bearer)):
+        if not crm_auth_enabled():
+            return
+        access = require_crm_access(credentials)
+        write = request.method not in {"GET", "HEAD"}
+        if not access.allows_project(project, write=write):
+            raise HTTPException(403, "CRM project forbidden")
+    return [Depends(authorize)]
 
-app.include_router(presupuestos.router)
-app.include_router(utm.router)
+
+form_entries = project_access("form_entries")
+smart_management = project_access("smart_management")
+linkedin = project_access("linkedin_sourcing")
+
+app.include_router(health.router)
+app.include_router(contacts_router, dependencies=form_entries)
+app.include_router(intake_router)
+app.include_router(oportunidades_router, dependencies=form_entries)
+app.include_router(pendientes_router, dependencies=form_entries)
+
+app.include_router(presupuestos.router, dependencies=form_entries)
+app.include_router(utm.router, dependencies=form_entries)
 app.include_router(gastos.router)
-app.include_router(proveedores.router)
+app.include_router(proveedores.router, dependencies=smart_management)
 
 # -----------------------------
 # Routers de módulos internos
 # -----------------------------
-app.include_router(timeline.router)
+app.include_router(timeline.router, dependencies=form_entries)
 
 # -----------------------------
 # 🆕 LINKEDIN SOURCING ROUTERS
 # -----------------------------
-app.include_router(linkedin_leads.router)
-app.include_router(linkedin_approvals.router)
-app.include_router(linkedin_conversations_outcomes.router)
+app.include_router(linkedin_leads.router, dependencies=linkedin)
+app.include_router(linkedin_leads.service_router)
+app.include_router(linkedin_approvals.router, dependencies=linkedin)
+app.include_router(linkedin_conversations_outcomes.router, dependencies=linkedin)
 # ── Registrar routers (añadir después de los routers existentes) ──
-app.include_router(knowledge_base_router)
-app.include_router(rate_limits_router)
-app.include_router(activity_log_router)
-app.include_router(cooldowns_router)
-app.include_router(invite_templates_router)
+app.include_router(knowledge_base_router, dependencies=linkedin)
+app.include_router(rate_limits_router, dependencies=linkedin)
+app.include_router(activity_log_router, dependencies=linkedin)
+app.include_router(cooldowns_router, dependencies=linkedin)
+app.include_router(invite_templates_router, dependencies=linkedin)
 
 @app.on_event("startup")
 async def on_startup() -> None:

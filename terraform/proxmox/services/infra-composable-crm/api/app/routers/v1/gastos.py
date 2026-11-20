@@ -10,6 +10,8 @@ from fastapi.responses import StreamingResponse
 from asyncpg import Connection
 
 from app.db import get_db
+from app.core.crm_access import CRMAccess
+from app.routers.v1.expense_access import ExpenseReads, expense_access, expense_reads
 
 router = APIRouter(prefix="/v1/gastos", tags=["gastos"])
 
@@ -34,7 +36,7 @@ async def list_gastos(
     from_date: Optional[str] = Query(None, alias="from"),
     to_date: Optional[str] = Query(None, alias="to"),
 
-    conn: Connection = Depends(get_db),
+    conn: ExpenseReads = Depends(expense_reads),
 ) -> Dict[str, Any]:
     limit = _clamp_limit(limit)
 
@@ -131,7 +133,7 @@ async def gastos_stats(
     from_date: Optional[str] = Query(None, alias="from"),
     to_date: Optional[str] = Query(None, alias="to"),
     project_key: Optional[str] = Query(None, min_length=1, max_length=20),
-    conn: Connection = Depends(get_db),
+    conn: ExpenseReads = Depends(expense_reads),
 ) -> Dict[str, Any]:
     """
     Budibase friendly: agrupa gastos y suma base/iva/total.
@@ -198,7 +200,7 @@ async def gastos_stats_timeseries(
     from_date: Optional[str] = Query(None, alias="from"),
     to_date: Optional[str] = Query(None, alias="to"),
     project_key: Optional[str] = Query(None, min_length=1, max_length=20),
-    conn: Connection = Depends(get_db),
+    conn: ExpenseReads = Depends(expense_reads),
 ) -> Dict[str, Any]:
     """
     Serie temporal para dashboards: month|week|day
@@ -263,7 +265,7 @@ async def gastos_stats_timeseries(
 async def gastos_tax_summary(
     from_date: str = Query(..., alias="from"),
     to_date: str = Query(..., alias="to"),
-    conn: Connection = Depends(get_db),
+    conn: ExpenseReads = Depends(expense_reads),
 ) -> Dict[str, Any]:
     """
     Resumen básico para gestoría:
@@ -302,7 +304,7 @@ async def export_gastos_csv(
     proveedor_id: Optional[UUID] = Query(None),
     project_key: Optional[str] = Query(None, min_length=1, max_length=20),
     q: Optional[str] = Query(None, min_length=1, max_length=200),
-    conn: Connection = Depends(get_db),
+    conn: ExpenseReads = Depends(expense_reads),
 ):
     """
     Export CSV para gestoría o Excel.
@@ -458,7 +460,7 @@ async def gastos_stats2(
     from_date: Optional[str] = Query(None, alias="from"),
     to_date: Optional[str] = Query(None, alias="to"),
     project_key: Optional[str] = Query(None, min_length=1, max_length=20),
-    conn: Connection = Depends(get_db),
+    conn: ExpenseReads = Depends(expense_reads),
 ) -> Dict[str, Any]:
     """
     stats2:
@@ -546,7 +548,7 @@ async def gastos_stats2(
 async def gastos_pnl_monthly(
     from_date: Optional[str] = Query(None, alias="from"),
     to_date: Optional[str] = Query(None, alias="to"),
-    conn: Connection = Depends(get_db),
+    conn: ExpenseReads = Depends(expense_reads),
 ) -> Dict[str, Any]:
     """
     P&L mensual (solo gastos):
@@ -631,7 +633,7 @@ async def gastos_pnl_monthly(
 async def gastos_pnl_summary(
     from_date: Optional[str] = Query(None, alias="from"),
     to_date: Optional[str] = Query(None, alias="to"),
-    conn: Connection = Depends(get_db),
+    conn: ExpenseReads = Depends(expense_reads),
 ) -> Dict[str, Any]:
     """
     Resumen P&L (solo gastos):
@@ -719,9 +721,7 @@ async def gastos_pnl_summary(
         """
     )
 
-    # JSONB comes as a string, need to deserialize it
-    import json
-    result = json.loads(row["result"]) if row and row["result"] else {}
+    result = row["result"] if row and row["result"] else {}
 
     # CUSTOM (si pasan from/to)
     if from_date and to_date:
@@ -739,8 +739,8 @@ async def gastos_pnl_summary(
             )
             SELECT jsonb_build_object(
               'bucket','CUSTOM',
-              'from',$1::text,
-              'to',$2::text,
+              'from',$1::date::text,
+              'to',$2::date::text,
 
               'nucleo_base', COALESCE((SELECT sum_base FROM s WHERE project_key='Nucleo_tecnologico'),0)::numeric(12,2),
               'nucleo_iva', COALESCE((SELECT sum_iva FROM s WHERE project_key='Nucleo_tecnologico'),0)::numeric(12,2),
@@ -761,7 +761,7 @@ async def gastos_pnl_summary(
             parse_date(to_date),
         )
         if custom and custom["result"]:
-            result["CUSTOM"] = json.loads(custom["result"])
+            result["CUSTOM"] = custom["result"]
 
     return result
 
@@ -770,7 +770,7 @@ async def gastos_pnl_summary(
 async def gastos_pnl_summary_fiscal(
     from_date: Optional[str] = Query(None, alias="from"),
     to_date: Optional[str] = Query(None, alias="to"),
-    conn: Connection = Depends(get_db),
+    conn: ExpenseReads = Depends(expense_reads),
 ) -> Dict[str, Any]:
     """
     Resumen fiscal (IVA soportado) desde gastos:
@@ -865,9 +865,7 @@ async def gastos_pnl_summary_fiscal(
         """
     )
 
-    # JSONB comes as a string, need to deserialize it
-    import json
-    result = json.loads(row["result"]) if row and row["result"] else {}
+    result = row["result"] if row and row["result"] else {}
 
     # CUSTOM (si pasan from/to)
     if from_date and to_date:
@@ -886,8 +884,8 @@ async def gastos_pnl_summary_fiscal(
             )
             SELECT jsonb_build_object(
               'bucket','CUSTOM',
-              'from',$1::text,
-              'to',$2::text,
+              'from',$1::date::text,
+              'to',$2::date::text,
 
               'nucleo_base', COALESCE((SELECT sum_base FROM s WHERE project_key='Nucleo_tecnologico'),0)::numeric(12,2),
               'nucleo_iva', COALESCE((SELECT sum_iva FROM s WHERE project_key='Nucleo_tecnologico'),0)::numeric(12,2),
@@ -910,13 +908,13 @@ async def gastos_pnl_summary_fiscal(
             parse_date(to_date),
         )
         if custom and custom["result"]:
-            result["CUSTOM"] = json.loads(custom["result"])
+            result["CUSTOM"] = custom["result"]
 
     return result
 @router.get("/{gasto_id}")
 async def get_gasto(
     gasto_id: UUID,
-    conn: Connection = Depends(get_db),
+    conn: ExpenseReads = Depends(expense_reads),
 ) -> Dict[str, Any]:
     row = await conn.fetchrow("SELECT * FROM gastos WHERE id=$1", gasto_id)
     if not row:
@@ -928,6 +926,7 @@ async def get_gasto(
 async def create_gasto(
     payload: Dict[str, Any] = Body(...),
     conn: Connection = Depends(get_db),
+    access: CRMAccess | None = Depends(expense_access),
 ) -> Dict[str, Any]:
     from datetime import datetime
     
@@ -946,6 +945,12 @@ async def create_gasto(
         raise HTTPException(status_code=400, detail="fecha_gasto is required (YYYY-MM-DD)")
     if not concepto:
         raise HTTPException(status_code=400, detail="concepto is required")
+
+    partition = payload.get("project_key") or "Nucleo_tecnologico"
+    if access is not None:
+        if not isinstance(partition, str):
+            raise HTTPException(400, "Invalid expense partition")
+        access.require_expense_partition(partition, write=True)
 
     # proveedor snapshot automático si nos pasan proveedor_id
     proveedor_id = payload.get("proveedor_id")
@@ -983,7 +988,7 @@ async def create_gasto(
         proveedor_nombre,
         concepto,
         (payload.get("categoria") or "OTRO"),
-        (payload.get("project_key") or "Nucleo_tecnologico"),
+        partition,
         payload.get("base_imponible", 0),
         payload.get("iva_porcentaje", 21),
         (payload.get("currency") or "EUR"),
@@ -1003,6 +1008,7 @@ async def patch_gasto(
     gasto_id: UUID,
     payload: Dict[str, Any] = Body(...),
     conn: Connection = Depends(get_db),
+    access: CRMAccess | None = Depends(expense_access),
 ) -> Dict[str, Any]:
     from datetime import datetime
     
@@ -1020,6 +1026,13 @@ async def patch_gasto(
     before = await conn.fetchrow("SELECT * FROM gastos WHERE id=$1", gasto_id)
     if not before:
         raise HTTPException(status_code=404, detail="Gasto not found")
+    if access is not None:
+        access.require_expense_partition(before["project_key"], write=True)
+        if "project_key" in payload:
+            destination = payload["project_key"]
+            if not isinstance(destination, str):
+                raise HTTPException(400, "Invalid expense partition")
+            access.require_expense_partition(destination, write=True)
 
     editable = {
         "fecha_gasto",
@@ -1072,7 +1085,11 @@ async def patch_gasto(
         idx += 1
 
     args.append(gasto_id)
-    sql = f"UPDATE gastos SET {', '.join(set_parts)} WHERE id = ${idx} RETURNING *"
+    condition = f"id = ${idx}"
+    if access is not None:
+        args.append(sorted(access.expense_partitions(write=True)))
+        condition += f" AND project_key = ANY(${idx + 1}::text[])"
+    sql = f"UPDATE gastos SET {', '.join(set_parts)} WHERE {condition} RETURNING *"
 
     try:
         after = await conn.fetchrow(sql, *args)
@@ -1082,4 +1099,6 @@ async def patch_gasto(
             raise HTTPException(status_code=400, detail=f"Invalid value (check constraint): {msg}")
         raise
 
+    if after is None:
+        raise HTTPException(403 if access is not None else 404, "Expense no longer writable")
     return dict(after)

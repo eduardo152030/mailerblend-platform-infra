@@ -2,8 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import CRMLayout from "@/components/CRMLayout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CRMPrivateLayout from "@/components/CRMPrivateLayout";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/Index";
 import ContactosPage from "./pages/ContactosPage";
@@ -36,7 +36,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />} />
-          <Route element={<CRMLayout><Outlet /></CRMLayout>}>
+          <Route element={<CRMPrivateLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/contactos" element={<ContactosPage />} />
             <Route path="/oportunidades" element={<OportunidadesPage />} />
