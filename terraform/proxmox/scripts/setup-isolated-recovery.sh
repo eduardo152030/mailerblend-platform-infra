@@ -3,9 +3,9 @@
 set -euo pipefail
 CT="${1:?Expected approved rehearsal CT ID}"
 case "$CT" in
-  9618) ADDRESS=192.168.1.118 ;;
+  9618|9619) ADDRESS=192.168.1.118 ;;
   9622) ADDRESS=192.168.1.122 ;;
-  *) echo 'Only approved isolated rehearsal CTs 9618/9622 are allowed.' >&2; exit 2 ;;
+  *) echo 'Only approved isolated rehearsal CTs 9618/9619/9622 are allowed.' >&2; exit 2 ;;
 esac
 [[ "$(pct status "$CT")" == 'status: stopped' ]]
 CONFIG=$(pct config "$CT")
