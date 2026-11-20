@@ -51,7 +51,7 @@ def main():
     service["image"] = image
     service["environment"].update(settings)
     if len(sys.argv) == 3:
-        service["healthcheck"].update(start_period="15s", start_interval="1s")
+        service["healthcheck"].update(start_period="30s", start_interval="1s")
     stage = ROOT / f"compose.release-{stamp}.json"
     write_private(stage, config)
     stage.replace(CONFIG)

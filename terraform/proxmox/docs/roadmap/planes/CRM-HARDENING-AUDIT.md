@@ -80,3 +80,31 @@ Tres intentos para el API `84064c56` alcanzaron salud de Docker:
 Los cambios de SQL y cuerpos quedan listos para revisión. El bloqueo
 operativo es la divergencia observada entre Docker y cAdvisor durante
 el arranque. Los registros de Prometheus y los respaldos se conservan.
+
+## Correlación Docker y cAdvisor
+
+20/11/2026. Hora UTC de la telemetría.
+
+| Intento | Arranque | Primer 0 | Primer 1 |
+| --- | --- | --- | --- |
+| Recreación | 12:35:58 | 12:35:58 | 12:36:28 |
+| Sonda inicial a 1 s | 12:38:58 | 12:38:59 | 12:39:29 |
+| Paralelo | 12:41:33 | 12:41:34 | 12:42:04 |
+
+Para la primera recreación, el evento Docker ya capturado indica
+`health_status: healthy` a las 12:36:09 UTC. Para los otros intentos,
+el historial completo de eventos dejó de estar disponible. La
+correlación usa la identidad del contenedor y su hora de inicio exportada.
+`ALERTS` registró PENDING y ningún FIRING para estos intentos.
+
+cAdvisor representa `starting` y `unhealthy` como 0. El cambio mantiene
+`for: 5m`, filtra `crm-api-parallel` y aplica gracia de 90 s únicamente a
+la identidad en arranque de CRMAPI. Docker usa start_period de 30 s y
+start_interval de 1 s. El archivo activo de CT610 se respaldó en
+`/opt/infra-prom/crm-health-before-20261120T124719Z.yml`. Se conservó el
+resto de reglas y se validó con promtool antes de la recarga. La API de
+reglas confirmó el cambio aplicado.
+
+La ventana de estabilización productiva dura cinco minutos. Se consulta
+el historial de ALERTS desde el inicio del despliegue para detectar
+cualquier FIRING relacionado, incluso si se resuelve entre dos consultas.

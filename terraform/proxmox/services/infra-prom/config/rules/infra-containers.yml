@@ -3,7 +3,11 @@ groups:
   rules:
   - alert: DockerContainerUnhealthy
     expr: (min by (instance, service, name, container_label_com_docker_compose_service)
-      (container_health_state{job="cadvisor",name!="",name!~"cadvisor|node_exporter"})
+      (
+        container_health_state{job="cadvisor",name!="",name!~"cadvisor|node_exporter|crm-api-parallel"}
+        unless on (instance, id)
+        ((time() - container_start_time_seconds{job="cadvisor",service="infra-composable-crm",name="crm-api"}) < 90)
+      )
       * on(service) group_left(ct_id) max by(service,ct_id) (lxc:cpu_inventory:expected))
       == 0
     for: 5m
@@ -12,7 +16,7 @@ groups:
     annotations:
       summary: 'Docker unhealthy: {{ $labels.name }}'
       description: Healthcheck no saludable durante 5m. Componente {{ $labels.container_label_com_docker_compose_service
-        }}. Estado {{ $value }} (healthy=1; sin check=-1).
+        }}. cAdvisor usa 0 tanto para arranque como para fallo.
       ct_id: '{{ if $labels.ct_id }}{{ $labels.ct_id }}{{ else }}{{ $labels.vmid }}{{
         end }}'
       dashboard_url: http://192.168.1.110:9090/alerts
