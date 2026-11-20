@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import json
+import os
+import secrets
 from typing import Optional, Dict, Any, List
 from uuid import UUID
 from datetime import datetime
 
-from fastapi import APIRouter, Depends, Query, HTTPException, Body
+from fastapi import APIRouter, Depends, Query, HTTPException, Body, Header
 from asyncpg import Connection
 
 from app.db import get_db
@@ -68,6 +70,15 @@ def _auto_classify_pack(lead_data: Dict[str, Any]) -> str:
 
 # ==================== ENDPOINTS ====================
 
+def require_linkedin_import_token(
+    token: str | None = Header(default=None, alias="X-LinkedIn-Import-Token"),
+) -> None:
+    expected = os.getenv("CRM_LINKEDIN_IMPORT_TOKEN")
+    if not expected or not token or not secrets.compare_digest(token.encode(), expected.encode()):
+        raise HTTPException(status_code=401, detail="Invalid LinkedIn import token")
+
+
+@router.post("/import/service", dependencies=[Depends(require_linkedin_import_token)])
 @router.post("/import")
 async def import_leads(
     payload: Dict[str, Any] = Body(...),
