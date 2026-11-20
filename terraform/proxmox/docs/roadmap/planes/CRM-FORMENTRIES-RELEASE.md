@@ -24,3 +24,8 @@ La lectura de facturas desde contactos conserva su contrato existente.
 Se verificaron build Vite, tres contratos 401/403/200 y consultas sobre
 datos sintéticos en PostgreSQL 16 aislado. La consulta de historial
 excluyó una actividad sintética reservada a LinkedIn.
+
+Decisión del propietario: conversiones queda en solo lectura. Las fallidas
+muestran estado y error tanto en la cola como en el detalle. Se retiraron
+los controles y el cliente de reintento. El #62 documentará consumidor,
+contador de intentos y deduplicación antes de plantear implementación.

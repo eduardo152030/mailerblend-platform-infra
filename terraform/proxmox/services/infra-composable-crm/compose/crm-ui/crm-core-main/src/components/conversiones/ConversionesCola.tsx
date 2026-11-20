@@ -1,44 +1,20 @@
 import { useState } from "react";
-import { useConversionesOffline, useRetryConversion, useConversionOfflineDetail } from "@/hooks/use-api";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useConversionesOffline } from "@/hooks/use-api";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Loader2, RefreshCw, Eye, AlertTriangle } from "lucide-react";
+import { Loader2, Eye, AlertTriangle } from "lucide-react";
 import { StatusBadge } from "@/components/StatusBadge";
-import { toast } from "sonner";
 import ConversionDetailModal from "./ConversionDetailModal";
 
 export default function ConversionesCola() {
   const [statusFilter, setStatusFilter] = useState("PENDING");
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  const { data, isLoading, refetch } = useConversionesOffline({
+  const { data, isLoading } = useConversionesOffline({
     sync_status: statusFilter === "__all__" ? undefined : statusFilter,
     limit: 50,
   });
-
-  const retryMutation = useRetryConversion();
-
-  const handleRetry = async (id: string) => {
-    try {
-      await retryMutation.mutateAsync(id);
-      toast.success("Reintento enviado");
-    } catch {
-      toast.error("Error al reintentar");
-    }
-  };
-
-  const handleRetryAll = async () => {
-    const pending = (data?.items ?? []).filter((i) => String(i.sync_status) === "PENDING" || String(i.sync_status) === "FAILED");
-    for (const item of pending) {
-      try {
-        await retryMutation.mutateAsync(String(item.id));
-      } catch { /* continue */ }
-    }
-    toast.success(`Reintentos enviados: ${pending.length}`);
-    refetch();
-  };
 
   const items = data?.items ?? [];
 
@@ -57,10 +33,6 @@ export default function ConversionesCola() {
           </Select>
           <span className="text-sm text-muted-foreground">{data?.total ?? 0} registros</span>
         </div>
-        <Button variant="outline" size="sm" onClick={handleRetryAll} disabled={retryMutation.isPending}>
-          <RefreshCw className={`h-3.5 w-3.5 mr-1.5 ${retryMutation.isPending ? "animate-spin" : ""}`} />
-          Reintentar todo
-        </Button>
       </div>
 
       {isLoading ? (
@@ -103,16 +75,7 @@ export default function ConversionesCola() {
                       )}
                     </div>
                     <div className="flex items-center gap-2 shrink-0">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleRetry(String(item.id))}
-                        disabled={retryMutation.isPending || status === "SENT"}
-                      >
-                        <RefreshCw className="h-3.5 w-3.5 mr-1" />
-                        Reintentar
-                      </Button>
-                      <Button variant="ghost" size="sm" onClick={() => setSelectedId(String(item.id))}>
+                      <Button variant="ghost" size="sm" aria-label="Ver detalle de conversión" onClick={() => setSelectedId(String(item.id))}>
                         <Eye className="h-3.5 w-3.5" />
                       </Button>
                     </div>
@@ -128,7 +91,6 @@ export default function ConversionesCola() {
         id={selectedId}
         open={!!selectedId}
         onClose={() => setSelectedId(null)}
-        onRetry={(id) => handleRetry(id)}
       />
     </div>
   );

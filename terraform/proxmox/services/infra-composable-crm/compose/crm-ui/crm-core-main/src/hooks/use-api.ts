@@ -278,17 +278,6 @@ export function useConversionesOfflineStats(params: Parameters<typeof api.conver
   });
 }
 
-export function useRetryConversion() {
-  const qc = useQueryClient();
-  return useMutation({
-    mutationFn: (id: string) => api.conversionesOffline.retry(id),
-    onSuccess: () => {
-      qc.invalidateQueries({ queryKey: ["conversiones-offline"] });
-      qc.invalidateQueries({ queryKey: ["conversiones-offline-stats"] });
-    },
-  });
-}
-
 // LinkedIn Sourcing
 export function useLSSLeads(params: Parameters<typeof api.linkedinSourcing.leads.list>[0] = {}) {
   return useQuery({
