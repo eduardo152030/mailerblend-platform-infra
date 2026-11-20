@@ -148,3 +148,98 @@ En la prueba Docker verificar los montajes y conservar toda personalización
 vigente antes de preparar la recreación. Exigir prueba funcional de Budibase
 D051 tras propagación y rollback. El ensayo de entrypoint no sustituye esa
 prueba conjunta. Sin cambios en CT618.
+
+## Ensayo Docker en VM desechable
+
+19/11/2026 Europe/Madrid. Rama `test/crm-budibase-rotation`, worktree
+hermano `mailerblend-platform-infra-crm-budibase-rotation`, base
+`78ecfeec58050aacb2a6c84d9a41e898c51c06fe`, con #41 integrado.
+[PR de ensayo #42](https://github.com/eduardo152030/mailerblend-platform-infra/pull/42).
+
+En la misma VM QEMU/Alpine del ensayo de preview se ejecutó
+`scripts/rehearse-crm-couchdb-rotation.sh` con Docker 28.3.3 y CouchDB
+fijado al digest observado. Un intento inicial falló al publicar el puerto
+porque loopback todavía no estaba levantado en el invitado. Tras habilitarlo,
+el script terminó con el marcador `CRM_COUCHDB_DOCKER_PASS`. Recreación y
+reversión sobre el mismo volumen de datos sintéticos: ambas credenciales
+sustituidas obtuvieron HTTP 401 y la base de prueba siguió accesible.
+
+Lectura filtrada de CT618 confirmó que `COUCH_DB_URL` utiliza HTTP en
+5984 y sin usuario embebido. La réplica se prepara con ese modelo,
+credenciales sintéticas y dos proyectos Compose en red privada. La
+recreación conjunta y el login D051 siguen pendientes hasta que termine
+el ensayo. No se usaron volúmenes ni credenciales de CT618.
+
+### Preflight de las fuentes activas
+
+Por SSH estricto vía PVE, se evaluó en memoria la configuración Compose
+de ambos proyectos y se comparó con el entorno de sus dos contenedores.
+Solo se emitieron booleanos. Referencias presentes, coincidencia entre los
+consumidores, Compose legado igual a CouchDB activo y Compose D051 igual
+a Budibase activo: cuatro PASS. El `.env` legado contiene dos asignaciones
+de cada clave. Antes de generar candidatos, normalizar una copia privada
+a una única asignación por clave y comprobar que su render sigue siendo
+equivalente al activo. El archivo original y sus permisos se conservaron.
+
+La diferencia de la capa escribible de CouchDB solo muestra, bajo
+`/opt/couchdb/etc`, el INI generado `local.d/docker.ini` y sus directorios.
+El único volumen observado de CouchDB monta los datos. Conservar copia
+privada de la configuración para el rollback y revalidar montajes y
+diferencias al preparar el procedimiento. Sin escrituras en CT618.
+
+### Tercera fuente de credenciales en Budibase
+
+El [runner de Budibase 3.27.4](https://github.com/Budibase/budibase/blob/3.27.4/hosting/single/runner.sh)
+carga y exporta `/data/.env` después de recibir el entorno del contenedor.
+Una lectura filtrada en CT618 encontró una única clave en ese archivo,
+`COUCH_DB_URL`, con autenticación embebida. Usuario y contraseña coinciden
+con CouchDB activo (comparación en memoria, solo resultados booleanos).
+En el Compose D051 la URL no contiene credenciales. Por tanto, el candidato
+de dos archivos preparado en #37 **no completa la rotación**. La receta
+debe respaldar y cambiar de forma coordinada el entorno legado, el Compose
+D051 y la URL efectiva del volumen `/data`, preservando propietario y modo.
+La reversión debe recuperar los tres. El ensayo de réplica incorpora este
+archivo en un volumen nuevo. No se imprimieron valores ni se cambió CT618.
+
+El generador de candidatos ahora exige `--app-persisted-env`, compara
+usuario y contraseña decodificados de la URL con Compose y prepara un
+tercer archivo privado, `budibase-data.env`, junto con ambos candidatos
+Compose. Admite el formato observado de una única asignación HTTP a
+CouchDB:5984. Bloquea formatos fuera de ese contrato y entradas que no
+coinciden. Prueba con Docker Compose 2.32.4 y datos sintéticos: tres
+candidatos coherentes en modo 0600, rechazo por discrepancia o ausencia,
+sin valores en salida ni cambios en los archivos de origen. El generador
+no instala los candidatos, no cambia volúmenes ni inicia contenedores.
+
+La fuente persistida activa coincide con el formato del generador y tiene
+modo 0644. Como el preflight requiere 0600, trabajar con una copia privada
+0600 del archivo persistido y con la copia normalizada del entorno legado.
+La receta de instalación debe comprobar qué UID lee el archivo y restringir
+el modo sin impedir el arranque. La comprobación de formato y modo fue de
+solo lectura.
+
+## Rotación y reversión con login de Budibase en la réplica
+
+20/11/2026 Europe/Madrid. Continuación del PR #42 desde `f5244b29`.
+VM QEMU/TCG y Alpine 3.22, Docker 28.3.3 con overlay2, Compose 2.32.4.
+Se usaron los digests de CT618 para Budibase 3.27.4, CouchDB 3.5.1 y Redis,
+dos proyectos Compose, red interna y tres volúmenes nuevos. La prueba
+replicó la estructura de la URL persistida. No usó copias del negocio.
+
+| Paso | Resultado |
+| --- | --- |
+| Arranque y login inicial | Health HTTP funcional y sesión autenticada. Se leyó la identidad de la cuenta sintética por API. |
+| Cambio coordinado | Se recreó CouchDB conservando su volumen, se actualizó la URL persistida y se recreó Budibase con el Compose candidato. Credencial anterior 401, base sintética 200, health HTTP y nuevo login con la misma cuenta PASS, sin variables de aprovisionamiento de cuenta. |
+| Segunda aplicación | Compose conservó el ID del contenedor Budibase con la misma configuración. |
+| Reversión | Se revirtieron el modelo efectivo de CouchDB, el Compose de Budibase y la URL persistida. Candidato 401, base sintética 200, nuevo login e identidad PASS; Redis mantuvo su ID. |
+| Healthcheck D051 | Script versionado ejecutado dentro de la réplica tras la reversión: PASS. El healthcheck por defecto de la imagen seguía marcando unhealthy. |
+
+El primer arranque con TCG atascó la inicialización concurrente de PM2.
+La réplica arrancó tras serializar PM2 con `pm2 ping` antes del runner y
+ampliar el límite de espera de readiness. La adaptación solo se aplicó en
+laboratorio. El ensayo verifica el mecanismo y el login en la topología
+sintética, con una reversión planificada. Sigue pendiente comprobar la
+restauración de la copia real y automatizar la transacción productiva con
+el procedimiento acordado. No se modificaron CT618, sus archivos ni
+sus credenciales. El propietario ha fijado la parada antes de cualquier
+acción mutante en producción.
