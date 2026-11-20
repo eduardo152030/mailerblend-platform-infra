@@ -1415,3 +1415,9 @@ Rollback ensayado: Budibase volvió a 200 y contactos anónimo mantuvo 401.
 Corte reaplicado. HTML autenticado 200, rutas UI anónimas 401, health 200,
 webform sin token 401 y golden autenticado PASS. Budibase, CouchDB y
 Redis siguen activos. Siguiente paso: ensayo aislado de GoTrue (#25).
+
+### Hardening CRM CT109 (#49)
+
+Cabeceras, CSP y límite del API de usuario aplicados y verificados el
+20/11/2026. Chromium y ambas ingestiones verificados tras el cambio.
+Continúan auditoría de API y controles del repositorio.
