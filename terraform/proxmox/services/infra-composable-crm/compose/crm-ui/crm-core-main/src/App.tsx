@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CRMPrivateLayout from "@/components/CRMPrivateLayout";
 import LoginPage from "./pages/LoginPage";
+import FormEntriesListPage from "./pages/FormEntriesListPage";
 import DashboardPage from "./pages/Index";
 import ContactosPage from "./pages/ContactosPage";
 import OportunidadesPage from "./pages/OportunidadesPage";
@@ -45,6 +46,9 @@ const App = () => (
             <Route path="/gastos" element={<GastosPage />} />
             <Route path="/proveedores" element={<ProveedoresPage />} />
             <Route path="/utm" element={<UTMPage />} />
+            <Route path="/formulario_web" element={<FormEntriesListPage key="formulario-web" screen="formulario-web" />} />
+            <Route path="/facturas" element={<FormEntriesListPage key="facturas" screen="facturas" />} />
+            <Route path="/historial" element={<FormEntriesListPage key="historial" screen="historial" />} />
             <Route path="/conversiones" element={<ConversionesOfflinePage />} />
             <Route path="/linkedin-sourcing" element={<LinkedInSourcingPage />} />
 

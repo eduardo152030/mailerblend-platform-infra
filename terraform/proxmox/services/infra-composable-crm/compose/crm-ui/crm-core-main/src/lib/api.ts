@@ -31,6 +31,11 @@ function qs(params: Record<string, unknown>): string {
   return str ? `?${str}` : "";
 }
 
+export const formEntries = {
+  list: (screen: "formulario-web" | "facturas" | "historial", options: { limit: number; offset: number }) =>
+    request<PaginatedResponse>(`/${screen}${qs(options)}`),
+};
+
 // Contacts
 export const contacts = {
   list: (p: {

@@ -14,3 +14,13 @@ Queda pendiente decidir qué efecto debe tener el botón en producción:
 reencolar solo FAILED y dejar que el consumidor contabilice el siguiente
 envío, o mantener temporalmente una pantalla de consulta. Facturas y la
 automatización publicada se tratan en la continuación de #28.
+
+Se añadieron listados paginados de formularios web, facturas e historial.
+La UI consulta CRMAPI por el mismo origen. El historial exige una
+referencia de FormEntries y excluye las filas asociadas a leads LinkedIn.
+Los PDF y las mutaciones de factura no forman parte de estos listados.
+La lectura de facturas desde contactos conserva su contrato existente.
+
+Se verificaron build Vite, tres contratos 401/403/200 y consultas sobre
+datos sintéticos en PostgreSQL 16 aislado. La consulta de historial
+excluyó una actividad sintética reservada a LinkedIn.

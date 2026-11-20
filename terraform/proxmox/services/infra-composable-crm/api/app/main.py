@@ -7,7 +7,7 @@ from app.core.config import settings
 from app.core.crm_access import bearer, crm_auth_enabled, require_crm_access
 from app.db import get_pool, close_pool
 from app.routers import health
-from app.routers.v1 import conversiones_offline
+from app.routers.v1 import conversiones_offline, form_entries as form_entries_lists
 
 from app.routers.v1.contacts import router as contacts_router
 from app.routers.v1.intake import router as intake_router
@@ -85,6 +85,7 @@ app.include_router(proveedores.router, dependencies=smart_management)
 # -----------------------------
 app.include_router(timeline.router, dependencies=form_entries)
 app.include_router(conversiones_offline.router, dependencies=form_entries)
+app.include_router(form_entries_lists.router, dependencies=form_entries)
 
 # -----------------------------
 # 🆕 LINKEDIN SOURCING ROUTERS
