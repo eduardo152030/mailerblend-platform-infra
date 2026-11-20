@@ -1,13 +1,17 @@
-## CT633–635 — Plataforma interna de conocimiento y diagramas — BLOCKED
+## CT633–635 — Plataforma interna de conocimiento y diagramas — alta DONE, aplicaciones BLOCKED
 
-El PR #84 se fusionó en `576e2c71`. En la reanudación autorizada, el plan
-acotado de CT635 pasó las comprobaciones y el API devolvió HTTP 403 incluso
-con un token temporal de `root@pam` sin separación de privilegios.
-Se verificó la revocación. CT633, CT634 y CT635 siguen disponibles.
-El proveedor debe autenticar como el usuario `root@pam` sin sufijo de token
-para la excepción `keyctl` del nodo. El próximo paso es tramitar acceso
-temporal autenticado del usuario mediante el mecanismo de secretos aprobado,
-manteniendo TLS y los planes acotados. Integración y aceptación pendientes.
+21/11/2026 (Europe/Madrid). Alta Terraform DONE para los tres CT, cada uno
+con 1 alta / 0 cambios / 0 bajas. Bootstrap SSH estricto PASS y plan posterior
+sin cambios para cada CT. DHCP observado: CT633 192.168.1.72, CT634 192.168.1.63,
+CT635 192.168.1.64. Los tres están RUNNING. Docker 29.9.3 y Compose 5.7.1
+instalados y verificados con receta versionada.
+
+Despliegue de aplicaciones BLOCKED. En CT634 y CT635, runc rechazó el arranque en
+loopback al abrir `net.ipv4.ip_unprivileged_port_start`. El nodo sigue en
+`lxc-pve 6.0.0-1`. El antecedente CT631 conserva su alcance y no se modificó
+AppArmor. Siguiente paso: resolver compatibilidad conservando el confinamiento,
+con un cambio de host evaluado y autorizado por separado si resulta necesario.
+DNS/TLS, identidad, monitorización, backups e integración pendientes.
 [Plan](planes/CT633-635-KNOWLEDGE-PLATFORM-PLAN.md).
 
 ## LXC-NOTES-TAGS — IN PROGRESS
