@@ -1,3 +1,13 @@
+## CT632–635 — Visibilidad de observabilidad — DONE técnico
+
+21/11/2026 (Europe/Madrid). Prometheus 4/4 Node Exporter y 3/3 cAdvisor
+UP con CPU cgroup válida para los cuatro CT. CT632 nativo con cAdvisor
+N/A. Verificación en Grafana Fleet y navegación a Details para los
+cuatro. Promtool, respaldo de catálogos y reaplicación sin recarga PASS.
+Siguiente paso de la plataforma: completar las integraciones de
+aplicación pendientes.
+[Plan](planes/CT632-635-MONITORING-PLAN.md).
+
 ## CT633–635 — Plataforma interna de conocimiento y diagramas — alta DONE, integración IN PROGRESS
 
 21/11/2026 (Europe/Madrid). Alta Terraform y bootstrap SSH DONE.

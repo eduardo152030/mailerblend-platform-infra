@@ -238,5 +238,53 @@
       "source": "inventory",
       "cpu_contract": "lxc_cgroup_v1"
     }
+  },
+  {
+    "targets": [
+      "192.168.1.65:9100"
+    ],
+    "labels": {
+      "job": "node_exporter",
+      "service": "infra-mail",
+      "vmid": "632",
+      "source": "inventory",
+      "cpu_contract": "lxc_cgroup_v1"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.72:9100"
+    ],
+    "labels": {
+      "job": "node_exporter",
+      "service": "infra-knowledge",
+      "vmid": "633",
+      "source": "inventory",
+      "cpu_contract": "lxc_cgroup_v1"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.63:9100"
+    ],
+    "labels": {
+      "job": "node_exporter",
+      "service": "infra-diagrams",
+      "vmid": "634",
+      "source": "inventory",
+      "cpu_contract": "lxc_cgroup_v1"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.64:9100"
+    ],
+    "labels": {
+      "job": "node_exporter",
+      "service": "infra-modeling",
+      "vmid": "635",
+      "source": "inventory",
+      "cpu_contract": "lxc_cgroup_v1"
+    }
   }
 ]

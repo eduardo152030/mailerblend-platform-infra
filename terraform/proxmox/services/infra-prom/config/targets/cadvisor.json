@@ -190,5 +190,38 @@
       "vmid": "631",
       "source": "inventory"
     }
+  },
+  {
+    "targets": [
+      "192.168.1.72:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "service": "infra-knowledge",
+      "vmid": "633",
+      "source": "inventory"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.63:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "service": "infra-diagrams",
+      "vmid": "634",
+      "source": "inventory"
+    }
+  },
+  {
+    "targets": [
+      "192.168.1.64:8085"
+    ],
+    "labels": {
+      "job": "cadvisor",
+      "service": "infra-modeling",
+      "vmid": "635",
+      "source": "inventory"
+    }
   }
 ]

@@ -400,3 +400,25 @@ servicio nuevo. Descripción/Notes solas no requieren reboot según código yens
 D063:16testsprovisioning/15inventarioPASS, segundaaplicación0/0/0, estabilidad600s/21,
 web/API/TTS/persistencia/restoreaislado yGrafanadinámicoPASS. Las autorizaciones de
 627 no seextienden aotrosCT, exposiciónWAN, pipeline ni fases7.2/7.3.
+
+## Último paso del alta · confirmar visibilidad operativa
+
+Tras publicar los targets y completar las verificaciones anteriores, cerrar
+el alta con una comprobación en los sistemas reales. Registrar fecha, VMID,
+servicio y enlaces a la evidencia.
+
+1. En Prometheus, verificar un target Node Exporter `UP` con
+   `job=node_exporter` y el `vmid` correcto. Consultar las series del
+   contrato CPU cgroup y comprobar que son válidas y frescas.
+2. En CT con Docker, verificar un target cAdvisor `UP` y series por
+   contenedor. En un CT nativo, comprobar `lxc:cadvisor:required=0` y
+   registrar N/A.
+3. En Grafana, confirmar la fila del CT en Fleet Overview. Abrir su ficha
+   Details desde el enlace de esa fila y comprobar la identidad y el
+   estado de los exporters. Un panel cargado y un scrape UP acreditan
+   visibilidad. La salud de negocio sigue su propia prueba funcional.
+4. Registrar el resultado en el plan y en CURRENT-STATUS. Si falta
+   alguna vista, dejar observabilidad pendiente y corregir inventario,
+   target o etiquetas antes de cerrar.
+
+Caso verificado: [CT632–635](../roadmap/planes/CT632-635-MONITORING-PLAN.md).
