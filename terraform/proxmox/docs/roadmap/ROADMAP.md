@@ -1391,3 +1391,8 @@ El [inventario y plan de retirada](planes/CRM-LEGACY-EXIT.md) exige verificar
 20/11/2026 Europe/Madrid. #68 dispone de [procedimiento de release](../../services/infra-composable-crm/compose/crm-notifications/README.md)
 y evidencia de despliegue en el issue. La retirada #31 conserva su puerta de
 respaldo, restauración aislada y observación posterior de 24 horas.
+
+20/11/2026 Europe/Madrid. [#79](https://github.com/eduardo152030/mailerblend-platform-infra/issues/79)
+ejecuta el cambio de canal de los avisos nativos de Proxmox mediante
+`scripts/pve-notifications-telegram.pl`. Se conserva el matcher y se sustituye
+su destino tras la prueba del webhook.
