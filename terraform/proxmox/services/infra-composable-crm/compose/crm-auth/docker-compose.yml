@@ -27,6 +27,12 @@ services:
       GOTRUE_SMTP_SENDER_NAME: CRM
       GOTRUE_URI_ALLOW_LIST: https://infra-svc01.mailerblend.com/restablecer
       GOTRUE_MAILER_URLPATHS_RECOVERY: /auth/v1/verify
+      SSL_CERT_FILE: /etc/ssl/certs/infra-mail-ca-bundle.pem
+    volumes:
+      - type: bind
+        source: ${CRM_SMTP_CA_BUNDLE:-/etc/ssl/certs/ca-certificates.crt}
+        target: /etc/ssl/certs/infra-mail-ca-bundle.pem
+        read_only: true
     ports:
       - "192.168.1.118:18090:9999"
     networks:

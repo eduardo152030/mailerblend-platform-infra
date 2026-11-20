@@ -12,6 +12,12 @@ services:
       CRM_SMTP_PASSWORD: ${CRM_SMTP_PASSWORD:-}
       CRM_SMTP_FROM: ${CRM_SMTP_FROM:?Configure the sender}
       CRM_PUBLIC_URL: https://infra-svc01.mailerblend.com
+      SSL_CERT_FILE: /etc/ssl/certs/infra-mail-ca-bundle.pem
+    volumes:
+      - type: bind
+        source: ${CRM_SMTP_CA_BUNDLE:?Configure the relay CA bundle path}
+        target: /etc/ssl/certs/infra-mail-ca-bundle.pem
+        read_only: true
     networks: [nucleo_network]
 
 networks:
