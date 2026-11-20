@@ -1,0 +1,35 @@
+rule_files:
+  - ../../services/infra-prom/config/rules/infra-containers.yml
+evaluation_interval: 30s
+tests:
+  - interval: 30s
+    input_series:
+      - series: 'lxc:cpu_inventory:expected{service="infra-composable-crm",ct_id="618"}'
+        values: '1+0x16'
+      - series: 'lxc:cpu_inventory:expected{service="another-service",ct_id="619"}'
+        values: '1+0x16'
+      - series: 'container_health_state{job="cadvisor",instance="crm:8085",service="infra-composable-crm",name="crm-api",id="api"}'
+        values: '0+0x16'
+      - series: 'container_start_time_seconds{job="cadvisor",instance="crm:8085",service="infra-composable-crm",name="crm-api",id="api"}'
+        values: '0+0x16'
+      - series: 'container_health_state{job="cadvisor",instance="crm:8085",service="infra-composable-crm",name="crm-api-parallel",id="candidate"}'
+        values: '0+0x16'
+      - series: 'container_health_state{job="cadvisor",instance="other:8085",service="another-service",name="worker",id="worker"}'
+        values: '0+0x16'
+    promql_expr_test:
+      - expr: 'count(ALERTS{alertname="DockerContainerUnhealthy",alertstate="pending",name="crm-api"})'
+        eval_time: 1m
+        exp_samples: []
+      - expr: 'count(ALERTS{alertname="DockerContainerUnhealthy",alertstate="firing"})'
+        eval_time: 5m
+        exp_samples:
+          - labels: '{}'
+            value: 1
+      - expr: 'count(ALERTS{alertname="DockerContainerUnhealthy",alertstate="firing"})'
+        eval_time: 7m
+        exp_samples:
+          - labels: '{}'
+            value: 2
+      - expr: 'count(ALERTS{alertname="DockerContainerUnhealthy",name="crm-api-parallel"})'
+        eval_time: 7m
+        exp_samples: []
