@@ -5,15 +5,35 @@ import io
 from typing import Optional, Dict, Any, List
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, Query, HTTPException, Body
+from fastapi import APIRouter, Depends, Query, HTTPException
 from fastapi.responses import StreamingResponse
 from asyncpg import Connection
+from pydantic import BaseModel, ConfigDict, HttpUrl, TypeAdapter, field_validator
 
 from app.db import get_db
 from app.core.crm_access import CRMAccess
 from app.routers.v1.expense_access import ExpenseReads, expense_access, expense_reads
 
 router = APIRouter(prefix="/v1/gastos", tags=["gastos"])
+
+
+attachment_url = TypeAdapter(HttpUrl)
+
+
+class ExpenseWrite(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    adjunto_url: str | None = None
+
+    @field_validator("adjunto_url")
+    @classmethod
+    def validate_attachment(cls, value: str | None) -> str | None:
+        if value is None or not value.strip():
+            return None
+        value = value.strip()
+        parsed = attachment_url.validate_python(value)
+        if parsed.scheme != "https" or parsed.username is not None or parsed.password is not None:
+            raise ValueError("Se requiere una referencia HTTPS sin credenciales")
+        return value
 
 
 def _clamp_limit(limit: int) -> int:
@@ -924,10 +944,11 @@ async def get_gasto(
 
 @router.post("")
 async def create_gasto(
-    payload: Dict[str, Any] = Body(...),
+    expense: ExpenseWrite,
     conn: Connection = Depends(get_db),
     access: CRMAccess | None = Depends(expense_access),
 ) -> Dict[str, Any]:
+    payload = expense.model_dump(exclude_unset=True)
     from datetime import datetime
     
     def parse_date(val):
@@ -1006,10 +1027,11 @@ async def create_gasto(
 @router.patch("/{gasto_id}")
 async def patch_gasto(
     gasto_id: UUID,
-    payload: Dict[str, Any] = Body(...),
+    expense: ExpenseWrite,
     conn: Connection = Depends(get_db),
     access: CRMAccess | None = Depends(expense_access),
 ) -> Dict[str, Any]:
+    payload = expense.model_dump(exclude_unset=True)
     from datetime import datetime
     
     def parse_date(val):
