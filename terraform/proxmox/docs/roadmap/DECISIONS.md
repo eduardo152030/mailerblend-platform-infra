@@ -2903,3 +2903,10 @@ El 21/11/2026 (Europe/Madrid), el propietario autorizó el perfil exterior
 `unconfined` exclusivamente para CT633, CT634 y CT635, con reinicios
 acotados. Se conserva el modo LXC sin privilegios. La receta y su
 reversión están en el [runbook de alta](../runbooks/NEW-LXC-PROVISIONING.md#excepción-apparmor-aprobada-para-ct633635).
+
+### CT633 — fallback OIDC privado
+
+El alcance autorizado permite un proveedor alternativo si CRM carece de
+OIDC compatible. Se eligió Dex dedicado en CT633, con dos identidades y
+persistencia SQLite. La variante inicial queda en loopback con CA privada.
+La publicación mediante CT109 queda pendiente de comprobar DNS y TLS.

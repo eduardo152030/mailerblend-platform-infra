@@ -224,3 +224,35 @@ conservado en PVE para los tres CT. Procedimiento en
 [runbook vigente](../../runbooks/NEW-LXC-PROVISIONING.md).
 
 [PR #86](https://github.com/eduardo152030/mailerblend-platform-infra/pull/86).
+
+## Arranque privado de Outline
+
+Ronda `implementation`, rama `ops/knowledge-platform-integration`, worktree
+`../mailerblend-platform-infra-knowledge-integration`, base
+`c235c27b7e3ef34c19a46e8fac6c620a5e762c20`. El PR #86 está fusionado.
+Tras descartar el proveedor CRM actual, validar Dex dedicado en CT633 como
+fallback autorizado. Arranque HTTPS en loopback con CA privada y usuarios
+dedicados. Los nombres nuevos no resuelven y los vhosts de CT109 quedan
+fuera del ensayo. No activar rutas definitivas hasta comprobar DNS y TLS.
+
+Resultado privado de CT633, 21/11/2026 Europe/Madrid: Outline Community,
+Dex, PostgreSQL, Redis y Nginx sanos. HTTPS comprobado con CA privada,
+discovery OIDC y primer acceso administrador PASS. Agente independiente
+autenticado como miembro del mismo workspace. Con su clave REST se verificó
+listar colecciones y documentos, crear, leer, actualizar y buscar. CT635
+renderizó el PNG que se publicó junto con su fuente en el mismo documento
+por UUID, usando el formulario de subida firmado. Documento, imagen y
+fuente recuperados después de reiniciar Outline. MCP Community respondió
+a `initialize` con HTTP 200 y `serverInfo`, mediante clave de lectura.
+La disponibilidad del editor Draw.io en CT634 está validada localmente.
+Falta probar el ciclo nativo de edición desde Outline con una URL HTTPS
+alcanzable por el navegador. Red definitiva, SMTP, monitorización, backups
+completos y restauración aislada siguen pendientes.
+
+La reaplicación idéntica conservó IDs y horas de arranque de los cinco
+contenedores. Se verificó el catálogo de un dump PostgreSQL (182 553 bytes)
+y se restauró en un contenedor temporal sin red, con consulta de documentos
+exitosa. Constituye prueba de base de datos. El respaldo integral con los
+volúmenes fuera de PostgreSQL y los secretos sigue pendiente.
+
+[PR #87](https://github.com/eduardo152030/mailerblend-platform-infra/pull/87).
