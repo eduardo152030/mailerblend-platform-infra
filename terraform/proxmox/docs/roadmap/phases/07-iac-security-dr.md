@@ -1230,3 +1230,9 @@ verificada en ventana operativa; parada antes de cambios en CT618.
 Vhost separado versionado y probado con TLS de laboratorio. Pendiente
 confirmar host, DNS y certificado para la ventana de publicación.
 Sin cambios en producción.
+
+20/11/2026 Europe/Madrid. #23 IN PROGRESS: snapshot CT618 y restauración
+aislada CT9618 PASS, checksum, CouchDB, D051 y login sintético verificados.
+CT9618 apagado y aislado. Runbook listo; rotación real pendiente de ventana
+y OK. #24 pendiente de hostname, DNS y certificado concretos.
+[Resultado y runbook](../planes/CRM-CT618-SNAPSHOT-RESTORE-PLAN.md).
