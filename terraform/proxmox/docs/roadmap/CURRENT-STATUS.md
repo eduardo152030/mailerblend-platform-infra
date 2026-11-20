@@ -1,10 +1,16 @@
-## CT633–635 — Plataforma interna de conocimiento y diagramas — IN PROGRESS
+## CT633–635 — Plataforma interna de conocimiento y diagramas — BLOCKED
 
-20/11/2026 (Europe/Madrid). Fase A documentada con inventario y lectura SSH
-estricta de PVE. VMID 633–635 disponibles en la consulta. Siguiente paso:
-revisar el plan propuesto, confirmar red, autenticación y alcance de cambios
-compartidos antes del alta. Implementación, pruebas de integración, despliegue
-y aceptación pendientes.
+20/11/2026 (Europe/Madrid). Ejecución autorizada en PR #84. Inventario, Notes,
+Compose y scripts preparados. Terraform fmt/validate, tres Compose config y
+validadores locales PASS. Tres planes acotados mostraron una sola alta cada
+uno. Tras verificar la CA PVE por SSH estricto, el apply de CT635 recibió
+HTTP 403 porque la identidad API actual no puede configurar `keyctl`
+(reservado a root@pam). CT633/634/635 siguen disponibles. Sin altas,
+publicación de red ni cambios de datos de servicios compartidos.
+
+Estado BLOCKED en aprovisionamiento. Siguiente paso: disponer de una identidad
+PVE aprobada con ese permiso para aplicar los planes acotados. Pendientes
+integración, backups, pruebas de recuperación y aceptación.
 [Plan](planes/CT633-635-KNOWLEDGE-PLATFORM-PLAN.md).
 
 ## LXC-NOTES-TAGS — IN PROGRESS

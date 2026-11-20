@@ -1,0 +1,49 @@
+service:
+  name: infra-modeling
+  vmid: 635
+resources:
+  cpu: 1
+  memory: 2048
+  swap: 512
+  disk_gb: 12
+os:
+  template_file_id: local:vztmpl/debian-12-standard_12.12-1_amd64.tar.zst
+  name: Debian 12
+network:
+  gateway: 192.168.1.254
+  dns:
+  - 192.168.1.254
+  bridge: vmbr0
+  dhcp: true
+  mac_address: 02:4D:42:00:06:35
+storage:
+  name: local-lvm
+tags:
+- infra
+- internal
+monitoring:
+  docker: true
+  node_exporter: true
+provisioning:
+  unprivileged: true
+  environment: internal
+  purpose: Render privado de diagramas PlantUML
+  owner: eduardo152030
+  applications:
+  - name: PlantUML Server
+    runtime: docker
+    ports:
+    - 8080/tcp en red privada
+  dependencies:
+  - Cliente de publicación en Outline
+  domains: []
+  backup: 'PENDING VERIFICATION: PVE storage y restauración aislada'
+  known_issues:
+  - DHCP, exposición efectiva y cobertura de monitorización pendientes
+  ssh:
+    enabled: true
+    method: pct-merge
+    state: PENDING VERIFICATION
+documentation:
+  notes_file: services/infra-modeling/NOTES.md
+  inventory_file: docs/inventory/635-LXC-INVENTORY.md

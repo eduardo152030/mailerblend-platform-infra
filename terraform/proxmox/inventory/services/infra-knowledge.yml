@@ -1,0 +1,51 @@
+service:
+  name: infra-knowledge
+  vmid: 633
+resources:
+  cpu: 2
+  memory: 3072
+  swap: 512
+  disk_gb: 30
+os:
+  template_file_id: local:vztmpl/debian-12-standard_12.12-1_amd64.tar.zst
+  name: Debian 12
+network:
+  gateway: 192.168.1.254
+  dns:
+  - 192.168.1.254
+  bridge: vmbr0
+  dhcp: true
+  mac_address: 02:4D:42:00:06:33
+storage:
+  name: local-lvm
+tags:
+- infra
+- internal
+monitoring:
+  docker: true
+  node_exporter: true
+provisioning:
+  unprivileged: true
+  environment: internal
+  purpose: Outline con PostgreSQL y Redis dedicados
+  owner: eduardo152030
+  applications:
+  - name: Outline + PostgreSQL + Redis
+    runtime: docker
+    ports:
+    - 3000/tcp mediante proxy HTTPS
+  dependencies:
+  - OIDC
+  - CT109
+  - CT632 SMTP opcional
+  domains: []
+  backup: 'PENDING VERIFICATION: PVE storage y restauración aislada'
+  known_issues:
+  - DHCP, exposición efectiva y cobertura de monitorización pendientes
+  ssh:
+    enabled: true
+    method: pct-merge
+    state: PENDING VERIFICATION
+documentation:
+  notes_file: services/infra-knowledge/NOTES.md
+  inventory_file: docs/inventory/633-LXC-INVENTORY.md

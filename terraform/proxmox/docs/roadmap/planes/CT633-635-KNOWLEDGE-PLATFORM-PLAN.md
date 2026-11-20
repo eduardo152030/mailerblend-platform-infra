@@ -1,10 +1,24 @@
 # CT633–635 — Plataforma interna de conocimiento y diagramas
 
-**Propuesto · Fase 7. IaC Reliability, Security & Disaster Recovery · 20/11/2026 (Europe/Madrid).**
+**Aprobado · Fase 7. IaC Reliability, Security & Disaster Recovery · 20/11/2026 (Europe/Madrid).**
 Ronda `implementation`, inicio `6be70af601ff0775b19765dcecba590de73a8c15`,
 base `origin/main`, rama `feat/knowledge-platform`, worktree
 `../mailerblend-platform-infra-knowledge` relativo al checkout principal.
 [PR #84](https://github.com/eduardo152030/mailerblend-platform-infra/pull/84).
+
+## Ronda de ejecución
+
+Ronda `review-01`, base `5cd6b477de148c669121cb5ec902f4166698e1a0`.
+El propietario autorizó expresamente IaC, altas con planes acotados y revisión
+automática, despliegue, integraciones, pruebas y publicación en el PR #84.
+Sin cambios de datos en CT101, 107, 618 ni 632. Se mantiene TLS y SSH estricto.
+
+Preflight 20/11/2026 23:50 CET: VMID disponibles, 22 675 MiB RAM disponibles,
+6 163 MiB de swap ocupada y PSI de memoria 0 en las tres ventanas.
+CRM usa GoTrue v2.197.0 sin servidor OAuth habilitado en su Compose. Las
+consultas HTTPS a discovery, JWKS, autorización, token y userinfo devolvieron
+404. Quedan sin acreditar registro de cliente, redirect y claims de OIDC.
+Se excluyen cambios en CRM para añadir esa capacidad.
 
 ## Alcance y descubrimiento
 
@@ -132,9 +146,29 @@ permitidos. Validar firewall efectivo y ausencia de publicación WAN.
    conservando la línea base de observabilidad. Ante fallo, revertir solo
    el cambio afectado y preservar CT, volúmenes e imágenes según el runbook.
 
-## Estado
+## Estado de la ronda — BLOCKED
 
-Descubrimiento y propuesta documentados. Implementación IaC, validaciones de
-runtime y despliegue pendientes. La aprobación solicitada para esta fase es
-la revisión del diseño y la autorización específica de red, identidad y
-dependencias compartidas, seguida de la revisión de cada plan real de alta.
+IaC local para tres altas DHCP, Compose con imágenes fijadas, bootstrap SSH
+capaz de descubrir IP después de verificar la identidad y MAC de PVE, script
+de despliegue y publicador PlantUML por UUID en
+[runbook operativo](../../runbooks/KNOWLEDGE-PLATFORM.md). Sin IP observada,
+DNS, certificados ni altas efectivas.
+
+Validaciones: Terraform fmt/validate, validadores de inventario (29 pruebas) y
+provisioning (20 pruebas), configuración Compose de los tres servicios y
+sintaxis de los scripts. Los planes dirigidos para 633/634/635 produjeron
+1 alta y 0 cambios o bajas por CT. El plan real guardado de CT635 se comprobó
+por recurso, VMID, hostname, DHCP/MAC, firewall, privilegios, almacenamiento,
+recursos, Docker y TLS. Tras recuperar la CA mediante SSH estricto y verificar
+la IP en el certificado, el API respondió HTTP 403 a la creación: solo root@pam
+puede establecer el flag `keyctl` en PVE. La consulta posterior confirmó los
+tres VMID disponibles. Se conserva la guarda Docker y se requiere una
+identidad PVE autorizada. No se aplicaron los planes de los dos CT restantes.
+
+La evaluación de CRM concluyó que el servicio existente no publica un IdP
+compatible. Compose prepara un cliente OIDC separado. Falta instanciar o
+seleccionar un proveedor interno y acreditar bootstrap Community. CT632
+documenta SMTP AUTH:587 con STARTTLS obligatorio y mapa de remitente;
+no se creó identidad ni se envió correo. Pendientes también la configuración
+efectiva del editor en Outline, cuentas de prueba, publicación real,
+monitorización, backups y restauración aislada.

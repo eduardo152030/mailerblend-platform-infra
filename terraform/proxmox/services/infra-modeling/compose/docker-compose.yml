@@ -1,0 +1,13 @@
+services:
+  plantuml:
+    image: plantuml/plantuml-server:jetty-v1.2026.10@sha256:3719f4a9b0b061f1aa42d14d130388f831954ca65685d521b6c5b72301e993e6
+    restart: unless-stopped
+    environment:
+      PLANTUML_SECURITY_PROFILE: SANDBOX
+      JAVA_TOOL_OPTIONS: -Xmx512m
+    ports:
+      - "${SERVICE_BIND_IP:?Required private bind address}:8080:8080"
+    mem_limit: 1024m
+    cpus: 1.0
+    security_opt:
+      - no-new-privileges:true
