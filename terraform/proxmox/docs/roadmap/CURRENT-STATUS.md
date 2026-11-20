@@ -1432,4 +1432,31 @@ Auditoría CRM #49 en curso. [Resultados y pendientes](planes/CRM-HARDENING-AUDI
 
 20/11/2026. FormEntries #28 desplegado y verificado. Reencolado diferido en #62. Siguiente #29.
 
-20/11/2026. #28, #29 y #30 desplegados y verificados. #31 queda propuesto; Budibase y sus volúmenes se conservan. [Inventario y retirada propuesta](planes/CRM-LEGACY-EXIT.md).
+### Fase 7 — Relay compartido y aviso de contactos
+
+20/11/2026 Europe/Madrid. [Infra-mail #69](../../services/infra-mail/README.md)
+IN PROGRESS. Política de cuota verificada localmente con dos identidades.
+Pendientes provisión IaC, ensayo SMTP con Mailpit, monitorización de cola y
+entrega real. #68 depende del relay para producción. #31 mantiene como
+requisitos la sustitución del aviso y el respaldo restaurado en aislamiento,
+seguidos de 24 horas de observación antes de retirar los volúmenes.
+
+20/11/2026 Europe/Madrid. #69, segunda ronda: DMARC confirmado en
+dns1.nominalia.com. El plan Terraform dirigido a infra-mail muestra
+únicamente alta de CT 632. Instalador y reglas de cola preparados;
+reserva de IP, ensayo Mailpit, recarga de Prometheus y recepción real
+pendientes. Mantener #68 detrás de #69.
+
+20/11/2026 Europe/Madrid. #69, dirección LAN vía DHCP por decisión del
+propietario. Plan acotado verificado con una alta y IPv4 DHCP. El ensayo
+en VM desechable cubre autenticación, cuota y entrega a Mailpit.
+
+20/11/2026 Europe/Madrid. El propietario limita infra-mail a correo de
+negocio. CRMAPI y GoTrue son los consumidores iniciales. Alertmanager y
+Grafana conservan su canal Telegram y su configuración. Proxmox 8.3 tiene
+webhook nativo y un matcher activo hacia sendmail; su redirección a Telegram
+se limita al enrutamiento de avisos de Proxmox.
+
+20/11/2026 Europe/Madrid. #28–#30 verificados. #31 autorizado por etapas.
+El [inventario y plan de retirada](planes/CRM-LEGACY-EXIT.md) exige verificar
+#68, restaurar el respaldo final y observar 24 horas antes del borrado.

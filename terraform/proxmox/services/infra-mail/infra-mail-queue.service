@@ -1,0 +1,7 @@
+[Unit]
+Description=Export Postfix queue metrics
+After=postfix.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /usr/local/lib/infra-mail/queue-metrics.py

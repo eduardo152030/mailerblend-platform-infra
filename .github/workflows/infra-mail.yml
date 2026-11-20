@@ -1,0 +1,35 @@
+name: Infra-mail checks
+on:
+  pull_request:
+    paths:
+      - terraform/proxmox/services/infra-mail/**
+      - terraform/proxmox/inventory/services/infra-mail.yml
+      - terraform/proxmox/services/infra-prom/config/rules/infra-mail.yml
+      - .github/workflows/infra-mail.yml
+permissions:
+  contents: read
+jobs:
+  infra-mail:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Validate relay and alert configuration
+        run: |
+          cd terraform/proxmox
+          bash -n services/infra-mail/install-relay.sh
+          python3 -m compileall -q services/infra-mail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq prometheus
+          promtool check rules services/infra-prom/config/rules/infra-mail.yml
+      - name: Rehearse authenticated submission with Mailpit
+        run: sudo --preserve-env=GITHUB_ACTIONS,RUNNER_ENVIRONMENT terraform/proxmox/services/infra-mail/rehearsal/check.sh
+      - name: Scan relay source for secrets
+        run: |
+          set -euo pipefail
+          archive="$RUNNER_TEMP/gitleaks.tar.gz"
+          curl -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o "$archive"
+          printf '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  %s\n' "$archive" | sha256sum -c
+          tar -xz -f "$archive" -C "$RUNNER_TEMP" gitleaks
+          "$RUNNER_TEMP/gitleaks" dir terraform/proxmox/services/infra-mail --no-banner --redact=100

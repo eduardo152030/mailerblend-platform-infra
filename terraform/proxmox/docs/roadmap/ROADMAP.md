@@ -1377,4 +1377,13 @@ Auditoría CRM #49 en curso. [Resultados y pendientes](planes/CRM-HARDENING-AUDI
 
 20/11/2026. FormEntries #28 desplegado y verificado. Reencolado diferido en #62. Siguiente #29.
 
-20/11/2026. #28, #29 y #30 desplegados y verificados. #31 queda propuesto; Budibase y sus volúmenes se conservan. [Inventario y retirada propuesta](planes/CRM-LEGACY-EXIT.md).
+20/11/2026 Europe/Madrid. Fase 7, [#69] para el relay compartido que
+habilita el envío real de [#68]. El inventario y la provisión del nuevo
+CT, el ensayo Mailpit y los avisos a Telegram forman parte de #69.
+
+[#69]: https://github.com/eduardo152030/mailerblend-platform-infra/issues/69
+[#68]: https://github.com/eduardo152030/mailerblend-platform-infra/issues/68
+
+20/11/2026 Europe/Madrid. #28–#30 verificados. #31 autorizado por etapas.
+El [inventario y plan de retirada](planes/CRM-LEGACY-EXIT.md) exige verificar
+#68, restaurar el respaldo final y observar 24 horas antes del borrado.

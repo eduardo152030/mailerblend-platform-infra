@@ -16,11 +16,14 @@ def run(args,cwd):
 
 def prepare(spec,output,public_key_file=Path.home()/".ssh/id_ed25519.pub"):
  data=validate(yaml.safe_load(spec.read_text()));s=data['service'];key=s['name'];output=output.resolve()
+ if not s.get('ip'):
+  raise ValueError('An observed IP is required to build the SSH and monitoring bundle')
  assert not output.exists(),'Output must be new; do not overwrite prior bundles'
  assert not output.is_relative_to(ROOT.resolve()),'Use a private staging path outside the working module'
  for f in (ROOT/'inventory/services').glob('*.yml'):
   old=yaml.safe_load(f.read_text())['service']
-  assert s['vmid']!=old['vmid'] and s['name']!=old['name'] and s['ip'].split('/')[0]!=old['ip'].split('/')[0],'Existing identity/IP collision'
+  current_ip=(old.get('ip') or '').split('/')[0]
+  assert s['vmid']!=old['vmid'] and s['name']!=old['name'] and s['ip'].split('/')[0]!=current_ip,'Existing identity/IP collision'
  output.mkdir(parents=True,mode=0o700);module=output/'terraform';module.mkdir()
  # Sources are copied, not a second hand-written Terraform module or state.
  sources=json.loads((ROOT/'inventory/generated/lxc-notes-manifest.json').read_text())

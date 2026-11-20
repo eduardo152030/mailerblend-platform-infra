@@ -16,7 +16,7 @@ resource "proxmox_virtual_environment_container" "svc" {
   # CTs opt in; legacy CT expressions and recovery overrides remain unchanged.
   tags = lookup(var.recovery_preserve_service_tags, each.key,
     try(local.services_raw[each.key].provisioning.ssh.enabled, false) ?
-    sort(distinct(concat(each.value.tags, [split("/", each.value.ip)[0]]))) : each.value.tags
+    sort(distinct(concat(each.value.tags, each.value.ip == null ? [] : [split("/", each.value.ip)[0]]))) : each.value.tags
   )
 
   # Conservar el modo legacy; las nuevas declaraciones optan por unprivileged.

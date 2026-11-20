@@ -1,0 +1,12 @@
+[Unit]
+Description=Mailpit local para pruebas SMTP
+After=network.target
+
+[Service]
+DynamicUser=yes
+StateDirectory=infra-mail-mailpit
+ExecStart=/usr/local/bin/mailpit --disable-version-check --listen 127.0.0.1:8025 --smtp 127.0.0.1:1025 --pop3 127.0.0.1:1110 --database /var/lib/infra-mail-mailpit/messages.db
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
