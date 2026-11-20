@@ -1399,3 +1399,13 @@ health 200 y login Budibase 200. Golden sintético de ingesta y snapshot
 200, con UTM, formulario, historial y oportunidad verificados.
 Los logs muestran dos IP públicas de titularidad pendiente de confirmar.
 Continuar con el corte #24 manteniendo esta protección.
+
+## CRM UI — corte directo aplicado (#24)
+
+20/11/2026, 09:52 Europe/Madrid. Imagen 7082472b compilada y publicada
+en CT618 con Compose. CT109 sirve la UI en el dominio original bajo Basic
+Auth, conserva TLS, la protección de CRMAPI y la excepción de webform.
+Rollback ensayado: Budibase volvió a 200 y contactos anónimo mantuvo 401.
+Corte reaplicado. HTML autenticado 200, rutas UI anónimas 401, health 200,
+webform sin token 401 y golden autenticado PASS. Budibase, CouchDB y
+Redis siguen activos. Siguiente paso: ensayo aislado de GoTrue (#25).
