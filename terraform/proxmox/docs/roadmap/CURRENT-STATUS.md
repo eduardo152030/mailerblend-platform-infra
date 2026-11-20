@@ -1469,3 +1469,9 @@ del release conserva los estados previos de los tres servicios y del vhost.
 20/11/2026 Europe/Madrid. #79. Confirmados el matcher activo hacia sendmail,
 PVE 8.3 y el esquema nativo del webhook. El procedimiento prueba Telegram
 antes de cambiar la ruta y guarda la configuración pública y privada.
+
+20/11/2026 Europe/Madrid. #26. La única identidad autorizada es la del
+administrador. Dry-run de GoTrue en producción sin cambios. Ensayo de
+repetición tras un fallo parcial, cuenta deshabilitada y rol inesperado
+sin duplicación ni elevación. La convivencia se canceló por decisión del
+propietario y no constituye una prueba ejecutada.
