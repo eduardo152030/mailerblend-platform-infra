@@ -60,3 +60,23 @@ Se verificaron índices y argumentos en siete rutas con un driver
 instrumentado. Los fragmentos estructurales restantes seleccionan
 columnas o cláusulas predefinidas y mantienen los datos en parámetros.
 La prueba de limpieza usó dry_run y conservó los registros.
+
+## Resultado de despliegue de SQL y cuerpos
+
+20/11/2026 Europe/Madrid. Se mantiene en producción el release #58.
+Tres intentos para el API `84064c56` alcanzaron salud de Docker:
+
+1. Recreación tras el scrape. Pasaron health, TLS, acceso anónimo 401 y
+   ambos golden. Las lecturas de seis rutas SQL devolvieron 200 y CORS
+   permitió solo el origen configurado. Apareció DockerContainerUnhealthy
+   pendiente para crm-api. Rollback verificado.
+2. Sonda inicial a 1 s. Los mismos golden pasaron. Reapareció la alerta
+   pendiente en la ventana ampliada. Rollback verificado.
+3. API paralelo en 18091. Docker marcó healthy y la sonda anónima
+   devolvió 401. Prometheus marcó DockerContainerUnhealthy pendiente del
+   candidato a las 13:42 Europe/Madrid, antes de cambiar el vhost. Se
+   detuvo el candidato. El servicio anterior y su vhost siguen activos.
+
+Los cambios de SQL y cuerpos quedan listos para revisión. El bloqueo
+operativo es la divergencia observada entre Docker y cAdvisor durante
+el arranque. Los registros de Prometheus y los respaldos se conservan.
