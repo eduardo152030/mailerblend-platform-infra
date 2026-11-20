@@ -1247,9 +1247,3 @@ y OK. #24 pendiente de hostname, DNS y certificado concretos.
 valor previo 401, D051 healthy, HTTPS 200 y segunda aplicación sin cambios.
 Login humano y aceptación pendientes. #24 sin publicar, #36 diferido.
 [Runbook y evidencia](../planes/CRM-CT618-ROTATION-RUNBOOK.md).
-
-20/11/2026 Europe/Madrid. #23 DONE, login humano aceptado y cerrado.
-Corte único aprobado; #24 BLOCKED por acceso anónimo a datos de CRMAPI.
-#25 GoTrue autoalojado aprobado, #49 creado; #27–#31 actualizados.
-Sin cambios productivos ni golden de escritura. Pendiente resolver la
-precedencia de protección del API antes del corte. [Plan](../planes/CRM-UI-MIGRATION-PLAN.md).

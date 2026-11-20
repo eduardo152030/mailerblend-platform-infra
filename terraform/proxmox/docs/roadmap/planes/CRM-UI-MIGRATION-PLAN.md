@@ -19,6 +19,10 @@ Ronda 20/11/2026 Europe/Madrid. Rama `docs/crm-direct-cutover`, worktree
 hermano `mailerblend-platform-infra-crm-direct-cutover`, SHA inicial
 `7082472bcafdd8d95033ae4b956d62adfbb8eb0e`.
 PR de la ronda [#50](https://github.com/eduardo152030/mailerblend-platform-infra/pull/50).
+La exposición observada en esta ronda se contuvo posteriormente en
+[PR #51](https://github.com/eduardo152030/mailerblend-platform-infra/pull/51).
+El corte directo se aplicó y ensayó en
+[PR #52](https://github.com/eduardo152030/mailerblend-platform-infra/pull/52).
 
 - Una sola sustitución de UI en `https://infra-svc01.mailerblend.com/`.
   Mismo certificado Nginx de CT109. Respaldar y verificar el vhost.
