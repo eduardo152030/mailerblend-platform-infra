@@ -7,7 +7,7 @@ services:
       GOTRUE_API_HOST: 0.0.0.0
       GOTRUE_API_PORT: "9999"
       GOTRUE_DB_DRIVER: postgres
-      GOTRUE_DB_DATABASE_URL: postgres://crm_auth:${CRM_AUTH_DB_PASSWORD:?Supply a private DB password}@supabase-db:5432/postgres?sslmode=disable
+      GOTRUE_DB_DATABASE_URL: postgres://crm_auth:${CRM_AUTH_DB_PASSWORD:?Supply a private DB password}@supabase-db:5432/postgres?sslmode=disable&search_path=auth
       GOTRUE_DB_DB_NAMESPACE: auth
       GOTRUE_SITE_URL: https://infra-svc01.mailerblend.com
       GOTRUE_JWT_SECRET: ${CRM_AUTH_JWT_SECRET:?Supply a private JWT signing key}
@@ -19,6 +19,20 @@ services:
       GOTRUE_DISABLE_SIGNUP: "true"
       GOTRUE_EXTERNAL_EMAIL_ENABLED: "true"
       GOTRUE_RATE_LIMIT_TOKEN_REFRESH: "60"
+      GOTRUE_SMTP_HOST: ${CRM_SMTP_HOST:-}
+      GOTRUE_SMTP_PORT: ${CRM_SMTP_PORT:-587}
+      GOTRUE_SMTP_USER: ${CRM_SMTP_USER:-}
+      GOTRUE_SMTP_PASS: ${CRM_SMTP_PASSWORD:-}
+      GOTRUE_SMTP_ADMIN_EMAIL: ${CRM_SMTP_FROM:-}
+      GOTRUE_SMTP_SENDER_NAME: CRM
+      GOTRUE_URI_ALLOW_LIST: https://infra-svc01.mailerblend.com/restablecer
+      GOTRUE_MAILER_URLPATHS_RECOVERY: /auth/v1/verify
+      SSL_CERT_FILE: /etc/ssl/certs/infra-mail-ca-bundle.pem
+    volumes:
+      - type: bind
+        source: ${CRM_SMTP_CA_BUNDLE:-/etc/ssl/certs/ca-certificates.crt}
+        target: /etc/ssl/certs/infra-mail-ca-bundle.pem
+        read_only: true
     ports:
       - "192.168.1.118:18090:9999"
     networks:

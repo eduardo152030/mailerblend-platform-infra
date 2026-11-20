@@ -1,0 +1,25 @@
+services:
+  crm-notifications:
+    image: ${CRM_API_IMAGE:?Set the reviewed CRMAPI image}
+    restart: unless-stopped
+    command: ["python", "-m", "app.notifications.worker"]
+    environment:
+      CRM_DB_DSN: ${CRM_DB_DSN:?Configure the worker database connection}
+      CRM_SMTP_HOST: ${CRM_SMTP_HOST:?Configure the SMTP host}
+      CRM_SMTP_PORT: ${CRM_SMTP_PORT:?Configure the SMTP port}
+      CRM_SMTP_TLS: ${CRM_SMTP_TLS:-starttls}
+      CRM_SMTP_USER: ${CRM_SMTP_USER:-}
+      CRM_SMTP_PASSWORD: ${CRM_SMTP_PASSWORD:-}
+      CRM_SMTP_FROM: ${CRM_SMTP_FROM:?Configure the sender}
+      CRM_PUBLIC_URL: https://infra-svc01.mailerblend.com
+      SSL_CERT_FILE: /etc/ssl/certs/infra-mail-ca-bundle.pem
+    volumes:
+      - type: bind
+        source: ${CRM_SMTP_CA_BUNDLE:?Configure the relay CA bundle path}
+        target: /etc/ssl/certs/infra-mail-ca-bundle.pem
+        read_only: true
+    networks: [nucleo_network]
+
+networks:
+  nucleo_network:
+    external: true

@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 from asyncpg import Connection
 
 from app.db import get_db
+from app.notifications.outbox import enqueue_contact
 
 router = APIRouter(prefix="/v1/intake", tags=["intake"])
 
@@ -374,6 +375,8 @@ async def intake_webform(
             raise HTTPException(status_code=500, detail="Failed to upsert contact")
 
         contacto_id = UUID(str(contact["id"]))
+        if existing_contact is None:
+            await enqueue_contact(conn, contacto_id)
 
         # 2) utm
         utm_id = None

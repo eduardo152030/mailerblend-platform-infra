@@ -7,6 +7,7 @@ from app.core.config import settings
 from app.core.crm_access import bearer, crm_auth_enabled, require_crm_access
 from app.db import get_pool, close_pool
 from app.routers import health
+from app.notifications import admin as notification_admin
 from app.routers.v1 import conversiones_offline, form_entries as form_entries_lists
 
 from app.routers.v1.contacts import router as contacts_router
@@ -115,3 +116,6 @@ async def on_shutdown() -> None:
     Cierra el pool de conexiones a la base de datos al apagar la aplicación.
     """
     await close_pool()
+
+
+app.include_router(notification_admin.router)

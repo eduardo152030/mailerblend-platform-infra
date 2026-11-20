@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowRight, Check, Kanban, Linkedin, Mail, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,6 +20,7 @@ export default function LoginPage() {
   const [submitting, setSubmitting] = useState(false);
   const [moduleId, setModuleId] = useState(MODULES[0].id);
   const navigate = useNavigate();
+  const location = useLocation();
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
   const handleGroupKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -69,7 +70,9 @@ export default function LoginPage() {
                 setSubmitting(false);
               }
             }
-            navigate(target.route);
+            const contact = location.state?.contact;
+            const returnsToContact = typeof contact === "string" && /^\?contacto=[a-f0-9-]{36}$/i.test(contact);
+            navigate(returnsToContact ? "/contactos" + contact : target.route, { replace: true });
           }}
           className="login-card rounded-xl border border-border bg-card p-6 text-card-foreground sm:p-8"
         >
@@ -108,6 +111,7 @@ export default function LoginPage() {
                   value={password} onChange={(event) => setPassword(event.target.value)} />
               </div>
             )}
+            {crmSession && <Link to="/recuperar" className="text-sm underline">¿Olvidaste tu contraseña?</Link>}
             {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
             {/* Module picker */}
             <div className="space-y-2">

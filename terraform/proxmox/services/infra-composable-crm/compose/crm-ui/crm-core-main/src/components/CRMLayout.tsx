@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Users, Target, CheckSquare, FileText, Receipt, Truck,
   LayoutDashboard, Menu, ChevronRight, Link2, RefreshCw,
-  X, Moon, Sun, ChevronDown, Linkedin, Kanban,
+  X, Moon, Sun, ChevronDown, Linkedin, Kanban, Settings,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -63,7 +63,7 @@ function detectActiveCrm(pathname: string) {
   return crmOptions[0];
 }
 
-export default function CRMLayout({ children }: { children: React.ReactNode }) {
+export default function CRMLayout({ children, showNotificationSettings }: { children: React.ReactNode; showNotificationSettings?: boolean }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
@@ -71,7 +71,9 @@ export default function CRMLayout({ children }: { children: React.ReactNode }) {
   const { dark, toggle: toggleTheme } = useTheme();
 
   const activeCrm = detectActiveCrm(location.pathname);
-  const navItems = activeCrm.navItems;
+  const navItems = showNotificationSettings
+    ? [...activeCrm.navItems, { to: "/configuracion/notificaciones", icon: Settings, label: "Configuración · Notificaciones" }]
+    : activeCrm.navItems;
 
   // Close mobile nav on route change
   useEffect(() => {

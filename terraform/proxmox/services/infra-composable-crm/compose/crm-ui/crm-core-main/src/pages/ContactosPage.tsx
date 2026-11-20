@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useContacts, useContactSnapshot, useCreateContact } from "@/hooks/use-api";
 import { DataTable, Column } from "@/components/DataTable";
 import { PageHeader } from "@/components/PageHeader";
@@ -89,9 +90,23 @@ const columns: Column[] = [
 export default function ContactosPage() {
   const [search, setSearch] = useState("");
   const [offset, setOffset] = useState(0);
+  const [params, setParams] = useSearchParams();
+  const linkedContact = params.get("contacto");
   const [snapshotId, setSnapshotId] = useState<string | null>(null);
   const [editContact, setEditContact] = useState<Record<string, unknown> | null>(null);
   const [showCreate, setShowCreate] = useState(false);
+
+  const deepLink = linkedContact && /^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$/i.test(linkedContact)
+    ? linkedContact
+    : null;
+  function closeSnapshot() {
+    setSnapshotId(null);
+    if (linkedContact) {
+      const next = new URLSearchParams(params);
+      next.delete("contacto");
+      setParams(next, { replace: true });
+    }
+  }
 
   // Filters
   const [filterEstado, setFilterEstado] = useState("__all__");
@@ -224,9 +239,9 @@ export default function ContactosPage() {
 
       {/* Snapshot drawer */}
       <SnapshotDrawer
-        contactId={snapshotId}
-        onClose={() => setSnapshotId(null)}
-        onEdit={(c) => { setSnapshotId(null); setEditContact(c); }}
+        contactId={snapshotId ?? deepLink}
+        onClose={closeSnapshot}
+        onEdit={(c) => { closeSnapshot(); setEditContact(c); }}
       />
 
       {/* Create / Edit modal */}

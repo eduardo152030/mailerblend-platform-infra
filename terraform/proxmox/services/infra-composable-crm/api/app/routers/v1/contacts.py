@@ -7,6 +7,7 @@ from asyncpg import Connection
 from pydantic import BaseModel, EmailStr, Field
 
 from app.db import get_db
+from app.notifications.outbox import enqueue_contact
 
 router = APIRouter(prefix="/v1/contacts", tags=["contacts"])
 
@@ -438,47 +439,50 @@ async def create_contact(
         
         return dict(updated)
 
-    # INSERT: nuevo contacto
-    created = await conn.fetchrow(
-        """
-        INSERT INTO contactos (
-          nombre, email, telefono, company_name, cargo, ciudad, pais, tipo_empresa,
-          origen, estado, pack_asignado,
-          gdpr_consent, gdpr_consent_date, marketing_consent,
-          created_by, created_at, updated_at
-        ) VALUES (
-          $1, $2, $3, $4, $5, $6, $7, $8,
-          $9, $10, $11,
-          $12, CASE WHEN $12 THEN NOW() ELSE NULL END, $13,
-          'api', NOW(), NOW()
+    async with conn.transaction():
+        # INSERT: nuevo contacto
+        created = await conn.fetchrow(
+            """
+            INSERT INTO contactos (
+              nombre, email, telefono, company_name, cargo, ciudad, pais, tipo_empresa,
+              origen, estado, pack_asignado,
+              gdpr_consent, gdpr_consent_date, marketing_consent,
+              created_by, created_at, updated_at
+            ) VALUES (
+              $1, $2, $3, $4, $5, $6, $7, $8,
+              $9, $10, $11,
+              $12, CASE WHEN $12 THEN NOW() ELSE NULL END, $13,
+              'api', NOW(), NOW()
+            )
+            RETURNING *
+            """,
+            payload.nombre,
+            str(payload.email),
+            payload.telefono,
+            payload.company_name,
+            payload.cargo,
+            payload.ciudad,
+            payload.pais,
+            payload.tipo_empresa,
+            payload.origen,
+            payload.estado,
+            payload.pack_asignado,
+            payload.gdpr_consent,
+            payload.marketing_consent,
         )
-        RETURNING *
-        """,
-        payload.nombre,
-        str(payload.email),
-        payload.telefono,
-        payload.company_name,
-        payload.cargo,
-        payload.ciudad,
-        payload.pais,
-        payload.tipo_empresa,
-        payload.origen,
-        payload.estado,
-        payload.pack_asignado,
-        payload.gdpr_consent,
-        payload.marketing_consent,
-    )
-    
-    # Log evento de creación
-    await log_event(
-        conn,
-        contacto_id=created["id"],
-        event_key="CONTACT_CREATED",
-        payload={
-            "email": str(payload.email),
-            "source": "api",
-        },
-        created_by="api",
-    )
-    
+
+        await enqueue_contact(conn, created["id"])
+
+        # Log evento de creación
+        await log_event(
+            conn,
+            contacto_id=created["id"],
+            event_key="CONTACT_CREATED",
+            payload={
+                "email": str(payload.email),
+                "source": "api",
+            },
+            created_by="api",
+        )
+
     return dict(created)
