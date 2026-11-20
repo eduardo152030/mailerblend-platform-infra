@@ -1,0 +1,6 @@
+{
+  "name": "crm-auth-rehearsal",
+  "private": true,
+  "type": "module",
+  "dependencies": { "@supabase/supabase-js": "2.119.2" }
+}

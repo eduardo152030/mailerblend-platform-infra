@@ -1,4 +1,6 @@
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS
+El ensayo aislado de identidad CRM (#25) validó GoTrue y Supabase JS el
+20/11/2026. La autorización por proyecto en CRMAPI queda pendiente.
 
 19/11/2026 Europe/Madrid, Fase 7. Reglas actualizadas en el worktree dedicado.
 La regla 03 exige plan o issue, comprobación previa de ruta y rama y enlace
