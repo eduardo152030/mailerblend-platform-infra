@@ -37,7 +37,6 @@ ficheros en `/etc/infra-mail/private` con acceso solo de root.
 | `tls.crt`, `tls.key` | Cadena y clave del certificado del endpoint interno |
 | `service-users` | Identidades Dovecot con hashes de contraseña |
 | `sender-login` | Mapa Postfix de dirección SMTP a identidades autorizadas |
-| `submission-clients` | Mapa CIDR que permite la LAN y rechaza el resto |
 | `relay-host` | Destino upstream con formato `[hostname]:587` o `[hostname]:465` |
 | `relay-password` | Mapa del destino upstream a su usuario y contraseña |
 

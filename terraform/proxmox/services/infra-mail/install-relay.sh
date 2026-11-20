@@ -10,7 +10,7 @@ case "$mode" in
     --mailpit) systemctl is-active --quiet infra-mail-mailpit ;;
     *) echo 'Modo desconocido' >&2; exit 1 ;;
 esac
-for name in tls.crt tls.key service-users sender-login submission-clients; do
+for name in tls.crt tls.key service-users sender-login; do
     test -s "$private/$name"
 done
 openssl x509 -checkend 604800 -noout -in "$private/tls.crt" >/dev/null
@@ -42,7 +42,7 @@ install -m 0644 "$config/infra-mail-policy.service" /etc/systemd/system/
 install -m 0644 "$config/infra-mail-queue.service" "$config/infra-mail-queue.timer" /etc/systemd/system/
 install -m 0644 "$config/dovecot-auth.conf" /etc/dovecot/dovecot.conf
 install -o root -g dovecot -m 0640 "$private/service-users" /etc/dovecot/
-install -m 0644 "$private/submission-clients" /etc/postfix/
+install -m 0644 "$config/submission-clients" /etc/postfix/
 install -m 0600 "$private/sender-login" /etc/postfix/
 postmap hash:/etc/postfix/sender-login
 if [[ "$mode" == production ]]; then
