@@ -17,8 +17,20 @@ for identity in crm gotrue; do
     printf '%s:{PLAIN}%s\n' "$identity" "$password" >> "$fixture/service-users"
 done
 printf '%s\n' 'smtp-sender@example.test crm,gotrue' > "$fixture/sender-login"
+printf '%s\n' 'login-alias@example.test recipient@example.test' > "$fixture/recipient-canonical"
 install -d /etc/systemd/system/infra-mail-policy.service.d /var/lib/node_exporter/textfile
 printf '%s\n' '[Service]' 'Environment=RELAY_RECIPIENTS_PER_MINUTE=1' > /etc/systemd/system/infra-mail-policy.service.d/quota.conf
 "$relay/install-mailpit.sh"
 "$relay/install-relay.sh" --mailpit
 python3 "$relay/rehearsal/check.py"
+for attempt in 1 2 3 4 5; do
+    if journalctl -t postfix/smtp --no-pager -q | awk '
+        /to=<recipient@example[.]test>/ && /orig_to=<login-alias@example[.]test>/ && /status=sent/ { delivered=1 }
+        END { exit !delivered }
+    '; then
+        echo 'PASS: Postfix rewrote the recovery envelope and delivered it to Mailpit'
+        exit 0
+    fi
+    sleep 1
+done
+exit 1
