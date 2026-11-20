@@ -4,7 +4,7 @@
 Ronda `implementation`, inicio `6be70af601ff0775b19765dcecba590de73a8c15`,
 base `origin/main`, rama `feat/knowledge-platform`, worktree
 `../mailerblend-platform-infra-knowledge` relativo al checkout principal.
-PR de revisión pendiente de apertura.
+[PR #84](https://github.com/eduardo152030/mailerblend-platform-infra/pull/84).
 
 ## Alcance y descubrimiento
 
