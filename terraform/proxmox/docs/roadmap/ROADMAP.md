@@ -1311,3 +1311,8 @@ Rotación y reversión deben incluir esa tercera fuente. Sin cambios en CT618.
 20/11/2026 Europe/Madrid. #23: réplica Budibase, CouchDB y Redis PASS
 en cambio coordinado, login, segunda aplicación y reversión. Healthcheck
 D051 PASS tras reversión. Rotación real pendiente; CT618 sin cambios.
+
+20/11/2026 Europe/Madrid. #23: normalización privada de duplicados
+probada con Compose y coherencia de los tres candidatos. Solo hay evidencia
+localizada de copia histórica. Siguiente paso: respaldo actual y restauración
+verificada en ventana operativa; parada antes de cambios en CT618.
