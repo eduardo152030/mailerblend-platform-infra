@@ -29,3 +29,10 @@ Decisión del propietario: conversiones queda en solo lectura. Las fallidas
 muestran estado y error tanto en la cola como en el detalle. Se retiraron
 los controles y el cliente de reintento. El #62 documentará consumidor,
 contador de intentos y deduplicación antes de plantear implementación.
+
+Release #61, 20/11/2026 14:09–14:14 Europe/Madrid. Imágenes `57b123ef`,
+commit integrado `5c21b88b`. Respaldo Compose del API
+`compose.before-20261120T130927Z.json`; respaldo UI `before-61.hKGtXJ`.
+Verificados TLS, health, ambos golden, 401/200 de los listados, 404 del
+reencolado y cinco minutos sin FIRING relacionado. Budibase y
+Email_send_new_entry siguen activos. Reencolado diferido en #62.

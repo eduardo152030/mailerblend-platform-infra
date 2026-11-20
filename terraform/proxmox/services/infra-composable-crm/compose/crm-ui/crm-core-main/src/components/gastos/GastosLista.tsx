@@ -5,10 +5,9 @@ import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Plus, Download, Filter } from "lucide-react";
+import { Download, Filter } from "lucide-react";
 import { cn } from "@/lib/utils";
 import * as api from "@/lib/api";
-import GastoFormDialog from "./GastoFormDialog";
 
 function formatDate(v: unknown) {
   if (!v) return "—";
@@ -52,10 +51,8 @@ export default function GastosLista() {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [showFilters, setShowFilters] = useState(false);
-  const [showForm, setShowForm] = useState(false);
-  const [editingGasto, setEditingGasto] = useState<Record<string, unknown> | null>(null);
 
-  const { data, isLoading } = useGastos({
+  const { data, isLoading, isError } = useGastos({
     q: search || undefined,
     offset,
     limit: 50,
@@ -138,9 +135,6 @@ export default function GastosLista() {
             <Button size="sm" variant="outline" className="gap-1" onClick={() => void downloadCsv()}>
               <Download size={14} /> CSV
             </Button>
-            <Button size="sm" onClick={() => { setEditingGasto(null); setShowForm(true); }} className="gap-1">
-              <Plus size={16} /> Registrar gasto
-            </Button>
           </div>
         }
       />
@@ -192,22 +186,16 @@ export default function GastosLista() {
         </div>
       )}
 
-      <DataTable
+      {isError ? <p role="alert" className="text-destructive">No se pudieron cargar los gastos.</p> : <DataTable
         columns={columns}
         data={data?.items ?? []}
         total={data?.total}
         limit={data?.limit ?? 50}
         offset={offset}
         onPageChange={setOffset}
-        onRowClick={(row) => { setEditingGasto(row); setShowForm(true); }}
         loading={isLoading}
-      />
+      />}
 
-      <GastoFormDialog
-        open={showForm}
-        onOpenChange={setShowForm}
-        editingGasto={editingGasto}
-      />
     </>
   );
 }

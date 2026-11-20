@@ -8,6 +8,7 @@ from asyncpg import Connection
 from pydantic import BaseModel
 
 from app.db import get_db
+from app.routers.v1.expense_access import ExpenseReads, expense_reads
 
 router = APIRouter(prefix="/v1/proveedores", tags=["proveedores"])
 
@@ -152,3 +153,14 @@ async def patch_proveedor(
         raise
 
     return dict(after)
+
+
+
+@router.get("/{proveedor_id}/gastos")
+async def supplier_expense_summary(proveedor_id: UUID, conn: ExpenseReads = Depends(expense_reads)):
+    rows = await conn.fetch(
+        """SELECT currency, count(*) AS count, COALESCE(sum(total), 0) AS total
+           FROM gastos WHERE proveedor_id=$1 GROUP BY currency ORDER BY currency""",
+        proveedor_id,
+    )
+    return {"items": [dict(row) for row in rows]}

@@ -13,11 +13,6 @@ import {
   LineChart, Line, Legend,
 } from "recharts";
 
-function formatCurrency(v: unknown) {
-  if (v == null) return "€0,00";
-  return new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(Number(v));
-}
-
 const now = new Date();
 const defaultFrom = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-01`;
 const defaultTo = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate()).padStart(2, "0")}`;
@@ -26,27 +21,31 @@ export default function GastosDashboard() {
   const [from, setFrom] = useState(defaultFrom);
   const [to, setTo] = useState(defaultTo);
   const [projectKey, setProjectKey] = useState("__all__");
+  const [currency, setCurrency] = useState("EUR");
+  const formatter = new Intl.NumberFormat("es-ES", { style: "currency", currency });
+  const formatCurrency = (value: unknown) => formatter.format(Number(value ?? 0));
 
   const projectFilter = projectKey === "__all__" ? undefined : projectKey;
+  const filters = { from, to, project_key: projectFilter, currency };
 
   // Stats by category (for KPIs + bar chart)
-  const { data: statsByCategoria, isLoading: catLoading } = useGastosStats({
-    group_by: "categoria", from, to, project_key: projectFilter,
+  const { data: statsByCategoria, isLoading: catLoading, isError: categoryError } = useGastosStats({
+    group_by: "categoria", ...filters,
   });
 
   // Stats by estado
   const { data: statsByEstado } = useGastosStats({
-    group_by: "estado", from, to, project_key: projectFilter,
+    group_by: "estado", ...filters,
   });
 
   // Stats2 by project_categoria (for "Por Proyecto" KPI)
   const { data: statsByProject } = useGastosStats2({
-    group_by: "project_categoria", from, to,
+    group_by: "project_categoria", ...filters,
   });
 
   // Stats2 by project_month (for project evolution)
   const { data: statsByProjectMonth } = useGastosStats2({
-    group_by: "project_month", from, to,
+    group_by: "project_month", ...filters,
   });
 
   // Timeseries
@@ -55,14 +54,14 @@ export default function GastosDashboard() {
   const tsFrom = `${sixMonthsAgo.getFullYear()}-${String(sixMonthsAgo.getMonth() + 1).padStart(2, "0")}-01`;
 
   const { data: timeseries, isLoading: tsLoading } = useGastosTimeseries({
-    bucket: "month", from: tsFrom, to, project_key: projectFilter,
+    bucket: "month", ...filters, from: tsFrom,
   });
 
   // Tax summary
-  const { data: taxData } = useGastosTaxSummary({ from, to });
+  const { data: taxData } = useGastosTaxSummary(filters);
 
   // PnL summary
-  const { data: pnlData } = useGastosPnlSummary({ from, to });
+  const { data: pnlData } = useGastosPnlSummary(filters);
 
   // === KPIs ===
   const kpis = useMemo(() => {
@@ -128,7 +127,7 @@ export default function GastosDashboard() {
   return (
     <div className="space-y-6">
       {/* Filters */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-3 rounded-lg border bg-card">
+      <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 p-3 rounded-lg border bg-card">
         <div className="space-y-1">
           <Label className="text-xs">Desde</Label>
           <Input type="date" value={from} onChange={(e) => setFrom(e.target.value)} className="h-8 text-xs" />
@@ -149,8 +148,17 @@ export default function GastosDashboard() {
             </SelectContent>
           </Select>
         </div>
+        <div className="space-y-1">
+          <Label className="text-xs">Moneda</Label>
+          <Select value={currency} onValueChange={setCurrency}>
+            <SelectTrigger aria-label="Moneda" className="h-8 text-xs"><SelectValue /></SelectTrigger>
+            <SelectContent><SelectItem value="EUR">EUR</SelectItem><SelectItem value="USD">USD</SelectItem></SelectContent>
+          </Select>
+        </div>
       </div>
 
+      {categoryError && <p role="alert" className="text-destructive">No se pudieron cargar los gastos para estos filtros.</p>}
+      {!categoryError && <>
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <Card>
@@ -314,6 +322,7 @@ export default function GastosDashboard() {
           </CardContent>
         </Card>
       </div>
+      </>}
     </div>
   );
 }
