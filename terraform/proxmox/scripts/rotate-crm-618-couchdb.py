@@ -214,8 +214,10 @@ def rotate(stage, prepare_only):
         compose(prefix, "up", "-d", "--pull", "never", "--no-deps", "--force-recreate", service)
 
     started = time.monotonic()
+    files_may_have_changed = False
     try:
         compose(app, "stop", "budibase-app")
+        files_may_have_changed = True
         for name, path, info in zip(names, files, metadata):
             install_atomic(candidate / name, path, info, 0o600)
         recreate(couch, "couchdb")
@@ -234,6 +236,10 @@ def rotate(stage, prepare_only):
                 "Falló la verificación posterior a la segunda aplicación")
         verify_unchanged()
     except BaseException:
+        if not files_may_have_changed:
+            compose(app, "up", "-d", "--pull", "never", "--no-deps", "budibase-app")
+            wait_until(app_ready, 300, "D051 no se recuperó tras fallar la parada")
+            raise
         print("ROLLBACK: restauración coordinada de configuración y servicios.", file=sys.stderr, flush=True)
         try:
             compose(app, "stop", "budibase-app")
