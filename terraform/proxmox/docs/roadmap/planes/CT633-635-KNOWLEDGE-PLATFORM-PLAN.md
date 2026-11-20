@@ -43,16 +43,18 @@ permitidos. Validar firewall efectivo y ausencia de publicación WAN.
 - **633**. Outline Community v1.13.0 candidata. PostgreSQL y Redis en red
   privada Compose y sin publicar puertos. Persistencia en volúmenes declarados
   para PostgreSQL, Redis y adjuntos locales de Outline. Usar HTTPS y WebSocket
-  en el proxy existente. Confirmar primero un método de alta inicial soportado
-  en Community. Evaluar CT632 para entrega SMTP y acceso por correo, con
-  identidad y credenciales propias, o proveedor OIDC interno aprobado si
-  el flujo de arranque por correo no cubre el alta. Verificar el primer
+  en el proxy existente. El flujo por correo de v1.13.0 requiere workspace
+  y usuario existentes. Para inicializar, validar en Community el plugin
+  OIDC de entorno con un proveedor interno aprobado. Evaluar CT632 para
+  correo posterior, con identidad y credenciales propias. Verificar el primer
   administrador y el usuario agente de forma independiente. Se comprobó la
   presencia de la credencial CRM con modo 0600 por metadatos. Su uso en este
   proyecto queda pendiente de confirmar que el emisor y el cliente realmente
   la admiten. No transferir esa credencial a los nuevos servicios.
   [Requisitos de Outline](https://docs.getoutline.com/s/hosting/doc/requirements-ULdYnwi4wG)
-  · [Autenticación](https://docs.getoutline.com/s/guide/doc/authentication-Wr4sfjvmL1).
+  · [Autenticación](https://docs.getoutline.com/s/guide/doc/authentication-Wr4sfjvmL1)
+  · [Flujo por correo](https://github.com/outline/outline/blob/v1.13.0/plugins/email/server/auth/email.ts)
+  · [Plugin OIDC](https://github.com/outline/outline/blob/v1.13.0/plugins/oidc/server/index.ts).
 - **634**. Imagen oficial `jgraph/drawio:32.7.4` candidata
   (`sha256:3e3281733f69416b2b632adad05c9c07d434ebb775e01070d55e9f3247cebe31`).
   Configurar la URL propia mediante el ajuste Diagrams.net de Outline.
