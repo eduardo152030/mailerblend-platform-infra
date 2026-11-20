@@ -222,3 +222,5 @@ en loopback. CT633 ejecutó Node v26.13.1 desde la imagen fijada de Outline.
 El arranque de Outline y el inicio de sesión quedan pendientes. Respaldo de configuración
 conservado en PVE para los tres CT. Procedimiento en
 [runbook vigente](../../runbooks/NEW-LXC-PROVISIONING.md).
+
+[PR #86](https://github.com/eduardo152030/mailerblend-platform-infra/pull/86).
