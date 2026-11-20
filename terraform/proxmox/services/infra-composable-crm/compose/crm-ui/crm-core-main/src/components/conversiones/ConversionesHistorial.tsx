@@ -48,7 +48,7 @@ export default function ConversionesHistorial() {
           <SelectContent>
             <SelectItem value="__all__">Todos</SelectItem>
             <SelectItem value="PENDING">Pendiente</SelectItem>
-            <SelectItem value="SYNCED">Enviada</SelectItem>
+            <SelectItem value="SENT">Enviada</SelectItem>
             <SelectItem value="FAILED">Fallida</SelectItem>
           </SelectContent>
         </Select>

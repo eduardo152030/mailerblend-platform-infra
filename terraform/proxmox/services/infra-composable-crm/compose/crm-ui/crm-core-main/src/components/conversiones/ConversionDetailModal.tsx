@@ -1,7 +1,6 @@
 import { useConversionOfflineDetail } from "@/hooks/use-api";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Loader2, RefreshCw } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { StatusBadge } from "@/components/StatusBadge";
 import { Separator } from "@/components/ui/separator";
 
@@ -9,10 +8,9 @@ interface Props {
   id: string | null;
   open: boolean;
   onClose: () => void;
-  onRetry?: (id: string) => void;
 }
 
-export default function ConversionDetailModal({ id, open, onClose, onRetry }: Props) {
+export default function ConversionDetailModal({ id, open, onClose }: Props) {
   const { data, isLoading } = useConversionOfflineDetail(id);
 
   if (!open) return null;
@@ -110,15 +108,6 @@ export default function ConversionDetailModal({ id, open, onClose, onRetry }: Pr
               </div>
             </div>
 
-            {/* Actions */}
-            {String(data.sync_status) !== "SYNCED" && onRetry && (
-              <div className="flex gap-2 pt-2">
-                <Button variant="outline" size="sm" onClick={() => onRetry(String(data.id))}>
-                  <RefreshCw className="h-3.5 w-3.5 mr-1.5" />
-                  Reintentar envío
-                </Button>
-              </div>
-            )}
           </div>
         )}
       </DialogContent>

@@ -59,6 +59,7 @@ const statusColors: Record<string, string> = {
   // Sync status
   "PENDING": "bg-warning/15 text-warning",
   "SYNCED": "bg-success/15 text-success",
+  "SENT": "bg-success/15 text-success",
   "FAILED": "bg-destructive/15 text-destructive",
   // Conversion events
   "Lead_Submitted": "bg-muted text-muted-foreground",

@@ -41,7 +41,7 @@ export default function ConversionesDashboard() {
       total += count;
       totalValue += Number(i.total_value ?? 0);
       const status = String(i.sync_status ?? "");
-      if (status === "SYNCED") synced += count;
+      if (status === "SENT") synced += count;
       else if (status === "PENDING") pending += count;
       else if (status === "FAILED") failed += count;
     });
@@ -58,7 +58,7 @@ export default function ConversionesDashboard() {
       if (!map[p]) map[p] = { synced: 0, pending: 0, failed: 0 };
       const count = Number(i.count ?? 0);
       const status = String(i.sync_status ?? "");
-      if (status === "SYNCED") map[p].synced += count;
+      if (status === "SENT") map[p].synced += count;
       else if (status === "PENDING") map[p].pending += count;
       else if (status === "FAILED") map[p].failed += count;
     });
@@ -203,11 +203,11 @@ export default function ConversionesDashboard() {
             <div className="space-y-2">
               {(recentData?.items ?? []).map((item, idx) => {
                 const status = String(item.sync_status ?? "PENDING");
-                const icon = status === "SYNCED" ? "✓" : status === "FAILED" ? "✗" : "⏳";
+                const icon = status === "SENT" ? "✓" : status === "FAILED" ? "✗" : "⏳";
                 const time = item.created_at ? new Date(String(item.created_at)).toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" }) : "";
                 return (
                   <div key={idx} className="flex items-center gap-3 text-sm py-1.5 px-2 rounded hover:bg-muted/50">
-                    <span className={`text-xs font-mono ${status === "SYNCED" ? "text-success" : status === "FAILED" ? "text-destructive" : "text-warning"}`}>
+                    <span className={`text-xs font-mono ${status === "SENT" ? "text-success" : status === "FAILED" ? "text-destructive" : "text-warning"}`}>
                       {icon}
                     </span>
                     <span className="text-xs text-muted-foreground w-12">{time}</span>

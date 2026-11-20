@@ -31,6 +31,11 @@ function qs(params: Record<string, unknown>): string {
   return str ? `?${str}` : "";
 }
 
+export const formEntries = {
+  list: (screen: "formulario-web" | "facturas" | "historial", options: { limit: number; offset: number }) =>
+    request<PaginatedResponse>(`/${screen}${qs(options)}`),
+};
+
 // Contacts
 export const contacts = {
   list: (p: {
@@ -173,8 +178,6 @@ export const conversionesOffline = {
   } = {}) =>
     request<PaginatedResponse>(`/conversiones-offline${qs(p)}`),
   get: (id: string) => request<Record<string, unknown>>(`/conversiones-offline/${id}`),
-  retry: (id: string) =>
-    request<Record<string, unknown>>(`/conversiones-offline/${id}/retry`, { method: "POST" }),
   stats: (p: { from?: string; to?: string } = {}) =>
     request<{ items: Record<string, unknown>[] }>(`/conversiones-offline/stats${qs(p)}`),
 };

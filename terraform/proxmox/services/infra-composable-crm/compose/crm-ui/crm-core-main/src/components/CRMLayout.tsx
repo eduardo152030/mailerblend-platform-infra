@@ -20,6 +20,9 @@ const crmNavItems = [
   { to: "/pendientes", icon: CheckSquare, label: "Pendientes" },
   { to: "/presupuestos", icon: FileText, label: "Presupuestos" },
   { to: "/utm", icon: Link2, label: "UTM" },
+  { to: "/formulario_web", icon: FileText, label: "Formularios web" },
+  { to: "/facturas", icon: Receipt, label: "Facturas" },
+  { to: "/historial", icon: LayoutDashboard, label: "Historial" },
   { to: "/conversiones", icon: RefreshCw, label: "Conversiones" },
 ];
 
