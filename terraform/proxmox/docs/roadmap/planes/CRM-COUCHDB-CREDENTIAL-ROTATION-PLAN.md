@@ -251,6 +251,7 @@ worktree hermano `mailerblend-platform-infra-crm-rotation-normalize`.
 Base de ronda `f465661c1ab48ba829f74fae46a50cc3e3a812e6`.
 Dependencia apilada sobre [#42](https://github.com/eduardo152030/mailerblend-platform-infra/pull/42),
 que aporta el candidato de la URL persistida.
+[PR de normalización #43](https://github.com/eduardo152030/mailerblend-platform-infra/pull/43).
 
 El modo `--normalize-legacy-env` funciona solo con `--prepare-candidate`.
 Acepta una copia privada del formato legado con duplicados, conserva la
