@@ -2887,3 +2887,12 @@ El propietario autorizó corregir la alerta de arranque. El despliegue
 pasa tras cinco minutos sin FIRING relacionado. PENDING transitorio que
 se resuelve no detiene la aceptación. Se mantienen respaldo, TLS, 401
 anónimo y los golden de webform y LinkedIn.
+
+### Fase 7 — Relay SMTP compartido autorizado por el propietario
+
+20/11/2026 Europe/Madrid. El propietario solicita un CT dedicado con Postfix
+y Mailpit, identidad exclusiva por consumidor, cuota por usuario, STARTTLS
+en LAN y alertas a Telegram. Las credenciales upstream se leen del entorno
+privado de infra-svc01. CRMAPI y GoTrue usarán el relay. El ensayo precede al
+envío real y a la sustitución definitiva del aviso legado. Véase el
+[alcance del relay](../../services/infra-mail/README.md).

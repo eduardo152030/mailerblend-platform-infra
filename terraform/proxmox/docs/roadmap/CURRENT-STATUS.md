@@ -1431,3 +1431,12 @@ Auditoría CRM #49 en curso. [Resultados y pendientes](planes/CRM-HARDENING-AUDI
 20/11/2026. #49 desplegado y verificado con 5 min sin FIRING relacionados. Siguiente #28.
 
 20/11/2026. FormEntries #28 desplegado y verificado. Reencolado diferido en #62. Siguiente #29.
+
+### Fase 7 — Relay compartido y aviso de contactos
+
+20/11/2026 Europe/Madrid. [Infra-mail #69](../../services/infra-mail/README.md)
+IN PROGRESS. Política de cuota verificada localmente con dos identidades.
+Pendientes provisión IaC, ensayo SMTP con Mailpit, monitorización de cola y
+entrega real. #68 depende del relay para producción. #31 mantiene como
+requisitos la sustitución del aviso y el respaldo restaurado en aislamiento,
+seguidos de 24 horas de observación antes de retirar los volúmenes.

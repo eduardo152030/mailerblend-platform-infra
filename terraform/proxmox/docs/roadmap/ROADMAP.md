@@ -1376,3 +1376,10 @@ Auditoría CRM #49 en curso. [Resultados y pendientes](planes/CRM-HARDENING-AUDI
 20/11/2026. #49 desplegado y verificado con 5 min sin FIRING relacionados. Siguiente #28.
 
 20/11/2026. FormEntries #28 desplegado y verificado. Reencolado diferido en #62. Siguiente #29.
+
+20/11/2026 Europe/Madrid. Fase 7, [#69] para el relay compartido que
+habilita el envío real de [#68]. El inventario y la provisión del nuevo
+CT, el ensayo Mailpit y los avisos a Telegram forman parte de #69.
+
+[#69]: https://github.com/eduardo152030/mailerblend-platform-infra/issues/69
+[#68]: https://github.com/eduardo152030/mailerblend-platform-infra/issues/68
