@@ -108,3 +108,14 @@ reglas confirmó el cambio aplicado.
 La ventana de estabilización productiva dura cinco minutos. Se consulta
 el historial de ALERTS desde el inicio del despliegue para detectar
 cualquier FIRING relacionado, incluso si se resuelve entre dos consultas.
+
+## Reintento autorizado y aprobado
+
+20/11/2026, 13:47–13:53 Europe/Madrid. CRMAPI `84064c56` quedó en CT618
+con healthcheck healthy, start_period de 30 s y start_interval de 1 s.
+Respaldo de Compose `compose.before-20261120T124757Z.json`. CT109
+conservó el vhost activo. Pasaron TLS, health 200, contactos anónimo
+401, autenticación Supabase, golden webform y golden LinkedIn con
+deduplicación. Cinco minutos sin ninguna alerta FIRING relacionada.
+El test promtool verificó gracia, exclusión y que un fallo persistente
+sigue disparando la alerta. #49 DONE técnico. Siguiente #28, FormEntries.

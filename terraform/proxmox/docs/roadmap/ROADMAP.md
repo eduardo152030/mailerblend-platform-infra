@@ -1372,3 +1372,5 @@ Auditoría CRM #49 en curso. [Resultados y pendientes](planes/CRM-HARDENING-AUDI
 20/11/2026. Entradas #58 desplegadas; TLS, 401, ambos golden y alertas verificados. Continúa la revisión SQL y de cuerpos de #49.
 
 #49 bloqueado tras tres intentos. API y UI #58 activos. [Evidencia de hardening](planes/CRM-HARDENING-AUDIT.md).
+
+20/11/2026. #49 desplegado y verificado con 5 min sin FIRING relacionados. Siguiente #28.
