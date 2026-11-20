@@ -9,8 +9,12 @@ def validate(data):
  s=data['service'];p=data['provisioning'];m=data['monitoring'];r=data['resources'];n=data['network']
  assert re.fullmatch(r'[a-z][a-z0-9-]{1,61}',s['name']),'Invalid service/hostname'
  assert isinstance(s['vmid'],int) and 100<=s['vmid']<=999999999,'Invalid CT ID'
- ip=ipaddress.ip_interface(s['ip']);assert ip.version==4 and ip.ip not in [ip.network.network_address,ip.network.broadcast_address]
- assert ipaddress.ip_address(n['gateway']) in ip.network and ipaddress.ip_address(n['gateway'])!=ip.ip,'Gateway outside subnet'
+ gateway=ipaddress.ip_address(n['gateway'])
+ if s.get('ip') is None:
+  assert n.get('dhcp') is True and gateway.version==4,'An unknown address requires IPv4 DHCP'
+ else:
+  ip=ipaddress.ip_interface(s['ip']);assert ip.version==4 and ip.ip not in [ip.network.network_address,ip.network.broadcast_address]
+  assert gateway in ip.network and gateway!=ip.ip,'Gateway outside subnet'
  assert isinstance(n['dns'],list) and n['dns']
  for address in n['dns']:ipaddress.ip_address(address)
  for field,minimum in [('cpu',1),('memory',128),('disk_gb',2)]:assert isinstance(r[field],int) and r[field]>=minimum
@@ -37,7 +41,7 @@ def pending_notes(data,key):
  sections=[
   '**Purpose**\n'+p['purpose']+'\nDeployment: '+PENDING+' — declared only, no live observation.',
   '**Environment**\n'+p['environment']+'; owner: '+p['owner'],
-  f'**Network**\nCT {ct}; {s["ip"]}; gateway {n["gateway"]}; DNS {", ".join(n["dns"])}; bridge {n["bridge"]}. Domains: '+(', '.join(p['domains']) or PENDING),
+  f'**Network**\nCT {ct}; {s.get("ip") or "DHCP"}; gateway {n["gateway"]}; DNS {", ".join(n["dns"])}; bridge {n["bridge"]}. Domains: '+(', '.join(p['domains']) or PENDING),
   '**Applications**\n'+apps+'\nAll application health: '+PENDING,
   '**Dependencies**\n'+('; '.join(p['dependencies']) or 'None declared; '+PENDING),
   '**Monitoring**\nNode Exporter 1.10.2 native systemd; CPU cgroup v2 textfile (native CPU collector disabled), RAM LXCFS/root disk. '+('cAdvisor 0.60.6 planned; exact socket/namespace approval required.' if m['docker'] else 'Docker/cAdvisor not required by declaration; no Docker agent installed.')+'\nUptime: existing PVE exporter; dashboards join published inventory. Endpoints: '+('; '.join(x['url']+' ['+x['contract']+']' for x in m.get('blackbox',[])) or PENDING)+'\nAll deployed monitoring/functional status: '+PENDING,

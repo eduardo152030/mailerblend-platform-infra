@@ -26,8 +26,8 @@ y autenticación del mensaje en el buzón destino después del ensayo Mailpit.
 ## Provisión
 
 El plan con destino `proxmox_virtual_environment_container.svc["infra-mail"]`
-debe mostrar únicamente la creación del CT 632. Confirma la reserva de su
-IP antes de aplicarlo. Instala y valida Node Exporter con el
+debe mostrar únicamente la creación del CT 632. Registra la concesión
+DHCP observada tras el alta y comprueba la resolución antes de activar clientes. Instala y valida Node Exporter con el
 [runbook de provisión](../../docs/runbooks/NEW-LXC-PROVISIONING.md).
 El instalador `install-relay.sh` requiere un CT dedicado y los siguientes
 ficheros en `/etc/infra-mail/private` con acceso solo de root.
@@ -52,3 +52,15 @@ En el entorno desechable, ejecuta `install-mailpit.sh` y después
 desde un cliente SMTP que se exige STARTTLS, que el servicio solo puede
 usar su remitente y que el mensaje aparece en la API de Mailpit en
 `127.0.0.1:8025`. El ensayo no necesita las credenciales del proveedor.
+
+Genera el material privado fuera del checkout con `prepare-private.py`
+usando la IP que asigne DHCP. El generador conserva las contraseñas de los
+consumidores y la CA entre ejecuciones. Copia al CT solo los ficheros
+requeridos por el instalador. Conserva `ca.key` fuera del CT, distribuye
+`ca.crt` como confianza y entrega a cada consumidor únicamente su contraseña.
+Si el router no publica el nombre del CT, usa la IP concedida y cubierta por
+el certificado. Comprueba de nuevo el endpoint si cambia la concesión.
+
+El relay se usa para correo de negocio. Las identidades iniciales son CRMAPI
+y GoTrue. Las alertas siguen en Telegram mediante su canal existente. El alta
+de otro consumidor requiere la indicación del propietario.
