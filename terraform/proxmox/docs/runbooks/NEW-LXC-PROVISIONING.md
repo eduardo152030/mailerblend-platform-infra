@@ -163,10 +163,10 @@ Para revertir la excepción administrada, usar `rollback` en lugar de
 preservando otras ediciones de configuración. Confirmar el servicio en
 loopback y su prueba funcional antes de habilitar acceso de red.
 
-## 4. Creación y exporters: autorización necesaria
+## 4. Creación y exporters: ejecución obligatoria, no requiere autorización
 
 ```sh
-# SOLO después de aprobar el plan real exacto anterior:
+# Creación y exporters: paso mandatorio (no sujeto a autorización):
 terraform apply -parallelism=1 "$PLAN_DIR/create.tfplan"
 ```
 
