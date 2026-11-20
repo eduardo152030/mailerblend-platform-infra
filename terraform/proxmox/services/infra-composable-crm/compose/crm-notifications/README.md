@@ -23,11 +23,10 @@ entrar de nuevo. Incluye 401/403 de la configuración para usuarios sin rol
 admin y los dos golden tests de ingestión en la validación de producción.
 
 El ensayo local con PostgreSQL 14 verificó cola, deduplicación, fallo SMTP,
-auditoría y reintento hasta capturar un mensaje en Mailpit. Queda repetir sobre
-el PostgreSQL 16 del ensayo, validar GoTrue extremo a extremo y activar el relay.
+auditoría y reintento hasta capturar un mensaje en Mailpit. Se repitió sobre PostgreSQL 16 en CT 9618 con NIC desconectada.
 
 El ensayo de recuperación sobre PostgreSQL 16 y GoTrue 2.197.0 confirmó el
 correo capturado por Mailpit, el enlace con prefijo público, la redirección,
 el cambio de contraseña y el inicio de sesión con la nueva contraseña. La
-conexión de migraciones fija `search_path=auth`. El worker conserva pendiente
-su ensayo de entrega sobre PostgreSQL 16 con las imágenes de release.
+conexión de migraciones fija `search_path=auth`. Pendientes la prueba de los contenedores de release, el despliegue y la
+validación de permisos desde el navegador.
