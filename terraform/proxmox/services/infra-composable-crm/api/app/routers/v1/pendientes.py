@@ -4,12 +4,31 @@ from typing import Optional, Dict, Any, List
 from uuid import UUID, uuid4
 from datetime import date, datetime, time  # 📅 Para manejo de fechas
 
-from fastapi import APIRouter, Depends, Query, HTTPException, Body
+from fastapi import APIRouter, Depends, Query, HTTPException
 from asyncpg import Connection
+from pydantic import BaseModel
 
 from app.db import get_db
 
 router = APIRouter(prefix="/v1/pendientes", tags=["pendientes"])  # ✅ CORREGIDO: era /v1/oportunidades
+
+
+class TaskWrite(BaseModel):
+    title: str | None = None
+    description: str | None = None
+    status: str | None = None
+    priority: str | None = None
+    assigned_to: str | None = None
+    due_date: str | None = None
+    due_time: str | None = None
+    reminder_datetime: str | None = None
+    completed_at: str | None = None
+    contacto_id: str | None = None
+    oportunidad_id: str | None = None
+    linkedin_lead_id: str | None = None
+    created_by: str | None = None
+    reminder_enabled: bool | None = None
+
 
 
 def _clamp_limit(limit: int) -> int:
@@ -273,7 +292,7 @@ async def get_pendiente(
 # -------------------------
 @router.post("")
 async def create_pendiente(
-    payload: Dict[str, Any] = Body(...),
+    data: TaskWrite,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -290,6 +309,7 @@ async def create_pendiente(
         "assigned_to": "Juan Perez"
     }
     """
+    payload = data.model_dump(exclude_unset=True)
     # Validar título (requerido)
     title = payload.get("title", "").strip()
     if not title:
@@ -392,12 +412,13 @@ async def create_pendiente(
 @router.patch("/{pendiente_id}")
 async def patch_pendiente(
     pendiente_id: UUID,
-    payload: Dict[str, Any] = Body(...),
+    data: TaskWrite,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
     Actualiza un pendiente existente.
     """
+    payload = data.model_dump(exclude_unset=True)
     before = await conn.fetchrow("SELECT * FROM pendientes WHERE id = $1", pendiente_id)
     if not before:
         raise HTTPException(status_code=404, detail="Pendiente not found")

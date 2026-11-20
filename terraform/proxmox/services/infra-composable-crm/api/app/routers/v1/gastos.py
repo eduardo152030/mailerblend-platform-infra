@@ -8,7 +8,7 @@ from uuid import UUID
 from fastapi import APIRouter, Depends, Query, HTTPException
 from fastapi.responses import StreamingResponse
 from asyncpg import Connection
-from pydantic import BaseModel, ConfigDict, HttpUrl, TypeAdapter, field_validator
+from pydantic import BaseModel, HttpUrl, TypeAdapter, field_validator
 
 from app.db import get_db
 from app.core.crm_access import CRMAccess
@@ -21,8 +21,22 @@ attachment_url = TypeAdapter(HttpUrl)
 
 
 class ExpenseWrite(BaseModel):
-    model_config = ConfigDict(extra="allow")
+    fecha_gasto: str | None = None
+    fecha_vencimiento: str | None = None
+    proveedor_id: str | None = None
+    proveedor_nombre: str | None = None
+    concepto: str | None = None
+    categoria: str | None = None
+    project_key: str | None = None
+    currency: str | None = None
+    estado: str | None = None
+    metodo_pago: str | None = None
+    numero_factura: str | None = None
     adjunto_url: str | None = None
+    notas: str | None = None
+    internal_notes: str | None = None
+    base_imponible: float | None = None
+    iva_porcentaje: float | None = None
 
     @field_validator("adjunto_url")
     @classmethod

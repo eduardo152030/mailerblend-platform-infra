@@ -8,10 +8,11 @@ Gestión de servicios, ICP, pain points, objeciones, FAQs
 - Si faltan queries, genera dinámicas desde linkedin_query_generator_config
 """
 
-from fastapi import APIRouter, Depends, Query, Body, HTTPException
+from fastapi import APIRouter, Depends, Query, HTTPException
 from typing import Optional, Dict, Any, List, Tuple
 from uuid import UUID
 from asyncpg import Connection
+from pydantic import BaseModel
 import json
 import random
 import hashlib
@@ -23,6 +24,26 @@ router = APIRouter(
     prefix="/v1/linkedin-sourcing/knowledge-base",
     tags=["LinkedIn Knowledge Base"]
 )
+
+
+class KnowledgeWrite(BaseModel):
+    category: str | None = None
+    subcategory: str | None = None
+    title: str | None = None
+    target_pack: str | None = None
+    priority: int | None = None
+    is_active: bool | None = None
+    content: dict[str, Any] | list[Any] | str | None = None
+
+
+class QueryReservation(BaseModel):
+    query: str | None = None
+    query_hash: str | None = None
+
+
+class QueryHistoryReset(BaseModel):
+    pack: str | None = None
+    older_than_days: int | None = None
 
 
 VALID_PACKS = ("GUARDIAN", "MOTOR", "FORTALEZA")
@@ -49,10 +70,11 @@ def _md5_lower(s: str) -> str:
 
 @router.post("")
 async def create_knowledge_entry(
-    payload: Dict[str, Any] = Body(...),
+    data: KnowledgeWrite,
     conn: Connection = Depends(get_db)
 ) -> Dict[str, Any]:
     """Crear entrada en knowledge base."""
+    payload = data.model_dump(exclude_unset=True)
     required = ["category", "title", "content"]
     if not all(k in payload for k in required):
         raise HTTPException(400, f"Required: {', '.join(required)}")
@@ -179,10 +201,11 @@ async def get_knowledge_entry(
 @router.patch("/{entry_id}")
 async def update_knowledge_entry(
     entry_id: UUID,
-    payload: Dict[str, Any] = Body(...),
+    data: KnowledgeWrite,
     conn: Connection = Depends(get_db)
 ) -> Dict[str, Any]:
     """Actualizar entrada."""
+    payload = data.model_dump(exclude_unset=True)
     exists = await conn.fetchval(
         "SELECT id FROM linkedin_knowledge_base WHERE id = $1", entry_id
     )
@@ -574,7 +597,7 @@ async def get_queries_for_pack(
 @router.post("/queries/{pack}/reserve")
 async def reserve_query(
     pack: str,
-    payload: Dict[str, Any] = Body(...),
+    data: QueryReservation,
     conn: Connection = Depends(get_db)
 ) -> Dict[str, Any]:
     """
@@ -583,6 +606,7 @@ async def reserve_query(
       - query_hash (preferido)
       - query (si no hay hash)
     """
+    payload = data.model_dump(exclude_unset=True)
     pack = _assert_pack(pack)
     qh = (payload.get("query_hash") or "").strip()
     q = (payload.get("query") or "").strip()
@@ -620,7 +644,7 @@ async def reserve_query(
 
 @router.post("/queries/reset")
 async def reset_query_history(
-    payload: Dict[str, Any] = Body(...),
+    data: QueryHistoryReset,
     conn: Connection = Depends(get_db)
 ) -> Dict[str, Any]:
     """
@@ -629,6 +653,7 @@ async def reset_query_history(
       - pack: opcional (GUARDIAN|MOTOR|FORTALEZA). Si no viene, aplica a todos.
       - older_than_days: default 30
     """
+    payload = data.model_dump(exclude_unset=True)
     older_than_days = int(payload.get("older_than_days", 30))
     if older_than_days < 0 or older_than_days > 3650:
         raise HTTPException(400, "older_than_days must be between 0 and 3650")

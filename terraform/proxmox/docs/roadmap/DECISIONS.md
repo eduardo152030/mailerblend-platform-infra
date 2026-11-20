@@ -2880,3 +2880,10 @@ PostgreSQL 16 de CT618. Autoriza hardening y despliegues en la secuencia
 acordada, condicionados a pruebas y a que no haya datos anónimos. El
 preflight detectó acceso anónimo al API de negocio y aplica la parada.
 Ninguna mutación productiva. [Plan actualizado](planes/CRM-UI-MIGRATION-PLAN.md).
+
+### Verificación del despliegue CRM — 20/11/2026
+
+El propietario autorizó corregir la alerta de arranque. El despliegue
+pasa tras cinco minutos sin FIRING relacionado. PENDING transitorio que
+se resuelve no detiene la aceptación. Se mantienen respaldo, TLS, 401
+anónimo y los golden de webform y LinkedIn.

@@ -3,12 +3,27 @@ from __future__ import annotations
 from typing import Optional, Dict, Any, List
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, Query, HTTPException, Body
+from fastapi import APIRouter, Depends, Query, HTTPException
 from asyncpg import Connection
+from pydantic import BaseModel
 
 from app.db import get_db
 
 router = APIRouter(prefix="/v1/linkedin-sourcing/approvals", tags=["linkedin-sourcing-approvals"])
+
+
+class ApprovalRequest(BaseModel):
+    linkedin_lead_id: str | None = None
+    draft_message: str | None = None
+    ai_rationale: str | None = None
+
+
+class ApprovalDecision(BaseModel):
+    angle: str | None = None
+    approved_by: str | None = None
+    final_message: str | None = None
+    human_note: str | None = None
+    pain_assessment: str | None = None
 
 
 def _clamp_limit(limit: int) -> int:
@@ -21,7 +36,7 @@ def _clamp_limit(limit: int) -> int:
 
 @router.post("")
 async def create_approval(
-    payload: Dict[str, Any] = Body(...),
+    data: ApprovalRequest,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -34,6 +49,7 @@ async def create_approval(
         "ai_rationale": "Explicación de por qué este mensaje"
     }
     """
+    payload = data.model_dump(exclude_unset=True)
     linkedin_lead_id = payload.get("linkedin_lead_id")
     draft_message = payload.get("draft_message")
     
@@ -159,7 +175,7 @@ async def get_approval(
 @router.post("/{approval_id}/approve")
 async def approve_draft(
     approval_id: UUID,
-    payload: Dict[str, Any] = Body(...),
+    data: ApprovalDecision,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -178,6 +194,7 @@ async def approve_draft(
     - Cambia status del lead a IN_CONVERSATION
     - Crea mensaje en linkedin_conversations
     """
+    payload = data.model_dump(exclude_unset=True)
     approval = await conn.fetchrow(
         "SELECT * FROM linkedin_approvals WHERE id = $1",
         approval_id
@@ -254,7 +271,7 @@ async def approve_draft(
 @router.post("/{approval_id}/reject")
 async def reject_draft(
     approval_id: UUID,
-    payload: Dict[str, Any] = Body(...),
+    data: ApprovalDecision,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -269,6 +286,7 @@ async def reject_draft(
     
     NO cambia el status del lead.
     """
+    payload = data.model_dump(exclude_unset=True)
     approval = await conn.fetchrow(
         "SELECT * FROM linkedin_approvals WHERE id = $1",
         approval_id
@@ -320,39 +338,38 @@ async def get_approval_feedback_stats(
     """
     from datetime import timedelta
     
-    cutoff = f"NOW() - INTERVAL '{days} days'"
     
     # Total approvals
     total = await conn.fetchval(
-        f"SELECT count(*)::int FROM linkedin_approvals WHERE created_at >= {cutoff}"
+        "SELECT count(*)::int FROM linkedin_approvals WHERE created_at >= NOW() - $1::int * INTERVAL '1 day'", days
     )
     
     # Approved vs rejected
     approved = await conn.fetchval(
-        f"SELECT count(*)::int FROM linkedin_approvals WHERE approved = TRUE AND created_at >= {cutoff}"
+        "SELECT count(*)::int FROM linkedin_approvals WHERE approved = TRUE AND created_at >= NOW() - $1::int * INTERVAL '1 day'", days
     )
     rejected = await conn.fetchval(
-        f"SELECT count(*)::int FROM linkedin_approvals WHERE approved = FALSE AND created_at >= {cutoff}"
+        "SELECT count(*)::int FROM linkedin_approvals WHERE approved = FALSE AND created_at >= NOW() - $1::int * INTERVAL '1 day'", days
     )
     
     # By angle
     angle_stats = await conn.fetch(
-        f"""
+        """
         SELECT angle, count(*)::int as count
         FROM linkedin_approvals
-        WHERE created_at >= {cutoff} AND angle IS NOT NULL
+        WHERE created_at >= NOW() - $1::int * INTERVAL '1 day' AND angle IS NOT NULL
         GROUP BY angle
-        """
+        """, days
     )
     
     # By pain_assessment
     pain_stats = await conn.fetch(
-        f"""
+        """
         SELECT pain_assessment, count(*)::int as count
         FROM linkedin_approvals
-        WHERE created_at >= {cutoff} AND pain_assessment IS NOT NULL
+        WHERE created_at >= NOW() - $1::int * INTERVAL '1 day' AND pain_assessment IS NOT NULL
         GROUP BY pain_assessment
-        """
+        """, days
     )
     
     by_angle = {row["angle"]: row["count"] for row in angle_stats}

@@ -2,10 +2,11 @@
 Router: LinkedIn Activity Log
 Registro de toda actividad para rate limiting y análisis
 """
-from fastapi import APIRouter, Depends, Query, Body, HTTPException
+from fastapi import APIRouter, Depends, Query, HTTPException
 from typing import Optional, Dict, Any
 from uuid import UUID
 from asyncpg import Connection
+from pydantic import BaseModel
 from datetime import datetime, timedelta
 import json
 
@@ -18,9 +19,15 @@ router = APIRouter(
 )
 
 
+class ActivityWrite(BaseModel):
+    activity_type: str | None = None
+    risk_level: str | None = None
+    metadata: dict[str, Any] | None = None
+
+
 @router.post("")
 async def log_activity(
-    payload: Dict[str, Any] = Body(...),
+    data: ActivityWrite,
     conn: Connection = Depends(get_db)
 ) -> Dict[str, Any]:
     """
@@ -33,6 +40,7 @@ async def log_activity(
         "risk_level": "LOW|MEDIUM|HIGH"
     }
     """
+    payload = data.model_dump(exclude_unset=True)
     activity_type = payload.get("activity_type")
     if not activity_type:
         raise HTTPException(400, "activity_type is required")
@@ -79,9 +87,9 @@ async def list_activity(
     """
     Listar actividad reciente.
     """
-    where = [f"executed_at >= NOW() - INTERVAL '{hours} hours'"]
-    args = []
-    i = 1
+    where = ["executed_at >= NOW() - $1::int * INTERVAL '1 hour'"]
+    args = [hours]
+    i = 2
     
     if activity_type:
         where.append(f"activity_type = ${i}")
@@ -126,16 +134,16 @@ async def get_daily_stats(
     Estadísticas diarias de actividad.
     """
     rows = await conn.fetch(
-        f"""
+        """
         SELECT
             DATE(executed_at) as date,
             activity_type,
             COUNT(*) as count
         FROM linkedin_activity_log
-        WHERE executed_at >= CURRENT_DATE - INTERVAL '{days} days'
+        WHERE executed_at >= CURRENT_DATE - $1::int * INTERVAL '1 day'
         GROUP BY DATE(executed_at), activity_type
         ORDER BY date DESC, activity_type
-        """
+        """, days
     )
     
     # Agrupar por fecha
@@ -194,19 +202,19 @@ async def cleanup_old_logs(
     """
     Limpiar logs antiguos (por defecto solo cuenta, no elimina).
     """
-    count_query = f"""
+    count_query = """
         SELECT COUNT(*)::int FROM linkedin_activity_log
-        WHERE executed_at < CURRENT_DATE - INTERVAL '{days_to_keep} days'
+        WHERE executed_at < CURRENT_DATE - $1::int * INTERVAL '1 day'
     """
     
-    count = await conn.fetchval(count_query) or 0
+    count = await conn.fetchval(count_query, days_to_keep) or 0
     
     if not dry_run and count > 0:
         await conn.execute(
-            f"""
-            DELETE FROM linkedin_activity_log
-            WHERE executed_at < CURRENT_DATE - INTERVAL '{days_to_keep} days'
             """
+            DELETE FROM linkedin_activity_log
+            WHERE executed_at < CURRENT_DATE - $1::int * INTERVAL '1 day'
+            """, days_to_keep
         )
         return {
             "deleted": count,

@@ -7,13 +7,29 @@ from typing import Optional, Dict, Any, List
 from uuid import UUID
 from datetime import datetime
 
-from fastapi import APIRouter, Depends, Query, HTTPException, Body, Header
+from fastapi import APIRouter, Depends, Query, HTTPException, Header
 from asyncpg import Connection
 from pydantic import BaseModel, Field
 
 from app.db import get_db
 
 router = APIRouter(prefix="/v1/linkedin-sourcing/leads", tags=["linkedin-sourcing-leads"])
+
+
+class LeadPatch(BaseModel):
+    company: str | None = None
+    full_name: str | None = None
+    location: str | None = None
+    next_action_at: str | None = None
+    pack_candidate: str | None = None
+    segment: str | None = None
+    status: str | None = None
+    title: str | None = None
+    lead_score: int | None = None
+    wait_window_days: int | None = None
+    research_depth: str | None = None
+    research_data: dict[str, Any] | None = None
+    score_breakdown: dict[str, Any] | None = None
 service_router = APIRouter(prefix=router.prefix, tags=["linkedin-sourcing-service"])
 
 
@@ -439,7 +455,7 @@ async def lead_snapshot(
 @router.patch("/{lead_id}")
 async def patch_lead(
     lead_id: UUID,
-    payload: Dict[str, Any] = Body(...),
+    data: LeadPatch,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -452,6 +468,7 @@ async def patch_lead(
     - wait_window_days
     - research_depth, research_data
     """
+    payload = data.model_dump(exclude_unset=True)
     before = await conn.fetchrow(
         "SELECT * FROM linkedin_leads WHERE id = $1",
         lead_id

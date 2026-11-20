@@ -4,12 +4,32 @@ from typing import Optional, Dict, Any, List
 from uuid import UUID
 from datetime import datetime
 
-from fastapi import APIRouter, Depends, Query, HTTPException, Body
+from fastapi import APIRouter, Depends, Query, HTTPException
 from asyncpg import Connection
+from pydantic import BaseModel
 
 from app.db import get_db
 
 router = APIRouter(prefix="/v1/linkedin-sourcing", tags=["linkedin-sourcing"])
+
+
+class ConversationWrite(BaseModel):
+    direction: str | None = None
+    intent: str | None = None
+    linkedin_lead_id: str | None = None
+    message_text: str | None = None
+    sent_by: str | None = None
+    sentiment: str | None = None
+
+
+class OutcomeWrite(BaseModel):
+    calendar_event_id: str | None = None
+    calendar_event_url: str | None = None
+    linkedin_lead_id: str | None = None
+    outcome: str | None = None
+    outcome_notes: str | None = None
+    recorded_by: str | None = None
+    scheduled_at: str | None = None
 
 
 def _clamp_limit(limit: int) -> int:
@@ -24,7 +44,7 @@ def _clamp_limit(limit: int) -> int:
 
 @router.post("/conversations")
 async def create_message(
-    payload: Dict[str, Any] = Body(...),
+    data: ConversationWrite,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -40,6 +60,7 @@ async def create_message(
         "intent": "INTERESTED|NOT_INTERESTED|QUESTION (opcional)"
     }
     """
+    payload = data.model_dump(exclude_unset=True)
     linkedin_lead_id = payload.get("linkedin_lead_id")
     message_text = payload.get("message_text")
     direction = payload.get("direction")
@@ -165,7 +186,7 @@ async def get_lead_conversations(
 
 @router.post("/outcomes")
 async def create_outcome(
-    payload: Dict[str, Any] = Body(...),
+    data: OutcomeWrite,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -184,6 +205,7 @@ async def create_outcome(
     Side effects:
     - Actualiza status del lead según el outcome
     """
+    payload = data.model_dump(exclude_unset=True)
     linkedin_lead_id = payload.get("linkedin_lead_id")
     outcome = payload.get("outcome")
     
@@ -288,9 +310,9 @@ async def list_outcomes(
     """
     limit = _clamp_limit(limit)
     
-    where: List[str] = [f"outcome_at >= NOW() - INTERVAL '{days} days'"]
-    args: List[Any] = []
-    i = 1
+    where: List[str] = ["outcome_at >= NOW() - $1::int * INTERVAL '1 day'"]
+    args: List[Any] = [days]
+    i = 2
     
     if outcome:
         where.append(f"outcome = ${i}")
@@ -361,8 +383,6 @@ async def get_dashboard(
     """
     Dashboard principal con KPIs del sistema LinkedIn Sourcing.
     """
-    cutoff = f"NOW() - INTERVAL '{days} days'"
-    last_7_days = "NOW() - INTERVAL '7 days'"
     
     # Total leads
     total_leads = await conn.fetchval(
@@ -391,18 +411,18 @@ async def get_dashboard(
     
     # Invites sent
     invites_sent = await conn.fetchval(
-        f"""
-        SELECT count(*)::int FROM linkedin_leads
-        WHERE invite_sent_at IS NOT NULL AND invite_sent_at >= {cutoff}
         """
+        SELECT count(*)::int FROM linkedin_leads
+        WHERE invite_sent_at IS NOT NULL AND invite_sent_at >= NOW() - $1::int * INTERVAL '1 day'
+        """, days
     )
     
     # Acceptances
     acceptances = await conn.fetchval(
-        f"""
-        SELECT count(*)::int FROM linkedin_leads
-        WHERE accepted_at IS NOT NULL AND accepted_at >= {cutoff}
         """
+        SELECT count(*)::int FROM linkedin_leads
+        WHERE accepted_at IS NOT NULL AND accepted_at >= NOW() - $1::int * INTERVAL '1 day'
+        """, days
     )
     
     # Acceptance rate
@@ -410,13 +430,13 @@ async def get_dashboard(
     
     # Avg time to accept (en horas)
     avg_time_hours = await conn.fetchval(
-        f"""
+        """
         SELECT AVG(EXTRACT(EPOCH FROM (accepted_at - invite_sent_at)) / 3600)
         FROM linkedin_leads
         WHERE accepted_at IS NOT NULL
           AND invite_sent_at IS NOT NULL
-          AND accepted_at >= {cutoff}
-        """
+          AND accepted_at >= NOW() - $1::int * INTERVAL '1 day'
+        """, days
     )
     
     # ── Conversaciones activas: leads con mensajes en últimos 7 días ──
@@ -467,45 +487,45 @@ async def get_dashboard(
 
     # ── Booked calls ──
     booked_calls = await conn.fetchval(
-        f"""
-        SELECT count(*)::int FROM linkedin_outcomes
-        WHERE outcome = 'BOOKED' AND outcome_at >= {cutoff}
         """
+        SELECT count(*)::int FROM linkedin_outcomes
+        WHERE outcome = 'BOOKED' AND outcome_at >= NOW() - $1::int * INTERVAL '1 day'
+        """, days
     )
 
     # ── Converted opportunities ──
     converted_opportunities = await conn.fetchval(
-        f"""
-        SELECT count(*)::int FROM linkedin_outcomes
-        WHERE outcome = 'CONVERTED' AND outcome_at >= {cutoff}
         """
+        SELECT count(*)::int FROM linkedin_outcomes
+        WHERE outcome = 'CONVERTED' AND outcome_at >= NOW() - $1::int * INTERVAL '1 day'
+        """, days
     )
 
     # ── Last 7 days ──
     new_leads_7d = await conn.fetchval(
-        f"SELECT count(*)::int FROM linkedin_leads WHERE created_at >= {last_7_days}"
+        "SELECT count(*)::int FROM linkedin_leads WHERE created_at >= NOW() - INTERVAL '7 days'"
     )
     accepted_7d = await conn.fetchval(
-        f"SELECT count(*)::int FROM linkedin_leads WHERE accepted_at >= {last_7_days}"
+        "SELECT count(*)::int FROM linkedin_leads WHERE accepted_at >= NOW() - INTERVAL '7 days'"
     )
     booked_7d = await conn.fetchval(
-        f"""
+        """
         SELECT count(*)::int FROM linkedin_outcomes
-        WHERE outcome = 'BOOKED' AND outcome_at >= {last_7_days}
+        WHERE outcome = 'BOOKED' AND outcome_at >= NOW() - INTERVAL '7 days'
         """
     )
 
     # ── A/B Testing ──
     segment_rows = await conn.fetch(
-        f"""
+        """
         SELECT
             segment,
-            count(*) FILTER (WHERE invite_sent_at IS NOT NULL AND invite_sent_at >= {cutoff}) as invites,
-            count(*) FILTER (WHERE accepted_at IS NOT NULL AND accepted_at >= {cutoff}) as accepts
+            count(*) FILTER (WHERE invite_sent_at IS NOT NULL AND invite_sent_at >= NOW() - $1::int * INTERVAL '1 day') as invites,
+            count(*) FILTER (WHERE accepted_at IS NOT NULL AND accepted_at >= NOW() - $1::int * INTERVAL '1 day') as accepts
         FROM linkedin_leads
         WHERE segment IS NOT NULL
         GROUP BY segment
-        """
+        """, days
     )
     segments_performance = {}
     for row in segment_rows:
