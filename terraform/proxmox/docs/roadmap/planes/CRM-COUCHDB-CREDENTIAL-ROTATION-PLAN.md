@@ -217,3 +217,29 @@ modo 0644. Como el preflight requiere 0600, trabajar con una copia privada
 La receta de instalación debe comprobar qué UID lee el archivo y restringir
 el modo sin impedir el arranque. La comprobación de formato y modo fue de
 solo lectura.
+
+## Rotación y reversión con login de Budibase en la réplica
+
+20/11/2026 Europe/Madrid. Continuación del PR #42 desde `f5244b29`.
+VM QEMU/TCG y Alpine 3.22, Docker 28.3.3 con overlay2, Compose 2.32.4.
+Se usaron los digests de CT618 para Budibase 3.27.4, CouchDB 3.5.1 y Redis,
+dos proyectos Compose, red interna y tres volúmenes nuevos. La prueba
+replicó la estructura de la URL persistida. No usó copias del negocio.
+
+| Paso | Resultado |
+| --- | --- |
+| Arranque y login inicial | Health HTTP funcional y sesión autenticada. Se leyó la identidad de la cuenta sintética por API. |
+| Cambio coordinado | Se recreó CouchDB conservando su volumen, se actualizó la URL persistida y se recreó Budibase con el Compose candidato. Credencial anterior 401, base sintética 200, health HTTP y nuevo login con la misma cuenta PASS, sin variables de aprovisionamiento de cuenta. |
+| Segunda aplicación | Compose conservó el ID del contenedor Budibase con la misma configuración. |
+| Reversión | Se revirtieron el modelo efectivo de CouchDB, el Compose de Budibase y la URL persistida. Candidato 401, base sintética 200, nuevo login e identidad PASS; Redis mantuvo su ID. |
+| Healthcheck D051 | Script versionado ejecutado dentro de la réplica tras la reversión: PASS. El healthcheck por defecto de la imagen seguía marcando unhealthy. |
+
+El primer arranque con TCG atascó la inicialización concurrente de PM2.
+La réplica arrancó tras serializar PM2 con `pm2 ping` antes del runner y
+ampliar el límite de espera de readiness. La adaptación solo se aplicó en
+laboratorio. El ensayo verifica el mecanismo y el login en la topología
+sintética, con una reversión planificada. Sigue pendiente comprobar la
+restauración de la copia real y automatizar la transacción productiva con
+el procedimiento acordado. No se modificaron CT618, sus archivos ni
+sus credenciales. El propietario ha fijado la parada antes de cualquier
+acción mutante en producción.

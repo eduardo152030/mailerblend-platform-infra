@@ -1307,3 +1307,7 @@ CT618 sin cambios.
 
 Preflight #23: Budibase usa una URL autenticada persistida en /data/.env.
 Rotación y reversión deben incluir esa tercera fuente. Sin cambios en CT618.
+
+20/11/2026 Europe/Madrid. #23: réplica Budibase, CouchDB y Redis PASS
+en cambio coordinado, login, segunda aplicación y reversión. Healthcheck
+D051 PASS tras reversión. Rotación real pendiente; CT618 sin cambios.
