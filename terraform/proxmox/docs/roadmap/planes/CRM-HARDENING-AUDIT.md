@@ -45,3 +45,18 @@ consultas de Prometheus a intervalos de cinco segundos sin alertas
 nuevas. Respaldo del API `compose.before-20261120T123157Z.json` y de la
 UI en `/opt/crm-ui-release/before-58.KJGFP2`, con etiqueta previa
 `39e9aad67c16`. El resto de #49 sigue en curso.
+
+## Contratos de escritura y ventanas SQL
+
+Los cuerpos de escritura JSON ahora tienen modelos por responsabilidad:
+oportunidades, pendientes, presupuestos, proveedores, gastos y los
+módulos de LinkedIn. Se preserva la diferencia entre campos omitidos y
+nulos en PATCH. La prueba aislada verificó ocho rechazos 422 y comprobó
+que OpenAPI carece de cuerpos de objeto genérico en v1.
+
+La ventana de tiempo de actividad, limpieza, aprobaciones, cooldowns,
+resultados y dashboard de LinkedIn se pasa por parámetros de asyncpg.
+Se verificaron índices y argumentos en siete rutas con un driver
+instrumentado. Los fragmentos estructurales restantes seleccionan
+columnas o cláusulas predefinidas y mantienen los datos en parámetros.
+La prueba de limpieza usó dry_run y conservó los registros.

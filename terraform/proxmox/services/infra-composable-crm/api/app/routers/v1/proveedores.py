@@ -3,12 +3,24 @@ from __future__ import annotations
 from typing import Optional, Dict, Any, List
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, Query, HTTPException, Body
+from fastapi import APIRouter, Depends, Query, HTTPException
 from asyncpg import Connection
+from pydantic import BaseModel
 
 from app.db import get_db
 
 router = APIRouter(prefix="/v1/proveedores", tags=["proveedores"])
+
+
+class SupplierWrite(BaseModel):
+    nombre: str | None = None
+    cif: str | None = None
+    tipo: str | None = None
+    email: str | None = None
+    telefono: str | None = None
+    website: str | None = None
+    notas: str | None = None
+
 
 
 def _clamp_limit(limit: int) -> int:
@@ -77,9 +89,10 @@ async def get_proveedor(
 
 @router.post("")
 async def create_proveedor(
-    payload: Dict[str, Any] = Body(...),
+    data: SupplierWrite,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
+    payload = data.model_dump(exclude_unset=True)
     nombre = (payload.get("nombre") or "").strip()
     if not nombre:
         raise HTTPException(status_code=400, detail="nombre is required")
@@ -106,9 +119,10 @@ async def create_proveedor(
 @router.patch("/{proveedor_id}")
 async def patch_proveedor(
     proveedor_id: UUID,
-    payload: Dict[str, Any] = Body(...),
+    data: SupplierWrite,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
+    payload = data.model_dump(exclude_unset=True)
     before = await conn.fetchrow("SELECT * FROM proveedores WHERE id=$1", proveedor_id)
     if not before:
         raise HTTPException(status_code=404, detail="Proveedor not found")

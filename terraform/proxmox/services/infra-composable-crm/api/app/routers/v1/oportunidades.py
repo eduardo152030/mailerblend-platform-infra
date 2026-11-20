@@ -4,12 +4,37 @@ from typing import Optional, Dict, Any, List, Tuple
 from uuid import UUID
 from datetime import date, datetime  # 📅 Para convertir strings a fechas
 
-from fastapi import APIRouter, Depends, Query, HTTPException, Body
+from fastapi import APIRouter, Depends, Query, HTTPException
 from asyncpg import Connection
+from pydantic import BaseModel
 
 from app.db import get_db
 
 router = APIRouter(prefix="/v1/oportunidades", tags=["oportunidades"])
+
+
+class OpportunityPatch(BaseModel):
+    estado: str | None = None
+    lead_tag: str | None = None
+    prioridad: str | None = None
+    urgencia: str | None = None
+    next_action: str | None = None
+    next_action_date: str | None = None
+    currency: str | None = None
+    owner: str | None = None
+    team: str | None = None
+    pack: str | None = None
+    deal_name: str | None = None
+    expected_close_date: str | None = None
+    won_at: str | None = None
+    lost_at: str | None = None
+    lost_reason: str | None = None
+    lost_reason_notes: str | None = None
+    notas_internas: str | None = None
+    probabilidad: int | None = None
+    deal_value: float | None = None
+    tags: list[str] | None = None
+
 
 
 def _clamp_limit(limit: int) -> int:
@@ -350,9 +375,10 @@ async def oportunidad_snapshot(
 @router.patch("/{oportunidad_id}")
 async def patch_oportunidad(
     oportunidad_id: UUID,
-    payload: Dict[str, Any] = Body(...),
+    data: OpportunityPatch,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
+    payload = data.model_dump(exclude_unset=True)
     before = await conn.fetchrow("SELECT * FROM oportunidades WHERE id = $1", oportunidad_id)
     if not before:
         raise HTTPException(status_code=404, detail="Oportunidad not found")

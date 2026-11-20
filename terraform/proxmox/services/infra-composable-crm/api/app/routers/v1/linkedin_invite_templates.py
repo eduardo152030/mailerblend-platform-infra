@@ -6,6 +6,7 @@ from fastapi import APIRouter, Depends, Query, Body, HTTPException
 from typing import Optional, Dict, Any, List
 from uuid import UUID
 from asyncpg import Connection
+from pydantic import BaseModel
 import json
 
 from app.db import get_db
@@ -15,6 +16,26 @@ router = APIRouter(
     prefix="/v1/linkedin-sourcing/invite-templates",
     tags=["LinkedIn Invite Templates"]
 )
+
+
+class TemplateWrite(BaseModel):
+    template_name: str | None = None
+    template_type: str | None = None
+    display_name: str | None = None
+    template_text: str | None = None
+    target_pack: str | None = None
+    description: str | None = None
+    notes: str | None = None
+    created_by: str | None = None
+    weight: int | None = None
+    required_variables: list[str] | None = None
+    is_active: bool | None = None
+    is_default: bool | None = None
+
+
+class TemplateRender(BaseModel):
+    template_id: str | None = None
+    variables: dict[str, Any] | None = None
 
 
 @router.get("")
@@ -109,7 +130,7 @@ async def get_template(
 
 @router.post("")
 async def create_template(
-    payload: Dict[str, Any] = Body(...),
+    data: TemplateWrite,
     conn: Connection = Depends(get_db)
 ) -> Dict[str, Any]:
     """
@@ -127,6 +148,7 @@ async def create_template(
         "description": "Template personalizado"
     }
     """
+    payload = data.model_dump(exclude_unset=True)
     required = ["template_name", "template_type", "display_name", "template_text"]
     if not all(k in payload for k in required):
         raise HTTPException(400, f"Required: {', '.join(required)}")
@@ -177,7 +199,7 @@ async def create_template(
 @router.patch("/{template_id}")
 async def update_template(
     template_id: UUID,
-    payload: Dict[str, Any] = Body(...),
+    data: TemplateWrite,
     conn: Connection = Depends(get_db)
 ) -> Dict[str, Any]:
     """
@@ -193,6 +215,7 @@ async def update_template(
     - description
     - notes
     """
+    payload = data.model_dump(exclude_unset=True)
     exists = await conn.fetchval(
         "SELECT id FROM linkedin_invite_templates WHERE id = $1",
         template_id
@@ -399,7 +422,7 @@ async def compare_template_stats(
 
 @router.post("/render")
 async def render_template(
-    payload: Dict[str, Any] = Body(...),
+    data: TemplateRender,
     conn: Connection = Depends(get_db)
 ) -> Dict[str, Any]:
     """
@@ -418,6 +441,7 @@ async def render_template(
     
     Retorna el mensaje renderizado listo para enviar.
     """
+    payload = data.model_dump(exclude_unset=True)
     template_id = payload.get("template_id")
     variables = payload.get("variables", {})
     

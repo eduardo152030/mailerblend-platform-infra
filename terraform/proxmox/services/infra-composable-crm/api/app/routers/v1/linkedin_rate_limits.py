@@ -2,10 +2,11 @@
 Router: LinkedIn Rate Limits
 Configuración de límites globales editables desde UI
 """
-from fastapi import APIRouter, Depends, Query, Body, HTTPException
+from fastapi import APIRouter, Depends, Query, HTTPException
 from typing import Optional, Dict, Any
 from uuid import UUID
 from asyncpg import Connection
+from pydantic import BaseModel
 
 from app.db import get_db
 
@@ -14,6 +15,12 @@ router = APIRouter(
     prefix="/v1/linkedin-sourcing/rate-limits",
     tags=["LinkedIn Rate Limits"]
 )
+
+
+class RateLimitWrite(BaseModel):
+    description: str | None = None
+    limit_value: int | None = None
+    is_active: bool | None = None
 
 
 @router.get("")
@@ -58,7 +65,7 @@ async def get_rate_limit(
 @router.patch("/{limit_type}")
 async def update_rate_limit(
     limit_type: str,
-    payload: Dict[str, Any] = Body(...),
+    data: RateLimitWrite,
     conn: Connection = Depends(get_db)
 ) -> Dict[str, Any]:
     """
@@ -66,6 +73,7 @@ async def update_rate_limit(
     
     Payload: {"limit_value": 25, "description": "..."}
     """
+    payload = data.model_dump(exclude_unset=True)
     exists = await conn.fetchval(
         "SELECT id FROM linkedin_rate_limits WHERE limit_type = $1",
         limit_type

@@ -3,12 +3,33 @@ from __future__ import annotations
 from typing import Optional, Dict, Any, List
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, Query, HTTPException, Body
+from fastapi import APIRouter, Depends, Query, HTTPException
 from asyncpg import Connection
+from pydantic import BaseModel
 
 from app.db import get_db
 
 router = APIRouter(prefix="/v1/presupuestos", tags=["presupuestos"])
+
+
+class QuoteWrite(BaseModel):
+    title: str | None = None
+    currency: str | None = None
+    status: str | None = None
+    sent_at: str | None = None
+    valid_until: str | None = None
+    accepted_at: str | None = None
+    rejected_at: str | None = None
+    pdf_url: str | None = None
+    notes: str | None = None
+    internal_notes: str | None = None
+    contacto_id: str | None = None
+    oportunidad_id: str | None = None
+    quote_number: str | None = None
+    version: int | None = None
+    quote_value: float | None = None
+    line_items: list[dict[str, Any]] | None = None
+
 
 
 # -------------------------
@@ -250,7 +271,7 @@ async def get_presupuesto(
 
 @router.post("")
 async def create_presupuesto(
-    payload: Dict[str, Any] = Body(...),
+    data: QuoteWrite,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -259,6 +280,7 @@ async def create_presupuesto(
     Si no envías quote_number, se autogenera.
     Inserta historial: EVENT::QUOTE_CREATED
     """
+    payload = data.model_dump(exclude_unset=True)
     contacto_id = payload.get("contacto_id")
     oportunidad_id = payload.get("oportunidad_id")
 
@@ -397,7 +419,7 @@ async def create_presupuesto(
 @router.patch("/{presupuesto_id}")
 async def patch_presupuesto(
     presupuesto_id: UUID,
-    payload: Dict[str, Any] = Body(...),
+    data: QuoteWrite,
     conn: Connection = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -405,6 +427,7 @@ async def patch_presupuesto(
     - EVENT::QUOTE_UPDATED siempre que haya diff
     - y EVENT::QUOTE_SENT / ACCEPTED / REJECTED / EXPIRED si cambia status
     """
+    payload = data.model_dump(exclude_unset=True)
     before = await conn.fetchrow("SELECT * FROM presupuestos WHERE id = $1", presupuesto_id)
     if not before:
         raise HTTPException(status_code=404, detail="Presupuesto not found")

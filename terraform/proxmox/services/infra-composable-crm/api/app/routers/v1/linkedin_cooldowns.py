@@ -6,6 +6,7 @@ from fastapi import APIRouter, Depends, Query, Body, HTTPException
 from typing import Optional, Dict, Any
 from uuid import UUID
 from asyncpg import Connection
+from pydantic import BaseModel
 from datetime import datetime, timedelta
 import json
 
@@ -16,6 +17,12 @@ router = APIRouter(
     prefix="/v1/linkedin-sourcing/cooldowns",
     tags=["LinkedIn Cooldowns"]
 )
+
+
+class CooldownWrite(BaseModel):
+    trigger_reason: str | None = None
+    duration_hours: int | None = None
+    metadata: dict[str, Any] | None = None
 
 
 @router.get("/status")
@@ -55,7 +62,7 @@ async def get_cooldown_status(
 
 @router.post("")
 async def create_cooldown(
-    payload: Dict[str, Any] = Body(...),
+    data: CooldownWrite,
     conn: Connection = Depends(get_db)
 ) -> Dict[str, Any]:
     """
@@ -68,6 +75,7 @@ async def create_cooldown(
         "metadata": {...}
     }
     """
+    payload = data.model_dump(exclude_unset=True)
     trigger_reason = payload.get("trigger_reason")
     duration_hours = payload.get("duration_hours")
     
@@ -198,16 +206,16 @@ async def get_cooldown_stats(
     Estadísticas de cooldowns por razón.
     """
     rows = await conn.fetch(
-        f"""
+        """
         SELECT
             trigger_reason,
             COUNT(*) as count,
             AVG(EXTRACT(EPOCH FROM (cooldown_end - cooldown_start)) / 3600) as avg_duration_hours
         FROM linkedin_cooldowns
-        WHERE cooldown_start >= CURRENT_DATE - INTERVAL '{days} days'
+        WHERE cooldown_start >= CURRENT_DATE - $1::int * INTERVAL '1 day'
         GROUP BY trigger_reason
         ORDER BY count DESC
-        """
+        """, days
     )
     
     stats = []
