@@ -1,0 +1,57 @@
+groups:
+- name: provisioned_632
+  rules:
+  - record: lxc:cpu_inventory:expected
+    expr: vector(1)
+    labels:
+      job: node_exporter
+      instance: 192.168.1.65:9100
+      service: infra-mail
+      ct_id: '632'
+  - record: lxc:cadvisor:required
+    expr: vector(0)
+    labels:
+      service: infra-mail
+      ct_id: '632'
+- name: provisioned_633
+  rules:
+  - record: lxc:cpu_inventory:expected
+    expr: vector(1)
+    labels:
+      job: node_exporter
+      instance: 192.168.1.72:9100
+      service: infra-knowledge
+      ct_id: '633'
+  - record: lxc:cadvisor:required
+    expr: vector(1)
+    labels:
+      service: infra-knowledge
+      ct_id: '633'
+- name: provisioned_634
+  rules:
+  - record: lxc:cpu_inventory:expected
+    expr: vector(1)
+    labels:
+      job: node_exporter
+      instance: 192.168.1.63:9100
+      service: infra-diagrams
+      ct_id: '634'
+  - record: lxc:cadvisor:required
+    expr: vector(1)
+    labels:
+      service: infra-diagrams
+      ct_id: '634'
+- name: provisioned_635
+  rules:
+  - record: lxc:cpu_inventory:expected
+    expr: vector(1)
+    labels:
+      job: node_exporter
+      instance: 192.168.1.64:9100
+      service: infra-modeling
+      ct_id: '635'
+  - record: lxc:cadvisor:required
+    expr: vector(1)
+    labels:
+      service: infra-modeling
+      ct_id: '635'
