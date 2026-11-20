@@ -1456,3 +1456,7 @@ negocio. CRMAPI y GoTrue son los consumidores iniciales. Alertmanager y
 Grafana conservan su canal Telegram y su configuración. Proxmox 8.3 tiene
 webhook nativo y un matcher activo hacia sendmail; su redirección a Telegram
 se limita al enrutamiento de avisos de Proxmox.
+
+20/11/2026 Europe/Madrid. #28–#30 verificados. #31 autorizado por etapas.
+El [inventario y plan de retirada](planes/CRM-LEGACY-EXIT.md) exige verificar
+#68, restaurar el respaldo final y observar 24 horas antes del borrado.

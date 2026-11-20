@@ -1272,3 +1272,5 @@ Continúan auditoría de API y controles del repositorio.
 20/11/2026. #49 desplegado y verificado con 5 min sin FIRING relacionados. Siguiente #28.
 
 20/11/2026. FormEntries #28 desplegado y verificado. Reencolado diferido en #62. Siguiente #29.
+
+20/11/2026. #28–#30 desplegados y verificados. [Inventario de salida #31](../planes/CRM-LEGACY-EXIT.md).
