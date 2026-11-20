@@ -64,3 +64,13 @@ el certificado. Comprueba de nuevo el endpoint si cambia la concesión.
 El relay se usa para correo de negocio. Las identidades iniciales son CRMAPI
 y GoTrue. Las alertas siguen en Telegram mediante su canal existente. El alta
 de otro consumidor requiere la indicación del propietario.
+
+## Cabeceras de salida
+
+`smtp_header_checks` actúa en la entrega SMTP y elimina el salto generado
+por el relay y los `Received` que exponen nombres locales o direcciones
+privadas. Conserva los saltos públicos ajenos y las demás cabeceras.
+El saludo SMTP usa el dominio de negocio. El proveedor puede registrar
+en su propia cabecera la IP pública de la conexión que recibe.
+`activate-outbound-headers.sh` guarda un respaldo de Postfix, verifica la
+regla y recarga el servicio.

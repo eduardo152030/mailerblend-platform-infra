@@ -1,0 +1,5 @@
+# Strip the local relay hop and any Received lines with private network traces.
+# Preserve Received added by public upstreams and preserve non-Received headers.
+/^Received:.*[[:space:]]by[[:space:]]+infra-mail([.][^[:space:]]+)?[[:space:]]+[(]Postfix[)]/ IGNORE
+/^Received:.*([[:space:]]|[(]|\[)([0-9A-Za-z-]+[.])+(lan|local|localdomain)([[:space:]]|[)]|\]|$)/ IGNORE
+/^Received:.*\[(10[.]|127[.]|192[.]168[.]|172[.](1[6-9]|2[0-9]|3[01])[.]|::1\]|f[cd][0-9a-f]{2}:|fe80:)/ IGNORE
