@@ -1279,6 +1279,13 @@ publicación del #24. Sin despliegue. [Contrato](planes/CRM-UI-AUTH-CONTRACT-PLA
 
 ## CT618 — contratos de migración CRM (IN PROGRESS)
 
+### CRMAPI — contrato de servicio LinkedIn (#49)
+
+Implementado y probado en aislado POST /v1/linkedin-sourcing/leads/import/service
+con X-LinkedIn-Import-Token y el mismo contrato de importación. Pendiente el release
+del API, aprovisionar el token para el consumidor y habilitar solo esa ruta en CT109.
+
+
 19/11/2026 Europe/Madrid. Issue #22 en revisión. OpenAPI público e interno
 coincidentes, seis operaciones del cliente sin coincidencia. Matriz por proyecto
 y bloqueos registrados. Pendiente cotejo del catálogo legado autenticado,
@@ -1376,9 +1383,3 @@ y OK. #24 pendiente de hostname, DNS y certificado concretos.
 valor previo 401, D051 healthy, HTTPS 200 y segunda aplicación sin cambios.
 Login humano y aceptación pendientes. #24 sin publicar, #36 diferido.
 [Runbook y evidencia](planes/CRM-CT618-ROTATION-RUNBOOK.md).
-
-### CRMAPI — contrato de servicio LinkedIn (#49)
-
-Implementado y probado en aislado POST /v1/linkedin-sourcing/leads/import/service
-con X-LinkedIn-Import-Token y el mismo contrato de importación. Pendiente el release
-del API, aprovisionar el token para el consumidor y habilitar solo esa ruta en CT109.
