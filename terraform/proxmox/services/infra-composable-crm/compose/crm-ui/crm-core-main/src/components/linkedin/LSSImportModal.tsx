@@ -16,6 +16,13 @@ export default function LSSImportModal({ open, onOpenChange }: { open: boolean; 
   const handleCSVUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    if (!/\.csv$/i.test(file.name) || !["", "text/csv", "text/plain", "application/vnd.ms-excel"].includes(file.type) ||
+        file.size > 512 * 1024) {
+      toast({ title: "Selecciona un CSV de hasta 512 KiB", variant: "destructive" });
+      e.target.value = "";
+      return;
+    }
+
 
     const reader = new FileReader();
     reader.onload = (ev) => {
@@ -24,7 +31,7 @@ export default function LSSImportModal({ open, onOpenChange }: { open: boolean; 
       const headers = lines[0].split(",").map((h) => h.trim().toLowerCase());
       const leads = lines.slice(1).map((line) => {
         const vals = line.split(",").map((v) => v.trim());
-        const obj: Record<string, string> = {};
+        const obj: Record<string, string> = Object.create(null);
         headers.forEach((h, i) => { if (vals[i]) obj[h] = vals[i]; });
         return obj;
       }).filter((l) => l.linkedin_url || l.full_name);
