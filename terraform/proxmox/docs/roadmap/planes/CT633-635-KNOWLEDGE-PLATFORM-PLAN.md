@@ -185,3 +185,5 @@ token sin separación de privilegios. El código instalado de PVE trata la
 autenticación del usuario y la del token como identidades diferentes para
 esta guarda. Se revocó y comprobó la ausencia del token. Los tres VMID
 permanecen libres. No se intentaron las otras dos altas bajo el mismo bloqueo.
+
+[PR de seguimiento #85](https://github.com/eduardo152030/mailerblend-platform-infra/pull/85).
