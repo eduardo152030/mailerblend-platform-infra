@@ -42,9 +42,12 @@ def upload(session, outline, document_id, name, content, mime):
     url = urljoin(outline + "/", data["uploadUrl"])
     if urlsplit(url).netloc != urlsplit(outline).netloc or urlsplit(url).scheme != "https":
         raise SystemExit("Expected same-origin HTTPS local storage upload")
-    check(session.post(
-        url, data=data["form"], files={"file": (name, content, mime)},
-        timeout=60, allow_redirects=False,
+    form = data["form"]
+    if not form.get("sig"):
+        raise SystemExit("Expected a signed local storage upload")
+    check(requests.post(
+        url, data=form, files={"file": (name, content, mime)},
+        verify=session.verify, timeout=60, allow_redirects=False,
     ))
     return data["attachment"]["url"]
 

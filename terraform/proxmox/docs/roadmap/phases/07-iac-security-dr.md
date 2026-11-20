@@ -2,14 +2,17 @@
 
 ## CT633–635 — Plataforma interna de conocimiento y diagramas — alta DONE, integración IN PROGRESS
 
-21/11/2026 (Europe/Madrid). Alta Terraform y bootstrap SSH DONE.
-IPs DHCP observadas: CT633 192.168.1.72, CT634 192.168.1.63,
-CT635 192.168.1.64. El propietario autorizó la excepción AppArmor de
-CT633–635 y sus reinicios. Se aplicó con respaldo por CT y LXC sin
-privilegios. PlantUML renderizó SVG/PNG en loopback. Draw.io devolvió
-HTTP 200 en loopback. El siguiente paso es completar el arranque de
-Outline con identidad y la integración con Draw.io/PlantUML, red,
-monitorización y recuperación. Aceptación integral pendiente.
+21/11/2026 (Europe/Madrid). Alta Terraform y SSH DONE. CT633 ejecuta Outline
+Community con PostgreSQL, Redis, Dex y gateway HTTPS en loopback. PASS de
+login administrador y agente, REST de lectura/escritura/búsqueda, inicio MCP
+con clave de lectura y publicación PlantUML PNG + fuente sobre el mismo UUID.
+Adjuntos recuperados después de reiniciar. Segunda aplicación sin reinicios
+ni recreaciones. Dump PostgreSQL verificado y restaurado en contenedor aislado.
+
+Draw.io responde en CT634 y falta probar guardado/edición desde Outline.
+Siguiente paso: nombres DNS y TLS definitivos, acceso al editor desde
+el navegador y pruebas de ida y vuelta. Quedan SMTP, monitorización y
+cobertura de backup integral de adjuntos y secretos.
 [Plan](../planes/CT633-635-KNOWLEDGE-PLATFORM-PLAN.md).
 
 CRM Auth #25 aplicado y verificado el 20/11/2026.

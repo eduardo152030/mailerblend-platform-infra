@@ -14,6 +14,37 @@ hexadecimal. Ejecutar `scripts/knowledge-platform/deploy-compose.sh <servicio>
 la configuración previa cuando cambia. Para revertir, reaplicar la versión
 previa de Compose y su entorno, conservando los volúmenes.
 
+## Arranque privado de Outline en CT633
+
+El proveedor CRM actual queda fuera por falta de endpoints OIDC compatibles.
+La variante privada usa Dex con dos identidades locales, SQLite persistente
+y un gateway TLS que escucha solo en `127.0.0.1:18443` en CT633.
+
+1. Usar un directorio privado nuevo fuera de Git. Ejecutar
+   `scripts/knowledge-platform/prepare-private-outline.py <directorio> --admin-email <correo> --agent-email <correo>`.
+   Reutilizar ese directorio en las reaplicaciones para preservar las claves
+   de Outline, el secreto PostgreSQL y los identificadores OIDC.
+2. Ejecutar `scripts/knowledge-platform/deploy-private-outline.sh <bootstrap-CT633> <directorio>`.
+   El script carga los dos Compose y configura el gateway con la CA privada.
+   `login.json` y `ca.key` permanecen en el directorio privado del operador.
+3. Abrir un túnel SSH verificado hacia el puerto 18443 de CT633. Resolver
+   `knowledge.test` a loopback en el cliente de ese túnel y confiar en la CA
+   privada para abrir `https://knowledge.test:18443`. Comprobar `/_health`
+   y `/dex/.well-known/openid-configuration` mediante TLS verificado.
+4. Autenticar primero al administrador aprobado. Invitar la identidad agente
+   al mismo workspace como miembro, mediante `users.invite` con
+   `suppressEmail` si aún no se habilitó SMTP. Iniciar sesión con la segunda
+   identidad y emitir una clave con los permisos REST concretos requeridos.
+5. Mantener el directorio privado en el almacén del operador. Para recuperar
+   Dex hacen falta su SQLite, la configuración y los identificadores de los
+   usuarios. Para restaurar el servicio completo añadir PostgreSQL, Redis,
+   adjuntos y material TLS según el procedimiento del final de este documento.
+
+El acceso privado permite comprobar el producto y el flujo PlantUML. La
+publicación definitiva requiere resolver DNS, TLS y rutas autorizadas.
+La API autentica la creación del adjunto, y el endpoint local de carga
+acepta el formulario firmado sin la clave REST.
+
 El navegador necesita HTTPS para Outline y Draw.io. Usar la URL propia en el
 ajuste Diagrams.net de Outline. Verificar el origen del editor y repetir la
 edición tras reiniciar. PostgreSQL y Redis quedan en su red privada. Configurar
