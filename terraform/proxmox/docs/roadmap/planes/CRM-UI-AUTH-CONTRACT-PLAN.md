@@ -1,5 +1,7 @@
 # CRM UI — contrato de autenticación y autorización
 
+[PR #48](https://github.com/eduardo152030/mailerblend-platform-infra/pull/48).
+
 [Issue #25](https://github.com/eduardo152030/mailerblend-platform-infra/issues/25).
 Fase 7, preparación local en progreso, 20/11/2026 Europe/Madrid.
 Rama `docs/crm-auth-contract`, worktree hermano
