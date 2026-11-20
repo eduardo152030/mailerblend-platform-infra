@@ -30,3 +30,11 @@ correo capturado por Mailpit, el enlace con prefijo público, la redirección,
 el cambio de contraseña y el inicio de sesión con la nueva contraseña. La
 conexión de migraciones fija `search_path=auth`. Pendientes la prueba de los contenedores de release, el despliegue y la
 validación de permisos desde el navegador.
+
+
+El administrador conserva su identidad de login. Para enviar la recuperación
+al buzón confirmado por el propietario, prepara el fichero privado
+`/etc/infra-mail/private/recipient-canonical` con una sola entrada
+`dirección-de-login buzón-de-recuperación` e instala el relay. Postfix
+reescribe solo el destinatario del sobre SMTP. Verifica primero una entrada
+sintética y comprueba que el correo conserva su enlace de GoTrue.
