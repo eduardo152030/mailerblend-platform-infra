@@ -1,5 +1,7 @@
 # CT618 — respaldo en caliente y restauración aislada
 
+[PR #46](https://github.com/eduardo152030/mailerblend-platform-infra/pull/46).
+
 [Issue #23](https://github.com/eduardo152030/mailerblend-platform-infra/issues/23).
 Fase 7, IN PROGRESS. 20/11/2026 Europe/Madrid.
 Rama `ops/crm-618-snapshot-rehearsal`, worktree hermano

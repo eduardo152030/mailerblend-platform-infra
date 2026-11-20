@@ -1,5 +1,7 @@
 # CT618 — runbook de rotación de la credencial CouchDB
 
+[PR #46](https://github.com/eduardo152030/mailerblend-platform-infra/pull/46).
+
 [Issue #23](https://github.com/eduardo152030/mailerblend-platform-infra/issues/23).
 Fase 7. Preparado para revisión. Ejecución productiva **pendiente de aprobación
 y fecha/hora concretas**. Aplicar únicamente a CouchDB y Budibase D051.
