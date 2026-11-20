@@ -38,17 +38,20 @@ red o contratos. Salud/readiness deben conservar un contrato mínimo separado.
   restablecimiento. Conservar en #28 el cotejo de roles efectivos del catálogo
   anterior. La migración de hashes queda fuera del alcance.
 
-## Decisión pendiente
+## Diseño aprobado el 20/11/2026
 
-| Opción | Implicación |
-| --- | --- |
-| Supabase Auth gestionado, proyecto dedicado para identidad | Mantener negocio en el CRM actual. Requiere cuenta/proyecto y aprobación de tratamiento de datos, región y coste. Confirmar configuración IaC y envío de correo. |
-| Supabase Auth autoalojado, despliegue dedicado | Mantener control de infraestructura de identidad. Requiere provisionar Auth, base propia, TLS, correo, claves, actualizaciones, backup y restauración. PostgreSQL actual no presta ese servicio. |
+El propietario eligió Supabase Auth autoalojado (GoTrue) sobre PostgreSQL 16
+en CT618 y separado en el esquema auth. Exigir que las migraciones de
+identidad no cambien esquemas de negocio. CRMAPI valida JWT y deriva roles
+y project_key únicamente de app_metadata del token validado. Los permisos
+se asignan desde servidor. La UI admite refresh con supabase-js, JWT corto
+y ninguna persistencia sensible en localStorage. En Vite solo URL pública
+y anon key. Rate limit de login en GoTrue y Nginx /auth.
 
-Preparar el contrato común sin aprovisionar un proveedor. La elección requiere
-al propietario por su impacto operativo y de datos. Referencias oficiales:
-[Auth](https://supabase.com/docs/guides/auth), [configuración autoalojada](https://supabase.com/docs/guides/self-hosting/auth/config)
-y [URLs de redirección](https://supabase.com/docs/guides/auth/redirect-urls).
+Mailpit en laboratorio. En producción, cuentas por admin API sin SMTP.
+La cuenta del propietario y su entrega por un canal seguro quedan para
+después del ensayo. No registrar credenciales en el repo ni en evidencias.
+[Configuración oficial autoalojada](https://supabase.com/docs/guides/self-hosting/auth/config).
 
 ## Aceptación por ejecutar
 
@@ -63,6 +66,6 @@ y [URLs de redirección](https://supabase.com/docs/guides/auth/redirect-urls).
 | Proxy, API directo y bundle | Autorización equivalente en operaciones protegidas. Pruebas de origen y CSRF si procede. Bundle sin valores privados. |
 
 Preparación documental completada. No se ejecutaron estas pruebas de sesión.
-Pendientes proveedor, responsables de roles e integraciones y publicación
-del #24. Siguiente paso: validar adaptador, guardas y permisos con identidades
-sintéticas una vez que se elija el proveedor. Sin cambios en producción.
+El proveedor está aprobado. La ejecución se detiene por la condición de
+seguridad del corte #24. Antes de activar GoTrue, resolver su precedencia
+con #49 y pasar todas las pruebas en aislamiento. Sin cambios en producción.
