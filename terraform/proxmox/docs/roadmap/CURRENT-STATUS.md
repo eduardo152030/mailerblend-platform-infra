@@ -1421,3 +1421,5 @@ Redis siguen activos. Siguiente paso: ensayo aislado de GoTrue (#25).
 Cabeceras, CSP y límite del API de usuario aplicados y verificados el
 20/11/2026. Chromium y ambas ingestiones verificados tras el cambio.
 Continúan auditoría de API y controles del repositorio.
+
+Auditoría CRM #49 en curso. [Resultados y pendientes](planes/CRM-HARDENING-AUDIT.md).

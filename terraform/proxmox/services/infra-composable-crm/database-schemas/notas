@@ -2,7 +2,7 @@
 
 Primero mira el OpenAPI JSON real (no el Swagger UI):
 
-curl -s -H "X-API-Key: b852DfbkCdLQjsj0dVxw" \
+curl -s -H "X-API-Key: ${CRM_API_KEY:?Carga la credencial privada}" \
   https://infra-svc01.mailerblend.com/api/openapi.json | head
 
 
@@ -42,7 +42,7 @@ ssh root@192.168.1.118 'docker logs -f crm-api --tail=120'
 
 ----
 cat services/infra-composable-crm/database-schemas/02_cleanup_seed_contacts.sql | ssh root@192.168.1.118 \
-  "docker exec -i supabase-db env PGPASSWORD='l1W3YyXJUyqfSrkhdJMe' \
+# Usa un archivo .pgpass privado.
    psql -U 'pgadmin2026f' -d 'postgres' -v ON_ERROR_STOP=1"
 
    

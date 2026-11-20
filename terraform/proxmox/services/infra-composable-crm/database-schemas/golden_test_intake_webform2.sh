@@ -14,7 +14,7 @@ DB_HOST="${CRM_DB_HOST:-192.168.1.118}"
 DB_CONTAINER="${CRM_DB_CONTAINER:-supabase-db}"
 DB_NAME="${CRM_DB_NAME:-postgres}"
 DB_USER="${CRM_DB_USER:-pgadmin2026f}"
-DB_PASS="${CRM_DB_PASS:-l1W3YyXJUyqfSrkhdJMe}"
+DB_PASS="${CRM_DB_PASS:-}"
 
 TS="$(date -u +%Y%m%dT%H%M%SZ)"
 EMAIL="golden.${TS}@example.com"
@@ -105,9 +105,9 @@ echo "$SUBJECTS" | grep -q "EVENT::LEAD_QUALIFIED"
 echo "✅ Snapshot assertions OK"
 
 # 3) DB validation opcional (si hay oportunidad)
-if [[ -n "${OID}" ]]; then
+if [[ -n "${OID}" && -n "${DB_PASS}" ]]; then
   echo "➡️  DB validation (opcional): oportunidad existe y cumple checks"
-  ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@"${DB_HOST}" \
+  ssh -o StrictHostKeyChecking=yes -o BatchMode=yes root@"${DB_HOST}" \
     "docker exec -i ${DB_CONTAINER} env PGPASSWORD='${DB_PASS}' \
      psql -U '${DB_USER}' -d '${DB_NAME}' -Atc \
      \"SELECT id, contacto_id, lead_tag, prioridad, next_action, probabilidad, estado
