@@ -1376,3 +1376,9 @@ y OK. #24 pendiente de hostname, DNS y certificado concretos.
 valor previo 401, D051 healthy, HTTPS 200 y segunda aplicación sin cambios.
 Login humano y aceptación pendientes. #24 sin publicar, #36 diferido.
 [Runbook y evidencia](planes/CRM-CT618-ROTATION-RUNBOOK.md).
+
+### CRMAPI — contrato de servicio LinkedIn (#49)
+
+Implementado y probado en aislado POST /v1/linkedin-sourcing/leads/import/service
+con X-LinkedIn-Import-Token y el mismo contrato de importación. Pendiente el release
+del API, aprovisionar el token para el consumidor y habilitar solo esa ruta en CT109.

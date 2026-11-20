@@ -11,6 +11,7 @@ services:
       CRM_API_KEY: "${CRM_API_KEY}"
       CRM_BASE_PATH: "${CRM_BASE_PATH}"
       CRM_INGEST_SECRET: "${CRM_INGEST_SECRET}"
+      CRM_LINKEDIN_IMPORT_TOKEN: "${CRM_LINKEDIN_IMPORT_TOKEN:-}"
     networks:
       - nucleo_network
     ports:
