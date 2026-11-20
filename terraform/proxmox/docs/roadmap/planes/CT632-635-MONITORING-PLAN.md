@@ -27,3 +27,5 @@ Grafana autenticado: cuatro filas Fleet, los cuatro enlaces y fichas
 Details, cAdvisor N/A para CT632. Prometheus devolvió CPU válida y porcentaje
 para los cuatro. cAdvisor devolvió series individuales en CT633–635.
 Las IP son concesiones DHCP observadas.
+
+[PR #88](https://github.com/eduardo152030/mailerblend-platform-infra/pull/88).
