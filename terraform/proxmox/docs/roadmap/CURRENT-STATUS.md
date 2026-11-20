@@ -1275,7 +1275,8 @@ Sin autorización de corte ni retirada en esta ronda.
 
 20/11/2026. GoTrue y Mailpit validados con PostgreSQL 16 sintético en CT9618.
 Supabase JS: login, refresh, logout, expiración y revocación de refresh PASS.
-Pendiente política de acceso de negocio, validación JWT en CRMAPI y 401/403.
+Modelo de roles aprobado y probado con JWT sintéticos y 401/403 HTTP.
+Pendiente aplicarlo a consultas y mutaciones reales, la UI y el proxy.
 
 20/11/2026 Europe/Madrid. Permisos y pruebas de sesión, API e
 integraciones preparados. Pendientes proveedor, roles efectivos y
