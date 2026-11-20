@@ -52,7 +52,7 @@ export default function ConversionesCola() {
               <SelectItem value="__all__">Todos</SelectItem>
               <SelectItem value="PENDING">Pendientes</SelectItem>
               <SelectItem value="FAILED">Fallidas</SelectItem>
-              <SelectItem value="SYNCED">Enviadas</SelectItem>
+              <SelectItem value="SENT">Enviadas</SelectItem>
             </SelectContent>
           </Select>
           <span className="text-sm text-muted-foreground">{data?.total ?? 0} registros</span>
@@ -107,7 +107,7 @@ export default function ConversionesCola() {
                         variant="outline"
                         size="sm"
                         onClick={() => handleRetry(String(item.id))}
-                        disabled={retryMutation.isPending || status === "SYNCED"}
+                        disabled={retryMutation.isPending || status === "SENT"}
                       >
                         <RefreshCw className="h-3.5 w-3.5 mr-1" />
                         Reintentar

@@ -111,7 +111,7 @@ export default function ConversionDetailModal({ id, open, onClose, onRetry }: Pr
             </div>
 
             {/* Actions */}
-            {String(data.sync_status) !== "SYNCED" && onRetry && (
+            {String(data.sync_status) !== "SENT" && onRetry && (
               <div className="flex gap-2 pt-2">
                 <Button variant="outline" size="sm" onClick={() => onRetry(String(data.id))}>
                   <RefreshCw className="h-3.5 w-3.5 mr-1.5" />
