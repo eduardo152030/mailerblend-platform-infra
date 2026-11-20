@@ -107,6 +107,7 @@ Rama `ops/crm-618-couchdb-rotation`, worktree hermano
 `mailerblend-platform-infra-crm-618-couchdb-rotation`, SHA inicial
 `eeb4a5134c551906ef889764e70daf1e1113bfcc`. PR #46 integrado antes del
 preflight. El propietario dio el OK explícito para ejecutar inmediatamente.
+[PR de ejecución #47](https://github.com/eduardo152030/mailerblend-platform-infra/pull/47).
 
 Se usó la [receta versionada](../../../scripts/run-crm-618-couchdb-rotation.sh)
 contra el **archivo ya restaurado y verificado** del PR #46. El ejecutor
