@@ -64,6 +64,15 @@ resource "proxmox_virtual_environment_container" "svc" {
     }
   }
 
+  dynamic "network_interface" {
+    for_each = try(local.services_raw[each.key].network.static_interface, false) ? [1] : []
+    content {
+      name     = "eth0"
+      bridge   = each.value.bridge
+      firewall = true
+    }
+  }
+
   dynamic "mount_point" {
     for_each = try(local.services_raw[each.key].mount_points, [])
     content {

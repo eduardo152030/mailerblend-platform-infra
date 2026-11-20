@@ -1,0 +1,44 @@
+service:
+  name: infra-mail
+  vmid: 632
+  ip: 192.168.1.132/24
+resources:
+  cpu: 1
+  memory: 1024
+  disk_gb: 10
+os:
+  template_file_id: local:vztmpl/debian-12-standard_12.12-1_amd64.tar.zst
+  name: Debian 12
+network:
+  gateway: 192.168.1.254
+  dns: [192.168.1.254]
+  bridge: vmbr0
+  static_interface: true
+storage:
+  name: local-lvm
+tags: [infra, internal, mail]
+monitoring:
+  docker: false
+  node_exporter: true
+provisioning:
+  unprivileged: true
+  environment: internal
+  purpose: Relay SMTP autenticado compartido
+  owner: eduardo152030
+  applications:
+  - name: Postfix y Dovecot
+    runtime: systemd
+    ports:
+    - 587/tcp LAN
+  - name: Mailpit
+    runtime: systemd
+    ports:
+    - 1025/tcp loopback
+    - 8025/tcp loopback
+  dependencies: [Proveedor SMTP, Prometheus, Alertmanager]
+  domains: []
+  backup: Incluir en la política de respaldo de PVE antes de activar.
+  known_issues: [Pendiente validar reserva de IP y confianza TLS de los consumidores.]
+documentation:
+  inventory_file: docs/inventory/632-LXC-INVENTORY.md
+  notes_file: services/infra-mail/README.md
