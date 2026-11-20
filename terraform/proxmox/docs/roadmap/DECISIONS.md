@@ -2860,3 +2860,12 @@ posteriores. Se usó el almacenamiento `storage` documentado de recuperación.
 Para la preview #24 se autoriza un virtual host separado en CT109 sujeto a los
 datos concretos de hostname, DNS y certificado y a la conservación de los 200
 de Budibase/CRMAPI. Los valores recibidos eran marcadores; no se aplicó el vhost.
+
+## CT618 — autorización y ejecución de la rotación puntual de #23
+
+20/11/2026 Europe/Madrid. El propietario dio el OK explícito para la rotación
+de CouchDB y Budibase D051 conforme al PR #46. El respaldo verificado y la
+restauración aislada se usaron como condiciones previas. La rotación
+terminó con rechazo 401 del valor previo, D051 healthy, HTTPS 200 e
+idempotencia. Login humano productivo pendiente. No autoriza otras
+mutaciones en CT618 ni publicación de #24. [Runbook y resultado](planes/CRM-CT618-ROTATION-RUNBOOK.md).

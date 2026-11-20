@@ -1236,3 +1236,8 @@ aislada CT9618 PASS, checksum, CouchDB, D051 y login sintético verificados.
 CT9618 apagado y aislado. Runbook listo; rotación real pendiente de ventana
 y OK. #24 pendiente de hostname, DNS y certificado concretos.
 [Resultado y runbook](../planes/CRM-CT618-SNAPSHOT-RESTORE-PLAN.md).
+
+20/11/2026 Europe/Madrid. #23: rotación real DONE técnica, 35 s,
+valor previo 401, D051 healthy, HTTPS 200 y segunda aplicación sin cambios.
+Login humano y aceptación pendientes. #24 sin publicar, #36 diferido.
+[Runbook y evidencia](../planes/CRM-CT618-ROTATION-RUNBOOK.md).
