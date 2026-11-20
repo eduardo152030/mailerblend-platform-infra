@@ -122,3 +122,7 @@ ventana comprobar el modelo renderizado con la versión real del proxy,
 respaldar su configuración, reencontrar los 200 del servicio legado y
 verificar una segunda aplicación sin recarga innecesaria. El laboratorio
 no certifica DNS ni TLS definitivo. Ninguna acción mutante en CT109 o CT618.
+
+Ronda 02, SHA inicial `621e1592`. Base sincronizada con main `2246d830`.
+Resueltos los conflictos en roadmap, estado y fase conservando los registros
+de #23 y #24 en ese orden. Configuración de proxy idéntica a la versión probada.
