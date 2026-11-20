@@ -19,6 +19,14 @@ services:
       GOTRUE_DISABLE_SIGNUP: "true"
       GOTRUE_EXTERNAL_EMAIL_ENABLED: "true"
       GOTRUE_RATE_LIMIT_TOKEN_REFRESH: "60"
+      GOTRUE_SMTP_HOST: ${CRM_SMTP_HOST:-}
+      GOTRUE_SMTP_PORT: ${CRM_SMTP_PORT:-587}
+      GOTRUE_SMTP_USER: ${CRM_SMTP_USER:-}
+      GOTRUE_SMTP_PASS: ${CRM_SMTP_PASSWORD:-}
+      GOTRUE_SMTP_ADMIN_EMAIL: ${CRM_SMTP_FROM:-}
+      GOTRUE_SMTP_SENDER_NAME: CRM
+      GOTRUE_URI_ALLOW_LIST: https://infra-svc01.mailerblend.com/restablecer
+      GOTRUE_MAILER_URLPATHS_RECOVERY: /auth/v1/verify
     ports:
       - "192.168.1.118:18090:9999"
     networks:

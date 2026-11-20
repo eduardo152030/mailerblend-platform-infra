@@ -4,6 +4,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CRMPrivateLayout from "@/components/CRMPrivateLayout";
+import NotificationSettingsPage from "@/pages/NotificationSettingsPage";
+import RequestPasswordResetPage from "@/pages/RequestPasswordResetPage";
+import UpdatePasswordPage from "@/pages/UpdatePasswordPage";
 import LoginPage from "./pages/LoginPage";
 import FormEntriesListPage from "./pages/FormEntriesListPage";
 import DashboardPage from "./pages/Index";
@@ -37,7 +40,10 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />} />
+          <Route path="/recuperar" element={<RequestPasswordResetPage />} />
+          <Route path="/restablecer" element={<UpdatePasswordPage />} />
           <Route element={<CRMPrivateLayout />}>
+            <Route path="/configuracion/notificaciones" element={<NotificationSettingsPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/contactos" element={<ContactosPage />} />
             <Route path="/oportunidades" element={<OportunidadesPage />} />
