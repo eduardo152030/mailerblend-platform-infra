@@ -52,3 +52,11 @@ En el entorno desechable, ejecuta `install-mailpit.sh` y después
 desde un cliente SMTP que se exige STARTTLS, que el servicio solo puede
 usar su remitente y que el mensaje aparece en la API de Mailpit en
 `127.0.0.1:8025`. El ensayo no necesita las credenciales del proveedor.
+
+Genera el material privado fuera del checkout con `prepare-private.py`
+usando la IP que asigne DHCP. El generador conserva las contraseñas de los
+consumidores y la CA entre ejecuciones. Copia al CT solo los ficheros
+requeridos por el instalador. Conserva `ca.key` fuera del CT, distribuye
+`ca.crt` como confianza y entrega a cada consumidor únicamente su contraseña.
+Si el router no publica el nombre del CT, usa la IP concedida y cubierta por
+el certificado. Comprueba de nuevo el endpoint si cambia la concesión.
