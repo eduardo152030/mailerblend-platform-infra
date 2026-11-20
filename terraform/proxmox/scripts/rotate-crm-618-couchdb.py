@@ -54,7 +54,8 @@ def identity(item):
 
 def topology(item):
     mounts = sorted((m["Type"], m["Source"], m["Destination"], m["RW"]) for m in item["Mounts"])
-    return item["Image"], mounts, sorted(item["NetworkSettings"]["Networks"])
+    ports = item["HostConfig"].get("PortBindings")
+    return item["Image"], mounts, sorted(item["NetworkSettings"]["Networks"]), ports
 
 
 def environment(item):
@@ -166,6 +167,11 @@ def rotate(stage, prepare_only):
             and labels_match(before[TARGETS[1]], "d051-budibase-app", "budibase-app", d051_file),
             "Etiquetas Compose no coinciden con el runbook")
     require(before[TARGETS[1]]["Config"]["User"] in ("", "0", "root"), "Runner D051 no es root")
+    for prefix, service, container in ((couch, "couchdb", TARGETS[0]), (app, "budibase-app", TARGETS[1])):
+        model = json.loads(compose(prefix, "config", "--format", "json"))
+        image = model["services"][service]["image"]
+        resolved = json.loads(command("docker", "image", "inspect", image))[0]["Id"]
+        require(resolved == before[container]["Image"], "La referencia Compose cambió de imagen")
     require(all("nucleo_network" in before[name]["NetworkSettings"]["Networks"] for name in TARGETS),
             "No se encuentra la red esperada")
     active = environment(before[TARGETS[0]])
