@@ -206,3 +206,19 @@ Docker 29.9.3 y Compose 5.7.1 verificados en los tres CT.
 En CT634 y CT635, el arranque de Draw.io y PlantUML quedó bloqueado por runc al abrir
 `net.ipv4.ip_unprivileged_port_start` dentro del LXC. El host usa
 `lxc-pve 6.0.0-1`. No se cambió el perfil AppArmor ni se expusieron servicios.
+
+## Excepción AppArmor autorizada
+
+Ronda `implementation`, base `ba99819f02d6cdd248260c507e78bac0883abf72`,
+rama `ops/knowledge-platform-apparmor`, worktree
+`../mailerblend-platform-infra-knowledge-apparmor`. El propietario autorizó
+la excepción y el reinicio de CT633–635. Piloto en CT635 con respaldo,
+arranque local y render SVG/PNG antes de extender. Se conserva LXC sin
+privilegios y el alcance excluye el perfil global y otros CT.
+
+Resultado del 21/11/2026 (Europe/Madrid): CT635 reinició, PlantUML arrancó y
+renderizó SVG y PNG en loopback. CT634 reinició y Draw.io respondió HTTP 200
+en loopback. CT633 ejecutó Node v26.13.1 desde la imagen fijada de Outline.
+El arranque de Outline y el inicio de sesión quedan pendientes. Respaldo de configuración
+conservado en PVE para los tres CT. Procedimiento en
+[runbook vigente](../../runbooks/NEW-LXC-PROVISIONING.md).

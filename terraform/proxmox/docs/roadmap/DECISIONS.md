@@ -2896,3 +2896,10 @@ en LAN y alertas a Telegram. Las credenciales upstream se leen del entorno
 privado de infra-svc01. CRMAPI y GoTrue usarán el relay. El ensayo precede al
 envío real y a la sustitución definitiva del aviso legado. Véase el
 [alcance del relay](../../services/infra-mail/README.md).
+
+### CT633–635 — excepción AppArmor autorizada
+
+El 21/11/2026 (Europe/Madrid), el propietario autorizó el perfil exterior
+`unconfined` exclusivamente para CT633, CT634 y CT635, con reinicios
+acotados. Se conserva el modo LXC sin privilegios. La receta y su
+reversión están en el [runbook de alta](../runbooks/NEW-LXC-PROVISIONING.md#excepción-apparmor-aprobada-para-ct633635).

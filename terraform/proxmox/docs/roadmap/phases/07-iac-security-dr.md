@@ -1,19 +1,15 @@
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS
 
-## CT633–635 — Plataforma interna de conocimiento y diagramas — alta DONE, aplicaciones BLOCKED
+## CT633–635 — Plataforma interna de conocimiento y diagramas — alta DONE, integración IN PROGRESS
 
-21/11/2026 (Europe/Madrid). Alta Terraform DONE para los tres CT, cada uno
-con 1 alta / 0 cambios / 0 bajas. Bootstrap SSH estricto PASS y plan posterior
-sin cambios para cada CT. DHCP observado: CT633 192.168.1.72, CT634 192.168.1.63,
-CT635 192.168.1.64. Los tres están RUNNING. Docker 29.9.3 y Compose 5.7.1
-instalados y verificados con receta versionada.
-
-Despliegue de aplicaciones BLOCKED. En CT634 y CT635, runc rechazó el arranque en
-loopback al abrir `net.ipv4.ip_unprivileged_port_start`. El nodo sigue en
-`lxc-pve 6.0.0-1`. El antecedente CT631 conserva su alcance y no se modificó
-AppArmor. Siguiente paso: resolver compatibilidad conservando el confinamiento,
-con un cambio de host evaluado y autorizado por separado si resulta necesario.
-DNS/TLS, identidad, monitorización, backups e integración pendientes.
+21/11/2026 (Europe/Madrid). Alta Terraform y bootstrap SSH DONE.
+IPs DHCP observadas: CT633 192.168.1.72, CT634 192.168.1.63,
+CT635 192.168.1.64. El propietario autorizó la excepción AppArmor de
+CT633–635 y sus reinicios. Se aplicó con respaldo por CT y LXC sin
+privilegios. PlantUML renderizó SVG/PNG en loopback. Draw.io devolvió
+HTTP 200 en loopback. El siguiente paso es completar el arranque de
+Outline con identidad y la integración con Draw.io/PlantUML, red,
+monitorización y recuperación. Aceptación integral pendiente.
 [Plan](../planes/CT633-635-KNOWLEDGE-PLATFORM-PLAN.md).
 
 CRM Auth #25 aplicado y verificado el 20/11/2026.
