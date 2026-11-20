@@ -111,7 +111,7 @@ export default function LoginPage() {
                   value={password} onChange={(event) => setPassword(event.target.value)} />
               </div>
             )}
-            {crmSession && <Link to="/recuperar" className="text-sm underline">Recuperar contraseña</Link>}
+            {crmSession && <Link to="/recuperar" className="text-sm underline">¿Olvidaste tu contraseña?</Link>}
             {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
             {/* Module picker */}
             <div className="space-y-2">
