@@ -100,6 +100,7 @@ def verify_login():
     email = f"crm-restore-{secrets.token_hex(8)}@example.invalid"
     password = secrets.token_urlsafe(36)
     environment = dict(os.environ, CRM_FIXTURE_EMAIL=email, CRM_FIXTURE_PASSWORD=password)
+    started = time.monotonic()
     with tempfile.TemporaryDirectory(prefix="crm-restore-login-") as temp:
         override = Path(temp) / "fixture.yml"
         override.write_text(
@@ -119,7 +120,8 @@ def verify_login():
         user = request(opener, BASE + "/api/global/self")
         if not login.get("userId") or not contains_email(user, email):
             raise RuntimeError("synthetic authenticated identity not verified")
-    print("PASS: login sintético e identidad de sesión verificados en CT9618.", flush=True)
+    elapsed = round(time.monotonic() - started)
+    print(f"PASS: login sintético e identidad en CT9618; recreación a login={elapsed}s.", flush=True)
 
 
 if __name__ == "__main__":
