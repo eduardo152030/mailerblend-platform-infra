@@ -1,6 +1,8 @@
 """Exercise authenticated STARTTLS submission and Mailpit capture."""
 from contextlib import contextmanager
+from email import policy
 from email.message import EmailMessage
+from email.parser import BytesParser
 import json
 from pathlib import Path
 import smtplib
@@ -34,6 +36,10 @@ def message(subject):
     mail["From"] = SENDER
     mail["To"] = RECIPIENT
     mail["Subject"] = subject
+    mail["Received"] = "from internal.example [192.168.1.120] by onward.example"
+    mail["Received"] = "from external.example [203.0.113.1] by infra-mail.localdomain (Postfix)"
+    mail["Received"] = "from device.lan by onward.example"
+    mail["Received"] = "from preserved.example [203.0.113.7] by onward.example"
     mail.set_content("Synthetic SMTP rehearsal.")
     return mail
 
@@ -66,11 +72,22 @@ with connect() as gotrue:
 
 for _ in range(20):
     with urlopen("http://127.0.0.1:8025/api/v1/messages", timeout=3) as response:
-        subjects = sorted(row["Subject"] for row in json.load(response)["messages"])
+        messages = json.load(response)["messages"]
+        subjects = sorted(row["Subject"] for row in messages)
     if subjects == ["CRM test", "GoTrue test"]:
         break
     time.sleep(1)
 else:
     raise AssertionError("Mailpit did not capture the two expected messages")
 
+for summary in messages:
+    with urlopen(f"http://127.0.0.1:8025/api/v1/message/{summary['ID']}/raw", timeout=3) as response:
+        captured = BytesParser(policy=policy.default).parse(response)
+    received = "\n".join(map(str, captured.get_all("Received", [])))
+    assert "preserved.example" in received
+    assert "internal.example" not in received and "device.lan" not in received
+    assert "infra-mail.localdomain" not in received and "(Postfix)" not in received
+    assert captured["From"] == SENDER
+
+print("PASS: outbound privacy filter keeps public trace and removes internal hops")
 print("PASS: STARTTLS, anonymous rejection, sender ownership, per-user quota and Mailpit delivery")

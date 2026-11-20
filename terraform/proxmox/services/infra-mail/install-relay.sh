@@ -54,8 +54,11 @@ fi
 postconf -MX smtp/inet
 postconf -MX submission/inet
 cat "$config/submission.cf" >> /etc/postfix/master.cf
+install -m 0644 "$config/outbound-header-checks" /etc/postfix/
 postconf -e 'inet_protocols = ipv4' 'inet_interfaces = all' \
     'mydestination = localhost' \
+    "smtp_header_checks = regexp:/etc/postfix/outbound-header-checks" \
+    "smtp_helo_name = nucleotecnologico.es" \
     "smtpd_tls_cert_file = $private/tls.crt" "smtpd_tls_key_file = $private/tls.key" \
     "relayhost = $relay" "smtp_tls_wrappermode = $wrapper" \
     "smtp_tls_security_level = $transport_security" \
