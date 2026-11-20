@@ -52,9 +52,8 @@ fi
 
 # Solo submission escucha por TCP; se conservan los servicios internos Unix.
 postconf -MX smtp/inet
-if ! postconf -M submission/inet >/dev/null 2>&1; then
-    cat "$config/submission.cf" >> /etc/postfix/master.cf
-fi
+postconf -MX submission/inet
+cat "$config/submission.cf" >> /etc/postfix/master.cf
 postconf -e 'inet_protocols = ipv4' 'inet_interfaces = all' \
     'mydestination = localhost' \
     "smtpd_tls_cert_file = $private/tls.crt" "smtpd_tls_key_file = $private/tls.key" \

@@ -45,6 +45,10 @@ with connect() as unauthenticated:
     unauthenticated.mail(SENDER)
     reject(554, unauthenticated.rcpt(RECIPIENT))
 
+seconds_into_minute = time.time() % 60
+if seconds_into_minute > 50:
+    time.sleep(61 - seconds_into_minute)
+
 with connect() as crm:
     starttls(crm)
     crm.login("crm", (FIXTURE / "crm.fixture").read_text())
