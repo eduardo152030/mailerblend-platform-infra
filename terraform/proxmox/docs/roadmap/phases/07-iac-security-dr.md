@@ -1247,3 +1247,9 @@ y OK. #24 pendiente de hostname, DNS y certificado concretos.
 valor previo 401, D051 healthy, HTTPS 200 y segunda aplicación sin cambios.
 Login humano y aceptación pendientes. #24 sin publicar, #36 diferido.
 [Runbook y evidencia](../planes/CRM-CT618-ROTATION-RUNBOOK.md).
+
+### CRMAPI — contención operativa (#49)
+
+Protección en CT109 aplicada el 20/11/2026, previa al corte #24, con excepción
+exacta para ingesta con token y salud pública. Véase
+[incidente #49](https://github.com/eduardo152030/mailerblend-platform-infra/issues/49).

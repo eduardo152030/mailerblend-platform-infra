@@ -1376,3 +1376,14 @@ y OK. #24 pendiente de hostname, DNS y certificado concretos.
 valor previo 401, D051 healthy, HTTPS 200 y segunda aplicación sin cambios.
 Login humano y aceptación pendientes. #24 sin publicar, #36 diferido.
 [Runbook y evidencia](planes/CRM-CT618-ROTATION-RUNBOOK.md).
+
+## CRMAPI — contención en CT109 (#49)
+
+20/11/2026, 09:49 Europe/Madrid. Tras el respaldo del vhost se aplicó Basic
+Auth a /_svc/. /_svc/health permanece público. Solo POST a
+/_svc/v1/intake/webform queda exento de Basic Auth y conserva X-Ingest-Secret.
+TLS, contactos anónimo 401 y autenticado 200, ingesta sin token 401,
+health 200 y login Budibase 200. Golden sintético de ingesta y snapshot
+200, con UTM, formulario, historial y oportunidad verificados.
+Los logs muestran dos IP públicas de titularidad pendiente de confirmar.
+Continuar con el corte #24 manteniendo esta protección.
