@@ -94,6 +94,7 @@ Esta prueba no modifica CT618 ni certifica el lint global heredado.
 worktree hermano `mailerblend-platform-infra-crm-preview-proxy`, SHA de
 inicio `98bbc34a04ccdbb9dafdc05fd8b373a171724075`. PR #41 integrado y
 aceptado por el propietario para la validación de laboratorio.
+[PR del proxy #45](https://github.com/eduardo152030/mailerblend-platform-infra/pull/45).
 
 Lectura SSH estricta: Nginx activo en CT109, vhost habilitado
 `/etc/nginx/sites-enabled/infra-svc01.mailerblend.com.conf` enlazado a
