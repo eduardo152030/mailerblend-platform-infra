@@ -64,15 +64,6 @@ postconf -e 'inet_protocols = ipv4' 'inet_interfaces = all' \
     'smtp_sasl_security_options = noanonymous' \
     'smtp_sasl_password_maps = hash:/etc/postfix/relay-password' \
     'disable_vrfy_command = yes'
-# Route individual business recipient aliases without changing message headers.
-if [[ -s "$private/recipient-canonical" ]]; then
-    install -m 0600 "$private/recipient-canonical" /etc/postfix/
-    postmap hash:/etc/postfix/recipient-canonical
-    postconf -e 'recipient_canonical_classes = envelope_recipient' \
-        'recipient_canonical_maps = hash:/etc/postfix/recipient-canonical'
-else
-    postconf -e 'recipient_canonical_maps ='
-fi
 postfix check
 doveconf -n >/dev/null
 systemctl daemon-reload

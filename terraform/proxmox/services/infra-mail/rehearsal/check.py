@@ -62,7 +62,7 @@ with connect() as crm:
 with connect() as gotrue:
     starttls(gotrue)
     gotrue.login("gotrue", (FIXTURE / "gotrue.fixture").read_text())
-    gotrue.send_message(message("GoTrue test"), to_addrs=["login-alias@example.test"])
+    gotrue.send_message(message("GoTrue test"))
 
 for _ in range(20):
     with urlopen("http://127.0.0.1:8025/api/v1/messages", timeout=3) as response:
