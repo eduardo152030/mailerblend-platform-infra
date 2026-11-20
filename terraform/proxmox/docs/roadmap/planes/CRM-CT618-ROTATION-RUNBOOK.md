@@ -3,8 +3,8 @@
 [PR #46](https://github.com/eduardo152030/mailerblend-platform-infra/pull/46).
 
 [Issue #23](https://github.com/eduardo152030/mailerblend-platform-infra/issues/23).
-Fase 7. Preparado para revisión. Ejecución productiva **pendiente de aprobación
-y fecha/hora concretas**. Aplicar únicamente a CouchDB y Budibase D051.
+Fase 7. Rotación productiva ejecutada con autorización explícita el
+20/11/2026 Europe/Madrid. El alcance fue CouchDB y Budibase D051.
 El recambio general queda en [#36](https://github.com/eduardo152030/mailerblend-platform-infra/issues/36).
 
 ## Preflight de la ventana
@@ -85,7 +85,7 @@ El presupuesto es una estimación basada en etapas de arranque y
 verificación. No implica un tiempo medido en producción. Iniciar la
 reversión si el candidato no alcanza readiness funcional en cinco minutos
 desde la recreación de Budibase o antes si falla una guarda crítica.
-La ventana y el permiso efectivo siguen por fijar.
+Una futura ejecución requiere su propia ventana y autorización.
 
 ## Evidencia disponible y orden de fusión
 
@@ -99,4 +99,41 @@ se mantienen como presupuesto inicial con criterio explícito de reversión.
 
 #44 y #45 están integrados en main. Esta entrega parte de ese main y
 puede fusionarse directamente. La fusión solo publica los procedimientos
-y evidencias. La intervención en CT618 queda pendiente de autorización.
+y evidencias. La autorización operativa de esta ronda se registra abajo.
+
+## Ejecución productiva del 20/11/2026
+
+Rama `ops/crm-618-couchdb-rotation`, worktree hermano
+`mailerblend-platform-infra-crm-618-couchdb-rotation`, SHA inicial
+`eeb4a5134c551906ef889764e70daf1e1113bfcc`. PR #46 integrado antes del
+preflight. El propietario dio el OK explícito para ejecutar inmediatamente.
+
+Se usó la [receta versionada](../../../scripts/run-crm-618-couchdb-rotation.sh)
+contra el **archivo ya restaurado y verificado** del PR #46. El ejecutor
+revalida checksum, edad, modo y estado del clon, y conserva copias privadas
+de los tres originales. Se validaron las referencias de imagen antes de
+recrear. Un ensayo simulado inyectó un fallo en D051 y comprobó reversión
+de los tres archivos. Preflight real y ejecución:
+
+```bash
+scripts/run-crm-618-couchdb-rotation.sh storage:backup/vzdump-lxc-618-2026_11_20-08_23_42.tar.zst prepare
+scripts/run-crm-618-couchdb-rotation.sh storage:backup/vzdump-lxc-618-2026_11_20-08_23_42.tar.zst execute
+```
+
+Resultado a las 09:18 CET:
+
+- CouchDB anterior HTTP 401 y candidato HTTP 200. Usuario, imagen, red,
+  puertos y montajes de CouchDB y D051 preservados.
+- D051 healthy y salud de sistema PASS. GET de Builder y CRMAPI HTTP 200
+  con TLS verificado. Prueba de login humana productiva pendiente.
+- Redis, PostgreSQL y CRMAPI conservaron ID e inicio. Worker y originales
+  continuaron detenidos. Segunda aplicación con los mismos modelos mantuvo
+  ID e inicio en ambos objetivos. No se necesitó rollback.
+- Secuencia de parada y verificación: **35 s**. El tiempo exacto de
+  indisponibilidad HTTP no se midió por separado. Originales retenidos en
+  staging privado y archivo de recuperación conservado. Los tres archivos
+  activos se instalaron en modo 0600 con propietarios preservados.
+
+Rotación puntual DONE técnica. #23 sigue abierto para aceptación del
+propietario. El recambio general #36 continúa diferido. CT109 y su preview
+no cambiaron. No se programó ninguna otra intervención productiva.
