@@ -296,3 +296,5 @@ Se mantiene pendiente un transporte TLS verificable hacia el relay.
 No se cambiaron sus identidades ni se enviaron mensajes en esta ronda.
 
 [Guía de integración para agentes](../../runbooks/KNOWLEDGE-PLATFORM-AI-INTEGRATION.md).
+
+[PR #89](https://github.com/eduardo152030/mailerblend-platform-infra/pull/89).
