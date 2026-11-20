@@ -2869,3 +2869,14 @@ restauración aislada se usaron como condiciones previas. La rotación
 terminó con rechazo 401 del valor previo, D051 healthy, HTTPS 200 e
 idempotencia. Login humano productivo pendiente. No autoriza otras
 mutaciones en CT618 ni publicación de #24. [Runbook y resultado](planes/CRM-CT618-ROTATION-RUNBOOK.md).
+
+## CRM UI — corte único y GoTrue aprobados
+
+20/11/2026 Europe/Madrid. El propietario acepta #23 tras verificar login
+humano y descarta la convivencia y los cortes por proyecto. Aprueba
+reutilizar dominio y certificado, preservar intake y contenedores legacy
+y usar Basic Auth temporal hasta GoTrue autoalojado en el esquema auth de
+PostgreSQL 16 de CT618. Autoriza hardening y despliegues en la secuencia
+acordada, condicionados a pruebas y a que no haya datos anónimos. El
+preflight detectó acceso anónimo al API de negocio y aplica la parada.
+Ninguna mutación productiva. [Plan actualizado](planes/CRM-UI-MIGRATION-PLAN.md).
