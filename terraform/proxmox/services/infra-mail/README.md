@@ -22,3 +22,25 @@ La cuenta del proveedor se instala solo en el relay mediante ficheros privados.
 La cuota cuenta destinatarios autenticados por minuto. El mapa admite varias
 identidades para el mismo remitente. La prueba real requiere verificar recepción
 y autenticación del mensaje en el buzón destino después del ensayo Mailpit.
+
+## Provisión
+
+El plan con destino `proxmox_virtual_environment_container.svc["infra-mail"]`
+debe mostrar únicamente la creación del CT 632. Confirma la reserva de su
+IP antes de aplicarlo. Instala y valida Node Exporter con el
+[runbook de provisión](../../docs/runbooks/NEW-LXC-PROVISIONING.md).
+El instalador `install-relay.sh` requiere un CT dedicado y los siguientes
+ficheros en `/etc/infra-mail/private` con acceso solo de root.
+
+| Fichero | Contenido |
+|---|---|
+| `tls.crt`, `tls.key` | Cadena y clave del certificado del endpoint interno |
+| `service-users` | Identidades Dovecot con hashes de contraseña |
+| `sender-login` | Mapa Postfix de dirección SMTP a identidades autorizadas |
+| `submission-clients` | Mapa CIDR que permite la LAN y rechaza el resto |
+| `relay-host` | Destino upstream con formato `[hostname]:587` o `[hostname]:465` |
+| `relay-password` | Mapa del destino upstream a su usuario y contraseña |
+
+Publica el target individual de Node Exporter y las reglas de
+`services/infra-prom/config/rules/infra-mail.yml` solo después del ensayo
+aislado. La ruta existente de Alertmanager envía estas alertas a Telegram.

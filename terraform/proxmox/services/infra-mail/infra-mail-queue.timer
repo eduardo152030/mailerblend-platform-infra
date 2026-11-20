@@ -1,0 +1,9 @@
+[Unit]
+Description=Refresh Postfix queue metrics
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=30s
+
+[Install]
+WantedBy=timers.target

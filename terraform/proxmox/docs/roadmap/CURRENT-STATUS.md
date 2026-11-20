@@ -1440,3 +1440,9 @@ Pendientes provisión IaC, ensayo SMTP con Mailpit, monitorización de cola y
 entrega real. #68 depende del relay para producción. #31 mantiene como
 requisitos la sustitución del aviso y el respaldo restaurado en aislamiento,
 seguidos de 24 horas de observación antes de retirar los volúmenes.
+
+20/11/2026 Europe/Madrid. #69, segunda ronda: DMARC confirmado en
+dns1.nominalia.com. El plan Terraform dirigido a infra-mail muestra
+únicamente alta de CT 632. Instalador y reglas de cola preparados;
+reserva de IP, ensayo Mailpit, recarga de Prometheus y recepción real
+pendientes. Mantener #68 detrás de #69.

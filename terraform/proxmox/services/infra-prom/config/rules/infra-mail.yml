@@ -1,0 +1,31 @@
+groups:
+- name: infra-mail
+  rules:
+  - alert: InfraMailUnavailable
+    expr: up{job="node_exporter",service="infra-mail"} == 0
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      summary: El CT del relay SMTP no responde a Prometheus
+  - alert: InfraMailQueueGrowing
+    expr: infra_mail_queue_messages{service="infra-mail"} > 30
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: La cola SMTP lleva cinco minutos por encima de 30 mensajes
+  - alert: InfraMailDeliveryDeferred
+    expr: infra_mail_deferred_messages{service="infra-mail"} > 0
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: Postfix tiene entregas diferidas
+  - alert: InfraMailQueueMetricsStale
+    expr: time() - node_textfile_mtime_seconds{service="infra-mail",file=~".*/infra-mail[.]prom"} > 120
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: El colector de cola de Postfix dejó de actualizarse
