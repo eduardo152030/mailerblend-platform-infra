@@ -17,6 +17,7 @@ import urllib.request
 
 BASE = "http://192.168.1.118:8080"
 D051 = Path("/opt/healthcheck-d051/budibase-app/compose.private.json")
+stage = "isolation"
 
 
 def command(*args, env=None, timeout=30):
@@ -82,18 +83,29 @@ def contains_email(value, email):
 
 
 def verify_login():
+    global stage
     opener = urllib.request.build_opener(
         urllib.request.ProxyHandler({}),
         urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()),
     )
     verify_isolation()
+    stage = "compose_identity"
     budibase = inspect("budibase-app")
     labels = budibase["Config"]["Labels"]
     if (labels["com.docker.compose.project"] != "d051-budibase-app"
             or labels["com.docker.compose.service"] != "budibase-app"
             or labels["com.docker.compose.project.config_files"] != str(D051)):
         raise RuntimeError("unexpected restored Compose identity")
-    verify_couch(opener)
+    stage = "couch_readiness"
+    for attempt in range(30):
+        try:
+            verify_couch(opener)
+            break
+        except (KeyError, ValueError, OSError, StopIteration, subprocess.SubprocessError):
+            if attempt == 29:
+                raise
+            time.sleep(4)
+    stage = "d051_baseline"
     wait_for_budibase(opener)
     print("PASS: Budibase D051 restaurado, healthy antes de la prueba de login.", flush=True)
 
@@ -109,12 +121,14 @@ def verify_login():
             "      BB_ADMIN_USER_PASSWORD: ${CRM_FIXTURE_PASSWORD:?}\n",
             encoding="utf-8",
         )
+        stage = "fixture_bootstrap"
         command(
             "docker", "compose", "--project-directory", str(D051.parent), "-p", "d051-budibase-app",
             "--env-file", "/dev/null", "-f", str(D051), "-f", str(override),
             "up", "-d", "--no-deps", "budibase-app", env=environment, timeout=180,
         )
         wait_for_budibase(opener)
+        stage = "fixture_login"
         body = json.dumps({"username": email, "password": password}).encode()
         login = request(opener, BASE + "/api/global/auth/default/login", body, {"Content-Type": "application/json"})
         user = request(opener, BASE + "/api/global/self")
@@ -127,6 +141,6 @@ def verify_login():
 if __name__ == "__main__":
     try:
         verify_login()
-    except Exception:
-        print("BLOCKED: validación aislada fallida; valores y respuestas privadas omitidos.", file=sys.stderr)
+    except Exception as error:
+        print(f"BLOCKED: etapa={stage}; tipo={type(error).__name__}; detalle privado omitido.", file=sys.stderr)
         sys.exit(1)
