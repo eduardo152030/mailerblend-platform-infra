@@ -1,14 +1,11 @@
 import { useState, useRef, useCallback } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { PACK_COLORS, STATUS_COLORS, KANBAN_COLUMNS, PIPELINE_STATUS_MAP } from "@/lib/linkedin-mock-data";
-import { Star, Upload, Info } from "lucide-react";
+import { PACK_COLORS, STATUS_COLORS, KANBAN_COLUMNS, PIPELINE_STATUS_MAP } from "@/lib/linkedin-presentation";
+import { Star, Info } from "lucide-react";
 import LSSLeadDetail from "./LSSLeadDetail";
-import LSSImportModal from "./LSSImportModal";
 import { useLSSLeads, useLSSOutcomes } from "@/hooks/use-api";
 
 const COLUMN_TOOLTIPS: Record<string, { icon: string; title: string; desc: string; sections: { label: string; text: string }[] }> = {
@@ -133,7 +130,6 @@ function LeadCard({ lead, onClick, isFocused, onFocus }: { lead: Record<string, 
 
 export default function LSSLeadsPipeline() {
   const [selectedLead, setSelectedLead] = useState<Record<string, any> | null>(null);
-  const [importOpen, setImportOpen] = useState(false);
   const [focusedCard, setFocusedCard] = useState<{ col: string; idx: number } | null>(null);
 
   const handleColumnKeyDown = useCallback((e: React.KeyboardEvent, colKey: string, leads: any[]) => {
@@ -152,8 +148,8 @@ export default function LSSLeadsPipeline() {
       setSelectedLead(leads[currentIdx]);
     }
   }, [focusedCard]);
-  const { data, isLoading } = useLSSLeads({ limit: 200 });
-  const { data: bookedData } = useLSSOutcomes({ outcome: "BOOKED", limit: 50 });
+  const { data, isLoading, isError } = useLSSLeads({ limit: 200 });
+  const { data: bookedData, isError: bookedError } = useLSSOutcomes({ outcome: "BOOKED", limit: 50 });
 
   const allLeads = (data as any)?.items ?? [];
   const bookedOutcomes = (bookedData as any)?.items ?? [];
@@ -186,12 +182,11 @@ export default function LSSLeadsPipeline() {
     <>
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-sm font-medium text-muted-foreground">Pipeline de Leads</h3>
-        <Button size="sm" variant="outline" onClick={() => setImportOpen(true)}>
-          <Upload size={14} className="mr-1" /> Importar leads
-        </Button>
       </div>
 
-      {isLoading ? (
+      {isError || bookedError ? (
+        <p role="alert" className="text-destructive">No se pudo cargar el pipeline de LinkedIn.</p>
+      ) : isLoading ? (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3">
           {Array.from({ length: 7 }).map((_, i) => (
             <div key={i}>
@@ -260,7 +255,6 @@ export default function LSSLeadsPipeline() {
       {selectedLead && (
         <LSSLeadDetail lead={selectedLead} onClose={() => setSelectedLead(null)} />
       )}
-      <LSSImportModal open={importOpen} onOpenChange={setImportOpen} />
     </>
   );
 }

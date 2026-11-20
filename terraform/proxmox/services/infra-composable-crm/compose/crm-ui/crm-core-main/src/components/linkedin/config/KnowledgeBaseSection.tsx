@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useLSSKnowledgeBase } from "@/hooks/use-api";
@@ -116,8 +115,10 @@ export default function KnowledgeBaseSection() {
   if (category !== "ALL") params.category = category;
   if (pack !== "ALL") params.target_pack = pack;
 
-  const { data, isLoading } = useLSSKnowledgeBase(params);
+  const { data, isLoading , isError } = useLSSKnowledgeBase(params);
   const entries = (data as any)?.items ?? [];
+
+  if (isError) return <p role="alert" className="text-destructive">No se pudo cargar esta configuración.</p>;
 
   return (
     <div className="space-y-4">

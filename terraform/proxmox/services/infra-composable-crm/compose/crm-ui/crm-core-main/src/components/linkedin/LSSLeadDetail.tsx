@@ -1,9 +1,8 @@
-import { Sheet, SheetContent, SheetHeader } from "@/components/ui/sheet";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Separator } from "@/components/ui/separator";
-import { useLSSLeadSnapshot, useLSSOutcomes, useLSSDeleteLead } from "@/hooks/use-api";
-import { toast } from "@/hooks/use-toast";
+import { useLSSLeadSnapshot, useLSSOutcomes } from "@/hooks/use-api";
 import { useState } from "react";
 import { LayoutDashboard, MessageSquare, CheckSquare, Clock } from "lucide-react";
 
@@ -15,9 +14,8 @@ import LSSConversation from "./LSSConversation";
 
 export default function LSSLeadDetail({ lead, onClose }: { lead: Record<string, any>; onClose: () => void }) {
   const [tab, setTab] = useState("overview");
-  const { data: snapshot, isLoading } = useLSSLeadSnapshot(lead.id);
+  const { data: snapshot, isLoading, isError } = useLSSLeadSnapshot(lead.id);
   const { data: outcomesData } = useLSSOutcomes({ lead_id: lead.id, limit: 1 });
-  const deleteMut = useLSSDeleteLead();
 
   const snap = snapshot as Record<string, any> | undefined;
   const leadData = snap?.lead ?? lead;
@@ -25,17 +23,6 @@ export default function LSSLeadDetail({ lead, onClose }: { lead: Record<string, 
   const conversations = snap?.conversations ?? [];
   const approvals = snap?.approvals ?? [];
   const outcome = ((outcomesData as any)?.items ?? [])[0] ?? null;
-
-  const handleDelete = () => {
-    if (!confirm("¿Eliminar este lead? Esta acción no se puede deshacer.")) return;
-    deleteMut.mutate(lead.id, {
-      onSuccess: () => {
-        toast({ title: "Lead eliminado" });
-        onClose();
-      },
-      onError: () => toast({ title: "Error al eliminar", variant: "destructive" }),
-    });
-  };
 
   return (
     <Sheet open onOpenChange={onClose}>
@@ -46,11 +33,13 @@ export default function LSSLeadDetail({ lead, onClose }: { lead: Record<string, 
             <Skeleton className="h-8 w-48" />
             <Skeleton className="h-64 w-full" />
           </div>
+        ) : isError ? (
+          <p role="alert" className="p-6 text-destructive">No se pudo cargar el lead.</p>
         ) : (
           <div className="flex flex-col h-full">
             {/* Header */}
             <div className="p-6 pb-0">
-              <LeadDetailHeader lead={leadData} outcome={outcome} onDelete={handleDelete} />
+              <LeadDetailHeader lead={leadData} outcome={outcome} />
             </div>
 
             <Separator className="mt-4" />
@@ -87,14 +76,12 @@ export default function LSSLeadDetail({ lead, onClose }: { lead: Record<string, 
                   <LSSConversation
                     lead={leadData}
                     conversations={conversations}
-                    onBack={() => setTab("overview")}
                   />
                 </TabsContent>
 
                 <TabsContent value="approvals" className="mt-0">
                   <LeadDetailApprovals
                     approvals={approvals}
-                    onApproved={() => setTab("conversations")}
                   />
                 </TabsContent>
 

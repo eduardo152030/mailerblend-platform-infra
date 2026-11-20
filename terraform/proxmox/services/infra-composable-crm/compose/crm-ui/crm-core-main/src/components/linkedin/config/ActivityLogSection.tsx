@@ -12,13 +12,15 @@ const TYPE_META: Record<string, { icon: React.ElementType; label: string; emoji:
 };
 
 export default function ActivityLogSection() {
-  const { data: todayData, isLoading: loadingToday } = useLSSActivityStatsToday();
+  const { data: todayData, isLoading: loadingToday , isError } = useLSSActivityStatsToday();
   const { data: weeklyData, isLoading: loadingWeekly } = useLSSActivityStatsDaily({ days: 7 });
   const { data: recentData, isLoading: loadingRecent } = useLSSActivityLog({ hours: 24, limit: 20 });
 
   const today = todayData as any;
   const weekly = (weeklyData as any)?.stats ?? {};
   const recent = (recentData as any)?.items ?? [];
+
+  if (isError) return <p role="alert" className="text-destructive">No se pudo cargar esta configuración.</p>;
 
   return (
     <div className="space-y-6">

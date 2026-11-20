@@ -1,18 +1,13 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
-import { useLSSInviteTemplates, useLSSCreateInviteTemplate, useLSSPatchInviteTemplate } from "@/hooks/use-api";
-import { toast } from "sonner";
-import { MessageSquare, Plus, Pencil, Eye, Power, AlertTriangle, Trophy, Info } from "lucide-react";
+import { useLSSInviteTemplates } from "@/hooks/use-api";
+import { MessageSquare, Eye, AlertTriangle, Trophy, Info } from "lucide-react";
 
 const TYPE_LABELS: Record<string, string> = {
   PROFESSIONAL_NEUTRAL: "Profesional Neutral",
@@ -20,23 +15,12 @@ const TYPE_LABELS: Record<string, string> = {
   CUSTOM: "Custom",
 };
 
-const PACK_LABELS: Record<string, string> = {
-  ALL: "Todos los packs",
-  GUARDIAN: "GUARDIAN",
-  MOTOR: "MOTOR",
-  FORTALEZA: "FORTALEZA",
-};
-
 /* ───── Template Card ───── */
 function TemplateCard({
   template,
-  onEdit,
-  onToggleActive,
   onViewStats,
 }: {
   template: any;
-  onEdit: () => void;
-  onToggleActive: () => void;
   onViewStats: () => void;
 }) {
   const rate = template.times_sent > 0
@@ -60,11 +44,7 @@ function TemplateCard({
             </div>
           </div>
           <div className="flex gap-1 shrink-0">
-            <Button size="icon" variant="ghost" className="h-7 w-7" onClick={onEdit}><Pencil size={13} /></Button>
             <Button size="icon" variant="ghost" className="h-7 w-7" onClick={onViewStats}><Eye size={13} /></Button>
-            <Button size="icon" variant="ghost" className="h-7 w-7" onClick={onToggleActive}>
-              <Power size={13} className={template.is_active ? "text-emerald-500" : "text-muted-foreground"} />
-            </Button>
           </div>
         </div>
       </CardHeader>
@@ -81,137 +61,6 @@ function TemplateCard({
   );
 }
 
-/* ───── Create / Edit Modal ───── */
-function TemplateFormModal({
-  open,
-  onClose,
-  editTemplate,
-}: {
-  open: boolean;
-  onClose: () => void;
-  editTemplate?: any;
-}) {
-  const createMut = useLSSCreateInviteTemplate();
-  const patchMut = useLSSPatchInviteTemplate();
-
-  const [form, setForm] = useState({
-    template_name: editTemplate?.template_name ?? "",
-    display_name: editTemplate?.display_name ?? "",
-    template_type: editTemplate?.template_type ?? "CUSTOM",
-    template_text: editTemplate?.template_text ?? "",
-    target_pack: editTemplate?.target_pack ?? "ALL",
-    weight: editTemplate?.weight ?? 50,
-    description: editTemplate?.description ?? "",
-    notes: editTemplate?.notes ?? "",
-  });
-
-  const detectedVars = useMemo(() => {
-    const m = form.template_text.match(/\{\{(\w+)\}\}/g) || [];
-    return [...new Set(m.map((v: string) => v.replace(/\{\{|\}\}/g, "")))];
-  }, [form.template_text]);
-
-  const charCount = form.template_text.length;
-  const isEditing = !!editTemplate;
-
-  const handleSave = async () => {
-    const payload = { ...form, required_variables: detectedVars };
-    try {
-      if (isEditing) {
-        await patchMut.mutateAsync({ id: editTemplate.id, data: payload });
-      } else {
-        await createMut.mutateAsync(payload);
-      }
-      toast.success(isEditing ? "Template actualizado" : "Template creado");
-      onClose();
-    } catch (e: any) {
-      toast.error(e.message || "Error al guardar");
-    }
-  };
-
-  const set = (k: string, v: any) => setForm((prev) => ({ ...prev, [k]: v }));
-
-  return (
-    <Dialog open={open} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-base">{isEditing ? "Editar" : "Nuevo"} Template de Invitación</DialogTitle>
-        </DialogHeader>
-
-        <div className="space-y-3 text-sm">
-          <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-1">
-              <Label className="text-xs">Nombre (ID)</Label>
-              <Input className="h-8 text-xs" value={form.template_name} onChange={(e) => set("template_name", e.target.value)} placeholder="custom_saas_v1" disabled={isEditing} />
-            </div>
-            <div className="space-y-1">
-              <Label className="text-xs">Nombre descriptivo</Label>
-              <Input className="h-8 text-xs" value={form.display_name} onChange={(e) => set("display_name", e.target.value)} placeholder="Custom para SaaS" />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-1">
-              <Label className="text-xs">Tipo de estrategia</Label>
-              <Select value={form.template_type} onValueChange={(v) => set("template_type", v)}>
-                <SelectTrigger className="h-8 text-xs"><SelectValue /></SelectTrigger>
-                <SelectContent>
-                  {Object.entries(TYPE_LABELS).map(([k, v]) => <SelectItem key={k} value={k}>{v}</SelectItem>)}
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="space-y-1">
-              <Label className="text-xs">Pack objetivo</Label>
-              <Select value={form.target_pack} onValueChange={(v) => set("target_pack", v)}>
-                <SelectTrigger className="h-8 text-xs"><SelectValue /></SelectTrigger>
-                <SelectContent>
-                  {Object.entries(PACK_LABELS).map(([k, v]) => <SelectItem key={k} value={k}>{v}</SelectItem>)}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          <div className="space-y-1">
-            <Label className="text-xs">Texto del mensaje</Label>
-            <p className="text-[10px] text-muted-foreground">Variables: {"{{nombre}}, {{empresa}}, {{rol}}, {{ciudad}}, {{sector}}"}</p>
-            <Textarea className="text-xs min-h-[80px]" maxLength={300} value={form.template_text} onChange={(e) => set("template_text", e.target.value)} placeholder="Hola {{nombre}}, ..." />
-            <p className={`text-[10px] ${charCount > 280 ? "text-destructive" : "text-muted-foreground"}`}>{charCount}/300 caracteres</p>
-          </div>
-
-          {detectedVars.length > 0 && (
-            <div className="flex gap-1.5 flex-wrap">
-              <span className="text-[10px] text-muted-foreground">Variables detectadas:</span>
-              {detectedVars.map((v: string) => <Badge key={v} variant="secondary" className="text-[10px] font-mono">{v}</Badge>)}
-            </div>
-          )}
-
-          <div className="space-y-1">
-            <Label className="text-xs">Peso A/B testing (0-100)</Label>
-            <Input className="h-8 text-xs w-24" type="number" min={0} max={100} value={form.weight} onChange={(e) => set("weight", parseInt(e.target.value) || 0)} />
-            <p className="text-[10px] text-muted-foreground flex items-center gap-1"><Info size={10} /> Mayor peso = más probabilidad de ser seleccionado</p>
-          </div>
-
-          <div className="space-y-1">
-            <Label className="text-xs">Descripción (opcional)</Label>
-            <Input className="h-8 text-xs" value={form.description} onChange={(e) => set("description", e.target.value)} />
-          </div>
-          <div className="space-y-1">
-            <Label className="text-xs">Notas internas (opcional)</Label>
-            <Textarea className="text-xs min-h-[50px]" value={form.notes} onChange={(e) => set("notes", e.target.value)} />
-          </div>
-        </div>
-
-        <DialogFooter className="gap-2">
-          <Button variant="outline" size="sm" onClick={onClose}>Cancelar</Button>
-          <Button size="sm" onClick={handleSave} disabled={!form.template_name || !form.template_text || createMut.isPending || patchMut.isPending}>
-            {isEditing ? "Actualizar" : "Guardar"} Template
-          </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
-  );
-}
-
-/* ───── Stats Modal ───── */
 function StatsModal({ open, onClose, template, allTemplates }: { open: boolean; onClose: () => void; template: any; allTemplates: any[] }) {
   const rate = template.times_sent > 0 ? (template.times_accepted / template.times_sent) * 100 : 0;
   const bestRate = Math.max(...allTemplates.map((t: any) => t.times_sent > 0 ? (t.times_accepted / t.times_sent) * 100 : 0));
@@ -284,8 +133,7 @@ function StatsModal({ open, onClose, template, allTemplates }: { open: boolean; 
 
 /* ───── Main Section ───── */
 export default function InviteTemplatesSection() {
-  const { data, isLoading } = useLSSInviteTemplates({ limit: 50 });
-  const patchMut = useLSSPatchInviteTemplate();
+  const { data, isLoading , isError } = useLSSInviteTemplates({ limit: 50 });
 
   const templates: any[] = (data as any)?.templates ?? (data as any)?.items ?? [];
   const active = templates.filter((t) => t.is_active);
@@ -296,17 +144,9 @@ export default function InviteTemplatesSection() {
   const globalRate = totalSent > 0 ? ((totalAccepted / totalSent) * 100).toFixed(1) : "0.0";
   const totalWeight = active.reduce((s, t) => s + (t.weight ?? 0), 0);
 
-  const [formModal, setFormModal] = useState<{ open: boolean; template?: any }>({ open: false });
   const [statsModal, setStatsModal] = useState<{ open: boolean; template?: any }>({ open: false });
 
-  const toggleActive = async (t: any) => {
-    try {
-      await patchMut.mutateAsync({ id: t.id, data: { is_active: !t.is_active } });
-      toast.success(t.is_active ? "Template desactivado" : "Template activado");
-    } catch (e: any) {
-      toast.error(e.message);
-    }
-  };
+  if (isError) return <p role="alert" className="text-destructive">No se pudo cargar esta configuración.</p>;
 
   return (
     <div className="space-y-4">
@@ -316,9 +156,6 @@ export default function InviteTemplatesSection() {
           <MessageSquare size={16} className="text-muted-foreground" />
           <span className="text-sm font-medium">Invite Templates</span>
         </div>
-        <Button size="sm" className="h-7 text-xs" onClick={() => setFormModal({ open: true })}>
-          <Plus size={13} className="mr-1" /> Nuevo Template
-        </Button>
       </div>
 
       {/* Info banner */}
@@ -353,8 +190,6 @@ export default function InviteTemplatesSection() {
             {active.length === 0 && <p className="text-xs text-muted-foreground py-4 text-center">No hay templates activos.</p>}
             {active.map((t) => (
               <TemplateCard key={t.id} template={t}
-                onEdit={() => setFormModal({ open: true, template: t })}
-                onToggleActive={() => toggleActive(t)}
                 onViewStats={() => setStatsModal({ open: true, template: t })}
               />
             ))}
@@ -376,8 +211,6 @@ export default function InviteTemplatesSection() {
               <p className="text-xs font-semibold text-muted-foreground">INACTIVOS ({inactive.length})</p>
               {inactive.map((t) => (
                 <TemplateCard key={t.id} template={t}
-                  onEdit={() => setFormModal({ open: true, template: t })}
-                  onToggleActive={() => toggleActive(t)}
                   onViewStats={() => setStatsModal({ open: true, template: t })}
                 />
               ))}
@@ -387,9 +220,6 @@ export default function InviteTemplatesSection() {
       )}
 
       {/* Modals */}
-      {formModal.open && (
-        <TemplateFormModal open onClose={() => setFormModal({ open: false })} editTemplate={formModal.template} />
-      )}
       {statsModal.open && statsModal.template && (
         <StatsModal open onClose={() => setStatsModal({ open: false })} template={statsModal.template} allTemplates={templates} />
       )}

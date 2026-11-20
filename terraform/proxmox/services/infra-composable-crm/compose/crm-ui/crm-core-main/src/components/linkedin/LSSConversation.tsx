@@ -1,12 +1,6 @@
-import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ArrowLeft, Send, CalendarDays } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { es } from "date-fns/locale";
-import { useLSSCreateConversation } from "@/hooks/use-api";
-import { toast } from "@/hooks/use-toast";
 
 const SENTIMENT_COLORS: Record<string, string> = {
   POSITIVE: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400",
@@ -17,36 +11,10 @@ const SENTIMENT_COLORS: Record<string, string> = {
 export default function LSSConversation({
   lead,
   conversations,
-  onBack,
 }: {
   lead: Record<string, any>;
   conversations: Record<string, any>[];
-  onBack: () => void;
 }) {
-  const [message, setMessage] = useState("");
-  const createMsg = useLSSCreateConversation();
-
-  const handleSend = () => {
-    if (!message.trim()) return;
-    createMsg.mutate(
-      {
-        linkedin_lead_id: lead.id,
-        message_text: message.trim(),
-        direction: "SENT",
-        sent_by: "Jainer",
-      },
-      {
-        onSuccess: () => {
-          setMessage("");
-          toast({ title: "Mensaje enviado" });
-        },
-        onError: () => {
-          toast({ title: "Error al enviar", variant: "destructive" });
-        },
-      }
-    );
-  };
-
   return (
     <div className="flex flex-col h-full">
       <p className="text-xs text-muted-foreground mb-4">
@@ -91,22 +59,6 @@ export default function LSSConversation({
         )}
       </div>
 
-      {/* Input */}
-      <div className="flex gap-2 pt-3 border-t">
-        <Input
-          placeholder="Escribir mensaje..."
-          className="flex-1"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSend()}
-        />
-        <Button size="icon" variant="default" onClick={handleSend} disabled={createMsg.isPending}>
-          <Send size={16} />
-        </Button>
-        <Button size="icon" variant="outline" title="Enviar link Cal.com">
-          <CalendarDays size={16} />
-        </Button>
-      </div>
     </div>
   );
 }
