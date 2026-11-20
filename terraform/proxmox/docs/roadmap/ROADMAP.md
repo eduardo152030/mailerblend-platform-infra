@@ -1233,6 +1233,12 @@ por [#22](https://github.com/eduardo152030/mailerblend-platform-infra/issues/22)
 Sin autorización de corte ni retirada en esta ronda.
 
 
+## CRM UI — contrato de acceso (#25, IN PROGRESS)
+
+20/11/2026 Europe/Madrid. Permisos y pruebas de sesión, API e
+integraciones preparados. Pendientes proveedor, roles efectivos y
+publicación del #24. Sin despliegue. [Contrato](planes/CRM-UI-AUTH-CONTRACT-PLAN.md).
+
 ## CT618 — contratos de migración CRM (IN PROGRESS)
 
 19/11/2026 Europe/Madrid. Issue #22 en revisión. OpenAPI público e interno
