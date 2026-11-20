@@ -1,4 +1,14 @@
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS
+
+## CT633–635 — Plataforma interna de conocimiento y diagramas — IN PROGRESS
+
+20/11/2026 (Europe/Madrid). Fase A documentada con inventario y lectura SSH
+estricta de PVE. VMID 633–635 disponibles en la consulta. Siguiente paso:
+revisar el plan propuesto, confirmar red, autenticación y alcance de cambios
+compartidos antes del alta. Implementación, pruebas de integración, despliegue
+y aceptación pendientes.
+[Plan](../planes/CT633-635-KNOWLEDGE-PLATFORM-PLAN.md).
+
 CRM Auth #25 aplicado y verificado el 20/11/2026.
 [Release y reversión](../planes/CRM-AUTH-RELEASE.md).
 El ensayo aislado de identidad CRM (#25) validó GoTrue y Supabase JS el
