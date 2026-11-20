@@ -1,0 +1,28 @@
+services:
+  auth:
+    image: supabase/gotrue:v2.197.0
+    restart: unless-stopped
+    environment:
+      API_EXTERNAL_URL: https://infra-svc01.mailerblend.com/auth/v1
+      GOTRUE_API_HOST: 0.0.0.0
+      GOTRUE_API_PORT: "9999"
+      GOTRUE_DB_DRIVER: postgres
+      GOTRUE_DB_DATABASE_URL: postgres://crm_auth:${CRM_AUTH_DB_PASSWORD:?Supply a private DB password}@supabase-db:5432/postgres?sslmode=disable
+      GOTRUE_DB_DB_NAMESPACE: auth
+      GOTRUE_SITE_URL: https://infra-svc01.mailerblend.com
+      GOTRUE_JWT_SECRET: ${CRM_AUTH_JWT_SECRET:?Supply a private JWT signing key}
+      GOTRUE_JWT_ISSUER: https://infra-svc01.mailerblend.com/auth/v1
+      GOTRUE_JWT_EXP: "120"
+      GOTRUE_JWT_AUD: authenticated
+      GOTRUE_JWT_DEFAULT_GROUP_NAME: authenticated
+      GOTRUE_JWT_ADMIN_ROLES: service_role
+      GOTRUE_DISABLE_SIGNUP: "true"
+      GOTRUE_EXTERNAL_EMAIL_ENABLED: "true"
+      GOTRUE_RATE_LIMIT_TOKEN_REFRESH: "60"
+    ports:
+      - "192.168.1.118:18090:9999"
+    networks:
+      - nucleo_network
+networks:
+  nucleo_network:
+    external: true

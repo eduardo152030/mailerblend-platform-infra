@@ -1271,11 +1271,18 @@ por [#22](https://github.com/eduardo152030/mailerblend-platform-infra/issues/22)
 Sin autorización de corte ni retirada en esta ronda.
 
 
-## CRM UI — contrato de acceso (#25, IN PROGRESS)
+## CRM UI — acceso GoTrue (#25, DONE técnico)
+
+20/11/2026. GoTrue desplegado en CT618 y sustituida Basic Auth en CT109.
+Verificados PostgreSQL aislado, Chromium en producción y ambas ingestiones.
+[Release y reversión](planes/CRM-AUTH-RELEASE.md).
+
+### Evidencia anterior al despliegue
 
 20/11/2026. GoTrue y Mailpit validados con PostgreSQL 16 sintético en CT9618.
 Supabase JS: login, refresh, logout, expiración y revocación de refresh PASS.
-Pendiente política de acceso de negocio, validación JWT en CRMAPI y 401/403.
+Modelo de roles aprobado y probado con JWT sintéticos y 401/403 HTTP.
+Pendiente aplicarlo a consultas y mutaciones reales, la UI y el proxy.
 
 20/11/2026 Europe/Madrid. Permisos y pruebas de sesión, API e
 integraciones preparados. Pendientes proveedor, roles efectivos y
@@ -1398,3 +1405,13 @@ health 200 y login Budibase 200. Golden sintético de ingesta y snapshot
 200, con UTM, formulario, historial y oportunidad verificados.
 Los logs muestran dos IP públicas de titularidad pendiente de confirmar.
 Continuar con el corte #24 manteniendo esta protección.
+
+## CRM UI — corte directo aplicado (#24)
+
+20/11/2026, 09:52 Europe/Madrid. Imagen 7082472b compilada y publicada
+en CT618 con Compose. CT109 sirve la UI en el dominio original bajo Basic
+Auth, conserva TLS, la protección de CRMAPI y la excepción de webform.
+Rollback ensayado: Budibase volvió a 200 y contactos anónimo mantuvo 401.
+Corte reaplicado. HTML autenticado 200, rutas UI anónimas 401, health 200,
+webform sin token 401 y golden autenticado PASS. Budibase, CouchDB y
+Redis siguen activos. Siguiente paso: ensayo aislado de GoTrue (#25).

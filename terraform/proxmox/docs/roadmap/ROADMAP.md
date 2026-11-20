@@ -1233,11 +1233,18 @@ por [#22](https://github.com/eduardo152030/mailerblend-platform-infra/issues/22)
 Sin autorización de corte ni retirada en esta ronda.
 
 
-## CRM UI — contrato de acceso (#25, IN PROGRESS)
+## CRM UI — acceso GoTrue (#25, DONE técnico)
+
+20/11/2026. GoTrue desplegado en CT618 y sustituida Basic Auth en CT109.
+Verificados PostgreSQL aislado, Chromium en producción y ambas ingestiones.
+[Release y reversión](planes/CRM-AUTH-RELEASE.md).
+
+### Evidencia anterior al despliegue
 
 20/11/2026. GoTrue y Mailpit validados con PostgreSQL 16 sintético en CT9618.
 Supabase JS: login, refresh, logout, expiración y revocación de refresh PASS.
-Pendiente política de acceso de negocio, validación JWT en CRMAPI y 401/403.
+Modelo de roles aprobado y probado con JWT sintéticos y 401/403 HTTP.
+Pendiente aplicarlo a consultas y mutaciones reales, la UI y el proxy.
 
 20/11/2026 Europe/Madrid. Permisos y pruebas de sesión, API e
 integraciones preparados. Pendientes proveedor, roles efectivos y
@@ -1348,3 +1355,8 @@ Login humano y aceptación pendientes. #24 sin publicar, #36 diferido.
 Protección en CT109 aplicada el 20/11/2026, previa al corte #24, con excepción
 exacta para ingesta con token y salud pública. Véase
 [incidente #49](https://github.com/eduardo152030/mailerblend-platform-infra/issues/49).
+
+### CRM UI — corte directo #24 aplicado
+
+Corte y vuelta a Budibase ensayados, y corte reaplicado con Basic Auth.
+Protección de CRMAPI e ingesta conservadas. GoTrue pendiente de ensayo.

@@ -13,6 +13,7 @@ from asyncpg import Connection
 from app.db import get_db
 
 router = APIRouter(prefix="/v1/linkedin-sourcing/leads", tags=["linkedin-sourcing-leads"])
+service_router = APIRouter(prefix=router.prefix, tags=["linkedin-sourcing-service"])
 
 
 def _clamp_limit(limit: int) -> int:
@@ -78,7 +79,7 @@ def require_linkedin_import_token(
         raise HTTPException(status_code=401, detail="Invalid LinkedIn import token")
 
 
-@router.post("/import/service", dependencies=[Depends(require_linkedin_import_token)])
+@service_router.post("/import/service", dependencies=[Depends(require_linkedin_import_token)])
 @router.post("/import")
 async def import_leads(
     payload: Dict[str, Any] = Body(...),

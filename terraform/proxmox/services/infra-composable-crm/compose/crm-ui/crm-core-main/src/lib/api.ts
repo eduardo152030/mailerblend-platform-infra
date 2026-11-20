@@ -1,3 +1,5 @@
+import { crmFetch } from "./crm-session";
+
 const BASE_URL = "/_svc/v1";
 
 export interface PaginatedResponse<T = Record<string, unknown>> {
@@ -9,7 +11,7 @@ export interface PaginatedResponse<T = Record<string, unknown>> {
 }
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${BASE_URL}${path}`, {
+  const res = await crmFetch(`${BASE_URL}${path}`, {
     headers: { "Content-Type": "application/json" },
     ...options,
   });
@@ -116,8 +118,11 @@ export const gastos = {
     request<Record<string, unknown>>(`/gastos/pnl-summary${qs(p)}`),
   statsSummary: (p: { from?: string; to?: string } = {}) =>
     request<Record<string, unknown>>(`/gastos/stats-summary${qs(p)}`),
-  exportCsv: (p: Record<string, unknown> = {}) =>
-    `${BASE_URL}/gastos/export.csv${qs(p)}`,
+  exportCsv: async (p: Record<string, unknown> = {}) => {
+    const res = await crmFetch(`${BASE_URL}/gastos/export.csv${qs(p)}`);
+    if (!res.ok) throw new Error(`Exportación CSV: ${res.status}`);
+    return res.blob();
+  },
 };
 
 // Proveedores

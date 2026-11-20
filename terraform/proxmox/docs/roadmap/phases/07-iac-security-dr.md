@@ -1,4 +1,6 @@
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS
+CRM Auth #25 aplicado y verificado el 20/11/2026.
+[Release y reversión](../planes/CRM-AUTH-RELEASE.md).
 El ensayo aislado de identidad CRM (#25) validó GoTrue y Supabase JS el
 20/11/2026. La autorización por proyecto en CRMAPI queda pendiente.
 
@@ -1255,3 +1257,8 @@ Login humano y aceptación pendientes. #24 sin publicar, #36 diferido.
 Protección en CT109 aplicada el 20/11/2026, previa al corte #24, con excepción
 exacta para ingesta con token y salud pública. Véase
 [incidente #49](https://github.com/eduardo152030/mailerblend-platform-infra/issues/49).
+
+### CRM UI — corte directo #24 aplicado
+
+Corte y vuelta a Budibase ensayados, y corte reaplicado con Basic Auth.
+Protección de CRMAPI e ingesta conservadas. GoTrue pendiente de ensayo.

@@ -3,6 +3,7 @@ WORKDIR /app
 COPY crm-core-main/package.json crm-core-main/package-lock.json ./
 RUN npm ci --no-audit --no-fund
 COPY crm-core-main/ ./
+ARG VITE_CRM_AUTH_ANON_KEY
 RUN npm run build
 
 FROM nginx:1.28.0-alpine@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284

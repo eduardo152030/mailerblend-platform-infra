@@ -4,6 +4,7 @@ import { ArrowRight, Check, Kanban, Linkedin, Mail, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { crmSession } from "@/lib/crm-session";
 import { cn } from "@/lib/utils";
 
 const MODULES = [
@@ -14,6 +15,9 @@ const MODULES = [
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const [moduleId, setModuleId] = useState(MODULES[0].id);
   const navigate = useNavigate();
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
@@ -45,10 +49,27 @@ export default function LoginPage() {
 
         {/* Access card */}
         <form
-          onSubmit={(event) => {
+          onSubmit={async (event) => {
             event.preventDefault();
             const target = MODULES.find((m) => m.id === moduleId);
-            if (target) navigate(target.route);
+            if (!target || submitting) return;
+            if (crmSession) {
+              setError("");
+              setSubmitting(true);
+              try {
+                const { error: signInError } = await crmSession.auth.signInWithPassword({ email, password });
+                if (signInError) {
+                  setError("No se pudo iniciar sesión. Comprueba tus credenciales.");
+                  return;
+                }
+              } catch {
+                setError("No se pudo conectar con el servicio de acceso.");
+                return;
+              } finally {
+                setSubmitting(false);
+              }
+            }
+            navigate(target.route);
           }}
           className="login-card rounded-xl border border-border bg-card p-6 text-card-foreground sm:p-8"
         >
@@ -71,6 +92,7 @@ export default function LoginPage() {
                   id="email"
                   type="email"
                   autoComplete="email"
+                  required={Boolean(crmSession)}
                   placeholder="tu@empresa.com"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
@@ -79,6 +101,14 @@ export default function LoginPage() {
               </div>
             </div>
 
+            {crmSession && (
+              <div className="space-y-2">
+                <Label htmlFor="password">Contraseña</Label>
+                <Input id="password" type="password" autoComplete="current-password" required
+                  value={password} onChange={(event) => setPassword(event.target.value)} />
+              </div>
+            )}
+            {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
             {/* Module picker */}
             <div className="space-y-2">
               <Label id="module-label" className="text-sm font-medium">
@@ -147,7 +177,7 @@ export default function LoginPage() {
             </div>
 
             {/* Submit */}
-            <Button type="submit" className="h-11 w-full gap-2 text-sm font-semibold">
+            <Button type="submit" disabled={submitting} className="h-11 w-full gap-2 text-sm font-semibold">
               Continuar
               <ArrowRight className="h-4 w-4" />
             </Button>
