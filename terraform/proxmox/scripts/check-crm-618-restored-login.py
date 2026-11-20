@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate CouchDB and Budibase D051 on the network-isolated CT9618 only."""
+"""Validate CouchDB and Budibase D051 on the network-isolated rehearsal CT only."""
 
 import base64
 import http.cookiejar
@@ -36,7 +36,7 @@ def request(opener, url, body=None, headers=None):
 
 
 def verify_isolation():
-    if socket.gethostname() != "crm-rehearsal-9618":
+    if socket.gethostname() not in {"crm-rehearsal-9618", "crm-rehearsal-9619"}:
         raise RuntimeError("host is not the rehearsal CT")
     for family in ("-4", "-6"):
         if json.loads(command("ip", family, "-j", "route", "show", "default")):
@@ -142,7 +142,7 @@ def verify_login(recheck):
         if not re.fullmatch(r"crm-restore-[a-f0-9]{16}@example\.invalid", email) or not password:
             raise RuntimeError("synthetic credentials missing")
         check_synthetic_session(opener, cookies, email, password)
-        print("PASS: login sintético e identidad de sesión verificados en CT9618.", flush=True)
+        print("PASS: login sintético e identidad de sesión verificados en el clon aislado.", flush=True)
         return
 
     email = f"crm-restore-{secrets.token_hex(8)}@example.invalid"
@@ -167,7 +167,7 @@ def verify_login(recheck):
         stage = "fixture_login"
         check_synthetic_session(opener, cookies, email, password)
     elapsed = round(time.monotonic() - started)
-    print(f"PASS: login sintético e identidad en CT9618; recreación a login={elapsed}s.", flush=True)
+    print(f"PASS: login sintético e identidad en el clon aislado; recreación a login={elapsed}s.", flush=True)
 
 
 if __name__ == "__main__":

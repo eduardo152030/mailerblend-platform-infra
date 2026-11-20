@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
-# Run on the Proxmox node; verify a fresh snapshot and restore only to CT9618.
+# Restore a fresh snapshot to the approved isolated rehearsal CT.
 set -euo pipefail
 
-[[ "$#" == 1 && "$1" =~ ^storage:backup/vzdump-lxc-618-[0-9_:-]+\.tar\.zst$ ]] || {
-    echo 'Uso: restore-crm-618-rehearsal.sh storage:backup/vzdump-lxc-618-FECHA.tar.zst' >&2
+[[ "$#" -ge 1 && "$#" -le 2 && "$1" =~ ^storage:backup/vzdump-lxc-618-[0-9_:-]+\.tar\.zst$ ]] || {
+    echo 'Uso: restore-crm-618-rehearsal.sh storage:backup/vzdump-lxc-618-FECHA.tar.zst [--final-legacy]' >&2
     exit 2
 }
+case "${2:-}" in
+    "") rehearsal=9618 ;;
+    --final-legacy) rehearsal=9619 ;;
+    *) exit 2 ;;
+esac
 volume=$1
 archive=$(pvesm path "$volume")
 [[ "$archive" == /mnt/storage/dump/vzdump-lxc-618-*.tar.zst && -f "$archive" && ! -L "$archive" && -O "$archive" ]]
@@ -14,7 +19,7 @@ log=${archive%.tar.zst}.log
 grep -q 'backup mode: snapshot' "$log"
 grep -q 'Finished Backup of VM 618' "$log"
 ! grep -Eq "trying '(stop|suspend)'|ERROR:" "$log"
-[[ $(pvesh get /cluster/nextid --vmid 9618 --output-format json) == '"9618"' ]]
+[[ $(pvesh get /cluster/nextid --vmid "$rehearsal" --output-format json) == "\"$rehearsal\"" ]]
 [[ "$(pct status 618)" == 'status: running' ]]
 pvesm status | awk '$1 == "storage" && $3 == "active" && $6 >= 104857600 { ok=1 } END { exit !ok }'
 [[ $(awk '/^MemAvailable:/ {print $2}' /proc/meminfo) -ge 10485760 ]]
@@ -40,15 +45,15 @@ awk -F: '
     $1 ~ /^(hookscript|mp[0-9]+|unused[0-9]+|net[1-9][0-9]*)$/ { blocked++ }
     END { exit !(root == 1 && net == 1 && !blocked) }' <<< "$info"
 
-pct restore 9618 "$volume" --storage storage --onboot 0 --start 0 --bwlimit 40960 \
-    --hostname crm-rehearsal-9618 \
+pct restore "$rehearsal" "$volume" --storage storage --onboot 0 --start 0 --bwlimit 40960 \
+    --hostname "crm-rehearsal-$rehearsal" \
     --net0 name=eth0,bridge=vmbr0,firewall=1,ip=manual,ip6=manual,link_down=1,type=veth
-[[ "$(pct status 9618)" == 'status: stopped' ]]
-config=$(pct config 9618)
+[[ "$(pct status "$rehearsal")" == 'status: stopped' ]]
+config=$(pct config "$rehearsal")
 grep -qx 'onboot: 0' <<< "$config"
 awk -F: '
     $1 == "net0" && /link_down=1/ && /ip=manual/ && /ip6=manual/ { net++ }
     $1 ~ /^net[1-9]/ { blocked++ }
     END { exit !(net == 1 && !blocked) }' <<< "$config"
 [[ "$(pct status 618)" == 'status: running' ]]
-echo 'PASS: CT9618 restaurado, apagado, con arranque automático desactivado y NIC desconectada.'
+echo "PASS: CT$rehearsal restaurado, apagado, con arranque automático desactivado y NIC desconectada."

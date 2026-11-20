@@ -58,3 +58,20 @@ una vía de correo equivalente para escrituras directas mediante CRMAPI.
 
 La autorización del propietario cubre las fases de retirada y borrado bajo estos
 controles. La fusión del inventario deja las operaciones pendientes en #31.
+
+## Respaldo verificable de cierre
+
+Ejecutar `scripts/backup-crm-618-snapshot.sh --snapshot-618` en PVE.
+Registrar el archivo nuevo y usar `scripts/restore-crm-618-rehearsal.sh`
+con el identificador del archivo y `--final-legacy`. El CT 9619 queda con
+la NIC desconectada y sin arranque automático. Preparar su loopback con
+`scripts/setup-isolated-recovery.sh 9619` antes de arrancarlo.
+
+El script `scripts/export-restore-crm-legacy-volumes.sh` se ejecuta en PVE.
+Recibe `scripts/export-crm-legacy-catalog.py` por entrada estándar y lo
+ejecuta dentro del clon aislado. Produce tres volúmenes y el catálogo con
+`SHA256SUMS` en un directorio privado bajo `/mnt/storage`. Prueba la
+restauración de los tres volúmenes en el clon y conserva sus datos de
+origen. Ejecutar luego `scripts/check-crm-618-restored-login.py` dentro del
+clon y apagarlo de forma ordenada. Registrar el resultado antes de parar
+contenedores de producción.
