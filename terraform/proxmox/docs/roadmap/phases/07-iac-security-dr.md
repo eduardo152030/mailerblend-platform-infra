@@ -1253,3 +1253,8 @@ Login humano y aceptación pendientes. #24 sin publicar, #36 diferido.
 Protección en CT109 aplicada el 20/11/2026, previa al corte #24, con excepción
 exacta para ingesta con token y salud pública. Véase
 [incidente #49](https://github.com/eduardo152030/mailerblend-platform-infra/issues/49).
+
+### CRM UI — corte directo #24 aplicado
+
+Corte y vuelta a Budibase ensayados, y corte reaplicado con Basic Auth.
+Protección de CRMAPI e ingesta conservadas. GoTrue pendiente de ensayo.

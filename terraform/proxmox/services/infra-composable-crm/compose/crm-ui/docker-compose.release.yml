@@ -1,0 +1,11 @@
+services:
+  crm-ui:
+    image: ${CRM_UI_IMAGE:?Set the reviewed CRM UI release image}
+    restart: unless-stopped
+    ports:
+      - "192.168.1.118:18089:8080"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
