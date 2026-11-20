@@ -10,7 +10,7 @@ import subprocess
 
 from dotenv import dotenv_values
 
-IDENTITIES = ("crm", "gotrue", "proxmox", "grafana", "alertmanager", "n8n")
+IDENTITIES = ("crm", "gotrue")
 
 
 def private_file(path, content):

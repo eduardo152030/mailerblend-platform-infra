@@ -30,7 +30,7 @@
   "services/infra-excraper/NOTES.md": "e12491ee0e5f8c4836aafa901857fcb19ca21ba9331811d343f9d4396cfecb6a",
   "services/infra-grafana/NOTES.md": "0619743854af60ae590064483b55566d3c59530de39fe1eaf2b635c81af2770a",
   "services/infra-llm/NOTES.md": "e7a58e7e8eb351f2ca2f77a9d67cf12a884326abf604aad16467cd766dddcc61",
-  "services/infra-mail/README.md": "980a6ffd99669316026d2243550db76f25336f44b66c72da4c8a5c0e2a758d0c",
+  "services/infra-mail/README.md": "eb9f3ae19a7a1c5ba0aa0fee704ecdd1fc88b71dacf467760f364be69474ad52",
   "services/infra-mailerblend-edge/NOTES.md": "9274702e810ddea54265377636eb77c01720115b97bdf1f64e2d3822c52b9d52",
   "services/infra-nucleoedge/NOTES.md": "f8ed390d1e4cf9e19f6589664482eaca7e59cd82860a2908f748b02eddac162a",
   "services/infra-prom/NOTES.md": "295b31e460b7ca3eb3fef619e1c370499ad1dadfe1311e62d0a79a3c7e29defa",

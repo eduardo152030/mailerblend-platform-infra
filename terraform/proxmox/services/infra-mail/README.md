@@ -60,3 +60,7 @@ requeridos por el instalador. Conserva `ca.key` fuera del CT, distribuye
 `ca.crt` como confianza y entrega a cada consumidor únicamente su contraseña.
 Si el router no publica el nombre del CT, usa la IP concedida y cubierta por
 el certificado. Comprueba de nuevo el endpoint si cambia la concesión.
+
+El relay se usa para correo de negocio. Las identidades iniciales son CRMAPI
+y GoTrue. Las alertas siguen en Telegram mediante su canal existente. El alta
+de otro consumidor requiere la indicación del propietario.

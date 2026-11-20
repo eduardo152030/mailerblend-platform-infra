@@ -1450,3 +1450,9 @@ pendientes. Mantener #68 detrás de #69.
 20/11/2026 Europe/Madrid. #69, dirección LAN vía DHCP por decisión del
 propietario. Plan acotado verificado con una alta y IPv4 DHCP. El ensayo
 en VM desechable cubre autenticación, cuota y entrega a Mailpit.
+
+20/11/2026 Europe/Madrid. El propietario limita infra-mail a correo de
+negocio. CRMAPI y GoTrue son los consumidores iniciales. Alertmanager y
+Grafana conservan su canal Telegram y su configuración. Proxmox 8.3 tiene
+webhook nativo y un matcher activo hacia sendmail; su redirección a Telegram
+se limita al enrutamiento de avisos de Proxmox.
