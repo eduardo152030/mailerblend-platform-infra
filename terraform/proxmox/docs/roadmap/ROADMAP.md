@@ -1360,3 +1360,13 @@ exacta para ingesta con token y salud pública. Véase
 
 Corte y vuelta a Budibase ensayados, y corte reaplicado con Basic Auth.
 Protección de CRMAPI e ingesta conservadas. GoTrue pendiente de ensayo.
+
+### Hardening CRM CT109 (#49)
+
+Cabeceras, CSP y límite del API de usuario aplicados y verificados el
+20/11/2026. Chromium y ambas ingestiones verificados tras el cambio.
+Continúan auditoría de API y controles del repositorio.
+
+Auditoría CRM #49 en curso. [Resultados y pendientes](planes/CRM-HARDENING-AUDIT.md).
+
+20/11/2026. Entradas #58 desplegadas; TLS, 401, ambos golden y alertas verificados. Continúa la revisión SQL y de cuerpos de #49.
