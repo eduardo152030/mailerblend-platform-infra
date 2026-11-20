@@ -254,3 +254,5 @@ contenedores. Se verificó el catálogo de un dump PostgreSQL (182 553 bytes)
 y se restauró en un contenedor temporal sin red, con consulta de documentos
 exitosa. Constituye prueba de base de datos. El respaldo integral con los
 volúmenes fuera de PostgreSQL y los secretos sigue pendiente.
+
+[PR #87](https://github.com/eduardo152030/mailerblend-platform-infra/pull/87).
