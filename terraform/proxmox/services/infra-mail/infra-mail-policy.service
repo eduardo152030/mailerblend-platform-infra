@@ -1,0 +1,13 @@
+[Unit]
+Description=SMTP submission quotas
+Before=postfix.service
+
+[Service]
+Type=simple
+DynamicUser=yes
+StateDirectory=infra-mail
+ExecStart=/usr/bin/python3 /usr/local/lib/infra-mail/submission-policy.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

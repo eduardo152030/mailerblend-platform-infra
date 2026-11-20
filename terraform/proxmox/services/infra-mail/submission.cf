@@ -1,0 +1,11 @@
+submission inet n - n - - smtpd
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_tls_auth_only=yes
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_sasl_type=dovecot
+  -o smtpd_sasl_path=private/auth
+  -o smtpd_client_restrictions=check_client_access,cidr:/etc/postfix/submission-clients
+  -o smtpd_sender_login_maps=hash:/etc/postfix/sender-login
+  -o smtpd_sender_restrictions=reject_authenticated_sender_login_mismatch
+  -o smtpd_relay_restrictions=permit_sasl_authenticated,reject
+  -o smtpd_recipient_restrictions=check_policy_service,inet:127.0.0.1:10031
