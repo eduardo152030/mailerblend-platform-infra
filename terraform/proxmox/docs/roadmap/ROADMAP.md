@@ -1383,3 +1383,7 @@ CT, el ensayo Mailpit y los avisos a Telegram forman parte de #69.
 
 [#69]: https://github.com/eduardo152030/mailerblend-platform-infra/issues/69
 [#68]: https://github.com/eduardo152030/mailerblend-platform-infra/issues/68
+
+20/11/2026 Europe/Madrid. #28–#30 verificados. #31 autorizado por etapas.
+El [inventario y plan de retirada](planes/CRM-LEGACY-EXIT.md) exige verificar
+#68, restaurar el respaldo final y observar 24 horas antes del borrado.

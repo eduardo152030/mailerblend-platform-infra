@@ -14,3 +14,9 @@ en #63. Se conserva el contrato de API usado por otros consumidores.
 Pruebas aisladas: build Vite, 401, 403, 422 y filtros de seis informes,
 resumen de proveedor y totales con filas sintéticas EUR/USD en
 PostgreSQL 16. Release productivo pendiente de la observación de #61.
+
+Release #64, 20/11/2026 Europe/Madrid. Imágenes 42f108d4, integración
+d929607f. Respaldo API compose.before-20261120T131627Z.json y UI
+before-64.TbgFuN. Seis informes 200, resumen 200, moneda inválida 422,
+ambos golden y cinco minutos sin FIRING relacionado. La corrección de
+etiquetas EUR/USD en gráficos va en el release UI #66.
