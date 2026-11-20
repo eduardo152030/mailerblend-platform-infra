@@ -44,3 +44,18 @@ restaurado. Preservar el esquema y las credenciales para el diagnóstico.
 La UI utiliza rutas relativas. Vite en desarrollo y preview limita
 `connect-src` al mismo origen. Usar API y datos sintéticos locales.
 No configurar API productiva en desarrollo, preview ni sandboxes.
+
+## Hardening CT109 (#49)
+
+20/11/2026, 10:28 Europe/Madrid. El vhost tiene HSTS, CSP, X-Frame-Options,
+Referrer-Policy y X-Content-Type-Options. El HTTP redirige a HTTPS. El límite
+del API de usuario es 30 solicitudes/s por IP, con ráfaga de 90. Los bloques
+exactos de webform, LinkedIn y health conservan su configuración.
+
+El ensayo loopback de Nginx comprobó las cabeceras, HTTP 429 en la ruta
+general y respuestas del upstream sin limitación de usuario para las
+dos excepciones. En producción pasaron Chromium, las cinco cabeceras,
+la redirección HTTP, el golden de webform y LinkedIn 401/400.
+
+Para revertir esta ronda, restaurar la copia del vhost terminada en
+`.before-hardening-20261120T092819Z`, validar Nginx y recargar.
