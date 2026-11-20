@@ -1,16 +1,13 @@
 ## CT633–635 — Plataforma interna de conocimiento y diagramas — BLOCKED
 
-20/11/2026 (Europe/Madrid). Ejecución autorizada en PR #84. Inventario, Notes,
-Compose y scripts preparados. Terraform fmt/validate, tres Compose config y
-validadores locales PASS. Tres planes acotados mostraron una sola alta cada
-uno. Tras verificar la CA PVE por SSH estricto, el apply de CT635 recibió
-HTTP 403 porque la identidad API actual no puede configurar `keyctl`
-(reservado a root@pam). CT633/634/635 siguen disponibles. Sin altas,
-publicación de red ni cambios de datos de servicios compartidos.
-
-Estado BLOCKED en aprovisionamiento. Siguiente paso: disponer de una identidad
-PVE aprobada con ese permiso para aplicar los planes acotados. Pendientes
-integración, backups, pruebas de recuperación y aceptación.
+El PR #84 se fusionó en `576e2c71`. En la reanudación autorizada, el plan
+acotado de CT635 pasó las comprobaciones y el API devolvió HTTP 403 incluso
+con un token temporal de `root@pam` sin separación de privilegios.
+Se verificó la revocación. CT633, CT634 y CT635 siguen disponibles.
+El proveedor debe autenticar como el usuario `root@pam` sin sufijo de token
+para la excepción `keyctl` del nodo. El próximo paso es tramitar acceso
+temporal autenticado del usuario mediante el mecanismo de secretos aprobado,
+manteniendo TLS y los planes acotados. Integración y aceptación pendientes.
 [Plan](planes/CT633-635-KNOWLEDGE-PLATFORM-PLAN.md).
 
 ## LXC-NOTES-TAGS — IN PROGRESS

@@ -172,3 +172,16 @@ documenta SMTP AUTH:587 con STARTTLS obligatorio y mapa de remitente;
 no se creó identidad ni se envió correo. Pendientes también la configuración
 efectiva del editor en Outline, cuentas de prueba, publicación real,
 monitorización, backups y restauración aislada.
+
+## Reanudación tras la fusión — BLOCKED
+
+Ronda `implementation` en `ops/knowledge-platform-rollout`, worktree
+`../mailerblend-platform-infra-knowledge-rollout`, base
+`576e2c719bb906b785eeb7f36e02ba308c4fcae4`. El propietario autorizó un token
+temporal de `root@pam` para los tres planes acotados y su revocación.
+El plan estricto de CT635 identificó exactamente una alta, con Debian 12,
+firewall, DHCP, nesting y keyctl. PVE respondió HTTP 403 al apply con el
+token sin separación de privilegios. El código instalado de PVE trata la
+autenticación del usuario y la del token como identidades diferentes para
+esta guarda. Se revocó y comprobó la ausencia del token. Los tres VMID
+permanecen libres. No se intentaron las otras dos altas bajo el mismo bloqueo.
