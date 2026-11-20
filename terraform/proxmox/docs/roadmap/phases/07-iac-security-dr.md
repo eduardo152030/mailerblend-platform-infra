@@ -1220,3 +1220,8 @@ Rotación y reversión deben incluir esa tercera fuente. Sin cambios en CT618.
 20/11/2026 Europe/Madrid. #23: réplica Budibase, CouchDB y Redis PASS
 en cambio coordinado, login, segunda aplicación y reversión. Healthcheck
 D051 PASS tras reversión. Rotación real pendiente; CT618 sin cambios.
+
+20/11/2026 Europe/Madrid. #24: CT109 confirmado como proxy vigente.
+Vhost separado versionado y probado con TLS de laboratorio. Pendiente
+confirmar host, DNS y certificado para la ventana de publicación.
+Sin cambios en producción.

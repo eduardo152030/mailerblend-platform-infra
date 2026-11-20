@@ -87,3 +87,37 @@ con la misma fuente y digests. El build terminó y el servicio quedó healthy.
 Sigue pendiente la exposición restringida en el proxy y dominio definitivos,
 la validación TLS allí y, si se publica una imagen, el digest del registro.
 Esta prueba no modifica CT618 ni certifica el lint global heredado.
+
+## Proxy de preview preparado
+
+20/11/2026 Europe/Madrid. Rama `feat/crm-ui-restricted-preview-proxy`,
+worktree hermano `mailerblend-platform-infra-crm-preview-proxy`, SHA de
+inicio `98bbc34a04ccdbb9dafdc05fd8b373a171724075`. PR #41 integrado y
+aceptado por el propietario para la validación de laboratorio.
+
+Lectura SSH estricta: Nginx activo en CT109, vhost habilitado
+`/etc/nginx/sites-enabled/infra-svc01.mailerblend.com.conf` enlazado a
+`sites-available`, con TLS y upstreams CT618:18088 y CT618:8080. GET del
+login legacy y de `/_svc/health`: ambos HTTP 200 con certificado
+verificado. El repositorio contiene el [inventario observado](../../inventory/routing-observed.json).
+No se encontró una plantilla vigente del vhost legado en Git.
+
+La [plantilla de preview](../../../services/infra-composable-crm/compose/crm-ui/proxy/preview.conf.template)
+usa un vhost independiente con TLS y autenticación básica y un upstream
+loopback en 18089. Las credenciales del proxy no se reenvían a la UI.
+La configuración de la UI sigue devolviendo 503 en API y no contiene
+destinos reales. La propuesta de topología coloca el Compose de preview
+en el mismo host que el vhost para conservar loopback. Confirmar host,
+titularidad DNS y certificado antes de preparar el despliegue.
+No reutilizar el vhost actual para la preview.
+
+Para probar la plantilla se sustituyeron únicamente los cuatro parámetros
+`CRM_UI_PREVIEW_HOST`, `CRM_UI_PREVIEW_CERT`, `CRM_UI_PREVIEW_KEY` y
+`CRM_UI_PREVIEW_USERS`. Son nombres y rutas, no contenido de secretos.
+Conservar las variables de Nginx `$host` y `$scheme` al renderizar.
+Nginx local por digest, SAN de laboratorio y puerto local 18443: sintaxis
+PASS, anónimo 401, ruta autenticada 200 y POST a API 503. En la futura
+ventana comprobar el modelo renderizado con la versión real del proxy,
+respaldar su configuración, reencontrar los 200 del servicio legado y
+verificar una segunda aplicación sin recarga innecesaria. El laboratorio
+no certifica DNS ni TLS definitivo. Ninguna acción mutante en CT109 o CT618.
