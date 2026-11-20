@@ -1465,3 +1465,7 @@ El [inventario y plan de retirada](planes/CRM-LEGACY-EXIT.md) exige verificar
 PostgreSQL. Se verificaron acceso de administrador, configuración de avisos,
 ambas ingestiones y aceptación SMTP de los dos mensajes de prueba. El rollback
 del release conserva los estados previos de los tres servicios y del vhost.
+
+20/11/2026 Europe/Madrid. #79. Confirmados el matcher activo hacia sendmail,
+PVE 8.3 y el esquema nativo del webhook. El procedimiento prueba Telegram
+antes de cambiar la ruta y guarda la configuración pública y privada.
