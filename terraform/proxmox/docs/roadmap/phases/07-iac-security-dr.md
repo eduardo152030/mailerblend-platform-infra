@@ -1,4 +1,20 @@
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS
+
+## CT633–635 — Plataforma interna de conocimiento y diagramas — BLOCKED
+
+20/11/2026 (Europe/Madrid). Ejecución autorizada en PR #84. Inventario, Notes,
+Compose y scripts preparados. Terraform fmt/validate, tres Compose config y
+validadores locales PASS. Tres planes acotados mostraron una sola alta cada
+uno. Tras verificar la CA PVE por SSH estricto, el apply de CT635 recibió
+HTTP 403 porque la identidad API actual no puede configurar `keyctl`
+(reservado a root@pam). CT633/634/635 siguen disponibles. Sin altas,
+publicación de red ni cambios de datos de servicios compartidos.
+
+Estado BLOCKED en aprovisionamiento. Siguiente paso: disponer de una identidad
+PVE aprobada con ese permiso para aplicar los planes acotados. Pendientes
+integración, backups, pruebas de recuperación y aceptación.
+[Plan](../planes/CT633-635-KNOWLEDGE-PLATFORM-PLAN.md).
+
 CRM Auth #25 aplicado y verificado el 20/11/2026.
 [Release y reversión](../planes/CRM-AUTH-RELEASE.md).
 El ensayo aislado de identidad CRM (#25) validó GoTrue y Supabase JS el

@@ -13,7 +13,11 @@ class Controller:
   c=self.conf;assert not c['fixture'],'Fictional fixtures cannot execute SSH bootstrap'
   assert isinstance(c['ct_id'],int) and c['ct_id'] not in c['protected_ct_ids'],'Existing CT is protected'
   assert re.fullmatch(r'[a-zA-Z0-9][a-zA-Z0-9_.-]*',node) and re.fullmatch(r'[a-zA-Z0-9][a-zA-Z0-9_.@-]*',c['pve_host'])
-  ipaddress.IPv4Address(c['ip']);self.key,self.fingerprint=public_key((self.base/'owner.pub').read_text());assert self.fingerprint==c['key_fingerprint']
+  if c['ip'] is None:
+   assert c.get('dhcp') and re.fullmatch(r'(?:[0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}',c.get('mac_address','')),'MAC required for DHCP discovery'
+  else:
+   ipaddress.IPv4Address(c['ip'])
+  self.key,self.fingerprint=public_key((self.base/'owner.pub').read_text());assert self.fingerprint==c['key_fingerprint']
  def pve(self,args,body=None):
   p=self.run(['ssh']+ssh_options(Path.home()/'.ssh/known_hosts')+['--',self.conf['pve_host'],shlex.join(args)],input=body,capture_output=True,text=True,timeout=90)
   assert p.returncode==0,'Trusted PVE/pct step failed; output withheld';return p.stdout
@@ -34,7 +38,21 @@ class Controller:
   code="import subprocess,json;c=json.loads(subprocess.check_output(['pvesh','get',"+repr('/nodes/'+self.node+'/lxc/'+str(c['ct_id'])+'/config')+",'--output-format','json']));s=json.loads(subprocess.check_output(['pvesh','get',"+repr('/nodes/'+self.node+'/lxc/'+str(c['ct_id'])+'/status/current')+",'--output-format','json']));print(json.dumps({'hostname':c['hostname'],'net0':c['net0'],'status':s['status']}))"
   state=json.loads(self.pve(['python3','-c',code]));assert state['hostname']==c['hostname'] and state['status']=='running' and (('ip=dhcp' in state['net0']) if c.get('dhcp',False) else ('ip='+c['ip']+'/') in state['net0']),'CT identity differs'
   if c.get('dhcp',False):
-   addresses=json.loads(self.pve(['pct','exec',str(c['ct_id']),'--','ip','-j','-4','addr','show','dev','eth0']));assert any(a['local']==c['ip'] for link in addresses for a in link.get('addr_info',[])),'DHCP lease mismatch'
+   if c['ip'] is None:
+    options=dict(field.split('=',1) for field in state['net0'].split(',') if '=' in field)
+    assert options.get('hwaddr','').lower()==c['mac_address'].lower(),'Declared MAC differs'
+   for attempt in range(12 if c['ip'] is None else 1):
+    links=json.loads(self.pve(['pct','exec',str(c['ct_id']),'--','ip','-j','-4','addr','show','dev','eth0']))
+    addresses={a['local'] for link in links for a in link.get('addr_info',[]) if a.get('scope')=='global' or c['ip'] is not None}
+    if c['ip'] is None and len(addresses)==1:
+     c['ip']=str(ipaddress.IPv4Address(addresses.pop()))
+     break
+    if c['ip'] in addresses:
+     break
+    if attempt < 11 and c['ip'] is None:
+     time.sleep(5)
+   else:
+    raise ValueError('DHCP lease missing, ambiguous or incompatible')
   with socket.socket(socket.AF_INET,socket.SOCK_DGRAM) as sock:
    sock.connect((c['ip'],22));client=sock.getsockname()[0]
   self.context='user=root,host='+client+',addr='+client+',laddr='+c['ip']+',lport=22'

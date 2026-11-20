@@ -29,6 +29,9 @@ No se atribuye un dominio por su nombre. Recursos distintos no se reconcilian aq
 | 630 | infra-llm | Chat IA local — llama.cpp CPU con dos modelos y un solo modelo residente | 192.168.1.67 | Sin dominio declarado | Ver ficha | Observado RUNNING; aceptación funcional: ver ficha | [630-LXC-INVENTORY.md](../../docs/inventory/630-LXC-INVENTORY.md) |
 | 631 | infra-webui | Chat IA local — Open WebUI y SearXNG interno | 192.168.1.66 | Sin dominio declarado | Ver ficha | Observado RUNNING; aceptación funcional: ver ficha | [631-LXC-INVENTORY.md](../../docs/inventory/631-LXC-INVENTORY.md) |
 | 632 | infra-mail | Relay SMTP autenticado compartido | DHCP | Sin dominio declarado | Ver ficha | Declarado, no desplegado | [632-LXC-INVENTORY.md](../../docs/inventory/632-LXC-INVENTORY.md) |
+| 633 | infra-knowledge | Outline con PostgreSQL y Redis dedicados | DHCP | Sin dominio declarado | Ver ficha | Declarado, no desplegado | [633-LXC-INVENTORY.md](../../docs/inventory/633-LXC-INVENTORY.md) |
+| 634 | infra-diagrams | Editor privado de diagramas para Outline | DHCP | Sin dominio declarado | Ver ficha | Declarado, no desplegado | [634-LXC-INVENTORY.md](../../docs/inventory/634-LXC-INVENTORY.md) |
+| 635 | infra-modeling | Render privado de diagramas PlantUML | DHCP | Sin dominio declarado | Ver ficha | Declarado, no desplegado | [635-LXC-INVENTORY.md](../../docs/inventory/635-LXC-INVENTORY.md) |
 | 61211 | svc01 | Plataforma NocoDB con PostgreSQL | 192.168.1.112 | Not verified | infra-svc01-nocodb, infra-svc01-nocodb-db | Parcial: observación verificada; funcionalidad pendiente | [CT61211-D037-EXECUTION.md](../../docs/roadmap/CT61211-D037-EXECUTION.md) |
 
 ## CT 610 — infra-prom
@@ -426,6 +429,18 @@ Ficha: [631-LXC-INVENTORY.md](../../docs/inventory/631-LXC-INVENTORY.md).
 ## Relay SMTP compartido
 
 Ficha: [632-LXC-INVENTORY.md](../../docs/inventory/632-LXC-INVENTORY.md).
+
+## CT633 · infra-knowledge
+
+Ficha: [633-LXC-INVENTORY.md](../../docs/inventory/633-LXC-INVENTORY.md).
+
+## CT634 · infra-diagrams
+
+Ficha: [634-LXC-INVENTORY.md](../../docs/inventory/634-LXC-INVENTORY.md).
+
+## CT635 · infra-modeling
+
+Ficha: [635-LXC-INVENTORY.md](../../docs/inventory/635-LXC-INVENTORY.md).
 
 ## CT 61211 — svc01
 

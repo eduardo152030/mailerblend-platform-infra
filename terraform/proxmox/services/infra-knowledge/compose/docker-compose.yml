@@ -1,0 +1,68 @@
+services:
+  outline:
+    image: outlinewiki/outline:1.13.0@sha256:4583bb244dbb4464d8a632c75044d3b2f9fe44382b6a4b84d97995f473b823e4
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      URL: ${OUTLINE_URL:?Required HTTPS URL}
+      SECRET_KEY: ${OUTLINE_SECRET_KEY:?Required private key}
+      UTILS_SECRET: ${OUTLINE_UTILS_SECRET:?Required utilities key}
+      DATABASE_URL: postgres://outline:${POSTGRES_PASSWORD:?Required URL-safe password}@postgres:5432/outline
+      PGSSLMODE: disable
+      REDIS_URL: redis://redis:6379
+      FILE_STORAGE: local
+      FILE_STORAGE_LOCAL_ROOT_DIR: /var/lib/outline/data
+      OIDC_ISSUER_URL: ${OIDC_ISSUER_URL:?Required trusted issuer}
+      OIDC_CLIENT_ID: ${OIDC_CLIENT_ID:?Required dedicated client}
+      OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET:?Required dedicated secret}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_FROM_EMAIL: ${SMTP_FROM_EMAIL:-}
+      SMTP_SECURE: "false"
+    ports:
+      - "${SERVICE_BIND_IP:?Required private bind address}:3000:3000"
+    networks: [backend, frontend]
+    volumes:
+      - attachments:/var/lib/outline/data
+  postgres:
+    image: postgres:16-alpine@sha256:1d5b02d3a9941fbd52437db4107f8c52d6297dac553ca1e5c299ebb3756b4857
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: outline
+      POSTGRES_DB: outline
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Required URL-safe password}
+    networks: [backend]
+    volumes:
+      - database:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD, pg_isready, -U, outline, -d, outline]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+  redis:
+    image: redis:7-alpine@sha256:7f7d30b7fdd09467bac58198a1f166dd69789d348d4fe859cccb20e0cf287fbe
+    restart: unless-stopped
+    command: [redis-server, --appendonly, "yes"]
+    networks: [backend]
+    volumes:
+      - redis:/data
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+networks:
+  backend:
+    internal: true
+  frontend:
+volumes:
+  attachments:
+  database:
+  redis:

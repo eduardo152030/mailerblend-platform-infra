@@ -1,0 +1,10 @@
+services:
+  drawio:
+    image: jgraph/drawio:32.7.4@sha256:3e3281733f69416b2b632adad05c9c07d434ebb775e01070d55e9f3247cebe31
+    restart: unless-stopped
+    environment:
+      DRAWIO_BASE_URL: ${DRAWIO_URL:?Required HTTPS URL}
+      DRAWIO_SERVER_URL: ${DRAWIO_URL:?Required HTTPS URL}
+    ports:
+      - "${SERVICE_BIND_IP:?Required private bind address}:8080:8080"
+    mem_limit: 1024m
