@@ -271,3 +271,14 @@ actual consistente, la verificación fuera del host y la restauración aislada
 conforme al [runbook de recuperación](../../../services/infra-composable-crm/recovery/RECOVERY.md).
 El propietario fijó parada antes de acciones en CT618. Ningún archivo ni
 servicio de producción se modificó.
+
+### Integración de la normalización en main
+
+20/11/2026 Europe/Madrid. GitHub marcó #43 integrado en su rama base
+`test/crm-budibase-rotation`. Se verificó que el squash #42 en main
+(`98bbc34a`) no contenía el flag ni sus cambios de seguimiento.
+Se reaplican los dos commits del #43 con contenido idéntico, en la rama
+`ops/crm-couchdb-normalize-main`, worktree hermano
+`mailerblend-platform-infra-crm-normalize-main`, SHA de inicio
+`98bbc34a04ccdbb9dafdc05fd8b373a171724075`, PR directo a main.
+Sin cambios en CT618.
