@@ -21,3 +21,5 @@ mismo documento volvió a abrir el rectángulo y la elipse. El SVG guardado
 incluye XML editable. La sonda del CT siguió en verde después de estabilizar.
 La receta amplió el respaldo cifrado a las carpetas edge de CT633/634.
 SMTP sigue pendiente de un transporte TLS que valide el relay CT632.
+
+[PR #91](https://github.com/eduardo152030/mailerblend-platform-infra/pull/91).
