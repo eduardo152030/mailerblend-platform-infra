@@ -27,3 +27,5 @@ Los respaldos de los archivos modificados se conservaron en CT610/611 y
 se copiaron fuera de PVE. Para revertir, aplicar el script de activación
 con `--rollback` en cada host y su bundle original. No se ejecutó
 rollback en producción.
+
+[PR #93](https://github.com/eduardo152030/mailerblend-platform-infra/pull/93).
