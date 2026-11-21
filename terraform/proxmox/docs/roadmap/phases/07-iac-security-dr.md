@@ -23,6 +23,15 @@ Siguiente paso de la plataforma: completar las integraciones de
 aplicación pendientes.
 [Plan](../planes/CT632-635-MONITORING-PLAN.md).
 
+## CT633 — Entrada de Outline por /login y /home — DONE técnico
+
+21/11/2026 (Europe/Madrid). CT109 deja pasar el Home nativo y normaliza
+solo el salto a colección del callback OIDC. Chromium confirmó sesiones
+limpias de administrador y miembro, callback a /home y acceso directo a
+Operations & Runbooks. Home visible en 1,84 s y 1,74 s desde enviar las
+credenciales. Sin reinicio de Outline. Siguiente paso: SMTP verificable.
+[Plan](../planes/CT633-OUTLINE-LOGIN-HOME-PLAN.md).
+
 ## CT633 — Corte HTTPS de Outline en CT109 — DONE técnico
 
 21/11/2026 (Europe/Madrid). El vhost `infra-doc.mailerblend.com` sirve

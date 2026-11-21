@@ -49,14 +49,25 @@ acepta el formulario firmado sin la clave REST.
 
 ## Origen de producción en CT109
 
-La URL de entrada es `https://infra-doc.mailerblend.com/home`, que
-redirige a la raíz canónica de Outline. El vhost de CT109 mantiene el
+La URL de acceso es `https://infra-doc.mailerblend.com/login`. Tras
+autenticar con Dex, el navegador abre `https://infra-doc.mailerblend.com/home`
+y muestra el Home nativo de Outline. El vhost de CT109 mantiene el
 certificado de Certbot, admite clientes de la LAN y reenvía WebSocket,
 REST y Dex al gateway de CT633 por TLS validado. CT633 acepta en ese
 puerto conexiones desde CT109. El endpoint local de salud sigue
 disponible para la sonda. El origen y callback OIDC usan el nombre de
 producción. Las instrucciones de `knowledge.test` de la sección anterior
 sirven para reconstrucción privada y reversión.
+
+
+CT109 normaliza en el callback OIDC la redirección inicial a una
+colección que puede emitir Outline. Las rutas directas de colecciones
+se mantienen. Para instalaciones provenientes del primer corte #90,
+aplicar `scripts/knowledge-platform/activate-outline-home.py` en CT109
+con el snippet versionado `services/infra-knowledge/edge/edge-location.conf`
+y un directorio privado 0700 para `vhost.before` y `vhost.after`.
+Validar con una sesión nueva. Para revertir, usar `--rollback` con
+el mismo directorio. [Plan y pruebas](../roadmap/planes/CT633-OUTLINE-LOGIN-HOME-PLAN.md).
 
 Para reproducir el corte, preparar un directorio root 0700 en cada CT.
 En CT633, incluir `cutover-edge.py`, `edge/compose.yml` y
