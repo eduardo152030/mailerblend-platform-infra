@@ -1,6 +1,9 @@
 @startuml
 title Knowledge Platform
 actor "Operator or authorized agent" as user
+node "CT109 · edge-router" {
+  component "Nginx / Certbot" as edge
+}
 node "CT633 · infra-knowledge" {
   component "HTTPS gateway" as gateway
   component "Dex OIDC" as dex
@@ -23,7 +26,8 @@ node "CT610 / CT611" {
   component Prometheus
   component Grafana
 }
-user --> gateway : SSH tunnel + verified HTTPS / REST / MCP
+user --> edge : LAN HTTPS / REST / MCP
+edge --> gateway : verified upstream TLS
 gateway --> wiki
 gateway --> dex
 wiki --> dex : OIDC

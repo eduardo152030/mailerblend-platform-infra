@@ -2,8 +2,8 @@
 
 Outline Community is the wiki. Draw.io is the browser editor, and PlantUML renders text diagrams. Read the [deployment manifest](platform.json) and [integration guide](../KNOWLEDGE-PLATFORM-AI-INTEGRATION.md).
 
-1. Use the verified SSH tunnel and private CA described in the [operator runbook](../KNOWLEDGE-PLATFORM.md). Current Outline origin is `https://knowledge.test:18443`. Render access through the CT635 tunnel is typically `http://127.0.0.1:18080`.
-2. Ask the workspace administrator for the scoped agent key through the approved secret manager. Set `OUTLINE_API_TOKEN`, `OUTLINE_URL` and `PLANTUML_URL` in the client environment. For CLI TLS, set `REQUESTS_CA_BUNDLE` and `CURL_CA_BUNDLE` to the private CA path. Configure the DNS override in the local tunnel client.
+1. Reach CT109 through the LAN or an approved private route. Current Outline origin is `https://infra-doc.mailerblend.com`. See the [operator runbook](../KNOWLEDGE-PLATFORM.md). Render access through the CT635 tunnel is typically `http://127.0.0.1:18080`.
+2. Ask the workspace administrator for the scoped agent key through the approved secret manager. Set `OUTLINE_API_TOKEN`, `OUTLINE_URL` and `PLANTUML_URL` in the client environment. Keep standard TLS certificate verification enabled.
 3. Search, then read the existing page by its UUID.
 
 ```bash

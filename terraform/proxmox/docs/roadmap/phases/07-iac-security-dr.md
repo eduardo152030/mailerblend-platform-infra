@@ -8,8 +8,8 @@ idempotencia y conflicto 409 verificados. MCP `tools/list` enumerado con una
 clave de lectura. Seis colecciones de proyecto en el workspace. Sondas de
 aplicación de los tres CT presentes en Prometheus, alerta cargada.
 Copias lógicas cifradas externas programadas con cron y retención de 30 días.
-DNS interno NXDOMAIN para los nombres finales. Siguiente paso: administrar
-esas entradas y probar Draw.io desde un navegador con HTTPS. SMTP requiere
+Outline ya usa el origen existente en CT109. Siguiente paso: resolver el
+nombre y probar Draw.io desde un navegador con HTTPS. SMTP requiere
 transporte con verificación de certificado. Aceptación final pendiente.
 [Plan](../planes/CT633-635-KNOWLEDGE-PLATFORM-PLAN.md).
 

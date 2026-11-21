@@ -30,3 +30,10 @@ La misma clave REST leyó el UUID y el bloque PlantUML de validación
 en el nuevo origen mediante el DNS normal.
 
 [PR #90](https://github.com/eduardo152030/mailerblend-platform-infra/pull/90).
+
+## Sincronización y guías
+
+Ronda `review-01`, base tras sincronizar `689937de054a304421e5cb40c76f5cddf35bbe5c`.
+Se incorporó a la rama el merge de #89 sin reescribir commits. La guía de
+agentes, el inicio rápido, el manifiesto y el diagrama ahora reflejan el
+origen verificado y distinguen Draw.io como pendiente.
