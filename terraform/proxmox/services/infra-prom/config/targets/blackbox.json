@@ -172,5 +172,56 @@
       "alert_target": "https://infra-svc01.mailerblend.com/",
       "tls_target": "https://infra-svc01.mailerblend.com"
     }
+  },
+  {
+    "targets": [
+      "http://192.168.1.118:18089/healthz"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx_strict",
+      "probe_type": "internal",
+      "scope": "internal",
+      "service": "infra-composable-crm",
+      "name": "crm-ui-release-crm-ui-1",
+      "source": "repository",
+      "probe_id": "crm-618-ui",
+      "vmid": "618",
+      "alert_target": "http://192.168.1.118:18089/healthz"
+    }
+  },
+  {
+    "targets": [
+      "http://192.168.1.118:18088/ready"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx_strict",
+      "probe_type": "internal",
+      "scope": "internal",
+      "service": "infra-composable-crm",
+      "name": "crm-api",
+      "source": "repository",
+      "probe_id": "crm-618-api",
+      "vmid": "618",
+      "alert_target": "http://192.168.1.118:18088/ready"
+    }
+  },
+  {
+    "targets": [
+      "http://192.168.1.118:18090/health"
+    ],
+    "labels": {
+      "job": "blackbox",
+      "module": "http_2xx_strict",
+      "probe_type": "internal",
+      "scope": "internal",
+      "service": "infra-composable-crm",
+      "name": "crm-auth-auth-1",
+      "source": "repository",
+      "probe_id": "crm-618-auth",
+      "vmid": "618",
+      "alert_target": "http://192.168.1.118:18090/health"
+    }
   }
 ]

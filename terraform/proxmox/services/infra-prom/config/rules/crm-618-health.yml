@@ -1,0 +1,38 @@
+groups:
+- name: crm-618-health
+  rules:
+  - record: app:crm_component:status
+    expr: >-
+      min by (service, name) (
+        container_health_state{job="cadvisor",service="infra-composable-crm",container_label_com_docker_compose_service=~"crm-ui|crm-api|supabase-db"} >= 0
+        and on (instance, service, name, id)
+          (time() - container_last_seen{job="cadvisor",service="infra-composable-crm"} <= 45)
+      ) and on (service, name) app:container:expected{ct_id="618"}
+    labels:
+      check: docker-healthcheck
+  - record: app:crm_component:status
+    expr: >-
+      min by (service, name) (
+        (probe_success{job="blackbox",service="infra-composable-crm",probe_id=~"crm-618-(ui|api|auth)"}
+          and on (instance, service, name) (up{job="blackbox",service="infra-composable-crm"} == 1))
+        and on (instance, service, name)
+          (time() - timestamp(probe_success{job="blackbox",service="infra-composable-crm"}) <= 45)
+      ) and on (service, name) app:container:expected{ct_id="618"}
+    labels:
+      check: http
+  - record: app:crm_component:status
+    expr: >-
+      max by (service, name) (
+        0 * (time() - container_last_seen{job="cadvisor",service="infra-composable-crm",container_label_com_docker_compose_service="crm-notifications"} <= 45) + 1
+      ) and on (service, name) app:container:expected{ct_id="618"}
+    labels:
+      check: docker-presence
+  - alert: CrmComponentCheckUnhealthy
+    expr: app:crm_component:status == 0
+    for: 2m
+    labels:
+      severity: warning
+      ct_id: '618'
+    annotations:
+      summary: 'CRM CT618: {{ $labels.name }} no supera {{ $labels.check }}'
+      description: La comprobación del componente lleva dos minutos en fallo.

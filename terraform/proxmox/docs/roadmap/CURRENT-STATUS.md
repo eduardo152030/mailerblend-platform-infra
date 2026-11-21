@@ -1,3 +1,14 @@
+## CT618 — Monitorización del CRM activo — DONE técnico
+
+21/11/2026 (Europe/Madrid). Retirada de Budibase de la disponibilidad
+esperada. Prometheus y Alertmanager sin alerta CT618 tras publicar. CRM UI,
+API y GoTrue tienen sondas HTTP; UI, API y PostgreSQL tienen healthcheck
+Docker; el worker de notificaciones tiene presencia de cgroup fresca.
+Siete señales UP y cinco componentes activos visibles en Grafana. Segunda
+aplicación sin cambios. Los contenedores de CT618 conservan sus IDs.
+Siguiente paso de Fase 7: continuar con las integraciones pendientes.
+[Plan](planes/CT618-CRM-MONITORING-PLAN.md).
+
 ## CT634 — HTTPS e integración Draw.io — DONE técnico
 
 21/11/2026 (Europe/Madrid). Route 53 y resolver LAN confirmados. CT109
