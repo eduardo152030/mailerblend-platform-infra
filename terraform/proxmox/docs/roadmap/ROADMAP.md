@@ -1,3 +1,12 @@
+## CT634 — HTTPS e integración Draw.io — DONE técnico
+
+21/11/2026 (Europe/Madrid). Route 53 y resolver LAN confirmados. CT109
+certifica el hostname; upstream CT634 TLS, restrictivo a CT109. Outline
+guarda y vuelve a editar mediante su integración nativa. Se añadió una
+segunda figura y ambas se recuperaron al reiniciar Draw.io. Sonda UP.
+Siguiente paso de Fase 7: SMTP con verificación de certificado.
+[Plan](planes/CT634-DRAWIO-HTTPS-PLAN.md).
+
 ## CT633–635 — Operación para agentes — IN PROGRESS
 
 21/11/2026 (Europe/Madrid). Outline Community sigue operativo en HTTPS privado.

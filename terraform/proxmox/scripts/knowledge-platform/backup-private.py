@@ -34,8 +34,12 @@ EXPORTS = (
     ("633-dex.sqlite", 633, ["python3", "-c", DEX_SNAPSHOT]),
     ("633-redis.rdb", 633, ["docker", "exec", "infra-knowledge-redis-1", "sh", "-ec",
                           'file=$(mktemp); trap \'unlink "$file"\' EXIT; redis-cli --rdb "$file" >&2; cat "$file"']),
-    ("633-config.tar", 633, ["tar", "-C", "/opt/infra-knowledge", "-cf", "-", ".env", "docker-compose.yml", "private"]),
-    ("634-config.tar", 634, ["tar", "-C", "/opt/infra-diagrams", "-cf", "-", ".env", "docker-compose.yml"]),
+    ("633-config.tar", 633, ["sh", "-ec",
+                            'cd /opt/infra-knowledge; set -- .env docker-compose.yml private; '
+                            'if test -d edge; then set -- "$@" edge; fi; tar -cf - "$@"']),
+    ("634-config.tar", 634, ["sh", "-ec",
+                            'cd /opt/infra-diagrams; set -- .env docker-compose.yml; '
+                            'if test -d edge; then set -- "$@" edge; fi; tar -cf - "$@"']),
     ("635-config.tar", 635, ["tar", "-C", "/opt/infra-modeling", "-cf", "-", ".env", "docker-compose.yml"]),
 )
 

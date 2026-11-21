@@ -26,8 +26,11 @@
       "observed_ip": "192.168.1.63",
       "application": "Draw.io 32.7.4",
       "loopback_origin": "http://127.0.0.1:8080",
-      "native_integration": "pending browser-reachable HTTPS origin",
-      "cadvisor": true
+      "native_integration": "verified create, save, edit, and reopen after Draw.io restart",
+      "cadvisor": true,
+      "origin": "https://infra-diagrams.mailerblend.com/",
+      "proxy_vmid": 109,
+      "tls": "CT109 wildcard; verified private CA toward CT634"
     },
     {
       "vmid": 635,
@@ -50,7 +53,7 @@
   ],
   "final_dns_and_tls": {
     "outline": "verified, LAN access through CT109",
-    "drawio": "pending browser-reachable HTTPS origin"
+    "drawio": "verified, LAN access through CT109"
   },
   "mcp": {
     "transport": "Streamable HTTP",

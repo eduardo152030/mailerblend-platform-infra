@@ -2927,3 +2927,10 @@ existente `infra-doc.mailerblend.com` en una ventana de hasta diez minutos.
 CT109 conserva su certificado y el servicio de destino usa TLS verificado.
 Se mantiene el alcance privado de la LAN. Docmost permanece en CT101 con
 sus datos. [Plan de corte](planes/CT633-OUTLINE-EDGE-CUTOVER.md).
+
+### CT634 — origen HTTPS del editor nativo
+
+Usar `infra-diagrams.mailerblend.com` para la ventana nativa de Draw.io.
+CT109 conserva la gestión de TLS externo y valida el upstream de CT634.
+La LAN puede usar el editor. El puerto TLS interno acepta solo CT109.
+[Plan](planes/CT634-DRAWIO-HTTPS-PLAN.md).
