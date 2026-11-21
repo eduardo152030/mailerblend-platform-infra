@@ -10,14 +10,14 @@ The [editable PlantUML source](knowledge-platform/architecture.puml) distinguish
 
 | CT | Service | Current verified access |
 |---|---|---|
-| 633 | Outline Community, Dex, Nginx, PostgreSQL and Redis | `https://knowledge.test:18443` over the verified SSH tunnel. Resolve `knowledge.test` to local loopback and trust the private CA. |
+| 633 | Outline Community, Dex, Nginx, PostgreSQL and Redis | `https://infra-doc.mailerblend.com/home` from the LAN. The canonical origin is `https://infra-doc.mailerblend.com`. |
 | 634 | Draw.io | CT-local `http://127.0.0.1:8080`. A browser-reachable HTTPS editor URL and Outline save/reopen acceptance are pending. |
 | 635 | PlantUML Server | CT-local `http://127.0.0.1:8080`. Tunnel it to local port 18080. The SANDBOX profile rejects remote includes. |
 | 632 | SMTP | STARTTLS submission on port 587. Outline integration remains pending certificate-verifying transport. |
 
-The observed DHCP values in the manifest are evidence, subject to lease changes. The private gateway handles HTTPS and forwards WebSocket upgrades. Dex issues OIDC identities with separate administrator and agent accounts. PostgreSQL stores workspace content and metadata, the attachments volume stores uploaded bytes, Dex SQLite holds identity-provider state, and Redis holds application coordination and queued state. CT610 Prometheus collects Node Exporter and cAdvisor, and CT611 Grafana exposes Fleet and Details.
+The observed DHCP values in the manifest are evidence, subject to lease changes. CT109 terminates browser TLS with its existing certificate and forwards to the CT633 gateway over verified TLS. Both proxies forward WebSocket upgrades. Dex issues OIDC identities with separate administrator and agent accounts. PostgreSQL stores workspace content and metadata, the attachments volume stores uploaded bytes, Dex SQLite holds identity-provider state, and Redis holds application coordination and queued state. CT610 Prometheus collects Node Exporter and cAdvisor, and CT611 Grafana exposes Fleet and Details.
 
-No final DNS or edge URLs have been validated. The browser must be able to reach the configured editor HTTPS origin independently of Outline. Keep the public Draw.io fallback disabled in the intended workflow by confirming the editor host in browser network traces before accepting the integration. [Outline Diagrams.net settings](https://github.com/outline/outline/blob/v1.13.0/plugins/diagrams/client/Settings.tsx)
+The Outline origin was verified through normal DNS. The final Draw.io origin is pending. The browser must be able to reach the configured editor HTTPS origin independently of Outline. Keep the public Draw.io fallback disabled in the intended workflow by confirming the editor host in browser network traces before accepting the integration. [Outline Diagrams.net settings](https://github.com/outline/outline/blob/v1.13.0/plugins/diagrams/client/Settings.tsx)
 
 ## REST API
 
@@ -50,7 +50,7 @@ Search before create. Save the returned UUID in the task record. On a timeout af
 
 ## MCP
 
-Use Streamable HTTP at `https://knowledge.test:18443/mcp` with a bearer key from the same workspace. A client must reach the private gateway and trust its CA. The verified read key negotiated `initialize` and returned the following through `tools/list`:
+Use Streamable HTTP at `https://infra-doc.mailerblend.com/mcp` with a bearer key from the same workspace. The client must reach CT109 through the LAN or an approved private route. The verified read key negotiated `initialize` and returned the following through `tools/list`:
 
 - `list_collections`, `list_documents`, `list_collection_documents`, `fetch`
 - `list_comments`, `get_document_changes`, `list_templates`, `list_users`
@@ -61,13 +61,13 @@ Example for a Codex client with private network access. Inject `OUTLINE_MCP_TOKE
 
 ```toml
 [mcp_servers.outline]
-url = "https://knowledge.test:18443/mcp"
+url = "https://infra-doc.mailerblend.com/mcp"
 bearer_token_env_var = "OUTLINE_MCP_TOKEN"
 ```
 
 For an MCP client with generic HTTP configuration, specify that URL, Streamable HTTP, and the bearer credential reference. A remote hosted agent needs an approved route to the private service. [Outline MCP documentation](https://docs.getoutline.com/s/guide/doc/mcp-6j9jtENNKL)
 
-For n8n, run the workflow where it can resolve and reach Outline, with the private CA installed in the execution environment. Use an HTTP Request node with a stored Header Auth credential and JSON body for REST. Keep the document UUID and expected revision as workflow items. Branch on 409 to read the document again and send it for review. Use the publisher in a controlled worker for rendering and signed multipart uploads. Keep authorization headers and attachment signatures out of execution logs.
+For n8n, run the workflow where it can resolve and reach Outline, with normal certificate validation in the execution environment. Use an HTTP Request node with a stored Header Auth credential and JSON body for REST. Keep the document UUID and expected revision as workflow items. Branch on 409 to read the document again and send it for review. Use the publisher in a controlled worker for rendering and signed multipart uploads. Keep authorization headers and attachment signatures out of execution logs.
 
 ## Render and publish a diagram
 

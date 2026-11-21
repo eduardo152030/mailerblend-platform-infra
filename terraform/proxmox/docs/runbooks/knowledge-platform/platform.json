@@ -13,8 +13,12 @@
       "rest_path": "/api",
       "mcp_path": "/mcp",
       "identity": "Dex OIDC",
-      "tls": "private CA",
-      "cadvisor": true
+      "tls": "CT109 Certbot; verified private CA for CT109 to CT633",
+      "cadvisor": true,
+      "origin": "https://infra-doc.mailerblend.com",
+      "home": "https://infra-doc.mailerblend.com/home",
+      "private_origin_role": "loopback health and rollback; production OIDC uses the canonical origin",
+      "proxy_vmid": 109
     },
     {
       "vmid": 634,
@@ -44,7 +48,10 @@
       "cadvisor": false
     }
   ],
-  "final_dns_and_tls": "pending internal DNS administration and trusted certificates",
+  "final_dns_and_tls": {
+    "outline": "verified, LAN access through CT109",
+    "drawio": "pending browser-reachable HTTPS origin"
+  },
   "mcp": {
     "transport": "Streamable HTTP",
     "verified_scope": "read",

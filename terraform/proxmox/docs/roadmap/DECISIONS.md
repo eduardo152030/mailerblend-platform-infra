@@ -2919,3 +2919,11 @@ de bloque con revisión. MCP de lectura y REST de escritura usan claves
 separadas. Las DNS definitivas y el transporte SMTP verificable se mantienen
 pendientes. La primera programación de backups cifrados usa el cron del
 equipo operador, con retención de 30 días en su directorio dedicado.
+
+### CT633 — origen canónico de Outline en CT109
+
+El 21/11/2026 (Europe/Madrid), el propietario autorizó el corte del vhost
+existente `infra-doc.mailerblend.com` en una ventana de hasta diez minutos.
+CT109 conserva su certificado y el servicio de destino usa TLS verificado.
+Se mantiene el alcance privado de la LAN. Docmost permanece en CT101 con
+sus datos. [Plan de corte](planes/CT633-OUTLINE-EDGE-CUTOVER.md).

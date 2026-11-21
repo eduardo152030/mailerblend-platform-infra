@@ -47,6 +47,33 @@ publicación definitiva requiere resolver DNS, TLS y rutas autorizadas.
 La API autentica la creación del adjunto, y el endpoint local de carga
 acepta el formulario firmado sin la clave REST.
 
+## Origen de producción en CT109
+
+La URL de entrada es `https://infra-doc.mailerblend.com/home`, que
+redirige a la raíz canónica de Outline. El vhost de CT109 mantiene el
+certificado de Certbot, admite clientes de la LAN y reenvía WebSocket,
+REST y Dex al gateway de CT633 por TLS validado. CT633 acepta en ese
+puerto conexiones desde CT109. El endpoint local de salud sigue
+disponible para la sonda. El origen y callback OIDC usan el nombre de
+producción. Las instrucciones de `knowledge.test` de la sección anterior
+sirven para reconstrucción privada y reversión.
+
+Para reproducir el corte, preparar un directorio root 0700 en cada CT.
+En CT633, incluir `cutover-edge.py`, `edge/compose.yml` y
+`edge/nginx.conf` con los nombres `compose.yml` y `nginx.conf`.
+En CT109, incluir el script, `edge-location.conf` y la CA pública de CT633
+como `ct633-ca.pem`. La clave privada de Certbot queda en CT109.
+Ejecutar `python3 cutover-edge.py knowledge prepare <directorio>` dentro de
+CT633 y `python3 cutover-edge.py edge prepare <directorio>` dentro de CT109,
+por SSH estricto. Validar ambos candidatos. Dentro de la ventana, ejecutar
+`edge apply` y luego `knowledge apply` mediante el mismo script y directorios.
+
+Comprobar `/home`, `/_health`, el issuer de Dex, login de administrador y
+miembro, workspace y sonda. Ante fallo, ejecutar `edge rollback` seguido
+de `knowledge rollback` con sus originales y comprobar Docmost en el
+vhost y Outline en acceso privado. El historial y la verificación están
+en el [plan de corte](../roadmap/planes/CT633-OUTLINE-EDGE-CUTOVER.md).
+
 El navegador necesita HTTPS para Outline y Draw.io. Usar la URL propia en el
 ajuste Diagrams.net de Outline. Verificar el origen del editor y repetir la
 edición tras reiniciar. PostgreSQL y Redis quedan en su red privada. Configurar

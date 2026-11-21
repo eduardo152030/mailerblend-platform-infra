@@ -8,8 +8,8 @@ idempotencia y conflicto 409 verificados. MCP `tools/list` enumerado con una
 clave de lectura. Seis colecciones de proyecto en el workspace. Sondas de
 aplicación de los tres CT presentes en Prometheus, alerta cargada.
 Copias lógicas cifradas externas programadas con cron y retención de 30 días.
-DNS interno NXDOMAIN para los nombres finales. Siguiente paso: administrar
-esas entradas y probar Draw.io desde un navegador con HTTPS. SMTP requiere
+Outline ya usa el origen existente en CT109. Siguiente paso: resolver el
+nombre y probar Draw.io desde un navegador con HTTPS. SMTP requiere
 transporte con verificación de certificado. Aceptación final pendiente.
 [Plan](../planes/CT633-635-KNOWLEDGE-PLATFORM-PLAN.md).
 
@@ -22,6 +22,15 @@ cuatro. Promtool, respaldo de catálogos y reaplicación sin recarga PASS.
 Siguiente paso de la plataforma: completar las integraciones de
 aplicación pendientes.
 [Plan](../planes/CT632-635-MONITORING-PLAN.md).
+
+## CT633 — Corte HTTPS de Outline en CT109 — DONE técnico
+
+21/11/2026 (Europe/Madrid). El vhost `infra-doc.mailerblend.com` sirve
+Outline y Dex. /home lleva a la raíz. TLS, health, login de administrador
+y agente y el workspace existente comprobados. El tráfico se limita a la
+LAN. Docmost sigue RUNNING. Siguiente paso: origen HTTPS para Draw.io,
+prueba de edición desde Outline y SMTP verificable.
+[Plan](../planes/CT633-OUTLINE-EDGE-CUTOVER.md).
 
 ## CT633–635 — Plataforma interna de conocimiento y diagramas — alta DONE, integración IN PROGRESS
 
