@@ -8,6 +8,15 @@ Siguiente paso de la plataforma: completar las integraciones de
 aplicación pendientes.
 [Plan](planes/CT632-635-MONITORING-PLAN.md).
 
+## CT633 — Corte HTTPS de Outline en CT109 — DONE técnico
+
+21/11/2026 (Europe/Madrid). El vhost `infra-doc.mailerblend.com` sirve
+Outline y Dex. /home lleva a la raíz. TLS, health, login de administrador
+y agente y el workspace existente comprobados. El tráfico se limita a la
+LAN. Docmost sigue RUNNING. Siguiente paso: origen HTTPS para Draw.io,
+prueba de edición desde Outline y SMTP verificable.
+[Plan](planes/CT633-OUTLINE-EDGE-CUTOVER.md).
+
 ## CT633–635 — Plataforma interna de conocimiento y diagramas — alta DONE, integración IN PROGRESS
 
 21/11/2026 (Europe/Madrid). Alta Terraform y SSH DONE. CT633 ejecuta Outline

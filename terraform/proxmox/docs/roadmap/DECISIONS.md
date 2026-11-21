@@ -2910,3 +2910,11 @@ El alcance autorizado permite un proveedor alternativo si CRM carece de
 OIDC compatible. Se eligió Dex dedicado en CT633, con dos identidades y
 persistencia SQLite. La variante inicial queda en loopback con CA privada.
 La publicación mediante CT109 queda pendiente de comprobar DNS y TLS.
+
+### CT633 — origen canónico de Outline en CT109
+
+El 21/11/2026 (Europe/Madrid), el propietario autorizó el corte del vhost
+existente `infra-doc.mailerblend.com` en una ventana de hasta diez minutos.
+CT109 conserva su certificado y el servicio de destino usa TLS verificado.
+Se mantiene el alcance privado de la LAN. Docmost permanece en CT101 con
+sus datos. [Plan de corte](planes/CT633-OUTLINE-EDGE-CUTOVER.md).
