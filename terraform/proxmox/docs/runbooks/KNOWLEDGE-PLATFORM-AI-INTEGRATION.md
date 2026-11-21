@@ -11,13 +11,13 @@ The [editable PlantUML source](knowledge-platform/architecture.puml) distinguish
 | CT | Service | Current verified access |
 |---|---|---|
 | 633 | Outline Community, Dex, Nginx, PostgreSQL and Redis | `https://infra-doc.mailerblend.com/home` from the LAN. The canonical origin is `https://infra-doc.mailerblend.com`. |
-| 634 | Draw.io | CT-local `http://127.0.0.1:8080`. A browser-reachable HTTPS editor URL and Outline save/reopen acceptance are pending. |
+| 634 | Draw.io | `https://infra-diagrams.mailerblend.com/` through CT109 from the LAN. Native save, edit and reopen verified. |
 | 635 | PlantUML Server | CT-local `http://127.0.0.1:8080`. Tunnel it to local port 18080. The SANDBOX profile rejects remote includes. |
 | 632 | SMTP | STARTTLS submission on port 587. Outline integration remains pending certificate-verifying transport. |
 
 The observed DHCP values in the manifest are evidence, subject to lease changes. CT109 terminates browser TLS with its existing certificate and forwards to the CT633 gateway over verified TLS. Both proxies forward WebSocket upgrades. Dex issues OIDC identities with separate administrator and agent accounts. PostgreSQL stores workspace content and metadata, the attachments volume stores uploaded bytes, Dex SQLite holds identity-provider state, and Redis holds application coordination and queued state. CT610 Prometheus collects Node Exporter and cAdvisor, and CT611 Grafana exposes Fleet and Details.
 
-The Outline origin was verified through normal DNS. The final Draw.io origin is pending. The browser must be able to reach the configured editor HTTPS origin independently of Outline. Keep the public Draw.io fallback disabled in the intended workflow by confirming the editor host in browser network traces before accepting the integration. [Outline Diagrams.net settings](https://github.com/outline/outline/blob/v1.13.0/plugins/diagrams/client/Settings.tsx)
+The Outline origin was verified through normal DNS. The native Draw.io integration opens a separate editor window at the HTTPS origin above. The browser must reach it independently of Outline. A browser test verified a second save and reopening the same diagram after restarting Draw.io. [Outline Diagrams.net settings](https://github.com/outline/outline/blob/v1.13.0/plugins/diagrams/client/Settings.tsx)
 
 ## REST API
 

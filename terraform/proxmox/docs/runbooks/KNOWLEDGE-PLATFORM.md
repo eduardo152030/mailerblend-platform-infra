@@ -74,6 +74,37 @@ de `knowledge rollback` con sus originales y comprobar Docmost en el
 vhost y Outline en acceso privado. El historial y la verificación están
 en el [plan de corte](../roadmap/planes/CT633-OUTLINE-EDGE-CUTOVER.md).
 
+## Editor Draw.io en CT634
+
+La URL de usuario es `https://infra-diagrams.mailerblend.com/` en la LAN.
+CT109 usa su certificado wildcard y verifica la CA y el nombre
+`drawio.internal` del upstream CT634. El gateway CT634 solo admite CT109
+en el puerto TLS. La sonda de aplicación conserva HTTP en loopback.
+
+El [plan de integración](../roadmap/planes/CT634-DRAWIO-HTTPS-PLAN.md) registra
+la receta. Preparar un directorio 0700 en CT634 con el Compose y Nginx de
+`services/infra-diagrams/edge`, el certificado upstream y su clave 0600.
+El certificado debe tener SAN `drawio.internal`. Preparar en CT109 otro
+directorio privado con `vhost.conf` y `ct634-ca.pem`. Instalar la receta
+`scripts/knowledge-platform/deploy-drawio-edge.sh`. Ejecutar primero
+`diagrams <directorio CT634>` y después `edge <directorio CT109>` por SSH
+estricto. Verificar TLS y HTTP 200 con DNS normal, y HTTP 403 hacia el
+puerto upstream desde una IP distinta de CT109.
+
+En Outline, configurar el origen desde el ajuste Diagrams.net o mediante
+`scripts/knowledge-platform/configure-drawio.py` con una sesión
+administradora inyectada como `OUTLINE_ADMIN_SESSION_TOKEN`. El script
+conserva una integración preexistente que difiera. En el documento,
+usar el menú de barra, elegir **Diagrams.net diagram**, editar y guardar.
+Seleccionar la imagen y pulsar **Edit diagram** para reabrir. Confirmar que
+la ventana pertenece a `infra-diagrams.mailerblend.com`.
+
+Para revertir el vhost ejecutar `rollback-edge` y después
+`rollback-diagrams` con los mismos directorios, tras retirar o restaurar
+el ajuste de integración según el respaldo disponible. El procedimiento
+mantiene los adjuntos de Outline. Custodiar la clave de la CA upstream
+fuera de los CT y renovar el certificado de CT634 antes del vencimiento.
+
 El navegador necesita HTTPS para Outline y Draw.io. Usar la URL propia en el
 ajuste Diagrams.net de Outline. Verificar el origen del editor y repetir la
 edición tras reiniciar. PostgreSQL y Redis quedan en su red privada. Configurar

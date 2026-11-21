@@ -37,7 +37,8 @@ wiki --> Attachments
 dex --> sqlite
 user --> plant : private render tunnel
 user --> wiki : PNG + source via REST
-user ..> draw : browser HTTPS integration pending
+user --> edge : browser opens Draw.io
+edge --> draw : verified upstream TLS
 wiki ..> mail : verified SMTP transport pending
 Prometheus --> plant : cAdvisor / Node
 Prometheus --> wiki : cAdvisor / Node
