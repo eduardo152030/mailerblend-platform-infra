@@ -28,3 +28,5 @@ Draw.io por su propio origen y la aceptación de SMTP.
 
 La misma clave REST leyó el UUID y el bloque PlantUML de validación
 en el nuevo origen mediante el DNS normal.
+
+[PR #90](https://github.com/eduardo152030/mailerblend-platform-infra/pull/90).
