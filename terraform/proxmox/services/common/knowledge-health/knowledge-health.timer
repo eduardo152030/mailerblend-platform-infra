@@ -1,0 +1,10 @@
+[Unit]
+Description=Periodic Knowledge Platform health probe
+
+[Timer]
+OnBootSec=20s
+OnUnitActiveSec=30s
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

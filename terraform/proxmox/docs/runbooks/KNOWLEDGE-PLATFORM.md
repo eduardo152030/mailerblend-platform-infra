@@ -1,5 +1,7 @@
 # Plataforma interna de conocimiento y diagramas
 
+Ver la [guía de integración para agentes](KNOWLEDGE-PLATFORM-AI-INTEGRATION.md) y su [inicio rápido](knowledge-platform/QUICK-START.md).
+
 Consultar el [plan](../roadmap/planes/CT633-635-KNOWLEDGE-PLATFORM-PLAN.md)
 y el [runbook de alta LXC](NEW-LXC-PROVISIONING.md) para aprovisionamiento, SSH,
 observabilidad y rollback. Las definiciones de servicio y volúmenes están en
@@ -51,7 +53,8 @@ edición tras reiniciar. PostgreSQL y Redis quedan en su red privada. Configurar
 firewall antes de publicar los servicios. PlantUML se usa por IP privada y
 con perfil SANDBOX.
 
-Crear una página dedicada para el diagrama y obtener su UUID. Usar una clave
+Identificar el UUID de la página y delimitar el bloque con los párrafos
+`PlantUML begin: <clave>` y `PlantUML end: <clave>`. Usar una clave
 API del agente con acceso de escritura a esa página mediante el almacén
 privado de la sesión, como `OUTLINE_API_TOKEN`.
 
@@ -59,13 +62,42 @@ privado de la sesión, como `OUTLINE_API_TOKEN`.
 python3 scripts/knowledge-platform/publish.py \
   --outline https://outline.example.invalid \
   --renderer http://192.0.2.10:8080 \
-  --document 00000000-0000-0000-0000-000000000001 diagrama.puml
+  --document 00000000-0000-0000-0000-000000000001 --diagram-key topology diagrama.puml
 ```
 
-El publicador reemplaza el cuerpo de esa página con un PNG y la fuente
-`.puml`. Reusar el UUID para actualizar. El endpoint
+El publicador actualiza únicamente el bloque marcado con un PNG y la fuente
+`.puml`. Reusar el UUID y la clave para actualizar. Interrumpir ante un
+conflicto de revisión o ediciones manuales dentro del bloque. El endpoint
 `/svg/<fuente codificada>` sirve para probar SVG en el mismo renderizador.
 
 Para recuperar Outline, respaldar de forma consistente PostgreSQL, adjuntos,
 configuración, Redis y secretos cifrados. Restaurar primero en un entorno
 aislado y recuperar un documento con su Draw.io editable y fuente PlantUML.
+
+## Copia cifrada externa
+
+`scripts/knowledge-platform/backup-private.py` guarda copias cifradas AES256
+de PostgreSQL, adjuntos, Dex SQLite mediante snapshot lógico, Redis RDB,
+configuraciones de CT633–635 y material privado del operador. Cada flujo
+se verifica por descifrado y SHA-256 antes de marcar la generación completa.
+Las generaciones se guardan fuera de PVE.
+
+El equipo operador ejecuta [la entrada cron](../../scripts/knowledge-platform/backup.cron)
+a las 04:40 Europe/Madrid. Instalar el launcher y el script en
+`~/.local/libexec/knowledge-platform/`, y definir en
+`~/.config/knowledge-platform/backup.conf` las rutas
+`KNOWLEDGE_BACKUP_ROOT`, `KNOWLEDGE_BACKUP_KEY` y
+`KNOWLEDGE_OPERATOR_MATERIAL`. El fichero de configuración y la clave
+requieren modo 0600. El destino y el material privado requieren modo 0700.
+La retención programada es de 30 días y solo retira generaciones completas
+después de generar y verificar una nueva. Revisar `cron.log` y la fecha
+del último recibo. Si el equipo operador está apagado, cron no recupera
+la ejecución perdida. Custodiar una copia de la clave fuera de ese equipo.
+
+Para comprobar recuperación, descifrar el dump y restaurarlo en una instancia
+PostgreSQL aislada y sin red. Verificar tablas y documentos. Revisar también
+el archivo de adjuntos y el snapshot SQLite. Para una recuperación completa,
+reconstruir los CT con IaC, recuperar las configuraciones y volúmenes en un
+entorno aislado, y verificar login, descarga de adjuntos y render antes de
+conectar al tráfico. Las capturas lógicas son independientes y no son un
+snapshot transaccional de todo el stack en un único instante.
