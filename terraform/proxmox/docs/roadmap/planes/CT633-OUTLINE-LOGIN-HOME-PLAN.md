@@ -17,3 +17,5 @@ confirmaron /login, callback /home, rol y Home visible. Tiempo desde
 enviar las credenciales: administrador 1,84 s y miembro 1,74 s.
 El enlace directo a Operations & Runbooks mantuvo su ruta en ambos casos.
 La segunda aplicación dio `Sin cambios`.
+
+[PR #92](https://github.com/eduardo152030/mailerblend-platform-infra/pull/92).
