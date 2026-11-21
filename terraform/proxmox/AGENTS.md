@@ -2,11 +2,12 @@
 
 ## Reglas para Codex y Cline
 
-Ambos agentes deben seguir las diez reglas versionadas de [`.clinerules/`](.clinerules/)
+Ambos agentes deben seguir las reglas versionadas de [`.clinerules/`](.clinerules/)
 en este módulo. Al recibir una tarea, abre la [regla 03](.clinerules/03-git-workflow.md)
 y consulta las demás reglas aplicables al trabajo. Adapta los nombres de
 herramientas al entorno de la sesión, manteniendo los mismos controles y
-criterios de entrega.
+criterios de entrega. Para registrar trabajo en GitHub, aplicar la
+[regla 11](.clinerules/11-issue-workflow.md).
 
 Vincula cada tarea con su plan o issue, worktree, rama y PR. Antes de editar,
 verifica la ruta y la rama y registra el SHA de inicio de la ronda. En tareas
