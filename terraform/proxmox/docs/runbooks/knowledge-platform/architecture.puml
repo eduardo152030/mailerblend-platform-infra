@@ -1,0 +1,42 @@
+@startuml
+title Knowledge Platform
+actor "Operator or authorized agent" as user
+node "CT633 · infra-knowledge" {
+  component "HTTPS gateway" as gateway
+  component "Dex OIDC" as dex
+  component "Outline Community" as wiki
+  database PostgreSQL as pg
+  database Redis
+  folder Attachments
+  database "Dex SQLite" as sqlite
+}
+node "CT634 · infra-diagrams" {
+  component "Draw.io editor" as draw
+}
+node "CT635 · infra-modeling" {
+  component "PlantUML SANDBOX" as plant
+}
+node "CT632 · infra-mail" {
+  component "SMTP submission" as mail
+}
+node "CT610 / CT611" {
+  component Prometheus
+  component Grafana
+}
+user --> gateway : SSH tunnel + verified HTTPS / REST / MCP
+gateway --> wiki
+gateway --> dex
+wiki --> dex : OIDC
+wiki --> pg
+wiki --> Redis
+wiki --> Attachments
+dex --> sqlite
+user --> plant : private render tunnel
+user --> wiki : PNG + source via REST
+user ..> draw : browser HTTPS integration pending
+wiki ..> mail : verified SMTP transport pending
+Prometheus --> plant : cAdvisor / Node
+Prometheus --> wiki : cAdvisor / Node
+Prometheus --> draw : cAdvisor / Node
+Grafana --> Prometheus
+@enduml

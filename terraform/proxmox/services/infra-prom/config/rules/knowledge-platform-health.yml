@@ -1,0 +1,20 @@
+groups:
+  - name: knowledge-platform-health
+    rules:
+      - alert: KnowledgePlatformApplicationUnavailable
+        expr: >-
+          (
+            lxc:cpu_inventory:expected{service=~"infra-(knowledge|diagrams|modeling)"}
+            unless on (service)
+            (
+              (knowledge_app_probe_success{job="node_exporter"} == 1)
+              and on (service, instance)
+              (time() - knowledge_app_probe_timestamp_seconds{job="node_exporter"} < 90)
+            )
+          )
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Sonda funcional no saludable en {{ $labels.service }}"
+          description: "La sonda de la aplicación del CT {{ $labels.ct_id }} falló o dejó de actualizarse."
