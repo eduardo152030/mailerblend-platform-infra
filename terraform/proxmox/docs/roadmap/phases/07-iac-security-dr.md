@@ -1,5 +1,15 @@
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS
 
+## Fase 7 — Flujo de issues y seguimiento de Outline
+
+21/11/2026 Europe/Madrid. Nueva regla para publicar y verificar issues.
+Pendientes diferidos por el propietario: [Inicio y plantilla #94](https://github.com/eduardo152030/mailerblend-platform-infra/issues/94),
+[piloto CT618 #95](https://github.com/eduardo152030/mailerblend-platform-infra/issues/95),
+[recuperación integral #96](https://github.com/eduardo152030/mailerblend-platform-infra/issues/96)
+y [SMTP #97](https://github.com/eduardo152030/mailerblend-platform-infra/issues/97).
+Siguiente paso: revisar la regla y ejecutar los issues cuando se retomen.
+[Plan](../planes/CLINE-ISSUE-WORKFLOW-PLAN.md).
+
 ## CT618 — Monitorización del CRM activo — DONE técnico
 
 21/11/2026 (Europe/Madrid). Retirada de Budibase de la disponibilidad
