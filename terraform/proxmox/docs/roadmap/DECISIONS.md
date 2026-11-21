@@ -2934,3 +2934,11 @@ Usar `infra-diagrams.mailerblend.com` para la ventana nativa de Draw.io.
 CT109 conserva la gestión de TLS externo y valida el upstream de CT634.
 La LAN puede usar el editor. El puerto TLS interno acepta solo CT109.
 [Plan](planes/CT634-DRAWIO-HTTPS-PLAN.md).
+
+### CT618 — Contrato de monitorización del CRM activo
+
+El propietario solicita retirar la expectativa de Budibase y vigilar los
+cinco componentes activos. Las señales diferencian HTTP, healthcheck
+Docker y presencia de contenedor. El worker carece de prueba de entrega.
+Queda preservado el contenedor Budibase detenido.
+[Plan](planes/CT618-CRM-MONITORING-PLAN.md).

@@ -33,11 +33,10 @@ monitor_services='infra-grafana|infra-blackbox'
 monitor_inventory=onlyct(f'0*({I} and on(service) label_replace(up{{job="node_exporter",service=~"{monitor_services}"}},"ct_id","$1","vmid","(.+)"))')
 monitor=onlyct(identify('(min by(service)(probe_success{job="blackbox",service="infra-grafana"} and on(instance,module,service) (up{job="blackbox"} == 1))) or label_replace(min(up{job="blackbox_exporter",instance="192.168.1.116:9115"}),"service","infra-blackbox","__name__",".*")'))
 monitor=f'({monitor} or ({monitor_inventory}-1) or ({inv}-2))'
-# Identity must match the Compose service; freshness must refer to the same Docker cgroup ID.
-h='(container_health_state{job="cadvisor",service="infra-composable-crm",name="budibase-app",container_label_com_docker_compose_service="budibase-app"} or container_health_state{job="cadvisor",service="infra-composable-crm",name="crm-api",container_label_com_docker_compose_service="crm-api"})'
-h=f'({h} and on(instance,service,name,id) ((time()-container_last_seen{{job="cadvisor"}} >= 0) and (time()-container_last_seen{{job="cadvisor"}} <= 45)) and (time()-timestamp({h}) <= 45))'
-h=f'({h} and on(service,name) (count by(service,name)({h}) == 1))'
-ready=f'(min by(service)({h}) and on(service) (count by(service)({h}) == 2) and on(service) (count by(service)(app:container:expected{{service="infra-composable-crm",name=~"budibase-app|crm-api"}}) == 2) and on(service) ({C} == 1))'
+# Require coverage for all five current CRM components and seven fresh checks.
+crm_checks='app:crm_component:status{service="infra-composable-crm"}'
+crm_expected='app:container:expected{service="infra-composable-crm",ct_id="618"}'
+ready=f'(min by(service)({crm_checks}) and on(service) (count by(service)({crm_checks}) == 7) and on(service) (count by(service)({crm_expected}) == 5) and on(service) ({C} == 1))'
 ready=onlyct(identify(f'((0*({ready} == 1)+2) or (0*({ready} == 0)))'))
 crm_inventory=onlyct(f'0*({I} and on(service) up{{job="node_exporter",service="infra-composable-crm"}})')
 worker_inventory=onlyct(f'0*({I} and on(service) up{{job="node_exporter",service="infra-excraper"}})')

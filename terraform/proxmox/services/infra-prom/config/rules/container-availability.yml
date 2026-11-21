@@ -55,7 +55,28 @@ groups:
     labels:
       instance: 192.168.1.118:8085
       service: infra-composable-crm
-      name: budibase-app
+      name: crm-ui-release-crm-ui-1
+      ct_id: '618'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.118:8085
+      service: infra-composable-crm
+      name: crm-auth-auth-1
+      ct_id: '618'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.118:8085
+      service: infra-composable-crm
+      name: crm-notifications-crm-notifications-1
+      ct_id: '618'
+  - record: app:container:expected
+    expr: vector(1)
+    labels:
+      instance: 192.168.1.118:8085
+      service: infra-composable-crm
+      name: supabase-db
       ct_id: '618'
   - record: app:container:expected
     expr: vector(1)
