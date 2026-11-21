@@ -13,3 +13,5 @@ Se usa el esquema común de la [regla 11](../../../.clinerules/11-issue-workflow
 y las etiquetas estándar de este repositorio. Búsqueda de duplicados y
 verificación por número completadas. Issues abiertos #94–97. No se
 implementaron las tareas registradas.
+
+[PR #98](https://github.com/eduardo152030/mailerblend-platform-infra/pull/98).
