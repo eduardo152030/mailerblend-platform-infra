@@ -213,3 +213,21 @@ sesión ausente o no válida 401 y servicio caído, redirección o respuesta
 inválida 503. El cambio aún no está desplegado. Quedan aplicar la
 autorización al tablero, conectar la UI, rotar la credencial antigua y
 ensayar el corte.
+
+## Acceso de la UI a los tableros
+
+Ronda `implementation`, rama `feat/eva-ui-board`, worktree
+`/tmp/mailerblend-platform-infra-eva-board`, base
+`02a011c7570d44f3fd688baf671e26412e164984`. Usar el token de servicio de
+CT622 para las operaciones de tarjetas de tareas y contenidos. Exigir
+sesión GoTrue del propietario y mantener el token en el servidor.
+
+24/11/2026 Europe/Madrid. En código, `/ui/board/v2/boards` ofrece
+listar, crear, editar y borrar tarjetas. Requiere la sesión GoTrue
+del propietario y solo acepta los dos tableros de la configuración EVA.
+En edición y borrado verifica que la tarjeta pertenece al tablero.
+El cliente Focalboard agrega el token de CT622 y las cabeceras requeridas.
+Pruebas ASGI con upstream simulado PASS para los cuatro métodos, acceso
+anónimo, tablero ajeno, tarjeta ajena y payload que intenta cambiar de
+tablero. Faltan prueba del token de servicio real, actualización de
+eva-focus-board y despliegue coordinado. CT109 sigue en mantenimiento.

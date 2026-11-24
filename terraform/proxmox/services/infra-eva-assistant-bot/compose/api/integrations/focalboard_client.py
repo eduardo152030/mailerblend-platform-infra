@@ -229,3 +229,36 @@ async def get_all_cards(board_id: str | None = None) -> list[dict]:
 def is_configured() -> bool:
     """Return True if Focalboard credentials are set."""
     return bool(_FB_TOKEN and _FB_BOARD)
+
+class BoardAccessError(Exception):
+    """Focalboard unavailable or operation failed."""
+
+
+async def request_board_cards(
+    method: str,
+    board_id: str,
+    card_id: str | None = None,
+    payload: list[dict] | dict | None = None,
+) -> tuple[int, Any]:
+    """Execute a validated UI card request with the server credential."""
+    if not _FB_TOKEN:
+        raise BoardAccessError
+
+    url = f"{_FB_URL}/api/v2/boards/{board_id}/blocks"
+    if card_id:
+        url += f"/{card_id}"
+    options = {}
+    if method == "GET":
+        options["params"] = {"type": "card"}
+    if payload is not None:
+        options["json"] = payload
+
+    try:
+        async with httpx.AsyncClient(timeout=_TIMEOUT_DEFAULT, follow_redirects=False) as client:
+            result = await client.request(method, url, headers=_headers(), **options)
+        if result.status_code == 404:
+            return 404, None
+        result.raise_for_status()
+        return result.status_code, result.json() if result.content else None
+    except (httpx.HTTPError, ValueError) as exc:
+        raise BoardAccessError from exc
