@@ -135,3 +135,20 @@ una espera acotada y rollback explícito al instalador. La segunda
 aplicación confirmó contenido idéntico y evitó recargar. Draw.io y la API
 EVA existente devolvieron HTTP 200 con TLS válido. El wildcard vence
 el 18/02/2027 UTC y continúa bajo la renovación Certbot de CT109.
+
+## Alta efectiva de CT636
+
+24/11/2026 Europe/Madrid. Ronda `implementation`, rama
+`ops/eva-ct636-provision`, worktree `/tmp/mailerblend-platform-infra-eva-provision`,
+base `663d2ea7ede5eea68679edbf9a83ffe8c75286c5`. Autorización explícita para
+la sesión temporal directa de root@pam, limitada al alta de este CT.
+Terraform aplicó 1 alta, 0 cambios y 0 bajas en el nodo pve. La segunda
+ejecución del plan dirigido devolvió cero cambios. CT636 está RUNNING con
+concesión DHCP observada `192.168.1.73` y con acceso por clave del
+propietario verificado mediante bootstrap SSH estricto. El acceso de
+recuperación por consola se conservó. Sesión temporal cerrada en el
+proceso operador. Respaldo del estado Terraform conservado fuera de Git.
+
+HTTPS válido en CT109, HTTP 503 de mantenimiento. Quedan el runtime y
+el despliegue de la UI, la integración GoTrue/Focalboard, la identidad
+SMTP, la monitorización y la aceptación con mensajería real.

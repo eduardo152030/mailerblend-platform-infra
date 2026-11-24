@@ -1,9 +1,9 @@
 ## CT636 — EVA UI junto a CT622 — IN PROGRESS
 
 24/11/2026 (Europe/Madrid). Fase 7. DNS resuelve y PVE devuelve CT622 en
-ejecución. Alta CT636 declarada en la rama de corte. Plan real validado: 1 alta,
-0 cambios y 0 bajas. CT109 sirve el wildcard de Certbot para EVA UI con
-HTTP 503 de mantenimiento. Apply pendiente de sesión directa temporal PVE.
+ejecución. CT636 creado en `pve` mediante apply dirigido (1/0/0), SSH con clave
+verificado, DHCP observado `192.168.1.73` y plan posterior sin cambios.
+CT109 sirve el wildcard de Certbot con HTTP 503 de mantenimiento.
 Publicación BLOCKED por la autenticación propia de EVA y una credencial
 de Focalboard incluida en el cliente. Siguiente paso: migrar el acceso a
 GoTrue, mover las operaciones de tablero al backend y preparar la identidad
