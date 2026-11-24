@@ -138,6 +138,8 @@ el 18/02/2027 UTC y continúa bajo la renovación Certbot de CT109.
 
 ## Alta efectiva de CT636
 
+[PR #102](https://github.com/eduardo152030/mailerblend-platform-infra/pull/102).
+
 24/11/2026 Europe/Madrid. Ronda `implementation`, rama
 `ops/eva-ct636-provision`, worktree `/tmp/mailerblend-platform-infra-eva-provision`,
 base `663d2ea7ede5eea68679edbf9a83ffe8c75286c5`. Autorización explícita para
