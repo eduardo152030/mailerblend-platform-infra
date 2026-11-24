@@ -40,6 +40,7 @@ from api.task_routes       import router as task_router
 from api.attachment_routes import router as attachment_router
 from api.digest_routes     import router as digest_router
 from api.telegram_routes   import router as telegram_router
+from api.ui_session_routes import router as ui_session_router
 
 # ── App factory ───────────────────────────────────────────────────────────
 app = FastAPI(title=APP_NAME)
@@ -60,6 +61,7 @@ app.include_router(task_router)
 app.include_router(attachment_router)
 app.include_router(digest_router)
 app.include_router(telegram_router)
+app.include_router(ui_session_router)
 
 # ── Auth / Admin / Publishing (existing standalone modules) ───────────────
 try:

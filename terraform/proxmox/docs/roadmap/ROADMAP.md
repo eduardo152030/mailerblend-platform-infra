@@ -5,8 +5,8 @@ ejecución. CT636 creado en `pve` mediante apply dirigido (1/0/0), SSH con clave
 verificado, DHCP observado `192.168.1.73` y plan posterior sin cambios.
 CT109 sirve el wildcard de Certbot con HTTP 503 de mantenimiento.
 Nginx nativo instalado en loopback de CT636, health 204 y segunda
-aplicación sin recarga. Se conserva AppArmor. Siguiente paso: bundle
-con GoTrue y tablero autorizado antes de abrir el salto de CT109.
+aplicación sin recarga. Sesión GoTrue para EVA implementada y probada
+localmente. Siguiente paso: autorización de tablero y conexión de la UI.
 Publicación BLOCKED por la autenticación propia de EVA y una credencial
 de Focalboard incluida en el cliente. Siguiente paso: migrar el acceso a
 GoTrue, mover las operaciones de tablero al backend y preparar la identidad
