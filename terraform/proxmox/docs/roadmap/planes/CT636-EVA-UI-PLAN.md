@@ -117,6 +117,8 @@ Focalboard y validar el SMTP de EVA y Telegram.
 
 ## TLS en CT109
 
+[PR #101](https://github.com/eduardo152030/mailerblend-platform-infra/pull/101).
+
 24/11/2026 (Europe/Madrid). Rama `ops/eva-ui-ct109-tls`, worktree
 `/tmp/mailerblend-platform-infra-eva-tls`, base `c519e3adc231201aae1235649f9f55e73ce419c0`.
 El propietario autorizó preparar HTTPS en CT109. El wildcard Certbot
