@@ -4,6 +4,8 @@
 ejecución. CT636 creado en `pve` mediante apply dirigido (1/0/0), SSH con clave
 verificado, DHCP observado `192.168.1.73` y plan posterior sin cambios.
 CT109 sirve el wildcard de Certbot con HTTP 503 de mantenimiento.
+Docker y Compose instalados. Arranque OCI BLOCKED por la guarda AppArmor
+de runc. Siguiente paso de runtime: decidir el perfil CT636 o Nginx nativo.
 Publicación BLOCKED por la autenticación propia de EVA y una credencial
 de Focalboard incluida en el cliente. Siguiente paso: migrar el acceso a
 GoTrue, mover las operaciones de tablero al backend y preparar la identidad

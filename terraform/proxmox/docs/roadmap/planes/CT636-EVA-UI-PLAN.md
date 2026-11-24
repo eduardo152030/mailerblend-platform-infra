@@ -154,3 +154,24 @@ proceso operador. Respaldo del estado Terraform conservado fuera de Git.
 HTTPS válido en CT109, HTTP 503 de mantenimiento. Quedan el runtime y
 el despliegue de la UI, la integración GoTrue/Focalboard, la identidad
 SMTP, la monitorización y la aceptación con mensajería real.
+
+## Runtime Docker de CT636
+
+[PR #103](https://github.com/eduardo152030/mailerblend-platform-infra/pull/103).
+
+Ronda `implementation`, rama `ops/eva-ct636-runtime`, worktree
+`/tmp/mailerblend-platform-infra-eva-runtime`, base
+`c64fe72c64af1693aba53aad074be53177f29f2c`. Reutilizar el instalador Debian
+con versiones fijadas. Verificar daemon, Compose y una ejecución aislada
+sin tocar el vhost de mantenimiento ni el backend CT622.
+
+24/11/2026 Europe/Madrid. Docker 29.9.3 y Compose 5.7.1 instalados en
+CT636 mediante el script versionado y SSH estricto. La imagen de prueba
+`hello-world` se descargó correctamente. El arranque aislado devolvió
+código 126: runc no pudo abrir `net.ipv4.ip_unprivileged_port_start`
+durante la inicialización. Coincide con la incidencia documentada en
+[el runbook LXC](../../runbooks/NEW-LXC-PROVISIONING.md#excepción-apparmor-aprobada-para-ct633635).
+La excepción anterior se limita a CT633–635. Runtime BLOCKED para
+contenedores de aplicación. CT636 sigue activo; CT109 mantiene TLS válido
+y HTTP 503. Próximo paso: aprobar la excepción para CT636 o preparar la
+UI estática con Nginx nativo y conservar el confinamiento actual.
