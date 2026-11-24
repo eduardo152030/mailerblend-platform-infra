@@ -5,6 +5,8 @@ de la aplicación BLOCKED por el contrato de autenticación y la credencial
 de Focalboard incluida en el código del navegador.
 
 - [PR #99](https://github.com/eduardo152030/mailerblend-platform-infra/pull/99).
+- Corte autorizado. Rama `feat/eva-ui-cutover`, worktree `/tmp/mailerblend-platform-infra-eva-cutover`, base `6bf2909ad158f6f59729bbd6a7831e4cb094fbec`.
+- [PR #100](https://github.com/eduardo152030/mailerblend-platform-infra/pull/100) para el inventario del corte.
 - Rama `feat/infra-eva-ui`, worktree `/tmp/mailerblend-platform-infra-eva-ui`.
 - Base de la ronda `implementation`: `3d4e8248453164ea81f3dfa4fba56bc272a2d389`.
 - Base de la ronda `review-01`: `564fd1b81da505f0dbfa6652e72ac5b1eebba2e3`.
@@ -22,7 +24,7 @@ de Focalboard incluida en el código del navegador.
 
 Declarar un CT dedicado en el mismo nodo que CT622, siguiendo el
 [runbook LXC](../../runbooks/NEW-LXC-PROVISIONING.md). La [especificación
-candidata](CT636-EVA-UI.service.yml) queda fuera del inventario activo.
+candidata](../../../inventory/services/infra-eva-ui.yml) se incorpora al inventario para el plan dirigido.
 CT622 seguirá ejecutando API, datos, tareas programadas y Telegram. La UI
 se construirá desde un commit revisado, con lockfile e imágenes fijadas, y
 se publicará por HTTPS mediante el ingreso existente, previa verificación
@@ -96,3 +98,19 @@ CA privada, `EVA_SMTP_CA_FILE`. Se comprobó localmente el orden STARTTLS,
 autenticación y entrega, la verificación del hostname y el bloqueo antes
 de autenticar al fallar TLS. Quedan el alta de identidad en CT632, el
 ensayo Mailpit, la conexión con una acción de EVA y la recepción real.
+
+## Plan Terraform real del corte
+
+24/11/2026 (Europe/Madrid). Se incorporó el CT636 al inventario y se
+regeneraron las fichas y Notes. Con TLS y SSH estrictos el plan dirigido
+contra el estado operativo devolvió 1 alta, 0 cambios y 0 bajas. Revisados
+VMID 636, nodo pve, Debian 12 presente, local-lvm activo con capacidad,
+1 vCPU, 1024 MiB RAM, 512 MiB swap, 12 GiB, DHCP en vmbr0 con firewall,
+LXC sin privilegios y nesting/keyctl. El bundle SSH usa descubrimiento de
+DHCP por MAC tras comprobar identidad PVE.
+
+La creación con keyctl requiere sesión directa temporal `root@pam`
+según el [runbook LXC](../../runbooks/NEW-LXC-PROVISIONING.md#docker-sin-privilegios-y-la-guarda-keyctl).
+Se solicitó autorización específica para esa sesión. Después del alta
+quedan desplegar la versión de UI con GoTrue, sustituir la credencial
+Focalboard y validar el SMTP de EVA y Telegram.

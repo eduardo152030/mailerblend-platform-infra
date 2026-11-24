@@ -207,6 +207,20 @@
       "## Propósito\n\nRender privado de diagramas PlantUML.\n\n## Estado\n\nPENDING VERIFICATION. Dirección mediante DHCP y alta pendiente.\n\n## Operación\n\n8080/tcp en red privada. Consultar la ficha de inventario."
     ]
   },
+  "infra-eva-ui": {
+    "title": "CT 636 — infra-eva-ui",
+    "sections": [
+      "**Purpose**\nUI web de EVA con API y datos en CT622\nDeployment: PENDING VERIFICATION — declared only, no live observation.",
+      "**Environment**\ninternal; owner: eduardo152030",
+      "**Network**\nCT 636; DHCP; gateway 192.168.1.254; DNS 192.168.1.254; bridge vmbr0. Domains: infra-eva-ui.mailerblend.com",
+      "**Applications**\nEVA UI (docker): 8080/tcp mediante proxy HTTPS\nAll application health: PENDING VERIFICATION",
+      "**Dependencies**\nCT109; CT618; CT622; CT632",
+      "**Monitoring**\nNode Exporter 1.10.2 native systemd; CPU cgroup v2 textfile (native CPU collector disabled), RAM LXCFS/root disk. cAdvisor 0.60.6 planned; exact socket/namespace approval required.\nUptime: existing PVE exporter; dashboards join published inventory. Endpoints: PENDING VERIFICATION\nAll deployed monitoring/functional status: PENDING VERIFICATION",
+      "**Infrastructure as Code**\ninventory/services/infra-eva-ui.yml; Terraform resource svc[\"infra-eva-ui\"]; 1 CPU / 1024 MiB / 12 GiB; template local:vztmpl/debian-12-standard_12.12-1_amd64.tar.zst (Debian 12); storage local-lvm.",
+      "**Documentation**\ndocs/inventory/636-LXC-INVENTORY.md; docs/runbooks/NEW-LXC-PROVISIONING.md",
+      "**Known Issues**\nPendientes validación de nodo y recursos, DHCP y contratos de autenticación y correo.\nBackup/recovery: PENDING VERIFICATION: política PVE y restauración aislada"
+    ]
+  },
   "infra-svc01": {
     "title": "CT 61211 — svc01",
     "sections": [
