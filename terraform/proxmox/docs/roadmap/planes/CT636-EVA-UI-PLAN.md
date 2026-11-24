@@ -195,6 +195,8 @@ con GoTrue y acceso autorizado al tablero y habilitar el salto de CT109.
 
 ## Identidad de GoTrue en la API de EVA
 
+[PR #105](https://github.com/eduardo152030/mailerblend-platform-infra/pull/105).
+
 Ronda `implementation`, rama `feat/eva-ui-auth`, worktree
 `/tmp/mailerblend-platform-infra-eva-auth`, base
 `c710000bbcaee2f83ef8350a8956d11c9c64ea14`. Añadir un punto de sesión para
