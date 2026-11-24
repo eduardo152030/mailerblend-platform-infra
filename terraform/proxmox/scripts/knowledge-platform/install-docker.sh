@@ -3,7 +3,7 @@ set -euo pipefail
 
 hostname_expected="${1:?Expected hostname required}"
 case "$hostname_expected" in
-  infra-knowledge|infra-diagrams|infra-modeling) ;;
+  infra-knowledge|infra-diagrams|infra-modeling|infra-eva-ui) ;;
   *) exit 2 ;;
 esac
 [[ "$(hostname)" == "$hostname_expected" ]]
