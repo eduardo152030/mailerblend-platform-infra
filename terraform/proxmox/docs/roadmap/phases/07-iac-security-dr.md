@@ -1,5 +1,17 @@
 ## CLINE-GIT — trazabilidad por tarea IN PROGRESS
 
+## CT636 — EVA UI junto a CT622 — IN PROGRESS
+
+24/11/2026 (Europe/Madrid). Fase 7. DNS resuelve y PVE devuelve CT622 en
+ejecución. Declaración candidata preparada fuera del inventario activo.
+Publicación BLOCKED por la autenticación propia de EVA y una credencial
+de Focalboard incluida en el cliente. Siguiente paso: migrar el acceso a
+GoTrue, mover las operaciones de tablero al backend y preparar la identidad
+SMTP de EVA en CT632. El propietario autorizó el corte. PVE confirmó CT622 y CT632 en el nodo
+`pve` y CT636 libre en el clúster. Transporte SMTP puntual implementado y
+probado localmente. Alta en CT632, prueba de entrega y corte pendientes.
+[Plan](../planes/CT636-EVA-UI-PLAN.md).
+
 ## Fase 7 — Flujo de issues y seguimiento de Outline
 
 21/11/2026 Europe/Madrid. Nueva regla para publicar y verificar issues.

@@ -1,0 +1,98 @@
+# CT636 — EVA UI con autenticación y correo compartidos
+
+24/11/2026 (Europe/Madrid). Fase 7. Preparación IN PROGRESS y publicación
+de la aplicación BLOCKED por el contrato de autenticación y la credencial
+de Focalboard incluida en el código del navegador.
+
+- [PR #99](https://github.com/eduardo152030/mailerblend-platform-infra/pull/99).
+- Rama `feat/infra-eva-ui`, worktree `/tmp/mailerblend-platform-infra-eva-ui`.
+- Base de la ronda `implementation`: `3d4e8248453164ea81f3dfa4fba56bc272a2d389`.
+- Base de la ronda `review-01`: `564fd1b81da505f0dbfa6652e72ac5b1eebba2e3`.
+  El propietario autorizó continuar hasta el corte. Primer cambio: transporte
+  SMTP aislado, con pruebas locales y sin modificar el envío de Telegram.
+- Fuente de UI: [eva-focus-board](https://github.com/eduardo152030/eva-focus-board/tree/7732d78b1dc0c0e110c778f51e87566cd31fbb08).
+- Destino solicitado: `https://infra-eva-ui.mailerblend.com`. La resolución
+  IPv4 respondió el 24/11. El registro de Route 53 lo configuró el propietario.
+  La respuesta DNS no acredita vhost, certificado ni enrutamiento funcional.
+- La consulta SSH estricta a PVE devolvió CT622 en ejecución y no encontró
+  CT636. Queda por comprobar disponibilidad global, nodo, almacenamiento,
+  plantilla, MAC y concesión DHCP antes del plan real.
+
+## Alcance
+
+Declarar un CT dedicado en el mismo nodo que CT622, siguiendo el
+[runbook LXC](../../runbooks/NEW-LXC-PROVISIONING.md). La [especificación
+candidata](CT636-EVA-UI.service.yml) queda fuera del inventario activo.
+CT622 seguirá ejecutando API, datos, tareas programadas y Telegram. La UI
+se construirá desde un commit revisado, con lockfile e imágenes fijadas, y
+se publicará por HTTPS mediante el ingreso existente, previa verificación
+del destino DNS. Aplicación, rutas, secretos de runtime y operación deben
+ser reproducibles mediante configuración y scripts versionados.
+
+## Contratos pendientes
+
+1. La UI inicia sesión con el JWT propio de EVA y llama a Focalboard desde
+   el navegador mediante una credencial fija. Retirar la credencial del
+   cliente y coordinar su revocación y sustitución tras identificar los
+   consumidores. Servir las operaciones de tablero desde una API con
+   autorización por usuario y operación. Mantener las credenciales de
+   servicio de Focalboard únicamente en el backend.
+2. Reutilizar el [GoTrue de CT618](CRM-UI-AUTH-CONTRACT-PLAN.md). Asociar
+   emisor y sujeto a la identidad EVA y conservar sus permisos efectivos.
+   Validar JWT y permisos en CT622 tanto por el ingreso como por la ruta
+   directa. Separar las llamadas de scheduler, sync y Telegram de la
+   sesión humana. Verificar las URL de redirección que use el flujo.
+3. Enviar el correo de EVA desde CT622 mediante el
+   [relay de CT632](../../../services/infra-mail/README.md). Usar identidad
+   exclusiva, remitente autorizado, destinatario del propietario y
+   STARTTLS con verificación del certificado. Resolver el buzón y
+   remitente por configuración privada. Encapsular reintentos del correo
+   para evitar duplicados y conservar la entrega independiente por Telegram.
+4. Preparar backup y restauración aislada de CT622 y de los componentes
+   de ingreso, identidad y relay que cambien. El rollback restaura esos
+   cambios coordinadamente y retira la ruta de UI. Los datos de CT622
+   permanecen en su ubicación.
+
+## Validación de la declaración
+
+`new-lxc.py prepare` exige una IP observada para generar SSH y sondas.
+Con DHCP pendiente, usar la secuencia de provisión DHCP de
+[CT633–635](CT633-635-KNOWLEDGE-PLATFORM-PLAN.md) y generar el bundle del
+nuevo CT después de verificar su concesión. El intento local terminó
+en esa guarda. No se generó un plan Terraform para CT636.
+
+## Aceptación
+
+- Plan Terraform real limitado a una creación. Segunda aplicación sin
+  recreaciones ni recargas innecesarias. Sondas TLS, HTTP y métricas
+  del nuevo CT verificadas antes de incorporarlas al catálogo.
+- Login con la cuenta compartida. API devuelve 401 para token ausente,
+  inválido o vencido y 403 para permisos insuficientes. Un usuario sin
+  acceso tampoco puede operar contra la API directa o Focalboard. El
+  bundle servido carece de credenciales privadas.
+- Tablero, tareas y adjuntos funcionan contra el backend de CT622.
+  Los datos existentes se conservan y se valida una restauración.
+- Mailpit recibe el mensaje de prueba con STARTTLS. Se rechazan
+  remitentes no autorizados. El propietario confirma recepción real
+  en el buzón y recepción por Telegram. Un fallo de correo no impide
+  Telegram y un reintento no duplica el envío.
+- El nombre acordado sirve la UI con certificado válido. El rollback
+  de la ruta y de la configuración de backend, auth y relay se ensaya
+  antes del corte.
+
+Siguiente paso: resolver el acceso de Focalboard y revisar los cambios de
+EVA UI y CT622 junto con los contratos de GoTrue y SMTP. Los recursos y el
+CTID de la especificación son una propuesta para validación.
+
+## Ronda review-01 — corte autorizado
+
+La consulta global de PVE del 24/11 confirmó que CT622 y CT632 están en
+ejecución en el nodo `pve` y que CT636 no aparece en el clúster.
+Se añadió el transporte `eva_mail.py` al código de CT622. Permite enviar
+un correo puntual al único destinatario definido por el operador. Lee el
+cuerpo de stdin y usa `EVA_SMTP_HOST`, `EVA_SMTP_USERNAME`,
+`EVA_SMTP_PASSWORD`, `EVA_SMTP_FROM`, `EVA_SMTP_OWNER` y, si se usa una
+CA privada, `EVA_SMTP_CA_FILE`. Se comprobó localmente el orden STARTTLS,
+autenticación y entrega, la verificación del hostname y el bloqueo antes
+de autenticar al fallar TLS. Quedan el alta de identidad en CT632, el
+ensayo Mailpit, la conexión con una acción de EVA y la recepción real.
