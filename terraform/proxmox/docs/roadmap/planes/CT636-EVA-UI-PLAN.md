@@ -178,6 +178,8 @@ UI estática con Nginx nativo y conservar el confinamiento actual.
 
 ## Servidor estático nativo de CT636
 
+[PR #104](https://github.com/eduardo152030/mailerblend-platform-infra/pull/104).
+
 Ronda `implementation`, rama `ops/eva-ui-native`, worktree
 `/tmp/mailerblend-platform-infra-eva-native`, base
 `c86a5fd7c19ee3627bc269b6305b119d6cc0fd19`. La UI Vite se entrega como
