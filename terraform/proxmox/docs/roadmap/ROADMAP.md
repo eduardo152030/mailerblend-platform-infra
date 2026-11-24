@@ -2,7 +2,8 @@
 
 24/11/2026 (Europe/Madrid). Fase 7. DNS resuelve y PVE devuelve CT622 en
 ejecución. Alta CT636 declarada en la rama de corte. Plan real validado: 1 alta,
-0 cambios y 0 bajas. Apply pendiente de sesión directa temporal PVE.
+0 cambios y 0 bajas. CT109 sirve el wildcard de Certbot para EVA UI con
+HTTP 503 de mantenimiento. Apply pendiente de sesión directa temporal PVE.
 Publicación BLOCKED por la autenticación propia de EVA y una credencial
 de Focalboard incluida en el cliente. Siguiente paso: migrar el acceso a
 GoTrue, mover las operaciones de tablero al backend y preparar la identidad
