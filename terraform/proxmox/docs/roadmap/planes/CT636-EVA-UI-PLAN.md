@@ -7,6 +7,9 @@ de Focalboard incluida en el código del navegador.
 - [PR #99](https://github.com/eduardo152030/mailerblend-platform-infra/pull/99).
 - Rama `feat/infra-eva-ui`, worktree `/tmp/mailerblend-platform-infra-eva-ui`.
 - Base de la ronda `implementation`: `3d4e8248453164ea81f3dfa4fba56bc272a2d389`.
+- Base de la ronda `review-01`: `564fd1b81da505f0dbfa6652e72ac5b1eebba2e3`.
+  El propietario autorizó continuar hasta el corte. Primer cambio: transporte
+  SMTP aislado, con pruebas locales y sin modificar el envío de Telegram.
 - Fuente de UI: [eva-focus-board](https://github.com/eduardo152030/eva-focus-board/tree/7732d78b1dc0c0e110c778f51e87566cd31fbb08).
 - Destino solicitado: `https://infra-eva-ui.mailerblend.com`. La resolución
   IPv4 respondió el 24/11. El registro de Route 53 lo configuró el propietario.
@@ -80,3 +83,16 @@ en esa guarda. No se generó un plan Terraform para CT636.
 Siguiente paso: resolver el acceso de Focalboard y revisar los cambios de
 EVA UI y CT622 junto con los contratos de GoTrue y SMTP. Los recursos y el
 CTID de la especificación son una propuesta para validación.
+
+## Ronda review-01 — corte autorizado
+
+La consulta global de PVE del 24/11 confirmó que CT622 y CT632 están en
+ejecución en el nodo `pve` y que CT636 no aparece en el clúster.
+Se añadió el transporte `eva_mail.py` al código de CT622. Permite enviar
+un correo puntual al único destinatario definido por el operador. Lee el
+cuerpo de stdin y usa `EVA_SMTP_HOST`, `EVA_SMTP_USERNAME`,
+`EVA_SMTP_PASSWORD`, `EVA_SMTP_FROM`, `EVA_SMTP_OWNER` y, si se usa una
+CA privada, `EVA_SMTP_CA_FILE`. Se comprobó localmente el orden STARTTLS,
+autenticación y entrega, la verificación del hostname y el bloqueo antes
+de autenticar al fallar TLS. Quedan el alta de identidad en CT632, el
+ensayo Mailpit, la conexión con una acción de EVA y la recepción real.
