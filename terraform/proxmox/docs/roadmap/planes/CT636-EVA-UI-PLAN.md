@@ -216,6 +216,8 @@ ensayar el corte.
 
 ## Acceso de la UI a los tableros
 
+[PR #106](https://github.com/eduardo152030/mailerblend-platform-infra/pull/106).
+
 Ronda `implementation`, rama `feat/eva-ui-board`, worktree
 `/tmp/mailerblend-platform-infra-eva-board`, base
 `02a011c7570d44f3fd688baf671e26412e164984`. Usar el token de servicio de
