@@ -3,7 +3,8 @@
 ## CT636 — EVA UI junto a CT622 — IN PROGRESS
 
 24/11/2026 (Europe/Madrid). Fase 7. DNS resuelve y PVE devuelve CT622 en
-ejecución. Declaración candidata preparada fuera del inventario activo.
+ejecución. Alta CT636 declarada en la rama de corte. Plan real validado: 1 alta,
+0 cambios y 0 bajas. Apply pendiente de sesión directa temporal PVE.
 Publicación BLOCKED por la autenticación propia de EVA y una credencial
 de Focalboard incluida en el cliente. Siguiente paso: migrar el acceso a
 GoTrue, mover las operaciones de tablero al backend y preparar la identidad
