@@ -157,6 +157,8 @@ SMTP, la monitorización y la aceptación con mensajería real.
 
 ## Runtime Docker de CT636
 
+[PR #103](https://github.com/eduardo152030/mailerblend-platform-infra/pull/103).
+
 Ronda `implementation`, rama `ops/eva-ct636-runtime`, worktree
 `/tmp/mailerblend-platform-infra-eva-runtime`, base
 `c64fe72c64af1693aba53aad074be53177f29f2c`. Reutilizar el instalador Debian
