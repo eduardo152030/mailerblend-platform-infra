@@ -4,6 +4,7 @@
 de la aplicación BLOCKED por el contrato de autenticación y la credencial
 de Focalboard incluida en el código del navegador.
 
+- [PR #99](https://github.com/eduardo152030/mailerblend-platform-infra/pull/99).
 - Rama `feat/infra-eva-ui`, worktree `/tmp/mailerblend-platform-infra-eva-ui`.
 - Base de la ronda `implementation`: `3d4e8248453164ea81f3dfa4fba56bc272a2d389`.
 - Fuente de UI: [eva-focus-board](https://github.com/eduardo152030/eva-focus-board/tree/7732d78b1dc0c0e110c778f51e87566cd31fbb08).
