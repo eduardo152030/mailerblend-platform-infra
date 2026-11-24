@@ -175,3 +175,20 @@ La excepción anterior se limita a CT633–635. Runtime BLOCKED para
 contenedores de aplicación. CT636 sigue activo; CT109 mantiene TLS válido
 y HTTP 503. Próximo paso: aprobar la excepción para CT636 o preparar la
 UI estática con Nginx nativo y conservar el confinamiento actual.
+
+## Servidor estático nativo de CT636
+
+[PR #104](https://github.com/eduardo152030/mailerblend-platform-infra/pull/104).
+
+Ronda `implementation`, rama `ops/eva-ui-native`, worktree
+`/tmp/mailerblend-platform-infra-eva-native`, base
+`c86a5fd7c19ee3627bc269b6305b119d6cc0fd19`. La UI Vite se entrega como
+archivos estáticos. Preparar Nginx en loopback para ensayar el origen
+sin ampliar el perfil AppArmor. El vhost de CT109 conserva mantenimiento.
+
+24/11/2026 Europe/Madrid. Nginx 1.22.1-9+deb12u11 instalado desde Debian
+en CT636 con el instalador versionado. Health local HTTP 204, única
+escucha en `127.0.0.1:8080` y raíz HTTP 503 mientras no hay un bundle.
+Segunda ejecución sin recarga. CT109 mantiene el HTTP 503 con TLS válido.
+El perfil AppArmor se conserva. Antes del corte queda entregar el bundle
+con GoTrue y acceso autorizado al tablero y habilitar el salto de CT109.
