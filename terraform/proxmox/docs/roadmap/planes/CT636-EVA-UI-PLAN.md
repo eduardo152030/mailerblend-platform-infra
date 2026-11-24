@@ -6,6 +6,7 @@ de Focalboard incluida en el código del navegador.
 
 - [PR #99](https://github.com/eduardo152030/mailerblend-platform-infra/pull/99).
 - Corte autorizado. Rama `feat/eva-ui-cutover`, worktree `/tmp/mailerblend-platform-infra-eva-cutover`, base `6bf2909ad158f6f59729bbd6a7831e4cb094fbec`.
+- [PR #100](https://github.com/eduardo152030/mailerblend-platform-infra/pull/100) para el inventario del corte.
 - Rama `feat/infra-eva-ui`, worktree `/tmp/mailerblend-platform-infra-eva-ui`.
 - Base de la ronda `implementation`: `3d4e8248453164ea81f3dfa4fba56bc272a2d389`.
 - Base de la ronda `review-01`: `564fd1b81da505f0dbfa6652e72ac5b1eebba2e3`.
