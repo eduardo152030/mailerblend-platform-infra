@@ -114,3 +114,22 @@ según el [runbook LXC](../../runbooks/NEW-LXC-PROVISIONING.md#docker-sin-privil
 Se solicitó autorización específica para esa sesión. Después del alta
 quedan desplegar la versión de UI con GoTrue, sustituir la credencial
 Focalboard y validar el SMTP de EVA y Telegram.
+
+## TLS en CT109
+
+24/11/2026 (Europe/Madrid). Rama `ops/eva-ui-ct109-tls`, worktree
+`/tmp/mailerblend-platform-infra-eva-tls`, base `c519e3adc231201aae1235649f9f55e73ce419c0`.
+El propietario autorizó preparar HTTPS en CT109. El wildcard Certbot
+vigente cubre el nombre solicitado, como en CT634. Usar ese certificado
+en un vhost de mantenimiento con HTTP 503, sin upstream hasta el corte.
+Guardar respaldo de Nginx, validar la sintaxis, comprobar TLS y repetir
+el despliegue para verificar idempotencia.
+
+Vhost de mantenimiento aplicado en CT109. `nginx -t` PASS y respaldo
+en `/var/backups/eva-ui-nginx.qZnEIw/nginx`. La primera sonda coincidió
+con la recarga y falló viendo el certificado anterior; tras estabilizar,
+la sonda local y la LAN devolvieron HTTP 503 con TLS válido. Se añadió
+una espera acotada y rollback explícito al instalador. La segunda
+aplicación confirmó contenido idéntico y evitó recargar. Draw.io y la API
+EVA existente devolvieron HTTP 200 con TLS válido. El wildcard vence
+el 18/02/2027 UTC y continúa bajo la renovación Certbot de CT109.
