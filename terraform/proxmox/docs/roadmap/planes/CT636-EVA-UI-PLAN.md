@@ -192,3 +192,24 @@ escucha en `127.0.0.1:8080` y raíz HTTP 503 mientras no hay un bundle.
 Segunda ejecución sin recarga. CT109 mantiene el HTTP 503 con TLS válido.
 El perfil AppArmor se conserva. Antes del corte queda entregar el bundle
 con GoTrue y acceso autorizado al tablero y habilitar el salto de CT109.
+
+## Identidad de GoTrue en la API de EVA
+
+[PR #105](https://github.com/eduardo152030/mailerblend-platform-infra/pull/105).
+
+Ronda `implementation`, rama `feat/eva-ui-auth`, worktree
+`/tmp/mailerblend-platform-infra-eva-auth`, base
+`c710000bbcaee2f83ef8350a8956d11c9c64ea14`. Añadir un punto de sesión para
+la futura UI con validación en GoTrue y autorización explícita por UUID
+del propietario. Conservar los contratos de los procesos internos de CT622.
+
+24/11/2026 Europe/Madrid. La ruta pública de GoTrue `/auth/v1/user`
+respondió 401 sin token con TLS válido. CT622 incorpora en código
+`GET /ui/session`, que valida el bearer con GoTrue y exige el UUID
+configurado en `EVA_UI_OWNER_SUBJECT`. El valor se obtiene de la cuenta
+del propietario mediante el canal operativo de identidad. La prueba
+local de la dependencia confirmó propietario 200, otra cuenta 403,
+sesión ausente o no válida 401 y servicio caído, redirección o respuesta
+inválida 503. El cambio aún no está desplegado. Quedan aplicar la
+autorización al tablero, conectar la UI, rotar la credencial antigua y
+ensayar el corte.
