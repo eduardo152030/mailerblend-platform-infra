@@ -1,0 +1,50 @@
+# Candidato para el flujo new-lxc. Incorporar al inventario tras verificación.
+service:
+  name: infra-eva-ui
+  vmid: 636
+
+resources:
+  cpu: 1
+  memory: 1024
+  swap: 512
+  disk_gb: 12
+
+os:
+  template_file_id: local:vztmpl/debian-12-standard_12.12-1_amd64.tar.zst
+  name: Debian 12
+
+network:
+  gateway: 192.168.1.254
+  dns: [192.168.1.254]
+  bridge: vmbr0
+  dhcp: true
+  mac_address: '02:4D:42:00:06:36'
+
+storage:
+  name: local-lvm
+
+tags: [infra, internal, ai]
+
+monitoring:
+  docker: true
+  node_exporter: true
+
+provisioning:
+  unprivileged: true
+  environment: internal
+  purpose: UI web de EVA con API y datos en CT622
+  owner: eduardo152030
+  applications:
+  - name: EVA UI
+    runtime: docker
+    ports:
+    - 8080/tcp mediante proxy HTTPS
+  dependencies: [CT109, CT618, CT622, CT632]
+  domains: [infra-eva-ui.mailerblend.com]
+  backup: 'PENDING VERIFICATION: política PVE y restauración aislada'
+  known_issues:
+  - Pendientes validación de nodo y recursos, DHCP y contratos de autenticación y correo.
+  ssh:
+    enabled: true
+    method: pct-merge
+    state: PENDING VERIFICATION
