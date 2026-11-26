@@ -236,6 +236,8 @@ eva-focus-board y despliegue coordinado. CT109 sigue en mantenimiento.
 
 ## Integración y ensayo local de la UI
 
+[PR #107](https://github.com/eduardo152030/mailerblend-platform-infra/pull/107).
+
 26/11/2026 Europe/Madrid. Rama `feat/eva-ui-final-cutover`, worktree
 `/tmp/eva-infra-final`, base `3ae2a596a382cbe5127a13701c766a88a9e2e119`.
 La UI se actualiza en [eva-focus-board #1](https://github.com/eduardo152030/eva-focus-board/pull/1).
