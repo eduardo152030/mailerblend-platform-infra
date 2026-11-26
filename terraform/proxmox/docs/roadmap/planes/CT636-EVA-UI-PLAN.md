@@ -233,3 +233,22 @@ Pruebas ASGI con upstream simulado PASS para los cuatro métodos, acceso
 anónimo, tablero ajeno, tarjeta ajena y payload que intenta cambiar de
 tablero. Faltan prueba del token de servicio real, actualización de
 eva-focus-board y despliegue coordinado. CT109 sigue en mantenimiento.
+
+## Integración y ensayo local de la UI
+
+26/11/2026 Europe/Madrid. Rama `feat/eva-ui-final-cutover`, worktree
+`/tmp/eva-infra-final`, base `3ae2a596a382cbe5127a13701c766a88a9e2e119`.
+La UI se actualiza en [eva-focus-board #1](https://github.com/eduardo152030/eva-focus-board/pull/1).
+Build con Bun y seis pruebas aprobadas. Las llamadas al tablero usan el
+backend y GoTrue. Credencial histórica ausente del bundle. Ensayar en
+loopback y conservar el HTTP 503 de CT109 hasta verificar las rutas
+autorizadas, el acceso del propietario y la mensajería real.
+
+Ensayo de CT636 PASS. Se instaló por SHA-256 el bundle de
+`eva-focus-board@4d0e883` en el origen local y se comparó el HTML
+servido con el artefacto. La segunda aplicación comprobó todos los
+archivos sin reemplazar el origen. CT109 sigue en HTTP 503 con TLS
+válido. El ensayo no verifica login, adjuntos, administración ni correo.
+La revisión de la UI está pendiente de integración por el propietario.
+Para el corte quedan las rutas del mismo origen, el mapa UUID del
+propietario, la rotación Focalboard y las pruebas reales del relay y Telegram.

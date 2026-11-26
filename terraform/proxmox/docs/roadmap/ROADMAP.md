@@ -7,7 +7,9 @@ CT109 sirve el wildcard de Certbot con HTTP 503 de mantenimiento.
 Nginx nativo instalado en loopback de CT636, health 204 y segunda
 aplicación sin recarga. Sesión GoTrue para EVA implementada y probada
 localmente. Rutas de tarjetas autorizadas y ensayadas con Focalboard simulado.
-Siguiente paso: conectar eva-focus-board y verificar el token de servicio.
+26/11/2026 (Europe/Madrid). Bundle GoTrue compilado, seis pruebas PASS y
+ensayo de origen local en CT636 verificado. Corte pendiente. Siguiente paso:
+proteger las rutas de ingreso, habilitar la cuenta y validar tablero y avisos.
 Publicación BLOCKED por la autenticación propia de EVA y una credencial
 de Focalboard incluida en el cliente. Siguiente paso: migrar el acceso a
 GoTrue, mover las operaciones de tablero al backend y preparar la identidad
