@@ -257,6 +257,8 @@ propietario, la rotación Focalboard y las pruebas reales del relay y Telegram.
 
 ## Backend web independiente para el corte
 
+[PR #108](https://github.com/eduardo152030/mailerblend-platform-infra/pull/108).
+
 26/11/2026 Europe/Madrid. Rama `ops/eva-web-cutover`, worktree
 `/tmp/eva-web-cutover`, base `052b0b71a83e31225eb156bb93737c799a6fb171`.
 PR #107 y eva-focus-board #1 fusionados. Preparar instancia web aislada en
