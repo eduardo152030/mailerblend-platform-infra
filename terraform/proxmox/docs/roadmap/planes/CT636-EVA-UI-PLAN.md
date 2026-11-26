@@ -254,3 +254,36 @@ válido. El ensayo no verifica login, adjuntos, administración ni correo.
 La revisión de la UI está pendiente de integración por el propietario.
 Para el corte quedan las rutas del mismo origen, el mapa UUID del
 propietario, la rotación Focalboard y las pruebas reales del relay y Telegram.
+
+## Backend web independiente para el corte
+
+26/11/2026 Europe/Madrid. Rama `ops/eva-web-cutover`, worktree
+`/tmp/eva-web-cutover`, base `052b0b71a83e31225eb156bb93737c799a6fb171`.
+PR #107 y eva-focus-board #1 fusionados. Preparar instancia web aislada en
+CT622, usando la misma red y datos y el mismo token de servicio Focalboard.
+Solo publicar operaciones requeridas por la UI con sesión GoTrue. Probar
+en loopback antes de preparar el enlace desde CT109.
+
+CT622 ejecuta la API web en un proyecto Compose independiente y conserva
+API heredada, DB, Focalboard, scheduler, sync y cron. Solo la cuenta única
+confirmada del GoTrue compartido está mapeada por UUID. La credencial
+de servicio leyó ambos tableros directamente desde la API web. CT109
+verifica TLS hacia CT622 y CT636 mediante una CA privada y hacia GoTrue
+mediante la cadena pública. El primer POST devolvió 502 por profundidad
+TLS; tras ajustar a 3 devolvió 400 para el payload sintético.
+
+HTML público coincide con el bundle compilado. Raíz, /contenido y salud
+devuelven 200. Sesión, tareas y publicación sin token devuelven 401.
+El vhost permite únicamente token y logout bajo /auth/v1. El segundo
+despliegue no recreó la API ni recargó el vhost. El vhost de mantenimiento
+original está respaldado en CT109 bajo
+`/var/backups/eva-ui-cutover.RkZTVE/vhost.conf`. Volver a ese vhost
+y comprobar nginx antes de recargar si hay que revertir el ingreso.
+
+Estado: lista para la primera prueba de acceso del propietario con su
+cuenta GoTrue. Aceptación funcional pendiente. El login con contraseña
+real, datos y adjuntos en navegador, administración anterior, rotación
+del acceso legado de Focalboard y entrega de correo/Telegram no se
+acreditan con estas comprobaciones. Se conserva Telegram y no se cambió
+la configuración del relay. Los adjuntos requieren autorización y las
+rutas de administración legacy no se montan en la API web.

@@ -1,21 +1,12 @@
 ## CT636 — EVA UI junto a CT622 — IN PROGRESS
 
-24/11/2026 (Europe/Madrid). Fase 7. DNS resuelve y PVE devuelve CT622 en
-ejecución. CT636 creado en `pve` mediante apply dirigido (1/0/0), SSH con clave
-verificado, DHCP observado `192.168.1.73` y plan posterior sin cambios.
-CT109 sirve el wildcard de Certbot con HTTP 503 de mantenimiento.
-Nginx nativo instalado en loopback de CT636, health 204 y segunda
-aplicación sin recarga. Sesión GoTrue para EVA implementada y probada
-localmente. Rutas de tarjetas autorizadas y ensayadas con Focalboard simulado.
-26/11/2026 (Europe/Madrid). Bundle GoTrue compilado, seis pruebas PASS y
-ensayo de origen local en CT636 verificado. Corte pendiente. Siguiente paso:
-proteger las rutas de ingreso, habilitar la cuenta y validar tablero y avisos.
-Publicación BLOCKED por la autenticación propia de EVA y una credencial
-de Focalboard incluida en el cliente. Siguiente paso: migrar el acceso a
-GoTrue, mover las operaciones de tablero al backend y preparar la identidad
-SMTP de EVA en CT632. El propietario autorizó el corte. PVE confirmó CT622 y CT632 en el nodo
-`pve` y CT636 libre en el clúster. Transporte SMTP puntual implementado y
-probado localmente. Alta en CT632, prueba de entrega y corte pendientes.
+26/11/2026 (Europe/Madrid). UI desplegada detrás de CT109 con TLS válido.
+CT636 sirve el bundle verificado y CT622 una API web aislada con GoTrue.
+Raíz, /contenido y salud HTTP 200, API anónima HTTP 401 y login sintético
+rechazado por GoTrue. Focalboard de servidor leyó ambos tableros. Segunda
+aplicación idempotente. Siguen activos los procesos previos de CT622.
+Lista para la primera prueba de login del propietario. Quedan aceptación
+de navegador, adjuntos, rotación de acceso legado y alta SMTP.
 [Plan](planes/CT636-EVA-UI-PLAN.md).
 
 ## Fase 7 — Flujo de issues y seguimiento de Outline
